@@ -200,11 +200,8 @@
         <div class="empty"></div>
       </div>
     </div>
+    <?php include("footer.php"); ?>
   </div>
-
-  <div class="empty"></div>
-
-  <?php include("footer.php"); ?>
 
 </body>
 </html>
