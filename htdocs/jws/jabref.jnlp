@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+###############################################################################
+#
+# jabref.jnlp	
+#
+# JNLP File for JabRef, based on the JNLP file for 
+# GanttProject (http://ganttproject.sourceforge.net)
+#
+###############################################################################
+ -->
+
+
+<jnlp spec="0.2 1.0"
+      codebase="http://jabref.sf.net/jws"
+      href="jabref.jnlp">
+
+   <information> 
+      <title>JabRef</title> 
+      <vendor>JabRef Team</vendor>
+      <homepage href="http://jabref.sourceforge.net"/>
+      <description>JabRef is a bibliography reference manager using the BibTeX file format.</description>
+      <description kind="short">JabRef is a bibliography reference manager</description>
+      <icon href="jabref.png"/>
+      <offline-allowed/> 
+   </information> 
+  <security>
+      <all-permissions/>
+  </security>
+   <resources>
+      <j2se version="1.4+" href="http://java.sun.com/products/autodl/j2se"/>
+      <j2se version="1.4+"/>
+      <jar href="JabRef-2.0.1.jar" main="true" download="eager"/>
+   </resources>
+   <application-desc/>
+</jnlp> 
