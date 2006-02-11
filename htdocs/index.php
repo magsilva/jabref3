@@ -117,8 +117,7 @@
     <div id="main">
       <h3 id="about">About</h3>
 
-      <p><acronym><span class="red">J</span><span class=
-      "orange">ab</span>Ref</acronym> is an open source
+      <p><acronym>JabRef</acronym> is an open source
       bibliography reference manager. The native file format used
       by <acronym><span class="red">J</span><span class=
       "orange">ab</span>Ref</acronym> is <acronym>BibTeX</acronym>,
