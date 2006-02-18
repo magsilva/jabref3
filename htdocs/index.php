@@ -81,24 +81,6 @@
       <div class="item_desc">
         Version 1.8beta
       </div>
-
-      <div class="contributors">
-        <h4 id="authors">Authors</h4>
-	<span class="developper">Morten Alver <img src="images/stock_person.png" alt="Author" title="Main Author" /></span>
-	<span class="developper">Nizar Batada <img src="images/stock_person.png" alt="Author" title="Main Author" /></span>
-
-        <h4 id="contributors">Contributors</h4>
-	<span class="developper">Joerg Wegner<img src="images/stock_person.png" alt="Author" title="Export" /></span>
-	<span class="developper">Guillaume Gardey<img src="images/stock_person.png" alt="Author" title="Webdesign and HTML export" /></span>
-        <span class="developper">Ulrik Stervbo<img src="images/stock_person.png" alt="Author" title="Label generation" /></span>
-	<span class="developper">Pau Artigas Vidal<img src="images/stock_person.png" alt="Author" title="" /></span>
-	<span class="developper">Mike Smoot<img src="images/stock_person.png" alt="Author" title="Medline Fetch By Id" /></span>
-	<span class="developper">Jorg Zieren <img src="images/stock_person.png" alt="Author" title="advanced search" /></span>
-	<span class="developper">Dale Visser <img src="images/stock_person.png" alt="Author" title="windows packager" /></span>
-	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Author" title="bibtexml" /></span>
-	<span class="developper">Seb Wills <img src="images/stock_person.png" alt="Author" title="several patches" /></span>
-	<span class="developper">Bernd Kalbfuss <img src="images/stock_person.png" alt="Author" title="several patches" /></span>
-      </div>
     </div>
 
     <div id="main">
