@@ -83,34 +83,21 @@
       </div>
 
       <div class="contributors">
-        <h4 id="authors">Authors</h4><span class=
-        "developper">Morten Alver <img src="images/stock_person.png" alt=
-        "Author" title="Main Author" /></span> <span class=
-        "developper">Nizar Batada <img src="images/stock_person.png" alt=
-        "Author" title="Main Author" /></span>
+        <h4 id="authors">Authors</h4>
+	<span class="developper">Morten Alver <img src="images/stock_person.png" alt="Author" title="Main Author" /></span>
+	<span class="developper">Nizar Batada <img src="images/stock_person.png" alt="Author" title="Main Author" /></span>
 
-        <h4 id="contributors">Contributors</h4><span class=
-        "developper">Joerg Wegner<img src="images/stock_person.png" alt=
-        "Author" title="Export" /></span> <span class=
-        "developper">Guillaume Gardey<img src="images/stock_person.png"
-        alt="Author" title="Webdesign and HTML export" /></span>
-        <span class="developper">Ulrik Stervbo<img src=
-        "images/stock_person.png" alt="Author" title=
-        "Label generation" /></span> <span class="developper">Pau
-        Artigas Vidal<img src="images/stock_person.png" alt="Author"
-        title="" /></span> <span class="developper">Mike
-        Smoot<img src="images/stock_person.png" alt="Author" title=
-        "Medline Fetch By Id" /></span> <span class=
-        "developper">Jorg Zieren <img src="images/stock_person.png" alt=
-        "Author" title="advanced search" /></span> <span class=
-        "developper">Dale Visser <img src="images/stock_person.png" alt=
-        "Author" title="windows packager" /></span> <span class=
-        "developper">Egon Willighagen <img src="images/stock_person.png"
-        alt="Author" title="bibtexml" /></span> <span class=
-        "developper">Seb Wills <img src="images/stock_person.png" alt=
-        "Author" title="several patches" /></span> <span class=
-        "developper">Bernd Kalbfuss <img src="images/stock_person.png"
-        alt="Author" title="several patches" /></span>
+        <h4 id="contributors">Contributors</h4>
+	<span class="developper">Joerg Wegner<img src="images/stock_person.png" alt="Author" title="Export" /></span>
+	<span class="developper">Guillaume Gardey<img src="images/stock_person.png" alt="Author" title="Webdesign and HTML export" /></span>
+        <span class="developper">Ulrik Stervbo<img src="images/stock_person.png" alt="Author" title="Label generation" /></span>
+	<span class="developper">Pau Artigas Vidal<img src="images/stock_person.png" alt="Author" title="" /></span>
+	<span class="developper">Mike Smoot<img src="images/stock_person.png" alt="Author" title="Medline Fetch By Id" /></span>
+	<span class="developper">Jorg Zieren <img src="images/stock_person.png" alt="Author" title="advanced search" /></span>
+	<span class="developper">Dale Visser <img src="images/stock_person.png" alt="Author" title="windows packager" /></span>
+	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Author" title="bibtexml" /></span>
+	<span class="developper">Seb Wills <img src="images/stock_person.png" alt="Author" title="several patches" /></span>
+	<span class="developper">Bernd Kalbfuss <img src="images/stock_person.png" alt="Author" title="several patches" /></span>
       </div>
     </div>
 
@@ -144,59 +131,58 @@
       <h3 id="features">Features</h3>
 
       <div class="features_column">
-        <span class="feature">Advanced BibTeX editor</span>
-        <span class="feature_desc">Detailed editing of bibtex
-        entries.</span> <span class="feature">Search
-        functions</span>
 
+        <div class="feature">Advanced BibTeX editor</div>
+        <div class="feature_desc">
+	  Detailed editing of bibtex entries.
+	</div>
+	
+	<div class="feature">Search functions</div>
         <div class="feature_desc">
           Search a pattern in the whole bibliography.
-        </div><span class="feature">Classification of
-        entries</span>
-
+        </div>
+	
+	<div class="feature">Classification of entries</div>
         <div class="feature_desc">
           You can group entries explicitly, by keywords or any
           other fields.
-        </div><span class="feature">Import of various
-        formats</span>
-
+        </div>
+	
+	<div class="feature">Import of various formats</div>
         <div class="feature_desc">
           BibTeXML, CSA, Refer/Endnote, ISI Web of Science,
           SilverPlatter, Medline/Pubmed (xml), Scifinder, OVID,
           INSPEC, Biblioscape, Sixpack, JStor and RIS.
-        </div><span class="feature">Built-in and custom export
-        formats</span>
-
+        </div>
+	
+	<div class="feature">Built-in and custom export formats</div>
         <div class="feature_desc">
           HTML, Docbook, BibTeXML, MODS, RTF, Refer/Endnote and
           OpenOffice.org.
         </div>
-      </div>
 
-      <div class="features_column">
-        <span class="feature">Customization of BibTeX fields</span>
-
+        <div class="feature">Customization of BibTeX fields</div>
         <div class="feature_desc">
           You can add your own fields to any BibTeX entry type.
-        </div><span class="feature">Customization of the JabRef
-        interface</span>
-
+        </div>
+	
+	<div class="feature">Customization of the JabRef interface</div>
         <div class="feature_desc">
           Fonts, displayed fields, etc
-        </div><span class="feature">Integrates to your
-        environment</span>
-
+        </div>
+	
+	<div class="feature">Integrates to your environment</div>
         <div class="feature_desc">
           Launch external applications: PDF/PS viewers, web
           browser, insert citations into LyX, Kile and WinEdt
-        </div><span class="feature">Automatic Key generation</span>
-
-        <div class="feature_desc"></div><span class=
-        "feature">Search Medline and Citeseer</span>
-
+        </div>
+	
+	<div class="feature">Automatic Key generation</div>
+        <div class="feature_desc"></div>
+	
+	<div class="feature">Search Medline and Citeseer</div>
         <div class="feature_desc"></div>
 
-        <div class="empty"></div>
       </div>
     </div>
     <?php include("footer.php"); ?>

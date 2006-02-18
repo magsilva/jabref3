@@ -18,14 +18,12 @@ body {
     padding:0;
 }
 
-
 #navcontainer{
     margin-top: 2px;
     color: #088;
     font-weight: bold;
     font-size: 14px;
 }
-
 
 #navlist
 {
@@ -35,13 +33,11 @@ body {
     border-bottom:solid 1px #088;
 }
 
-
 #navlist li {
     list-style: none;
     margin: 0;
     display: inline;
 }
-
 
 #navlist li a {
     padding: 3px 0.5em;
@@ -51,22 +47,18 @@ body {
     text-decoration: none;
 }
 
-
 #navlist li a:link {
     color: #088;
 }
-
 
 #navlist li a:visited {
     color: #088;
 }
 
-
 #navlist li a:hover {
     color: #FFFFFF;
     background: #088;
 }
-
 
 #rightpanel {
     float:right;
@@ -78,7 +70,6 @@ body {
     border-bottom:2px solid black;
     background-color: #ddd;
 }
-
 
 #rightpanel h3 {
     text-align:center;
@@ -100,7 +91,6 @@ body {
     margin:0;
     vertical-align:middle;
 }
-
 
 .developper {
     display:block;
@@ -132,7 +122,6 @@ h4#contributors  {
     width:110px;
 }
 
-
 #main {
     text-align:justify;
     padding-left:1em;
@@ -151,6 +140,13 @@ h4#contributors  {
 #main pre {
     background-color:#ccc;
     border:solid 1px gray;
+}
+
+#main img.screenshot {
+    border:0;
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
 }
 
 .item{
@@ -174,22 +170,23 @@ h4#contributors  {
 }
 
 .features_column {
+/*
     float:left;
     width: 45%;
-    padding-left:20px;
+*/
+    padding-left:2em;
+    padding-right:2em;
     text-align:left;
 }
 
 .feature {
     font-weight:bold;
     color:navy;
-    display:block;
 }
 
 .feature_desc{
-    font-size:x-small;
-    color:#777;
-    padding-left:1em;
+    font-size:small;
+    padding-left:3em;
 }
 
 .version_desc {
@@ -215,18 +212,18 @@ h4#contributors  {
 }
 
 #footer{
-    position:fixed;
-    bottom:0;
-    border-top:solid 1px gray;
-    width:770px;
-    background-color: #ddd;
+    margin-top: 20px;
+    border-top: solid 1px gray;
     color:#888;
-    font-size:small;
+    background-color: #ddd;
+    bottom:0;
 }
 
-#footer a, #footer a:visited, #footer a:hover{
-    text-decoration:none;
-    color:#088;
+#footer p {
+    margin:0px;
+    padding:2px;
+    font-size:small;
+    text-align:right;
 }
 
 #footer img {
@@ -234,6 +231,17 @@ h4#contributors  {
     margin:0;
     vertical-align:bottom;
     width:50px;
+}
+
+#footer a, #footer a:visited, #footer a:hover{
+    text-decoration:none;
+    color:#088;
+}
+
+#footer p.floatleft {
+    float:left;
+    text-align:left;
+    width:75%;
 }
 
 .empty {

@@ -39,7 +39,9 @@
       We hope to offer the user manual in other languages in the
       future.</p>
 
-      <h3 id="java">Installing Java</h3>
+      <h3 id="java">Installation</h3>
+      
+      <h4 id="java">Installing Java</h4>
 
       <p>Go to the <a href=
       "http://java.sun.com/j2se/1.4/download.html">Sun Java download page</a>,
@@ -47,7 +49,7 @@
       install it.</p>
 
 
-      <h3 id="web">Web Start</h3>
+      <h4 id="web">Web Start</h4>
 
       <p>If you have Java installed you can run the latest version
       of JabRef directly through Java Web Start by clicking the link
@@ -60,7 +62,7 @@
       <p><a href="http://jabref.sourceforge.net/jws/jabref.jnlp">Run JabRef with Java Web Start</a></p>
 
 
-      <h3 id="linux">Linux</h3>
+      <h4 id="linux">Linux</h4>
 
       <p>I am assuming you have downloaded the rpm version:
       j2sdk-1_4_0_03-linux-i586-rpm.bin</p>
@@ -106,13 +108,13 @@
       </ol>
 
 
-      <h3 id="windows">Windows</h3>
+      <h4 id="windows">Windows</h4>
 
-      <h4>Method 1: Mouse click way</h4>Now we have the .msi
+      <h5>Method 1: Mouse click way</h5>Now we have the .msi
       install file. If java is not installed it issues a complaint.
       This simply installs Jabref and a shortcut in the start menu.
 
-      <h4>Method 2: Batch file way</h4>First try to simply
+      <h5>Method 2: Batch file way</h5>First try to simply
       double-click the JabRef.jar file - this works on some
       systems. If JabRef does not start immediately (i.e. Windows
       does not know what to do with a .jar file), proceed like
@@ -123,7 +125,7 @@
       <pre>start javaw -jar JabRef.jar</pre>
       Double-click on the batchfile to start JabRef.
 
-      <h4>Method 3: Command line way</h4>
+      <h5>Method 3: Command line way</h5>
 
       <p>I am assuming you hava j2sdk-1_4_* (same as java_1.4)
       installed on machine.</p>
@@ -162,7 +164,7 @@
       launch JabRef</p>
 
 
-      <h3 id="macosx">Mac</h3>
+      <h4 id="macosx">Mac</h4>
 
       <p>One user reported that if you have java 1.4.1 already
       installed on Mac OS 10.2.4 then double clicking on the

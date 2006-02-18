@@ -16,30 +16,31 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
-      <h3>Screenshots</h3><span class="single_item"><a href=
-      "#filemenu">File Menu</a></span> <span class=
-      "single_item"><a href="#mainwindow">Main Window</a></span>
-      <span class="single_item"><a href=
-      "#preferences">Preferences</a></span> <span class=
-      "single_item"><a href="#preview">Preview</a></span>
+      <h3>Screenshots</h3>
+      <span class="single_item"><a href="#filemenu">File Menu</a></span>
+      <span class="single_item"><a href="#mainwindow">Main Window</a></span>
+      <span class="single_item"><a href="#preferences">Preferences</a></span>
+      <span class="single_item"><a href="#preview">Preview</a></span>
     </div>
 
     <div id="main">
-      <h3 id="filemenu">File Menu</h3><img src=
-      "images/Jabref-ScreenShot-FileMenu.png" alt=
-      "Jabref-ScreenShot-FileMenu.png" />
+      <h3 id="filemenu">File Menu</h3>
+      <img class="screenshot" src="images/Jabref-ScreenShot-FileMenu.png" alt="Jabref-ScreenShot-FileMenu.png" />
 
-      <h3 id="mainwindow">Main Window</h3><img src=
-      "images/Jabref-ScreenShot-MainWindow.png" alt=
-      "Jabref-ScreenShot-MainWindow.png" />
+      <h3 id="mainwindow">Main Window</h3>
+      <a href="images/Jabref-ScreenShot-MainWindow.png">
+      <img class="screenshot" src="images/Jabref-ScreenShot-MainWindow.png" alt="Jabref-ScreenShot-MainWindow.png" />
+      </a>
 
-      <h3 id="preferences">Preferences</h3><img src=
-      "images/Jabref-ScreenShot-Preferences.png" alt=
-      "Jabref-ScreenShot-Preferences.png" />
+      <h3 id="preferences">Preferences</h3>
+      <a href="images/Jabref-ScreenShot-Preferences.png">
+      <img class="screenshot" src="images/Jabref-ScreenShot-Preferences.png" alt="Jabref-ScreenShot-Preferences.png" />
+      </a>
 
-      <h3 id="preview">Entry Preview</h3><img src=
-      "images/Jabref-ScreenShot-Preview.png" alt=
-      "Jabref-ScreenShot-Preview.png" />
+      <h3 id="preview">Entry Preview</h3>
+      <a href="images/Jabref-ScreenShot-Preview.png">
+      <img class="screenshot" src="images/Jabref-ScreenShot-Preview.png" alt="Jabref-ScreenShot-Preview.png" />
+      </a>
     </div>
     <?php include("footer.php"); ?>
   </div>
