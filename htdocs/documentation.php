@@ -1,10 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content=
-  "text/html; charset=us-ascii" />
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
   <title>JabRef reference manager</title>
   <link href='css/style.css' rel='stylesheet' type='text/css' />
 </head>
@@ -15,12 +14,12 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
-      <h3>Installation</h3><span class="single_item"><a href=
-      "#java">Installing Java</a></span> <span class="single_item"><a href=
-      "#web">Web Start</a></span> <span class="single_item"><a href=
-      "#linux">Linux</a></span> <span class="single_item"><a href=
-      "#windows">Windows</a></span> <span class=
-      "single_item"><a href="#macosx">MacOSX</a></span>
+      <h3>Installation</h3>
+      <span class="single_item"><a href="#java">Installing Java</a></span>
+      <span class="single_item"><a href="#web">Web Start</a></span>
+      <span class="single_item"><a href="#linux">Linux</a></span>
+      <span class="single_item"><a href="#windows">Windows</a></span>
+      <span class="single_item"><a href="#macosx">MacOSX</a></span>
 
       <div class="contributors">
         <h4 id="authors">Authors</h4>
@@ -34,22 +33,22 @@
 	<span class="developper">Andreas Rudert <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Michael Spiegel <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Ulrik Stervbo <img src="images/stock_person.png" alt="Developper" title="Label generation" /></span>
-	<span class="developper">Dominik Waßenhoven <img src="images/stock_person.png" alt="Developper" title="" /></span>
+	<span class="developper">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Joerg K. Wegner <img src="images/stock_person.png" alt="Developper" title="Export" /></span>
 	<span class="developper">Michael Wrighton <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Jörg Zieren <img src="images/stock_person.png" alt="Developper" title="advanced search" /></span>
+	<span class="developper">J&ouml;rg Zieren <img src="images/stock_person.png" alt="Developper" title="advanced search" /></span>
 
         <h4 id="contributors">Contributors</h4>
 	<span class="developper">Kolja Brix <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Frédéric Darboux <img src="images/stock_person.png" alt="Contributor" title="" /></span>
+	<span class="developper">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Fabrice Dessaint <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Nathan Dunn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Brian van Essen <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Alexis Gallagher <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Sascha Hunold <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Bernd Kalbfuss <img src="images/stock_person.png" alt="Contributor" title="several patches" /></span>
-	<span class="developper">Martin Kähmer <img src="images/stock_person.png" alt="Contributor" title="" /></span>
+	<span class="developper">Martin K&auml;hmer <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Jeffrey Kuhn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Alex Montgomery <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">John Relph <img src="images/stock_person.png" alt="Contributor" title="" /></span>
