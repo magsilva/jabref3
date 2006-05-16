@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.1b">2.1b</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.0.1">2.0.1</a>
       </div>
 
@@ -110,6 +114,35 @@
     </div>
 
     <div id="main">
+      <div class="aversion" id="v2.1b">
+        <h3>Version 2.1beta (May 9th, 2006)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Known issue: font sizes cannot be changed, but should follow OS settings on Windows and Mac.</li>
+            <li>Known issue: some HTML may be handled inappropriately when downloading from IEEEXplore.</li>
+            <li>Changed Paste function so timestamp and owner fields are updated.</li>
+            <li>Added "Other" item to the "New entry ..." menu.</li>
+            <li>Changed sorting order so marked entries are displayed at the top of the table.</li>
+            <li>Added IEEEXplore search and download feature.</li>
+            <li>Added option to store entries in their original order. Unsorted table view now shows entries in their original order.</li>
+            <li>Added option to autogenerate keys for entries with missing keys before each save.</li>
+            <li>Improved handling of external URLs to prevent problems with special characters.</li>
+            <li>Medline and Endnote imports no longer automatically add curly braces around capital letters in title.</li>
+            <li>Float search now scrolls table to the top.</li>
+            <li>Fixed lockup problem in preview with uneven number of # characters in fields.</li>
+            <li>Fixed problem with default content selector fields reappearing after removal.</li>
+            <li>Fixed problem with unsupported character encodings being selectable and causing unreported save errors.</li>
+            <li>Fixed bug that blocked last line in table columns setup from being removed.</li>
+            <li>Fixed missing export formats from command line.</li>
+            <li>Fixed bug that made Review tab impossible to remove from entry editor.</li>
+            <li>Fixed bug in Medline XML import that assigned wrong PMID for some entries.</li>
+            <li>Fixed bug in custom export that collapsed sequences of two or more backslashes into a single backslash in output.</li>
+            <li>Fixed bug (misspelled formatter name) in Harvard RTF export.</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="aversion" id="v2.0.1">
         <h3>Version 2.0.1 (February 2nd, 2006)</h3>
 
