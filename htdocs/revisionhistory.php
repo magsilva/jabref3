@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.1b2">2.1b2</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.1b">2.1b</a>
       </div>
 
@@ -114,6 +118,24 @@
     </div>
 
     <div id="main">
+      <div class="aversion" id="v2.1b">
+        <h3>Version 2.1beta2 (June 29th, 2006)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added option to toggle floating of marked entries to the top of the table.</li>
+            <li>Added option to open, append and import multiple BibTeX files.</li>
+            <li>Improved support for LaTeX special characters in HTML and RTF representations.</li>
+            <li>Fixed bug that made entry selection get lost when an edit modifies the entry's position in the main table.</li>
+            <li>Fixed bug in BibTeXML export (entry type name missing in tag).</li>
+            <li>Fixed name handling in (non-compliant) Endnote files giving all author names on the same line.</li>
+            <li>Fixed problem with keyword handling in Medline import.</li>
+            <li>Fixed (harmless) NullPointerException when medline fetch is cancelled.</li>
+            <li>Fixed bug in parser that made {&quot;} illegal in fields quoted with &quot;.</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="aversion" id="v2.1b">
         <h3>Version 2.1beta (May 9th, 2006)</h3>
 
