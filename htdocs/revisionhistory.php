@@ -118,7 +118,7 @@
     </div>
 
     <div id="main">
-      <div class="aversion" id="v2.1b">
+      <div class="aversion" id="v2.1b2">
         <h3>Version 2.1beta2 (June 29th, 2006)</h3>
 
         <div class="version_desc">
