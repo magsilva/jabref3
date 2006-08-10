@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.1">2.1</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.1b2">2.1b2</a>
       </div>
 
@@ -118,6 +122,26 @@
     </div>
 
     <div id="main">
+
+      <div class="aversion" id="v2.1">
+        <h3>Version 2.1 (August 9th, 2006)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added capability to drag files and WWW links into JabRef. BibTeX files will be opened normally, other files imported, and WWW links downloaded and imported.</li>
+            <li>The -v command line option now makes the application only print version number and quit immediately.</li>
+            <li>Duplicates within a set of imported entries are now found and shown in the import inspection window.</li>
+            <li>Mac users can now choose between native and Swing file chooser under Preferences -> Advanced.</li>
+            <li>Fixed missing duplicate warning when importing without import inspection window.</li>
+            <li>Fixed error in ISI import which allowed empty fields to be set, causing errors when saving and reloading entries.</li>
+            <li>Fixed missing time and owner stamps when importing entries (only in 2.1b/2.1b2).</li>
+            <li>Fixed erroneous updates in entry editor if user switches to a different entry while downloading PDF/PS file.</li>
+            <li>Fixed bug (only in 2.1b2) in calling file open/save dialog on Mac OS X.</li>
+            <li>Fixed bug that made duplicate resolver dialog pop under import inspection dialog.</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="aversion" id="v2.1b2">
         <h3>Version 2.1beta2 (June 29th, 2006)</h3>
 
