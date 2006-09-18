@@ -149,6 +149,14 @@ h4#contributors  {
     width:90%;
 }
 
+#main p.question {
+    color:red;
+}
+
+#main p.answer {
+    color:black;
+}
+
 .item{
     color:navy;
     font-weight:bold;
