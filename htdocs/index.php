@@ -132,6 +132,9 @@
       <a href="http://jo.irisson.free.fr/bstdatabase/">LaTeX
       bibliography style database</a>.</p>
 
+      <p>You can run JabRef instantly with Java Web Start:
+      <a href="http://jabref.sourceforge.net/jws/jabref.jnlp">Run JabRef.</a></p>
+
       <h3 id="features">Features</h3>
 
       <div class="features_column">
