@@ -19,6 +19,7 @@
       <span class="single_item"><a href="#linux">JabRef &amp; Linux</a></span>
       <span class="single_item"><a href="#windows">JabRef &amp; Windows</a></span>
       <span class="single_item"><a href="#developers">Developers</a></span>
+      <span class="single_item"><a href="#general_usage">General usage</a></span>
       <span class="single_item"><a href="#other">Other</a></span>
 
     </div>
@@ -63,6 +64,11 @@ distribution, so we cannot give exact advise for everybody. </p>
 
       <p class="question">Q: I have a patch that I want to contribute. Where can I do that?</p>
       <p class="answer">A: Please send patches to the Patch-Tracker on Sourceforge and write a quick entry on the user or developer list.</p>
+
+      <h3 id="general_usage">General usage</h3>
+
+      <p class="question">Q: How do I prevent JabRef from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
+      <p class="answer">A: Open Tools -> Preferences. In the "General" panel, you will find an option called "Do not wrap the following fields when saving". This option contains a semicolon-separated list of field names. Any field you add to this list will always be stored without introduction of line breaks.</p>
 
       <h3 id="other">Other</h3>
 
