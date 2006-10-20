@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.2b">2.2b</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.1">2.1</a>
       </div>
 
@@ -122,6 +126,56 @@
     </div>
 
     <div id="main">
+
+      <div class="aversion" id="v2.2b">
+        <h3>Version 2.2beta (October 13th, 2006)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added Mark Schenk's advanced HTML export filter.</li>
+            <li>Added options to copy/move/link to dragged linkable file (pdf, ps, etc.).</li>
+            <li>Removed unnecessary output text when scanning for external file changes.</li>
+            <li>Changed layout of entry editor to solve problem with collapsing text fields.</li>
+            <li>Added first version of support for XMP-metadata in PDFs.
+              <ul>
+		<li>"Import into..."</li>
+                <li>Integrate with copy/move/link.</li>
+                <li>Added option to write all/selected PDFs in database</li>
+              </ul>
+            </li>
+            <li>Added tooltips to database tabs showing the file's full path.</li>
+            <li>Added function for setting or clearing specific fields in selected or all entries.</li>
+            <li>Setting a relative PDF/PS path in Database Properties now makes JabRef look for the directory relative to the bib file's location.</li>
+            <li>Removed Oxford comma from AuthorList...Comma-LayoutFormatters.</li>
+            <li>Added LayoutFormatters that print the Oxford comma.</li>
+            <li>Added missing space between abbreviated author first names: William Andrew Paul => W. A. Paul (used to be W.A. Paul)</li>
+            <li>Added LayoutFormatter for HTML paragraphs.</li>
+            <li>Changing Database Properties now causes the database to be marked as changed.</li>
+            <li>Improved simple search. Words are now treated as separate search terms, and phrases can be indicated with "double quotes".</li>
+            <li>When a letter key is pressed in the table, the first entry starting with the same letter (in the current sort column) is selected.</li>
+            <li>Bib files dragged into JabRef now appear in the Recent files menu.</li>
+            <li>Fixed bug in import dialog.</li>
+            <li>Better support for ISI files in general (should basically be better than INSPEC) including IEEE parsing.</li>
+            <li>Added regular expression search for auto-linking. Search is now more flexible by default.</li>
+            <li>Search operation also now search relative to the JabRef directory.</li>
+            <li>General improvements in Inspec ISI handling.</li>
+            <li>New LayoutFormatter: AuthorOrgSci - first author is in "last, first" all others in "first last". First names are abbreviated.</li>
+            <li>New LayoutFormatter: NoSpaceBetweenAbbreviations - spaces between multiple abbreviated first names are removed.</li>
+            <li>Improved PDF link resolver to produce proper URIs.</li>
+            <li>[1503956] Fixed: Help text instead of Help icon.</li>
+            <li>[1542552] Fixed: Wrong author import from ISI file.</li>
+            <li>[1534537] Fixed: resize groups interface</li>
+            <li>[1465610] Fixed: (Double-)Names containing hyphen (-) not handled correctly</li>
+            <li>[1436014] Fixed: No comma added to separate keywords</li>
+            <li>[1548875] Fixed: download pdf produces unsupported filename</li>
+            <li>[1545601] Fixed: downloading pdf corrupts pdf field text</li>
+            <li>[1285977] Fixed: Impossible to properly sort a numeric field</li>
+            <li>[1535044] Fixed: Month sorting</li>
+            <li>[1540646] Fixed: Default sort order: bibtexkey</li>
+            <li>[1553552] Fixed: Not properly detecting changes to flag as changed</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.1">
         <h3>Version 2.1 (August 9th, 2006)</h3>
