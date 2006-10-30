@@ -33,7 +33,6 @@
 	<span class="developper">Andreas Rudert <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Michael Spiegel <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Ulrik Stervbo <img src="images/stock_person.png" alt="Developper" title="Label generation" /></span>
-	<span class="developper">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Joerg K. Wegner <img src="images/stock_person.png" alt="Developper" title="Export" /></span>
 	<span class="developper">Michael Wrighton <img src="images/stock_person.png" alt="Developper" title="" /></span>
 	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Developper" title="" /></span>
@@ -41,7 +40,6 @@
 
         <h4 id="contributors">Contributors</h4>
 	<span class="developper">Kolja Brix <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Fabrice Dessaint <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Nathan Dunn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Brian van Essen <img src="images/stock_person.png" alt="Contributor" title="" /></span>
@@ -52,7 +50,6 @@
 	<span class="developper">Jeffrey Kuhn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Alex Montgomery <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">John Relph <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Gert Renckens <img src="images/stock_person.png" alt="Contributor" title="Dutch translation" /></span>
 	<span class="developper">Moritz Ringler <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Rudolf Seemann <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Toralf Senger <img src="images/stock_person.png" alt="Contributor" title="" /></span>
@@ -63,6 +60,14 @@
 	<span class="developper">David Weitzman <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Contributor" title="bibtexml" /></span>
 	<span class="developper">Seb Wills <img src="images/stock_person.png" alt="Contributor" title="several patches" /></span>
+
+        <h4 id="translators">Translators</h4>
+	<span class="developper">Morten O. Alver <img src="images/stock_person.png" alt="translator" title="Norwegian translator" /></span>
+	<span class="developper">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="translator" title="French translator" /></span>
+	<span class="developper">Ambrogio Oliva <img src="images/stock_person.png" alt="translator" title="Italian translator" /></span>
+	<span class="developper">Gert Renckens <img src="images/stock_person.png" alt="translator" title="Dutch translator" /></span>
+	<span class="developper">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="translator" title="German translator" /></span>
+
       </div>
 
     </div>
