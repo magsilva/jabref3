@@ -52,6 +52,7 @@
 	<span class="developper">Jeffrey Kuhn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Alex Montgomery <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">John Relph <img src="images/stock_person.png" alt="Contributor" title="" /></span>
+	<span class="developper">Gert Renckens <img src="images/stock_person.png" alt="Contributor" title="Dutch translation" /></span>
 	<span class="developper">Moritz Ringler <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Rudolf Seemann <img src="images/stock_person.png" alt="Contributor" title="" /></span>
 	<span class="developper">Toralf Senger <img src="images/stock_person.png" alt="Contributor" title="" /></span>
