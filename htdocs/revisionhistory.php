@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.2b2">2.2b2</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.2b">2.2b</a>
       </div>
 
@@ -126,6 +130,27 @@
     </div>
 
     <div id="main">
+
+      <div class="aversion" id="v2.2b2">
+        <h3>Version 2.2beta2 (November 26th, 2006)</h3>
+
+        <div class="version_desc">
+          <ul>
+	    <li>Redesigned export functions to simplify GUI and provide &quot;Export selected entries&quot; functionality. Export filter is now chosen using the file type dropdown menu in the file dialog.</li>
+	    <li>Fixed bug that caused UnsupportedEncodingException on Windows when saving.</li>
+	    <li>Added warning dialog when exporting failed.</li>
+	    <li>Added fix for exporting special chars in RTF like &eacute;&oacute;&uacute;...</li>
+	    <li>Added NameFormat LayoutFormatter based on Bibtex method name.format$</li>
+	    <li>Added Fetch from ArXiv.org to Web Search<br />
+        	[1587342] Quering ArXiv (and any OAI2 Repository)</li>
+	    <li>[1594123] Fixed: Failure to import big numbers in Bibtex</li>
+	    <li>[1594169] Fixed: Entry editor navigation between panels faulty</li>
+	    <li>[1588028] Fixed: Export HTML table has relative DOI URL</li>
+	    <li>[1601651] Fixed: PDF subdirectory - missing first character</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.2b">
         <h3>Version 2.2beta (October 13th, 2006)</h3>
