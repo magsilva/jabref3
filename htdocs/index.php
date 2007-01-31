@@ -17,6 +17,14 @@
       <h3 id="News">News</h3>
 
       <div class="item">
+        January 30th, 2007
+      </div>
+
+      <div class="item_desc">
+        Version 2.2
+      </div>
+
+      <div class="item">
         November 26th, 2006
       </div>
 

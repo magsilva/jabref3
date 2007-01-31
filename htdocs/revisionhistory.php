@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.2">2.2</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.2b2">2.2b2</a>
       </div>
 
@@ -130,6 +134,37 @@
     </div>
 
     <div id="main">
+
+      <div class="aversion" id="v2.2">
+        <h3>Version 2.2 (January 30th, 2007)</h3>
+
+        <div class="version_desc">
+          <ul>
+	    <li>Added progress bar to indicate progress when synchronizing PS/PDF links.</li>
+	    <li>Option to autogenerate key for imported entries now also affects entries imported
+          without using the import inspection window.</li>
+	    <li>Modified quick jump behaviour so sequences of letters can be found. Timeout or
+          ESC resets the search.</li>
+	    <li>Improved XMP support:</li>
+              <ul>
+		<li>JabRef now reads and write DublinCore and Legacy Document Properties;
+	            Caution needs to be used though since, JabRef does overwrite existing values.</li>
+		<li>XMP privacy filter can be used to prevent sensible fields to be exported.</li>
+              </ul>
+	    <li>Support for OAI2 identifiers with subcategories, e.g. math.RA/0601001</li>
+	    <li>Fixed bug that made explicit groups appear empty after updating group tree from external change.</li>
+	    <li>New windows installer thanks to Uwe Stöhr.</li>
+	    <li>[ 1641247 ] Fixed: No update of preview after generating bibtex key</li>
+	    <li>[ 1631548 ] Fixed: Absolute paths should be stored for last open files.</li>
+	    <li>[ 1598777 ] Fixed: Month sorting</li>
+	    <li>[ 1570570 ] New Feature: Deselect all duplicates on import</li>
+	    <li>[ 1574773 ] Fixed: sanitizeUrl() breaks ftp:// and file:///</li>
+	    <li>[ 1609991 ] Fixed: Silverplatter Import: Publisher and Year confused</li>
+	    <li>[ 1608391 ] Fixed: Medline Search Editbox size gets to big</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.2b2">
         <h3>Version 2.2beta2 (November 26th, 2006)</h3>
