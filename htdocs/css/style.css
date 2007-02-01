@@ -3,6 +3,31 @@ body {
     padding:0;
 }
 
+a:link {
+    color: #0000FF;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+a:visited {
+    color : #5555FF;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+a:hover {
+    color:red;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+a:active {
+    color: white;
+    background: red;
+    text-decoration: none;
+    font-weight:bold;
+} 
+
 #container{
     width:770px;
     margin:auto;
