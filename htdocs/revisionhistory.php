@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.3b">2.3b</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.2">2.2</a>
       </div>
 
@@ -134,6 +138,40 @@
     </div>
 
     <div id="main">
+
+      <div class="aversion" id="v2.3beta">
+        <h3>Version 2.3beta (June 28th, 2007)</h3>
+
+        <div class="version_desc">
+          <ul>
+	    <li>Added MIS Quarterly export format.</li>
+	    <li>Added support for COPAC file format.</li>
+	    <li>Added RemoveTilde LayoutFormatter to deal with Bibtex non-breakable spaces.</li>
+	    <li>Added autocompletion feature for author/editors and other fields.</li>
+	    <li>Added feature to save all open databases.</li>
+	    <li>Added support for pushing citations to Vim when Vim server is enabled.</li>
+	    <li>Added missing option for specifying the path to LEd.exe.</li>
+	    <li>Added -s/--nosplash command line option for disabling the splash screen.</li>
+	    <li>Added new field marker [auth.etal] for key generation.</li>
+	    <li>Added support in XMP metadata handling for bibtex string resolution.</li>
+	    <li>When opening databases, already open files are now skipped.</li>
+	    <li>Option to use native instead of Swing file dialogs is now available on all OSes.</li>
+	    <li>Synchronize external links now searches entire database, not selected entries.</li>
+	    <li>Medline import now adds &lt;Affiliation&gt; information into the "institution" field.</li>
+	    <li>Improved handling of external links. The 'file' field can now specify a list of external links, and arbitrary</li> file types are supported. Old-style PDF and PS links can be moved automatically into the 'file' field.</li>
+	    <li> Fixed bug in RIS and Refer/Endnote imports. Entries with editors but no authors are now imported properly.</li>
+	    <li> Fixed missing export formatter AuthorFirstFirstCommas.</li>
+	    <li> Fixed minor bug in Harvard export with missing space between year and title.</li>
+	    <li> Fixed bug that caused lockup when connection to IEEExplore fails.</li>
+	    <li> Fixed wrong dependency in OAI2/ArXiv Fetcher.</li>
+	    <li> Fixed problem with foreign characters in OAI2/ArXiv Fetcher.</li>
+	    <li> Fixed problem with key generation in OAI2/ArXiv Fetcher.</li>
+	    <li> Fixed bug in duplicate search that made misc entries never get detected as duplicates.</li>
+	    <li> Fixed bug in XMP reimport from DublinCore related to month strings.</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.2">
         <h3>Version 2.2 (January 30th, 2007)</h3>
