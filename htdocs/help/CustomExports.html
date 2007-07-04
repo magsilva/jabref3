@@ -17,7 +17,8 @@ The only requirement for a valid export filter is the existence of a file with
 the extension <b>.layout</b>. To add a new custom export filter, open the
 dialog box <b>Options -> Manage custom exports</b>, and click <b>Add new</b>.
 A new dialog box will appear, allowing you to specify a name for the export filter
-(which will appear in the <b>File -> Custom export</b> menu of the JabRef window),
+(which will appear as one of the choices in the File type dropdown menu of the file dialog
+when you use the <b>File -> Export</b> menu choice in the JabRef window),
 the path to the <b>.layout</b> file, and the preferred file extension for the export
 filter (which will be the suggested extension in the file dialog when you use the
 export filter).
@@ -99,9 +100,13 @@ This can be useful for some fomatters, e.g. the CurrentDate formatter (described
 <ul>
 <li><code>HTMLChars</code> : replaces TeX-specific special characters (e.g. {\^a} or {\"{o}})
   with their HTML representations.
+<li><code>HTMLParagraphs</code> : interprets two consecutive newlines (e.g. \n   \n) as the beginning of a new paragraph and creates paragraph-html-tags accordingly.
 <li><code>XMLChars</code> : replaces TeX-specific special characters (e.g. {\^a} or {\"{o}})
   with their XML representations.
+
 <li><code>CreateDocBookAuthors</code> : formats the author field in DocBook style.
+<li><code>CreateDocBookEditors</code> : to be documented.
+
 <li><code>CurrentDate</code> : outputs the current date. With no argument, this formatter outputs the
     current date and time in the format "yyyy.MM.dd hh:mm:ss z" (date, time and time zone). By giving a
     different format string as argument, the date format can be customized. E.g.
@@ -109,17 +114,43 @@ This can be useful for some fomatters, e.g. the CurrentDate formatter (described
 
 <li><code>AuthorFirstFirst</code> : formats author/editor fields with the first names first.
 <li><code>AuthorFirstFirstCommas</code> : formats author/editor fields with the first names first, and deliminated by commas.
+<li><code>AuthorFirstAbbrLastCommas</code> : to be documented.
+<li><code>AuthorFirstAbbrLastOxfordCommas</code> : to be documented.
+<li><code>AuthorFirstLastOxfordCommas </code> : to be documented.
+
 <li><code>AuthorLastFirst</code> : formats author/editor fields with the last names first.
 <li><code>AuthorLastFirstAbbreviator</code> : abbreviates first and middle names of all authors. This formatter requires AuthorLastFirst
 to have been run earlier.
-<li><code>AuthorAndsReplacer</code> : replaces "and" between names with ";", and "&" between the last two. 
+<li><code>AuthorLastFirstCommas</code> : to be documented.
+<li><code>AuthorLastFirstOxfordCommas</code> : to be documented.
+<li><code>AuthorLastFirstAbbrCommas</code> : to be documented.
+<li><code>AuthorLastFirstAbbrOxfordCommas</code> : to be documented.
+
+<li><code>AuthorAndsReplacer</code> : replaces "and" between names with ";", and "&" between the last two.
 <li><code>AuthorAndsCommaReplacer</code> : replaces "and" between names with ",", and "&" between the last two.
+<li><code>AuthorOrgSci</code> : first author is in "last, first" all others in "first last". First names are abbreviated.
+<li><code>AuthorAbbreviator</code> : to be documented.
+<li><code>AuthorNatBib</code> : formats author names in NatBib style, with last names only, separating names by "and"
+    if there are two authors, and giving the first author followed by "et al." if there are more than
+    two authors.
+<li><code>NoSpaceBetweenAbbreviations</code> : spaces between multiple abbreviated first names are removed.
 <li><code>FormatPagesForHTML</code> : replaces "--" with "-".
   <li><code>FormatPagesForXML</code> : replaces "--" with an XML en-dash.
+
 <li><code>RemoveBrackets</code> : removes all curly brackets "{" or "}".
+<li><code>RemoveBracketsAddComma</code> : to be documented.
+<li><code>RemoveWhitespace</code> : to be documented.
 <li><code>RemoveLatexCommands</code> : removes LaTeX commands like <code>\em</code>, <code>\textbf</code>, etc. If
   used together with <code>HTMLChars</code> or <code>XMLChars</code>, this formatter should be called last.
+<li><code>RemoveTilde</code> : replaces the tilde character used in LaTeX as a non-breakable space by a regular space. Useful 
+in combination with the NameFormatter discussed in the next section.
 <li><code>ToLowerCase</code> : turns all characters into lower case.
+
+<li><code>CompositeFormat</code> : to be documented.
+<li><code>GetOpenOfficeType</code> : to be documented.
+<li><code>RTFChars</code> : to be documented.
+<li><code>ResolvePDF</code> : to be documented.
+
 </ul>
 
 <p>If none of the available formatters can do what you want to achieve, you can add your own by implementing
@@ -127,7 +158,67 @@ to have been run earlier.
   into the <code>net.sf.jabref.export.layout.format</code> package, you can call the formatter by its
   class name only, like with the standard formatters. Otherwise, you must call the formatter by its fully
   qualified name (including package name). In any case, the formatter must be in your classpath when running
-  JabRef.
+  JabRef.</p>
+  
+<a name="NameFormatter">
+<H2>Using Custom Name Formatters</H2>
+
+<p>With JabRef 2.2 it is now possible to define custom name formatters using the bibtex-sty-file syntax. 
+This allows ultimate flexibility, but is a cumbersome to write</p>
+<p>You can define your own formatter in the preference tab "Name Formatter" using the following format
+and then use it with the name given to it as any other formatter</p>
+
+<code>
+  &lt;case1&gt;@&lt;range11&gt;@&lt;format&gt;@&lt;range12&gt;@&lt;format&gt;@&lt;range13&gt;...@@<br>
+  &lt;case2&gt;@&lt;range21&gt;@... and so on.
+</code>
+
+<p>This format first splits the task to format a list of author into cases depending on
+how many authors there are (this is since some formats differ depending on how many authors there are). 
+Each individual case is separated by @@ and contains instructions on how to format each author in the case.
+These instructions are separated by a @.</p>
+<p>Cases are identified using integers (1,2,3,etc.) or the character * (matches any number of authors) and will tell 
+the formatter to apply the following instructions if there are a number of less or equal of authors given.
+</p>
+<p>
+  Ranges are either <code>&lt;integer&gt;..&lt;integer&gt;</code>, <code>&lt;integer&gt;</code> or the character <code>*</code> using a 1 based index for indexing 
+  authors from the given list of authors. Integer indexes can be negative to denote them to start from 
+  the end of the list where -1 is the last author.
+</p>
+
+<p>For instance with an authorlist of "Joe Doe and Mary Jane and Bruce Bar and Arthur Kay":</p>
+<ul>
+  <li> 1..3 will affect Joe, Mary and Bruce</li>
+  <li> 4..4 will affect Arthur </li>
+  <li> * will affect all of them</li>
+  <li> 2..-1 will affect Mary, Bruce and Arthur</li>
+</ul>
+
+<p>The <code>&lt;format&gt;</code>-strings use the Bibtex formatter format:</p>
+ 
+<p> 
+  The four letter v, f, l, j indicate the name parts von, first, last, jr which 
+  are used within curly braces. A single letter v, f, l, j indicates that the name should be abbreviated.
+  If one of these letters or letter pairs is encountered JabRef will output all the respective names 
+  (possibly abbreviated), but the whole expression in curly braces is only printed if the name part exists.</p>
+
+<p>For instance if the format is "{ll} {vv {von Part}} {ff}" and the names are "Mary Kay and John von Neumann",
+  then JabRef will output "Kay  Mary" (with two space between last and first) and "Neuman von von Part John".</p>
+  
+<p>I give two examples but would rather point you to the bibtex documentation.</p>
+
+<p>Small example: <code>"{ll}, {f.}"</code> will turn <code>"Joe Doe"</code> into <code>"Doe, J."</code></p>
+
+<p>Large example:</p>
+<blockquote>
+<p> To turn: </p>
+<p><code>"Joe Doe and Mary Jane and Bruce Bar and Arthur Kay"</code></p>
+<p>into</p>
+<p><code>"Doe, J., Jane, M., Bar, B. and Kay, A."</code></p>
+<p>you would use</p>
+<p><code>1@*@{ll}, {f}.@@2@1@{ll}, {f}.@2@ and {ll}, {f}.@@*@1..-3@{ll}, {f}., @-2@{ll}, {f}.@-1@ and {ll}, {f}.</code></p>
+</blockquote>
+<p>If somebody would like to write a better tutorial about this: Write a mail to one of the JabRef mailinglists!</p>
 
 <H3>Conditional output</H3>
 
@@ -159,7 +250,7 @@ field referred in the curly braces has changed value.
 your entries based on keyword.  Now use the following commands to group by keyword:
 
 <p><code>\begingroup{keywords}New Category: \format[HTMLChars]{\keywords}
-<br>	\endgroup{keywords}</code>
+<br>    \endgroup{keywords}</code>
 
 <H2>Sharing your work</H2>
 
