@@ -1,5 +1,5 @@
     <div id="header">
-      <img alt="JabRef title" src="images/title2.png" />
+      <img alt="JabRef title" src="/images/title2.png" />
     </div>
 
 <?php 
@@ -21,12 +21,12 @@ echo"    <div id=\"navcontainer\">
       <ul id=\"navlist\">
 ";  
 
-    navigate("index.php","Welcome page","Overview",$filename);
-    navigate("revisionhistory.php","History and documentation about JabRef releases","History",$filename);
-    navigate("faq.php","Frequently Asked Questions","FAQ",$filename);
-    navigate("documentation.php","Documentation.php","Documentation",$filename);
-    navigate("abbrev.php","Download journal abbreviation lists","Journals",$filename);
-    navigate("screenshots.php","Some Screenshots","Screenshots",$filename);
+    navigate("/index.php","Welcome page","Overview",$filename);
+    navigate("/revisionhistory.php","History and documentation about JabRef releases","History",$filename);
+    navigate("/faq.php","Frequently Asked Questions","FAQ",$filename);
+    navigate("/documentation.php","Documentation.php","Documentation",$filename);
+    navigate("/abbrev.php","Download journal abbreviation lists","Journals",$filename);
+    navigate("/screenshots.php","Some Screenshots","Screenshots",$filename);
 
     navigate("http://sourceforge.net/projects/jabref/","The JabRef Home Page at Sourceforge","Download",$filename);
 
