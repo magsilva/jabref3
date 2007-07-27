@@ -78,8 +78,11 @@
       <p>The main source of documentation is JabRef's built-in help
       pages, accessible from the Help menu.</p>
 
-      <p>There is an <a href="help/Contents.html">online copy of
-      these help documents</a>. Note that the online copy may not
+      <p>There is an online copy of these help documents
+      (<a href="help/Contents.php">English version,</a>
+      <a href="help/fr/Contents.php">French version,</a>
+      <a href="help/de/Contents.php">German version</a>). 
+      Note that the online copy may not
       always be in sync with the latest JabRef version.</p>
 
       <p>For German readers, a more comprehensive <a href=
