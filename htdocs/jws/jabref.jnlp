@@ -22,7 +22,8 @@
       <homepage href="http://jabref.sourceforge.net"/>
       <description>JabRef is a bibliography reference manager using the BibTeX file format.</description>
       <description kind="short">JabRef is a bibliography reference manager</description>
-      <icon href="jabref.png"/>
+      <icon href="JabRef-icon.png" width="16" kind="default"/>
+      <icon href="JabRef-icon-48.png" width="48" kind="default"/>
       <offline-allowed/> 
    </information> 
   <security>
@@ -31,7 +32,7 @@
    <resources>
       <j2se version="1.4+" href="http://java.sun.com/products/autodl/j2se"/>
       <j2se version="1.4+"/>
-      <jar href="JabRef-2.0.1.jar" main="true" download="eager"/>
+      <jar href="JabRef-2.2.jar" main="true" download="eager"/>
    </resources>
    <application-desc/>
 </jnlp> 
