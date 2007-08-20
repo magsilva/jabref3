@@ -20,56 +20,6 @@
       <span class="single_item"><a href="#linux">Linux</a></span>
       <span class="single_item"><a href="#windows">Windows</a></span>
       <span class="single_item"><a href="#macosx">MacOSX</a></span>
-
-      <div class="contributors">
-        <h4 id="authors">Authors</h4>
-	<span class="developper">Morten O. Alver <img src="images/stock_person.png" alt="Developper" title="Main Author" /></span>
-	<span class="developper">Nizar N. Batada <img src="images/stock_person.png" alt="Developper" title="Main Author" /></span>
-	<span class="developper">Michel Baylac <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Guillaume Gardey <img src="images/stock_person.png" alt="Developper" title="Webdesign and HTML export" /></span>
-	<span class="developper">Cyrille d'Haese <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Raik Nagel <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Ellen Reitmayr <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Andreas Rudert <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Michael Spiegel <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Ulrik Stervbo <img src="images/stock_person.png" alt="Developper" title="Label generation" /></span>
-	<span class="developper">Joerg K. Wegner <img src="images/stock_person.png" alt="Developper" title="Export" /></span>
-	<span class="developper">Michael Wrighton <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Developper" title="" /></span>
-	<span class="developper">J&ouml;rg Zieren <img src="images/stock_person.png" alt="Developper" title="advanced search" /></span>
-
-        <h4 id="contributors">Contributors</h4>
-	<span class="developper">Kolja Brix <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Fabrice Dessaint <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Nathan Dunn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Brian van Essen <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Alexis Gallagher <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Sascha Hunold <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Bernd Kalbfuss <img src="images/stock_person.png" alt="Contributor" title="several patches" /></span>
-	<span class="developper">Martin K&auml;hmer <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Jeffrey Kuhn <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Alex Montgomery <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">John Relph <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Moritz Ringler <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Rudolf Seemann <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Toralf Senger <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Mike Smoot<img src="images/stock_person.png" alt="Contributor" title="Medline Fetch By Id" /></span>
-	<span class="developper">Martin Stolle <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Dale Visser <img src="images/stock_person.png" alt="Contributor" title="windows packager" /></span>
-	<span class="developper">Pau Artigas Vidal<img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">David Weitzman <img src="images/stock_person.png" alt="Contributor" title="" /></span>
-	<span class="developper">Egon Willighagen <img src="images/stock_person.png" alt="Contributor" title="bibtexml" /></span>
-	<span class="developper">Seb Wills <img src="images/stock_person.png" alt="Contributor" title="several patches" /></span>
-
-        <h4 id="translators">Translators</h4>
-	<span class="developper">Morten O. Alver <img src="images/stock_person.png" alt="translator" title="Norwegian translator" /></span>
-	<span class="developper">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="translator" title="French translator" /></span>
-	<span class="developper">Ambrogio Oliva <img src="images/stock_person.png" alt="translator" title="Italian translator" /></span>
-	<span class="developper">Gert Renckens <img src="images/stock_person.png" alt="translator" title="Dutch translator" /></span>
-	<span class="developper">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="translator" title="German translator" /></span>
-
-      </div>
-
     </div>
 
     <div id="main">
