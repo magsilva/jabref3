@@ -14,6 +14,11 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
+      <h3>Online documentation</h3>
+      <span class="single_item"><a href="help/Contents.php">English</a></span>
+      <span class="single_item"><a href="help/fr/Contents.php">French</a></span>
+      <span class="single_item"><a href="help/de/Contents.php">German</a></span>
+
       <h3>Installation</h3>
       <span class="single_item"><a href="#java">Installing Java</a></span>
       <span class="single_item"><a href="#web">Web Start</a></span>

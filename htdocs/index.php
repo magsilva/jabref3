@@ -219,8 +219,11 @@
 	<div class="feature">Automatic Key generation</div>
         <div class="feature_desc"></div>
 	
-	<div class="feature">Search Medline and Citeseer</div>
+	<div class="feature">Search Medline, Citeseer, IEEEXplore and arXiv</div>
         <div class="feature_desc"></div>
+	
+	<div class="feature">Support for XMP Metadata in PDFs</div>
+        <div class="feature_desc">Improve the workflow of sharing PDFs and bibliography information</div>
 
       </div>
     </div>
