@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+   Based on example ant build file for export.misq plugin and the
+   main JabRef ant build file.
+-->
+<project name="net.sf.jabref.export.xml" default="jars" basedir=".">
+
+	<property name="java.dir" value="src" />
+	<property name="lib.dir" value="lib" />
+	<property name="build.dir" value="build" />
+	<property name="build.tmp" value="${build.dir}/tmp" />
+	<property name="build.classes" value="${build.dir}/cls" />
+	<property name="build.lib" value="${build.dir}/lib" />
+
+	<property name="jabref.dir" value="../Jabref" />
+
+	<property name="version" value="1.0" />
+	<property name="jar.small" value="${build.lib}/${ant.project.name}-${version}-no-dep.jar" />
+	<property name="jar.full" value="${build.lib}/${ant.project.name}-${version}.jar" />
+
+
+	<fileset id="jarsFileset" dir="${lib.dir}">
+		<include name="jdom-1.0.jar" />
+		<include name="bibtexconverter-20070816.jar" />
+		<include name="saxon8.jar" />
+		<include name="saxon8-dom.jar" />
+	</fileset>
+
+	<fileset id="pluginFileset" dir="." includes="plugin.xml" />
+
+	<!-- Build classpath -->
+	<path id="classpath">
+		<pathelement path="${build.classes}" />
+		<fileset dir="${lib.dir}" includes="*.jar" />
+		<fileset dir="${jabref.dir}/build/lib" includes="*.jar" />
+	</path>
+
+	<!-- build jabref before building this project, as the jar is needed -->
+	<target name="build.jabref">
+		<ant dir="${jabref.dir}" target="jars" inheritall="false" inheritrefs="false" />
+	</target>
+
+	<!-- Run the JPF Code Generator (technically only needed if plugin.xml changes -->
+	<target name="generate">
+		<java classname="net.sf.jabref.plugin.util.CodeGenerator" fork="true">
+			<arg value="." />
+			<classpath>
+				<pathelement location="${jabref.dir}/lib/plugin/JPFCodeGenerator.jar" />
+				<pathelement location="${jabref.dir}/lib/plugin/jpf.jar" />
+				<pathelement location="${jabref.dir}/lib/plugin/jpf-boot.jar" />
+				<pathelement location="${jabref.dir}/lib/plugin/velocity-dep-1.5.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<!-- compile classes -->
+	<target name="compile" depends="generate">
+		<!-- depends="build.jabref"-->
+		<mkdir dir="${build.classes}" />
+		<javac debug="on" deprecation="on" destdir="${build.classes}" source="1.5" target="1.5">
+			<src path="${java.dir}" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="unjarlib" description="Unpacks jars from library">
+		<mkdir dir="${build.tmp}" />
+		<unjar dest="${build.tmp}">
+			<fileset refid="jarsFileset" />
+		</unjar>
+		<delete dir="${build.tmp}/META-INF/manifest.mf" />
+	</target>
+	
+	<!-- Jars up project -->
+	<target name="jars" depends="compile, unjarlib">
+		<mkdir dir="${build.lib}" />
+		<jar destfile="${jar.small}">
+			<fileset dir="${build.classes}" />
+			<fileset refid="pluginFileset" />
+		</jar>
+		<jar destfile="${jar.full}">
+			<fileset dir="${build.classes}" />
+			<fileset dir="${build.tmp}" />
+			<fileset refid="pluginFileset" />
+		</jar>
+	</target>
+
+	<target name="clean" description="Clean project">
+		<delete dir="${build.dir}" />
+	</target>
+
+</project>

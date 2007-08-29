@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="net.sf.jabref.export.xml" version="1.0"
+	class="net.sf.jabref.export.xml.JabRefXmlPlugin">
+	
+	<requires>
+		<import plugin-id="net.sf.jabref.core"/>
+	</requires>
+	
+	<!-- Will load code and resources from the home folder -->
+	<runtime>
+		<library type="code" path="./" id="code"/>
+		<library type="resources" path="./" id="resouces"/>
+	</runtime>
+	
+	<extension id="XmlFormat" plugin-id="net.sf.jabref.core" point-id="ExportFormat">
+		<parameter id="exportFormat" value="net.sf.jabref.export.xml.XmlFormat" />
+		<parameter id="displayName" value="BibTeXML (bibtexconverter)" />
+		<parameter id="consoleName" value="bibtexml-xml" />
+		<parameter id="extension" value=".xml" />
+	</extension>
+	
+	<extension id="XmlFormatProvider" plugin-id="net.sf.jabref.core" point-id="ExportFormatProvider">
+		<parameter id="formatProvider" value="net.sf.jabref.export.xml.XmlFormatProvider" />
+		<parameter id="name" value="XML-based Format Provider" />
+		<parameter id="description" value="Provides the infrastructure for XML-based formatters" />
+	</extension>
+	
+	<!-- Export Formats-->
+	<extension-point id="XmlBasedFormat">
+		<!-- Name of this export format to display to the user -->
+		<parameter-def type="string" id="displayName" />
+		<!-- Identifier to use as a parameter on the console -->
+		<parameter-def type="string" id="consoleName" />
+		<!-- file name of the layout file to use -->
+		<parameter-def type="resource" id="xsl" />
+		<!-- file extension this export format should use -->
+		<parameter-def type="string" id="extension" />
+	</extension-point>
+
+	<extension id="Docbook" plugin-id="net.sf.jabref.export.xml" point-id="XmlBasedFormat">
+		<parameter id="displayName" value="Docbook (XSL)"/>
+		<parameter id="consoleName" value="docbook-xsl" />
+		<parameter id="xsl" value="/net/sourceforge/bibtexml/xslt/bibxml2docbook.xsl" />
+		<parameter id="extension" value="-docbook.xml" />
+	</extension>
+
+</plugin>
