@@ -17,6 +17,10 @@
       <h3>Version</h3>
 
       <div class="single_item">
+        <a href="#v2.3b2">2.3b2</a>
+      </div>
+
+      <div class="single_item">
         <a href="#v2.3b">2.3b</a>
       </div>
 
@@ -139,7 +143,32 @@
 
     <div id="main">
 
-      <div class="aversion" id="v2.3beta">
+      <div class="aversion" id="v2.3b2">
+        <h3>Version 2.3beta2 (August 29th, 2007)</h3>
+
+        <div class="version_desc">
+          <ul>
+	    <li>When user chooses to save to an existing file, and answers that the file should not be overwritten, a new file dialog now appears instead of the operation cancelling.</li>
+	    <li>Removed antialias setting for main table, because it interferes with proper rendering on LCDs when running under JRE 6. Removed non-optional antialias settings for entry editor for the same reason.</li>
+	    <li>Changed external link handling so remote (http) links can be sent to the external application. Applications like Evince and Gimp can open remote links.</li>
+	    <li>Replaced Simle HTML export filter with improved version by Mark Schenk.</li>
+	    <li>Introduced ParamLayoutFormatter interface for layout formatters that can take an argument by the following syntax: \format[MyFormatter(argument)]{\field}. Implementing classes contain a setArgument(String) method that receives the argument (if any) before the format() method is called.</li>
+	    <li>Timestamp and owner fields are now set also when appending a bib file, and new options have been introduced to control whether imported/appended/pasted entries should have these fields overwritten if already set.</li>
+	    <li>Added operations for adding file links in import inspection window, and made file and URL icons in the table clickable.</li>
+	    <li>Removed PDF and PS columns and operations in import inspection window (replaced by operations on the "file" field).</li>
+	    <li>File field column in main table now shows file type icon instead of generic icon.</li>
+	    <li>Modified Endnote export to take "file" field into account, and to resolve full paths to PDF files.</li>
+	    <li>Added "Auto" button to automatically set "owner" field to the default username.</li>
+	    <li>Added \encoding tag for begin/end layouts in export filters to print the name of the character encoding used for the export. The tag is not available in entry layouts.</li>
+	    <li>Added \% as a supported LaTeX command, producing '%'.</li>
+	    <li>Fixed bug in HTMLChars: commands like {\aa} and {\o} were not processed properly, even though defined in Globals.HTMLCHARS.</li>
+	    <li>Fixed bug that made it possible to accidentally close database without saving, when error occurs during the save operation.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="aversion" id="v2.3b">
         <h3>Version 2.3beta (June 28th, 2007)</h3>
 
         <div class="version_desc">
@@ -158,16 +187,16 @@
 	    <li>Option to use native instead of Swing file dialogs is now available on all OSes.</li>
 	    <li>Synchronize external links now searches entire database, not selected entries.</li>
 	    <li>Medline import now adds &lt;Affiliation&gt; information into the "institution" field.</li>
-	    <li>Improved handling of external links. The 'file' field can now specify a list of external links, and arbitrary</li> file types are supported. Old-style PDF and PS links can be moved automatically into the 'file' field.</li>
-	    <li> Fixed bug in RIS and Refer/Endnote imports. Entries with editors but no authors are now imported properly.</li>
-	    <li> Fixed missing export formatter AuthorFirstFirstCommas.</li>
-	    <li> Fixed minor bug in Harvard export with missing space between year and title.</li>
-	    <li> Fixed bug that caused lockup when connection to IEEExplore fails.</li>
-	    <li> Fixed wrong dependency in OAI2/ArXiv Fetcher.</li>
-	    <li> Fixed problem with foreign characters in OAI2/ArXiv Fetcher.</li>
-	    <li> Fixed problem with key generation in OAI2/ArXiv Fetcher.</li>
-	    <li> Fixed bug in duplicate search that made misc entries never get detected as duplicates.</li>
-	    <li> Fixed bug in XMP reimport from DublinCore related to month strings.</li>
+	    <li>Improved handling of external links. The 'file' field can now specify a list of external links, and arbitrary file types are supported. Old-style PDF and PS links can be moved automatically into the 'file' field.</li>
+	    <li>Fixed bug in RIS and Refer/Endnote imports. Entries with editors but no authors are now imported properly.</li>
+	    <li>Fixed missing export formatter AuthorFirstFirstCommas.</li>
+	    <li>Fixed minor bug in Harvard export with missing space between year and title.</li>
+	    <li>Fixed bug that caused lockup when connection to IEEExplore fails.</li>
+	    <li>Fixed wrong dependency in OAI2/ArXiv Fetcher.</li>
+	    <li>Fixed problem with foreign characters in OAI2/ArXiv Fetcher.</li>
+	    <li>Fixed problem with key generation in OAI2/ArXiv Fetcher.</li>
+	    <li>Fixed bug in duplicate search that made misc entries never get detected as duplicates.</li>
+	    <li>Fixed bug in XMP reimport from DublinCore related to month strings.</li>
           </ul>
         </div>
       </div>
@@ -183,12 +212,13 @@
           without using the import inspection window.</li>
 	    <li>Modified quick jump behaviour so sequences of letters can be found. Timeout or
           ESC resets the search.</li>
-	    <li>Improved XMP support:</li>
+	    <li>Improved XMP support:
               <ul>
 		<li>JabRef now reads and write DublinCore and Legacy Document Properties;
 	            Caution needs to be used though since, JabRef does overwrite existing values.</li>
 		<li>XMP privacy filter can be used to prevent sensible fields to be exported.</li>
               </ul>
+	    </li>  
 	    <li>Support for OAI2 identifiers with subcategories, e.g. math.RA/0601001</li>
 	    <li>Fixed bug that made explicit groups appear empty after updating group tree from external change.</li>
 	    <li>New windows installer thanks to Uwe Stöhr.</li>
