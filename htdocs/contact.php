@@ -31,6 +31,7 @@
 	<span class="developer">Guillaume Gardey <img src="images/stock_person.png" alt="Developer" title="Webdesign and HTML export" /></span>
 	<span class="developer">Cyrille d'Haese <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Raik Nagel <img src="images/stock_person.png" alt="Developer" title="" /></span>
+	<span class="developer">Christopher Oezbeck <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Ellen Reitmayr <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Andreas Rudert <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Michael Spiegel <img src="images/stock_person.png" alt="Developer" title="" /></span>
@@ -90,14 +91,14 @@
       <a href="http://sourceforge.net/svn/?group_id=92314">Subversion page</a>.</p>
 
       <p id="bugtracker">To register bug reports, go to the
-      <a href="http://sourceforge.net/tracker/?atid=600306&group_id=92314">Bug tracker</a>.</p>
+      <a href="http://sourceforge.net/tracker/?atid=600306&amp;group_id=92314">Bug tracker</a>.</p>
 
       <p id="featurerequest">To register feature requests, go to the
-      <a href="https://sourceforge.net/tracker/?group_id=92314&atid=600309">Feature request page</a>.</p>
+      <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600309">Feature request page</a>.</p>
 
       <p id="patches">If you have developed an improvement or bugfix
       for JabRef, you can post it in the
-      <a href="https://sourceforge.net/tracker/?group_id=92314&atid=600308">Patches page</a>
+      <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600308">Patches page</a>
       in order to share it with other users and to make it available
       for possible inclusion in future versions of JabRef.</p>
 
