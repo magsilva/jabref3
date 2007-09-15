@@ -14,7 +14,9 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
+
       <h3>Contact</h3>
+
       <span class="single_item"><a href="#mailinglist">Mailing lists</a></span>
       <span class="single_item"><a href="#subversion">Subversion</a></span>
       <span class="single_item"><a href="#bugtracker">Bug tracker</a></span>
@@ -76,33 +78,39 @@
 
 
     <div id="main">
-      <h3 id="doc">Contact</h3>
+      <h2>Contact</h2>
 
       <p>As a user, you can contribute to JabRef's development by
       sharing your wishes for new features, comments or information
       about bugs you have found. There are several ways to interact
       with us, depending on what you want to achieve.</p>
 
-      <p id="mailinglist">For general questions about JabRef, you can use the
+      <h3 id="mailinglist">Mailing list</h3>
+      <p>For general questions about JabRef, you can use the
       <a href="https://sourceforge.net/mail/?group_id=92314">JabRef mailing lists</a>.</p>
 
-      <p id="subversion">To browse or check out the JabRef source code from Subversion,
+      <h3 id="subversion">Subversion access</h3>
+      <p>To browse or check out the JabRef source code from Subversion,
       take a look at our
       <a href="http://sourceforge.net/svn/?group_id=92314">Subversion page</a>.</p>
 
-      <p id="bugtracker">To register bug reports, go to the
+      <h3 id="bugtracker">Bug reports</h3>
+      <p>To register bug reports, go to the
       <a href="http://sourceforge.net/tracker/?atid=600306&amp;group_id=92314">Bug tracker</a>.</p>
 
-      <p id="featurerequest">To register feature requests, go to the
+      <h3 id="featurerequest">Feature request</h3>
+      <p>To register feature requests, go to the
       <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600309">Feature request page</a>.</p>
 
-      <p id="patches">If you have developed an improvement or bugfix
+      <h3 id="patches">Patches</h3>
+      <p>If you have developed an improvement or bugfix
       for JabRef, you can post it in the
       <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600308">Patches page</a>
       in order to share it with other users and to make it available
       for possible inclusion in future versions of JabRef.</p>
 
-      <p id="donations">Finally, if you enjoy using JabRef and would like to make
+      <h3 id="donations">Donations</h3>
+      <p>Finally, if you enjoy using JabRef and would like to make
       a donation, take a look at our
       <a href="http://sourceforge.net/project/project_donations.php?group_id=92314">
       Donations page</a>.</p>
