@@ -1,32 +1,41 @@
 body {
     margin:0;
     padding:0;
+    font-family: serif;
 }
 
 a:link {
-    color: #0000FF;
+    color: #008888;
     text-decoration: none;
     font-weight:bold;
 }
 
 a:visited {
-    color : #5555FF;
+    color: #005354;
     text-decoration: none;
     font-weight:bold;
 }
 
 a:hover {
-    color:red;
+    color: #00a5a7;
     text-decoration: none;
     font-weight:bold;
 }
 
 a:active {
-    color: white;
-    background: red;
+    color: #005354;
     text-decoration: none;
     font-weight:bold;
 } 
+
+img {
+    border:0;
+    padding:0;
+}
+
+acronym {
+    font-variant:small-caps;
+}
 
 #container {
     width:770px;
@@ -44,8 +53,8 @@ a:active {
 }
 
 #navcontainer{
-    margin-top: 2px;
-    color: #088;
+    margin-top: 1px;
+    color: #413b62;
     font-weight: bold;
     font-size: 14px;
 }
@@ -53,9 +62,9 @@ a:active {
 #navlist
 {
     margin: 0;
-    padding: 3px 0;
-    border-top:solid 1px #088;
-    border-bottom:solid 1px #088;
+    padding: 3px 5px;
+    border-top:solid 1px #008888;
+    border-bottom:solid 1px #008888;
 }
 
 #navlist li {
@@ -73,33 +82,34 @@ a:active {
 }
 
 #navlist li a:link {
-    color: #088;
+    color: #008888;
 }
 
 #navlist li a:visited {
-    color: #088;
+    color: #008888;
 }
 
 #navlist li a:hover {
     color: #FFFFFF;
-    background: #088;
+    background: #008888;
 }
 
 #rightpanel {
     float:right;
     width:177px;
+    margin-top:1px;
     margin-left:10px;
-    padding:0.7em;
+    padding:10px;
     font-size:small;
-    border-left:2px solid black;
-    border-bottom:2px solid black;
-    background-color: #ddd;
+    border-left:1px solid #413b62;
+    border-bottom:2px solid #413b62;
+    background-color: #dddddd;
 }
 
 #rightpanel h3 {
     text-align:center;
-    border-top:solid 2px black;
-    border-bottom:solid 2px black;
+    border-top:solid 1px black;
+    border-bottom:solid 1px black;
 }
 
 #rightpanel h4 {
@@ -108,7 +118,7 @@ a:active {
     border-bottom:solid 2px black;
     padding:0;
     margin:0;
-    margin-top:1em;
+    margin-top:8px;
 }
 
 #rightpanel img {
@@ -149,22 +159,33 @@ h4#contributors  {
 
 #main {
     text-align:justify;
-    padding-left:1em;
+    padding-left:12px;
     width:70%;
 }
 
+#main h1 {
+    color:#413b62;
+}
+
+#main h2 {
+    color:#413b62;
+}
+
 #main h3 {
-    color:#444;
-    border-bottom:solid 1px green;
+    color:#413b62;
+    border-bottom:solid 1px #805b41;
 }
 
 #main h4 {
-    color:#444;
+    color:#413b62;
 }
 
 #main pre {
-    background-color:#ccc;
+    background-color:#dddddd;
     border:solid 1px gray;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 16px;
 }
 
 #main img.screenshot {
@@ -182,17 +203,28 @@ h4#contributors  {
     color:black;
 }
 
+ul.history_column {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.features_column {
+    list-style-type: none;
+}
+
 .item {
-    color:navy;
+    color: #4d4674;
     font-weight:bold;
 }
 
 .item_desc {
     text-align:right;
+    margin-bottom: 8px;
 }
 
 .item_desc a, .item_desc a:visited {
-    color:navy;
+    color: #4d4674;
     text-decoration:none;
     font-weight:bold;
     display:block;
@@ -202,24 +234,21 @@ h4#contributors  {
     color:red;
 }
 
-.features_column {
-/*
-    float:left;
-    width: 45%;
-*/
-    padding-left:2em;
-    padding-right:2em;
-    text-align:left;
+ul.features_column {
+    padding-left:  30px;
+    padding-right: 30px;
+    text-align: left;
 }
 
 .feature {
     font-weight:bold;
-    color:navy;
+    color: #4d4674;
 }
 
 .feature_desc {
     font-size:small;
-    padding-left:3em;
+    padding-left: 30px;
+    padding-bottom: 8px;
 }
 
 .version_desc {
@@ -233,30 +262,28 @@ h4#contributors  {
 
 .single_item a, .single_item a:visited {
     text-decoration:none;
-    color:navy;
+    color: #4d4674;
     display:block;
-    border-left:solid 10px #ddd;
-    border-bottom:solid 3px #ddd;
+    border-left:solid 10px #dddddd;
+    border-bottom:solid 3px #dddddd;
 }
 
 .single_item a:hover {
-    border-left:solid 10px #ddd;
+    border-left:solid 10px #dddddd;
     background-color:white;
 }
 
 #footer {
     clear: both;
     margin-top: 20px;
-    border-top: solid 1px gray;
-    color:#888;
-    background-color: #ddd;
+    border-top: solid 1px #413b62;
     bottom:0;
 }
 
 #footer p {
     margin:0px;
     padding:2px;
-    font-size:small;
+    font-size:x-small;
     text-align:right;
 }
 
@@ -269,7 +296,7 @@ h4#contributors  {
 
 #footer a, #footer a:visited, #footer a:hover{
     text-decoration:none;
-    color:#088;
+    color:#008888;
 }
 
 #footer p.floatleft {
