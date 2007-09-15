@@ -15,7 +15,7 @@
 
     <div id="rightpanel">
       <h3 id="download list">Downloadable journal lists</h3>
-      <ul class="history_column">
+      <ul>
         <li><a href="journals/journal_abbreviations_general.txt">General list</a></li>
         <li><a href="journals/journal_abbreviations_medicus.txt">Index Medicus abbreviation list</a> by Guy Tsafnat.</li>
         <li><a href="journals/journal_abbreviations_meteorology.txt">Meteorology journal list</a> by Thijs Heus.</li>
@@ -32,6 +32,7 @@
       respective abbreviations. to set up these lists, choose 
       <b>Options -> Manage journal abbreviations</b>.</p>
 
+      <h3 id="downloadlists">Downloadable journal lists</h3>
       <p><acronym>JabRef</acronym> includes no list of journals by default. Instead, the
       management window allows you to edit a personal list of
       journals, and to reference one or more external lists. To make this
@@ -48,6 +49,7 @@
       from one of the links below, click <b>Download</b> in <acronym>JabRef</acronym>, and
       paste the URL into the query dialog that appears.</p>
 
+      <h3 id="contribution">Contribution to journal abbreviation lists</h3>
       <p>We want to expand both the general list and the selection of
       smaller lists, so if you have set up a representative list for your
       own subject area, we would appreciate it if you share your list by
