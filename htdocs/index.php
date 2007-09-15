@@ -16,133 +16,55 @@
     <div id="rightpanel">
       <h3 id="News">News</h3>
 
-      <div class="item">
-        August 29th, 2007
-      </div>
+      <ul class="history_column">
+	<li class="item">August 29th, 2007</li>
+	<li class="item_desc">Version 2.3beta2</li>
 
-      <div class="item_desc">
-        Version 2.3beta2
-      </div>
+	<li class="item">June 28th, 2007</li>
+	<li class="item_desc">Version 2.3beta</li>
 
-      <div class="item">
-        June 28th, 2007
-      </div>
+	<li class="item">January 30th, 2007</li>
+	<li class="item_desc">Version 2.2</li>
 
-      <div class="item_desc">
-        Version 2.3beta
-      </div>
+	<li class="item">November 26th, 2006</li>
+	<li class="item_desc">Version 2.2beta2</li>
 
-      <div class="item">
-        January 30th, 2007
-      </div>
+	<li class="item">October 13th, 2006</li>
+	<li class="item_desc">Version 2.2beta</li>
 
-      <div class="item_desc">
-        Version 2.2
-      </div>
+	<li class="item">August 9th, 2006</li>
+	<li class="item_desc">Version 2.1</li>
 
-      <div class="item">
-        November 26th, 2006
-      </div>
+	<li class="item">June 29th, 2006</li>
+	<li class="item_desc">Version 2.1beta2</li>
 
-      <div class="item_desc">
-        Version 2.2beta2
-      </div>
+	<li class="item">May 9th, 2006</li>
+	<li class="item_desc">Version 2.1beta</li>
 
-      <div class="item">
-        October 13th, 2006
-      </div>
+	<li class="item">February 2nd, 2006</li>
+	<li class="item_desc">Version 2.0.1</li>
 
-      <div class="item_desc">
-        Version 2.2beta
-      </div>
+	<li class="item">January 30th, 2006</li>
+	<li class="item_desc">Version 2.0</li>
 
-      <div class="item">
-        August 9th, 2006
-      </div>
+	<li class="item">January 15th, 2006</li>
+	<li class="item_desc">Version 2.0beta2</li>
 
-      <div class="item_desc">
-        Version 2.1
-      </div>
+	<li class="item">January 4th, 2006</li>
+	<li class="item_desc">Version 2.0beta</li>
 
-      <div class="item">
-        June 29th, 2006
-      </div>
+	<li class="item">September 15th, 2005</li>
+	<li class="item_desc">Version 1.8.1</li>
 
-      <div class="item_desc">
-        Version 2.1beta2
-      </div>
+	<li class="item">July 30th, 2005</li>
+	<li class="item_desc">Version 1.8</li>
 
-      <div class="item">
-        May 9th, 2006
-      </div>
+	<li class="item">July 13th, 2005</li>
+	<li class="item_desc">Version 1.8beta2</li>
 
-      <div class="item_desc">
-        Version 2.1beta
-      </div>
-
-      <div class="item">
-        February 2nd, 2006
-      </div>
-
-      <div class="item_desc">
-        Version 2.0.1
-      </div>
-
-      <div class="item">
-        January 30th, 2006
-      </div>
-
-      <div class="item_desc">
-        Version 2.0
-      </div>
-
-      <div class="item">
-        January 15th, 2006
-      </div>
-
-      <div class="item_desc">
-        Version 2.0beta2
-      </div>
-
-      <div class="item">
-        January 4th, 2006
-      </div>
-
-      <div class="item_desc">
-        Version 2.0beta
-      </div>
-
-      <div class="item">
-        September 15th, 2005
-      </div>
-
-      <div class="item_desc">
-        Version 1.8.1
-      </div>
-
-      <div class="item">
-        July 30th, 2005
-      </div>
-
-      <div class="item_desc">
-        Version 1.8
-      </div>
-
-      <div class="item">
-        July 13th, 2005
-      </div>
-
-      <div class="item_desc">
-        Version 1.8beta2
-      </div>
-
-      <div class="item">
-        June 6th, 2005
-      </div>
-
-      <div class="item_desc">
-        Version 1.8beta
-      </div>
+	<li class="item">June 6th, 2005</li>
+	<li class="item_desc">Version 1.8beta</li>
+      </ul>
     </div>
 
     <div id="main">
