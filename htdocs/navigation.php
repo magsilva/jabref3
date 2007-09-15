@@ -28,7 +28,7 @@ echo"    <div id=\"navcontainer\">
     navigate("/screenshots.php","Some Screenshots","Screenshots",$filename);
     navigate("/revisionhistory.php","History and documentation about JabRef releases","History",$filename);
     navigate("/contact.php","Contact the JabRef people","Contact",$filename);
-    navigate("http://sourceforge.net/project/showfiles.php?group_id=92314","The JabRef Download page at Sourceforge","Download",$filename);
+    navigate("/download.php","The JabRef Download page at Sourceforge","Download",$filename);
 
 echo"      </ul>
     </div>
