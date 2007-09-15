@@ -30,7 +30,7 @@
     <div id="main">
       <h2>Documentation</h2>
 
-      <p>The main source of documentation is JabRef's built-in help
+      <p>The main source of documentation is <acronym>JabRef's</acronym> built-in help
       pages, accessible from the Help menu.</p>
 
       <p>There is an online copy of these help documents
@@ -38,7 +38,7 @@
       <a href="help/fr/Contents.php">French version,</a>
       <a href="help/de/Contents.php">German version</a>). 
       Note that the online copy may not
-      always be in sync with the latest JabRef version.</p>
+      always be in sync with the latest <acronym>JabRef</acronym> version.</p>
 
       <p>For German readers, a more comprehensive <a href=
       "help/manual_pdf/JabRef-UserManual_de.pdf">user manual</a>
@@ -59,7 +59,7 @@
       <h4 id="web">Web Start</h4>
 
       <p>If you have Java installed you can run the latest version
-      of JabRef directly through Java Web Start by clicking the link
+      of <acronym>JabRef</acronym> directly through Java Web Start by clicking the link
       below. Make sure your browser uses the &quot;javaws&quot;
       program when opening .jnlp files. For security, Web Start will
       ask your permission before it gives the application access to
@@ -119,18 +119,18 @@
 
       <h5>Method 1: Mouse click way</h5>Now we have the .msi
       install file. If java is not installed it issues a complaint.
-      This simply installs Jabref and a shortcut in the start menu.
+      This simply installs <acronym>JabRef</acronym> and a shortcut in the start menu.
 
       <h5>Method 2: Batch file way</h5>First try to simply
       double-click the JabRef.jar file - this works on some
-      systems. If JabRef does not start immediately (i.e. Windows
+      systems. If <acronym>JabRef</acronym> does not start immediately (i.e. Windows
       does not know what to do with a .jar file), proceed like
       this:
 
       <p>In the directory where you placed JabRef.jar, create a
       batchfile "jabref-start.bat":</p>
       <pre>start javaw -jar JabRef.jar</pre>
-      Double-click on the batchfile to start JabRef.
+      Double-click on the batchfile to start <acronym>JabRef</acronym>.
 
       <h5>Method 3: Command line way</h5>
 
@@ -151,7 +151,7 @@
           <pre>java -jar JabRef.jar</pre>
 	  to execute the program. The DOS window will be used to
 	  display debug information and error messages. If you do
-	  not want this window, start JabRef with
+	  not want this window, start <acronym>JabRef</acronym> with
           <pre>javaw -jar JabRef.jar</pre>
 	  You can then close the DOS window once JabRef is running.<br />
         </li>
@@ -168,7 +168,7 @@
       line:&nbsp; java -jar c:/location/to/jabref/JabRef.jar</p>
 
       <p>Now you can double click on the JabRef.bat and it will
-      launch JabRef</p>
+      launch <acronym>JabRef</acronym>.</p>
 
 
       <h4 id="macosx">Mac</h4>

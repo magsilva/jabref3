@@ -16,8 +16,8 @@
     <div id="rightpanel">
 
       <h3>Frequently Asked Questions</h3>
-      <span class="single_item"><a href="#linux">JabRef &amp; Linux</a></span>
-      <span class="single_item"><a href="#windows">JabRef &amp; Windows</a></span>
+      <span class="single_item"><a href="#linux"><acronym>JabRef</acronym> &amp; Linux</a></span>
+      <span class="single_item"><a href="#windows"><acronym>JabRef</acronym> &amp; Windows</a></span>
       <span class="single_item"><a href="#developers">Developers</a></span>
       <span class="single_item"><a href="#general_usage">General usage</a></span>
       <span class="single_item"><a href="#other">Other</a></span>

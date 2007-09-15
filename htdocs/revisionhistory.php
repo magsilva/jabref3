@@ -16,129 +16,39 @@
     <div id="rightpanel">
       <h3>Version</h3>
 
-      <div class="single_item">
-        <a href="#v2.3b2">2.3b2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.3b">2.3b</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.2">2.2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.2b2">2.2b2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.2b">2.2b</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.1">2.1</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.1b2">2.1b2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.1b">2.1b</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.0.1">2.0.1</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.0">2.0</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.0b2">2.0b2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v2.0b">2.0b</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.8.1">1.8.1</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.8">1.8</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.8b2">1.8b2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.8b">1.8b</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.7.1">1.7.1</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.7">1.7</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.7b2">1.7 beta2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.7b">1.7 beta</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.6">1.6</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.6beta">1.6 beta</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.55">1.55</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.5">1.5</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.4">1.4</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.3.1">1.3.1</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.3">1.3</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.2">1.2</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.19">1.19</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.1">1.1</a>
-      </div>
-
-      <div class="single_item">
-        <a href="#v1.0">1.0</a>
-      </div>
+      <ul class="history_column">
+	<li class="single_item"><a href="#v2.3b2">2.3b2</a></li>
+	<li class="single_item"><a href="#v2.3b">2.3b</a></li>
+	<li class="single_item"><a href="#v2.2">2.2</a></li>
+	<li class="single_item"><a href="#v2.2b2">2.2b2</a></li>
+	<li class="single_item"><a href="#v2.2b">2.2b</a></li>
+	<li class="single_item"><a href="#v2.1">2.1</a></li>
+	<li class="single_item"><a href="#v2.1b2">2.1b2</a></li>
+	<li class="single_item"><a href="#v2.1b">2.1b</a></li>
+	<li class="single_item"><a href="#v2.0.1">2.0.1</a></li>
+	<li class="single_item"><a href="#v2.0">2.0</a></li>
+	<li class="single_item"><a href="#v2.0b2">2.0b2</a></li>
+	<li class="single_item"><a href="#v2.0b">2.0b</a></li>
+	<li class="single_item"><a href="#v1.8.1">1.8.1</a></li>
+	<li class="single_item"><a href="#v1.8">1.8</a></li>
+	<li class="single_item"><a href="#v1.8b2">1.8b2</a></li>
+	<li class="single_item"><a href="#v1.8b">1.8b</a></li>
+	<li class="single_item"><a href="#v1.7.1">1.7.1</a></li>
+	<li class="single_item"><a href="#v1.7">1.7</a></li>
+	<li class="single_item"><a href="#v1.7b2">1.7 beta2</a></li>
+	<li class="single_item"><a href="#v1.7b">1.7 beta</a></li>
+	<li class="single_item"><a href="#v1.6">1.6</a></li>
+	<li class="single_item"><a href="#v1.6beta">1.6 beta</a></li>
+	<li class="single_item"><a href="#v1.55">1.55</a></li>
+	<li class="single_item"><a href="#v1.5">1.5</a></li>
+	<li class="single_item"><a href="#v1.4">1.4</a></li>
+	<li class="single_item"><a href="#v1.3.1">1.3.1</a></li>
+	<li class="single_item"><a href="#v1.3">1.3</a></li>
+	<li class="single_item"><a href="#v1.2">1.2</a></li>
+	<li class="single_item"><a href="#v1.19">1.19</a></li>
+	<li class="single_item"><a href="#v1.1">1.1</a></li>
+	<li class="single_item"><a href="#v1.0">1.0</a></li>
+      </ul>
     </div>
 
     <div id="main">
