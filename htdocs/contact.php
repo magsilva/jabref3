@@ -80,17 +80,17 @@
     <div id="main">
       <h2>Contact</h2>
 
-      <p>As a user, you can contribute to JabRef's development by
+      <p>As a user, you can contribute to <acronym>JabRef's</acronym> development by
       sharing your wishes for new features, comments or information
       about bugs you have found. There are several ways to interact
       with us, depending on what you want to achieve.</p>
 
       <h3 id="mailinglist">Mailing list</h3>
-      <p>For general questions about JabRef, you can use the
-      <a href="https://sourceforge.net/mail/?group_id=92314">JabRef mailing lists</a>.</p>
+      <p>For general questions about <acronym>JabRef</acronym>, you can use the
+      <a href="https://sourceforge.net/mail/?group_id=92314"><acronym>JabRef</acronym> mailing lists</a>.</p>
 
       <h3 id="subversion">Subversion access</h3>
-      <p>To browse or check out the JabRef source code from Subversion,
+      <p>To browse or check out the <acronym>JabRef</acronym> source code from Subversion,
       take a look at our
       <a href="http://sourceforge.net/svn/?group_id=92314">Subversion page</a>.</p>
 
@@ -104,13 +104,13 @@
 
       <h3 id="patches">Patches</h3>
       <p>If you have developed an improvement or bugfix
-      for JabRef, you can post it in the
+      for <acronym>JabRef</acronym>, you can post it in the
       <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600308">Patches page</a>
       in order to share it with other users and to make it available
       for possible inclusion in future versions of JabRef.</p>
 
       <h3 id="donations">Donations</h3>
-      <p>Finally, if you enjoy using JabRef and would like to make
+      <p>Finally, if you enjoy using <acronym>JabRef</acronym> and would like to make
       a donation, take a look at our
       <a href="http://sourceforge.net/project/project_donations.php?group_id=92314">
       Donations page</a>.</p>

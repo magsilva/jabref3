@@ -14,7 +14,7 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
-      <h3>Downloadable journal lists</h3>
+      <h3 id="download list">Downloadable journal lists</h3>
       <ul>
         <li><a href="journals/journal_abbreviations_general.txt">General list</a></li>
         <li><a href="journals/journal_abbreviations_medicus.txt">Index Medicus abbreviation list</a> by Guy Tsafnat.</li>
@@ -24,15 +24,15 @@
     </div>
 
     <div id="main">
-      <h2 id="abbrev_lists">JabRef journal abbreviation lists</h2>
+      <h2 id="abbrev_lists"><acronym>JabRef</acronym> journal abbreviation lists</h2>
 
-      <p>JabRef can help you refactor your reference list by
+      <p><acronym>JabRef</acronym> can help you refactor your reference list by
       automatically abbreviating or unabbreviating journal names. This
       requires that you keep one or more lists of journal names and their
       respective abbreviations. to set up these lists, choose 
       <b>Options -> Manage journal abbreviations</b>.</p>
 
-      <p>JabRef includes no list of journals by default. Instead, the
+      <p><acronym>JabRef</acronym> includes no list of journals by default. Instead, the
       management window allows you to edit a personal list of
       journals, and to reference one or more external lists. To make this
       process more efficient for you, we offer a couple of lists from this
@@ -45,7 +45,7 @@
       is a large list of journals, not limited to a single subject area. In
       addition there are (or will be) other, smaller, lists that contain
       journals from specific fields. To get one of these, just copy the URL
-      from one of the links below, click <b>Download</b> in JabRef, and
+      from one of the links below, click <b>Download</b> in <acronym>JabRef</acronym>, and
       paste the URL into the query dialog that appears.</p>
 
       <p>We want to expand both the general list and the selection of

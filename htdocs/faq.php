@@ -28,13 +28,13 @@
 
       <h2>Frequently Asked Questions</h2>
 
-      <h3 id="linux">JabRef &amp; Linux</h3>
+      <h3 id="linux"><acronym>JabRef</acronym> &amp; Linux</h3>
 
-      <p class="question">Q: Does JabRef run under free Java (Classpath, Kaffee, GCJ, etc.)?</p>
-      <p class="answer">A: Unfortunately one of our dependencies currently crashes when running with Java APIs other than Suns. At the time of writing this (2006-09-13), version 0.92 of Classpath was used. Please let us know if a newer version fails or works for you. If you have an idea/the expertise to make JabRef work under Classpath let us know.</p>
+      <p class="question">Q: Does <acronym>JabRef</acronym> run under free Java (Classpath, Kaffee, GCJ, etc.)?</p>
+      <p class="answer">A: Unfortunately one of our dependencies currently crashes when running with Java APIs other than Suns. At the time of writing this (2006-09-13), version 0.92 of Classpath was used. Please let us know if a newer version fails or works for you. If you have an idea/the expertise to make <acronym>JabRef</acronym> work under Classpath let us know.</p>
 
-      <p class="question">Q: JabRef does not start under Linux! What can I do?</p>
-      <p class="answer">A: JabRef works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.4.2 and newer. If running JabRef fails to start nevertheless do the following for troubleshooting:</p>
+      <p class="question">Q: <acronym>JabRef</acronym> does not start under Linux! What can I do?</p>
+      <p class="answer">A: <acronym>JabRef</acronym> works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.4.2 and newer. If running <acronym>JabRef</acronym> fails to start nevertheless do the following for troubleshooting:</p>
       <p class="answer">Run <pre>java --version</pre> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your  
 distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">Under Debian/Ubuntu it works like this (you need to have admin privileges):</p>
@@ -43,13 +43,13 @@ distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">If you do not have root-access on the machine you can install the Sun JRE in your home but need to make sure that you run the correct java executable. For instance if you installed the JRE into a folder called  
       <pre>java</pre> in your home try <pre>~/java/jre/bin/java -jar JabRef-2.1.jar</pre></p>
 
-      <p class="question">Q: I am on Ubuntu and clicking on the JabRef icon works, but I cannot start JabRef from the command line. What is wrong?</p>
+      <p class="question">Q: I am on Ubuntu and clicking on the <acronym>JabRef</acronym> icon works, but I cannot start <acronym>JabRef</acronym> from the command line. What is wrong?</p>
       <p class="answer">A: You have several Java Virtual Machines installed and under the command line the wrong one is chosen. Have a look at the previous question that tells you how to change the virtual machine used.</p>
 
-      <h3 id="windows">JabRef &amp; Windows</h3>
+      <h3 id="windows"><acronym>JabRef</acronym> &amp; Windows</h3>
 
-      <p class="question">Q: My virus-scanner tells me that JabRef is a virus. Is your server compromised?</p>
-      <p class="answer">A: No. But the windows installer uses <a href="http://nsis.sourceforge.net/">the Nullsoft Scriptable Install System (NSIS)</a> version 2.18 (as of JabRef 2.1) which unfortunately creates installers that are thought to be viruses by some virus-scanners.</p>
+      <p class="question">Q: My virus-scanner tells me that <acronym>JabRef</acronym> is a virus. Is your server compromised?</p>
+      <p class="answer">A: No. But the windows installer uses <a href="http://nsis.sourceforge.net/">the Nullsoft Scriptable Install System (NSIS)</a> version 2.18 (as of <acronym>JabRef</acronym> 2.1) which unfortunately creates installers that are thought to be viruses by some virus-scanners.</p>
       <p class="answer">See the <a href="http://forums.winamp.com/showthread.php?postid=1977648">discussion  
       in the NSIS forum</a> or <a href="http://nsis.sourceforge.net/NSIS_False_Positives">the list of false  
       positives with NSIS</a> for details.</p>
@@ -59,15 +59,15 @@ distribution, so we cannot give exact advise for everybody. </p>
 
       <h3 id="developers">Developers</h3>
 
-      <p class="question">Q: How can I join the JabRef project?</p>
-      <p class="answer">A: Sign up with sourceforge and write an email to our project leader Morten O. Alver. Good ways to start with the project is to help with fixing bugs (maybe some that trouble you yourself ;-), writing FAQs, helping users in the forum and translating JabRef into another language.</p>
+      <p class="question">Q: How can I join the <acronym>JabRef</acronym> project?</p>
+      <p class="answer">A: Sign up with sourceforge and write an email to our project leader Morten O. Alver. Good ways to start with the project is to help with fixing bugs (maybe some that trouble you yourself ;-), writing FAQs, helping users in the forum and translating <acronym>JabRef</acronym> into another language.</p>
 
       <p class="question">Q: I have a patch that I want to contribute. Where can I do that?</p>
       <p class="answer">A: Please send patches to the Patch-Tracker on Sourceforge and write a quick entry on the user or developer list.</p>
 
       <h3 id="general_usage">General usage</h3>
 
-      <p class="question">Q: How do I prevent JabRef from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
+      <p class="question">Q: How do I prevent <acronym>JabRef</acronym> from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
       <p class="answer">A: Open Tools -> Preferences. In the "General" panel, you will find an option called "Do not wrap the following fields when saving". This option contains a semicolon-separated list of field names. Any field you add to this list will always be stored without introduction of line breaks.</p>
 
       <h3 id="other">Other</h3>
@@ -77,7 +77,7 @@ distribution, so we cannot give exact advise for everybody. </p>
       and checking whether your question has been answered in the <a href="https://sourceforge.net/forum/forum.php?forum_id=318825">forum</a>, check the <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600306">bug-tracker</a> if this has been discussed before (filter for Any Bugs). If you cannot find anything in an reasonable amount of time write a message in the forum, problems usually get resolved rather quickly (at least we hope so ;-).</p>
 
       <p class="question">Q: There is a mistake in this FAQ, a dead link or I have written a better/new explanation for a question!</p>
-      <p class="answer">A: Let us know as soon as possible! => <a href="https://sourceforge.net/forum/forum.php?forum_id=318825">JabRef User Forum</a></p>
+      <p class="answer">A: Let us know as soon as possible! => <a href="https://sourceforge.net/forum/forum.php?forum_id=318825"><acronym>JabRef</acronym> User Forum</a></p>
 
     </div>
     <?php include("footer.php"); ?>
