@@ -28,7 +28,7 @@
     </div>
 
     <div id="main">
-      <h3 id="doc">Documentation</h3>
+      <h2>Documentation</h2>
 
       <p>The main source of documentation is JabRef's built-in help
       pages, accessible from the Help menu.</p>

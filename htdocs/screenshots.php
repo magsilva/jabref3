@@ -22,6 +22,9 @@
     </div>
 
     <div id="main">
+
+      <h2>Screenshots</h2>
+
       <h3 id="filemenu">File Menu</h3>
       <img class="screenshot" src="images/Jabref-ScreenShot-FileMenu.png" alt="Jabref-ScreenShot-FileMenu.png" />
 

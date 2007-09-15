@@ -143,6 +143,8 @@
 
     <div id="main">
 
+      <h2>Revision history</h2>
+
       <div class="aversion" id="v2.3b2">
         <h3>Version 2.3beta2 (August 29th, 2007)</h3>
 
