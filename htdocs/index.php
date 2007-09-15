@@ -177,63 +177,64 @@
 
       <h3 id="features">Features</h3>
 
-      <div class="features_column">
+      <ul class="features_column">
 
-        <div class="feature">Advanced BibTeX editor</div>
-        <div class="feature_desc">
-	  Detailed editing of bibtex entries.
-	</div>
+        <li class="feature">Advanced <acronym>BibTeX</acronym> editor</li>
+        <li class="feature_desc">
+	  Detailed editing of <acronym>BibTeX</acronym> entries.
+	</li>
 	
-	<div class="feature">Search functions</div>
-        <div class="feature_desc">
+	<li class="feature">Search functions</li>
+        <li class="feature_desc">
           Search a pattern in the whole bibliography.
-        </div>
+        </li>
 	
-	<div class="feature">Classification of entries</div>
-        <div class="feature_desc">
+	<li class="feature">Classification of entries</li>
+        <li class="feature_desc">
           You can group entries explicitly, by keywords or any
           other fields.
-        </div>
+        </li>
 	
-	<div class="feature">Import of various formats</div>
-        <div class="feature_desc">
+	<li class="feature">Import of various formats</li>
+        <li class="feature_desc">
           BibTeXML, CSA, Refer/Endnote, ISI Web of Science,
           SilverPlatter, Medline/Pubmed (xml), Scifinder, OVID,
           INSPEC, Biblioscape, Sixpack, JStor and RIS.
-        </div>
+        </li>
 	
-	<div class="feature">Built-in and custom export formats</div>
-        <div class="feature_desc">
+	<li class="feature">Built-in and custom export formats</li>
+        <li class="feature_desc">
           HTML, Docbook, BibTeXML, MODS, RTF, Refer/Endnote and
           OpenOffice.org.
-        </div>
+        </li>
 
-        <div class="feature">Customization of BibTeX fields</div>
-        <div class="feature_desc">
-          You can add your own fields to any BibTeX entry type.
-        </div>
+        <li class="feature">Customization of <acronym>BibTeX</acronym> fields</li>
+        <li class="feature_desc">
+          You can add your own fields to any <acronym>BibTeX</acronym> entry type.
+        </li>
 	
-	<div class="feature">Customization of the JabRef interface</div>
-        <div class="feature_desc">
+	<li class="feature">Customization of the <acronym>JabRef</acronym> interface</li>
+        <li class="feature_desc">
           Fonts, displayed fields, etc
-        </div>
+        </li>
 	
-	<div class="feature">Integrates to your environment</div>
-        <div class="feature_desc">
+	<li class="feature">Integrates to your environment</li>
+        <li class="feature_desc">
           Launch external applications: PDF/PS viewers, web
           browser, insert citations into LyX, Kile and WinEdt
-        </div>
+        </li>
 	
-	<div class="feature">Automatic Key generation</div>
-        <div class="feature_desc"></div>
+	<li class="feature">Automatic Key generation</li>
+        <li class="feature_desc"></li>
 	
-	<div class="feature">Search Medline, Citeseer, IEEEXplore and arXiv</div>
-        <div class="feature_desc"></div>
+	<li class="feature">Search Medline, Citeseer, IEEEXplore and arXiv</li>
+        <li class="feature_desc"></li>
 	
-	<div class="feature">Support for XMP Metadata in PDFs</div>
-        <div class="feature_desc">Improve the workflow of sharing PDFs and bibliography information</div>
+	<li class="feature">Support for XMP Metadata in PDFs</li>
+        <li class="feature_desc">Improve the workflow of sharing PDFs and bibliography information</li>
 
-      </div>
+      </ul>
+
     </div>
     <?php include("footer.php"); ?>
   </div>
