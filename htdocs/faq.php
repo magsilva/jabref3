@@ -35,13 +35,13 @@
 
       <p class="question">Q: JabRef does not start under Linux! What can I do?</p>
       <p class="answer">A: JabRef works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.4.2 and newer. If running JabRef fails to start nevertheless do the following for troubleshooting:</p>
-      <p class="answer">Run <code>java --version</code> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your  
+      <p class="answer">Run <pre>java --version</pre> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your  
 distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">Under Debian/Ubuntu it works like this (you need to have admin privileges):</p>
-      <p class="answer"><code>sudo update-alternatives --config java</code></p>
-      <p class="answer">In the dialog that appears select the Sun JDK or JRE. Alternatively you can also search for the java executable and run that directly. In Ubuntu you can find Java at <code>/usr/lib/jvm/java-1.5.0-sun/jre/bin/java</code>.</p>
+      <p class="answer"><pre>sudo update-alternatives --config java</pre></p>
+      <p class="answer">In the dialog that appears select the Sun JDK or JRE. Alternatively you can also search for the java executable and run that directly. In Ubuntu you can find Java at <pre>/usr/lib/jvm/java-1.5.0-sun/jre/bin/java</pre></p>
       <p class="answer">If you do not have root-access on the machine you can install the Sun JRE in your home but need to make sure that you run the correct java executable. For instance if you installed the JRE into a folder called  
-      <code>java</code> in your home try <code>~/java/jre/bin/java -jar JabRef-2.1.jar</code>.</p>
+      <pre>java</pre> in your home try <pre>~/java/jre/bin/java -jar JabRef-2.1.jar</pre></p>
 
       <p class="question">Q: I am on Ubuntu and clicking on the JabRef icon works, but I cannot start JabRef from the command line. What is wrong?</p>
       <p class="answer">A: You have several Java Virtual Machines installed and under the command line the wrong one is chosen. Have a look at the previous question that tells you how to change the virtual machine used.</p>
@@ -54,7 +54,7 @@ distribution, so we cannot give exact advise for everybody. </p>
       in the NSIS forum</a> or <a href="http://nsis.sourceforge.net/NSIS_False_Positives">the list of false  
       positives with NSIS</a> for details.</p>
       <p class="answer">As a work-around and if you are afraid to use the installer you can always use the platform independent jar and run it from the command line:</p>
-      <p class="answer"><code>java -jar JabRef-2.1.jar</code></p>
+      <p class="answer"><pre>java -jar JabRef-2.1.jar</pre></p>
       <p class="answer">If you want to do anything about, please report this bug with your virus scanner.</p>
 
       <h3 id="developers">Developers</h3>
