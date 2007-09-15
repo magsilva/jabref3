@@ -256,16 +256,15 @@ ul.features_column {
 }
 
 .single_item {
-    text-align:center;
+    color: #4d4674;
     font-weight:bold;
+    text-align:center;
 }
 
 .single_item a, .single_item a:visited {
     text-decoration:none;
     color: #4d4674;
     display:block;
-    border-left:solid 10px #dddddd;
-    border-bottom:solid 3px #dddddd;
 }
 
 .single_item a:hover {
