@@ -6,7 +6,7 @@
   </p>
 
   <p>
-    Hosted by <a href="http://sourceforge.net">
-    <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=92314&amp;type=1" border="0" alt="SourceForge.net Logo" /></a>
+    <a href="http://sourceforge.net">
+    <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=92314&amp;type=4" alt="SourceForge.net Logo" /></a>
   </p>
 </div>
