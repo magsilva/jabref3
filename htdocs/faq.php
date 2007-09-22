@@ -34,7 +34,7 @@
       <p class="answer">A: Unfortunately one of our dependencies currently crashes when running with Java APIs other than Suns. At the time of writing this (2006-09-13), version 0.92 of Classpath was used. Please let us know if a newer version fails or works for you. If you have an idea/the expertise to make <acronym>JabRef</acronym> work under Classpath let us know.</p>
 
       <p class="question">Q: <acronym>JabRef</acronym> does not start under Linux! What can I do?</p>
-      <p class="answer">A: <acronym>JabRef</acronym> works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.4.2 and newer. If running <acronym>JabRef</acronym> fails to start nevertheless do the following for troubleshooting:</p>
+      <p class="answer">A: <acronym>JabRef</acronym> works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.5 and newer. The stable version <acronym>JabRef</acronym> 2.2 also works fine with Sun JRE 1.4.2. If running <acronym>JabRef</acronym> fails to start nevertheless do the following for troubleshooting:</p>
       <p class="answer">Run <pre>java --version</pre> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your  
 distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">Under Debian/Ubuntu it works like this (you need to have admin privileges):</p>

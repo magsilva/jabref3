@@ -15,11 +15,11 @@
 
     <div id="rightpanel">
       
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=482655"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=535792"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
-
       <a href="http://jabref.sourceforge.net/jws/jabref.jnlp">
       <img src="images/RunJabRef.png" alt="Run JabRef instantly" /></a>
+
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=482655"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=535792"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
 
       <h3 id="News">News</h3>
 
@@ -82,7 +82,7 @@
       by <acronym>JabRef</acronym> is <acronym>BibTeX</acronym>,
       the standard <acronym>LaTeX</acronym> bibliography format.
       <acronym>JabRef</acronym> runs on the Java VM (version
-      1.4.2 or greater), and should work equally well on Windows,
+      1.5 or greater), and should work equally well on Windows,
       Linux and Mac OS X.</p>
 
       <p><acronym>BibTeX</acronym> is an application and a bibliography file format
