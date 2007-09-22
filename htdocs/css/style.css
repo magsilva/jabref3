@@ -196,7 +196,8 @@ h4#contributors  {
 }
 
 #main p.question {
-    color:red;
+    color: #805b41;
+    font-weight:bold;
 }
 
 #main p.answer {
@@ -257,6 +258,7 @@ ul.features_column {
 
 .single_item {
     color: #4d4674;
+    text-align:center;
     font-weight:bold;
     text-align:center;
 }
