@@ -18,15 +18,20 @@
     <h2>Download</h2>  
 
     <h3 id="stable">Latest stable version</h3>  
+    <p>We recommend the stable version for all casual users. These releases
+are beta-tested and expected to be stable and reliable.</p>
     <p>
       <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=482655"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
     </p>
 
     <h3 id="beta">Current beta version</h3>  
+    <p>The beta version is an alternative for users who can't wait for the latest features, or who want to help out with beta-testing.</p>    
+    <p class="red">
+     If you use the beta version, please be prepared that it can be unstable and contain serious bugs. Make backups of all important data!
+    </p>
     <p class="red">
       Note: Please install Java runtime environment (JRE) version 1.5 or newer to run this beta version of JabRef.
     </p>
-
     <p>
       <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=535792"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
     </p>
