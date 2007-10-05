@@ -43,8 +43,10 @@ distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">If you do not have root-access on the machine you can install the Sun JRE in your home but need to make sure that you run the correct java executable. For instance if you installed the JRE into a folder called  
       <pre>java</pre> in your home try <pre>~/java/jre/bin/java -jar JabRef-2.1.jar</pre></p>
 
-      <p class="question">Q: I am on Ubuntu and clicking on the <acronym>JabRef</acronym> icon works, but I cannot start <acronym>JabRef</acronym> from the command line. What is wrong?</p>
+      <p class="question">Q: I am on Debian/Ubuntu and clicking on the <acronym>JabRef</acronym> icon works, but I cannot start <acronym>JabRef</acronym> from the command line. What is wrong?</p>
       <p class="answer">A: You have several Java Virtual Machines installed and under the command line the wrong one is chosen. Have a look at the previous question that tells you how to change the virtual machine used.</p>
+
+      <p class="answer">For Ubuntu you may also have a look at the <a href="https://help.ubuntu.com/community/Java">Ubuntu page on Java</a>.</p>
 
       <h3 id="windows"><acronym>JabRef</acronym> &amp; Windows</h3>
 
