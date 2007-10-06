@@ -33,7 +33,7 @@ are beta-tested and expected to be stable and reliable.</p>
       Note: Please install Java runtime environment (JRE) version 1.5 or newer to run this beta version of JabRef.
     </p>
     <p>
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=535792"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=544709"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
     </p>
 
     <h3 id="subversion">Developer versions</h3>

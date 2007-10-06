@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.3b3">2.3b3</a></li>
 	<li class="single_item"><a href="#v2.3b2">2.3b2</a></li>
 	<li class="single_item"><a href="#v2.3b">2.3b</a></li>
 	<li class="single_item"><a href="#v2.2">2.2</a></li>
@@ -54,6 +55,36 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.3b3">
+        <h3>Version 2.3beta3 (October 6th, 2007)</h3>
+
+        <div class="version_desc">
+          <ul>
+	    <li>Export formats that output the character encoding now use common names for encodings instead of Java-specific names.</li>
+	    <li>Added "Open" button in external link dialog box to test or use the link.</li>
+	    <li>Added formatter WrapFileLinks which iterates over file links, producing a formatted string for each containing any desired information about the file link.</li>
+	    <li>Applied Fedor Bezrukov patch (setting User-Agent in URLDownload to solve ArXiv problem).</li>
+	    <li>Applied Aaron Chen's patch for fixing bugs in IEEExplore fetcher.</li>
+	    <li>Applied Edward Valeev's patch for handling article numbers replacing pages in Refer/Endnote import.</li>
+	    <li>Added toolbar button to entry editor for writing XMP-metadata.</li>
+	    <li>Added paste and drag &amp; drop support to file list editor.</li>
+	    <li>Added "authorLast" and "editorLast" markers for using last author's last name in BibTeX keys.</li>
+	    <li>Added support for file field in Write XMP action.</li>
+	    <li>Numeric fields (year, volume, number, pmid, citeseercitationcount) are now sorted as numbers when possible.</li>
+	    <li>Improvements to the Ovid import filter.</li>
+	    <li>Modified AuthorLastFirstAbbreviator and AuthorAbbreviator to accept names in both last-first and first-first format, but always return in last-first format. These two formatters are identical.</li>
+	    <li>[ 1648789 ] Fixed: Problem on writing XMP when option to leave out some fields was active.</li>
+	    <li>[ 1561990 ] Fixed: Exporting to WinEdt - apostrophe.</li>
+	    <li>Fixed bug in entry editor: source panel edits were not properly stored when clicking a different entry in the main table.</li>
+	    <li>Fixed problem with "Synchronize file links" not honouring database specific file directory.</li>
+	    <li>Fixed problem with file type selection in external file link editor not being up-to-date.</li>
+	    <li>Fixed problem with wrong enable/disable behaviour of Clear search button when switching between tabs.</li>
+	    <li>Fixed argument parsing in AbstractParamLayoutFormatter so \t and \n can be used for tabs and newlines.</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.3b2">
         <h3>Version 2.3beta2 (August 29th, 2007)</h3>
