@@ -14,7 +14,7 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
-      <h3 id="download list">Downloadable journal lists</h3>
+      <h3 id="downloadlist">Downloadable journal lists</h3>
       <ul>
         <li><a href="journals/journal_abbreviations_general.txt">General list</a></li>
         <li><a href="journals/journal_abbreviations_medicus.txt">Index Medicus abbreviation list</a> by Guy Tsafnat.</li>
