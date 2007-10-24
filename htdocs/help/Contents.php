@@ -56,7 +56,9 @@
      <a href="SearchHelp.php">Searching in JabRef</a><br />
      <a href="StringEditorHelp.php">String editor</a><br />
      <a href="PreviewHelp.php">Entry preview setup</a><br />
-     <a href="XMPHelp.php">XMP metadata support in JabRef</a></p>
+     <a href="XMPHelp.php">XMP metadata support in JabRef</a><br />
+		 <a href="SQLExport.php">Export to an external SQL database</a><br />
+		</p>
     <?php include("../footer.php"); ?>
   </div>
 
