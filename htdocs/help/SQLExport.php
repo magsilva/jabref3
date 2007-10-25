@@ -21,7 +21,7 @@
     <h2>Setup</h2>
     <ol>
       <li> Using your favorite MySQL administration tool, create an empty MySQL database.</li>
-      <li> Make sure there is a user for this database that has <em>full priviliges</em>.</li>
+      <li> Make sure there is a user for this database that has <em>full privileges</em>.</li>
     </ol>
 
     <h2>Export</h2>
