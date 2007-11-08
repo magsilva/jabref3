@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.3">2.3</a></li>
 	<li class="single_item"><a href="#v2.3b3">2.3b3</a></li>
 	<li class="single_item"><a href="#v2.3b2">2.3b2</a></li>
 	<li class="single_item"><a href="#v2.3b">2.3b</a></li>
@@ -55,6 +56,22 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.3">
+        <h3>Version 2.3 (November 8th, 2007)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added handling of unknown file types when synchronizing the file field.</li>
+            <li>Changed the way customized external file types are stored. Types are now stored in a way analogous to a diff from the default types. This allows default types added in later versions to appear immediately, even if the user has customized the list.</li>
+            <li>Moved file preferences from General tab to new File tab.</li>
+            <li>Reduced horizontal size of preferences dialog.</li>
+            <li>Fixed handling of quotes when using the "abbr" modifier for key generator (Debian bug #448917).</li>
+            <li>Download file procedure now strips query string in order to find correct file extension (Debian bug #448027).</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.3b3">
         <h3>Version 2.3beta3 (October 6th, 2007)</h3>
@@ -164,7 +181,7 @@
 	    </li>  
 	    <li>Support for OAI2 identifiers with subcategories, e.g. math.RA/0601001</li>
 	    <li>Fixed bug that made explicit groups appear empty after updating group tree from external change.</li>
-	    <li>New windows installer thanks to Uwe Stöhr.</li>
+	    <li>New windows installer thanks to Uwe St&ouml;hr.</li>
 	    <li>[ 1641247 ] Fixed: No update of preview after generating bibtex key</li>
 	    <li>[ 1631548 ] Fixed: Absolute paths should be stored for last open files.</li>
 	    <li>[ 1598777 ] Fixed: Month sorting</li>
