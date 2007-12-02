@@ -1,0 +1,3251 @@
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+ 		
+  
+
+
+
+		
+<style>
+.note-header-text {font-family: Times, Times New Roman, serif;
+		color:#ff0000; font-size: .95em;
+		margin-left: .75em; margin-right: .75em;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 	
+	
+  		
+		
+	
+
+
+
+  	 
+     
+
+
+
+	
+	
+  
+
+
+
+	
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+  	
+
+
+
+
+	
+
+
+	  
+		
+	  
+
+
+
+	  
+		
+	  
+
+
+	   
+		
+	  
+
+
+
+ 	
+  
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<LINK REL="toc" HREF="http://www.acm.org/DL">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="css/dl.css">
+<title>Results (page 1): junit</title>
+<meta name="description" content="www.acm.org - The premier society in computing brings you the Computer Portal.">
+<meta name="keywords" content="computer,internet">
+<style type="text/css"><!--
+    body {margin-left: 0em; margin-top: 0}
+    a:link {text-decoration: underline; 	Color: #006699;}
+    a:visited  { color: #990033; text-decoration: underline;}
+    a:hover {color: red; text-decoration: none}
+    a.dLink1:link {color:#336699}
+    a.dLink1:visited {color:#666666}
+	a.isblack:link {text-decoration: underline; 	Color: #000000;}
+    a.isblack:visited  { color: #000000; text-decoration: underline;}
+    a.isblack:hover {color: #000000; text-decoration: none}
+    h1 {font-size: 140%; margin-bottom: 0}
+	ul {margin-top: .25em; list-style-type: disc}
+	ol {margin-top: .25em;}
+	li {padding-bottom: .25em}
+    h2 {color: white; background-color: #069; 
+        font-size: 100%; padding-left: 1em;
+		margin: 0}
+	h3 {color: black; background-color: yellow; 
+    	font-size: 100%;
+		margin: 0}
+	 h4 {color: black; background-color: #99c5e8; 
+        font-size: 100%;
+		margin: 0}
+    hr {color: #39176d;}
+    form {margin-top: 10}
+    form.xrs {margin-top: 0}
+	
+	a {text-decoration: none; }
+	
+	input {font-size: 1em;}
+	.chevron {color: #ff0000;}
+	.light-blue {color:#336699;}
+	.black {color:#000000;}
+	
+	/* ### standard text styles, smallest to largest ### */
+	
+	.footer-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#336699; font-size: .75em; line-height: 1.33em;
+		text-indent: -.75 em; margin-left: 2em; margin-right: .75em;}
+		
+	.footer-copy-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .75em; line-height: 1.3em;
+		margin-left: .75em; margin-right: .75em;}
+		
+	.small-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .83em; padding-bottom : 2px;
+	  	padding-top : 2px;}
+
+	.smaller-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .75em;}		
+	.small-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .83em;}
+	.medium-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: 1em;}
+	.mediumb-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: 1em; font-weight: bold;}
+	.large-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: 1.3em;}		
+	
+	.list-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#336699; font-size: .83em; line-height: 1.3em;}
+	.list-link-btext {font-family: Arial, Helvetica, sans-serif;
+		color:#000000; font-size: .83em; line-height: 1.3em;}
+	
+	.searchbox-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000066; font-size: 1em; font-weight: bold;}
+	.footer-header-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000066; font-size: 1em; font-weight: bold;
+		margin-left: .75em; margin-right: .75em;}
+	.medium-link-text {font-family: Arial, Helvetica, sans-serif;
+		color:#000066; font-size: 1em; font-weight: bold; line-height: 1em;
+		text-indent: -1.25em; margin-left: 2em; margin-right: .75em;}
+	
+	
+	.small-copy-text {font-family: Times, Times New Roman, serif;
+		color:#000066; font-size: .75em; line-height: 1.2em;
+		margin-left: .75em; margin-right: .75em;}
+
+	.medium-copy-text {font-family: Times, Times New Roman, serif;
+		color:#000066; font-size: 1em; line-height: 1.2em;
+		margin-left: .75em; margin-right: .75em;}
+	
+	.large-copy-text {font-family: Times, Times New Roman, serif;
+		color:#000066; font-size: 1.3em; line-height: 1.5em;
+		margin-left: .75em; margin-right: .75em;}
+	
+	.medium-header-text {font-family: Times, Times New Roman, serif;
+		color:#ff0000; font-size: 1em;
+		margin-left: .75em; margin-right: .75em;}
+	
+	.large-header-text {font-family: Times, Times New Roman, serif;
+		color:#ff0000; font-size: 1.5em;
+		margin-left: .75em; margin-right: .75em;}
+
+  --></style>
+  
+	<script LANGUAGE="JavaScript">
+	<!--	
+	function surfto(f,g) {
+		myindex=document.forms[f].elements[g].selectedIndex;
+		if (document.forms[f].elements[g].options[myindex].value != "no") {
+	    location=document.forms[f].elements[g].options[myindex].value;
+		}
+		return true;
+	}
+	function newwin() {
+		if (document.picksort.chkwin.checked)
+	 	   location=document.picksort.chkwin.value + "&sepwin=1";
+		else
+			location=document.picksort.chkwin.value;
+	}
+	//-->				
+	</script>
+<script type="text/javascript" src="/CFIDE/scripts/cfform.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/masks.js"></script>
+<script type="text/javascript">
+<!--
+    function  _CF_checkqiksearch(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element query required check
+        if( !_CF_hasValue(_CF_this['query'], "TEXT", false ) )
+        {
+            _CF_onError(_CF_this, "query", _CF_this['query'].value, "Please enter your Search Criteria");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+</head>
+ 
+  	
+
+
+<body bgcolor="#ffffff" onload="window.focus(); ">
+
+<div align="center">
+<table border="0" width="85%" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+	
+		
+	  
+
+
+
+	
+
+
+
+
+		
+
+	
+
+
+
+	
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+		<td width="1%" class="small-link-text" align="center"  background="http://portal.acm.org/images/horiz-bar.jpg"><img src="http://portal.acm.org/images/logo_acm_portal2.jpg" alt="ACM Portal" width="263" height="54" border="0" usemap="#PORT">
+			
+			
+		</td>
+		<td width="99%" align="left" class="small-link-text">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>&nbsp;</td>
+				
+					<td class="small-link-text"><a href="https://campus.acm.org/Public/login_genpubqj.cfm?rdr=http://portal.acm.org/results.cfm?coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097&promo=QJPUB&offering=200&form_type=PUB&CFID=43787999&CFTOKEN=74051097" class="small-link-text">Subscribe</a><span class="small-link-text">&nbsp;(Full Service)</span>&nbsp;&nbsp;&nbsp;</td>
+					<td class="small-link-text"><a href="https://portal.acm.org/poplogin.cfm?dl=ACM&coll=Portal&want_href=results%2Ecfm%3Fquery%3Djunit%26querydisp%3Djunit%26srt%3Dscore%20dsc%26short%3D0%26coll%3DPortal%26dl%3DACM%26parser%3DInternet%26CFID%3D43787999%26CFTOKEN%3D74051097&CFID=43787999&CFTOKEN=74051097" class="small-link-text">Register</a><span class="small-link-text">&nbsp;(Limited Service, <font color="Red">Free</font>)</span>&nbsp;&nbsp;&nbsp;</td>
+				
+				<td class="small-link-text" valign="bot">
+					
+					
+		 					<a href="https://portal.acm.org/poplogin.cfm?dl=ACM&coll=Portal&want_href=results%2Ecfm%3Fquery%3Djunit%26querydisp%3Djunit%26srt%3Dscore%20dsc%26short%3D0%26coll%3DPortal%26dl%3DACM%26parser%3DInternet%26CFID%3D43787999%26CFTOKEN%3D74051097&CFID=43787999&CFTOKEN=74051097" class="small-link-text">Login</a>
+					
+				</td>			
+			</tr>
+			</table>
+			
+			<table border="0" width="100%" cellspacing="0" cellpadding="0">
+				<form name="qiksearch" action="results.cfm?coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" method="post" target="_self" onsubmit="return _CF_checkqiksearch(this)">
+				<tr>
+					<td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+				</tr>
+				<input type="hidden" name="parser" value="Internet">
+				<tr>
+					<td class="small-link-text">&nbsp;</td>
+					<td class="small-link-text">
+						
+							
+							
+						  
+						<b>Search:</b>&nbsp;&nbsp;&nbsp;<input type="Radio" name="whichDL" value="acm" checked>The ACM Digital Library&nbsp;&nbsp;&nbsp;<input type="Radio" name="whichDL" value="guide" >The Guide
+						<br><input name="query" id="query" type="text" value="junit" size="60"  class="pubdescr"  />&nbsp;&nbsp;
+						<input type="Image" alt="Search" name=Go src="http://portal.acm.org/images/search_small.jpg" border="0">
+					</td>
+				</tr>
+				</form>
+
+			</table>
+			
+		</td>
+	<!-- top nav END -->
+	</tr>
+	</table>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="12"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+	</table>
+
+<map name="PORT" > 
+  <area shape="rect" coords="1,1,55,60" href="http://www.acm.org/" alt="ACM Home Page">
+  <area shape="rect" coords="65,1,300,78" href="portal.cfm?coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">
+</map>
+
+
+
+
+ 
+
+
+
+
+	
+
+
+
+
+	  
+		
+	  
+
+
+
+
+
+
+ 
+
+
+	
+
+
+
+
+ 
+		
+	
+ 
+ 
+
+
+ 	
+  
+
+
+
+ 
+	
+	
+ 	
+		
+	
+
+
+
+	
+	
+ 
+
+	
+
+
+
+
+
+
+
+	
+
+
+	
+	
+		
+			
+		
+
+		
+		
+			
+			
+				
+			
+		
+	
+
+
+
+
+
+
+
+
+
+
+<tr>
+<td>
+<table border="0" width="100%" align="left">
+	<col width="40%">
+	<col width="60%">
+	<tr>
+		<td>
+			
+				<a href="dl.cfm?coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097"><img src="http://portal.acm.org/images/acm_dl_bar_large2.jpg" width=350 height=25 alt="" border="0"></a>
+			  
+		</td>
+ 		<td class="small-text" align="center">
+			<img src="http://portal.acm.org/images/feedback.gif" width="20" height="19" alt="Please provide us with feedback." border="0">&nbsp;<a href="survey/survey-ci.cfm?CFID=43787999&CFTOKEN=74051097">Feedback</a>&nbsp;&nbsp;<a href="survey/survey-ci.cfm?CFID=43787999&CFTOKEN=74051097">Report a problem</a>&nbsp;&nbsp;<a href="survey/survey-general.cfm?CFID=43787999&CFTOKEN=74051097">Satisfaction survey</a>
+		</td>
+	</tr>
+	<tr>
+		<td height="6"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td>
+	</tr>
+</table>
+</td>
+</tr>
+
+	
+  
+
+<tr>
+<td>
+<table border="0" width="100%" align="left" bgcolor="#99c5e8">
+	<tr>
+		 
+				<td style="padding: .01cm" class="small-text" width="60%">
+				 Term used: <a href="http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=junit" style="a:link text-decoration: underline;	Color: black; font-weight: bold" title="Lookup junit on FOLDOC">junit</a>&nbsp;</td>
+		 
+		<td style="padding: .01cm" class="small-text" align="right" width="40%">Found <b>327</b> of <b> 215,186</b></td>
+	</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td>
+<form name="picksort" method="post" action="">
+<table border="0" width="100%" align="left" class="small-text">
+
+<tr valign="top">
+	<td align="left" valign="top" width="32%">
+											<table class="small-link-text">
+												<tr>
+													<td>Sort results by</td>
+													<td>		<select name="selsort" onchange="surfto('picksort',0)">
+																   <option value="results.cfm?query=junit&querydisp=junit&srt=score%20dsc&short=0&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" selected>relevance</option>
+																   <option value="results.cfm?query=junit&querydisp=junit&srt=meta%5Ftitle%20asc&short=0&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" >title</option>
+																   <option value="results.cfm?query=junit&querydisp=junit&srt=meta%5Fpublication%20asc&short=0&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" >publication</option>
+												   				   <option value="results.cfm?query=junit&querydisp=junit&srt=meta%5Fpublished%5Fdate%20dsc&short=0&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" >publication date</option>				   
+												   				   <option value="results.cfm?query=junit&querydisp=junit&srt=meta%5Fpublisher%5Fname%20asc&short=0&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" >publisher</option>				   																   
+																</select>
+													 </td>
+												 </tr>
+												 <tr>
+												 	<td>Display results</td>
+												  	<td>	<select name="seldisp" onchange="surfto('picksort',1)">
+															   <option value="results.cfm?query=junit&querydisp=junit&start=1&slide=1&srt=score%20dsc&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" selected>expanded form</option>
+															   <option value="results.cfm?query=junit&querydisp=junit&start=1&slide=1&srt=score%20dsc&short=1&coll=Portal&dl=ACM&parser=Internet&source_parser=Internet&source_disp=&source_query=&CFID=43787999&CFTOKEN=74051097" >condensed form</option>														   
+															</select>
+													</td>
+												</tr>
+											</table>
+	</td>
+	<td align="left" width="30%" class="medium-text">
+			 
+			 	
+					<a href="https://portal.acm.org/poplogin.cfm?dl=ACM&coll=Portal&comp_id=COMPONENT034&want_href=results%2Ecfm%3Fquery%3Djunit%26backfrombind%3D1%26coll%3DPortal%26dl%3DACM%26CFID%3D43787999%26CFTOKEN%3D74051097&CFID=43787999&CFTOKEN=74051097">
+				
+				<img src="http://portal.acm.org/images/binder.gif" border="0" hspace="3" alt="Save to Binder">Save results to a Binder</a><img src="http://portal.acm.org/images/blanks.gif" border="0" name="saved">
+		  
+		<br>
+		<img src="http://portal.acm.org/images/cnt1.gif" border="0" name="help"><a href="search_help.cfm">Search Tips</a>
+		<br>
+		<input name="chkwin" type="Checkbox"  value="results.cfm?query=junit&querydisp=junit&srt=score%20dsc&short=0&coll=Portal&dl=ACM&parser=Internet&CFID=43787999&CFTOKEN=74051097" onclick="newwin();">Open results in a new window
+	</td>
+	<td align="left" width="38%">
+		
+			 
+				
+				
+				 
+				 
+				 
+			
+			
+						
+			
+					Try an 
+					
+						<a href="advsearch.cfm?coll=Portal&dl=ACM&query=junit&qrycnt=327&CFID=43787999&CFTOKEN=74051097">Advanced Search</a>
+					  
+				
+		
+		
+			<br>Try this search in <a href="results.cfm?rerun=1&query=junit&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=GUIDE&CFID=43787999&CFTOKEN=74051097">The ACM Guide</a>
+		  
+	</td>
+</tr>
+<tr>
+	<td valign="top" colspan="3" height="1" background="http://portal.acm.org/images/horiz-bar-long.jpg"></td>
+</tr>
+</table>
+</form> 
+</td>
+</tr>
+
+<tr>
+<td>
+
+<table border="0" width="100%" align="left" class="small-text">
+<tr valign="top">
+	<td>Results 1 - 20 of 200</td>
+	<td colspan="2">
+
+		
+				Result page: 
+				
+					 
+				
+				
+					
+					
+						<strong>1</strong> &nbsp;					
+					  				
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=21&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">2</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=41&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">3</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=61&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">4</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=81&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">5</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=101&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">6</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=121&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">7</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=141&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">8</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=161&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">9</a> &nbsp;
+									
+					
+				
+					
+						
+				
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=181&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">10</a>
+								
+				
+				
+					 	&nbsp;&nbsp;
+						<a href="results.cfm?query=junit&querydisp=junit&start=21&slide=1&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">
+						 next</a>
+				
+		
+	</td>
+</tr>
+<tr valign="top">
+	
+		<td class="small-text" align="left">Best 200 shown</td>
+	  
+	<td colspan="2" align="right" class="small-text">Relevance scale
+		<img src="http://portal.acm.org/images/60.gif"  width="11" height="10" alt="very low relevancy" border="0">
+	   	<img src="http://portal.acm.org/images/70.gif"  width="11" height="10" alt="low relevancy" border="0">
+		<img src="http://portal.acm.org/images/80.gif"  width="11" height="10" alt="medium relevancy" border="0">
+		<img src="http://portal.acm.org/images/90.gif"  width="11" height="10" alt="high relevancy" border="0">
+		<img src="http://portal.acm.org/images/100.gif" width="11" height="10" alt="very high relevancy" border="0">
+	</td>
+</tr>
+</table>
+
+</td>
+</tr>
+<tr>
+<td>
+
+      	<table border="0">
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>1</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1047427&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Using testing and JUnit across the curriculum</A>
+							
+		 					<div class="authors">
+								
+									Michael Wick, Daniel Stevenson, Paul Wagner
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							February 2005
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>ACM SIGCSE Bulletin , Proceedings of the 36th SIGCSE technical symposium on Computer science education SIGCSE '05</strong><font size="-2">,&nbsp;
+								
+										Volume 37
+									
+										Issue 1
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1047427&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(219.93 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1047427&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1047427&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1047427&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1047427&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A>, <A HREF="citation.cfm?id=1047427&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								While the usage of unit-testing frameworks such as JUnit has greatly increased over the last several years, it is not immediately apparent to students and instructors how to best use tools like JUnit and how to integrate testing across a computer science curriculum. We have worked over the last four semesters to infuse testing and JUnit across our curriculum, building from having students use JUnit to having them write their own test cases to building larger integration and use case testing syst
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: JUnit, testing, unit testing, unit testing frameworks
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>2</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1022545&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Workshop on empirical research in software testing papers: Experiences evaluating the effectiveness of JML-JUnit testing</A>
+							
+		 					<div class="authors">
+								
+									Roy Patrick Tan, Stephen H. Edwards
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							September 2004
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>ACM SIGSOFT Software Engineering Notes</strong><font size="-2">,&nbsp;
+								
+										Volume 29
+									
+										Issue 5
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1022545&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(46.66 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1022545&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1022545&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1022545&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								This paper reports on the issues the authors encountered while evaluating the JML-JUnit unit testing strategy. Given a predefined set of parameter values, JML-JUnit can automatically provide unit tests for Java programs that have specifications. We present a mutation testing experiment that evaluates the effectiveness of this testing strategy, and the lessons learned from doing this experiment. We conclude that a benchmark will enable the testing research community to meaningfully assess testing
+								
+									...
+								
+							
+
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>3</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1094901&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Posters: Refactoring the JUnit framework using aspect-oriented programming</A>
+							
+		 					<div class="authors">
+								
+									Uir&#225; Kulesza, Cl&#225;udio Sant'Anna, Carlos Lucena
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							October 2005
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Companion to the 20th annual ACM SIGPLAN conference on Object-oriented programming, systems, languages, and applications OOPSLA '05</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1094901&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(148.78 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1094901&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1094901&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1094901&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1094901&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Aspect-Oriented Programming (AOP) has been proposed as a complementary modularization technique to the existing object-oriented techniques. AOP encourages the modular development of complex software by providing support for cleanly separating the basic system functionality from its crosscutting concerns. Since, AOP aims to improve the maintainability and reusability of OO software systems, it is necessary to develop case studies that enable us to evaluate: (i) how it can be used in conjunction w
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: aspect-oriented programming, refactoring
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>4</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=961518&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Introducing unit testing with BlueJ</A>
+							
+		 					<div class="authors">
+								
+									Andrew Patterson, Michael K&#246;lling, John Rosenberg
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							June 2003
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>ACM SIGCSE Bulletin , Proceedings of the 8th annual conference on Innovation and technology in computer science education ITiCSE '03</strong><font size="-2">,&nbsp;
+								
+										Volume 35
+									
+										Issue 3
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=961518&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(722.37 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=961518&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=961518&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=961518&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=961518&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A>, <A HREF="citation.cfm?id=961518&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								The teaching of testing has never been easy. The introduction of object orientation into first year courses has made it even more difficult, since more and smaller units need to be tested more often. In professional contexts this is addressed by the use of testing support software. Unfortunately, no adequate software to support testing for introductory students is widely available, leaving teachers and students of first year courses struggling.In this paper we describe an attempt to address this
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: BlueJ, CS1, JUnit, testing
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>5</strong>
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=948830&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Unit testing: test early, test often</A>
+							
+		 					<div class="authors">
+								
+									Michael Olan
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							December 2003
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Journal of Computing Sciences in Colleges</strong><font size="-2">,&nbsp;
+								
+										Volume 19
+									
+										Issue 2
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;Consortium for Computing Sciences in Colleges
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=948830&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(154.89 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=948830&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=948830&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=948830&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=948830&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A>, <A HREF="citation.cfm?id=948830&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Testing is a critical part of good software development, but often gets only minimal coverage in introductory programming courses. Unit testing and selected aspects of test-driven development can be used to improve learning and encourage emphasis on quality and correctness. Tools like JUnit significantly simplify the generation of test cases. An additional benefit for instructors is that these tools can also be used to automate project grading.
+								
+							
+
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>6</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1181783&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Mining failures and bugs: Finding failure-inducing changes in java programs using change classification</A>
+							
+		 					<div class="authors">
+								
+									Maximilian Stoerzer, Barbara G. Ryder, Xiaoxia Ren, Frank Tip
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							November 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 14th ACM SIGSOFT international symposium on Foundations of software engineering SIGSOFT '06/FSE-14</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1181783&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(275.16 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1181783&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1181783&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1181783&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1181783&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Testing and code editing are interleaved activities during program development. When tests fail unexpectedly, the changes that caused the failure(s) are not always easy to find. We explore how change classification can focus programmer attention on failure-inducing changes by automatically labeling changes <i>Red, Yellow,</i> or <i>Green</i>, indicating the likelihood that they have contributed to a test failure. We implemented our change classification tool <i>JUnit/CIA</i> as an ex-tension to 
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: change impact analysis, debugging, fault localization, testing, version control
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>7</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=940101&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Reverse engineering framework reuse interfaces</A>
+							
+		 					<div class="authors">
+								
+									Jukka Viljamaa
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							September 2003
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>ACM SIGSOFT Software Engineering Notes , Proceedings of the 9th European software engineering conference held jointly with 11th ACM SIGSOFT international symposium on Foundations of software engineering ESEC/FSE-11</strong><font size="-2">,&nbsp;
+								
+										Volume 28
+									
+										Issue 5
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=940101&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(313.32 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=940101&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=940101&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=940101&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=940101&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								<i>Object-oriented application frameworks</i> provide an established way of reusing the design and implementation of applications in a specific domain. Using a framework for creating applications is not a trivial task, however, and special tools are needed for supporting the process. Tool support, in turn, requires explicit specification of the <i>reuse interfaces</i> of frameworks. Unfortunately these specifications typically become quite extensive and complex for non-trivial frameworks. In thi
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: documentation, formal concept analysis, framework, pattern, reuse, reverse engineering
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>8</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1294327&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Experiences using Java: Extending and contributing to an open source web-based system for the assessment of programming problems</A>
+							
+		 					<div class="authors">
+								
+									Olly Gotel, Christelle Scharff, Andy Wildenberg
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							September 2007
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 5th international symposium on Principles and practice of programming in Java PPPJ '07</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1294327&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(586.13 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1294327&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1294327&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1294327&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1294327&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								<p>This paper describes the development of a web-based programming and assessment environment for use in supporting programming fundamentals courses (CS1, CS2) taught in Java. This environment is currently linked with WeBWorK, an open source web-based system developed at the University of Rochester that is popular for administering and assessing mathematics and physics coursework, but is designed for the potential integration with other course management system (CMS) environments. In addition to
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: Eclipse, JUnit, Java, WeBWorK, automated grading, open source, peer-review, testing
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>9</strong>
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1151882&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Adopting XP practices for teaching object oriented programming</A>
+							
+		 					<div class="authors">
+								
+									Karen Keefe, Judithe Sheard, Martin Dick
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							January 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 8th Austalian conference on Computing education - Volume 52 ACE '06</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;Australian Computer Society, Inc.
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1151882&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(204.47 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1151882&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1151882&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1151882&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1151882&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								This paper reports on an Action Research project that investigated the effect of introducing a number of Extreme Programming (XP) practices as teaching techniques to introductory programming students. The focus of the study was on using the XP practices to assist students in an introductory programming subject develop object oriented programming skills, problem solving skills and teach them to become more self-sufficient in their learning. The research is concerned with applying several of the X
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: action research, extreme programming, learning to program, pair programming, refactoring, simple design, test driven development
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>10</strong>
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1270256&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Automated Generation of Test Cases Using Model-Driven Architecture</A>
+							
+		 					<div class="authors">
+								
+									A. Z. Javed, P. A. Strooper, G. N. Watson
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							May 2007
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the Second International Workshop on Automation of Software Test AST '07</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;IEEE Computer Society
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1270256&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(267.83 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1270256&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1270256&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								In this paper, we demonstrate a method that uses the model transformation technology of MDA to generate unit test cases from a platform-independent model of the system. The method we propose is based on sequence diagrams. First we model the sequence diagram and then this model is automatically transformed into a general unit test case model (an xUnit model which is independent of a particular unit testing framework), using model-to-model transformations. Then model-to-text transformations are ap
+								
+									...
+								
+							
+
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>11</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1188850&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">JExercise: a specification-based and test-driven exercise support plugin for Eclipse</A>
+							
+		 					<div class="authors">
+								
+									Hallvard Tr&#230;tteberg, Trond Aalberg
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							October 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 2006 OOPSLA workshop on eclipse technology eXchange eclipse '06</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1188850&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(295.19 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1188850&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1188850&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1188850&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1188850&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Programming exercises are an important part of an introductory course in programming. To improve the focus on encapsulation, requirements-based testing and give better feedback given to the students during their work, we have created an Eclipse-based plugin called JExercise. Based on a model of an exercise, it presents the structure of requirements to the student and allows her to test the code by running accompanying JUnit tests.
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: Eclipse IDE, JUnit framework, test-driven development
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/90.gif" width="22" height="20" alt="high relevancy" border="0">
+					 
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>12</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1083186&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Scenarios and State Machines: Models, Algorithms and Tools (SCESM): Story driven testing - SDT</A>
+							
+		 					<div class="authors">
+								
+									Leif Geiger, Albert Z&#252;ndorf
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							May 2005
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>ACM SIGSOFT Software Engineering Notes , Proceedings of the fourth international workshop on Scenarios and state machines: models, algorithms and tools SCESM '05</strong><font size="-2">,&nbsp;
+								
+										Volume 30
+									
+										Issue 4
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1083186&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(233.90 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1083186&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1083186&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1083186&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1083186&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A>, <A HREF="citation.cfm?id=1083186&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								In the last years, SCESM community has studied a number of synthesis approaches that turn scenario descriptions into some kind of state machine. In our story driven modeling approach, the statechart synthesis is done manually. Many other approaches rely on human interaction, too. Frequently, the resulting state machines are just the starting point for further system development. The manual steps and the human interaction and the subsequent development steps are subject to the introduction of err
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: code generation, scenarios, test-first principle
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>13</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1134410&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Research demonstrations: verification and testing: GridUnit: software testing on the grid</A>
+							
+		 					<div class="authors">
+								
+									Alexandre Duarte, Walfredo Cirne, Francisco Brasileiro, Patricia Machado
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							May 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceeding of the 28th international conference on Software engineering ICSE '06</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1134410&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(140.67 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1134410&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1134410&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1134410&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1134410&jmp=citedby&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citedby" target="_self"> cited by</A>, <A HREF="citation.cfm?id=1134410&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Software testing is a fundamental part of system development. As software grows, its test suite becomes larger and its execution time may become a problem to software developers. This is especially the case for agile methodologies, which preach a short develop/test cycle. Moreover, due to the increasing complexity of systems, there is the need to test software in a variety of environments. In this paper, we introduce GridUnit, an extension of the widely adopted JUnit testing framework, able to a
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: JUnit, computational grid, distributed testing, unit testing
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>14</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1104980&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">WikiWiki weaving heterogeneous software artifacts</A>
+							
+		 					<div class="authors">
+								
+									Ademar Aguiar, Gabriel David
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							October 2005
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 2005 international symposium on Wikis WikiSym '05</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1104980&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(1.07 MB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1104980&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1104980&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1104980&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1104980&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A>, <A HREF="citation.cfm?id=1104980&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Good documentation benefits every software development project, especially large ones, but it can be hard, costly, and tiresome to produce when not supported by appropriate tools and methods.The documentation of a software system uses different artifacts, namely <i>source code</i>, for low-level internal documentation, and specific-purpose <i>models</i> and <i>documents</i>, for higher-level external documentation (e.g. requirements documents, use-case specifications, design notebooks, and refer
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: Wiki-based software documentation, software documentation, web-based documentation, wiki
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>15</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1147415&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Grid and races: Multi-environment software testing on the grid</A>
+							
+		 					<div class="authors">
+								
+									Alexandre Duarte, Gustavo Wagner, Francisco Brasileiro, Walfredo Cirne
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							July 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceeding of the 2006 workshop on Parallel and distributed systems: testing and debugging PADTAD '06</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1147415&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(538.49 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1147415&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1147415&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1147415&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1147415&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								We propose a solution to improve the confidence on the correctness of applications designed to be executed in heterogeneous environments, like a grid. Our solution is motivated by the observation that the traditional ways to qualify test processes are based on code coverage metrics. We believe that this approach is not adequate when dealing with applications that can (and do) fail when interacting with heterogeneous execution environments. Besides code coverage, tests must also cover possible en
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: JUnit, computational grid, distributed testing, unit testing
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>16</strong>
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1082430&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Teaching patterns and software design</A>
+							
+		 					<div class="authors">
+								
+									Ian Warren
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							January 2005
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 7th Australasian conference on Computing education - Volume 42 ACE '05</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;Australian Computer Society, Inc.
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1082430&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(242.74 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1082430&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1082430&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1082430&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1082430&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								In this paper we describe our experiences with reengineering an undergraduate course in software design. The course's learning outcomes require that students can model, design and implement software. These are inherently practical skills and rely on <i>functioning</i> knowledge. To facilitate a learning environment in which students can acquire the necessary deep level of understanding, we have designed the course by applying the educational theory of <i>constructive alignment</i> and a number o
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: JUnit, UML, active and peer learning, constructive alignment, design patterns, formative and holistic assessment
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>17</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=961517&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Systematic testing should not be a topic in the computer science curriculum!</A>
+							
+		 					<div class="authors">
+								
+									Henrik B&#230;rbak Christensen
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							June 2003
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>ACM SIGCSE Bulletin , Proceedings of the 8th annual conference on Innovation and technology in computer science education ITiCSE '03</strong><font size="-2">,&nbsp;
+								
+										Volume 35
+									
+										Issue 3
+									
+								  
+							</font>
+						
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=961517&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(524.53 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=961517&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=961517&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=961517&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=961517&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A>, <A HREF="citation.cfm?id=961517&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A>, <A HREF="citation.cfm?id=961517&jmp=review&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#review" target="_self"> review</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								In this paper we argue that treating "testing" as an isolated topic is a wrong approach in computer science and software engineering teaching. Instead testing should pervade practical topics and exercises in the computer science curriculum to teach students the importance of producing software of high quality. We point out that we, as teachers, are partly to blame that many software products are of low quality. We describe a set of teaching guidelines that conveys our main pedagogical point to t
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: CS curriculum, Systematic Testing, systematic testing
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>18</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1147405&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">State of practice: A state-of-practice questionnaire on verification and validation for concurrent programs</A>
+							
+		 					<div class="authors">
+								
+									Margaret A. Wojcicki, Paul Strooper
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							July 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceeding of the 2006 workshop on Parallel and distributed systems: testing and debugging PADTAD '06</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1147405&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(322.71 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1147405&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1147405&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1147405&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1147405&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								Research in verification and validation (V&V) for concurrent programs can be guided by practitioner information. A survey was therefore run to gain state-of-practice information in this context. The survey presented in this paper collected state-of-practice information on V&V technology in concurrency from 35 respondents. The results of the survey can help refine existing V&V technology by providing a better understanding of the context of V&V technology usage. Responses to questions regarding t
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: concurrency, survey, validation technologies, verification
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>19</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1066142&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Developing marking support within Eclipse</A>
+							
+		 					<div class="authors">
+								
+									Del Myers, Elizabeth Hargreaves, Jody Ryall, Suzanne Thompson, Marilyn Burgess, Daniel German, Margaret-Anne Storey
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							October 2004
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 2004 OOPSLA workshop on eclipse technology eXchange eclipse '04</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1066142&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(345.76 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1066142&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1066142&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1066142&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1066142&jmp=citings&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#citings" target="_self"> citings</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								In this paper, we describe marking features provided in Gild, a set of plug-ins to support education in Eclipse developed at the University of Victoria. We discuss our requirements gathering techniques, design process and the challenges experienced during development of this tool. We also consider the problematic nature of student evaluation, particularly within the context of introductory Computer Science courses.
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: integrated development environments, marking support, novice programmers, student evaluation
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+			
+				
+				<tr valign="top">
+				<td class="small-text" align="center" valign="top"> <strong>20</strong>
+				
+					<img src="http://portal.acm.org/images/ACM_mini.jpg" width="25" height="24" alt="" vspace="7" border="0">
+				
+				</td>
+				<td>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+				<col width="10%">
+				<col width="1%">
+				<col width="89%">
+				<tr>
+					<td colspan="3">
+						<A HREF="citation.cfm?id=1185521&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" class="medium-text" target="_self">Software engineering and testing: Automatic support for testing web-based enterprise applications</A>
+							
+		 					<div class="authors">
+								
+									Arturo Sanchez, Brandon Vega, Alexander Gonzalez, Gregory Jackson
+								
+		 					</div>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td class="small-text" nowrap>
+						
+							March 2006
+						
+					</td>
+					<td>&nbsp;</td> 
+					<td>	
+					<div class="addinfo">
+					
+						
+						  	<strong>Proceedings of the 44th annual Southeast regional conference ACM-SE 44</strong>
+					</div>
+					</td>
+					</tr>
+
+
+				
+					<tr valign="top">
+						<td class="small-text" nowrap colspan="3">
+								<strong>Publisher:</strong>&nbsp;ACM Press
+						</td>
+					</tr>
+				
+					
+					<tr valign="top">
+						<td class="smaller-text" colspan="3" valign="top">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr valign="top">
+									<col width="35%">
+									<col width="65%">
+									
+									<td class="smaller-text"><table border="0" cellpadding="0" cellpadding="0">
+																<tr valign="top"><td class="smaller-text" nowrap>
+																Full text available:</td>
+																<td class="smaller-text" valign="top">
+																
+																		 
+																			 
+																		  
+																		 
+																		  	
+																		 
+																		 <A HREF="ft_gateway.cfm?id=1185521&type=pdf&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097" target="_blank">
+																		 
+																			  <img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0" align="texttop">
+																			
+															  			 pdf(317.19 KB)
+																		 </A>
+																
+																</td>
+																</tr>
+																</table>
+									</td>
+									
+									<td class="smaller-text" ><table border="0" cellpadding="0" cellpadding="0"><tr valign="top"><td class="smaller-text" nowrap>Additional Information:</td><td class="smaller-text"><img src="http://portal.acm.org/images/doc_blank.gif" width="1" height="16" alt="" border="0" align="texttop"><A HREF="citation.cfm?id=1185521&jmp=cit&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#CIT" target="_self">full citation</a>, <A HREF="citation.cfm?id=1185521&jmp=abstract&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#abstract" target="_self">abstract</A>, <A HREF="citation.cfm?id=1185521&jmp=references&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#references" target="_self"> references</A>, <A HREF="citation.cfm?id=1185521&jmp=indexterms&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097#indexterms" target="_self"> index terms</A></td></tr></table></td>
+								</tr>
+								<tr><td height="5"><img src="http://portal.acm.org/images/blanks.gif" width=1 height=1 alt="" border="0"></td></tr>
+							</table>
+						</td>
+					</tr>
+					
+					<tr valign="top">
+					<td colspan="3">	
+			
+					
+						<div class="abstract2">
+							
+								In this paper we consider the problem of automatically generating test suites associated with web-based enterprise systems. In particular, we discuss the construction of a tool deployed as a plugin for the popular open source Integrated Development Environment (IDE) Eclipse. Our tool allows developers to automatically generate and reuse test classes, test data, as well as manually define test data. Once these components are in place, developers can launch so-called "in-container" test suites, an
+								
+									...
+								
+							
+
+							
+								<br><br>
+								<b>Keywords</b>: applications - web-based systems (J2EE, Struts), methods and tools - testing tools (JUnit, Eclipse), software testing - automation
+								<br>
+							
+							<br>&nbsp;
+						</div>
+					
+										
+					</td>
+					</tr>
+				</table>
+				</td>
+				
+				<td>
+					
+							<img src="http://portal.acm.org/images/80.gif" width="22" height="20" alt="medium relevancy" border="0">
+					
+				</td>
+			</tr>
+			
+		
+	</table>
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+<table border="0" width="100%" align="left" class="small-text">
+<tr>
+	<td valign="top" colspan="3" height="1" background="http://portal.acm.org/images/horiz-bar-long.jpg"></td>
+</tr>
+<tr>
+	<td width="35%">Results 1 - 20 of 200</td>
+	<td colspan="2">
+		
+				Result page: 
+				
+		  			  
+				
+				
+					
+					
+						<strong>1</strong> &nbsp;					
+					  				
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=21&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">2</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=41&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">3</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=61&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">4</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=81&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">5</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=101&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">6</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=121&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">7</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=141&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">8</a> &nbsp;
+									
+					
+				
+					
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=161&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">9</a> &nbsp;
+									
+					
+				
+					
+						
+				
+									  
+						<A href="results.cfm?query=junit&querydisp=junit&start=181&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">10</a>
+								
+				
+				
+					 	&nbsp;&nbsp;
+						<a href="results.cfm?query=junit&querydisp=junit&start=21&slide=1&srt=score%20dsc&short=0&parser=Internet&source_parser=Internet&source_disp=&source_query=&coll=Portal&dl=ACM&CFID=43787999&CFTOKEN=74051097">
+						 next</a>
+				
+		
+	</td>
+</tr>
+</table>
+
+
+
+<br><br>
+<DIV class=footer-copy-text align="center">
+		
+	The ACM Portal is published by the Association for Computing Machinery. Copyright © 2007 ACM, Inc.<br>
+	<A href="http://www.acm.org/publications/policies/usage">Terms of Usage</A>&nbsp;&nbsp;
+	<A href="http://www.acm.org/about/privacy-policy">Privacy Policy</A>&nbsp;&nbsp;
+	<A href="http://www.acm.org/about/code-of-ethics">Code of Ethics</A>&nbsp;&nbsp;	  
+	<A href="http://www.acm.org/about/contact-us">Contact Us</A>
+
+<br><br>
+Useful downloads: 
+<a href="http://www.adobe.com/products/acrobat/readstep2.html"><img src="http://portal.acm.org/images/pdf_logo.gif" width="16" height="16" alt="" border="0"> Adobe Acrobat</a>
+&nbsp;&nbsp;
+<a href="http://www.apple.com/quicktime/download/" target="_blank"><img src="http://portal.acm.org/images/qtlogo.gif" width="16" height="16" alt="" border="0"> QuickTime</a>
+&nbsp;&nbsp;
+<a href="http://www.microsoft.com/windows/windowsmedia/download/default.asp" target="_blank"><img src="http://portal.acm.org/images/wmv.gif" width="16" height="15" alt="" border="0"> Windows Media Player</a>
+&nbsp;&nbsp;
+<a href="http://www.real.com/" target="_blank"><img src="http://portal.acm.org/images/realplayer.gif" width="20" height="18" alt="" border="0"> Real Player</a>
+
+
+</DIV>
+
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
