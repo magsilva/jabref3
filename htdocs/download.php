@@ -21,7 +21,7 @@
     <p>We recommend the stable version for all casual users. These releases
 are beta-tested and expected to be stable and reliable.</p>
     <p>
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=552736"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=557970"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
     </p>
 
     <?php 

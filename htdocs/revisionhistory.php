@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
 	<li class="single_item"><a href="#v2.3">2.3</a></li>
 	<li class="single_item"><a href="#v2.3b3">2.3b3</a></li>
 	<li class="single_item"><a href="#v2.3b2">2.3b2</a></li>
@@ -56,6 +57,18 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.3.1">
+        <h3>Version 2.3.1 (November 29th, 2007)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Removed default applications for file types under Mac OS X, and made use of the standard "/usr/bin/open &lt;filename&gt;" way to open files except when an application name is explicitly set.</li>
+            <li>[ 1620792 ] Fixed: JabRef randomly hangs during Medline fetch</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.3">
         <h3>Version 2.3 (November 8th, 2007)</h3>
