@@ -35,12 +35,12 @@
 
       <p class="question">Q: <acronym>JabRef</acronym> does not start under Linux! What can I do?</p>
       <p class="answer">A: <acronym>JabRef</acronym> works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.5 and newer. The stable version <acronym>JabRef</acronym> 2.2 also works fine with Sun JRE 1.4.2. If running <acronym>JabRef</acronym> fails to start nevertheless do the following for troubleshooting:</p>
-      <p class="answer">Run </p><pre>java --version</pre><p class="answer"> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your  
+      <p class="answer">Run </p><pre>java --version</pre><p class="answer"> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your
 distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">Under Debian/Ubuntu it works like this (you need to have admin privileges):</p>
       <p class="answer"></p><pre>sudo update-alternatives --config java</pre><p class="answer"></p>
       <p class="answer">In the dialog that appears select the Sun JDK or JRE. Alternatively you can also search for the java executable and run that directly. In Ubuntu you can find Java at </p><pre>/usr/lib/jvm/java-1.5.0-sun/jre/bin/java</pre><p class="answer"></p>
-      <p class="answer">If you do not have root-access on the machine you can install the Sun JRE in your home but need to make sure that you run the correct java executable. For instance if you installed the JRE into a folder called  
+      <p class="answer">If you do not have root-access on the machine you can install the Sun JRE in your home but need to make sure that you run the correct java executable. For instance if you installed the JRE into a folder called
       </p><pre>java</pre><p class="answer"> in your home try </p><pre>~/java/jre/bin/java -jar JabRef-2.1.jar</pre><p class="answer"></p>
 
       <p class="question">Q: I am on Debian/Ubuntu and clicking on the <acronym>JabRef</acronym> icon works, but I cannot start <acronym>JabRef</acronym> from the command line. What is wrong?</p>
@@ -52,12 +52,14 @@ distribution, so we cannot give exact advise for everybody. </p>
 
       <p class="question">Q: My virus-scanner tells me that <acronym>JabRef</acronym> is a virus. Is your server compromised?</p>
       <p class="answer">A: No. But the windows installer uses <a href="http://nsis.sourceforge.net/">the Nullsoft Scriptable Install System (NSIS)</a> version 2.18 (as of <acronym>JabRef</acronym> 2.1) which unfortunately creates installers that are thought to be viruses by some virus-scanners.</p>
-      <p class="answer">See the <a href="http://forums.winamp.com/showthread.php?postid=1977648">discussion  
-      in the NSIS forum</a> or <a href="http://nsis.sourceforge.net/NSIS_False_Positives">the list of false  
+      <p class="answer">See the <a href="http://forums.winamp.com/showthread.php?postid=1977648">discussion
+      in the NSIS forum</a> or <a href="http://nsis.sourceforge.net/NSIS_False_Positives">the list of false
       positives with NSIS</a> for details.</p>
       <p class="answer">As a work-around and if you are afraid to use the installer you can always use the platform independent jar and run it from the command line:</p>
-      <p class="answer"></p><pre>java -jar JabRef-2.1.jar</pre><p class="answer"></p>
-      <p class="answer">If you want to do anything about, please report this bug with your virus scanner.</p>
+      <p class="answer"></p><pre>java -jar JabRef-X.jar</pre><p class="answer"></p>
+      <p class="answer">where 'X' is the JabRef version.</p>
+      <p class="answer">Since JabRef is open source, you can of course also download the source code and compile it yourself.</p>
+      <p class="answer">If you want to do anything about this issue, please report this bug with your virus scanner.</p>
 
       <h3 id="developers">Developers</h3>
 
@@ -75,7 +77,7 @@ distribution, so we cannot give exact advise for everybody. </p>
       <h3 id="other">Other</h3>
 
       <p class="question">Q: My question is not answered here. What can I do?</p>
-      <p class="answer">A: After consulting the <a href="http://jabref.sourceforge.net/documentation.php">documentation</a>  
+      <p class="answer">A: After consulting the <a href="http://jabref.sourceforge.net/documentation.php">documentation</a>
       and checking whether your question has been answered in the <a href="https://sourceforge.net/forum/forum.php?forum_id=318825">forum</a>, check the <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600306">bug-tracker</a> if this has been discussed before (filter for Any Bugs). If you cannot find anything in an reasonable amount of time write a message in the forum, problems usually get resolved rather quickly (at least we hope so ;-).</p>
 
       <p class="question">Q: There is a mistake in this FAQ, a dead link or I have written a better/new explanation for a question!</p>
