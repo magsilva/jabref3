@@ -107,7 +107,8 @@
       for <acronym>JabRef</acronym>, you can post it in the
       <a href="https://sourceforge.net/tracker/?group_id=92314&amp;atid=600308">Patches page</a>
       in order to share it with other users and to make it available
-      for possible inclusion in future versions of JabRef.</p>
+      for possible inclusion in future versions of <acronym>JabRef</acronym>.
+      Please also let us know on the <acronym>JabRef</acronym> mailing list about your new code.</p>
 
       <h3 id="donations">Donations</h3>
       <p>Finally, if you enjoy using <acronym>JabRef</acronym> and would like to make
