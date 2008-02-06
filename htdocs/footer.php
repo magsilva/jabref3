@@ -1,7 +1,7 @@
 <div id="footer">
   <p class="floatleft">
     <?php echo "Last Updated: ".date ("F d, Y", getlastmod()); ?>,
-    <a href="http://validator.w3.org/check/referer">XHTML 1.0</a> and
+    <a href="http://validator.w3.org/check?uri=referer">XHTML 1.0</a> and
     <a href="http://jigsaw.w3.org/css-validator/">CSS</a> valid.
   </p>
 
