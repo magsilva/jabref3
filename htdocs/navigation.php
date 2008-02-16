@@ -24,8 +24,7 @@ echo"    <div id=\"navcontainer\">
     navigate("/index.php","Welcome page","Overview",$filename);
     navigate("/faq.php","Frequently Asked Questions","FAQ",$filename);
     navigate("/documentation.php","Documentation.php","Documentation",$filename);
-    navigate("/abbrev.php","Download journal abbreviation lists","Journals",$filename);
-    navigate("/exportfilters.php","Download export filters","Filters",$filename);
+    navigate("/resources.php","Download JabRef resources: journal abbreviation lists and export filters","Resources",$filename);
     navigate("/screenshots.php","Some Screenshots","Screenshots",$filename);
     navigate("/revisionhistory.php","History and documentation about JabRef releases","History",$filename);
     navigate("/contact.php","Contact the JabRef people","Contact",$filename);
