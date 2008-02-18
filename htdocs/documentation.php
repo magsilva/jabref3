@@ -74,81 +74,40 @@
       <p>You must have Java 1.5 or newer installed. Most current Linux
       distributions offer both Java 1.5 and 1.6 from their
       repositories. For instance, in Ubuntu 7.10, if you have enabled
-      the <pre>non-free</pre> repository, you can install Java by
+      the <code>non-free</code> repository, you can install Java by
       typing the command
       <pre>sudo apt-get install sun-java6-jre</pre> and entering your password, or by installing the package
-      <pre>sun-java6-jre</pre> in Synaptic.</p>
+      <code>sun-java6-jre</code> in Synaptic.</p>
 
       <p>Your Linux distro might offer <acronym>JabRef</acronym> through its repositories - e.g. Ubuntu
-	offers <acronym>JabRef</acronym> in its <pre>Multiverse</pre> repositories, and Debian offers
-	<acronym>JabRef</acronym> in its <pre>unstable</pre> version. If this is not the case for your
-	distro, you need to download the file <pre>JabRef-X.X.jar</pre> (where <pre>X.X</pre> is the <acronym>JabRef</acronym>
-	version you want) from our download page. 
+	offers <acronym>JabRef</acronym> in its <code>Multiverse</code> repositories, and Debian offers
+	<acronym>JabRef</acronym> in its <code>unstable</code>
+      version. After installing the application through the package
+      manager, you can typically run it from the standard application
+      menu (for instance, Ubuntu places it in the <i>Office</i>
+      category).</p>
 
-	
-        <li>now download the
-          <pre>JabRef.jar</pre>
-	  binary and type in
-          <pre>java -jar JabRef.jar</pre>
-        </li>
-      </ol>
+      <p>If this is not the case for your
+	distro, you need to download the file <code>JabRef-X.X.jar</code> (where <code>X.X</code> is the <acronym>JabRef</acronym>
+	version you want) from our download page. To run it, open a terminal and type: <pre>java -jar $DIR/JabRef-X.X.jar</pre>
+	where <code>$DIR</code> is the directory where you placed the jar file, and <code>JabRef-X.X.jar</code> is the name of the jar
+	file.
+
+
 
 
       <h4 id="windows">Windows</h4>
 
-      <h5>Method 1: Mouse click way</h5>Now we have the .msi
-      install file. If java is not installed it issues a complaint.
-      This simply installs <acronym>JabRef</acronym> and a shortcut in the start menu.
-
-      <h5>Method 2: Batch file way</h5>First try to simply
-      double-click the JabRef.jar file - this works on some
-      systems. If <acronym>JabRef</acronym> does not start immediately (i.e. Windows
-      does not know what to do with a .jar file), proceed like
-      this:
-
-      <p>In the directory where you placed JabRef.jar, create a
-      batchfile "jabref-start.bat":</p>
-      <pre>start javaw -jar JabRef.jar</pre>
-      Double-click on the batchfile to start <acronym>JabRef</acronym>.
-
-      <h5>Method 3: Command line way</h5>
-
-      <p>I am assuming you hava j2sdk-1_4_* (same as java_1.4)
-      installed on machine.</p>
-
-      <ol>
-        <li>download JabRef.jar to some directory say,
-        c:\bibtools\</li>
-
-        <li>open a command shell: Click on Start-&gt;Run, then type
-        "cmd" and press return. A DOS window should open.</li>
-
-        <li>use the DOS window to change to the directory from the
-        first, step, e.g. "cd \bibtools"</li>
-
-        <li>now type
-          <pre>java -jar JabRef.jar</pre>
-	  to execute the program. The DOS window will be used to
-	  display debug information and error messages. If you do
-	  not want this window, start <acronym>JabRef</acronym> with
-          <pre>javaw -jar JabRef.jar</pre>
-	  You can then close the DOS window once JabRef is running.<br />
-        </li>
-      </ol>
-
-      <p>On one of the win2k's I tried, I was able to run the
-      program just by double clicking on it. If you have installed
-      j2sdk-1_4_* on your machine but the above shell command does
-      not work, then you need to set your system variable "PATH" to
-      include the location of java's "bin" directory.</p>
-
-      <p>If double clicking does not work then create a file called
-      JabRef.bat and in that simply type the following on the first
-      line:&nbsp; java -jar c:/location/to/jabref/JabRef.jar</p>
-
-      <p>Now you can double click on the JabRef.bat and it will
-      launch <acronym>JabRef</acronym>.</p>
-
+      <h5>Installer</h5>
+      The simplest way of installing <acronym>JabRef</acronym> on Windows is by downloading
+      the <code>.exe</code> installer. Simply run the installer, and it will install 
+      <acronym>JabRef</acronym> and add it to the start menu.
+      
+      <h5>Running the jar file</h5>
+      It is also possible to run <acronym>JabRef</acronym> using the <code>.jar</code> files
+      available from our download page. Normally you can run it by simply double-clicking
+      the <code>.jar</code> file. Alternatively you can open a CMD shell and run it in the same
+      way as running a <code>.jar</code> file under Linux.
 
       <h4 id="macosx">Mac</h4>
 
