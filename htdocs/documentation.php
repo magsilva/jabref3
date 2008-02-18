@@ -71,42 +71,21 @@
 
       <h4 id="linux">Linux</h4>
 
-      <p>I am assuming you have downloaded the rpm version:
-      j2sdk-1_4_0_03-linux-i586-rpm.bin</p>
+      <p>You must have Java 1.5 or newer installed. Most current Linux
+      distributions offer both Java 1.5 and 1.6 from their
+      repositories. For instance, in Ubuntu 7.10, if you have enabled
+      the <pre>non-free</pre> repository, you can install Java by
+      typing the command
+      <pre>sudo apt-get install sun-java6-jre</pre> and entering your password, or by installing the package
+      <pre>sun-java6-jre</pre> in Synaptic.</p>
 
-      <ol>
-        <li>login as root</li>
+      <p>Your Linux distro might offer <acronym>JabRef</acronym> through its repositories - e.g. Ubuntu
+	offers <acronym>JabRef</acronym> in its <pre>Multiverse</pre> repositories, and Debian offers
+	<acronym>JabRef</acronym> in its <pre>unstable</pre> version. If this is not the case for your
+	distro, you need to download the file <pre>JabRef-X.X.jar</pre> (where <pre>X.X</pre> is the <acronym>JabRef</acronym>
+	version you want) from our download page. 
 
-        <li>change to directory where you have downloaded the
-        binary</li>
-
-        <li>make the file executable:
-          <pre>chmod +x j2sdk-1_4_0_03-linux-i586-rpm.bin</pre>
-        </li>
-
-        <li>run the executable:
-          <pre>./j2sdk-1_4_0_03-linux-i586-rpm.bin</pre>
-        </li>
-
-        <li>After you accept the licence, an rpm file will be
-        extracted and placed in the same directory</li>
-
-        <li>install the extracted binary:
-          <pre>rpm -Uvh j2sdk-1_4_0_03-linux-i586-rpm</pre>
-        </li>
-
-        <li>check if java is in your path:
-          <pre>which java</pre>
-	  if you get a message saying something like:
-          <pre>/usr/bin/which: no java in ....</pre>
-	  then you can either make a link to the java executable or add
-	  the directory of the executable to the path. The java executable
-	  will most likely be in
-          <pre>/usr/java/j2sdk1.4.1_01/bin/</pre>
-	  directory. So you can make a link to this as follows
-          <pre>ln -s /usr/java/j2sdk1.4.1_01/bin/java /usr/bin/java</pre>
-        </li>
-
+	
         <li>now download the
           <pre>JabRef.jar</pre>
 	  binary and type in

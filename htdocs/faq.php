@@ -31,10 +31,10 @@
       <h3 id="linux"><acronym>JabRef</acronym> &amp; Linux</h3>
 
       <p class="question">Q: Does <acronym>JabRef</acronym> run under free Java (Classpath, Kaffee, GCJ, etc.)?</p>
-      <p class="answer">A: Unfortunately one of our dependencies currently crashes when running with Java APIs other than Suns. At the time of writing this (2006-09-13), version 0.92 of Classpath was used. Please let us know if a newer version fails or works for you. If you have an idea/the expertise to make <acronym>JabRef</acronym> work under Classpath let us know.</p>
+      <p class="answer">A: As far as we know, it has not yet succeeded running JabRef on these free JVMs, due of our dependencies. At the time of writing this (2006-09-13), version 0.92 of Classpath was used. However, <acronym>JabRef</acronym> is reported to run nicely on the <a href="http://fedoraproject.org/wiki/Features/IcedTea">IcedTea</a> runtime, which is based on the <a href="http://openjdk.java.net/">OpenJDK</a> built with <a href="http://www.gnu.org/software/classpath/">GNU Classpath</a> to fill in missing classes. Please let us know if newer versions give different results. If you have an idea or the expertise to make <acronym>JabRef</acronym> work under Classpath let us know.</p>
 
       <p class="question">Q: <acronym>JabRef</acronym> does not start under Linux! What can I do?</p>
-      <p class="answer">A: <acronym>JabRef</acronym> works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.5 and newer. The stable version <acronym>JabRef</acronym> 2.2 also works fine with Sun JRE 1.4.2. If running <acronym>JabRef</acronym> fails to start nevertheless do the following for troubleshooting:</p>
+      <p class="answer">A: <acronym>JabRef</acronym> works fine under Linux if you use a Java Runtime Environment (JRE) from Sun version 1.5 and newer. If running <acronym>JabRef</acronym> fails to start nevertheless do the following for troubleshooting:</p>
       <p class="answer">Run </p><pre>java --version</pre><p class="answer"> from the command line. If this does not report to be a product from Sun Microsystems (for instance tells you that it is a GCJ VM) even if you have installed the Sun JVM then you need to change your setup. This is highly dependent on your
 distribution, so we cannot give exact advise for everybody. </p>
       <p class="answer">Under Debian/Ubuntu it works like this (you need to have admin privileges):</p>
