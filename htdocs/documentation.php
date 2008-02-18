@@ -51,8 +51,8 @@
       <h4 id="java">Installing Java</h4>
 
       <p>Go to the <a href=
-      "http://java.sun.com/j2se/1.4/download.html">Sun Java download page</a>,
-      download the "sdk" version for your operating system and
+      " http://java.sun.com/javase/downloads/index.jsp">Sun Java download page</a>,
+      download the "jre" version for your operating system and
       install it.</p>
 
 
