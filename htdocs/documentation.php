@@ -111,10 +111,9 @@
 
       <h4 id="macosx">Mac</h4>
 
-      <p>One user reported that if you have java 1.4.1 already
-      installed on Mac OS 10.2.4 then double clicking on the
-      JabRef.jar executes the program.</p>
-
+      <p>Mac users should download the OSX zip file available from our download page. This
+	zip file unzips into an application directory which is run similarly to other applications.
+	Recent versions of Mac OS X should come with Java 1.5 or 1.6 preinstalled.
     </div>
     <?php include("footer.php"); ?>
   </div>
