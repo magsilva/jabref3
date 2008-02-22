@@ -76,7 +76,9 @@
       repositories. For instance, in Ubuntu 7.10, if you have enabled
       the <code>non-free</code> repository, you can install Java by
       typing the command
-      <pre>sudo apt-get install sun-java6-jre</pre> and entering your password, or by installing the package
+      </p>
+      <pre>sudo apt-get install sun-java6-jre</pre>
+      <p>and entering your password, or by installing the package
       <code>sun-java6-jre</code> in Synaptic.</p>
 
       <p>Your Linux distro might offer <acronym>JabRef</acronym> through its repositories - e.g. Ubuntu
@@ -87,13 +89,14 @@
       menu (for instance, Ubuntu places it in the <i>Office</i>
       category).</p>
 
-      <p>If this is not the case for your
-	distro, you need to download the file <code>JabRef-X.X.jar</code> (where <code>X.X</code> is the <acronym>JabRef</acronym>
-	version you want) from our download page. To run it, open a terminal and type: <pre>java -jar $DIR/JabRef-X.X.jar</pre>
-	where <code>$DIR</code> is the directory where you placed the jar file, and <code>JabRef-X.X.jar</code> is the name of the jar
-	file.
-
-
+      <p>If this is not the case for your distro, you need to download the file
+      <code>JabRef-X.X.jar</code> (where <code>X.X</code> is the <acronym>JabRef</acronym>
+      version you want) from our download page. To run it, open a terminal and type:
+      </p>
+      <pre>java -jar $DIR/JabRef-X.X.jar</pre>
+      <p>where <code>$DIR</code> is the directory where you placed the jar file,
+      and <code>JabRef-X.X.jar</code> is the name of the jar file.
+      </p>
 
 
       <h4 id="windows">Windows</h4>
@@ -111,9 +114,10 @@
 
       <h4 id="macosx">Mac</h4>
 
-      <p>Mac users should download the OSX zip file available from our download page. This
-	zip file unzips into an application directory which is run similarly to other applications.
-	Recent versions of Mac OS X should come with Java 1.5 or 1.6 preinstalled.
+      <p>Mac users should download the OSX zip file available from our download page.
+      This zip file unzips into an application directory which is run similarly to other
+      applications. Recent versions of Mac OS X should come with Java 1.5 or 1.6 preinstalled.
+      </p>
     </div>
     <?php include("footer.php"); ?>
   </div>

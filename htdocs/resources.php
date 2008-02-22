@@ -26,7 +26,7 @@
         <li><a href="journals/journal_abbreviations_sociology.txt">Sociology journal list</a> by Ronggui Huang.</li>
       </ul>
 
-      <h3 id="downloadlist">Download export filters</h3>
+      <h3 id="exportfilters">Download export filters</h3>
       <ul>
         <li><a href="http://jabref.sourceforge.net/help/CustomExports.php">Mark Schenk's HTML export filters</a></li>
         <li><a href="exportfilters/Marten_Kooiker_export_filters_v1.0.zip">Marten Kooiker's RTF export filters</a></li>
@@ -98,6 +98,7 @@
 
     <?php include("footer.php"); ?>
 
+    </div>
   </div>
 
 </body>
