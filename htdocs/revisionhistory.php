@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.4b">2.4b</a></li>
 	<li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
 	<li class="single_item"><a href="#v2.3">2.3</a></li>
 	<li class="single_item"><a href="#v2.3b3">2.3b3</a></li>
@@ -57,6 +58,55 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.4b">
+        <h3>Version 2.4beta (March 12th, 2008)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added "protection" flag in Database properties. When this flag is set, JabRef will refuse to save the database when the file has been externally modified, until the changes have been reviewed and partly or completely accepted.</li>
+            <li>Fixed bug where the external update notification in the side pane would remain even if the referred database was closed.</li>
+            <li>Added two new search modes - display search results in a dialog, and global search.</li>
+            <li>Support for fetching from the command line using --fetch (contributed by Jan F. Boldt and David Kaltschmidt).</li>
+            <li>Support for fetching from Spires (contributed by Fedor Bezrukov).</li>
+            <li>Support for fetching from JSTOR (contributed by Tobias Langner, Juliane Doege, Sebastian de Hoog and Christoph Jacob)</li>
+            <li>Added context menu for file list editor with options to move/rename linked file as well as to automatically move the file to file directory and optionally rename after BibTeX key.</li>
+            <li>JabRef can now be extended by plugins (using the Java Plugin Framework JPF as the underlying technology). Currently extension points exist for:
+              <ul>
+                <li>ImportFormat</li>
+                <li>ExportFormat based on Templates</li>
+                <li>ExportFormat based on IExportFormat (contributed by Kariem Hussein)</li>
+                <li>LayoutFormatter</li>
+                <li>EntryFetcher</li>
+                <li>PushToApplication</li>
+              </ul>
+               JabRef uses JPFCodeGenerator (which was written just for JabRef) to generate helper classes for making JPF easier. Current version used: 0.4 http://forge.spline.inf.fu-berlin.de/projects/jpfcodegen/
+            </li>
+            <li>Print warnings if insufficient Java version is used or if JRE is not from Sun.</li>
+            <li>Memory Stick Mode: JabRef automatically loads configuration settings from jabref.xml and also writes them there if enabled.</li>
+            <li>Improved handling of crossrefs. Fields are now resolved in preview and export.</li>
+            <li>Updated dependencies, now using: JempBox-0.2</li>
+            <li>Improved handling of ArXiv URIs.</li>
+            <li>Changed default preference value: now using import inspection dialog also when just a single entry is imported.</li>
+            <li>[ 1620792 ] Fixed: JabRef randomly hangs during Medline fetch</li>
+            <li>[ 1738920 ] Fixed: Windows Position in Multi-Monitor environment</li>
+            <li>[ 1795355 ] Fixed: LatexFieldFormatter omits "{" on beginning of optional field</li>
+            <li>[ 1297576 ] New feature: Printing of entry preview (use right-click menu)</li>
+            <li>[ 1717849 ] Fixed: Bug in aux import (contributed by Kai Eckert)</li>
+            <li>[ 1749613 ] Fixed: About translation</li>
+            <li>[ 1709449 ] Fixed: Clicking a DOI from context menu fails</li>
+            <li>[ 1869331 ] Fixed: Uninstall after silent install removes Windows start menu</li>
+            <li>[ 1723219 ] Fixed: Strange message (LyX) while installing 2.3</li>
+            <li>Added handling of unknown file types when synchronizing the file field.</li>
+            <li>Changed the way customized external file types are stored. Types are now stored in a way analogous to a diff from the default types. This allows default types added in later versions to appear immediately, even if the user has customized the list.</li>
+            <li>Moved file preferences from General tab to new File tab.</li>
+            <li>Reduced horizontal size of preferences dialog.</li>
+            <li>Fixed handling of quotes when using the "abbr" modifier for key generator (Debian bug #448917).</li>
+            <li>Download file procedure now strips query string in order to find correct file extension (Debian bug #448027).    </li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.3.1">
         <h3>Version 2.3.1 (November 29th, 2007)</h3>

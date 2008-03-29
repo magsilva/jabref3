@@ -24,20 +24,14 @@ are beta-tested and expected to be stable and reliable.</p>
       <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=557970"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
     </p>
 
-    <?php 
-    // 
-    // <h3 id="beta">Current beta version</h3>  
-    // <p>The beta version is an alternative for users who can't wait for the latest features, or who want to help out with beta-testing.</p>    
-    // <p class="red">
-    //  If you use the beta version, please be prepared that it can be unstable and contain serious bugs. Make backups of all important data!
-    // </p>
-    // <p class="red">
-    //   Note: Please install Java runtime environment (JRE) version 1.5 or newer to run this beta version of JabRef.
-    // </p>
-    // <p>
-    //   <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=544709"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
-    // </p>
-    ?>
+    <h3 id="beta">Current beta version</h3>  
+    <p>The beta version is an alternative for users who can't wait for the latest features, or who want to help out with beta-testing.</p>
+    <p class="red">
+     If you use the beta version, please be prepared that it can be unstable and contain serious bugs. Make backups of all important data!
+    </p>
+    <p>
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=583784"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+    </p>
 
     <h3 id="subversion">Developer versions</h3>
     <p>
