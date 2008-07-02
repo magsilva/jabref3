@@ -47,24 +47,32 @@ public class JabRefDBLPppPlugin extends _JabRefDBLPppPlugin {
 
 	private static final Log LOG = LogFactory.getLog(JabRefDBLPppPlugin.class);
 
-	  /**
-	   * Retrieve the Plug-in instance from the given manager.
-	   * 
-	   * @param manager
-	   *            The manager from which to retrieve the plug-in instance
-	   * 
-	   * @return The requested plug-in or null if not found.
-	   */
-	  public static JabRefDBLPppPlugin getInstance(PluginManager manager) {
-	    String id = getId();
-	    try{
-	      return (JabRefDBLPppPlugin) manager.getPlugin(id);
-	    }catch (PluginLifecycleException e){
-	      LOG.error("Error while trying to retrieve plugin " + id, e);
-	    }catch (IllegalArgumentException e){
-	      LOG.error("Could not find plugin " + id, e);
-	    }
-	    return null;
-	  }
-	
+	public void doStart() {
+		// TODO: Will be called when plug-in is started.
+	}
+
+	public void doStop() {
+		// TODO: Will be called when plug-in is stopped.
+	}
+
+	/**
+	 * Retrieve the Plug-in instance from the given manager.
+	 * 
+	 * @param manager
+	 *            The manager from which to retrieve the plug-in instance
+	 * 
+	 * @return The requested plug-in or null if not found.
+	 */
+	public static JabRefDBLPppPlugin getInstance(PluginManager manager) {
+		String id = getId();
+		try {
+			return (JabRefDBLPppPlugin) manager.getPlugin(id);
+		} catch (PluginLifecycleException e) {
+			LOG.error("Error while trying to retrieve plugin " + id, e);
+		} catch (IllegalArgumentException e) {
+			LOG.error("Could not find plugin " + id, e);
+		}
+		return null;
+	}
+
 }

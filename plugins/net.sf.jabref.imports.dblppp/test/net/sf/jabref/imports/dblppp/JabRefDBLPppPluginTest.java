@@ -26,17 +26,19 @@
 package net.sf.jabref.imports.dblppp;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.List;
 
 import net.sf.jabref.plugin.PluginCore;
+import net.sf.jabref.plugin.core.JabRefPlugin;
+import net.sf.jabref.plugin.core.generated._JabRefPlugin.EntryFetcherExtension;
 
 import org.java.plugin.JpfException;
 import org.java.plugin.PluginManager;
 import org.java.plugin.standard.StandardPluginLocation;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -60,10 +62,17 @@ public class JabRefDBLPppPluginTest {
 	    StandardPluginLocation dot = new StandardPluginLocation(new File("."), "plugin.xml");
 	    
 	    manager.publishPlugins(new StandardPluginLocation[]{dot});
-	  
-	    JabRefDBLPppPlugin instance = JabRefDBLPppPlugin.getInstance(manager);
-	    List<String> importers = instance.getExtensions();
+	   
+	    JabRefPlugin plugin = JabRefPlugin.getInstance(manager);
+	    
+	    
+	    List<EntryFetcherExtension> importers = plugin.getEntryFetcherExtensions();
 		assertNotNull(importers);
-		assertTrue(importers.contains("DBLPFetcher"));
+		
+		for (EntryFetcherExtension ext : importers){
+			if (ext.getName().equals("DBLP++ Entry Fetcher"))
+				return;
+		}
+		Assert.fail("Did not find DBLPFetcher");
 	}
 }

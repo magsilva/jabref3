@@ -32,8 +32,6 @@ import static org.junit.Assert.fail;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 
-import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.imports.ws.Sequence4;
 import net.sf.jabref.imports.ws.Sequence6;
 
@@ -59,7 +57,7 @@ public class QueristTest {
 			Sequence6[] result = querist.keywordQuery("ontology", BigInteger
 					.valueOf(2007), BigInteger.valueOf(2007), BigInteger
 					.valueOf(10));
-			BibtexEntry entry = querist.parseResult(result[0], "Test Author");
+			querist.parseResult(result[0], "Test Author");
 			assertNotNull(result);
 			assertTrue(result.length <= 10);
 		} catch (RemoteException e) {
