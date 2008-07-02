@@ -25,8 +25,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
-import net.sf.jabref.JabRefFrame;
-import net.sf.jabref.gui.ImportInspectionDialog;
+import net.sf.jabref.OutputPrinter;
 
 import org.xml.sax.SAXException;
 
@@ -34,15 +33,13 @@ public class ACMFetcher implements EntryFetcher {
 
     protected boolean shouldContinue = true;
 
-    public void processQuery(String query, ImportInspectionDialog dialog,
-        JabRefFrame frame) {
+    public boolean processQuery(String query, ImportInspector dialog,
+        OutputPrinter frame) { 
 
         shouldContinue = true;
 
         // number of parsed results so far...
         int parsed = 0;
-
-        dialog.setVisible(true);
 
         try {
             // fetch the initial hitlist
@@ -52,12 +49,11 @@ public class ACMFetcher implements EntryFetcher {
             int hits = parseNumberOfHits(hitlist);
 
             if (hits == 0) {
-                dialog.dispose();
-                JOptionPane.showMessageDialog(frame, Globals.lang(
+                frame.showMessage(Globals.lang(
                     "No entries found for the search string '%0'", query),
                     Globals.lang("Search ACM Digital Library"),
                     JOptionPane.INFORMATION_MESSAGE);
-                return;
+                return false;
             }
 
             // parse the result page and all following pages for article
@@ -72,20 +68,18 @@ public class ACMFetcher implements EntryFetcher {
                 dialog.setProgress(++parsed, hits);
             }
 
-            dialog.entryListComplete();
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            return false;
         } catch (ConnectException e) {
-            JOptionPane.showMessageDialog(frame, Globals
-                .lang("Connection to ACM failed"), Globals.lang("Search ACM"),
+            frame.showMessage(Globals.lang("Connection to ACM failed"), Globals.lang("Search ACM"),
                 JOptionPane.ERROR_MESSAGE);
+            return false;
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            // We call this to ensure no lockup.
-            frame.unblock();
+            return false;
         }
+        return true;
     }
 
     /**
@@ -404,4 +398,5 @@ public class ACMFetcher implements EntryFetcher {
 
         return page.toString();
     }
+
 }
