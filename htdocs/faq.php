@@ -74,6 +74,10 @@ distribution, so we cannot give exact advise for everybody. </p>
       <p class="question">Q: How do I prevent <acronym>JabRef</acronym> from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
       <p class="answer">A: Open Tools -> Preferences. In the "General" panel, you will find an option called "Do not wrap the following fields when saving". This option contains a semicolon-separated list of field names. Any field you add to this list will always be stored without introduction of line breaks.</p>
 
+
+      <p class="question">Q: Is it possible to open files, e.g. from my web browser, in the running instance of JabRef instead of opening a new instance?</p>
+      <p class="answer">A: Yes, if you activate the "Remote operation" option under <b>Preferences -> Advanced</b>. This option allows new instances of JabRef to detect the instance already running, and pass files to that instead of opening a new window.</p>
+
       <h3 id="other">Other</h3>
 
       <p class="question">Q: My question is not answered here. What can I do?</p>
