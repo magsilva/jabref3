@@ -19,8 +19,8 @@
       <ul>
         <li><a href="journals/journal_abbreviations_general.txt">General list</a></li>
         <li><a href="journals/journal_abbreviations_entrez.txt">Entrez journals abbreviation list</a> by Emmanuel Charpentier. <i>Note: provides Medline (dotless) abbr. only.</i></li>
-        <li><a href="journals/journal_abbreviations_medicus.txt">Index Medicus abbreviation list</a> by Guy Tsafnat. 
-<i>Note: provides Medline (dotless) abbr. only.</i></li>
+        <li><a href="journals/journal_abbreviations_medicus.txt">Index Medicus abbreviation list</a> by Guy Tsafnat.
+	    <i>Note: provides Medline (dotless) abbr. only.</i></li>
         <li><a href="journals/journal_abbreviations_lifescience.txt">Life Science abbreviation list</a> by Z&eacute; Roberto Ribeiro</li>
         <li><a href="journals/journal_abbreviations_meteorology.txt">Meteorology journal list</a> by Thijs Heus.</li>
         <li><a href="journals/journal_abbreviations_sociology.txt">Sociology journal list</a> by Ronggui Huang.</li>
@@ -85,16 +85,22 @@
 	from this page, or link to your own page.</p>
 
       <h3 id="Marks_filters">Mark Schenk's HTML export filters</h3>
-      <a href="http://www.markschenk.com/tools/jabref/">Mark Schenk's
+      <p><a href="http://www.markschenk.com/tools/jabref/">Mark Schenk's
       HTML export filters</a> provide HTML listings of your reference
       list. The exported HTML comes complete with scripts for quick
-      filtering of the list. <i>Note: some of Mark Schenk's filters
-      are distributed with JabRef as standard export filters.</i>
+      filtering of the list.</p>
+      <p><i>Note: some of Mark Schenk's filters
+      are distributed with JabRef as standard export filters.</i></p>
 
       <h3 id="Martens_filters">Marten Kooiker's RTF export filters</h3>
-      Marten Kooiker has put together a number of export filters outputting
-      RTF references formatted for specific journals.
-      <p><a href="exportfilters/Marten_Kooiker_export_filters_v1.0.zip">Download filters</a></p>
+      <p>Marten Kooiker has put together a number of export filters outputting
+      RTF references formatted for specific journals.</p>
+      <p><a href="exportfilters/Marten_Kooiker_export_filters_v1.0.zip">Download Marten Kooiker's RTF export filters</a></p>
+
+      <h3 id="Edward_Elgar_filters">Edward Elgar export filters</h3>
+      <p>Christian Bartolomaeus has made an export filter matching the author guidelines of Edward Elgar.
+      The export filter requires definition of two name formatters - please read the included README file.</p>
+      <p><a href="exportfilters/Edward_Elgar_export_filters_v1.0.zip">Download Edward Elgar export filters</a></p>
 
     <?php include("footer.php"); ?>
 
