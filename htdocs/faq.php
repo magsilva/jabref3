@@ -16,10 +16,10 @@
     <div id="rightpanel">
 
       <h3>Frequently Asked Questions</h3>
+      <span class="single_item"><a href="#general_usage">General usage</a></span>
       <span class="single_item"><a href="#linux"><acronym>JabRef</acronym> &amp; Linux</a></span>
       <span class="single_item"><a href="#windows"><acronym>JabRef</acronym> &amp; Windows</a></span>
       <span class="single_item"><a href="#developers">Developers</a></span>
-      <span class="single_item"><a href="#general_usage">General usage</a></span>
       <span class="single_item"><a href="#other">Other</a></span>
 
     </div>
@@ -27,6 +27,17 @@
     <div id="main">
 
       <h2>Frequently Asked Questions</h2>
+
+      <h3 id="general_usage">General usage</h3>
+
+      <p class="question">Q: How do I prevent <acronym>JabRef</acronym> from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
+      <p class="answer">A: Open Tools -> Preferences. In the "General" panel, you will find an option called "Do not wrap the following fields when saving". This option contains a semicolon-separated list of field names. Any field you add to this list will always be stored without introduction of line breaks.</p>
+
+      <p class="question">Q: Is it possible to open files, e.g. from my web browser, in the running instance of JabRef instead of opening a new instance?</p>
+      <p class="answer">A: Yes, if you activate the "Remote operation" option under <b>Preferences -> Advanced</b>. This option allows new instances of JabRef to detect the instance already running, and pass files to that instead of opening a new window.</p>
+
+      <p class="question">Q: I want to link external files with paths relative to my .bib file, so I can easily move my database along with its files to another directory. Is this possible?</p>
+      <p class="answer">A: Yes. You need to override the default file directory for this specific database. Go to <b>File -> Database properties</b> and change the <b>Default file directory</b> setting. If you simply enter &quot;.&quot; (a dot, without the quotes), the file directory will be the same as the .bib file directory. To place your files in a subdirectory called <b>subdir</b>, you can enter <b>&quot;./subdir&quot;</b>. Files will automatically be linked with relative paths if the files are placed in the default file directory or in a directory below it.</p>
 
       <h3 id="linux"><acronym>JabRef</acronym> &amp; Linux</h3>
 
@@ -68,17 +79,6 @@ distribution, so we cannot give exact advise for everybody. </p>
 
       <p class="question">Q: I have a patch that I want to contribute. Where can I do that?</p>
       <p class="answer">A: Please send patches to the Patch-Tracker on Sourceforge and write a quick entry on the user or developer list.</p>
-
-      <h3 id="general_usage">General usage</h3>
-
-      <p class="question">Q: How do I prevent <acronym>JabRef</acronym> from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
-      <p class="answer">A: Open Tools -> Preferences. In the "General" panel, you will find an option called "Do not wrap the following fields when saving". This option contains a semicolon-separated list of field names. Any field you add to this list will always be stored without introduction of line breaks.</p>
-
-      <p class="question">Q: Is it possible to open files, e.g. from my web browser, in the running instance of JabRef instead of opening a new instance?</p>
-      <p class="answer">A: Yes, if you activate the "Remote operation" option under <b>Preferences -> Advanced</b>. This option allows new instances of JabRef to detect the instance already running, and pass files to that instead of opening a new window.</p>
-
-      <p class="question">Q: I want to link external files with paths relative to my .bib file, so I can easily move my database along with its files to another directory. Is this possible?</p>
-      <p class="answer">A: Yes. You need to override the default file directory for this specific database. Go to <b>File -> Database properties</b> and change the <b>Default file directory</b> setting. If simply enter &quot;.&quot; (a dot, without the quotes), the file directory will be the same as the .bib file directory. To place your files in a subdirectory called <b>subdir</b>, you can enter <b>&quot;./subdir&quot;</b>. Files will automatically be linked with relative paths if the files are placed in the default file directory or in a directory below it.</p>
 
       <h3 id="other">Other</h3>
 
