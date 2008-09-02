@@ -80,6 +80,9 @@ distribution, so we cannot give exact advise for everybody. </p>
       <p class="question">Q: I have a patch that I want to contribute. Where can I do that?</p>
       <p class="answer">A: Please send patches to the Patch-Tracker on Sourceforge and write a quick entry on the user or developer list.</p>
 
+      <p class="question">Q: What is the branching strategy used in <acronym>JabRef</acronym>'s SVN repository?</p>
+      <p class="answer">A: The trunk is used for developments targeted for the next release. When we release the first beta of a new version, e.g. 2.4, we make a branch (beta_2.4). From that moment, all changes that are to be part of the 2.4 version must be made in the branch, while changes that are for the following version must be made in the trunk. This lets us polish the 2.4 version while at the same time checking in features for version 2.5. When 2.4 is finished, it is built from the beta_2.4 branch, and then all changes that have been made in the beta_2.4 branch since it was created are merged into the trunk. At this point the trunk has all the changes of the 2.4 version, in addition to whatever has been done in the trunk in the meantime.</p>
+
       <h3 id="other">Other</h3>
 
       <p class="question">Q: My question is not answered here. What can I do?</p>
