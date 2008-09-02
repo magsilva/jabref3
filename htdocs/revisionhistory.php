@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.4">2.4</a></li>
 	<li class="single_item"><a href="#v2.4b">2.4b</a></li>
 	<li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
 	<li class="single_item"><a href="#v2.3">2.3</a></li>
@@ -58,6 +59,23 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.4">
+        <h3>Version 2.4 (September 1st, 2008)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added mappings for some special characters that need to be sanitized when generating BibTeX keys.</li>
+            <li>Added ACM Digital Library fetcher by Aaron Chen.</li>
+            <li>Added new entry types (conference, patent, standard, electronic).</li>
+            <li>Improvements to IEEEXplore fetcher.</li>
+            <li>Added explanatory text to indicate that &quot;ps&quot; and &quot;pdf&quot; files are legacy features.</li>
+            <li>Fixed unexpected behaviour of &quot;Open PDF or PS&quot; menu item - now looks in &quot;file&quot; field, and does not launch search for external files.</li>
+            <li>Fixed bug 1827568: &quot;Save database&quot; might not store current edit in entry editor.</li>
+            <li>Fixed bug 2027944: updating custom export definitions requires restart.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.4b">
         <h3>Version 2.4beta (March 12th, 2008)</h3>
@@ -106,7 +124,6 @@
           </ul>
         </div>
       </div>
-
 
       <div class="aversion" id="v2.3.1">
         <h3>Version 2.3.1 (November 29th, 2007)</h3>
