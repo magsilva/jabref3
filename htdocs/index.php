@@ -165,7 +165,8 @@
 	<li class="feature">Integrates to your environment</li>
         <li class="feature_desc">
           Launch external applications: PDF/PS viewers, web
-          browser, insert citations into LyX, Kile and WinEdt
+          browser, insert citations into
+          LyX, Kile, LatexEDitor, Emacs, Vim and WinEdt
         </li>
 	
 	<li class="feature">Automatic Key generation</li>
@@ -176,6 +177,9 @@
 	
 	<li class="feature">Support for XMP Metadata in PDFs</li>
         <li class="feature_desc">Improve the workflow of sharing PDFs and bibliography information</li>
+
+	<li class="feature">Plugin functionality</li>
+        <li class="feature_desc"></li>
 
       </ul>
     </div>
