@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
 	<li class="single_item"><a href="#v2.4">2.4</a></li>
 	<li class="single_item"><a href="#v2.4b">2.4b</a></li>
 	<li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
@@ -59,6 +60,26 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.4.1">
+        <h3>Version 2.4.1 (October 8th, 2008)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Fixed bug: layout formatter arguments were not set when using a ParamLayoutFormatter loaded from plugin.</li>
+            <li>Fixed bug: when abbreviating first names, for authors with first names connected with &quot;-&quot;, only the first letter is shown.</li>
+            <li>Enhanced ExportFormatTemplate plugins with an optional property &quot;encoding&quot; which overrides the default encoding with the given one.</li>
+            <li>Fixed menu colors under Windows Vista.</li>
+            <li>Fixed bug 2137771: Missing file extension when downloading.</li>
+            <li>Fixed bug 2105329: Ensure that newly added entry is visible in table.</li>
+            <li>Fixed bug 1908222: Preference &quot;Fit table horizontally on screen&quot; doesn't work</li>
+            <li>Fixed bug 2119059: Handling of the A1 tag in the RIS format.</li>
+            <li>Added missing help file for ACM digital library fetcher.</li>
+            <li>Added option for whether to use IEEE LaTeX journal abbreviation list.</li>
+            <li>Added tooltip to menu items in push-to-application popup menu.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.4">
         <h3>Version 2.4 (September 1st, 2008)</h3>
