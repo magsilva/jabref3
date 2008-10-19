@@ -32,6 +32,12 @@
         <li><a href="exportfilters/Marten_Kooiker_export_filters_v1.0.zip">Marten Kooiker's RTF export filters</a></li>
       </ul>
 
+      <h3 id="plugins_">Plugins</h3>
+      <ul>
+        <li><a href="#OOintegration">Openoffice.org integration</a></li>
+        <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
+      </ul>
+
     </div>
 
     <div id="main">
@@ -101,6 +107,53 @@
       <p>Christian Bartolomaeus has made an export filter matching the author guidelines of Edward Elgar.
       The export filter requires definition of two name formatters - please read the included README file.</p>
       <p><a href="exportfilters/Edward_Elgar_export_filters_v1.0.zip">Download Edward Elgar export filters</a></p>
+
+
+      <h2 id="plugins">Plugins</h2>
+
+      <p>Starting with version 2.4, JabRef offers a plugin framework
+      that allows the application to be extended with further import and
+      export filters, web search modules (fetchers), layout formatters,
+      cite-while-you-write modules and general sidepane components.</p>
+
+      <h3 id="Installing_plugins">Installing plugins</h3>
+      <p>There is yet no plugin manager for JabRef, so plugins must be
+      installed manually. This is fortunately quite simple - you must
+      create a directory named <strong>plugins</strong> right below the
+      directory where JabRef is installed (specifically, the directory
+      where the file named <strong>JabRef-X.jar</strong> is located,
+      where X is the version number), and drop your plugins there.
+      All plugins (in the form of jar files) in this directory will be
+      loaded automatically when you start up JabRef.</p>
+
+      <h3>Plugins available for download</h3>
+
+      <h4 id="OOintegration">Openoffice.org integration</h4>
+      <p><em>by Morten O. Alver</em></p>
+
+      <p>Version 0.0.8 (alpha level)<br />
+      <a href="plugins/net.sf.jabref.oo.ooplugin-0.0.8.jar">Plugin</a> -
+      <a href="plugins/JabRef-oo-0.0.8-src.zip">Source code</a> -
+      <a href="http://www.itk.ntnu.no/ansatte/Alver_Omholt_Morten/jabref/OOPlugin.html">Home page</a></p>
+
+      <p>This plugin provides cite-while-you-write functionality for OpenOffice.org Writer.</p>
+
+      <h4 id="PushEmacsclient">Push to Emacsclient</h4>
+
+      <p>Version 1.0<br />
+      <a href="plugins/net.sf.jabref.external.pushtoemacsclient-1.0.jar">Plugin</a> -
+      <a href="plugins/PushToEmacsclient.zip">Source code</a></p>
+
+      <p>This plugin provides the same functionality as the built-in Push to Emacs feature,
+      except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
+      to communicate with Emacs. This requires a recent version of Emacs to work.</p>
+
+      <h3>Developing plugins</h3>
+      <p>A plugin is basically an implementation of one or more of JabRef's
+      interfaces, packaged in a jar file with an XML file describing the
+      plugin and which extension points it connects to.
+      See our <a href="http://jabref.wiki.sourceforge.net/Getting+started+with+JabRef+plugin+development">
+      Wiki page on getting started writing plugins</a>.</p>
 
     <?php include("footer.php"); ?>
 
