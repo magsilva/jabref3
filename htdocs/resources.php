@@ -19,6 +19,7 @@
       <ul>
         <li><a href="#OOintegration">Openoffice.org integration</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
+        <li><a href="#RIS_export">RIS export format</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
@@ -80,6 +81,15 @@
       <p>This plugin provides the same functionality as the built-in Push to Emacs feature,
       except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
       to communicate with Emacs. This requires a recent version of Emacs to work.</p>
+
+      <h4 id="RIS_export">RIS export format</h4>
+      <p><em>by Morten O. Alver</em></p>
+
+      <p>Version 1.0<br />
+      <a href="plugins/net.sf.jabref.export.RISExport-1.0.jar">Plugin</a> -
+      <a href="plugins/RISExport-1.0-src.zip">Source code</a></p>
+
+      <p>This plugin provides RIS export format functionality.</p>
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
