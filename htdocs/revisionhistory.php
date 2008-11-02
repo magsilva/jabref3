@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
 	<li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
 	<li class="single_item"><a href="#v2.4">2.4</a></li>
 	<li class="single_item"><a href="#v2.4b">2.4b</a></li>
@@ -60,6 +61,22 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.4.2">
+        <h3>Version 2.4.2 (November 1st, 2008)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added missing layout formatters FirstPage and LastPage.</li>
+            <li>Fixed a bug regarding ParamLayoutFormatter loaded from plugin.</li>
+            <li>Fixed crash during initalization of journal abbreviation list.</li>
+            <li>Added option to have JabRef search for external file when &quot;Open file&quot; function is chosen for an entry without any linked files. This is similar to what was always done in JabRef 2.3.1 and earlier.</li>
+            <li>Improved regular expression file search, so the regular expression can contain field markers as used for BibTeX key generation in addition to just regular fields. It is no longer possible to call arbitrary layout formatters, but the modifiers &quot;upper&quot;, &quot;lower&quot; and &quot;abbr&quot; (for case conversion and abbreviation) can be used.</li>
+            <li>Ris importer now imports PB as &quot;school&quot; instead of &quot;publisher&quot; for THES entries.</li>
+            <li>Fixed bug 2157664: Current edit is now treated as an undoable edit in itself.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.4.1">
         <h3>Version 2.4.1 (October 8th, 2008)</h3>

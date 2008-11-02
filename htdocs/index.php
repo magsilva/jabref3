@@ -14,11 +14,11 @@
     <?php include("navigation.php"); ?>
 
     <div id="rightpanel">
-      
+
       <a href="http://jabref.sourceforge.net/jws/jabref.jnlp">
       <img src="images/RunJabRef.png" alt="Run JabRef instantly" /></a>
 
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=631512"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=637373"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
 
     <?php 
       // <a href="download.php#beta"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
@@ -26,6 +26,9 @@
       <h3 id="News">News</h3>
 
       <ul class="history_column">
+	<li class="item">November 1st, 2008</li>
+	<li class="item_desc">Version 2.4.2</li>
+
 	<li class="item">October 8th, 2008</li>
 	<li class="item_desc">Version 2.4.1</li>
 
