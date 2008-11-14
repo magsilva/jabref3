@@ -15,7 +15,7 @@
 	<property name="version" value="0.1" />
 	<property name="build.classes" value="classes" />
 	<property name="jabref.build.dir" value="lib" />
-    <property name="jar.dir" value="dist/plugins" />
+    <property name="jar.dir" value="jar" />
     <property name="jar" value="${jar.dir}/${ant.project.name}-${version}.jar" />
 	
 	<path id="classpath">

@@ -575,11 +575,11 @@ public class OOBibStyle implements Comparable {
                     int i=1;
                     while (i < al.size()-1) {
                         sb.append(authorSep);
-                        sb.append(al.getAuthor(i).getLast());
+                        sb.append(getAuthorLastName(al, i));
                         i++;
                     }
                     sb.append(andString);
-                    sb.append(al.getAuthor(al.size()-1).getLast());
+                    sb.append(getAuthorLastName(al, al.size()-1));
                 } else if (al.size() > maxAuthors) {
                     sb.append(etAlString);
                 }
@@ -631,16 +631,16 @@ public class OOBibStyle implements Comparable {
             if (author != null) {
                 AuthorList al = AuthorList.getAuthorList(author);
                 if (al.size() > 0)
-                    sb.append(al.getAuthor(0).getLast());
+                    sb.append(getAuthorLastName(al, 0));
                 if ((al.size() > 1) && ((al.size() <= maxAuthors) || (maxAuthors < 0))) {
                     int j=1;
                     while (j < al.size()-1) {
                         sb.append(authorSep);
-                        sb.append(al.getAuthor(j).getLast());
+                        sb.append(getAuthorLastName(al, j));
                         j++;
                     }
                     sb.append(andString);
-                    sb.append(al.getAuthor(al.size()-1).getLast());
+                    sb.append(getAuthorLastName(al, al.size()-1));
                 } else if (al.size() > maxAuthors) {
                     sb.append(etAlString);
                 }
@@ -692,9 +692,10 @@ public class OOBibStyle implements Comparable {
             AuthorList.Author a = al.getAuthor(number);
             if ((a.getVon() != null) && a.getVon().length() > 0) {
                 String von = a.getVon();
-                sb.append(von.substring(0, 1).toUpperCase());
+                sb.append(von);
+                /*sb.append(von.substring(0, 1).toUpperCase());
                 if (von.length() > 1)
-                    sb.append(von.substring(1));
+                    sb.append(von.substring(1));*/
                 sb.append(' ');
             }
             sb.append(a.getLast());
