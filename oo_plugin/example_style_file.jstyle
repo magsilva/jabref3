@@ -1,0 +1,43 @@
+NAME
+Example style file for JabRef-oo plugin.
+
+JOURNALS
+Journal name 1
+Journal name 2
+
+PROPERTIES
+Title=References
+IsSortByPosition=false
+IsNumberEntries=false
+ReferenceParagraphFormat=Default
+ReferenceHeaderParagraphFormat=Heading 1
+
+CITATION
+AuthorField=author/editor
+YearField=year
+MaxAuthors=3
+AuthorSeparator=, 
+AuthorLastSeparator= & 
+EtAlString= et al.
+YearSeparator= 
+InTextYearSeparator= 
+BracketBefore=[
+BracketAfter=]
+CitationSeparator=; 
+UniquefierSeparator=,
+GroupedNumbersSeparator=-
+
+
+LAYOUT
+article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\format[FormatChars]{\year}\uniq</b>). <i>\format[FormatChars]{\title}</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
+
+book=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}\begin{editor}\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.)\end{editor}, <b>\year\uniq</b>. <i>\format[FormatChars]{\title}</i>. \format[FormatChars]{\publisher}, \format[FormatChars]{\address}.
+
+incollection=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\format[FormatChars]{\title}</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), <i>\format[FormatChars]{\booktitle}</i>, \format[FormatChars]{\publisher}.
+
+inbook=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\format[FormatChars]{\chapter}</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), <i>\format[FormatChars]{\title}</i>, \format[FormatChars]{\publisher}.
+
+phdthesis=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\format[FormatChars]{\title}</i>, \format[FormatChars]{\school}.
+
+default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\format[FormatChars]{\year}\uniq</b>). <i>\format[FormatChars]{\title}</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
+

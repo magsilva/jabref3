@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="net.sf.jabref.oo.ooplugin" version="1.0">
+
+	<requires>
+		<import plugin-id="net.sf.jabref.core"/>
+	</requires>
+
+	<runtime>
+		<library type="code" path="./" id="code"/>
+    </runtime>
+
+	<extension id="OpenOfficePlugin" plugin-id="net.sf.jabref.core" point-id="SidePanePlugin">
+        <parameter id="sidePanePlugin" value="net.sf.jabref.oo.OOTestPanel"/>
+        <parameter id="name" value="Interface to OpenOffice Writer"/>
+        <parameter id="description" value=""/>
+    </extension>
+
+    <extension id="PushToOpenOfficePlugin" plugin-id="net.sf.jabref.core" point-id="PushToApplication">
+        <parameter id="pushToApp" value="net.sf.jabref.oo.OOTestPanel"/>
+        <parameter id="name" value="Interface to OpenOffice Writer"/>
+        <parameter id="description" value=""/>
+    </extension>
+
+    <extension id="FormatChars" plugin-id="net.sf.jabref.core" point-id="LayoutFormatter">
+		<parameter id="layoutFormatter"
+			value="net.sf.jabref.export.layout.format.FormatChars" />
+		<parameter id="description"
+			value="Conversion of BibTeX codes into unicode values." />
+	</extension>
+
+</plugin>
