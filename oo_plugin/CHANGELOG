@@ -1,6 +1,9 @@
-?:
+0.1.1:
+ - It is now possible to connect again after OpenOffice has been shut down and started
+   again.
  - Added property ReferenceHeaderParagraphFormat in style file to control the paragraph
    format of the bibliography header.
+ - Added error message for the case that OpenOffice has been shut down after connection.
  - Fixed bug in handling of von particles in citation markers.
 
 0.1:

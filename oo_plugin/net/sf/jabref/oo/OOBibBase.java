@@ -14,6 +14,7 @@ import com.sun.star.frame.XModel;
 import com.sun.star.lang.XComponent;
 import com.sun.star.lang.XMultiComponentFactory;
 import com.sun.star.lang.XMultiServiceFactory;
+import com.sun.star.lang.DisposedException;
 import com.sun.star.text.*;
 import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
@@ -201,49 +202,52 @@ public class OOBibBase {
     public void insertEntry(BibtexEntry[] entries, BibtexDatabase database, OOBibStyle style,
                             boolean inParenthesis) throws Exception {
 
-        XTextViewCursor xViewCursor = xViewCursorSupplier.getViewCursor();
-
-        if (entries.length > 1) {
-            Arrays.sort(entries, yearComparator);    
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < entries.length; i++) {
-            BibtexEntry entry = entries[i];
-            if (i > 0)
-                sb.append(",");
-            sb.append(entry.getCiteKey());
-        }
-        String keyString = sb.toString();
-        // Insert bookmark:
-        String bName = getUniqueReferenceMarkName(keyString,
-                inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT);
-        //XTextContent content = insertBookMark(bName, xViewCursor);
-
-
-        String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null);
-        text.insertString(xViewCursor, " ", false);
-        xViewCursor.goLeft((short)1,false);
-        insertReferenceMark(bName, citeText, xViewCursor);
-        //xViewCursor.collapseToEnd();
-
-        xViewCursor.collapseToEnd();
-        xViewCursor.goRight((short)1,false);
-
-        XTextRange position = xViewCursor.getEnd();
-        // To account for numbering and for uniqiefiers, we must refresh the cite markers:
-        refreshCiteMarkers(database, style);
-
-        // Insert it at the current position:
-        rebuildBibTextSection(database, style);
-        // Go back to the relevant position:
         try {
-            xViewCursor.gotoRange(position, false);
-        } catch (Exception ex) {
-            System.out.println("Catch");
-            ex.printStackTrace();
-        }
+            XTextViewCursor xViewCursor = xViewCursorSupplier.getViewCursor();
 
+            if (entries.length > 1) {
+                Arrays.sort(entries, yearComparator);
+            }
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < entries.length; i++) {
+                BibtexEntry entry = entries[i];
+                if (i > 0)
+                    sb.append(",");
+                sb.append(entry.getCiteKey());
+            }
+            String keyString = sb.toString();
+            // Insert bookmark:
+            String bName = getUniqueReferenceMarkName(keyString,
+                    inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT);
+            //XTextContent content = insertBookMark(bName, xViewCursor);
+
+
+            String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null);
+            text.insertString(xViewCursor, " ", false);
+            xViewCursor.goLeft((short)1,false);
+            insertReferenceMark(bName, citeText, xViewCursor);
+            //xViewCursor.collapseToEnd();
+
+            xViewCursor.collapseToEnd();
+            xViewCursor.goRight((short)1,false);
+
+            XTextRange position = xViewCursor.getEnd();
+            // To account for numbering and for uniqiefiers, we must refresh the cite markers:
+            refreshCiteMarkers(database, style);
+
+            // Insert it at the current position:
+            rebuildBibTextSection(database, style);
+            // Go back to the relevant position:
+            try {
+                xViewCursor.gotoRange(position, false);
+            } catch (Exception ex) {
+                System.out.println("Catch");
+                ex.printStackTrace();
+            }
+        } catch (DisposedException ex) {
+            throw new ConnectionLostException(ex.getMessage());
+        }
     }
 
     public void refreshCiteMarkers(BibtexDatabase database, OOBibStyle style) throws

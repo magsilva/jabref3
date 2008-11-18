@@ -4,7 +4,6 @@ import com.jgoodies.forms.builder.ButtonBarBuilder;
 import com.jgoodies.forms.builder.ButtonStackBuilder;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
-import com.sun.star.text.XTextDocument;
 import net.sf.jabref.*;
 import net.sf.jabref.external.PushToApplication;
 import net.sf.jabref.plugin.SidePanePlugin;
@@ -266,7 +265,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
 
     public void connect(boolean auto) {
-        if (ooBase != null) {
+        /*if (ooBase != null) {
             try {
                 java.util.List<XTextDocument> list = ooBase.getTextDocuments();
                 // TODO: how to find the title of the documents?
@@ -274,7 +273,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                 ex.printStackTrace();
             }
             return;
-        }
+        }*/
 
         String unoilDir, ooBaseDirectory;
         if (auto) {
@@ -582,6 +581,10 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             if (entries.length > 0) {
                 try {
                     ooBase.insertEntry(entries, database, style, inParenthesis);
+                } catch (ConnectionLostException ex) {
+                  JOptionPane.showMessageDialog(frame, Globals.lang("Connection to OpenOffice has been lost. "
+                        +"Please make sure OpenOffice is running, and try to reconnect."),
+                        Globals.lang("Connection lost"), JOptionPane.ERROR_MESSAGE);
                 } catch (UndefinedParagraphFormatException ex) {
                    reportUndefinedParagraphFormat(ex);
                 } catch (Exception ex) {
@@ -661,6 +664,12 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         if (entries.length > 0) {
             try {
                 ooBase.insertEntry(entries, database, style, inParenthesis);
+            } catch (ConnectionLostException ex) {
+                JOptionPane.showMessageDialog(frame, Globals.lang("Connection to OpenOffice has been lost. "
+                        +"Please make sure OpenOffice is running, and try to reconnect."),
+                        Globals.lang("Connection lost"), JOptionPane.ERROR_MESSAGE);
+            } catch (UndefinedParagraphFormatException ex) {
+               reportUndefinedParagraphFormat(ex);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
