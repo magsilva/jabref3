@@ -15,6 +15,9 @@
         distributed at this stage is to allow others to test it and give their feedback.
 
         <p><b>Updates:</b></p>
+	2008-11-??: Version 0.1.1: Improved handling of OpenOffice
+	shutdown and reconnect.
+	2008-10-25: Version 0.1: User interface improvements. Can now select which Writer document to work with.
         2008-10-19: Version 0.0.9: Enabled connection to OpenOffice.org 3. Streamlined connection process.<br>
         2008-09-03: Version 0.0.8: No major changes, but packaged with JabRef 2.4.<br>
         2008-02-20: Version 0.0.7: New interface for style selection. Styles can now specify paragraph format.<br>
@@ -184,6 +187,8 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
 <h2>Known issues</h2>
 
 <ul>
+  <li>Make sure to save your Writer document in OpenDocument format
+  (odt). Saving to Word format will lose your reference marks.</li>
   <li>There is currently no support for footnote based citations.</li>
   <li>The cursor may be poorly positioned after inserting a citation.</li>
   <li>Copy-pasting the example style file directly from this page can give an unparseable
