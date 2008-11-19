@@ -246,11 +246,26 @@ public class OOBibBase {
                 ex.printStackTrace();
             }
         } catch (DisposedException ex) {
+            // We need to catch this one here because the OOTestPanel class is
+            // loaded before connection, and therefore cannot directly reference
+            // or catch a DisposedException (which is in a OO jar file).
             throw new ConnectionLostException(ex.getMessage());
         }
     }
 
     public void refreshCiteMarkers(BibtexDatabase database, OOBibStyle style) throws
+            UndefinedParagraphFormatException, Exception {
+        try {
+            refreshCiteMarkersInternal(database, style);
+        } catch (DisposedException ex) {
+            // We need to catch this one here because the OOTestPanel class is
+            // loaded before connection, and therefore cannot directly reference
+            // or catch a DisposedException (which is in a OO jar file).
+            throw new ConnectionLostException(ex.getMessage());
+        }
+    }
+
+    private void refreshCiteMarkersInternal(BibtexDatabase database, OOBibStyle style) throws
             UndefinedParagraphFormatException, Exception {
 
         List<String> cited = findCitedKeys();

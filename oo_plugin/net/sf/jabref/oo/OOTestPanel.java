@@ -179,6 +179,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                     ooBase.refreshCiteMarkers(frame.basePanel().database(), style);
                     ooBase.rebuildBibTextSection(frame.basePanel().database(), style);
                     //ooBase.sync(frame.basePanel().database(), style);
+                } catch (ConnectionLostException ex) {
+                    showConnectionLostErrorMessage();
                 } catch (BibtexEntryNotFoundException ex) {
                     JOptionPane.showMessageDialog(frame, Globals.lang("Your OpenOffice document references the BibTeX key '%0', which could not be found in your current database.",
                             ex.getBibtexKey()), Globals.lang("Unable to synchronize bibliography"), JOptionPane.ERROR_MESSAGE);
@@ -582,9 +584,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                 try {
                     ooBase.insertEntry(entries, database, style, inParenthesis);
                 } catch (ConnectionLostException ex) {
-                  JOptionPane.showMessageDialog(frame, Globals.lang("Connection to OpenOffice has been lost. "
-                        +"Please make sure OpenOffice is running, and try to reconnect."),
-                        Globals.lang("Connection lost"), JOptionPane.ERROR_MESSAGE);
+                    showConnectionLostErrorMessage();
                 } catch (UndefinedParagraphFormatException ex) {
                    reportUndefinedParagraphFormat(ex);
                 } catch (Exception ex) {
@@ -595,7 +595,12 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         }
 
     }
-    
+
+    public void showConnectionLostErrorMessage() {
+        JOptionPane.showMessageDialog(frame, Globals.lang("Connection to OpenOffice has been lost. "
+            +"Please make sure OpenOffice is running, and try to reconnect."),
+            Globals.lang("Connection lost"), JOptionPane.ERROR_MESSAGE);
+    }
 
     public void insertFullRefs() {
         try {
@@ -665,9 +670,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             try {
                 ooBase.insertEntry(entries, database, style, inParenthesis);
             } catch (ConnectionLostException ex) {
-                JOptionPane.showMessageDialog(frame, Globals.lang("Connection to OpenOffice has been lost. "
-                        +"Please make sure OpenOffice is running, and try to reconnect."),
-                        Globals.lang("Connection lost"), JOptionPane.ERROR_MESSAGE);
+                showConnectionLostErrorMessage();
             } catch (UndefinedParagraphFormatException ex) {
                reportUndefinedParagraphFormat(ex);
             } catch (Exception ex) {
