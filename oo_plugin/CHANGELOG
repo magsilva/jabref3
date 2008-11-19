@@ -7,8 +7,8 @@
  - Fixed bug in handling of von particles in citation markers.
 
 0.1:
- - Added functionality to choose which Writer document to connect to - selector is shown both
-   when connecting, and when using the new "Select Writer document" button.
+ - Added functionality to choose which Writer document to connect to - selector is shown 
+   both when connecting, and when using the new "Select Writer document" button.
  - Improved appearance of the OpenOffice panel.
  - A space is now inserted after newly inserted citations, in order to alleviate problem
    with new text becoming part of the citation marker.
