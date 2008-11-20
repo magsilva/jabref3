@@ -288,7 +288,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             } else if (!adp.cancelled()) {
                 JOptionPane.showMessageDialog(diag,
                         Globals.lang("Autodetection failed"),
-                        Globals.lang("Autodetecton failed"),
+                        Globals.lang("Autodetection failed"),
                         JOptionPane.ERROR_MESSAGE);
             }
             if (!autoDetected)
@@ -629,7 +629,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     }
 
     private void reportUndefinedParagraphFormat(UndefinedParagraphFormatException ex) {
-        JOptionPane.showMessageDialog(frame, "<html>"+Globals.lang("Your style file specifies the paragraph formta '%0', "
+        JOptionPane.showMessageDialog(frame, "<html>"+Globals.lang("Your style file specifies the paragraph format '%0', "
             +"which is undefined in your current OpenOffice document.", ex.getFormatName())+"<br>"
             +Globals.lang("The paragraph format is controlled by the property 'ReferenceParagraphFormat' in the style file.")
             +"</html>",
