@@ -37,6 +37,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         setStyleFile = new JButton(Globals.lang("Select style file")),
         pushEntries = new JButton(Globals.lang("Cite")),
         pushEntriesInt = new JButton(Globals.lang("Cite in-text")),
+        pushEntriesEmpty = new JButton(Globals.lang("Insert empty citation")),
         focus = new JButton("Focus OO document"),
         update = new JButton(Globals.lang("Sync OO bibliography")),
         insertFullRef = new JButton("Insert reference text"),
@@ -157,15 +158,22 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         pushEntries.setToolTipText(Globals.lang("Cite selected entries"));
         pushEntries.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pushEntries(true);
+                pushEntries(true, true);
             }
         });
         pushEntries.setToolTipText(Globals.lang("Cite selected entries with in-text citation"));
         pushEntriesInt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pushEntries(false);
+                pushEntries(false, true);
             }
         });
+        pushEntriesEmpty.setToolTipText(Globals.lang("Insert a citation without text (the entry will appear in the reference list)"));
+        pushEntriesEmpty.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                pushEntries(false, false);
+            }
+        });
+
         focus.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ooBase.setFocus();
@@ -232,6 +240,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         selectDocument.setEnabled(false);
         pushEntries.setEnabled(false);
         pushEntriesInt.setEnabled(false);
+        pushEntriesEmpty.setEnabled(false);
         focus.setEnabled(false);
         update.setEnabled(false);
         insertFullRef.setEnabled(false);
@@ -248,6 +257,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         b.append(setStyleFile);
         b.append(pushEntries);
         b.append(pushEntriesInt);
+        b.append(pushEntriesEmpty);
         b.append(merge);
         //b.append(focus);
         b.append(update);
@@ -403,6 +413,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             selectDocument.setEnabled(true);
             pushEntries.setEnabled(true);
             pushEntriesInt.setEnabled(true);
+            pushEntriesEmpty.setEnabled(true);
             focus.setEnabled(true);
             update.setEnabled(true);
             insertFullRef.setEnabled(true);
@@ -569,7 +580,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
 
 
-    public void pushEntries(boolean inParenthesis) {
+    public void pushEntries(boolean inParenthesis, boolean withText) {
         if (!ooBase.isConnectedToDocument()) {
             JOptionPane.showMessageDialog(frame, Globals.lang("Not connected to any Writer document. Please"
                 +" make sure a document is open, and use the 'Select Writer document' button to connect to it."),
@@ -582,7 +593,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             BibtexEntry[] entries = panel.getSelectedEntries();
             if (entries.length > 0) {
                 try {
-                    ooBase.insertEntry(entries, database, style, inParenthesis);
+                    ooBase.insertEntry(entries, database, style, inParenthesis, withText);
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
                 } catch (UndefinedParagraphFormatException ex) {
@@ -668,7 +679,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         final BibtexDatabase database = frame.basePanel().database();
         if (entries.length > 0) {
             try {
-                ooBase.insertEntry(entries, database, style, inParenthesis);
+                ooBase.insertEntry(entries, database, style, inParenthesis, true);
             } catch (ConnectionLostException ex) {
                 showConnectionLostErrorMessage();
             } catch (UndefinedParagraphFormatException ex) {

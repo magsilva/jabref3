@@ -18,9 +18,7 @@ import com.sun.star.lang.DisposedException;
 import com.sun.star.text.*;
 import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
-import net.sf.jabref.BibtexDatabase;
-import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.Globals;
+import net.sf.jabref.*;
 import net.sf.jabref.export.layout.Layout;
 
 import javax.swing.*;
@@ -45,7 +43,8 @@ public class OOBibBase {
 
     final static int
         AUTHORYEAR_PAR = 1,
-        AUTHORYEAR_INTEXT = 2;
+        AUTHORYEAR_INTEXT = 2,
+        INVISIBLE_CIT = 3;
 
     final static String DEFAULT_CONNECTION_STRING = "uno:socket,host=localhost,port=2002;urp;StarOffice.ServiceManager";
     final String[] BIB_TYPES = new String[] { "ARTICLE", "BOOK", "BOOKLET", "CONFERENCE",
@@ -197,10 +196,12 @@ public class OOBibBase {
      * @param style The bibliography style we are using.
      * @param inParenthesis Indicates whether it is an in-text citation or a citation in parenthesis.
      *   This is not relevant if numbered citations are used.
+     * @param withText Indicates whether this should be a normal citation (true) or an empty
+     *   (invisible) citation (false).
      * @throws Exception
      */
     public void insertEntry(BibtexEntry[] entries, BibtexDatabase database, OOBibStyle style,
-                            boolean inParenthesis) throws Exception {
+                            boolean inParenthesis, boolean withText) throws Exception {
 
         try {
             XTextViewCursor xViewCursor = xViewCursorSupplier.getViewCursor();
@@ -219,14 +220,14 @@ public class OOBibBase {
             String keyString = sb.toString();
             // Insert bookmark:
             String bName = getUniqueReferenceMarkName(keyString,
-                    inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT);
+                    withText ? (inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT) : INVISIBLE_CIT);
             //XTextContent content = insertBookMark(bName, xViewCursor);
 
 
             String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null);
             text.insertString(xViewCursor, " ", false);
             xViewCursor.goLeft((short)1,false);
-            insertReferenceMark(bName, citeText, xViewCursor);
+            insertReferenceMark(bName, citeText, xViewCursor, withText);
             //xViewCursor.collapseToEnd();
 
             xViewCursor.collapseToEnd();
@@ -437,7 +438,7 @@ public class OOBibBase {
                     (XTextContent.class, o);
             XTextCursor cursor = text.createTextCursorByRange(bm.getAnchor());
             text.removeTextContent(bm);
-            insertReferenceMark(names[i], citMarkers[i], cursor);
+            insertReferenceMark(names[i], citMarkers[i], cursor, types[i] != INVISIBLE_CIT);
             if (hadBibSection && (getBookmarkRange(BIB_SECTION_NAME) == null)) {
                 // We have overwritten the marker for the start of the reference list.
                 // We need to add it again.
@@ -693,7 +694,7 @@ public class OOBibBase {
         return xTextContent;
     }
 
-    public void insertReferenceMark(String name, String citText, XTextCursor position)
+    public void insertReferenceMark(String name, String citText, XTextCursor position, boolean withText)
             throws Exception {
         Object bookmark = mxDocFactory.createInstance("com.sun.star.text.ReferenceMark");
         // Name the reference
@@ -701,10 +702,16 @@ public class OOBibBase {
                 XNamed.class, bookmark);
         xNamed.setName(name);
         // get XTextContent interface
-        XTextContent xTextContent = (XTextContent) UnoRuntime.queryInterface(
-                XTextContent.class, bookmark);
-        position.setString(citText);
-        text.insertTextContent(position, xTextContent, true);
+        if (true) {
+            XTextContent xTextContent = (XTextContent) UnoRuntime.queryInterface(
+                    XTextContent.class, bookmark);
+            if (withText)
+                position.setString(citText);
+            else
+                position.setString("");
+
+            text.insertTextContent(position, xTextContent, true);
+        }
         position.collapseToEnd();
 
     }
@@ -821,12 +828,17 @@ public class OOBibBase {
                 keys.addAll(parseRefMarkName(names[piv+1]));
                 removeReferenceMark(names[piv]);
                 removeReferenceMark(names[piv+1]);
+                TreeSet<BibtexEntry> entries = new TreeSet<BibtexEntry>
+                        (new FieldComparator("year"));
+                for (String key : keys) {
+                    entries.add(database.getEntryByKey(key));
+                }
                 StringBuilder sb = new StringBuilder();
                 int i=0;
-                for (String key : keys) {
+                for (BibtexEntry entry : entries) {
                     if (i > 0)
                         sb.append(",");
-                    sb.append(key);
+                    sb.append(entry.getCiteKey());
                     i++;
                 }
                 String keyString = sb.toString();
@@ -834,7 +846,7 @@ public class OOBibBase {
                 // Insert bookmark:
                 String bName = getUniqueReferenceMarkName(keyString,
                         inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT);
-                insertReferenceMark(bName, "tmp", mxDocCursor);
+                insertReferenceMark(bName, "tmp", mxDocCursor, true);
                 names[piv+1] = bName;
                 madeModifications = true;
             }
