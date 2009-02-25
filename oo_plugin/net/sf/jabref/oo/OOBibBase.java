@@ -847,7 +847,7 @@ public class OOBibBase {
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
         XNameAccess nameAccess = supplier.getReferenceMarks();
-        // TODO: fix for footnote/table citations
+        // TODO: doesn't work for citations in footnotes/tables
         String[] names = getSortedReferenceMarks(nameAccess);
 
 
@@ -862,7 +862,11 @@ public class OOBibBase {
             XTextRange r2 = ((XTextContent) UnoRuntime.queryInterface
                             (XTextContent.class,
                                     nameAccess.getByName(names[piv+1]))).getAnchor().getStart();
-            XTextCursor mxDocCursor = text.createTextCursorByRange(r1);
+            if (r1.getText() != r2.getText()) {
+                piv++;
+                continue;
+            }
+            XTextCursor mxDocCursor = r1.getText().createTextCursorByRange(r1);
             mxDocCursor.goRight((short)1, true);
             boolean couldExpand = true;
             while (couldExpand && (compare.compareRegionEnds(mxDocCursor, r2) > 0)) {
