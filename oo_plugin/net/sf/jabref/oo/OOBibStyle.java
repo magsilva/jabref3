@@ -92,6 +92,10 @@ public class OOBibStyle implements Comparable {
         citProperties.put("BracketAfter", ")");
         citProperties.put("CitationSeparator", "; ");
         citProperties.put("GroupedNumbersSeparator", "-");
+        citProperties.put("FormatCitations", Boolean.FALSE);
+        citProperties.put("ItalicCitations", Boolean.FALSE);
+        citProperties.put("BoldCitations", Boolean.FALSE);
+
 
         initialize(in);
 
@@ -720,6 +724,34 @@ public class OOBibStyle implements Comparable {
      */
     public boolean isSortByPosition() {
         return (Boolean)getProperty("IsSortByPosition");
+    }
+
+    /**
+     * Convenience method for checking whether citation markers should be italicised.
+     * Will only be relevant if isFormatCitations() returns true.
+     * @return true to indicate that citations should be in italics.
+     */
+    public boolean isItalicCitations() {
+        return (Boolean)citProperties.get("ItalicCitations");
+    }
+
+    /**
+     * Convenience method for checking whether citation markers should be bold.
+     * Will only be relevant if isFormatCitations() returns true.
+     * @return true to indicate that citations should be in bold.
+     */
+    public boolean isBoldCitations() {
+        return (Boolean)citProperties.get("BoldCitations");
+    }
+
+    /**
+     * Convenience method for checking whether citation markers formatted
+     * according to the results of the isItalicCitations() and
+     * isBoldCitations() methods.
+     * @return true to indicate that citations should be in italics.
+     */
+    public boolean isFormatCitations() {
+        return (Boolean)citProperties.get("FormatCitations");
     }
 
     /**

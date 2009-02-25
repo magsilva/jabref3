@@ -157,7 +157,11 @@ public class OOUtil {
         // (which is the string we just inserted) to be bold
         XPropertySet props = (XPropertySet) UnoRuntime.queryInterface(
             XPropertySet.class, parCursor);
-        props.setPropertyValue("ParaStyleName", parStyle);
+        try {
+            props.setPropertyValue("ParaStyleName", parStyle);
+        } catch (com.sun.star.lang.IllegalArgumentException ex) {
+            throw new UndefinedParagraphFormatException(parStyle);
+        }
         cursor.collapseToEnd();
 
     }

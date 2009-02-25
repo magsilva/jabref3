@@ -225,9 +225,11 @@ public class OOBibBase {
 
 
             String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null);
-            text.insertString(xViewCursor, " ", false);
+
+            //System.out.println(text+" / "+xViewCursor.getText());
+            xViewCursor.getText().insertString(xViewCursor, " ", false);
             xViewCursor.goLeft((short)1,false);
-            insertReferenceMark(bName, citeText, xViewCursor, withText);
+            insertReferenceMark(bName, citeText, xViewCursor, withText, style);
             //xViewCursor.collapseToEnd();
 
             xViewCursor.collapseToEnd();
@@ -272,6 +274,7 @@ public class OOBibBase {
         List<String> cited = findCitedKeys();
         List<BibtexEntry> entries = findCitedEntries(database, cited);
 
+
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
         XNameAccess nameAccess = supplier.getReferenceMarks();
@@ -315,6 +318,8 @@ public class OOBibBase {
                 for (int j = 0; j < cEntries.length; j++) {
                     cEntries[j] = database.getEntryByKey(keys[j]);
                      if (cEntries[j] == null) {
+                         System.out.println("Bibtex key not found : '"+keys[j]+"'");
+                         System.out.println("Problem with reference mark: '"+names[i]+"'");
                         throw new BibtexEntryNotFoundException(keys[j], "");
                      }
                 }
@@ -436,9 +441,10 @@ public class OOBibBase {
             Object o = nameAccess.getByName(names[i]);
             XTextContent bm = (XTextContent) UnoRuntime.queryInterface
                     (XTextContent.class, o);
-            XTextCursor cursor = text.createTextCursorByRange(bm.getAnchor());
+
+            XTextCursor cursor = bm.getAnchor().getText().createTextCursorByRange(bm.getAnchor());
             text.removeTextContent(bm);
-            insertReferenceMark(names[i], citMarkers[i], cursor, types[i] != INVISIBLE_CIT);
+            insertReferenceMark(names[i], citMarkers[i], cursor, types[i] != INVISIBLE_CIT, style);
             if (hadBibSection && (getBookmarkRange(BIB_SECTION_NAME) == null)) {
                 // We have overwritten the marker for the start of the reference list.
                 // We need to add it again.
@@ -469,6 +475,7 @@ public class OOBibBase {
     }
 
     public String[] getSortedReferenceMarks(final XNameAccess nameAccess) throws Exception {
+
         String[] names = nameAccess.getElementNames();
         final XTextRangeCompare compare = (XTextRangeCompare) UnoRuntime.queryInterface
                 (XTextRangeCompare.class, text);
@@ -479,7 +486,16 @@ public class OOBibBase {
                             (XTextContent.class, nameAccess.getByName(o1))).getAnchor();
                     XTextRange r2 = ((XTextContent) UnoRuntime.queryInterface
                             (XTextContent.class, nameAccess.getByName(o2))).getAnchor();
-                    return compare.compareRegionStarts(r2, r1);
+                    /*if (r1.getText() != r2.getText()) {
+                        
+                        System.out.println("Not match: "+o1+" : "+o2);
+                    } */
+                    try {
+                        return compare.compareRegionStarts(r2, r1);
+                    } catch (com.sun.star.lang.IllegalArgumentException ex) {
+                        // TODO: problem comparing reference marks in different areas (text, table, etc.)
+                        return 0;
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     return 0;
@@ -521,6 +537,19 @@ public class OOBibBase {
     }
 
     public List<String> findCitedKeys() {
+
+        // TODO: FJERN!
+        try {
+           XTextTablesSupplier tss = (XTextTablesSupplier) UnoRuntime.queryInterface(
+                   XTextTablesSupplier.class, xCurrentComponent);
+           XNameAccess tsa = tss.getTextTables();
+           String[] tsNames = tsa.getElementNames();
+            System.out.println(tsNames.length);
+           for (int i = 0; i < tsNames.length; i++) {
+               String tsName = tsNames[i];
+               System.out.println(tsa.getByName(tsName).getClass().getName());
+           }
+        } catch (Exception ex) {}
 
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
@@ -694,7 +723,8 @@ public class OOBibBase {
         return xTextContent;
     }
 
-    public void insertReferenceMark(String name, String citText, XTextCursor position, boolean withText)
+    public void insertReferenceMark(String name, String citText, XTextCursor position, boolean withText,
+                               OOBibStyle style)
             throws Exception {
         Object bookmark = mxDocFactory.createInstance("com.sun.star.text.ReferenceMark");
         // Name the reference
@@ -703,14 +733,28 @@ public class OOBibBase {
         xNamed.setName(name);
         // get XTextContent interface
         if (true) {
+
             XTextContent xTextContent = (XTextContent) UnoRuntime.queryInterface(
                     XTextContent.class, bookmark);
-            if (withText)
+            if (withText) {
                 position.setString(citText);
+                // See if we should format the citation marker or not:
+                if (style.isFormatCitations()) {
+                    XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
+                        XPropertySet.class, position);
+                    xCursorProps.setPropertyValue("CharPosture",
+                            style.isItalicCitations() ? com.sun.star.awt.FontSlant.ITALIC :
+                                com.sun.star.awt.FontSlant.NONE);
+                    xCursorProps.setPropertyValue("CharWeight",
+                            style.isBoldCitations() ? com.sun.star.awt.FontWeight.BOLD :
+                                com.sun.star.awt.FontWeight.NORMAL);
+                }
+            }
             else
                 position.setString("");
 
-            text.insertTextContent(position, xTextContent, true);
+
+            position.getText().insertTextContent(position, xTextContent, true);
         }
         position.collapseToEnd();
 
@@ -803,7 +847,10 @@ public class OOBibBase {
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
         XNameAccess nameAccess = supplier.getReferenceMarks();
+        // TODO: fix for footnote/table citations
         String[] names = getSortedReferenceMarks(nameAccess);
+
+
         final XTextRangeCompare compare = (XTextRangeCompare) UnoRuntime.queryInterface
                 (XTextRangeCompare.class, text);
 
@@ -846,7 +893,7 @@ public class OOBibBase {
                 // Insert bookmark:
                 String bName = getUniqueReferenceMarkName(keyString,
                         inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT);
-                insertReferenceMark(bName, "tmp", mxDocCursor, true);
+                insertReferenceMark(bName, "tmp", mxDocCursor, true, style);
                 names[piv+1] = bName;
                 madeModifications = true;
             }

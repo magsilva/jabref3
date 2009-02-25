@@ -1,3 +1,7 @@
+0.1.9:
+ - Added support for citations in table cells and footnotes. Currently sorting by position
+   fails if there are such citations.
+ - Added properties for setting bold/italic formatting on citation markers.
 0.1.2:
  - Added button for inserting invisible citations (without text in the citation marker),
    which can be used to insert an entry into the reference list without citing it.
@@ -9,7 +13,6 @@
    format of the bibliography header.
  - Added error message for the case that OpenOffice has been shut down after connection.
  - Fixed bug in handling of von particles in citation markers.
-
 0.1:
  - Added functionality to choose which Writer document to connect to - selector is shown 
    both when connecting, and when using the new "Select Writer document" button.

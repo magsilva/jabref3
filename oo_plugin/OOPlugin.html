@@ -15,8 +15,10 @@
         distributed at this stage is to allow others to test it and give their feedback.
 
         <p><b>Updates:</b></p>
-	    2008-11-??: Version 0.1.1: Improved handling of OpenOffice shutdown and reconnect.
-	    2008-10-25: Version 0.1: User interface improvements. Can now select which Writer document to work with.
+        2009-02-25: Version 0.1.9: Added support for bold/italic citation markers, and for citations in table cells and footnotes.<br>
+        2008-12-21: Version 0.1.2: Added invisible citations. Merged citations are now sorted.<br>
+	    2008-11-19: Version 0.1.1: Improved handling of OpenOffice shutdown and reconnect.<br>
+	    2008-10-25: Version 0.1: User interface improvements. Can now select which Writer document to work with.<br>
         2008-10-19: Version 0.0.9: Enabled connection to OpenOffice.org 3. Streamlined connection process.<br>
         2008-09-03: Version 0.0.8: No major changes, but packaged with JabRef 2.4.<br>
         2008-02-20: Version 0.0.7: New interface for style selection. Styles can now specify paragraph format.<br>
@@ -28,11 +30,9 @@
         2007-12-01: Version 0.0.1<br>
 
         <p><b>Downloads:</b></p>
-        <p><a href="JabRef-oo-0.0.9.zip">JabRef with OO plugin.</a> This is a build of the SVN version of JabRef
-        from Feb 6th 2008, packaged with the OO plugin included. Keep in mind that this is not a stable
-        version of JabRef, so it should be used with care.</p>
-        <p><a href="JabRef-oo-0.0.9-src.zip">Plugin source code.</a> The source code tree includes four
-        OpenOffice.org jars and a build of the SVN version of JabRef. The plugin is built using
+        <p><a href="JabRef-oo-0.1.9.zip">JabRef 2.4.2 with OO plugin.</a></p>
+        <p><a href="JabRef-oo-0.1.9-src.zip">Plugin source code.</a> The source code tree includes four
+        OpenOffice.org jars and JabRef 2.4.2. The plugin is built using
         an included Ant build file.</p>
         <p><a href="example_style_file.jstyle">Example style file</a></p>
 
@@ -102,6 +102,10 @@ BracketBefore=[
 BracketAfter=]
 CitationSeparator=;
 UniquefierSeparator=,
+ItalicCitations=false
+BoldCitations=false
+FormatCitations=false
+
 
 LAYOUT
 article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\format[FormatChars]{\year}\uniq&lt;/b&gt;).<br>&lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;, \journal \volume : \format[FormatPagesForHTML]{\pages}.
@@ -167,7 +171,10 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
         letters (a and b in our example) will be separated by the string specified by the <code>UniquefierSeparator</code>
         property.
         </p>
-
+        <p>The property <code>FormatCitations</code> determines whether the citation markers should be set italicized or
+        not, and bold or not. If <code>FormatCitations</code> is false, no such formatting will be done. If true,
+        the citations will be italicized or not depending on the <code>ItalicCitations</code> property, and set to bold
+        or not depending on the <code>BoldCitations</code> property.</p>
         <p>The <b>LAYOUT</b> section describes how the bibliography entry for each entry type in JabRef
         should appear. Each line should start with either the name of a BibTeX entry type, or the word
         <code>default</code>, followed by a '='. The <code>default</code> layout will be used for all
@@ -189,17 +196,14 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
 <h2>Known issues</h2>
 
 <ul>
-<<<<<<< .mine
-  <li>The document has to be saved in OpenDocument format (odt). JabRef's reference marks are lost if the
-      document is saved in Word format.</li>
-=======
   <li>Make sure to save your Writer document in OpenDocument format
   (odt). Saving to Word format will lose your reference marks.</li>
->>>>>>> .r2847
   <li>There is currently no support for footnote based citations.</li>
   <li>The cursor may be poorly positioned after inserting a citation.</li>
   <li>Copy-pasting the example style file directly from this page can give an unparseable
     file. To avoid this, instead download the example file from the link in the download section.</li>
+  <li>If you have citations in table cells or footnotes, sorting the reference list by position doesn't
+      work properly.</li>
 </ul>
 
 <h2>Contact</h2>
