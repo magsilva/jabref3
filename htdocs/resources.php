@@ -75,15 +75,18 @@
 
 
       <h4 id="BibSonomy">BibSonomy plugin</h4>
-      <p><em>by BibSonomy team</em></p>
+      <p><em>by <a href="http://www.bibsonomy.org/help/contact/team">BibSonomy team</a></em></p>
 
       <p><a href="http://www.bibsonomy.org/help/doc/jabref-plugin/index.html">Home page (see also for source code)</a></p>
 
       <p>BibSonomy is a free online platform for collaborative sharing of
       bookmarks and scientific references, based on the BibTeX-format. Its
       features comprise e.g. the comfortable maintenance of online
-      publication lists. With this plugin, it is possible to fetch, store and
-      delete BibTeX entries from BibSonomy; in this way, JabRef can be used
+      publication lists. With this plugin, it is possible to 
+      <a href="http://www.bibsonomy.org/help/doc/jabref-plugin/fetch.html">fetch</a>,
+      <a href="http://www.bibsonomy.org/help/doc/jabref-plugin/export.html">store</a> and
+      <a href="http://www.bibsonomy.org/help/doc/jabref-plugin/delete.html">delete</a>
+      BibTeX entries from BibSonomy; in this way, JabRef can be used
       as a client application to remotely manage the online bibliography
       stored centrally at <a href="http://www.bibsonomy.org">bibsonomy.org</a>.</p>
 
