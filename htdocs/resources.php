@@ -18,6 +18,7 @@
       <h3 id="plugins_">Plugins</h3>
       <ul>
         <li><a href="#OOintegration">Openoffice.org integration</a></li>
+        <li><a href="#BibSonomy">BibSonomy plugin</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
         <li><a href="#RIS_export">RIS export format</a></li>
         <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
@@ -71,6 +72,21 @@
       <a href="http://www.itk.ntnu.no/ansatte/Alver_Omholt_Morten/jabref/OOPlugin.html">Home page (see also for source code)</a></p>
 
       <p>This plugin provides cite-while-you-write functionality for OpenOffice.org Writer.</p>
+
+
+      <h4 id="BibSonomy">BibSonomy plugin</h4>
+      <p><em>by BibSonomy team</em></p>
+
+      <p><a href="http://www.bibsonomy.org/help/doc/jabref-plugin/index.html">Home page (see also for source code)</a></p>
+
+      <p>BibSonomy is a free online platform for collaborative sharing of
+      bookmarks and scientific references, based on the BibTeX-format. Its
+      features comprise e.g. the comfortable maintenance of online
+      publication lists. With this plugin, it is possible to fetch, store and
+      delete BibTeX entries from BibSonomy; in this way, JabRef can be used
+      as a client application to remotely manage the online bibliography
+      stored centrally at <a href="http://www.bibsonomy.org">bibsonomy.org</a>.</p>
+
 
       <h4 id="PushEmacsclient">Push to Emacsclient</h4>
 
