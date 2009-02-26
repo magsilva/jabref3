@@ -20,6 +20,7 @@
         <li><a href="#OOintegration">Openoffice.org integration</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
         <li><a href="#RIS_export">RIS export format</a></li>
+        <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
@@ -81,6 +82,7 @@
       except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
       to communicate with Emacs. This requires a recent version of Emacs to work.</p>
 
+
       <h4 id="RIS_export">RIS export format</h4>
       <p><em>by Morten O. Alver</em></p>
 
@@ -89,6 +91,17 @@
       <a href="plugins/RISExport-1.0-src.zip">Source code</a></p>
 
       <p>This plugin provides RIS export format functionality.</p>
+
+
+      <h4 id="Chicago_Manual">Chicago Manual of Style export filters</h4>
+      <p><em>by Juan Jose Baldrich</em></p>
+
+      <a href="plugins/net.sf.jabref.export.ChicagoExport(English)-1.0.jar">Plugin (English)</a> -
+      <a href="plugins/net.sf.jabref.export.ChicagoExport(espanol)-1.0.jar">Plugin (Espa&ntilde;ol)</a>
+
+      <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
+      <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
+
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
