@@ -1,13 +1,13 @@
 package net.sf.jabref.oo;
 
 import com.sun.star.awt.Point;
+import com.sun.star.awt.XWindow;
 import com.sun.star.beans.XPropertySet;
 import com.sun.star.beans.Property;
+import com.sun.star.beans.PropertyValue;
 import com.sun.star.comp.helper.Bootstrap;
 import com.sun.star.container.*;
-import com.sun.star.frame.XController;
-import com.sun.star.frame.XDesktop;
-import com.sun.star.frame.XModel;
+import com.sun.star.frame.*;
 import com.sun.star.lang.*;
 import com.sun.star.lang.Locale;
 import com.sun.star.text.*;
@@ -48,12 +48,14 @@ public class OOBibBase {
             "MISC", "PHDTHESIS", "PROCEEDINGS", "TECHREPORT", "UNPUBLISHED", "EMAIL", "WWW",
             "CUSTOM1", "CUSTOM2", "CUSTOM3", "CUSTOM4", "CUSTOM5" };
 
+
     private XMultiServiceFactory mxDocFactory = null;
     private XTextDocument mxDoc = null;
     private XText text = null;
     private XDesktop xDesktop = null;
     XTextViewCursorSupplier xViewCursorSupplier = null;
     XComponent xCurrentComponent = null;
+    XComponentLoader xComponentLoader = null;
     private boolean atEnd;
     private AlphanumericComparator entryComparator = new AlphanumericComparator();
     private YearComparator yearComparator = new YearComparator();
@@ -160,7 +162,12 @@ public class OOBibBase {
          //hierarchy of frames that contain viewable components:
          Object desktop = xServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", xContext);
 
-         return (XDesktop) UnoRuntime.queryInterface(XDesktop.class, desktop);
+        XDesktop xD = (XDesktop) UnoRuntime.queryInterface(XDesktop.class, desktop);
+
+        xComponentLoader = (XComponentLoader)UnoRuntime.queryInterface(
+             XComponentLoader.class, desktop);
+
+        return xD;
 
      }
 
@@ -471,7 +478,36 @@ public class OOBibBase {
     }
 
     public String[] getSortedReferenceMarks(final XNameAccess nameAccess) throws Exception {
+        /*
+        PropertyValue[] props = new PropertyValue[2];
 
+        props[0] = new PropertyValue();
+        props[0].Name = "Model";
+        props[0].Value = mxDoc.getCurrentController().getModel();
+        props[1] = new PropertyValue();
+        props[1].Name = "Hidden";
+        props[1].Value = true;
+
+        // argument xModel wins over URL.
+        System.out.println("her");
+        XComponent comp = xComponentLoader.loadComponentFromURL("private:factory/swriter",
+                           "_blank", 0, props);
+        System.out.println("her2");
+        XTextDocument newDoc = (XTextDocument)UnoRuntime.queryInterface(
+                XTextDocument.class, comp);
+        System.out.println("newDoc = "+newDoc);
+
+        // Controller of the hidden frame
+        XController xController = newDoc.getCurrentController();
+
+        XFrame xFrame = xController.getFrame();
+        XWindow xContainerWindow = xFrame.getContainerWindow();
+        XWindow xComponentWindow = xFrame.getComponentWindow();
+
+        xContainerWindow.setVisible(true);
+        xComponentWindow.setFocus();
+        xContainerWindow.setVisible(false);
+        */
         XTextViewCursorSupplier css = (XTextViewCursorSupplier)UnoRuntime.queryInterface(
                 XTextViewCursorSupplier.class, mxDoc.getCurrentController());
 
@@ -482,7 +518,7 @@ public class OOBibBase {
         for (int i = 0; i < names.length; i++) {
             String name = names[i];
             XTextRange r = ((XTextContent) UnoRuntime.queryInterface
-                (XTextContent.class, nameAccess.getByName(name))).getAnchor();
+                    (XTextContent.class, nameAccess.getByName(name))).getAnchor();
             positions[i] = findPosition(tvc, r);
         }
         TreeSet<ComparableMark> set = new TreeSet<ComparableMark>();
@@ -496,6 +532,8 @@ public class OOBibBase {
             names[i++] = mark.getName();
         }
         tvc.gotoRange(initialPos, false);
+        //xFrame.dispose();
+
         return names;
         
         /*final XTextRangeCompare compare = (XTextRangeCompare) UnoRuntime.queryInterface
@@ -759,6 +797,19 @@ public class OOBibBase {
 
                 // See if we should format the citation marker or not:
                 if (style.isFormatCitations()) {
+
+                    if (style.getBooleanCitProperty("SuperscriptCitations")) {
+                        xCursorProps.setPropertyValue("CharEscapement",
+                                (byte)101);
+                        xCursorProps.setPropertyValue("CharEscapementHeight",
+                                (byte)58);
+                    }
+                    else {
+                        xCursorProps.setPropertyValue("CharEscapement",
+                                (byte)0);
+                        xCursorProps.setPropertyValue("CharEscapementHeight",
+                                (byte)0);
+                    }
 
                     xCursorProps.setPropertyValue("CharPosture",
                             style.isItalicCitations() ? com.sun.star.awt.FontSlant.ITALIC :

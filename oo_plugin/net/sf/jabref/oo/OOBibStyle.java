@@ -95,7 +95,8 @@ public class OOBibStyle implements Comparable {
         citProperties.put("FormatCitations", Boolean.FALSE);
         citProperties.put("ItalicCitations", Boolean.FALSE);
         citProperties.put("BoldCitations", Boolean.FALSE);
-
+        citProperties.put("SuperscriptCitations", Boolean.TRUE);
+        
 
         initialize(in);
 
@@ -752,6 +753,15 @@ public class OOBibStyle implements Comparable {
      */
     public boolean isFormatCitations() {
         return (Boolean)citProperties.get("FormatCitations");
+    }
+
+    /**
+     * Get boolean property.
+     * @param key The property key
+     * @return the value
+     */
+    public boolean getBooleanCitProperty(String key) {
+        return (Boolean)citProperties.get(key);
     }
 
     /**

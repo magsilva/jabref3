@@ -26,9 +26,11 @@ BracketAfter=]
 CitationSeparator=; 
 UniquefierSeparator=,
 GroupedNumbersSeparator=-
+FormatCitations=false
 ItalicCitations=false
 BoldCitations=false
-FormatCitations=false
+SuperscriptCitations=false
+
 
 
 
