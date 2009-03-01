@@ -1,27 +1,21 @@
 package net.sf.jabref.oo;
 
-import com.sun.star.awt.XTextComponent;
+import com.sun.star.awt.Point;
 import com.sun.star.beans.XPropertySet;
 import com.sun.star.beans.Property;
 import com.sun.star.comp.helper.Bootstrap;
-import com.sun.star.container.XEnumeration;
-import com.sun.star.container.XEnumerationAccess;
-import com.sun.star.container.XNameAccess;
-import com.sun.star.container.XNamed;
+import com.sun.star.container.*;
 import com.sun.star.frame.XController;
 import com.sun.star.frame.XDesktop;
 import com.sun.star.frame.XModel;
-import com.sun.star.lang.XComponent;
-import com.sun.star.lang.XMultiComponentFactory;
-import com.sun.star.lang.XMultiServiceFactory;
-import com.sun.star.lang.DisposedException;
+import com.sun.star.lang.*;
+import com.sun.star.lang.Locale;
 import com.sun.star.text.*;
 import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
 import net.sf.jabref.*;
 import net.sf.jabref.export.layout.Layout;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -30,6 +24,8 @@ import java.net.URLClassLoader;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import classes.net.sf.jabref.oo.ComparableMark;
 
 /**
  * Class for manipulating the Bibliography of the currently start document in OpenOffice.
@@ -476,8 +472,33 @@ public class OOBibBase {
 
     public String[] getSortedReferenceMarks(final XNameAccess nameAccess) throws Exception {
 
+        XTextViewCursorSupplier css = (XTextViewCursorSupplier)UnoRuntime.queryInterface(
+                XTextViewCursorSupplier.class, mxDoc.getCurrentController());
+
+        XTextViewCursor tvc = css.getViewCursor();
+        XTextRange initialPos = tvc.getStart();
         String[] names = nameAccess.getElementNames();
-        final XTextRangeCompare compare = (XTextRangeCompare) UnoRuntime.queryInterface
+        Point[] positions = new Point[names.length];
+        for (int i = 0; i < names.length; i++) {
+            String name = names[i];
+            XTextRange r = ((XTextContent) UnoRuntime.queryInterface
+                (XTextContent.class, nameAccess.getByName(name))).getAnchor();
+            positions[i] = findPosition(tvc, r);
+        }
+        TreeSet<ComparableMark> set = new TreeSet<ComparableMark>();
+        for (int i = 0; i < positions.length; i++) {
+            set.add(new ComparableMark(names[i], positions[i]));
+        }
+        int i=0;
+        for (Iterator<ComparableMark> iterator = set.iterator(); iterator.hasNext();) {
+            ComparableMark mark = iterator.next();
+            //System.out.println(mark.getPosition().X+" -- "+mark.getPosition().Y+" : "+mark.getName());
+            names[i++] = mark.getName();
+        }
+        tvc.gotoRange(initialPos, false);
+        return names;
+        
+        /*final XTextRangeCompare compare = (XTextRangeCompare) UnoRuntime.queryInterface
                 (XTextRangeCompare.class, text);
         Arrays.sort(names, new Comparator<String>() {
             public int compare(String o1, String o2) {
@@ -486,14 +507,11 @@ public class OOBibBase {
                             (XTextContent.class, nameAccess.getByName(o1))).getAnchor();
                     XTextRange r2 = ((XTextContent) UnoRuntime.queryInterface
                             (XTextContent.class, nameAccess.getByName(o2))).getAnchor();
-                    /*if (r1.getText() != r2.getText()) {
-                        
-                        System.out.println("Not match: "+o1+" : "+o2);
-                    } */
+
                     try {
                         return compare.compareRegionStarts(r2, r1);
                     } catch (com.sun.star.lang.IllegalArgumentException ex) {
-                        // TODO: problem comparing reference marks in different areas (text, table, etc.)
+                        // problem comparing reference marks in different areas (text, table, etc.)
                         return 0;
                     }
                 } catch (Exception ex) {
@@ -502,7 +520,7 @@ public class OOBibBase {
                 }
             }
         });
-        return names;
+        return names;*/
     }
 
     public void rebuildBibTextSection(BibtexDatabase database, OOBibStyle style)
@@ -536,20 +554,7 @@ public class OOBibBase {
         return entries;
     }
 
-    public List<String> findCitedKeys() {
-
-        // TODO: FJERN!
-        try {
-           XTextTablesSupplier tss = (XTextTablesSupplier) UnoRuntime.queryInterface(
-                   XTextTablesSupplier.class, xCurrentComponent);
-           XNameAccess tsa = tss.getTextTables();
-           String[] tsNames = tsa.getElementNames();
-            System.out.println(tsNames.length);
-           for (int i = 0; i < tsNames.length; i++) {
-               String tsName = tsNames[i];
-               System.out.println(tsa.getByName(tsName).getClass().getName());
-           }
-        } catch (Exception ex) {}
+    public List<String> findCitedKeys() throws com.sun.star.container.NoSuchElementException, WrappedTargetException {
 
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
@@ -557,6 +562,10 @@ public class OOBibBase {
         String[] names = xNamedMarks.getElementNames();
         ArrayList<String> keys = new ArrayList<String>();
         for (int i = 0; i < names.length; i++) {
+            Object bookmark = xNamedMarks.getByName(names[i]);
+            XTextContent xTextContent = (XTextContent) UnoRuntime.queryInterface(
+                    XTextContent.class, bookmark);
+
             String name = names[i];
             List<String> newKeys = parseRefMarkName(name);
             for (String key : newKeys)
@@ -565,6 +574,11 @@ public class OOBibBase {
         }
 
         return keys;
+    }
+
+    public Point findPosition(XTextViewCursor cursor, XTextRange range) {
+        cursor.gotoRange(range, false);
+        return cursor.getPosition();
     }
 
     /**
@@ -738,16 +752,21 @@ public class OOBibBase {
                     XTextContent.class, bookmark);
             if (withText) {
                 position.setString(citText);
+                XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
+                    XPropertySet.class, position);
+                // Set language to [None]:
+                xCursorProps.setPropertyValue("CharLocale", new Locale("zxx", "", ""));
+
                 // See if we should format the citation marker or not:
                 if (style.isFormatCitations()) {
-                    XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
-                        XPropertySet.class, position);
+
                     xCursorProps.setPropertyValue("CharPosture",
                             style.isItalicCitations() ? com.sun.star.awt.FontSlant.ITALIC :
                                 com.sun.star.awt.FontSlant.NONE);
                     xCursorProps.setPropertyValue("CharWeight",
                             style.isBoldCitations() ? com.sun.star.awt.FontWeight.BOLD :
                                 com.sun.star.awt.FontWeight.NORMAL);
+                    
                 }
             }
             else

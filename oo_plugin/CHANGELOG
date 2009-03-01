@@ -1,3 +1,7 @@
+0.2:
+ - Citation markers are now set to language [None] to prevent spell checker from underlining
+   names.
+ - 
 0.1.9:
  - Added support for citations in table cells and footnotes. Currently sorting by position
    fails if there are such citations.
