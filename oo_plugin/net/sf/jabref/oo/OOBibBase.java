@@ -483,6 +483,7 @@ public class OOBibBase {
 
         props[0] = new PropertyValue();
         props[0].Name = "Model";
+
         props[0].Value = mxDoc.getCurrentController().getModel();
         props[1] = new PropertyValue();
         props[1].Name = "Hidden";
@@ -493,6 +494,7 @@ public class OOBibBase {
         XComponent comp = xComponentLoader.loadComponentFromURL("private:factory/swriter",
                            "_blank", 0, props);
         System.out.println("her2");
+
         XTextDocument newDoc = (XTextDocument)UnoRuntime.queryInterface(
                 XTextDocument.class, comp);
         System.out.println("newDoc = "+newDoc);
@@ -517,8 +519,17 @@ public class OOBibBase {
         Point[] positions = new Point[names.length];
         for (int i = 0; i < names.length; i++) {
             String name = names[i];
-            XTextRange r = ((XTextContent) UnoRuntime.queryInterface
-                    (XTextContent.class, nameAccess.getByName(name))).getAnchor();
+            XTextContent tc = (XTextContent) UnoRuntime.queryInterface
+                    (XTextContent.class, nameAccess.getByName(name));
+            XTextRange r = tc.getAnchor();
+            // Check if we are inside a footnote:
+            if (UnoRuntime.queryInterface(XFootnote.class, r.getText()) != null) {
+                // Find the linking footnote marker:
+                XFootnote footer = (XFootnote)UnoRuntime.queryInterface(XFootnote.class, r.getText());
+                // The footnote's anchor gives the correct position in the text:
+                r = footer.getAnchor();
+            }
+
             positions[i] = findPosition(tvc, r);
         }
         TreeSet<ComparableMark> set = new TreeSet<ComparableMark>();

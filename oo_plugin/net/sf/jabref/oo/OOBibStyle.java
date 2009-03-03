@@ -95,7 +95,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("FormatCitations", Boolean.FALSE);
         citProperties.put("ItalicCitations", Boolean.FALSE);
         citProperties.put("BoldCitations", Boolean.FALSE);
-        citProperties.put("SuperscriptCitations", Boolean.TRUE);
+        citProperties.put("SuperscriptCitations", Boolean.FALSE);
         
 
         initialize(in);
