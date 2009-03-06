@@ -67,8 +67,8 @@
       <h4 id="OOintegration">Openoffice.org integration</h4>
       <p><em>by Morten O. Alver</em></p>
 
-      <p>Version 0.1.9 (alpha level)<br />
-      <a href="plugins/net.sf.jabref.oo.ooplugin-0.1.9.jar">Plugin</a> -
+      <p>Version 0.2<br />
+      <a href="plugins/net.sf.jabref.oo.ooplugin-0.2.jar">Plugin</a> -
       <a href="http://www.itk.ntnu.no/ansatte/Alver_Omholt_Morten/jabref/OOPlugin.html">Home page (see also for source code)</a></p>
 
       <p>This plugin provides cite-while-you-write functionality for OpenOffice.org Writer.</p>
