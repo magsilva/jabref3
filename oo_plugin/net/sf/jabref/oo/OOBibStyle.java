@@ -353,7 +353,12 @@ public class OOBibStyle implements Comparable {
      */
     public String getNumCitationMarker(int[] number) {
         // Sort the numbers:
-        int[] lNum = Arrays.copyOf(number, number.length);
+        int[] lNum = new int[number.length];
+        for (int i = 0; i < lNum.length; i++) {
+            lNum[i] = number[i];
+
+        }
+        //Arrays.copyOf(number, number.length);
         Arrays.sort(lNum);
         StringBuilder sb = new StringBuilder((String)citProperties.get("BracketBefore"));
         int combineFrom = -1, written = 0;
