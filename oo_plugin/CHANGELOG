@@ -1,3 +1,5 @@
+0.2.1:
+ - Fixed bug in sorting of reference list.
 0.2:
  - Citation markers are now set to language [None] to prevent spell checker from underlining
    names.

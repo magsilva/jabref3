@@ -62,6 +62,7 @@ public class OOBibBase {
 
     private HashMap<String,String> uniquefiers = new HashMap<String, String>();
 
+    private String[] sortedReferenceMarks = null;
 
     public OOBibBase(String pathToOO, boolean atEnd) throws Exception {
         this.atEnd = atEnd;
@@ -191,6 +192,14 @@ public class OOBibBase {
      }
 
 
+     public void updateSortedReferenceMarks() throws Exception {
+         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
+                XReferenceMarksSupplier.class, xCurrentComponent);
+        XNameAccess nameAccess = supplier.getReferenceMarks();
+        String[] names;
+        sortedReferenceMarks = getSortedReferenceMarks(nameAccess);
+     }
+     
     /**
      * This method inserts a cite marker in the text for the given BibtexEntry,
      * and refreshes the bibliography.
@@ -240,6 +249,7 @@ public class OOBibBase {
 
             XTextRange position = xViewCursor.getEnd();
             // To account for numbering and for uniqiefiers, we must refresh the cite markers:
+            updateSortedReferenceMarks();
             refreshCiteMarkers(database, style);
 
             // Insert it at the current position:
@@ -277,14 +287,14 @@ public class OOBibBase {
         List<String> cited = findCitedKeys();
         List<BibtexEntry> entries = findCitedEntries(database, cited);
 
-
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
         XNameAccess nameAccess = supplier.getReferenceMarks();
+        
         String[] names;
         if (style.isSortByPosition()) {
             // We need to sort the reference marks according to their order of appearance:
-           names = getSortedReferenceMarks(nameAccess);
+           names = sortedReferenceMarks;
         }
         else if (style.isNumberEntries()) {
             // We need to sort the reference marks according to the sorting of the bibliographic
@@ -299,8 +309,9 @@ public class OOBibBase {
             names = nameAccess.getElementNames();
         }
         else
-            names = getSortedReferenceMarks(nameAccess);
+            names = sortedReferenceMarks;
 
+        
         HashMap<String,Integer> numbers = new HashMap<String, Integer>();
         //HashMap<S
         int lastNum = 0;
@@ -576,6 +587,16 @@ public class OOBibBase {
             throws UndefinedParagraphFormatException, Exception {
         List<String> cited = findCitedKeys();
         List<BibtexEntry> entries = findCitedEntries(database, cited);
+        
+        String[] names = sortedReferenceMarks;
+        if (style.isSortByPosition()) {
+            // We need to sort the entries according to their order of appearance:
+           entries = getSortedEntriesFromSortedRefMarks(names, database, entries);
+        }
+        else {
+            Collections.sort(entries, entryComparator);
+        }
+        
         clearBibTextSectionContent();
         populateBibTextSection(database, entries, style);
     }
@@ -625,6 +646,30 @@ public class OOBibBase {
         return keys;
     }
 
+    public List<BibtexEntry> getSortedEntriesFromSortedRefMarks(String[] names, 
+            BibtexDatabase database, List<BibtexEntry> entries) 
+            throws BibtexEntryNotFoundException {
+        
+        List<BibtexEntry> newList = new ArrayList<BibtexEntry>();
+        for (int i = 0; i < names.length; i++) {
+            Matcher m = citePattern.matcher(names[i]);
+            if (m.find()) {
+                String[] keys = m.group(2).split(",");
+                for (int j = 0; j < keys.length; j++) {
+                    BibtexEntry entry = database.getEntryByKey(keys[j]);
+                    if (entry == null) {
+                        System.out.println("Bibtex key not found : '"+keys[j]+"'");
+                        System.out.println("Problem with reference mark: '"+names[i]+"'");
+                        throw new BibtexEntryNotFoundException(keys[j], "");
+                    }
+                    if (!newList.contains(entry))
+                        newList.add(entry);
+                }
+            }
+        }
+        return newList;
+    }
+    
     public Point findPosition(XTextViewCursor cursor, XTextRange range) {
         cursor.gotoRange(range, false);
         return cursor.getPosition();
@@ -987,5 +1032,41 @@ public class OOBibBase {
         if (madeModifications)
             refreshCiteMarkers(database, style);
 
+    }
+
+    public void testFrameHandling() throws Exception {
+
+        XController oldController = mxDoc.getCurrentController();
+        PropertyValue[] props = new PropertyValue[2];
+
+        props[0] = new PropertyValue();
+        props[0].Name = "Model";
+
+        props[0].Value = mxDoc.getCurrentController().getModel();
+        props[1] = new PropertyValue();
+        props[1].Name = "Hidden";
+        props[1].Value = true;
+
+        // argument xModel wins over URL.
+        System.out.println("her");
+        XComponent comp = xComponentLoader.loadComponentFromURL("private:factory/swriter",
+                           "_blank", 0, props);
+        System.out.println("her2");
+
+        XTextDocument newDoc = (XTextDocument)UnoRuntime.queryInterface(
+                XTextDocument.class, comp);
+        System.out.println("newDoc = "+newDoc);
+
+        // Controller of the hidden frame
+        XController xController = newDoc.getCurrentController();
+
+        XFrame xFrame = xController.getFrame();
+        XWindow xContainerWindow = xFrame.getContainerWindow();
+        XWindow xComponentWindow = xFrame.getComponentWindow();
+
+        //xContainerWindow.setVisible(true);
+        //xComponentWindow.setFocus();
+        //xContainerWindow.setVisible(false);
+        xFrame.dispose();
     }
 }

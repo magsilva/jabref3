@@ -184,6 +184,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             public void actionPerformed(ActionEvent e) {
                 try {
                     style.ensureUpToDate();
+                    ooBase.updateSortedReferenceMarks();
                     ooBase.refreshCiteMarkers(frame.basePanel().database(), style);
                     ooBase.rebuildBibTextSection(frame.basePanel().database(), style);
                     //ooBase.sync(frame.basePanel().database(), style);
@@ -224,7 +225,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         test.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
-                    ooBase.combineCiteMarkers(frame.basePanel().database(), style);
+                    ooBase.testFrameHandling();
+                    //ooBase.combineCiteMarkers(frame.basePanel().database(), style);
                     //insertUsingBST();
                     //ooBase.testFootnote();
                     //ooBase.refreshCiteMarkers(frame.basePanel().database(), style);
@@ -263,7 +265,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         b.append(update);
 
         //b.append(insertFullRef);
-        //b.append(test);
+        b.append(test);
         //diag.getContentPane().add(b.getPanel(), BorderLayout.CENTER);
 
         JPanel content = new JPanel();

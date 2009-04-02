@@ -7,7 +7,7 @@ cp CHANGELOG jabref-oo-$1/
 cp lib/JabRef*.jar jabref-oo-$1
 mkdir jabref-oo-$1/plugins
 ant clean jar
-mv dist/net.sf.jabref.oo.ooplugin-$1.jar jabref-oo-$1/plugins/
+mv dist/plugins/net.sf.jabref.oo.ooplugin-$1.jar jabref-oo-$1/plugins/
 zip -r JabRef-oo-$1.zip jabref-oo-$1
 rm -rf jabref-oo-$1
 
