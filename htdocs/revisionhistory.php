@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.5b">2.5b</a></li>
 	<li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
 	<li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
 	<li class="single_item"><a href="#v2.4">2.4</a></li>
@@ -61,6 +62,55 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.5b">
+        <h3>Version 2.5beta (April 21st, 2009)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li> Added Simplified Chinese translation.</li>
+            <li> Added simple plugin manager.</li>
+            <li> Added ~/.jabref/plugins as user-specific plugin directory.</li>
+            <li> Added \r marker to WrapFileLinks formatter that outputs file links without expanding relative links.</li>
+            <li> Added [authorAlpha] key marker that formats authors according to the &quot;alpha&quot; BibTeX style. Patch submitted by Oliver Kopp.</li>
+            <li> Table sort order set by clicking and Ctrl-clicking table columns is now immediately set as default sort order in preferences.</li>
+            <li> Changed LyX pipe setting so it works whether &quot;.in&quot; is included or omitted.</li>
+            <li> Modified ISI importer so the words &quot;of&quot;, &quot;and&quot; and &quot;the&quot; will not be capitalized in the title, journal or publisher fields.</li>
+            <li> When adding new local file link, browse dialog now appears immediately when opening file link editor, saving one mouse click.</li>
+            <li> Added &quot;Remove all broken links&quot; option in the resolver dialog for broken links when synchronizing file links.</li>
+            <li> Added rename option to Set/clear field dialog, to move contents from one field to another.</li>
+            <li> Added Back and Forward actions, for switching between recently edited BibTeX entries.</li>
+            <li> Added option under &quot;Entry table&quot; to designate fields as numeric for sorting purposes.</li>
+            <li> Added possibility for custom export filters to define their own name formatters. This is done by adding a file named &quot;&lt;filtername&gt;.formatters&quot;. This file defines one formatter on each line, with each line containing the name of the formatter and the formatter definition, separated by a colon (:).</li>
+            <li> Added menu items for increasing/decreasing table font size, with shortcut keys Ctrl-plus and Ctrl-minus.</li>
+            <li> Added options to automatically mark entries imported into an existing database, and to unmark previously marked entries when importing.</li>
+            <li> Added &quot;:(x)&quot; modifier to key generator, specifying that the arbitrary string x should be used as a fallback value if the value returned by the field marker is empty.</li>
+            <li> Added &quot;:upper&quot; modifier to key generator, to force uppercase for a field marker.</li>
+            <li> Added buttons in External programs tab in Preferences for modifying settings for &quot;Push to&quot;-features, and removed obsolete fields.</li>
+            <li> Added support for DOI field in Endnote importer.</li>
+            <li> Added support for language and publication status fields in Medline import (publication status stored in &quot;medline-pst&quot; field).</li>
+            <li> Enabled cookie handling for downloading full-text articles.</li>
+            <li> Improved handling of invalid BibTeX keys containing white space. Parser will now try to piece together the key and avoid disturbing the continued parsing. Patch submitted by Stephan Lau.</li>
+            <li> Cosmetic change to the entry type label to the left in the entry editor.</li>
+            <li> Changed name handling so a single-entry name without a capital initial letter, such as &quot;unknown&quot;, will be treated as a solitary last name rather than a von particle.</li>
+            <li> Changed table selection coloring so entries that are grayed out or marked can be distinguished from normal entries when selected.</li>
+            <li> Changed handling of &quot;affiliation&quot; in Medline import - now makes sure to escape # characters before storing.</li>
+            <li> Modified ACM portal fetcher due to web site changes.</li>
+            <li> Improvements to IEEEXplore fetcher - better handling of month and page fields.</li>
+            <li> Changed behaviour of source panel when an entry contains imbalanced # characters - the panel can now show the entry in its invalid form, allowing the user to fix the problem.</li>
+            <li> Improved handling of PDF files without XMP metadata - other metadata will now be retained. Patch submitted by Felix Langner.</li>
+            <li> Fixed bug in parsing file field - double spaces in file names would be reduced to single spaces, breaking the file link. Fix submitted by Uwe Kuehn.</li>
+            <li> Fixed NullPointerException when downloading external file and file directory is undefined.</li>
+            <li> Fixed bug in HTMLConverter.</li>
+            <li> Fixed NullPointerException in key generator for incomplete names.</li>
+            <li> Fixed bug in removing custom export filters.</li>
+            <li> Fixed bug 2225371: restart is no longer required after adding a new custom export filter. </li>
+            <li> Fixed bug in &quot;Move/rename file&quot; feature in file field editor with regard to undefined file directory.</li>
+            <li> Fixed bug in Ris importer.</li>
+            <li> Fixed NullPointerException in Endnote importer.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.4.2">
         <h3>Version 2.4.2 (November 1st, 2008)</h3>
