@@ -270,7 +270,7 @@ public class OOBibStyle implements Comparable {
      */
     private void handlePropertiesLine(String line, HashMap map) throws IOException {
         int index = line.indexOf("=");
-        if ((index > 0) && (index < line.length()-1)) {
+        if ((index > 0) && (index <= line.length()-1)) {
             String propertyName = line.substring(0, index).trim();
             String value = line.substring(index+1);
             Object toSet = value;
