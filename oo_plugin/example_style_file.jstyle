@@ -26,6 +26,7 @@ BracketAfter=]
 CitationSeparator=; 
 UniquefierSeparator=,
 GroupedNumbersSeparator=-
+MinimumGroupingCount=3
 FormatCitations=false
 ItalicCitations=false
 BoldCitations=false

@@ -103,6 +103,8 @@ InTextYearSeparator=
 BracketBefore=[
 BracketAfter=]
 CitationSeparator=;
+GroupedNumbersSeparator=-
+MinimumGroupingCount=3
 UniquefierSeparator=,
 ItalicCitations=false
 BoldCitations=false
@@ -140,7 +142,15 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
         as follows:<br>
             [BracketBefore][Number][BracketAfter]<br>
         where [Number] is the number of the citation, determined according to the ordering of the bibliography and/or
-        the position of the citation in the text.
+        the position of the citation in the text. If a citation refers to several entries, these will be separated
+        by the string given in the property <code>CitationSeparator</code> (for instance, if <code>CitationSeparator</code>=;,
+        the citation could look like <code>[2;4;6]</code>). If two or more of the entries have a series of consecutive
+        numbers, the numbers can be grouped (for instance <code>[2-4]</code> for 2, 3 and 4 or <code>[2;5-7]</code> for
+        2, 5, 6 and 7). The property <code>GroupedNumbersSeparator</code> (default <code>-</code>) determines which string separates the first and last
+        of the grouped numbers. The integer property <code>MinimumGroupingCount</code> (default 3) determines what number of
+        consecutive numbers are required before entries are grouped. If <code>MinimumGroupingCount</code>=3, the numbers
+        2 and 3 will not be grouped, while 2, 3, 4 will be. If <code>MinimumGroupingCount</code>=0, no grouping will be
+        done regardless of the number of consecutive numbers.
         </p>
         <p>If numbered entries are not used, author-year citations will be created based on the citation properties.
         A parenthesis citation is composed as follows:<br>

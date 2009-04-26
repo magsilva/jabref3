@@ -44,7 +44,7 @@ public class OOBibStyle implements Comparable {
     HashMap properties = new HashMap();
     HashMap citProperties = new HashMap();
 
-    Pattern numPattern = Pattern.compile("\\d*");
+    Pattern numPattern = Pattern.compile("-?\\d+");
 
     boolean valid = false;
 
@@ -92,6 +92,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("BracketAfter", ")");
         citProperties.put("CitationSeparator", "; ");
         citProperties.put("GroupedNumbersSeparator", "-");
+        citProperties.put("MinimumGroupingCount", 3);
         citProperties.put("FormatCitations", Boolean.FALSE);
         citProperties.put("ItalicCitations", Boolean.FALSE);
         citProperties.put("BoldCitations", Boolean.FALSE);
@@ -351,7 +352,7 @@ public class OOBibStyle implements Comparable {
      * @param number The citation numbers.
      * @return The text for the citation.
      */
-    public String getNumCitationMarker(int[] number) {
+    public String getNumCitationMarker(int[] number, int minGroupingCount) {
         // Sort the numbers:
         int[] lNum = new int[number.length];
         for (int i = 0; i < lNum.length; i++) {
@@ -381,11 +382,24 @@ public class OOBibStyle implements Comparable {
                 if ((i == lNum.length-1) || (lNum[i+1] != i1+1)) {
                     if (written>0)
                         sb.append((String)citProperties.get("CitationSeparator"));
-                    sb.append(combineFrom);
-                    sb.append((String)citProperties.get("GroupedNumbersSeparator"));
-                    sb.append(i1);
+                    if ((minGroupingCount > 0) && (i1+1-combineFrom >= minGroupingCount)) {
+                        sb.append(combineFrom);
+                        sb.append((String)citProperties.get("GroupedNumbersSeparator"));
+                        sb.append(i1);
+                        written++;
+                    }
+                    else {
+                        // Either we should never group, or there aren't enough
+                        // entries in this case to group. Output all:
+                        for (int jj=combineFrom; jj<=i1; jj++) {
+                            sb.append(jj);
+                            if (jj < i1)
+                                sb.append((String)citProperties.get("CitationSeparator"));
+                            written++;
+                        }
+                    }
                     combineFrom = -1;
-                    written++;
+
                 }
                 // If it doesn't end here, just keep iterating.
             }
@@ -769,6 +783,9 @@ public class OOBibStyle implements Comparable {
         return (Boolean)citProperties.get(key);
     }
 
+    public int getIntCitProperty(String key) {
+        return (Integer)citProperties.get(key);
+    }
     /**
      * Get a style property.
      * @param name The property name.

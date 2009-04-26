@@ -3,7 +3,6 @@ package net.sf.jabref.oo;
 import com.sun.star.awt.Point;
 import com.sun.star.awt.XWindow;
 import com.sun.star.beans.XPropertySet;
-import com.sun.star.beans.Property;
 import com.sun.star.beans.PropertyValue;
 import com.sun.star.comp.helper.Bootstrap;
 import com.sun.star.container.*;
@@ -319,6 +318,8 @@ public class OOBibBase {
         String[] citMarkers = new String[names.length];
         String[][] normCitMarkers = new String[names.length][];
         String[][] bibtexKeys = new String[names.length][];
+        int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");
+
         int[] types = new int[names.length];
         for (int i = 0; i < names.length; i++) {
             Matcher m = citePattern.matcher(names[i]);
@@ -354,9 +355,10 @@ public class OOBibBase {
                                 lastNum = num[j];
                             }
                         }
-                        citationMarker = style.getNumCitationMarker(num);
+                        citationMarker = style.getNumCitationMarker(num, minGroupingCount);
                         for (int j=0; j<keys.length; j++)
-                            normCitMarker[j] = style.getNumCitationMarker(new int[] {num[j]});
+                            normCitMarker[j] = style.getNumCitationMarker(new int[] {num[j]},
+                                    minGroupingCount);
                     }
                     else {
                         // We need to find the number of the cited entry in the bibliography,
@@ -364,12 +366,13 @@ public class OOBibBase {
                         int[] num = findCitedEntryIndex(names[i], cited);
 
                         if (num != null)
-                            citationMarker = style.getNumCitationMarker(num);
+                            citationMarker = style.getNumCitationMarker(num, minGroupingCount);
                         else
                             throw new BibtexEntryNotFoundException(names[i], Globals.lang("Could not resolve BibTeX entry for citation marker '%0'.", names[i]));
 
                         for (int j=0; j<keys.length; j++)
-                            normCitMarker[j] = style.getNumCitationMarker(new int[] {num[j]});
+                            normCitMarker[j] = style.getNumCitationMarker(new int[] {num[j]},
+                                    minGroupingCount);
                     }
                 }
                 else {
@@ -726,7 +729,10 @@ public class OOBibBase {
         for (BibtexEntry entry : entries) {
             OOUtil.insertParagraphBreak(text, cursor);
             if (style.isNumberEntries()) {
-                OOUtil.insertTextAtCurrentLocation(text, cursor, style.getNumCitationMarker(new int[] {number++})+" ", false, false);
+                int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");
+                OOUtil.insertTextAtCurrentLocation(text, cursor,
+                        style.getNumCitationMarker(new int[] {number++}, minGroupingCount)+" ",
+                        false, false);
             }
             Layout layout = style.getReferenceFormat(entry.getType().getName());
             OOUtil.insertFullReferenceAtCurrentLocation(text, cursor, layout, parFormat, entry, database,
