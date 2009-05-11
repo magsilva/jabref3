@@ -47,6 +47,7 @@
                 <include name="plugin.xml"/>
                 <include name="CHANGELOG"/>
                 <include name="OOPlugin.html"/>
+                <include name="images/**"/>
             </fileset>
             <fileset dir="classes">
                 <include name="**"/>

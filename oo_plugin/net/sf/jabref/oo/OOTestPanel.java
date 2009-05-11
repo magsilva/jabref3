@@ -31,15 +31,15 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     TestPanel comp;
     JDialog diag;
     static JButton
-        connect = new JButton(Globals.lang("Connect")),
-        manualConnect = new JButton(Globals.lang("Manual connect")),
-        selectDocument = new JButton(Globals.lang("Select Writer document")),
+        connect,
+        manualConnect,
+        selectDocument,
         setStyleFile = new JButton(Globals.lang("Select style file")),
         pushEntries = new JButton(Globals.lang("Cite")),
         pushEntriesInt = new JButton(Globals.lang("Cite in-text")),
         pushEntriesEmpty = new JButton(Globals.lang("Insert empty citation")),
         focus = new JButton("Focus OO document"),
-        update = new JButton(Globals.lang("Sync OO bibliography")),
+        update,
         insertFullRef = new JButton("Insert reference text"),
         merge = new JButton(Globals.lang("Merge citations")),
         test = new JButton("Test");
@@ -56,7 +56,16 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     private Exception connectException = null;
 
     public OOTestPanel() {
-        
+        ImageIcon connectImage = new ImageIcon(OOTestPanel.class.getResource("/images/connect_no.png"));
+
+        connect = new JButton(connectImage);
+        manualConnect = new JButton(GUIGlobals.getImage("dbConnect"));
+        connect.setToolTipText(Globals.lang("Connect"));
+        manualConnect.setToolTipText(Globals.lang("Manual connect"));
+        selectDocument = new JButton(GUIGlobals.getImage("open"));
+        selectDocument.setToolTipText(Globals.lang("Select Writer document"));
+        update = new JButton(GUIGlobals.getImage("refresh"));
+        update.setToolTipText(Globals.lang("Sync OO bibliography"));
         String defExecutable, defJarsDir;
         if (Globals.ON_WIN) {
             Globals.prefs.putDefaultValue("ooPath", "C:\\Program Files\\OpenOffice.org 3");
@@ -253,16 +262,27 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         DefaultFormBuilder b = new DefaultFormBuilder(new FormLayout("fill:pref:grow",
                 //"p,0dlu,p,0dlu,p,0dlu,p,0dlu,p,0dlu,p,0dlu,p,0dlu,p,0dlu,p,0dlu,p,0dlu"));
                 "p,p,p,p,p,p,p,p,p,p"));
-        b.append(connect);
-        b.append(manualConnect);
-        b.append(selectDocument);
+
+        //ButtonBarBuilder bb = new ButtonBarBuilder();
+        DefaultFormBuilder bb = new DefaultFormBuilder(new FormLayout
+                ("fill:pref:grow, 1dlu, fill:pref:grow, 1dlu, fill:pref:grow, "
+                        +"1dlu, fill:pref:grow", ""));
+        bb.append(connect);
+        bb.append(manualConnect);
+        bb.append(selectDocument);
+        bb.append(update);
+
+        //b.append(connect);
+        //b.append(manualConnect);
+        //b.append(selectDocument);
+        b.append(bb.getPanel());
         b.append(setStyleFile);
         b.append(pushEntries);
         b.append(pushEntriesInt);
         b.append(pushEntriesEmpty);
         b.append(merge);
         //b.append(focus);
-        b.append(update);
+        //b.append(update);
 
         //b.append(insertFullRef);
         b.append(test);
