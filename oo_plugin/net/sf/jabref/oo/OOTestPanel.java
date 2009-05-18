@@ -59,7 +59,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         ImageIcon connectImage = new ImageIcon(OOTestPanel.class.getResource("/images/connect_no.png"));
 
         connect = new JButton(connectImage);
-        manualConnect = new JButton(GUIGlobals.getImage("dbConnect"));
+        manualConnect = new JButton(connectImage);
         connect.setToolTipText(Globals.lang("Connect"));
         manualConnect.setToolTipText(Globals.lang("Manual connect"));
         selectDocument = new JButton(GUIGlobals.getImage("open"));
@@ -109,7 +109,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     }
 
     public JMenuItem getMenuItem() {
-        JMenuItem item = new JMenuItem("OpenOffice.org panel");
+        JMenuItem item = new JMenuItem("OpenOffice.org panel", GUIGlobals.getImage("openoffice"));
         item.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 manager.show(getName());
@@ -285,7 +285,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         //b.append(update);
 
         //b.append(insertFullRef);
-        b.append(test);
+        //b.append(test);
         //diag.getContentPane().add(b.getPanel(), BorderLayout.CENTER);
 
         JPanel content = new JPanel();
