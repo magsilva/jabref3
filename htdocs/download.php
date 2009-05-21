@@ -30,7 +30,7 @@ are beta-tested and expected to be stable and reliable.</p>
      If you use the beta version, please be prepared that it can be unstable and contain serious bugs. Make backups of all important data!
     </p>
     <p>
-      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=677429"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+      <a href="http://sourceforge.net/project/showfiles.php?group_id=92314&amp;package_id=97632&amp;release_id=683825"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
     </p>
 
     <h3 id="subversion">Developer versions</h3>

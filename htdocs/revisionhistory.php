@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.5b2">2.5b2</a></li>
 	<li class="single_item"><a href="#v2.5b">2.5b</a></li>
 	<li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
 	<li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
@@ -62,6 +63,20 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.5b2">
+        <h3>Version 2.5beta2 (May 19th, 2009)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li> Plugin manager now handles plugin versions correctly based on the version number in their plugin.xml file.</li>
+            <li> Added formatter &quot;Number&quot; that outputs a sequence number for the current entry in the current export operation. This formatter can be used to produce a numbered list of entries.</li>
+            <li> Added autosave feature.</li>
+            <li> Fixed bug in file link handling in BibTeXML export.</li>
+            <li> Improved handling of patents in Scifinder import.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.5b">
         <h3>Version 2.5beta (April 21st, 2009)</h3>

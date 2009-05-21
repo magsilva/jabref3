@@ -25,6 +25,9 @@
       <h3 id="News">News</h3>
 
       <ul class="history_column">
+	<li class="item">May 19th, 2009</li>
+	<li class="item_desc">Version 2.5beta2</li>
+
 	<li class="item">April 21st, 2009</li>
 	<li class="item_desc">Version 2.5beta</li>
 
