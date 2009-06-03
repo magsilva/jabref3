@@ -23,6 +23,8 @@ YearSeparator=
 InTextYearSeparator= 
 BracketBefore=[
 BracketAfter=]
+BracketBeforeInList=[
+BracketAfterInList=]
 CitationSeparator=; 
 UniquefierSeparator=,
 GroupedNumbersSeparator=-
@@ -31,9 +33,7 @@ FormatCitations=false
 ItalicCitations=false
 BoldCitations=false
 SuperscriptCitations=false
-
-
-
+SubscriptCitations=false
 
 
 LAYOUT

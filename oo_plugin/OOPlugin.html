@@ -1,6 +1,6 @@
 <h1>OpenOffice plugin for JabRef</h1>
 
-        <h2>Introduction</h2>
+<h2>Introduction</h2>
 
 	<p><a href="http://jabref.sf.net">JabRef</a> is an open source BibTeX bibliography
 	  manager.
@@ -8,13 +8,23 @@
         OpenOffice writer document from JabRef.</p>
 
 
-        <h2>Current state of the plugin</h2>
+        <h2>How to use the plugin</h2>
 
-        As of 2 September 2008, the stable version of JabRef supports plugins.
-        The OO plugin is in a very preliminary state, and the reason it is being
-        distributed at this stage is to allow others to test it and give their feedback.
+        <p>The plugin can be used with JabRef 2.4 or newer. If your JabRef version doesn't
+        have a plugin manager (versions 2.4.x), you need to put the plugin jar file
+        in a directory named <code>plugins</code> below the directory where the JabRef
+        jar file is installed (typically under <code>C:\Program files\Jabref 2.x</code>
+        if you are running under Windows). The plugin should be loaded next time you
+        start JabRef, and an item named <b>OpenOffice.org panel</b> should appear in
+        JabRef's <b>Plugins</b> menu.
+        <p>The plugin should work with OpenOffice versions 2.4.x and 3.x, provided it
+        is installed with Java support (this is usually the case on Windows, while in
+        some Linux distributions you need to install a separate package named
+        <code>openoffice.org-java-common</code> or something similar).</p>
 
         <p><b>Updates:</b></p>
+        2009-06-03: Version 0.4: Added support for superscript/subscript tags in reference list, subscripted citations
+           and different brackets for numbering in the reference list.<br>
 	    2009-05-17: Version 0.3: Added MinimumGroupingCount property. Some GUI changes.<br>
         2009-04-02: Version 0.2.1: Fixed bug in sorting of reference list.<br>
         2009-03-01: Version 0.2: Better sorting of citations in captions, tables and footnotes.<br> 
@@ -33,8 +43,8 @@
         2007-12-01: Version 0.0.1<br>
 
         <p><b>Downloads:</b></p>
-        <p><a href="net.sf.jabref.oo.ooplugin-0.3.jar">The plugin.</a></p>
-        <p><a href="JabRef-oo-0.3-src.zip">Plugin source code.</a> The source code tree includes four
+        <p><a href="net.sf.jabref.oo.ooplugin-0.4.jar">The plugin.</a></p>
+        <p><a href="JabRef-oo-0.4-src.zip">Plugin source code.</a> The source code tree includes four
         OpenOffice.org jars and JabRef 2.4.2. The plugin is built using
         an included Ant build file.</p>
         <p><a href="example_style_file.jstyle">Example style file</a></p>
@@ -103,6 +113,8 @@ YearSeparator=,
 InTextYearSeparator=
 BracketBefore=[
 BracketAfter=]
+BracketBeforeInList=[
+BracketAfterInList=]
 CitationSeparator=;
 GroupedNumbersSeparator=-
 MinimumGroupingCount=3
@@ -110,8 +122,10 @@ UniquefierSeparator=,
 ItalicCitations=false
 BoldCitations=false
 FormatCitations=false
+SuperscriptCitations=false
+SubscriptCitations=false
 
-
+            
 LAYOUT
 article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\format[FormatChars]{\year}\uniq&lt;/b&gt;).<br>&lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;, \journal \volume : \format[FormatPagesForHTML]{\pages}.
 
@@ -184,10 +198,11 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
         letters (a and b in our example) will be separated by the string specified by the <code>UniquefierSeparator</code>
         property.
         </p>
-        <p>The property <code>FormatCitations</code> determines whether the citation markers should be set italicized or
-        not, and bold or not. If <code>FormatCitations</code> is false, no such formatting will be done. If true,
-        the citations will be italicized or not depending on the <code>ItalicCitations</code> property, and set to bold
-        or not depending on the <code>BoldCitations</code> property.</p>
+        <p>The property <code>FormatCitations</code> determines whether the citation markers should be formatted with
+        regards to italics, boldness, superscript and subscript. If <code>FormatCitations</code> is false, no such formatting
+        will be done. If true, the citations will be italicized or not depending on the <code>ItalicCitations</code> property, set to bold
+        or not depending on the <code>BoldCitations</code> property, and similar for the <code>SuperscriptCitations</code> and
+        <code>SubscriptCitations</code> properties.</p>
         <p>The <b>LAYOUT</b> section describes how the bibliography entry for each entry type in JabRef
         should appear. Each line should start with either the name of a BibTeX entry type, or the word
         <code>default</code>, followed by a '='. The <code>default</code> layout will be used for all
@@ -203,8 +218,15 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
         <code>uniq</code>, typically right after the year (as shown in the example style file). The <code>uniq</code>
         field is automatically set correctly for each entry before its reference text is laid out.
         </p>
-        <p>To indicate formatting in the bibliography, you can use the HTML-like tag pairs &lt;b&gt; &lt;/b&gt; and
-         &lt;i&gt; &lt;/i&gt; to specify bold text and italic text, respectively.</p>
+        <p>To indicate formatting in the bibliography, you can use the HTML-like tag pairs &lt;b&gt; &lt;/b&gt;,
+         &lt;i&gt; &lt;/i&gt;,  &lt;sup&gt; &lt;/sup&gt; and  &lt;sub&gt; &lt;/sub&gt; to specify bold text,
+         italic text, superscript and subscript, respectively.</p>
+        <p>If you are using numbered citations, the number for each entry will be automatically inserted at the start
+        of each entry in the reference list. By default, the numbers will be enclosed in the same brackets defined for
+        citations. The optional citation properties <code>BracketBeforeInList</code> and
+        <code>BracketAfterInList</code> override <code>BracketBefore</code> and <code>BracketAfter</code> if set. These
+        can be used if you want different types of brackets (or no brackets) in the reference list. Note that these need
+        not be brackets as such - they can be any combination of characters.</p>
 
 <h2>Known issues</h2>
 
@@ -215,8 +237,6 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (
   <li>The cursor may be poorly positioned after inserting a citation.</li>
   <li>Copy-pasting the example style file directly from this page can give an unparseable
     file. To avoid this, instead download the example file from the link in the download section.</li>
-  <li>If you have citations in footnotes, these may be mis-sorted when sorting the reference
-      list by position.</li>
 </ul>
 
 <h2>Contact</h2>

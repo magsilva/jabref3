@@ -13,11 +13,13 @@ rm -rf jabref-oo-$1
 
 # Create source distribution:
 mkdir jabref-oo-$1-src
+mkdir jabref-oo-$1-src/dist
 cp *.xml jabref-oo-$1-src/
 cp *.html jabref-oo-$1-src/
 cp example_style_file.jstyle jabref-oo-$1-src/
 cp CHANGELOG jabref-oo-$1-src/
 cp -r lib jabref-oo-$1-src/
 cp -r net jabref-oo-$1-src/
+cp -r images jabref-oo-$1-src/
 zip -r JabRef-oo-$1-src.zip jabref-oo-$1-src
 rm -rf jabref-oo-$1-src

@@ -97,6 +97,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("ItalicCitations", Boolean.FALSE);
         citProperties.put("BoldCitations", Boolean.FALSE);
         citProperties.put("SuperscriptCitations", Boolean.FALSE);
+        citProperties.put("SubscriptCitations", Boolean.FALSE);
         
 
         initialize(in);
@@ -352,7 +353,15 @@ public class OOBibStyle implements Comparable {
      * @param number The citation numbers.
      * @return The text for the citation.
      */
-    public String getNumCitationMarker(int[] number, int minGroupingCount) {
+    public String getNumCitationMarker(int[] number, int minGroupingCount, boolean inList) {
+        String bracketBefore = (String)citProperties.get("BracketBefore");
+        if (inList && (citProperties.get("BracketBeforeInList")!=null)) {
+            bracketBefore = (String)citProperties.get("BracketBeforeInList");
+        }
+        String bracketAfter = (String)citProperties.get("BracketAfter");
+        if (inList && (citProperties.get("BracketAfterInList")!=null)) {
+            bracketAfter = (String)citProperties.get("BracketAfterInList");
+        }
         // Sort the numbers:
         int[] lNum = new int[number.length];
         for (int i = 0; i < lNum.length; i++) {
@@ -361,7 +370,7 @@ public class OOBibStyle implements Comparable {
         }
         //Arrays.copyOf(number, number.length);
         Arrays.sort(lNum);
-        StringBuilder sb = new StringBuilder((String)citProperties.get("BracketBefore"));
+        StringBuilder sb = new StringBuilder(bracketBefore);
         int combineFrom = -1, written = 0;
         for (int i = 0; i < lNum.length; i++) {
             int i1 = lNum[i];
@@ -405,7 +414,7 @@ public class OOBibStyle implements Comparable {
             }
 
         }
-        sb.append((String)citProperties.get("BracketAfter"));
+        sb.append(bracketAfter);
         return sb.toString();
     }
 

@@ -68,7 +68,7 @@ public class OOUtil {
 
     /**
      * Insert a text with formatting indicated by HTML-like tags, into a text at
-     * the position given by a cursor.
+         * the position given by a cursor.
      * @param text The text to insert in.
      * @param cursor The cursor giving the insert location.
      * @param lText The marked-up text to insert.
@@ -93,12 +93,14 @@ public class OOUtil {
 
         // We need to extract formatting. Use a simple regexp search iteration:
         int piv = 0;
-        int italic = 0, bold = 0;
+        int italic = 0, bold = 0, sup = 0, sub = 0;
         Matcher m = htmlTag.matcher(lText);
         while (m.find()) {
             String ss = lText.substring(piv, m.start());
-            if (ss.length() > 0)
-                insertTextAtCurrentLocation(text, cursor, ss, (bold % 2) > 0, (italic % 2) > 0);
+            if (ss.length() > 0) {
+                insertTextAtCurrentLocation(text, cursor, ss, (bold % 2) > 0, (italic % 2) > 0,
+                        sup > 0, sub > 0);
+            }
             String tag = m.group();
             // Handle tags:
             if (tag.equals("<b>"))
@@ -109,11 +111,22 @@ public class OOUtil {
                 italic++;
             else if (tag.equals("</i>") || tag.equals("</em>"))
                 italic--;
+            else if (tag.equals("</sup>"))
+                sup = 0;
+            else if (tag.equals("<sup>"))
+                sup = 1;
+            else if (tag.equals("</sub>"))
+                sub = 0;
+            else if (tag.equals("<sub>"))
+                sub = 1;
+
             piv = m.end();
+            
         }
 
         if (piv < lText.length())
-            insertTextAtCurrentLocation(text, cursor,lText.substring(piv), (bold % 2) > 0, (italic % 2) > 0);
+            insertTextAtCurrentLocation(text, cursor,lText.substring(piv),
+                    (bold % 2) > 0, (italic % 2) > 0, sup > 0, sub > 0);
 
         cursor.collapseToEnd();
     }
@@ -124,7 +137,7 @@ public class OOUtil {
     }
 
     public static void insertTextAtCurrentLocation(XText text, XTextCursor cursor, String string,
-                                                   boolean bold, boolean italic) throws Exception {
+                   boolean bold, boolean italic, boolean superscript, boolean subscript) throws Exception {
         text.insertString(cursor, string, true);
         // Access the property set of the cursor, and set the currently selected text
         // (which is the string we just inserted) to be bold
@@ -143,6 +156,25 @@ public class OOUtil {
         else
             xCursorProps.setPropertyValue("CharPosture",
                                     com.sun.star.awt.FontSlant.NONE);
+
+        if (subscript) {
+            xCursorProps.setPropertyValue("CharEscapement",
+                    (byte)-101);
+            xCursorProps.setPropertyValue("CharEscapementHeight",
+                    (byte)58);
+        }
+        else if (superscript) {
+            xCursorProps.setPropertyValue("CharEscapement",
+                    (byte)101);
+            xCursorProps.setPropertyValue("CharEscapementHeight",
+                    (byte)58);
+        }
+        else {
+            xCursorProps.setPropertyValue("CharEscapement",
+                    (byte)0);
+            xCursorProps.setPropertyValue("CharEscapementHeight",
+                    (byte)0);
+        }
 
         cursor.collapseToEnd();
 

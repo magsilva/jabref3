@@ -355,10 +355,10 @@ public class OOBibBase {
                                 lastNum = num[j];
                             }
                         }
-                        citationMarker = style.getNumCitationMarker(num, minGroupingCount);
+                        citationMarker = style.getNumCitationMarker(num, minGroupingCount, false);
                         for (int j=0; j<keys.length; j++)
                             normCitMarker[j] = style.getNumCitationMarker(new int[] {num[j]},
-                                    minGroupingCount);
+                                    minGroupingCount, false);
                     }
                     else {
                         // We need to find the number of the cited entry in the bibliography,
@@ -366,13 +366,13 @@ public class OOBibBase {
                         int[] num = findCitedEntryIndex(names[i], cited);
 
                         if (num != null)
-                            citationMarker = style.getNumCitationMarker(num, minGroupingCount);
+                            citationMarker = style.getNumCitationMarker(num, minGroupingCount, false);
                         else
                             throw new BibtexEntryNotFoundException(names[i], Globals.lang("Could not resolve BibTeX entry for citation marker '%0'.", names[i]));
 
                         for (int j=0; j<keys.length; j++)
                             normCitMarker[j] = style.getNumCitationMarker(new int[] {num[j]},
-                                    minGroupingCount);
+                                    minGroupingCount, false);
                     }
                 }
                 else {
@@ -731,8 +731,8 @@ public class OOBibBase {
             if (style.isNumberEntries()) {
                 int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");
                 OOUtil.insertTextAtCurrentLocation(text, cursor,
-                        style.getNumCitationMarker(new int[] {number++}, minGroupingCount)+" ",
-                        false, false);
+                        style.getNumCitationMarker(new int[] {number++}, minGroupingCount, true)+" ",
+                        false, false, false, false);
             }
             Layout layout = style.getReferenceFormat(entry.getType().getName());
             OOUtil.insertFullReferenceAtCurrentLocation(text, cursor, layout, parFormat, entry, database,
@@ -863,6 +863,12 @@ public class OOBibBase {
                     if (style.getBooleanCitProperty("SuperscriptCitations")) {
                         xCursorProps.setPropertyValue("CharEscapement",
                                 (byte)101);
+                        xCursorProps.setPropertyValue("CharEscapementHeight",
+                                (byte)58);
+                    }
+                    else if (style.getBooleanCitProperty("SubscriptCitations")) {
+                        xCursorProps.setPropertyValue("CharEscapement",
+                                (byte)-101);
                         xCursorProps.setPropertyValue("CharEscapementHeight",
                                 (byte)58);
                     }

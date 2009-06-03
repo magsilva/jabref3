@@ -1,3 +1,9 @@
+0.4:
+ - Added optional citation properties BracketBeforeInList and BracketAfterInList that override
+   BracketBefore and BracketAfter for the numbering of the reference list. 
+ - Added support for <sup> and <sub> tags in reference layouts, for superscript and
+   subscript, respectively.
+ - Added "SubscriptCitations" property that gives subscripted citation markers.
 0.3:
  - Some changes to the interface.
  - Added property MinimumGroupingCount the determines how many consecutive numbers are
