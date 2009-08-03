@@ -293,7 +293,9 @@ public class OOBibBase {
         String[] names;
         if (style.isSortByPosition()) {
             // We need to sort the reference marks according to their order of appearance:
-           names = sortedReferenceMarks;
+            /*if (sortedReferenceMarks == null)
+                updateSortedReferenceMarks();*/
+            names = sortedReferenceMarks;
         }
         else if (style.isNumberEntries()) {
             // We need to sort the reference marks according to the sorting of the bibliographic
@@ -307,10 +309,12 @@ public class OOBibBase {
             }
             names = nameAccess.getElementNames();
         }
-        else
-            names = sortedReferenceMarks;
+        else {
+            /*if (sortedReferenceMarks == null)
+                updateSortedReferenceMarks();*/
+            names = sortedReferenceMarks;            
+        }
 
-        
         HashMap<String,Integer> numbers = new HashMap<String, Integer>();
         //HashMap<S
         int lastNum = 0;
@@ -1017,11 +1021,11 @@ public class OOBibBase {
                 keys.addAll(parseRefMarkName(names[piv+1]));
                 removeReferenceMark(names[piv]);
                 removeReferenceMark(names[piv+1]);
-                TreeSet<BibtexEntry> entries = new TreeSet<BibtexEntry>
-                        (new FieldComparator("year"));
+                ArrayList<BibtexEntry> entries = new ArrayList<BibtexEntry>();
                 for (String key : keys) {
                     entries.add(database.getEntryByKey(key));
                 }
+                Collections.sort(entries, new FieldComparator("year"));
                 StringBuilder sb = new StringBuilder();
                 int i=0;
                 for (BibtexEntry entry : entries) {
@@ -1041,8 +1045,11 @@ public class OOBibBase {
             }
             piv++;
         }
-        if (madeModifications)
+        if (madeModifications) {
+            updateSortedReferenceMarks();
             refreshCiteMarkers(database, style);
+        }
+
 
     }
 
