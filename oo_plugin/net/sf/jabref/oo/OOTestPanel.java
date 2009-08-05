@@ -363,7 +363,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             else if (Globals.ON_MAC) {
                 if (openOffice3) {
                     sOffice = ooPath+"/Contents/MacOS/soffice.bin";
-                    ooBaseDirectory = ooPath+"/Contents/basis-link/share/java";
+                    ooBaseDirectory = ooPath+"/Contents/basis-link/ure-link/share/java";
                     unoilDir = ooPath+"/Contents/basis-link/program/classes"; 
                 }
                 else {

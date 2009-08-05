@@ -110,15 +110,31 @@ public class AutoDetectPaths extends AbstractWorker {
 
         }
         else if (Globals.ON_MAC) {
-            File sOffice = findFileDir(new File("/Applications"), "soffice.bin");
+            File rootDir = new File("/Applications");
+            File[] files = rootDir.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                File file = files[i];
+                if (file.isDirectory() && file.getName().equals("OpenOffice.org.app")) {
+                    rootDir = file;
+                    //System.out.println("Setting starting dir to: "+file.getPath());
+                    break;
+                }
+            }
+            //System.out.println("Searching for soffice.bin");
+            File sOffice = findFileDir(rootDir, "soffice.bin");
+            //System.out.println("Found: "+(sOffice != null ? sOffice.getPath() : "-"));
             if (fileSearchCancelled)
                 return false;
             if (sOffice != null) {
                 Globals.prefs.put("ooExecutablePath", new File(sOffice, "soffice.bin").getPath());
-                File unoil = findFileDir(sOffice.getParentFile(), "unoil.jar");
+                //System.out.println("Searching for unoil.jar");
+                File unoil = findFileDir(rootDir, "unoil.jar");
+                //System.out.println("Found: "+(unoil != null ? unoil.getPath(): "-"));
                 if (fileSearchCancelled)
                     return false;
-                File jurt = findFileDir(sOffice.getParentFile(), "jurt.jar");
+                //System.out.println("Searching for jurt.jar");
+                File jurt = findFileDir(rootDir, "jurt.jar");
+                //System.out.println("Found: "+(jurt != null ? jurt.getPath(): "-"));
                 if (fileSearchCancelled)
                     return false;
                 if ((unoil != null) && (jurt != null)) {
@@ -264,7 +280,7 @@ public class AutoDetectPaths extends AbstractWorker {
     public File findFileDir(File startDir, String filename) {
         if (fileSearchCancelled)
             return null;
-        //System.out.println("Searching: "+startDir.getPath());
+        System.out.println("Searching: "+startDir.getPath());
         File[] files = startDir.listFiles();
         if (files == null)
             return null;
