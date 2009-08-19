@@ -47,7 +47,7 @@ public class OOBibBase {
             "MISC", "PHDTHESIS", "PROCEEDINGS", "TECHREPORT", "UNPUBLISHED", "EMAIL", "WWW",
             "CUSTOM1", "CUSTOM2", "CUSTOM3", "CUSTOM4", "CUSTOM5" };
 
-
+    
     private XMultiServiceFactory mxDocFactory = null;
     private XTextDocument mxDoc = null;
     private XText text = null;
@@ -268,10 +268,18 @@ public class OOBibBase {
         }
     }
 
-    public void refreshCiteMarkers(BibtexDatabase database, OOBibStyle style) throws
+    /**
+     * Refresh all cite markers in the document.
+     * @param database The database to get entries from.
+     * @param style The bibliography style to use.
+     * @return A list of those referenced BibTeX keys that could not be resolved.
+     * @throws UndefinedParagraphFormatException
+     * @throws Exception
+     */
+    public List<String> refreshCiteMarkers(BibtexDatabase database, OOBibStyle style) throws
             UndefinedParagraphFormatException, Exception {
         try {
-            refreshCiteMarkersInternal(database, style);
+            return refreshCiteMarkersInternal(database, style);
         } catch (DisposedException ex) {
             // We need to catch this one here because the OOTestPanel class is
             // loaded before connection, and therefore cannot directly reference
@@ -280,7 +288,7 @@ public class OOBibBase {
         }
     }
 
-    private void refreshCiteMarkersInternal(BibtexDatabase database, OOBibStyle style) throws
+    private List<String> refreshCiteMarkersInternal(BibtexDatabase database, OOBibStyle style) throws
             UndefinedParagraphFormatException, Exception {
 
         List<String> cited = findCitedKeys();
@@ -339,7 +347,8 @@ public class OOBibBase {
                      if (cEntries[j] == null) {
                          System.out.println("Bibtex key not found : '"+keys[j]+"'");
                          System.out.println("Problem with reference mark: '"+names[i]+"'");
-                        throw new BibtexEntryNotFoundException(keys[j], "");
+                         cEntries[j] = new UndefinedBibtexEntry(keys[j]);
+                        //throw new BibtexEntryNotFoundException(keys[j], "");
                      }
                 }
 
@@ -351,12 +360,16 @@ public class OOBibBase {
                         // so we simply count up for each marker referring to a new entry:
                         int[] num = new int[keys.length];
                         for (int j=0; j<keys.length; j++) {
-                            num[j] = lastNum + 1;
-                            if (numbers.containsKey(keys[j]))
-                                num[j] = numbers.get(keys[j]);
-                            else {
-                                numbers.put(keys[j], num[j]);
-                                lastNum = num[j];
+                            if (cEntries[j] instanceof UndefinedBibtexEntry) {
+                                num[j] = -1;
+                            } else {
+                                num[j] = lastNum + 1;
+                                if (numbers.containsKey(keys[j]))
+                                    num[j] = numbers.get(keys[j]);
+                                else {
+                                    numbers.put(keys[j], num[j]);
+                                    lastNum = num[j];
+                                }
                             }
                         }
                         citationMarker = style.getNumCitationMarker(num, minGroupingCount, false);
@@ -388,6 +401,7 @@ public class OOBibBase {
                 citMarkers[i] = citationMarker;
                 normCitMarkers[i] = normCitMarker;
             }
+
         }
 
         uniquefiers.clear();
@@ -493,6 +507,16 @@ public class OOBibBase {
 
             }
         }
+
+        ArrayList<String> unresolvedKeys = new ArrayList<String>();
+        for (BibtexEntry entry : entries) {
+            if (entry instanceof UndefinedBibtexEntry) {
+                String key = ((UndefinedBibtexEntry)entry).getKey();
+                if (!unresolvedKeys.contains(key))
+                    unresolvedKeys.add(key);
+            }
+        }
+        return unresolvedKeys;
     }
 
     public String[] getSortedReferenceMarks(final XNameAccess nameAccess) throws Exception {
@@ -626,7 +650,12 @@ public class OOBibBase {
     public List<BibtexEntry> findCitedEntries(BibtexDatabase database, List<String> keys) {
         List<BibtexEntry> entries = new ArrayList<BibtexEntry>();
         for (String key : keys) {
-            entries.add(database.getEntryByKey(key));
+            BibtexEntry entry = database.getEntryByKey(key);
+            if (entry != null)
+                entries.add(entry);
+            else {
+                entries.add(new UndefinedBibtexEntry(key));
+            }
         }
         return entries;
     }
@@ -667,10 +696,12 @@ public class OOBibBase {
                     if (entry == null) {
                         System.out.println("Bibtex key not found : '"+keys[j]+"'");
                         System.out.println("Problem with reference mark: '"+names[i]+"'");
-                        throw new BibtexEntryNotFoundException(keys[j], "");
+                        newList.add(new UndefinedBibtexEntry(keys[j]));
+                        //throw new BibtexEntryNotFoundException(keys[j], "");
+                    } else {
+                        if (!newList.contains(entry))
+                            newList.add(entry);
                     }
-                    if (!newList.contains(entry))
-                        newList.add(entry);
                 }
             }
         }
@@ -705,7 +736,7 @@ public class OOBibBase {
      * the index of the key in a list of keys.
      * @param citRefName The name of the ReferenceMark representing the citation.
      * @param keys A List of bibtex keys representing the entries in the bibliography.
-     * @return the indices of the cited keys, 0 if a key is not found. Returns null if the ref name
+     * @return the indices of the cited keys, -1 if a key is not found. Returns null if the ref name
      *   could not be resolved as a citation.
      */
     public int[] findCitedEntryIndex(String citRefName, List<String> keys) {
@@ -713,8 +744,10 @@ public class OOBibBase {
         if (m.find()) {
             String[] keyStrings = m.group(2).split(",");
             int[] res = new int[keyStrings.length];
-            for (int i=0; i<keyStrings.length; i++)
-                res[i] = 1+keys.indexOf(keyStrings[i]);
+            for (int i=0; i<keyStrings.length; i++) {
+                int ind = keys.indexOf(keyStrings[i]);
+                res[i] = ind != -1 ? 1+ind : -1;
+            }
             return res;
         }
         else
@@ -731,6 +764,8 @@ public class OOBibBase {
             Collections.sort(entries, entryComparator);
         int number = 1;
         for (BibtexEntry entry : entries) {
+            if (entry instanceof UndefinedBibtexEntry)
+                continue;
             OOUtil.insertParagraphBreak(text, cursor);
             if (style.isNumberEntries()) {
                 int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");

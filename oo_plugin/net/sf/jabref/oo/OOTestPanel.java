@@ -194,9 +194,14 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                 try {
                     style.ensureUpToDate();
                     ooBase.updateSortedReferenceMarks();
-                    ooBase.refreshCiteMarkers(frame.basePanel().database(), style);
+                    java.util.List<String> unresolvedKeys = ooBase.refreshCiteMarkers
+                            (frame.basePanel().database(), style);
                     ooBase.rebuildBibTextSection(frame.basePanel().database(), style);
                     //ooBase.sync(frame.basePanel().database(), style);
+                    if (unresolvedKeys.size() > 0) {
+                        JOptionPane.showMessageDialog(frame, Globals.lang("Your OpenOffice document references the BibTeX key '%0', which could not be found in your current database.",
+                            unresolvedKeys.get(0)), Globals.lang("Unable to synchronize bibliography"), JOptionPane.ERROR_MESSAGE);
+                    }
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
                 } catch (BibtexEntryNotFoundException ex) {

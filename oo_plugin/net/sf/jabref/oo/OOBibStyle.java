@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
  */
 public class OOBibStyle implements Comparable {
 
+    public static final String UNDEFINED_CITATION_MARKER = "??";
     String name = null;
     SortedSet<String> journals = new TreeSet<String>();
 
@@ -382,7 +383,7 @@ public class OOBibStyle implements Comparable {
                     // Add single entry:
                     if (i>0)
                         sb.append((String)citProperties.get("CitationSeparator"));
-                    sb.append(lNum[i]);
+                    sb.append(lNum[i] > 0 ? String.valueOf(lNum[i]) : UNDEFINED_CITATION_MARKER);
                     written++;
                 }
             } else {
