@@ -1,3 +1,8 @@
+ - Improved behaviour when the document references BibTeX keys not found in the
+   BibTeX database. Citation is now marked as undefined, and the remaining
+   bibliography gets created as normal.
+ - Added settings popup menu, and option for whether to automatically sync
+   bibliography when inserting new citations.
 0.5:
  - Fixed bug in Merge citations feature - citations would be lost when combined
    citations have same year.

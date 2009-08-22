@@ -42,6 +42,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         update,
         insertFullRef = new JButton("Insert reference text"),
         merge = new JButton(Globals.lang("Merge citations")),
+        settingsB = new JButton(Globals.lang("Settings")),
         test = new JButton("Test");
     JRadioButton inPar, inText;
     private JPanel settings = null;
@@ -87,7 +88,9 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         //Globals.prefs.putDefaultValue("ooStyleFileDirectories", System.getProperty("user.home")+";false");
         Globals.prefs.putDefaultValue("ooStyleFileLastDir", System.getProperty("user.home"));
         Globals.prefs.putDefaultValue("ooInParCitation", true);
+        Globals.prefs.putDefaultValue("syncOOWhenCiting", false);
 
+        
         styleFile = Globals.prefs.get("ooBibliographyStyleFile");
 
     }
@@ -236,6 +239,12 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             }
         });
 
+        settingsB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                showSettingsPopup();
+            }
+        });
+
         test.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
@@ -286,6 +295,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         b.append(pushEntriesInt);
         b.append(pushEntriesEmpty);
         b.append(merge);
+        b.append(settingsB);
         //b.append(focus);
         //b.append(update);
 
@@ -620,7 +630,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             BibtexEntry[] entries = panel.getSelectedEntries();
             if (entries.length > 0) {
                 try {
-                    ooBase.insertEntry(entries, database, style, inParenthesis, withText);
+                    ooBase.insertEntry(entries, database, style, inParenthesis, withText,
+                            Globals.prefs.getBoolean("syncOOWhenCiting"));
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
                 } catch (UndefinedParagraphFormatException ex) {
@@ -702,11 +713,26 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         }
     }
 
+    public void showSettingsPopup() {
+        JPopupMenu menu = new JPopupMenu();
+        final JCheckBoxMenuItem autoSync = new JCheckBoxMenuItem(
+                Globals.lang("Automatically sync bibliography when inserting citations"),
+                Globals.prefs.getBoolean("syncOOWhenCiting"));
+        autoSync.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                Globals.prefs.putBoolean("syncOOWhenCiting", autoSync.isSelected());
+            }
+        });
+        menu.add(autoSync);
+        menu.show(settingsB, 0, settingsB.getHeight());
+    }
+
     public void pushEntries(boolean inParenthesis, BibtexEntry[] entries) {
         final BibtexDatabase database = frame.basePanel().database();
         if (entries.length > 0) {
             try {
-                ooBase.insertEntry(entries, database, style, inParenthesis, true);
+                ooBase.insertEntry(entries, database, style, inParenthesis, true,
+                    Globals.prefs.getBoolean("syncOOWhenCiting"));
             } catch (ConnectionLostException ex) {
                 showConnectionLostErrorMessage();
             } catch (UndefinedParagraphFormatException ex) {

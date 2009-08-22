@@ -201,7 +201,7 @@ public class OOBibBase {
      
     /**
      * This method inserts a cite marker in the text for the given BibtexEntry,
-     * and refreshes the bibliography.
+     * and may refresh the bibliography.
      * @param entries The entries to cite.
      * @param database The database the entry belongs to.
      * @param style The bibliography style we are using.
@@ -209,10 +209,11 @@ public class OOBibBase {
      *   This is not relevant if numbered citations are used.
      * @param withText Indicates whether this should be a normal citation (true) or an empty
      *   (invisible) citation (false).
+     * @param sync Indicates whether the reference list should be refreshed.
      * @throws Exception
      */
     public void insertEntry(BibtexEntry[] entries, BibtexDatabase database, OOBibStyle style,
-                            boolean inParenthesis, boolean withText) throws Exception {
+                            boolean inParenthesis, boolean withText, boolean sync) throws Exception {
 
         try {
             XTextViewCursor xViewCursor = xViewCursorSupplier.getViewCursor();
@@ -247,12 +248,16 @@ public class OOBibBase {
             xViewCursor.goRight((short)1,false);
 
             XTextRange position = xViewCursor.getEnd();
-            // To account for numbering and for uniqiefiers, we must refresh the cite markers:
-            updateSortedReferenceMarks();
-            refreshCiteMarkers(database, style);
 
-            // Insert it at the current position:
-            rebuildBibTextSection(database, style);
+            if (sync) {
+                // To account for numbering and for uniqiefiers, we must refresh the cite markers:
+                updateSortedReferenceMarks();
+                refreshCiteMarkers(database, style);
+
+                // Insert it at the current position:
+                rebuildBibTextSection(database, style);
+            }
+
             // Go back to the relevant position:
             try {
                 xViewCursor.gotoRange(position, false);
