@@ -1,3 +1,7 @@
+0.7?
+ - All BibTeX fields are now run through a formatter that translates LaTeX character
+   sequences and \textit{} and \textbf{} commands before insertion into OO. 
+0.6:
  - Improved behaviour when the document references BibTeX keys not found in the
    BibTeX database. Citation is now marked as undefined, and the remaining
    bibliography gets created as normal.

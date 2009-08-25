@@ -96,13 +96,19 @@
         
         <p>Here is an example style file:</p>
         <code><pre>
+NAME
+Example style file for JabRef-oo plugin.
+
+JOURNALS
+Journal name 1
+Journal name 2
+
 PROPERTIES
-Title=Bibliography
+Title=References
 IsSortByPosition=false
 IsNumberEntries=false
 ReferenceParagraphFormat=Default
 ReferenceHeaderParagraphFormat=Heading 1
-
 
 CITATION
 AuthorField=author/editor
@@ -111,33 +117,36 @@ MaxAuthors=3
 AuthorSeparator=,
 AuthorLastSeparator= &
 EtAlString= et al.
-YearSeparator=,
+YearSeparator=
 InTextYearSeparator=
 BracketBefore=[
 BracketAfter=]
 BracketBeforeInList=[
 BracketAfterInList=]
 CitationSeparator=;
+UniquefierSeparator=,
 GroupedNumbersSeparator=-
 MinimumGroupingCount=3
-UniquefierSeparator=,
+FormatCitations=false
 ItalicCitations=false
 BoldCitations=false
-FormatCitations=false
 SuperscriptCitations=false
 SubscriptCitations=false
 
-            
+
 LAYOUT
-article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\format[FormatChars]{\year}\uniq&lt;/b&gt;).<br>&lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;, \journal \volume : \format[FormatPagesForHTML]{\pages}.
+article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq</b>). &lt;i&gt;\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
 
-book=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}\begin{editor}\format[AuthorLastFirst,<br>AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.)\end{editor}, &lt;b&gt;\year\uniq&lt;/b&gt;. &lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;.<br>\format[FormatChars]{\publisher}, \format[FormatChars]{\address}.
+book=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}\begin{editor}\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.)\end{editor}, &lt;b&gt;\year\uniq</b>. &lt;i&gt;\title</i>. \publisher, \address.
 
-incollection=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq&lt;/b&gt;).<br>&lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.),<br>&lt;i&gt;\format[FormatChars]{\booktitle}&lt;/i&gt;, \format[FormatChars]{\publisher}.
+incollection=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq</b>). &lt;i&gt;\title</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), &lt;i&gt;\booktitle</i>, \publisher.
 
-inbook=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq&lt;/b&gt;).<br> &lt;i&gt;\format[FormatChars]{\chapter}&lt;/i&gt;. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.),<br> &lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;, \format[FormatChars]{\publisher}.
+inbook=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq</b>). &lt;i&gt;\chapter</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), &lt;i&gt;\title</i>, \publisher.
 
-default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq&lt;/b&gt;).<br> &lt;i&gt;\format[FormatChars]{\title}&lt;/i&gt;, \journal.
+phdthesis=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq</b>). &lt;i&gt;\title</i>, \school.
+
+default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (&lt;b&gt;\year\uniq</b>). &lt;i&gt;\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
+
 </pre>
 
 <p>(Note that the layout for each entry type must be constrained to a single line in the style file - above, the lines are broken up to improve readability.)</p>

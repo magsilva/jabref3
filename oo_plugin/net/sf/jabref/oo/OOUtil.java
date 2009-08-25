@@ -4,22 +4,14 @@ import com.sun.star.beans.XPropertySet;
 import com.sun.star.beans.Property;
 import com.sun.star.text.*;
 import com.sun.star.uno.UnoRuntime;
-import com.sun.star.uno.Any;
 import com.sun.star.frame.XDesktop;
-import com.sun.star.container.XEnumerationAccess;
-import com.sun.star.container.XEnumeration;
-import com.sun.star.container.NoSuchElementException;
-import com.sun.star.lang.XComponent;
-import com.sun.star.lang.WrappedTargetException;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.Globals;
 import net.sf.jabref.export.layout.Layout;
-import net.sf.jabref.export.layout.LayoutHelper;
+import net.sf.jabref.export.layout.format.FormatChars;
 
 import javax.swing.*;
-import java.io.StringReader;
-import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.List;
@@ -32,6 +24,8 @@ public class OOUtil {
 
     
     static Pattern htmlTag = Pattern.compile("</?[a-z]+>");
+
+    static OOPreFormatter preformatter = new OOPreFormatter();
 
     /**
      * Insert a reference, formatted using a Layout, at the position of a given cursor.
@@ -232,5 +226,22 @@ public class OOUtil {
             return list.get(sel.getSelectedIndex());
         }
         else return null;
+    }
+
+    /**
+     * Make a cloned BibtexEntry and do the necessary preprocessing for use by the plugin.
+     * @param entry the original entry
+     * @return the cloned and processed entry
+     */
+    public static BibtexEntry createAdaptedEntry(BibtexEntry entry) {
+        if (entry == null)
+            return null;
+        BibtexEntry e = (BibtexEntry)entry.clone();
+        for (String field : e.getAllFields()) {
+            String value = e.getField(field);
+            if (value != null)
+                e.setField(field, preformatter.format(value));
+        }
+        return e;
     }
 }

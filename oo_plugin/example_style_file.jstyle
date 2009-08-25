@@ -37,15 +37,15 @@ SubscriptCitations=false
 
 
 LAYOUT
-article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\format[FormatChars]{\year}\uniq</b>). <i>\format[FormatChars]{\title}</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
+article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
 
-book=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}\begin{editor}\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.)\end{editor}, <b>\year\uniq</b>. <i>\format[FormatChars]{\title}</i>. \format[FormatChars]{\publisher}, \format[FormatChars]{\address}.
+book=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}\begin{editor}\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.)\end{editor}, <b>\year\uniq</b>. <i>\title</i>. \publisher, \address.
 
-incollection=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\format[FormatChars]{\title}</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), <i>\format[FormatChars]{\booktitle}</i>, \format[FormatChars]{\publisher}.
+incollection=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\title</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), <i>\booktitle</i>, \publisher.
 
-inbook=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\format[FormatChars]{\chapter}</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), <i>\format[FormatChars]{\title}</i>, \format[FormatChars]{\publisher}.
+inbook=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\chapter</i>. In: \format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.), <i>\title</i>, \publisher.
 
-phdthesis=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\format[FormatChars]{\title}</i>, \format[FormatChars]{\school}.
+phdthesis=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\title</i>, \school.
 
-default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\format[FormatChars]{\year}\uniq</b>). <i>\format[FormatChars]{\title}</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
+default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
 

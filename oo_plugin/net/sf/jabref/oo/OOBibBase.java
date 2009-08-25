@@ -348,7 +348,7 @@ public class OOBibBase {
                 bibtexKeys[i] = keys;
                 BibtexEntry[] cEntries = new BibtexEntry[keys.length];
                 for (int j = 0; j < cEntries.length; j++) {
-                    cEntries[j] = database.getEntryByKey(keys[j]);
+                    cEntries[j] = OOUtil.createAdaptedEntry(database.getEntryByKey(keys[j]));
                      if (cEntries[j] == null) {
                          System.out.println("Bibtex key not found : '"+keys[j]+"'");
                          System.out.println("Problem with reference mark: '"+names[i]+"'");
@@ -461,11 +461,11 @@ public class OOBibBase {
                     String uniq = uniquefiers.get(bibtexKeys[j][k]);
                     if ((uniq != null) && (uniq.length() >= 0)) {
                         needsChange = true;
-                        cEntries[k] = database.getEntryByKey(bibtexKeys[j][k]);
+                        cEntries[k] = OOUtil.createAdaptedEntry(database.getEntryByKey(bibtexKeys[j][k]));
                         uniquif[k] = uniq;
                     }
                     else {
-                        cEntries[k] = database.getEntryByKey(bibtexKeys[j][k]);
+                        cEntries[k] = OOUtil.createAdaptedEntry(database.getEntryByKey(bibtexKeys[j][k]));
                         uniquif[k] = "";
                     }
                 }
@@ -656,8 +656,9 @@ public class OOBibBase {
         List<BibtexEntry> entries = new ArrayList<BibtexEntry>();
         for (String key : keys) {
             BibtexEntry entry = database.getEntryByKey(key);
+
             if (entry != null)
-                entries.add(entry);
+                entries.add(OOUtil.createAdaptedEntry(entry));
             else {
                 entries.add(new UndefinedBibtexEntry(key));
             }
@@ -697,7 +698,7 @@ public class OOBibBase {
             if (m.find()) {
                 String[] keys = m.group(2).split(",");
                 for (int j = 0; j < keys.length; j++) {
-                    BibtexEntry entry = database.getEntryByKey(keys[j]);
+                    BibtexEntry entry = OOUtil.createAdaptedEntry(database.getEntryByKey(keys[j]));
                     if (entry == null) {
                         System.out.println("Bibtex key not found : '"+keys[j]+"'");
                         System.out.println("Problem with reference mark: '"+names[i]+"'");
@@ -1063,7 +1064,7 @@ public class OOBibBase {
                 removeReferenceMark(names[piv+1]);
                 ArrayList<BibtexEntry> entries = new ArrayList<BibtexEntry>();
                 for (String key : keys) {
-                    entries.add(database.getEntryByKey(key));
+                    entries.add(OOUtil.createAdaptedEntry(database.getEntryByKey(key)));
                 }
                 Collections.sort(entries, new FieldComparator("year"));
                 StringBuilder sb = new StringBuilder();
