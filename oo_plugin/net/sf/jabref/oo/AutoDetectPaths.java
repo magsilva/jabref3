@@ -280,7 +280,7 @@ public class AutoDetectPaths extends AbstractWorker {
     public File findFileDir(File startDir, String filename) {
         if (fileSearchCancelled)
             return null;
-        System.out.println("Searching: "+startDir.getPath());
+        //System.out.println("Searching: "+startDir.getPath());
         File[] files = startDir.listFiles();
         if (files == null)
             return null;

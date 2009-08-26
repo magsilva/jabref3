@@ -1,4 +1,4 @@
-0.7?
+0.7:
  - All BibTeX fields are now run through a formatter that translates LaTeX character
    sequences and \textit{} and \textbf{} commands before insertion into OO. 
 0.6:
