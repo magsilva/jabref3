@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.5">2.5</a></li>
 	<li class="single_item"><a href="#v2.5b2">2.5b2</a></li>
 	<li class="single_item"><a href="#v2.5b">2.5b</a></li>
 	<li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
@@ -63,6 +64,23 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.5">
+        <h3>Version 2.5 (June 22th, 2009)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Modified export layout procedure so missing formatters can be reported in the error output. Export now succeeds with warnings added where formatters are missing.</li>
+            <li>Conditional blocks (\begin{field}...\end{field}) in layout files can now be given a semicolon-separated list of fields as argument. All fields must then be set for output to be given.</li>
+            <li>Changed RIS import so multiple abstract fields in an entry are concatenated.</li>
+            <li>Added quoting of some special characters in SQL export, based on Kyle Crabtree's patch.</li>
+            <li>Fixed bug in MS Office 2007 XML export - editor names missing.</li>
+            <li>Fixed bug in plugin manager that prevented the "Download plugin" button from working.</li>
+            <li>Fixed bug in plugin manager routine that checks for installed versions of a plugin.</li>
+            <li>Fixed bug in startup that could show warnings multiple times when loading from autosave files.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.5b2">
         <h3>Version 2.5beta2 (May 19th, 2009)</h3>
