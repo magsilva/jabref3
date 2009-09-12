@@ -8,8 +8,8 @@ import com.sun.star.frame.XDesktop;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.Globals;
+import net.sf.jabref.BibtexFields;
 import net.sf.jabref.export.layout.Layout;
-import net.sf.jabref.export.layout.format.FormatChars;
 
 import javax.swing.*;
 import java.util.regex.Matcher;
@@ -230,6 +230,8 @@ public class OOUtil {
 
     /**
      * Make a cloned BibtexEntry and do the necessary preprocessing for use by the plugin.
+     * Preprocessing includes running the OOPreFormatter formatter for all fields except the
+     * BibTeX key.
      * @param entry the original entry
      * @return the cloned and processed entry
      */
@@ -238,6 +240,8 @@ public class OOUtil {
             return null;
         BibtexEntry e = (BibtexEntry)entry.clone();
         for (String field : e.getAllFields()) {
+            if (field.equals(BibtexFields.KEY_FIELD))
+                continue;
             String value = e.getField(field);
             if (value != null)
                 e.setField(field, preformatter.format(value));

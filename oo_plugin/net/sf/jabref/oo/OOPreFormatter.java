@@ -336,7 +336,7 @@ public class OOPreFormatter implements LayoutFormatter {
 						if (argument != null) {
 							// handle common case of general latex command
 							Object result = CHARS.get(command + argument);
-							// System.out.print("command: "+command+", arg: "+argument);
+                            // System.out.print("command: "+command+", arg: "+argument);
 							// System.out.print(", result: ");
 							// If found, then use translated version. If not, then keep
 							// the
