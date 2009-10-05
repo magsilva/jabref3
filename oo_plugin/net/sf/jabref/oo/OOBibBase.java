@@ -693,24 +693,32 @@ public class OOBibBase {
             throws BibtexEntryNotFoundException {
         
         List<BibtexEntry> newList = new ArrayList<BibtexEntry>();
+        HashMap<BibtexEntry,BibtexEntry> adaptedEntries = new HashMap<BibtexEntry,BibtexEntry>();
         for (int i = 0; i < names.length; i++) {
             Matcher m = citePattern.matcher(names[i]);
             if (m.find()) {
                 String[] keys = m.group(2).split(",");
                 for (int j = 0; j < keys.length; j++) {
-                    BibtexEntry entry = OOUtil.createAdaptedEntry(database.getEntryByKey(keys[j]));
-                    if (entry == null) {
+                    BibtexEntry origEntry = database.getEntryByKey(keys[j]);
+                    if (origEntry == null) {
                         System.out.println("Bibtex key not found : '"+keys[j]+"'");
                         System.out.println("Problem with reference mark: '"+names[i]+"'");
                         newList.add(new UndefinedBibtexEntry(keys[j]));
                         //throw new BibtexEntryNotFoundException(keys[j], "");
                     } else {
-                        if (!newList.contains(entry))
+                        BibtexEntry entry = adaptedEntries.get(origEntry);
+                        if (entry == null) {
+                            entry = OOUtil.createAdaptedEntry(origEntry);
+                            adaptedEntries.put(origEntry, entry);
+                        }
+                        if (!newList.contains(entry)) {
                             newList.add(entry);
+                        }
                     }
                 }
             }
         }
+
         return newList;
     }
     
