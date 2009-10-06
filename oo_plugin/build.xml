@@ -24,7 +24,7 @@
             <include name="juh.jar" />
             <include name="unoil.jar" />
             <include name="ridl.jar" />
-            <include name="JabRef-2.5.jar" />
+            <include name="JabRef-2.6b.jar" />
 		</fileset>
 	</path>
 

@@ -5,6 +5,8 @@ import com.jgoodies.forms.builder.ButtonStackBuilder;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import net.sf.jabref.*;
+import net.sf.jabref.export.layout.Layout;
+import net.sf.jabref.export.layout.LayoutHelper;
 import net.sf.jabref.external.PushToApplication;
 import net.sf.jabref.plugin.SidePanePlugin;
 
@@ -15,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -27,6 +30,23 @@ import java.util.Map;
  * between JabRef and OpenOffice.
  */
 public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushToApplication {
+
+    // This field indicates whether the running JabRef supports post formatters in Layout:
+    public static boolean postLayoutSupported;
+
+    static {
+        postLayoutSupported = true;
+        try {
+            Layout l = new LayoutHelper(new StringReader("")).
+                        getLayoutFromText(Globals.FORMATTER_PACKAGE);
+            l.setPostFormatter(null);
+        } catch (NoSuchMethodError ex) {
+            postLayoutSupported = false;
+        } catch (Exception ex) {
+
+        }
+
+    }
 
     TestPanel comp;
     JDialog diag;
@@ -55,6 +75,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     private boolean dialogOkPressed = false, autoDetected = false;
     private String sOffice = null;
     private Exception connectException = null;
+
 
     public OOTestPanel() {
         ImageIcon connectImage = new ImageIcon(OOTestPanel.class.getResource("/images/connect_no.png"));

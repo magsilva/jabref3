@@ -1,5 +1,11 @@
 0.7.1:
+ - The preformatter is now preferentially run after instead of before formatters called
+   from the layout specification. This solves the problems of e.g. organization author
+   names wrapped in braces (e.g. {World Bank}), where the braces have no effect as long
+   as the preprocessor is run first. This feature depends on a change introduced in
+   JabRef 2.6, and if older versions are used, the preprocessor will be run first as before.
  - Fixed problem with repeated citations in numbered citations.
+ - Fixed problem with paragraph format not affecting the entire bibliography entries.
 0.7:
  - All BibTeX fields are now run through a formatter that translates LaTeX character
    sequences and \textit{} and \textbf{} commands before insertion into OO. 

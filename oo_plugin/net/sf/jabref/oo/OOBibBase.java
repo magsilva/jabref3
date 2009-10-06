@@ -785,9 +785,14 @@ public class OOBibBase {
                 int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");
                 OOUtil.insertTextAtCurrentLocation(text, cursor,
                         style.getNumCitationMarker(new int[] {number++}, minGroupingCount, true)+" ",
-                        false, false, false, false);
+                        false, false, false, false, false);
             }
             Layout layout = style.getReferenceFormat(entry.getType().getName());
+            try {
+                layout.setPostFormatter(OOUtil.postformatter);
+            } catch (NoSuchMethodError ex) {
+                
+            }
             OOUtil.insertFullReferenceAtCurrentLocation(text, cursor, layout, parFormat, entry, database,
                     uniquefiers.get(entry.getCiteKey()));
         }

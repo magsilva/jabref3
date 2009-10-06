@@ -25,7 +25,7 @@ public class OOUtil {
     
     static Pattern htmlTag = Pattern.compile("</?[a-z]+>");
 
-    static OOPreFormatter preformatter = new OOPreFormatter();
+    static OOPreFormatter postformatter = new OOPreFormatter();
 
     /**
      * Insert a reference, formatted using a Layout, at the position of a given cursor.
@@ -72,28 +72,15 @@ public class OOUtil {
     public static void insertOOFormattedTextAtCurrentLocation(XText text, XTextCursor cursor,
               String lText, String parStyle) throws UndefinedParagraphFormatException, Exception {
 
-        XParagraphCursor parCursor = (XParagraphCursor)UnoRuntime.queryInterface(
-            XParagraphCursor.class, cursor);
-        // Access the property set of the cursor, and set the currently selected text
-        // (which is the string we just inserted) to be bold
-        XPropertySet props = (XPropertySet) UnoRuntime.queryInterface(
-            XPropertySet.class, parCursor);
-
-        try {
-            props.setPropertyValue("ParaStyleName", parStyle);
-        } catch (com.sun.star.lang.IllegalArgumentException ex) {
-            throw new UndefinedParagraphFormatException(parStyle);
-        }
-
         // We need to extract formatting. Use a simple regexp search iteration:
         int piv = 0;
-        int italic = 0, bold = 0, sup = 0, sub = 0;
+        int italic = 0, bold = 0, sup = 0, sub = 0, mono = 0;
         Matcher m = htmlTag.matcher(lText);
         while (m.find()) {
             String ss = lText.substring(piv, m.start());
             if (ss.length() > 0) {
                 insertTextAtCurrentLocation(text, cursor, ss, (bold % 2) > 0, (italic % 2) > 0,
-                        sup > 0, sub > 0);
+                        mono > 0, sup > 0, sub > 0);
             }
             String tag = m.group();
             // Handle tags:
@@ -105,6 +92,10 @@ public class OOUtil {
                 italic++;
             else if (tag.equals("</i>") || tag.equals("</em>"))
                 italic--;
+            else if (tag.equals("</monospace>"))
+                mono = 0;
+            else if (tag.equals("<monospace>"))
+                mono = 1;
             else if (tag.equals("</sup>"))
                 sup = 0;
             else if (tag.equals("<sup>"))
@@ -120,8 +111,21 @@ public class OOUtil {
 
         if (piv < lText.length())
             insertTextAtCurrentLocation(text, cursor,lText.substring(piv),
-                    (bold % 2) > 0, (italic % 2) > 0, sup > 0, sub > 0);
+                    (bold % 2) > 0, (italic % 2) > 0, mono > 0, sup > 0, sub > 0);
 
+         XParagraphCursor parCursor = (XParagraphCursor)UnoRuntime.queryInterface(
+            XParagraphCursor.class, cursor);
+        // Access the property set of the cursor, and set the currently selected text
+        // (which is the string we just inserted) to be bold
+        XPropertySet props = (XPropertySet) UnoRuntime.queryInterface(
+            XPropertySet.class, parCursor);
+
+        try {
+            props.setPropertyValue("ParaStyleName", parStyle);
+        } catch (com.sun.star.lang.IllegalArgumentException ex) {
+            throw new UndefinedParagraphFormatException(parStyle);
+        }
+        
         cursor.collapseToEnd();
     }
 
@@ -131,7 +135,8 @@ public class OOUtil {
     }
 
     public static void insertTextAtCurrentLocation(XText text, XTextCursor cursor, String string,
-                   boolean bold, boolean italic, boolean superscript, boolean subscript) throws Exception {
+                   boolean bold, boolean italic, boolean monospace, boolean superscript,
+                   boolean subscript) throws Exception {
         text.insertString(cursor, string, true);
         // Access the property set of the cursor, and set the currently selected text
         // (which is the string we just inserted) to be bold
@@ -149,8 +154,18 @@ public class OOUtil {
                             com.sun.star.awt.FontSlant.ITALIC);
         else
             xCursorProps.setPropertyValue("CharPosture",
-                                    com.sun.star.awt.FontSlant.NONE);
+                            com.sun.star.awt.FontSlant.NONE);
 
+        // TODO: the <monospace> tag doesn't work
+        /*
+        if (monospace) {
+            xCursorProps.setPropertyValue("CharFontPitch",
+                            com.sun.star.awt.FontPitch.FIXED);
+        }
+        else {
+            xCursorProps.setPropertyValue("CharFontPitch",
+                            com.sun.star.awt.FontPitch.VARIABLE);
+        }*/
         if (subscript) {
             xCursorProps.setPropertyValue("CharEscapement",
                     (byte)-101);
@@ -230,7 +245,8 @@ public class OOUtil {
 
     /**
      * Make a cloned BibtexEntry and do the necessary preprocessing for use by the plugin.
-     * Preprocessing includes running the OOPreFormatter formatter for all fields except the
+     * If the running JabRef version doesn't support post-processing in Layout, this
+     * preprocessing includes running the OOPreFormatter formatter for all fields except the
      * BibTeX key.
      * @param entry the original entry
      * @return the cloned and processed entry
@@ -243,8 +259,10 @@ public class OOUtil {
             if (field.equals(BibtexFields.KEY_FIELD))
                 continue;
             String value = e.getField(field);
-            if (value != null)
-                e.setField(field, preformatter.format(value));
+            // If the running JabRef version doesn't support post-processing in Layout,
+            // preprocess fields instead:
+            if (!OOTestPanel.postLayoutSupported && (value != null))
+                e.setField(field, postformatter.format(value));
         }
         return e;
     }
