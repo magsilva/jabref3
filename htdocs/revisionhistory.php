@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.6b">2.6b</a></li>
 	<li class="single_item"><a href="#v2.5">2.5</a></li>
 	<li class="single_item"><a href="#v2.5b2">2.5b2</a></li>
 	<li class="single_item"><a href="#v2.5b">2.5b</a></li>
@@ -64,6 +65,34 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.6b">
+        <h3>Version 2.6beta (October 6th, 2009)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added pages information to several entry types in Endnote export.</li>
+            <li>Modified LastPage formatter so it returns the number when only the number of pages is given.</li>
+            <li>Modified search algorithms so LaTeX commands are removed before search. For instance, this means that the value "test \textit{case}" now matches the search string "test case".</li>
+            <li>Changed default table font family to "SansSerif".</li>
+            <li>Can now create lock file while writing a bib file. The lock file is checked before saving, and before scanning an externally changed file, in order to avoid reading an unfinished file.</li>
+            <li>Added support for dragging a file link from the file column to another application.</li>
+            <li>Added toolbar button and shortcut (Alt-F) in entry editor for autosetting file links.</li>
+            <li>Improved ISI import filter so DOI information is included.</li>
+            <li>Fixed bug: metadata changes would not be detected as external changes to a database.</li>
+            <li>Fixed bug: when accepting external changes and not saving before new changes are detected, the previously accepted changes would also be listed.</li>
+            <li>Fixed bug in Scifinder import where an empty Inventor field could overwrite the author field.</li>
+            <li>Fixed bug in autocompleter. Current suggested completion would be added to the field if the user closed the entry editor or mouse clicked on another field.</li>
+            <li>Fixed problem with exporting to some MySql versions. Patch by François Dorin.</li>
+            <li>Fixed bug in handling of LaTeX character sequences - now sequences with = as command character (e.g. "\={A}") are recognized.</li>
+            <li>Fixed bug: gray out / hide setting in groups panel is overridden on startup by search mode selection. Added separate prefs key for the groups setting. Fix suggested by Igor L. Chernyavsky.</li>
+            <li>Fixed bug: cookie manager installed by Download button in file field editor throws an exception when trying to fetch from Medline.</li>
+            <li>Fixed bug: temporary files don't get deleted on shutdown.</li>
+            <li>Disabled table column reordering in import inspection window, since a user reported problems when using this.</li>
+            <li>Changed years from 2008 to 2009 in splash image.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.5">
         <h3>Version 2.5 (June 22th, 2009)</h3>
