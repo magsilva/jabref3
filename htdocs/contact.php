@@ -71,6 +71,7 @@
 	<span class="developer">Ambrogio Oliva <img src="images/stock_person.png" alt="translator" title="Italian translator" /></span>
 	<span class="developer">Gert Renckens <img src="images/stock_person.png" alt="translator" title="Dutch translator" /></span>
 	<span class="developer">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="translator" title="German translator" /></span>
+	<span class="developer">Wenbo Yang <img src="images/stock_person.png" alt="translator" title="Simplified Chinese translator" /></span>
 
       </div>
 
