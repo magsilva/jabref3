@@ -67,7 +67,7 @@
       <h2>Revision history</h2>
 
       <div class="aversion" id="v2.6b">
-        <h3>Version 2.6beta (October 6th, 2009)</h3>
+        <h3>Version 2.6beta (September 29th, 2009)</h3>
 
         <div class="version_desc">
           <ul>
