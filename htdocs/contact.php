@@ -67,6 +67,7 @@
 
         <h4 id="translators">Translators</h4>
 	<span class="developer">Morten O. Alver <img src="images/stock_person.png" alt="translator" title="Norwegian translator" /></span>
+	<span class="developer">Thomas Arildsen <img src="images/stock_person.png" alt="translator" title="Danish translator" /></span>
 	<span class="developer">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="translator" title="French translator" /></span>
 	<span class="developer">Ambrogio Oliva <img src="images/stock_person.png" alt="translator" title="Italian translator" /></span>
 	<span class="developer">Gert Renckens <img src="images/stock_person.png" alt="translator" title="Dutch translator" /></span>
