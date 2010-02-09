@@ -15,8 +15,9 @@ ReferenceHeaderParagraphFormat=Heading 1
 CITATION
 AuthorField=author/editor
 YearField=year
-MaxAuthors=3
-AuthorSeparator=, 
+MaxAuthors=2
+MaxAuthorsFirst=6
+AuthorSeparator=,
 AuthorLastSeparator= & 
 EtAlString= et al.
 YearSeparator= 

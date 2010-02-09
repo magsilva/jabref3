@@ -1,3 +1,13 @@
+0.7.3:
+ - Modified parsing of style file so boolean properties can be parsed even if extra
+   white space is included, e.g. "true ".
+ - Fixed bug in "MaxAuthorsFirst" handling: if two citations can be grouped, but one of
+   them has appeared earlier, this should prevent grouping if the difference between
+   "MaxAuthorsFirst" and "MaxAuthors" has bearing on the citations in question.
+0.7.2:
+ - Added option "MaxAuthorsFirst" to control how many authors can be shown the first
+   time a citation appears before "et al" is used. "MaxAuthors" controls the following
+   appearances.
 0.7.1:
  - The preformatter is now preferentially run after instead of before formatters called
    from the layout specification. This solves the problems of e.g. organization author

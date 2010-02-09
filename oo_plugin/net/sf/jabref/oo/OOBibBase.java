@@ -236,7 +236,7 @@ public class OOBibBase {
             //XTextContent content = insertBookMark(bName, xViewCursor);
 
 
-            String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null);
+            String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null, null);
 
             //System.out.println(text+" / "+xViewCursor.getText());
             xViewCursor.getText().insertString(xViewCursor, " ", false);
@@ -398,10 +398,10 @@ public class OOBibBase {
                     }
                 }
                 else {
-                    citationMarker = style.getCitationMarker(cEntries, database, type == AUTHORYEAR_PAR, null);
+                    citationMarker = style.getCitationMarker(cEntries, database, type == AUTHORYEAR_PAR, null, null);
                     // We need "normalized" (in parenthesis) markers for uniqueness checking purposes:
                     for (int j=0; j<cEntries.length; j++)
-                        normCitMarker[j] = style.getCitationMarker(cEntries[j], database, true, null);
+                        normCitMarker[j] = style.getCitationMarker(cEntries[j], database, true, null, -1);
                 }
                 citMarkers[i] = citationMarker;
                 normCitMarkers[i] = normCitMarker;
@@ -453,16 +453,31 @@ public class OOBibBase {
             }
 
             // Finally, go through all citation markers, and update those referring to entries in our current list:
+            int maxAuthorsFirst = style.getIntCitProperty("MaxAuthorsFirst");
+            HashSet<String> seenBefore = new HashSet<String>();
             for (int j = 0; j < bibtexKeys.length; j++) {
                 boolean needsChange = false;
+                int[] firstLimAuthors = new int[bibtexKeys[j].length];
                 String[] uniquif = new String[bibtexKeys[j].length];
                 BibtexEntry[] cEntries = new BibtexEntry[bibtexKeys[j].length];
                 for (int k=0; k<bibtexKeys[j].length; k++) {
+                    firstLimAuthors[k] = -1;
+                    if (maxAuthorsFirst > 0) {
+                        if (!seenBefore.contains(bibtexKeys[j][k])) {
+                            firstLimAuthors[k] = maxAuthorsFirst;
+                        }
+                        seenBefore.add(bibtexKeys[j][k]);
+                    }
                     String uniq = uniquefiers.get(bibtexKeys[j][k]);
                     if ((uniq != null) && (uniq.length() >= 0)) {
                         needsChange = true;
                         cEntries[k] = OOUtil.createAdaptedEntry(database.getEntryByKey(bibtexKeys[j][k]));
                         uniquif[k] = uniq;
+                    }
+                    else if (firstLimAuthors[k] > 0) {
+                        needsChange = true;
+                        cEntries[k] = OOUtil.createAdaptedEntry(database.getEntryByKey(bibtexKeys[j][k]));
+                        uniquif[k] = "";
                     }
                     else {
                         cEntries[k] = OOUtil.createAdaptedEntry(database.getEntryByKey(bibtexKeys[j][k]));
@@ -471,7 +486,7 @@ public class OOBibBase {
                 }
                 if (needsChange)
                     citMarkers[j] = style.getCitationMarker(cEntries, database, types[j] == AUTHORYEAR_PAR,
-                        uniquif);
+                        uniquif, firstLimAuthors);
             }
         }
 

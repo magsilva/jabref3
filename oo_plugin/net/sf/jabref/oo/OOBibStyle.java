@@ -84,6 +84,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("AuthorField", "author/editor");
         citProperties.put("YearField", "year");
         citProperties.put("MaxAuthors", 3);
+        citProperties.put("MaxAuthorsFirst", -1);
         citProperties.put("AuthorSeparator", ", ");
         citProperties.put("AuthorLastSeparator", " & ");
         citProperties.put("EtAlString", " et al.");
@@ -279,9 +280,9 @@ public class OOBibStyle implements Comparable {
             if (numPattern.matcher(value).matches()) {
                 toSet = Integer.parseInt(value);
             }
-            else if (value.toLowerCase().equals("true"))
+            else if (value.toLowerCase().trim().equals("true"))
                 toSet = Boolean.TRUE;
-            else if (value.toLowerCase().equals("false"))
+            else if (value.toLowerCase().trim().equals("false"))
                 toSet = Boolean.FALSE;
             map.put(propertyName, toSet);
         }
@@ -429,8 +430,9 @@ public class OOBibStyle implements Comparable {
      * @return The formatted citation.
      */
     public String getCitationMarker(BibtexEntry entry, BibtexDatabase database, boolean inParenthesis,
-                                    String uniquefier) {
-        return getCitationMarker(new BibtexEntry[] {entry}, database, inParenthesis, new String[] {uniquefier});
+                                    String uniquefier, int unlimAuthors) {
+        return getCitationMarker(new BibtexEntry[] {entry}, database, inParenthesis, new String[] {uniquefier},
+                new int[] {unlimAuthors});
     }
 
     /**
@@ -442,10 +444,12 @@ public class OOBibStyle implements Comparable {
      * @param inParenthesis Signals whether a parenthesized citation or an in-text citation is wanted.
      * @param uniquefiers Strings to add behind the year for each entry in case it's needed to separate similar
      *   entries.
+     * @param unlimAuthors Boolean for each entry. If true, we should not use "et al" formatting regardless
+     *   of the number of authors. Can be null to indicate that no entries should have unlimited names.
      * @return The formatted citation.
      */
     public String getCitationMarker(BibtexEntry[] entries, BibtexDatabase database, boolean inParenthesis,
-                                    String[] uniquefiers) {
+                                    String[] uniquefiers, int[] unlimAuthors) {
 
         // Look for groups of uniquefied entries that should be combined in the output.
         // E.g. (Olsen, 2005a, b) should be output instead of (Olsen, 2005a; Olsen, 2005b).
@@ -453,37 +457,46 @@ public class OOBibStyle implements Comparable {
         String tmpMarker = null;
         if (uniquefiers != null) {
             for (int i = 0; i < uniquefiers.length; i++) {
+
                 if ((uniquefiers[i] != null) && (uniquefiers[i].length() > 0)) {
+                    String authorField = (String)citProperties.get("AuthorField");
+                    int maxAuthors = (Integer)citProperties.get("MaxAuthors");
                     if (piv == -1) {
                         piv = i;
                         tmpMarker = getAuthorYearParenthesisMarker(new BibtexEntry[] {entries[i]}, database,
-                            (String)citProperties.get("AuthorField"),
+                            authorField,
                             (String)citProperties.get("YearField"),
-                            (Integer)citProperties.get("MaxAuthors"),
+                            maxAuthors,
                             (String)citProperties.get("AuthorSeparator"),
                             (String)citProperties.get("AuthorLastSeparator"),
                             (String)citProperties.get("EtAlString"),
                             (String)citProperties.get("YearSeparator"),
                             (String)citProperties.get("BracketBefore"),
                             (String)citProperties.get("BracketAfter"),
-                            (String)citProperties.get("CitationSeparator"), null);
+                            (String)citProperties.get("CitationSeparator"), null, unlimAuthors);
                         //System.out.println("piv="+piv+" tmpMarker='"+tmpMarker+"'");
                     }
                     else {
                         // See if this entry can go into a group with the previous one:
                         String thisMarker = getAuthorYearParenthesisMarker(new BibtexEntry[] {entries[i]}, database,
-                            (String)citProperties.get("AuthorField"),
+                            authorField,
                             (String)citProperties.get("YearField"),
-                            (Integer)citProperties.get("MaxAuthors"),
+                            maxAuthors,
                             (String)citProperties.get("AuthorSeparator"),
                             (String)citProperties.get("AuthorLastSeparator"),
                             (String)citProperties.get("EtAlString"),
                             (String)citProperties.get("YearSeparator"),
                             (String)citProperties.get("BracketBefore"),
                             (String)citProperties.get("BracketAfter"),
-                            (String)citProperties.get("CitationSeparator"), null);
+                            (String)citProperties.get("CitationSeparator"), null, unlimAuthors);
+
+                        String author = getCitationMarkerField(entries[i], database,
+                                authorField);
+                        AuthorList al = AuthorList.getAuthorList(author);
                         //System.out.println("i="+i+" thisMarker='"+thisMarker+"'");
-                        if (!thisMarker.equals(tmpMarker)) {
+                        int prevALim = i > 0 ? unlimAuthors[i-1] : unlimAuthors[0];
+                        if (!thisMarker.equals(tmpMarker) ||
+                                ((al.size() > maxAuthors) && (unlimAuthors[i] != prevALim))) {
                             // No match. Update piv to exclude the previous entry. But first check if the
                             // previous entry was part of a group:
                             if ((piv > -1) && (i > piv+1)) {
@@ -526,7 +539,7 @@ public class OOBibStyle implements Comparable {
                     (String)citProperties.get("BracketBefore"),
                     (String)citProperties.get("BracketAfter"),
                     (String)citProperties.get("CitationSeparator"),
-                    uniquefiers);
+                    uniquefiers, unlimAuthors);
         else
             return getAuthorYearInTextMarker(entries, database,
                     (String)citProperties.get("AuthorField"),
@@ -539,7 +552,7 @@ public class OOBibStyle implements Comparable {
                     (String)citProperties.get("BracketBefore"),
                     (String)citProperties.get("BracketAfter"),
                     (String)citProperties.get("CitationSeparator"),
-                    uniquefiers);
+                    uniquefiers, unlimAuthors);
 
     }
 
@@ -567,7 +580,7 @@ public class OOBibStyle implements Comparable {
      * @param entries The array of BibtexEntry to get fields from.
      * @param authorField The bibtex field providing author names, e.g. "author" or "editor".
      * @param yearField The bibtex field providing the year, e.g. "year".
-     * @param maxAuthors The maximum number of authors to write out in full without using etal. Set to
+     * @param maxA The maximum number of authors to write out in full without using etal. Set to
      *              -1 to always write out all authors.
      * @param authorSep The String to add between author names except the last two, e.g. ", ".
      * @param andString The String to add between the two last author names, e.g. " & ".
@@ -581,14 +594,17 @@ public class OOBibStyle implements Comparable {
      */
     public String getAuthorYearParenthesisMarker(BibtexEntry[] entries, BibtexDatabase database,
                                                  String authorField, String yearField,
-                                                 int maxAuthors, String authorSep,
+                                                 int maxA, String authorSep,
                                                  String andString, String etAlString, String yearSep,
                                                  String startBrace, String endBrace, String citationSeparator,
-                                                 String[] uniquifiers) {
+                                                 String[] uniquifiers, int[] unlimAuthors) {
 
 
         StringBuffer sb = new StringBuffer(startBrace);
         for (int j=0; j<entries.length; j++) {
+
+            int unlimA = (unlimAuthors != null ? unlimAuthors[j] : -1);
+            int maxAuthors = unlimA > 0 ? unlimA : maxA;
 
             BibtexEntry entry = entries[j];
 
@@ -636,7 +652,7 @@ public class OOBibStyle implements Comparable {
      * @param entries The array of BibtexEntry to get fields from.
      * @param authorField The bibtex field providing author names, e.g. "author" or "editor".
      * @param yearField The bibtex field providing the year, e.g. "year".
-     * @param maxAuthors The maximum number of authors to write out in full without using etal. Set to
+     * @param maxA The maximum number of authors to write out in full without using etal. Set to
      *              -1 to always write out all authors.
      * @param authorSep The String to add between author names except the last two, e.g. ", ".
      * @param andString The String to add between the two last author names, e.g. " & ".
@@ -648,12 +664,15 @@ public class OOBibStyle implements Comparable {
      * @return The formatted citation.
      */
     public String getAuthorYearInTextMarker(BibtexEntry[] entries, BibtexDatabase database, String authorField,
-                                            String yearField, int maxAuthors, String authorSep,
+                                            String yearField, int maxA, String authorSep,
                                             String andString, String etAlString, String yearSep,
                                             String startBrace, String endBrace, String citationSeparator,
-                                            String[] uniquefiers) {
+                                            String[] uniquefiers, int[] unlimAuthors) {
         StringBuffer sb = new StringBuffer();
         for (int i=0; i<entries.length; i++) {
+
+            int unlimA = (unlimAuthors != null ? unlimAuthors[i] : -1);
+            int maxAuthors = unlimA > 0 ? unlimA : maxA;
 
             // Check if this entry has been nulled due to grouping with the previous entry(ies):
             if (entries[i] == null)

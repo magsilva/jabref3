@@ -12,7 +12,7 @@
 <project name="net.sf.jabref.oo.ooplugin" default="jar" basedir=".">
 
 	<!-- Properties -->
-	<property name="version" value="0.7.1" />
+	<property name="version" value="0.7.3" />
 	<property name="build.classes" value="classes" />
 	<property name="jabref.build.dir" value="lib" />
     <property name="jar.dir" value="dist" />
