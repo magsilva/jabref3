@@ -46,6 +46,8 @@
                 <exclude name="lib"/>
                 <include name="plugin.xml"/>
                 <include name="CHANGELOG"/>
+                <include name="LICENSE"/>
+                <include name="gpl-2.0.txt"/>
                 <include name="OOPlugin.html"/>
                 <include name="images/**"/>
             </fileset>

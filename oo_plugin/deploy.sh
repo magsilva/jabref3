@@ -4,6 +4,8 @@
 mkdir jabref-oo-$1
 cp example_style_file.jstyle jabref-oo-$1/
 cp CHANGELOG jabref-oo-$1/
+cp LICENSE jabref-oo-$1/
+cp gpl-2.0.txt jabref-oo-$1/
 cp lib/JabRef*.jar jabref-oo-$1
 mkdir jabref-oo-$1/plugins
 ant clean jar
@@ -18,6 +20,8 @@ cp *.xml jabref-oo-$1-src/
 cp *.html jabref-oo-$1-src/
 cp example_style_file.jstyle jabref-oo-$1-src/
 cp CHANGELOG jabref-oo-$1-src/
+cp LICENSE jabref-oo-$1-src/
+cp gpl-2.0 jabref-oo-$1-src/
 cp -r lib jabref-oo-$1-src/
 cp -r net jabref-oo-$1-src/
 cp -r images jabref-oo-$1-src/
