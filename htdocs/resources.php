@@ -22,6 +22,7 @@
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
         <li><a href="#RIS_export">RIS export format</a></li>
         <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
+        <li><a href="#ADS">JabRef ADS fetcher</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
@@ -53,25 +54,29 @@
       cite-while-you-write modules and general sidepane components.</p>
 
       <h3 id="Installing_plugins">Installing plugins</h3>
-      <p>There is yet no plugin manager for JabRef, so plugins must be
-      installed manually. This is fortunately quite simple - you must
-      create a directory named <strong>plugins</strong> right below the
-      directory where JabRef is installed (specifically, the directory
-      where the file named <strong>JabRef-X.jar</strong> is located,
-      where X is the version number), and drop your plugins there.
+
+      <p>If you are using JabRef 2.5 or later, you can install plugins
+      using the Plugin Manager.
+      Go to <b>Plugins -> Manage Plugins</b>. Click <b>Install plugin</b>,
+      and choose the <i>jar</i> file containing the plugin.</p>
+
+      <p>For JabRef versions 2.4.x, plugins must be installed manually.
+      This is fortunately quite simple - you must create a directory
+      named <strong>plugins</strong> right below the directory where
+      JabRef is installed (specifically, the directory where the file
+      named <strong>JabRef-X.jar</strong> is located, where X is the
+      version number), and drop your plugins there.
       All plugins (in the form of jar files) in this directory will be
       loaded automatically when you start up JabRef.</p>
 
       <h3>Plugins available for download</h3>
 
-      <h4 id="OOintegration">Openoffice.org integration</h4>
+      <h4 id="OOintegration"><a href="OOPlugin-jabref.php">Openoffice.org integration</a></h4>
       <p><em>by Morten O. Alver</em></p>
 
-      <p>Version 0.7.1<br />
-      <a href="plugins/net.sf.jabref.oo.ooplugin-0.7.1.jar">Plugin</a> -
-      <a href="http://www.itk.ntnu.no/ansatte/Alver_Omholt_Morten/jabref/OOPlugin.html">Home page (see also for source code)</a></p>
-
       <p>This plugin provides cite-while-you-write functionality for OpenOffice.org Writer.</p>
+
+      <p><a href="OOPlugin-jabref.php">See extra page for this plugin.</a></p>
 
 
       <h4 id="BibSonomy">BibSonomy plugin</h4>
@@ -120,6 +125,13 @@
 
       <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
       <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
+
+
+      <h4 id="ADS">JabRef ADS fetcher</h4>
+      <p><em>by Ryo Igarashi</em></p>
+
+      <p>JabRef plugin for fetching BibTeX entry from &quot;The SAO/NASA Astrophysics Data System&quot; using Digital Object Identifier (DOI)
+      <a href="https://launchpad.net/jabref-ads">More information</a></p>
 
 
       <h3>Developing plugins</h3>
