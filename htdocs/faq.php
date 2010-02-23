@@ -77,6 +77,9 @@ distribution, so we cannot give exact advise for everybody. </p>
       <p class="question">Q: How can I join the <acronym>JabRef</acronym> project?</p>
       <p class="answer">A: Sign up with sourceforge and write an email to our project leader Morten O. Alver. Good ways to start with the project is to help with fixing bugs (maybe some that trouble you yourself ;-), writing FAQs, helping users in the forum and translating <acronym>JabRef</acronym> into another language.</p>
 
+      <p class="question">Q: I would like to help translating JabRef to another language. How do I get started?</p>
+      <p class="answer">A: Please see our page about <a href="translation.php">translating JabRef</a>.</p>
+
       <p class="question">Q: I have a patch that I want to contribute. Where can I do that?</p>
       <p class="answer">A: Please send patches to the Patch-Tracker on Sourceforge and write a quick entry on the user or developer list.</p>
 
