@@ -27,6 +27,7 @@
 
       <h2>Updates</h2>
       <ul>
+        <li>2010-02-02: Version 0.7.2: Added MaxAuthorsFirst property to override MaxAuthors the first time each citation appears.</li>
         <li>2009-10-07: Version 0.7.1: Several important bug fixes.</li>
         <li>2009-08-26: Version 0.7: BibTeX fields are now preprocessed to handle LaTeX \textit and \textbf commands and character sequences. <b>NOTE: it is no longer necessary to run FormatChars on fields.</b></li>
         <li>2009-08-23: Version 0.6: Improved handling of undefined BibTeX keys. Added option to not sync automatically when adding citation.</li>
@@ -52,9 +53,9 @@
 
       <h2>Downloads</h2>
 
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.1.jar">The plugin.</a></p>
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.2.jar">The plugin.</a></p>
 
-      <p><a href="plugins/JabRef-oo-0.7.1-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6 beta. The plugin is built using an included Ant build file.</p>
+      <p><a href="plugins/JabRef-oo-0.7.2-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6 beta. The plugin is built using an included Ant build file.</p>
 
       <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
 
@@ -96,6 +97,7 @@ CITATION
 AuthorField=author/editor
 YearField=year
 MaxAuthors=3
+MaxAuthorsFirst=3
 AuthorSeparator=,
 AuthorLastSeparator= &amp;
 EtAlString= et al.
@@ -177,7 +179,9 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         where [Author] is the result of looking up the field or fields given in the <code>AuthorField</code> property,
         and formatting a list of authors. The list can contain up to <code>MaxAuthors</code> names - if more are present,
         the list will be composed as the first author plus the text specified in the property <code>EtAlString</code>.
-        If several, slash-separated, fields are given in the <code>AuthorField</code> property, they will be looked up
+	If the property <code>MaxAuthorsFirst</code> is given, it overrides <code>MaxAuthors</code> the first time each
+        citation appears in the text.</p>
+	<p>If several, slash-separated, fields are given in the <code>AuthorField</code> property, they will be looked up
         successively if the first field is empty for the given BibTeX entry. In the example above, the "author" field will
         be used, but if empty, the "editor" field will be used as a backup.</p>
         <p>The names in the author list will be separated by the text given by the <code>AuthorSeparator</code>
