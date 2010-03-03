@@ -38,7 +38,7 @@ SubscriptCitations=false
 
 
 LAYOUT
-article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author} (<b>\year\uniq</b>). <i>\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
+article=<b>\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}</b> (<b>\year\uniq</b>). <i>\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
 
 book=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}\begin{editor}\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\editor} (Ed.)\end{editor}, <b>\year\uniq</b>. <i>\title</i>. \publisher, \address.
 

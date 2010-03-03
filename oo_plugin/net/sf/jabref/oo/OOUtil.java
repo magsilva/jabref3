@@ -72,9 +72,23 @@ public class OOUtil {
     public static void insertOOFormattedTextAtCurrentLocation(XText text, XTextCursor cursor,
               String lText, String parStyle) throws UndefinedParagraphFormatException, Exception {
 
+        XParagraphCursor parCursor = (XParagraphCursor)UnoRuntime.queryInterface(
+            XParagraphCursor.class, cursor);
+        XPropertySet props = (XPropertySet) UnoRuntime.queryInterface(
+            XPropertySet.class, parCursor);
+
+        try {
+            props.setPropertyValue("ParaStyleName", parStyle);
+        } catch (com.sun.star.lang.IllegalArgumentException ex) {
+            throw new UndefinedParagraphFormatException(parStyle);
+        }
+        
         // We need to extract formatting. Use a simple regexp search iteration:
         int piv = 0;
         int italic = 0, bold = 0, sup = 0, sub = 0, mono = 0, smallCaps = 0;
+        //insertTextAtCurrentLocation(text, cursor, "_",
+        //    false, false, false, false, false, false);
+        //cursor.goLeft((short)1, true);
         Matcher m = htmlTag.matcher(lText);
         while (m.find()) {
             String ss = lText.substring(piv, m.start());
@@ -117,19 +131,8 @@ public class OOUtil {
             insertTextAtCurrentLocation(text, cursor,lText.substring(piv),
                     (bold % 2) > 0, (italic % 2) > 0, mono > 0, smallCaps > 0, sup > 0, sub > 0);
 
-         XParagraphCursor parCursor = (XParagraphCursor)UnoRuntime.queryInterface(
-            XParagraphCursor.class, cursor);
-        // Access the property set of the cursor, and set the currently selected text
-        // (which is the string we just inserted) to be bold
-        XPropertySet props = (XPropertySet) UnoRuntime.queryInterface(
-            XPropertySet.class, parCursor);
 
-        try {
-            props.setPropertyValue("ParaStyleName", parStyle);
-        } catch (com.sun.star.lang.IllegalArgumentException ex) {
-            throw new UndefinedParagraphFormatException(parStyle);
-        }
-        
+
         cursor.collapseToEnd();
     }
 

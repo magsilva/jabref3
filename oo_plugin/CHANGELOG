@@ -1,4 +1,6 @@
 0.7.3:
+ - Changed order of formatting operations in order to fix the problem that formatting
+   of the first part of a reference list entry gets lost.
  - Added <smallcaps> tag to indicate small caps in reference list.
  - Modified parsing of style file so boolean properties can be parsed even if extra
    white space is included, e.g. "true ".
