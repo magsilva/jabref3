@@ -1,4 +1,5 @@
 0.7.3:
+ - Added <smallcaps> tag to indicate small caps in reference list.
  - Modified parsing of style file so boolean properties can be parsed even if extra
    white space is included, e.g. "true ".
  - Fixed bug in "MaxAuthorsFirst" handling: if two citations can be grouped, but one of
