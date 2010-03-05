@@ -30,6 +30,9 @@
 
       <h3 id="general_usage">General usage</h3>
 
+      <p class="question">Q: BibTeX converts uppercase characters to lowercase in my title field. I know this can be prevented by wrapping uppercase letters in braces, e.g. &quot;{T}he life cycle of {A}tlantic salmon&quot;, but this is too much work. Can <acronym>JabRef</acronym> help?</p>
+      <p class="answer">A: <acronym>JabRef</acronym> has a setting that will automatically wrap all capital letters for certain fields in { } - this will make sure they are preserved in the LaTeX output. Under <b>Options -> Preferences -> General -> File -> "Store the following fields with braces around capital letters"</b>, make sure the title field is included. To do this for several fields, write e.g. &quot;title;abstract&quot; (without the quotes). This setting automatically adds braces when saving the bib file, but you won't see the braces within <acronym>JabRef</acronym>.</p>
+
       <p class="question">Q: How do I prevent <acronym>JabRef</acronym> from introducing line breaks in certain fields (such as "title") when saving the .bib file?</p>
       <p class="answer">A: Open Tools -> Preferences. In the "General" panel, you will find an option called "Do not wrap the following fields when saving". This option contains a semicolon-separated list of field names. Any field you add to this list will always be stored without introduction of line breaks.</p>
 
