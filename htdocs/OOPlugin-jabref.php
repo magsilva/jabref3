@@ -27,6 +27,7 @@
 
       <h2>Updates</h2>
       <ul>
+        <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
         <li>2010-02-02: Version 0.7.2: Added MaxAuthorsFirst property to override MaxAuthors the first time each citation appears.</li>
         <li>2009-10-07: Version 0.7.1: Several important bug fixes.</li>
         <li>2009-08-26: Version 0.7: BibTeX fields are now preprocessed to handle LaTeX \textit and \textbf commands and character sequences. <b>NOTE: it is no longer necessary to run FormatChars on fields.</b></li>
@@ -53,9 +54,9 @@
 
       <h2>Downloads</h2>
 
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.2.jar">The plugin.</a></p>
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.3.jar">The plugin.</a></p>
 
-      <p><a href="plugins/JabRef-oo-0.7.2-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6 beta. The plugin is built using an included Ant build file.</p>
+      <p><a href="plugins/JabRef-oo-0.7.3-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6 beta. The plugin is built using an included Ant build file.</p>
 
       <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
 
