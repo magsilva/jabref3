@@ -17,7 +17,8 @@
       <h3>Version</h3>
 
       <ul class="history_column">
-	<li class="single_item"><a href="#v2.6b">2.6b2</a></li>
+	<li class="single_item"><a href="#v2.6b3">2.6b3</a></li>
+	<li class="single_item"><a href="#v2.6b2">2.6b2</a></li>
 	<li class="single_item"><a href="#v2.6b">2.6b</a></li>
 	<li class="single_item"><a href="#v2.5">2.5</a></li>
 	<li class="single_item"><a href="#v2.5b2">2.5b2</a></li>
@@ -66,6 +67,46 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.6b3">
+        <h3>Version 2.6beta3 (March 7th, 2010)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added ScienceDirect entry fetcher that utilizes the BibSonomy scraper.</li>
+            <li>Changed non-native file dialog setting so files cannot be renamed. This prevents accidentally entering rename mode when trying to enter directory. Can be enabled again in Options -> Preferences -> Advanced.</li>
+            <li>Added new JStor fetcher that utilizes the BibSonomy scraper to obtain BibTeX data.</li>
+            <li>Fixed bug in CookieHandlerImpl.</li>
+            <li>Fixed bug; when dragging a file into JabRef and asking to move it to the file directory, warning will now be given if the destination file already exists. Patch by Alastair Mailer.</li>
+            <li>When dragging a file into JabRef and asking to copy or move it to the file directory, it is now possible to rename to an arbitrary name. Patch by Alastair Mailer.</li>
+            <li>Added "review" field to BibTeXML export.</li>
+            <li>Added Reset button to entry fetchers. Patch by Dennis Hartrampf and Ines Moosdorf.</li>
+            <li>Changed Microsoft Office XML export so "number" rather than "issue" is exported as &lt;b:Issue&gt;, which conforms with import format.</li>
+            <li>Added confirmation dialog that allows saving without backup in cases when backup creation fails.</li>
+            <li>Fixed bug 2938562: using the move/rename feature on a file link could give an absolute link even if the file was put below the main file directory.</li>
+            <li>Fixed bug 2931293: error generating key with [authorsAlpha] for short names.</li>
+            <li>When checking for external modifications, file size is now checked in addition to the time stamp.</li>
+            <li>Fixed handling of maximised state when shutting down and starting up JabRef. Patch by Igor L. Chernyavsky.</li>
+            <li>Fixed bug that prevented correct handling of DOS short file names. Patch by Igor L. Chernyavsky.</li>
+            <li>Added support for KOI8_R character set.</li>
+            <li>Removed DocumentPrinter class, using standard API functions instead. Patch by Tony Mancill.</li>
+            <li>Removed HightlightFilter class, using standard API functions instead. Patch by Tony Mancill.</li>
+            <li>Changed keyboard shortcut for IEEXplorer search to Alt-F8.</li>
+            <li>Disabled JStor search, which doesn't work due to API changes.</li>
+            <li>External file type manager now removes "." prefix in file type extension if the user has typed it that way.</li>
+            <li>Preview panel now defaults to preview layout 1 instead of 2. Switched default layouts.</li>
+            <li>Added IfPlural formatter by Russell Almond. The formatter outputs its first argument if the input field contains " and " and the second one otherwise.</li>
+            <li>Applied patch by Philipp Cordes and Bj&ouml;rn Kahlert for improved handling of names by autocompleter. The patch also reorganizes the autocompleter classes.</li>
+            <li>Table will now scroll to keep the currently edited entry visible if an edit leads to the entry getting sorted to a different position.</li>
+            <li>Reworked author and editor handling in Docbook export. Added Docbook XML header.</li>
+            <li>Database will no longer be marked as changed after accepting external changes, unless one or more changes were not accepted before merging, and unless database was already marked as changed.</li>
+            <li>Fixed bug: undesired autocompletion when saving file.</li>
+            <li>Fixed bug: entry editor doesn't appear when new entry is added while a filtering search or group selection is active.</li>
+            <li>Fixed bug in writing of metadata on Windows. For certain metadata lengths newlines would be messed up after the metadata comment in a bib file.</li>
+            <li>Search dialog now automatically previews first hit, and hides preview if there are no hits.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.6b2">
         <h3>Version 2.6beta2 (November 1st, 2009)</h3>

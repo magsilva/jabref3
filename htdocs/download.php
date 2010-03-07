@@ -30,7 +30,7 @@ are beta-tested and expected to be stable and reliable.</p>
      If you use the beta version, please be prepared that it can be unstable and contain serious bugs. Make backups of all important data!
     </p>
     <p>
-      <a href="http://sourceforge.net/projects/jabref/files/jabref/2.6%20beta%202/"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+      <a href="http://sourceforge.net/projects/jabref/files/jabref/2.6%20beta%203/"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
     </p>
 
     <h3 id="subversion">Developer versions</h3>
