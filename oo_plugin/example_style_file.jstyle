@@ -9,8 +9,8 @@ PROPERTIES
 Title=References
 IsSortByPosition=false
 IsNumberEntries=false
-ReferenceParagraphFormat=Default
-ReferenceHeaderParagraphFormat=Heading 1
+ReferenceParagraphFormat=Text body
+ReferenceHeaderParagraphFormat=Headieeng 2
 
 CITATION
 AuthorField=author/editor

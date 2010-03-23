@@ -226,6 +226,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                         JOptionPane.showMessageDialog(frame, Globals.lang("Your OpenOffice document references the BibTeX key '%0', which could not be found in your current database.",
                             unresolvedKeys.get(0)), Globals.lang("Unable to synchronize bibliography"), JOptionPane.ERROR_MESSAGE);
                     }
+                } catch (UndefinedParagraphFormatException ex) {
+                    reportUndefinedParagraphFormat(ex);
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
                 } catch (BibtexEntryNotFoundException ex) {
@@ -701,7 +703,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     private void reportUndefinedParagraphFormat(UndefinedParagraphFormatException ex) {
         JOptionPane.showMessageDialog(frame, "<html>"+Globals.lang("Your style file specifies the paragraph format '%0', "
             +"which is undefined in your current OpenOffice document.", ex.getFormatName())+"<br>"
-            +Globals.lang("The paragraph format is controlled by the property 'ReferenceParagraphFormat' in the style file.")
+            +Globals.lang("The paragraph format is controlled by the property 'ReferenceParagraphFormat' or 'ReferenceHeaderParagraphFormat' in the style file.")
             +"</html>",
             Globals.lang(""), JOptionPane.ERROR_MESSAGE);
     }

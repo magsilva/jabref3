@@ -635,7 +635,7 @@ public class OOBibBase {
     }
 
     public void rebuildBibTextSection(BibtexDatabase database, OOBibStyle style)
-            throws UndefinedParagraphFormatException, Exception {
+            throws Exception {
         List<String> cited = findCitedKeys();
         List<BibtexEntry> entries = findCitedEntries(database, cited);
         
@@ -800,7 +800,7 @@ public class OOBibBase {
                 int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");
                 OOUtil.insertTextAtCurrentLocation(text, cursor,
                         style.getNumCitationMarker(new int[] {number++}, minGroupingCount, true)+" ",
-                        false, false, false, false, false);
+                        false, false, false, false, false, false);
             }
             Layout layout = style.getReferenceFormat(entry.getType().getName());
             try {

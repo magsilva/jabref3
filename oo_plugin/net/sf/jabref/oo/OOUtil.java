@@ -198,7 +198,7 @@ public class OOUtil {
             xCursorProps.setPropertyValue("CharEscapement",
                     (byte)0);
             xCursorProps.setPropertyValue("CharEscapementHeight",
-                    (byte)0);
+                    (byte)100);
         }
 
         cursor.collapseToEnd();
