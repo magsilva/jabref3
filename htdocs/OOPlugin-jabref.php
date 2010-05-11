@@ -27,6 +27,7 @@
 
       <h2>Updates</h2>
       <ul>
+	<li>2010-05-11: Version 0.7.4: Added option to sort alphabetically for citations with multiple entries.</li>
         <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
         <li>2010-02-02: Version 0.7.2: Added MaxAuthorsFirst property to override MaxAuthors the first time each citation appears.</li>
         <li>2009-10-07: Version 0.7.1: Several important bug fixes.</li>
@@ -54,9 +55,9 @@
 
       <h2>Downloads</h2>
 
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.3.jar">The plugin.</a></p>
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.4.jar">The plugin.</a></p>
 
-      <p><a href="plugins/JabRef-oo-0.7.3-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6 beta. The plugin is built using an included Ant build file.</p>
+      <p><a href="plugins/JabRef-oo-0.7.4-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
 
       <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
 
@@ -117,7 +118,7 @@ ItalicCitations=false
 BoldCitations=false
 SuperscriptCitations=false
 SubscriptCitations=false
-
+MultiCiteChronological=false
 
 LAYOUT
 article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
@@ -207,6 +208,8 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         letters (a and b in our example) will be separated by the string specified by the <code>UniquefierSeparator</code>
         property.
         </p>
+	<p>Author-year citations referring more than one entry will by default be sorted chronologically. If you wish them
+ 	to be sorted alphabetically, the citation property <code>MultiCiteChronological</code> should be set to <code>false.</code>.</p>
         <p>The property <code>FormatCitations</code> determines whether the citation markers should be formatted with
         regards to italics, boldness, superscript and subscript. If <code>FormatCitations</code> is false, no such formatting
         will be done. If true, the citations will be italicized or not depending on the <code>ItalicCitations</code> property, set to bold
