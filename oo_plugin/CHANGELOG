@@ -1,4 +1,8 @@
+
 0.7.4:
+ - Added citation property "MultiCiteChronological". For author-year citations, this
+   property can be set to false instead of true to get alphabetical sorting of entries
+   within the same citation.
  - Fixed bug: for normal charachers, CharEscapementHeight was set to 0 instead of 100.
 0.7.3:
  - Changed order of formatting operations in order to fix the problem that formatting

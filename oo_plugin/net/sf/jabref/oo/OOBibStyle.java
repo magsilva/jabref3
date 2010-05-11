@@ -100,7 +100,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("BoldCitations", Boolean.FALSE);
         citProperties.put("SuperscriptCitations", Boolean.FALSE);
         citProperties.put("SubscriptCitations", Boolean.FALSE);
-        
+        citProperties.put("MultiCiteChronological", Boolean.TRUE);
 
         initialize(in);
 
@@ -607,7 +607,7 @@ public class OOBibStyle implements Comparable {
             int maxAuthors = unlimA > 0 ? unlimA : maxA;
 
             BibtexEntry entry = entries[j];
-
+            
             // Check if this entry has been nulled due to grouping with the previous entry(ies):
             if (entry == null)
                 continue;

@@ -219,7 +219,10 @@ public class OOBibBase {
             XTextViewCursor xViewCursor = xViewCursorSupplier.getViewCursor();
 
             if (entries.length > 1) {
-                Arrays.sort(entries, yearComparator);
+                if (style.getBooleanCitProperty("MultiCiteChronological"))
+                    Arrays.sort(entries, yearComparator);
+                else
+                    Arrays.sort(entries, entryComparator);
             }
 
             StringBuilder sb = new StringBuilder();
@@ -335,6 +338,7 @@ public class OOBibBase {
         String[] citMarkers = new String[names.length];
         String[][] normCitMarkers = new String[names.length][];
         String[][] bibtexKeys = new String[names.length][];
+
         int minGroupingCount = style.getIntCitProperty("MinimumGroupingCount");
 
         int[] types = new int[names.length];
@@ -398,6 +402,23 @@ public class OOBibBase {
                     }
                 }
                 else {
+
+                    if (cEntries.length > 1) {
+                        if (style.getBooleanCitProperty("MultiCiteChronological"))
+                            Arrays.sort(cEntries, yearComparator);
+                        else
+                            Arrays.sort(cEntries, entryComparator);
+                        // Update key list to match the new sorting:
+                        for (int j = 0; j < cEntries.length; j++) {
+                            bibtexKeys[i][j] = cEntries[j].getCiteKey();
+                        }
+                    }
+                    /*System.out.println(style.getBooleanCitProperty("MultiCiteChronological"));
+                    for (int j = 0; j < cEntries.length; j++) {
+                        BibtexEntry cEntry = cEntries[j];
+                        System.out.println(cEntry.getCiteKey());
+                    } */
+
                     citationMarker = style.getCitationMarker(cEntries, database, type == AUTHORYEAR_PAR, null, null);
                     // We need "normalized" (in parenthesis) markers for uniqueness checking purposes:
                     for (int j=0; j<cEntries.length; j++)
