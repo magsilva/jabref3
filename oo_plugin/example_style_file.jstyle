@@ -19,6 +19,7 @@ MaxAuthors=2
 MaxAuthorsFirst=6
 AuthorSeparator=,
 AuthorLastSeparator= & 
+AuthorLastSeparatorInText= and
 EtAlString= et al.
 YearSeparator= 
 InTextYearSeparator= 

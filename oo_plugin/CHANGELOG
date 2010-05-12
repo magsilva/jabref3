@@ -1,5 +1,7 @@
 
 0.7.4:
+ - Added optional citation property "AuthorLastSeparatorInText" which, if present,
+   overrides "AuthorLastSeparator" for in-text author-year citations.
  - Added citation property "MultiCiteChronological". For author-year citations, this
    property can be set to false instead of true to get alphabetical sorting of entries
    within the same citation.

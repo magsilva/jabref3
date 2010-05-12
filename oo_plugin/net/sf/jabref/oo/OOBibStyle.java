@@ -87,6 +87,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("MaxAuthorsFirst", -1);
         citProperties.put("AuthorSeparator", ", ");
         citProperties.put("AuthorLastSeparator", " & ");
+        citProperties.put("AuthorLastSeparatorInText", null);
         citProperties.put("EtAlString", " et al.");
         citProperties.put("YearSeparator", ", ");
         citProperties.put("InTextYearSeparator", " ");
@@ -540,20 +541,24 @@ public class OOBibStyle implements Comparable {
                     (String)citProperties.get("BracketAfter"),
                     (String)citProperties.get("CitationSeparator"),
                     uniquefiers, unlimAuthors);
-        else
+        else {
+            String authorLastSeparator = (String)citProperties.get("AuthorLastSeparator");
+            String alsInText = (String)citProperties.get("AuthorLastSeparatorInText");
+            if (alsInText != null)
+                authorLastSeparator = alsInText;
             return getAuthorYearInTextMarker(entries, database,
                     (String)citProperties.get("AuthorField"),
                     (String)citProperties.get("YearField"),
                     (Integer)citProperties.get("MaxAuthors"),
                     (String)citProperties.get("AuthorSeparator"),
-                    (String)citProperties.get("AuthorLastSeparator"),
+                    authorLastSeparator,
                     (String)citProperties.get("EtAlString"),
                     (String)citProperties.get("InTextYearSeparator"),
                     (String)citProperties.get("BracketBefore"),
                     (String)citProperties.get("BracketAfter"),
                     (String)citProperties.get("CitationSeparator"),
                     uniquefiers, unlimAuthors);
-
+        }
     }
 
     /**
