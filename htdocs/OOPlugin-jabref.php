@@ -27,7 +27,7 @@
 
       <h2>Updates</h2>
       <ul>
-	<li>2010-05-11: Version 0.7.4: Added option to sort alphabetically for citations with multiple entries.</li>
+	<li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>
         <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
         <li>2010-02-02: Version 0.7.2: Added MaxAuthorsFirst property to override MaxAuthors the first time each citation appears.</li>
         <li>2009-10-07: Version 0.7.1: Several important bug fixes.</li>
@@ -188,6 +188,9 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         be used, but if empty, the "editor" field will be used as a backup.</p>
         <p>The names in the author list will be separated by the text given by the <code>AuthorSeparator</code>
         property, except for the last two names, which will be separated by the text given by <code>AuthorLastSeparator</code>.
+	If the property <code>AuthorLastSeparatorInText</code> is given, it overrides the former for citations of the in-text
+        type. This makes it possible to get citations like <code>(Olsen & Jensen, 2008)</code> and <code>Olsen and Jensen (2008)</code>
+        for the same style.
         </p>
         <p>[Year] is the result of looking up the field or fields given in the [YearField] property.</p>
         <p>An in-text citation is composed as follows:<br />
