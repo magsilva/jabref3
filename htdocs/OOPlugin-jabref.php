@@ -189,7 +189,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <p>The names in the author list will be separated by the text given by the <code>AuthorSeparator</code>
         property, except for the last two names, which will be separated by the text given by <code>AuthorLastSeparator</code>.
 	If the property <code>AuthorLastSeparatorInText</code> is given, it overrides the former for citations of the in-text
-        type. This makes it possible to get citations like <code>(Olsen & Jensen, 2008)</code> and <code>Olsen and Jensen (2008)</code>
+        type. This makes it possible to get citations like <code>(Olsen &amp; Jensen, 2008)</code> and <code>Olsen and Jensen (2008)</code>
         for the same style.
         </p>
         <p>[Year] is the result of looking up the field or fields given in the [YearField] property.</p>
