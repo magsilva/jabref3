@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.6">2.6</a></li>
 	<li class="single_item"><a href="#v2.6b3">2.6b3</a></li>
 	<li class="single_item"><a href="#v2.6b2">2.6b2</a></li>
 	<li class="single_item"><a href="#v2.6b">2.6b</a></li>
@@ -67,6 +68,24 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.6">
+        <h3>Version 2.6 (April 4th, 2010)</h3>
+
+        <div class="version_desc">
+          <ul>
+             <li>Fixed IEEExplorer and ACM fetchers to adapt to web site changes.</li>
+             <li>Active preview (1 or 2) is now remembered.</li>
+             <li>Applied patch by Igor L. Chernyavsky to prevent loss of entry selection after generating key.</li>
+             <li>Changed OpenDocument Spreadsheet export so the mimetype file is written correctly at the start of the zip file.</li>
+             <li>Fixed bug when importing preferences: custom export filters would not be updated after import.</li>
+             <li>Changed help page loading procedure so help pages can be loaded for plugin entry fetchers.</li>
+             <li>Made it possible to define customized entry types with either-or conditions on required fields, e.g. using a pseudo-field called "author/editor" will indicate that the entry requires either the "author" or the "editor" field set.</li>
+             <li>Fixed bug: entries of a customized type could be indicated as complete even if BibTeX key was not set.</li>
+             <li>Changed deletion process for some temporary files to avoid leftover files.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.6b3">
         <h3>Version 2.6beta3 (March 7th, 2010)</h3>
