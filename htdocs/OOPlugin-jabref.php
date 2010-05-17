@@ -75,7 +75,7 @@
 
       <p>If you modify entries in JabRef after inserting their citations into OpenOffice, you will need to synchronize the bibliography. The <b>Sync OO bibliography</b> button will update all entries of the bibliography, provided their BibTeX keys have not been altered (JabRef encodes the BibTeX key into the reference name for each citation to keep track of which BibTeX key the original JabRef entry has).</p>
 
-      <h3>The style file</h3>
+      <h2>The style file</h2>
 
       <p>You need to select a style file before connecting to OpenOffice - an external file which is selected using a standard file dialog. The style file defines the format of citations and the format of the bibliography. You can use standard JabRef export formatters to process entry fields before they are sent to OpenOffice. Through the style file, the intention is to give as much flexibility in citation styles as possible.</p>
 
@@ -148,22 +148,224 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 
         <p>(Note that the layout for each entry type must be constrained to a single line in the style file - above, the lines are broken up to improve readability.)</p>
 
-        <p>The <b>PROPERTIES</b> section describes global properties for the bibliography:</p>
-        <ul>
-            <li><code>Title</code>: determines the header text for the bibliography.</li>
-            <li><code>IsSortByPosition</code>: determines how the bibliography is sorted. If true, the entries
-                will be sorted according to the order in which they are cited. If false, the entries will be
-                sorted alphabetically by authors.</li>
-            <li><code>IsNumberEntries</code>: determines the type of citations to use. If true, number
-                citations will be used. The citation numbers will be included in the bibliography as well.
-                If false, author-year citations will be used.</li>
-        </ul>
+			<h3>Global properties</h3>
+
+        <p>The <b>PROPERTIES</b> section describes global properties for the bibliography.
+        The following table describes the available properties:
+
+			<table border=1 rules=none>
+			<tr>
+			<td><b>Property</b></td>
+			<td><b>Type</b></td>
+			<td><b>Default value</b></td>
+			<td><b>Description</b></td>
+			</tr>
+			<tr>
+			<td>IsNumberEntries</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>Determines the type of citations to use. If <code>true</code>, number citations will be
+			used. If <code>false</code>, author-year citations will be used.</td>
+			</tr>
+			<tr>
+			<td>IsSortByPosition</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>Determines how the bibliography is sorted. If true, the entries
+          will be sorted according to the order in which they are cited. If false, the entries will be
+         sorted alphabetically by authors.</td>
+			</tr>
+			<tr>
+			<td>ReferenceParagraphFormat</td>
+			<td>string</td>
+			<td><code>Default</code></td>
+			<td>Gives the name of the paragraph format to be used for the reference list. This format
+			must be defined in your OpenOffice document.</td>
+			</tr>
+			<tr>
+			<td>ReferenceHeaderParagraphFormat</td>
+			<td>string</td>
+			<td><code>Heading 1</code></td>
+			<td>Gives the name of the paragraph format to be used for the headline of the reference list. 
+			This format must be defined in your OpenOffice document.</td>
+			</tr>
+			<tr>
+			<td>Title</td>
+			<td>string</td>
+			<td><code>Bibliography</code></td>
+			<td>The text to enter as the headline of the reference list.</td>
+			</tr>
+			</table></p>
+			
+			<h3>Citation properties</h3>
 
         <p>The <b>CITATION</b> section describes the format of the citation markers inserted into the text.
-        If numbered entries are used, only the <code>BracketBefore</code> and <code>BracketAfter</code> properties
-        are relevant - they define which characters the citation number is wrapped in. The citation is composed
+        
+        <p>The following table gives a brief description of all the available citation properties. Properties that are not
+		  given in the style file will keep their default value.
+		  
+		  <table border=1 rules=none>
+			<tr>
+			<td><b>Property</b></td>
+			<td><b>Type</b></td>
+			<td><b>Default value</b></td>
+			<td><b>Description</b></td>
+			</tr>
+			<tr>
+			<td>AuthorField</td>
+			<td>string</td>
+			<td><code>author/editor</code></td>
+			<td>BibTeX field containing author names. Can specify fallback field, e.g. <code>author/editor</code></td>
+			</tr>
+			<tr>
+			<td>AuthorLastSeparator</td>
+			<td>string</td>
+			<td><code> & </code></td>
+			<td>Text inserted between the two last author names.</td>
+			</tr>
+			<tr>
+			<td>AuthorLastSeparatorInText</td>
+			<td>string</td>
+			<td>&nbsp;</td>
+			<td>If specified, this propery overrides <code>AuthorLastSeparator</code> for in-text citations such as
+			<code>Smith & Jones (2001)</code>.</td>
+			</tr>
+			<tr>
+			<td>AuthorSeparator</td>
+			<td>string</td>
+			<td><code>, </code></td>
+			<td>Text inserted between author names except the last two.</td>
+			</tr>
+			<tr>
+			<td>BoldCitations</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>If <code>FormatCitations</code> is on, controls whether citations should be bold.</td>
+			</tr>
+			<tr>
+			<td>BracketAfter</td>
+			<td>string</td>
+			<td><code>]</code></td>
+			<td>The closing bracket of citations.</td>
+			</tr>
+			<tr>
+			<td>BracketAfterInList</td>
+			<td>string</td>
+			<td>]</td>
+			<td>The closing bracket for citation numbering in the reference list.</td>
+			</tr>
+			<tr>
+			<td>BracketBefore</td>
+			<td>string</td>
+			<td><code>[</code></td>
+			<td>The opening bracket of citations</td>
+			</tr>
+			<tr>
+			<td>BracketBeforeInList</td>
+			<td>string</td>
+			<td>[</td>
+			<td>The opening bracket for citation numbering in the reference list.</td>
+			</tr>
+			<tr>
+			<td>CitationSeparator</td>
+			<td>string</td>
+			<td><code>; </code></td>
+			<td>Text inserter between items when a citation contains multiple entries, e.g. <code>[Smith 2001; Jones 2002]</code></td>
+			</tr>
+			<tr>
+			<td>EtAlString</td>
+			<td>string</td>
+			<td><code> et al. </code></td>
+			<td>Text inserted after author names when not all authors are listed, e.g. <code>[Smith et al. 2001]</code></td>
+			</tr>
+			<tr>
+			<td>FormatCitations</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>Determines whether formatting should be applied to citations. If true, formatting is controlled by
+			properties like <code>BoldCitations</code>, <code>ItalicCitations</code>, <code>SubscriptCitations</code> 
+			and <code>SuperscriptCitations</code>.</td>
+			</tr>
+			<tr>
+			<td>GroupedNumbersSeparator</td>
+			<td>string</td>
+			<td><code>-</code></td>
+			<td>Text inserted between numbers when numbered citations are grouped, e.g. <code>[4-6]</code></td>
+			</tr>
+			<tr>
+			<td>InTextYearSeparator</td>
+			<td>string</td>
+			<td><code> </code></td>
+			<td>Text inserted between author names and starting bracket before year in in-text citations.</td>
+			</tr>
+			<tr>
+			<td>ItalicCitations</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>If <code>FormatCitations</code> is on, controls whether citations should be in italics.</td>
+			</tr>
+			<tr>
+			<td>MaxAuthors</td>
+			<td>integer</td>
+			<td><code>3</code></td>
+			<td>The maximum number of authors to list in a citation that has appeared earlier in the document.</td>
+			</tr>
+			<tr>
+			<td>MaxAuthorsFirst</td>
+			<td>integer</td>
+			<td><code>3</code></td>
+			<td>The maximum number of authors to list in a citation when appearing for the first time.</td>
+			</tr>
+			<tr>
+			<td>MinimumGroupingCount</td>
+			<td>integer</td>
+			<td><code>3</code></td>
+			<td>The minimum number of consecutive entries a citation should contain before the numbers are grouped, 
+			e.g. <code>[4-6]</code> vs. <code>[4; 5; 6]</code>.</td>
+			</tr>
+			<tr>
+			<td>MultiCiteChronological</td>
+			<td>boolean</td>
+			<td><code>true</code></td>
+			<td>If <code>true</code>, multiple entries in the same citation are sorted chronologically, otherwise
+			they are sorted alphabetically.</td>
+			</tr>
+			<td>SubscriptCitations</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>If <code>FormatCitations</code> is on, controls whether citations should be in subscript.</td>
+			</tr>
+			<td>SuperscriptCitations</td>
+			<td>boolean</td>
+			<td><code>false</code></td>
+			<td>If <code>FormatCitations</code> is on, controls whether citations should be in superscript.</td>
+			</tr>
+			<tr>
+			<td>UniquefierSeparator</td>
+			<td>string</td>
+			<td><code>, </code></td>
+			<td>Text inserted between letters used to differentiate citations with similar authors and year. E.g.
+			the text between <code>a</code> and <code>b</code> in <code>[Smith 2001a, b]</code>.</td>
+			</tr>
+			<tr>
+			<td>YearField</td>
+			<td>string</td>
+			<td><code>year</code></td>
+			<td>The BibTeX field to get publication year from.</td>
+			</tr>
+			<tr>
+			<td>YearSeparator</td>
+			<td>string</td>
+			<td><code> </code></td>
+			<td>Text inserted between author names and year in parenthesis citations such as <code>[Smith 2001]</code>.</td>
+			</tr>
+			
+			</table></p>
+
+        If numbered entries are used, the <code>BracketBefore</code> and <code>BracketAfter</code> properties
+        are the most important - they define which characters the citation number is wrapped in. The citation is composed
         as follows:<br />
-            [BracketBefore][Number][BracketAfter]<br />
+            <code>[BracketBefore][Number][BracketAfter]</code><br />
         where [Number] is the number of the citation, determined according to the ordering of the bibliography and/or
         the position of the citation in the text. If a citation refers to several entries, these will be separated
         by the string given in the property <code>CitationSeparator</code> (for instance, if <code>CitationSeparator</code>=;,
@@ -177,7 +379,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         </p>
         <p>If numbered entries are not used, author-year citations will be created based on the citation properties.
         A parenthesis citation is composed as follows:<br />
-            [BracketBefore][Author][YearSeparator][Year][BracketAfter]<br />
+            <code>[BracketBefore][Author][YearSeparator][Year][BracketAfter]</code><br />
         where [Author] is the result of looking up the field or fields given in the <code>AuthorField</code> property,
         and formatting a list of authors. The list can contain up to <code>MaxAuthors</code> names - if more are present,
         the list will be composed as the first author plus the text specified in the property <code>EtAlString</code>.
@@ -194,7 +396,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         </p>
         <p>[Year] is the result of looking up the field or fields given in the [YearField] property.</p>
         <p>An in-text citation is composed as follows:<br />
-            [Author][InTextYearSeparator][BracketBefore][Year][BracketAfter]<br />
+            <code>[Author][InTextYearSeparator][BracketBefore][Year][BracketAfter]</code><br />
         where [Author] and [Year] are resolved in exactly the same way as for the parenthesis citations.
         </p>
         <p>If two different cited sources have the same authors and publication year, and author-year citations are used,
@@ -218,6 +420,10 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         will be done. If true, the citations will be italicized or not depending on the <code>ItalicCitations</code> property, set to bold
         or not depending on the <code>BoldCitations</code> property, and similar for the <code>SuperscriptCitations</code> and
         <code>SubscriptCitations</code> properties.</p>
+
+		          
+        <h3>Reference list layout</h3>
+        
         <p>The <b>LAYOUT</b> section describes how the bibliography entry for each entry type in JabRef
         should appear. Each line should start with either the name of a BibTeX entry type, or the word
         <code>default</code>, followed by a '='. The <code>default</code> layout will be used for all
