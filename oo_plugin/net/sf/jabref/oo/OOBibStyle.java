@@ -62,6 +62,9 @@ public class OOBibStyle implements Comparable {
     private static long styleFileModificationTime = Long.MIN_VALUE;
     private String COMBINED_ENTRIES_SEPARATOR = "-";
 
+    //private Pattern quoted = Pattern.compile("\".*^\\\\\"");
+    private Pattern quoted = Pattern.compile("\".*\"");
+
     public OOBibStyle(File styleFile) throws Exception {
         this(new FileReader(styleFile));
         this.styleFile = styleFile;
@@ -277,6 +280,8 @@ public class OOBibStyle implements Comparable {
         if ((index > 0) && (index <= line.length()-1)) {
             String propertyName = line.substring(0, index).trim();
             String value = line.substring(index+1);
+            if ((value.length() > 2) && quoted.matcher(value).matches())
+                value = value.substring(1, value.length()-1);
             Object toSet = value;
             if (numPattern.matcher(value).matches()) {
                 toSet = Integer.parseInt(value);
@@ -837,4 +842,6 @@ public class OOBibStyle implements Comparable {
     public boolean equals(Object o) {
         return styleFile.equals(((OOBibStyle)o).styleFile);
     }
+
+
 }

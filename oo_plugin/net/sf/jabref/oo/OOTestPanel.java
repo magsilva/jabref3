@@ -420,9 +420,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                 else {
                     unoilDir = ooJars;
                     ooBaseDirectory = ooJars;
-                    System.out.println(sOffice);
-                    System.out.println(ooJars);
-                    //sOffice = ooPath+"/program/soffice";
+
                 }
             }
         }
@@ -434,7 +432,6 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
         // Add OO jars to the classpath:
         try {
-
             URL[] jarList = new URL[] {
                 new File(unoilDir, "unoil.jar").toURI().toURL(),
                 new File(ooBaseDirectory, "jurt.jar").toURI().toURL(),

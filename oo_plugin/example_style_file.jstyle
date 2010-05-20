@@ -6,30 +6,30 @@ Journal name 1
 Journal name 2
 
 PROPERTIES
-Title=References
+Title="References"
 IsSortByPosition=false
 IsNumberEntries=false
-ReferenceParagraphFormat=Text body
-ReferenceHeaderParagraphFormat=Heading 2
+ReferenceParagraphFormat="Text body"
+ReferenceHeaderParagraphFormat="Heading 2"
 
 CITATION
-AuthorField=author/editor
-YearField=year
+AuthorField="author/editor"
+YearField="year"
 MaxAuthors=2
 MaxAuthorsFirst=6
-AuthorSeparator=,
-AuthorLastSeparator= & 
-AuthorLastSeparatorInText= and
-EtAlString= et al.
-YearSeparator= 
-InTextYearSeparator= 
-BracketBefore=[
-BracketAfter=]
-BracketBeforeInList=[
-BracketAfterInList=]
-CitationSeparator=; 
-UniquefierSeparator=,
-GroupedNumbersSeparator=-
+AuthorSeparator=","
+AuthorLastSeparator=" &" 
+AuthorLastSeparatorInText=" and "
+EtAlString=" et al."
+YearSeparator=" "
+InTextYearSeparator=" "
+BracketBefore="["
+BracketAfter="]"
+BracketBeforeInList="["
+BracketAfterInList="] "
+CitationSeparator="; "
+UniquefierSeparator=","
+GroupedNumbersSeparator="-"
 MinimumGroupingCount=3
 FormatCitations=false
 ItalicCitations=false

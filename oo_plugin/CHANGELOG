@@ -1,4 +1,7 @@
-
+0.8:
+ - Introduced optional double quotes for style file properties. 
+ - Removed extra space between number marker and rest of citation in numbered reference
+   list.
 0.7.4:
  - Added optional citation property "AuthorLastSeparatorInText" which, if present,
    overrides "AuthorLastSeparator" for in-text author-year citations.
