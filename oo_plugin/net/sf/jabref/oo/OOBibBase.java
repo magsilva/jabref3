@@ -331,6 +331,14 @@ public class OOBibBase {
             names = sortedReferenceMarks;            
         }
 
+        // Remove all reference marks that don't look like JabRef citations:
+        ArrayList<String> tmp = new ArrayList<String>();
+        for (int i = 0; i < names.length; i++) {
+            if (citePattern.matcher(names[i]).find())
+                tmp.add(names[i]);
+        }
+        names = tmp.toArray(new String[tmp.size()]);
+
         HashMap<String,Integer> numbers = new HashMap<String, Integer>();
         //HashMap<S
         int lastNum = 0;
@@ -426,7 +434,9 @@ public class OOBibBase {
                 }
                 citMarkers[i] = citationMarker;
                 normCitMarkers[i] = normCitMarker;
+
             }
+
 
         }
 
