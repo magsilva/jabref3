@@ -153,7 +153,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <p>The <b>PROPERTIES</b> section describes global properties for the bibliography.
         The following table describes the available properties:
 
-			<table border=1 rules=none>
+			<table border="1" rules="none">
 			<tr>
 			<td><b>Property</b></td>
 			<td><b>Type</b></td>
@@ -204,7 +204,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <p>The following table gives a brief description of all the available citation properties. Properties that are not
 		  given in the style file will keep their default value.
 		  
-		  <table border=1 rules=none>
+		  <table border="1" rules="none">
 			<tr>
 			<td><b>Property</b></td>
 			<td><b>Type</b></td>
@@ -220,7 +220,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<tr>
 			<td>AuthorLastSeparator</td>
 			<td>string</td>
-			<td><code> & </code></td>
+			<td><code> &amp; </code></td>
 			<td>Text inserted between the two last author names.</td>
 			</tr>
 			<tr>
@@ -228,7 +228,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>string</td>
 			<td>&nbsp;</td>
 			<td>If specified, this propery overrides <code>AuthorLastSeparator</code> for in-text citations such as
-			<code>Smith & Jones (2001)</code>.</td>
+			<code>Smith &amp; Jones (2001)</code>.</td>
 			</tr>
 			<tr>
 			<td>AuthorSeparator</td>
