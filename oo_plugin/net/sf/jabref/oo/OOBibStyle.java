@@ -280,8 +280,8 @@ public class OOBibStyle implements Comparable {
         if ((index > 0) && (index <= line.length()-1)) {
             String propertyName = line.substring(0, index).trim();
             String value = line.substring(index+1);
-            if ((value.length() > 2) && quoted.matcher(value).matches())
-                value = value.substring(1, value.length()-1);
+            if ((value.trim().length() > 2) && quoted.matcher(value.trim()).matches())
+                value = value.trim().substring(1, value.trim().length()-1);
             Object toSet = value;
             if (numPattern.matcher(value).matches()) {
                 toSet = Integer.parseInt(value);
