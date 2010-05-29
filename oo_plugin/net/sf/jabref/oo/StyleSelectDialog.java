@@ -13,13 +13,18 @@ import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.uif_lite.component.UIFSplitPane;
 import net.sf.jabref.*;
+import net.sf.jabref.external.ExternalFileType;
+import net.sf.jabref.external.UnknownExternalFileType;
 
 import javax.swing.*;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -36,6 +41,9 @@ public class StyleSelectDialog {
     private UIFSplitPane contentPane = new UIFSplitPane(UIFSplitPane.VERTICAL_SPLIT);
     private EventTableModel tableModel;
     private EventSelectionModel<OOBibStyle> selectionModel;
+    private JPopupMenu popup = new JPopupMenu();
+    private JMenuItem edit = new JMenuItem(Globals.lang("Edit"));
+
     PreviewPanel preview;
     StyleDirectoriesPanel dirsPanel;
 
@@ -56,6 +64,28 @@ public class StyleSelectDialog {
 
     private void init(String initSelection) {
         this.initSelection = initSelection;
+
+        popup.add(edit);
+        // Add action listener to "Edit" menu item, which is supposed to open the style file in an external editor:
+        edit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                int i = table.getSelectedRow();
+                if (i == -1)
+                    return;
+                ExternalFileType type = Globals.prefs.getExternalFileTypeByExt("jstyle");
+                String link = ((OOBibStyle)tableModel.getElementAt(i)).getFile().getPath();
+                try {
+                    if (type != null)
+                        Util.openExternalFileAnyFormat(new MetaData(), link, type);
+                    else
+                        Util.openExternalFileUnknown(frame, null, new MetaData(), link,
+                                new UnknownExternalFileType("jstyle"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                }
+            }
+        });
 
         diag = new JDialog(frame, Globals.lang("Styles"), true);
         dirsPanel = new StyleDirectoriesPanel(diag, Globals.prefs.getStringArray("ooStyleFileDirectories"));
@@ -84,6 +114,19 @@ public class StyleSelectDialog {
         selectionModel = new EventSelectionModel<OOBibStyle>(sortedStyles);
         table.setSelectionModel(selectionModel);
         table.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+                if (mouseEvent.isPopupTrigger())
+                    tablePopup(mouseEvent);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+                if (mouseEvent.isPopupTrigger())
+                    tablePopup(mouseEvent);
+            }
+        });
         selectionModel.getSelected().addListEventListener(new EntrySelectionListener());
         contentPane.setTopComponent(new JScrollPane(table));
         contentPane.setBottomComponent(preview);
@@ -93,8 +136,10 @@ public class StyleSelectDialog {
 
         DefaultFormBuilder b = new DefaultFormBuilder(new FormLayout("fill:1dlu:grow",//""));
                 //"fill:1dlu:grow,
-                 "fill:pref, fill:270dlu:grow"));
+                 "fill:pref, fill:pref, fill:270dlu:grow"));
         b.appendSeparator(Globals.lang("Select style"));
+        b.nextLine();
+        b.append(new JLabel("<html>"+Globals.lang("This is the list of available styles. Select the one you want to use.")+"</html>"));
         b.nextLine();
         b.append(contentPane);
         b.getPanel().setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -310,6 +355,10 @@ public class StyleSelectDialog {
 
     public boolean isOkPressed() {
         return okPressed;
+    }
+
+    protected void tablePopup(MouseEvent e) {
+        popup.show(e.getComponent(), e.getX(), e.getY());
     }
 
     /**

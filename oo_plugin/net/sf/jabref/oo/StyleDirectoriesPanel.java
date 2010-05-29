@@ -77,6 +77,9 @@ public class StyleDirectoriesPanel {
                 "pref, fill:pref"));
         b.appendSeparator(Globals.lang("Directories and files"));
         b.nextLine();
+        b.append(new JLabel("<html>"+Globals.lang("Here you set up which single files and directories (with or without subdirectories)<br>"
+                +" should be searched to build the list of available styles.")+"</html>"), 3);
+        b.nextLine();
         b.append(sp);
         b.append(bb.getPanel());
         b.getPanel().setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -241,7 +244,7 @@ public class StyleDirectoriesPanel {
         public String getColumnName(int i) {
             if (i == 0)
                 return Globals.lang("Directory or file");
-            else return Globals.lang("Recursive");
+            else return Globals.lang("Include subdirectories");
         }
 
         public Object getColumnValue(DirElement dirElement, int i) {

@@ -1,5 +1,8 @@
 0.8:
- - Introduced optional double quotes for style file properties. 
+ - Added some explanatory text to style selection dialog.
+ - Added context menu for style list that allows quickly opening a style file in an external
+   editor.
+ - Introduced optional double quotes for style file properties.
  - Removed extra space between number marker and rest of citation in numbered reference
    list.
  - Fixed bug: update crash caused by reference marks not related to JabRef. 
