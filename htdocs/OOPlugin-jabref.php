@@ -27,7 +27,8 @@
 
       <h2>Updates</h2>
       <ul>
-	<li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>
+    	<li>2010-06-03: Version 0.8: Style file format now allows optional double quotes aroung property values.</li>
+        <li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>
         <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
         <li>2010-02-02: Version 0.7.2: Added MaxAuthorsFirst property to override MaxAuthors the first time each citation appears.</li>
         <li>2009-10-07: Version 0.7.1: Several important bug fixes.</li>
@@ -55,9 +56,9 @@
 
       <h2>Downloads</h2>
 
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.7.4.jar">The plugin.</a></p>
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.jar">The plugin.</a></p>
 
-      <p><a href="plugins/JabRef-oo-0.7.4-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
+      <p><a href="plugins/JabRef-oo-0.8-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
 
       <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
 
@@ -89,36 +90,36 @@ Journal name 1
 Journal name 2
 
 PROPERTIES
-Title=References
-IsSortByPosition=false
-IsNumberEntries=false
-ReferenceParagraphFormat=Default
-ReferenceHeaderParagraphFormat=Heading 1
+Title="References"
+IsSortByPosition="false"
+IsNumberEntries="false"
+ReferenceParagraphFormat="Default"
+ReferenceHeaderParagraphFormat="Heading 1"
 
 CITATION
-AuthorField=author/editor
-YearField=year
-MaxAuthors=3
-MaxAuthorsFirst=3
-AuthorSeparator=,
-AuthorLastSeparator= &amp;
-EtAlString= et al.
-YearSeparator=
-InTextYearSeparator=
-BracketBefore=[
-BracketAfter=]
-BracketBeforeInList=[
-BracketAfterInList=]
-CitationSeparator=;
-UniquefierSeparator=,
-GroupedNumbersSeparator=-
-MinimumGroupingCount=3
-FormatCitations=false
-ItalicCitations=false
-BoldCitations=false
-SuperscriptCitations=false
-SubscriptCitations=false
-MultiCiteChronological=false
+AuthorField="author/editor"
+YearField="year"
+MaxAuthors="3"
+MaxAuthorsFirst="3"
+AuthorSeparator=", "
+AuthorLastSeparator=" &amp; "
+EtAlString=" et al."
+YearSeparator=" "
+InTextYearSeparator=" "
+BracketBefore="["
+BracketAfter="]"
+BracketBeforeInList="["
+BracketAfterInList="]"
+CitationSeparator="; "
+UniquefierSeparator=","
+GroupedNumbersSeparator="-"
+MinimumGroupingCount="3"
+FormatCitations="false"
+ItalicCitations="false"
+BoldCitations="false"
+SuperscriptCitations="false"
+SubscriptCitations="false"
+MultiCiteChronological="false"
 
 LAYOUT
 article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
