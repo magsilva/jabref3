@@ -152,7 +152,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<h3>Global properties</h3>
 
         <p>The <b>PROPERTIES</b> section describes global properties for the bibliography.
-        The following table describes the available properties:
+        The following table describes the available properties:</p>
 
 			<table border="1" rules="none">
 			<tr>
@@ -196,14 +196,14 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td><code>Bibliography</code></td>
 			<td>The text to enter as the headline of the reference list.</td>
 			</tr>
-			</table></p>
+			</table>
 			
 			<h3>Citation properties</h3>
 
-        <p>The <b>CITATION</b> section describes the format of the citation markers inserted into the text.
+        <p>The <b>CITATION</b> section describes the format of the citation markers inserted into the text.</p>
         
         <p>The following table gives a brief description of all the available citation properties. Properties that are not
-		  given in the style file will keep their default value.
+		  given in the style file will keep their default value.</p>
 		  
 		  <table border="1" rules="none">
 			<tr>
@@ -365,7 +365,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			
 			</table>
 
-        If numbered entries are used, the <code>BracketBefore</code> and <code>BracketAfter</code> properties
+        <p>If numbered entries are used, the <code>BracketBefore</code> and <code>BracketAfter</code> properties
         are the most important - they define which characters the citation number is wrapped in. The citation is composed
         as follows:<br />
             <code>[BracketBefore][Number][BracketAfter]</code><br />
