@@ -7,18 +7,18 @@ Journal name 2
 
 PROPERTIES
 Title="References"
-IsSortByPosition=false
-IsNumberEntries=false
+IsSortByPosition="false"
+IsNumberEntries="false"
 ReferenceParagraphFormat="Text body"
 ReferenceHeaderParagraphFormat="Heading 2"
 
 CITATION
 AuthorField="author/editor"
 YearField="year"
-MaxAuthors=2
-MaxAuthorsFirst=6
+MaxAuthors="2"
+MaxAuthorsFirst="6"
 AuthorSeparator=","
-AuthorLastSeparator=" &" 
+AuthorLastSeparator=" & " 
 AuthorLastSeparatorInText=" and "
 EtAlString=" et al."
 YearSeparator=" "
@@ -30,13 +30,13 @@ BracketAfterInList="] "
 CitationSeparator="; "
 UniquefierSeparator=","
 GroupedNumbersSeparator="-"
-MinimumGroupingCount=3
-FormatCitations=false
-ItalicCitations=false
-BoldCitations=false
-SuperscriptCitations=false
-SubscriptCitations=false
-MultiCiteChronological=true
+MinimumGroupingCount="3"
+FormatCitations="false"
+ItalicCitations="false"
+BoldCitations="false"
+SuperscriptCitations="false"
+SubscriptCitations="false"
+MultiCiteChronological="true"
 
 LAYOUT
 article=<b>\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}</b> (<b>\year\uniq</b>). <i>\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
