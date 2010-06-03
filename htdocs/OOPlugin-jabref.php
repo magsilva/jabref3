@@ -331,11 +331,13 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>If <code>true</code>, multiple entries in the same citation are sorted chronologically, otherwise
 			they are sorted alphabetically.</td>
 			</tr>
+			<tr>
 			<td>SubscriptCitations</td>
 			<td>boolean</td>
 			<td><code>false</code></td>
 			<td>If <code>FormatCitations</code> is on, controls whether citations should be in subscript.</td>
 			</tr>
+			<tr>
 			<td>SuperscriptCitations</td>
 			<td>boolean</td>
 			<td><code>false</code></td>
@@ -361,7 +363,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>Text inserted between author names and year in parenthesis citations such as <code>[Smith 2001]</code>.</td>
 			</tr>
 			
-			</table></p>
+			</table>
 
         If numbered entries are used, the <code>BracketBefore</code> and <code>BracketAfter</code> properties
         are the most important - they define which characters the citation number is wrapped in. The citation is composed
