@@ -100,6 +100,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("GroupedNumbersSeparator", "-");
         citProperties.put("MinimumGroupingCount", 3);
         citProperties.put("FormatCitations", Boolean.FALSE);
+        citProperties.put("CitationCharacterFormat", "Default");
         citProperties.put("ItalicCitations", Boolean.FALSE);
         citProperties.put("BoldCitations", Boolean.FALSE);
         citProperties.put("SuperscriptCitations", Boolean.FALSE);
@@ -824,6 +825,10 @@ public class OOBibStyle implements Comparable {
 
     public int getIntCitProperty(String key) {
         return (Integer)citProperties.get(key);
+    }
+
+    public String getCitationCharacterFormat() {
+        return (String)citProperties.get("CitationCharacterFormat");
     }
     /**
      * Get a style property.

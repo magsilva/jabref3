@@ -114,6 +114,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         
         styleFile = Globals.prefs.get("ooBibliographyStyleFile");
 
+
     }
 
     public SidePaneComponent getSidePaneComponent() {
@@ -149,11 +150,13 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
     private void initPanel() throws Exception {
 
-        connect.addActionListener(new ActionListener() {
+        Action al = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 connect(true);
             }
-        });
+        };
+        connect.addActionListener(al);
+
         manualConnect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 connect(false);
@@ -213,7 +216,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             }
         });
         update.setToolTipText(Globals.lang("Ensure that the bibliography is up-to-date"));
-        update.addActionListener(new ActionListener() {
+        Action updateAction = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 try {
                     style.ensureUpToDate();
@@ -226,6 +229,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                         JOptionPane.showMessageDialog(frame, Globals.lang("Your OpenOffice document references the BibTeX key '%0', which could not be found in your current database.",
                             unresolvedKeys.get(0)), Globals.lang("Unable to synchronize bibliography"), JOptionPane.ERROR_MESSAGE);
                     }
+                } catch (UndefinedCharacterFormatException ex) {
+                    reportUndefinedCharacterFormat(ex);
                 } catch (UndefinedParagraphFormatException ex) {
                     reportUndefinedParagraphFormat(ex);
                 } catch (ConnectionLostException ex) {
@@ -238,7 +243,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                     e1.printStackTrace();
                 }
             }
-        });
+        };
+        update.addActionListener(updateAction);
 
         insertFullRef.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -255,6 +261,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             public void actionPerformed(ActionEvent event) {
                 try {
                     ooBase.combineCiteMarkers(frame.basePanel().database(), style);
+                } catch (UndefinedCharacterFormatException e) {
+                    reportUndefinedCharacterFormat(e);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -330,7 +338,12 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         comp.setContent(content);
         content.setLayout(new BorderLayout());
         content.add(b.getPanel(), BorderLayout.CENTER);
-        
+
+        System.out.println("Adding shortcuts");
+        frame.getTabbedPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(Globals.prefs.getKey("Refresh OO"), "Refresh OO");
+        frame.getTabbedPane().getActionMap().put("Refresh OO", updateAction);
+
         //diag.pack();
         //diag.setVisible(true);
     }
@@ -654,6 +667,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                             Globals.prefs.getBoolean("syncOOWhenCiting"));
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
+                } catch (UndefinedCharacterFormatException ex) {
+                    reportUndefinedCharacterFormat(ex);
                 } catch (UndefinedParagraphFormatException ex) {
                    reportUndefinedParagraphFormat(ex);
                 } catch (Exception ex) {
@@ -705,6 +720,13 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             Globals.lang(""), JOptionPane.ERROR_MESSAGE);
     }
 
+    private void reportUndefinedCharacterFormat(UndefinedCharacterFormatException ex) {
+        JOptionPane.showMessageDialog(frame, "<html>"+Globals.lang("Your style file specifies the character format '%0', "
+            +"which is undefined in your current OpenOffice document.", ex.getFormatName())+"<br>"
+            +Globals.lang("The character format is controlled by the citation property 'CitationCharacterFormat' in the style file.")
+            +"</html>",
+            Globals.lang(""), JOptionPane.ERROR_MESSAGE);
+    }
 
     public void insertUsingBST() {
         try {
@@ -755,6 +777,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                     Globals.prefs.getBoolean("syncOOWhenCiting"));
             } catch (ConnectionLostException ex) {
                 showConnectionLostErrorMessage();
+            } catch (UndefinedCharacterFormatException ex) {
+                reportUndefinedCharacterFormat(ex);
             } catch (UndefinedParagraphFormatException ex) {
                reportUndefinedParagraphFormat(ex);
             } catch (Exception ex) {

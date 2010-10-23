@@ -4,6 +4,7 @@ import com.sun.star.awt.Point;
 import com.sun.star.awt.XWindow;
 import com.sun.star.beans.XPropertySet;
 import com.sun.star.beans.PropertyValue;
+import com.sun.star.beans.XPropertySetInfo;
 import com.sun.star.comp.helper.Bootstrap;
 import com.sun.star.container.*;
 import com.sun.star.frame.*;
@@ -243,6 +244,21 @@ public class OOBibBase {
 
             //System.out.println(text+" / "+xViewCursor.getText());
             xViewCursor.getText().insertString(xViewCursor, " ", false);
+            if (style.isFormatCitations()) {
+                XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
+                                    XPropertySet.class, xViewCursor);
+                String charStyle = style.getCitationCharacterFormat();
+                try {
+                    xCursorProps.setPropertyValue("CharStyleName", charStyle);
+                } catch (Throwable ex) {
+                    // Setting the character format failed, so we throw an exception that
+                    // will result in an error message for the user. Before that,
+                    // delete the space we inserted:
+                    xViewCursor.goLeft((short)1,true);
+                    xViewCursor.setString("");
+                    throw new UndefinedCharacterFormatException(charStyle);
+                }
+            }
             xViewCursor.goLeft((short)1,false);
             insertReferenceMark(bName, citeText, xViewCursor, withText, style);
             //xViewCursor.collapseToEnd();
@@ -281,11 +297,10 @@ public class OOBibBase {
      * @param database The database to get entries from.
      * @param style The bibliography style to use.
      * @return A list of those referenced BibTeX keys that could not be resolved.
-     * @throws UndefinedParagraphFormatException
      * @throws Exception
      */
     public List<String> refreshCiteMarkers(BibtexDatabase database, OOBibStyle style) throws
-            UndefinedParagraphFormatException, Exception {
+            Exception {
         try {
             return refreshCiteMarkersInternal(database, style);
         } catch (DisposedException ex) {
@@ -297,7 +312,7 @@ public class OOBibBase {
     }
 
     private List<String> refreshCiteMarkersInternal(BibtexDatabase database, OOBibStyle style) throws
-            UndefinedParagraphFormatException, Exception {
+            Exception {
 
         List<String> cited = findCitedKeys();
         List<BibtexEntry> entries = findCitedEntries(database, cited);
@@ -305,7 +320,8 @@ public class OOBibBase {
         XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
                 XReferenceMarksSupplier.class, xCurrentComponent);
         XNameAccess nameAccess = supplier.getReferenceMarks();
-        
+
+
         String[] names;
         if (style.isSortByPosition()) {
             // We need to sort the reference marks according to their order of appearance:
@@ -523,12 +539,32 @@ public class OOBibBase {
 
         // Refresh all reference marks with the citation markers we computed:
         boolean hadBibSection = getBookmarkRange(BIB_SECTION_NAME) != null;
+        // Check if we are supposed to set a character format for citations:
+        boolean mustTestCharFormat = style.isFormatCitations();
         for (int i = 0; i < names.length; i++) {
             Object o = nameAccess.getByName(names[i]);
             XTextContent bm = (XTextContent) UnoRuntime.queryInterface
                     (XTextContent.class, o);
 
             XTextCursor cursor = bm.getAnchor().getText().createTextCursorByRange(bm.getAnchor());
+
+            if (mustTestCharFormat) {
+                // If we are supposed to set character format for citations, must run a test before we
+                // delete old citation markers. Otherwise, if the specified character format doesn't
+                // exist, we end up deleting the markers before the process crashes due to a the missing
+                // format, with catastrophic consequences for the user.
+                mustTestCharFormat = false; // need to do this only once
+                XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
+                                    XPropertySet.class, cursor);
+                String charStyle = style.getCitationCharacterFormat();
+                try {
+                    xCursorProps.setPropertyValue("CharStyleName", charStyle);
+                } catch (Throwable ex) {
+                    throw new UndefinedCharacterFormatException(charStyle);
+                }
+            }
+
+
             text.removeTextContent(bm);
             insertReferenceMark(names[i], citMarkers[i], cursor, types[i] != INVISIBLE_CIT, style);
             if (hadBibSection && (getBookmarkRange(BIB_SECTION_NAME) == null)) {
@@ -958,11 +994,19 @@ public class OOBibBase {
                 position.setString(citText);
                 XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
                     XPropertySet.class, position);
+
                 // Set language to [None]:
                 xCursorProps.setPropertyValue("CharLocale", new Locale("zxx", "", ""));
-
-                // See if we should format the citation marker or not:
                 if (style.isFormatCitations()) {
+                    String charStyle = style.getCitationCharacterFormat();
+                    try {
+                        xCursorProps.setPropertyValue("CharStyleName", charStyle);
+                    } catch (Throwable ex) {
+                        throw new UndefinedCharacterFormatException(charStyle);
+                    }
+                }
+                // See if we should format the citation marker or not:
+                /*if (style.isFormatCitations()) {
 
                     if (style.getBooleanCitProperty("SuperscriptCitations")) {
                         xCursorProps.setPropertyValue("CharEscapement",
@@ -990,7 +1034,7 @@ public class OOBibBase {
                             style.isBoldCitations() ? com.sun.star.awt.FontWeight.BOLD :
                                 com.sun.star.awt.FontWeight.NORMAL);
                     
-                }
+                } */
             }
             else
                 position.setString("");
@@ -1117,6 +1161,23 @@ public class OOBibBase {
             String text = mxDocCursor.getString();
             // Check if the string contains no line breaks and only whitespace:
             if ((text.indexOf('\n') == -1) && (text.trim().length() == 0)) {
+
+                // If we are supposed to set character format for citations, test this before
+                // making any changes. This way we can throw an exception before any reference
+                // marks are removed, preventing damage to the user's document:
+                if (style.isFormatCitations()) {
+                    XPropertySet xCursorProps = (XPropertySet) UnoRuntime.queryInterface(
+                                        XPropertySet.class, mxDocCursor);
+                    String charStyle = style.getCitationCharacterFormat();
+                    try {
+                        xCursorProps.setPropertyValue("CharStyleName", charStyle);
+                    } catch (Throwable ex) {
+                        // Setting the character format failed, so we throw an exception that
+                        // will result in an error message for the user:
+                        throw new UndefinedCharacterFormatException(charStyle);
+                    }
+                }
+
                 List<String> keys = parseRefMarkName(names[piv]);
                 keys.addAll(parseRefMarkName(names[piv+1]));
                 removeReferenceMark(names[piv]);

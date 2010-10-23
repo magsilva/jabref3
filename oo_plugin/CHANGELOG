@@ -1,3 +1,8 @@
+0.9:
+ - Formatting of citation markers is changed - it now allows the user to specify a character
+   format (with the citation property 'CitationCharacterFormat') which can be defined in
+   OpenOffice with any formatting. The character format will only be applied if the property
+   'FormatCitations' is true. The old citation formatting properties are obsoleted.
 0.8:
  - Added some explanatory text to style selection dialog.
  - Added context menu for style list that allows quickly opening a style file in an external
