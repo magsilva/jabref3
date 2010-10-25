@@ -27,6 +27,7 @@
 
       <h2>Updates</h2>
       <ul>
+    	<li>2010-10-26: Version 0.9: Formatting of citations is now done by naming a OpenOffice character format.</li>
     	<li>2010-06-03: Version 0.8: Style file format now allows optional double quotes aroung property values.</li>
         <li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>
         <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
@@ -115,10 +116,7 @@ UniquefierSeparator=","
 GroupedNumbersSeparator="-"
 MinimumGroupingCount="3"
 FormatCitations="false"
-ItalicCitations="false"
-BoldCitations="false"
-SuperscriptCitations="false"
-SubscriptCitations="false"
+CitationCharacterFormat="Default"
 MultiCiteChronological="false"
 
 LAYOUT
@@ -238,12 +236,6 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>Text inserted between author names except the last two.</td>
 			</tr>
 			<tr>
-			<td>BoldCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be bold.</td>
-			</tr>
-			<tr>
 			<td>BracketAfter</td>
 			<td>string</td>
 			<td><code>]</code></td>
@@ -268,10 +260,18 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>The opening bracket for citation numbering in the reference list.</td>
 			</tr>
 			<tr>
+			<td>CitationCharacterFormat</td>
+			<td>string</td>
+			<td><code>Default</code></td>
+			<td>If <code>FormatCitations</code> is set to <code>true</code>, the character format with the name
+			given by this property will be applied to citations. The character format must be defined in your
+			OpenOffice document.</td>
+			</tr>
+            <tr>
 			<td>CitationSeparator</td>
 			<td>string</td>
 			<td><code>; </code></td>
-			<td>Text inserter between items when a citation contains multiple entries, e.g. <code>[Smith 2001; Jones 2002]</code></td>
+			<td>Text inserted between items when a citation contains multiple entries, e.g. <code>[Smith 2001; Jones 2002]</code></td>
 			</tr>
 			<tr>
 			<td>EtAlString</td>
@@ -283,9 +283,10 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>FormatCitations</td>
 			<td>boolean</td>
 			<td><code>false</code></td>
-			<td>Determines whether formatting should be applied to citations. If true, formatting is controlled by
-			properties like <code>BoldCitations</code>, <code>ItalicCitations</code>, <code>SubscriptCitations</code> 
-			and <code>SuperscriptCitations</code>.</td>
+			<td>Determines whether formatting should be applied to citations. If true, a character format will be
+			applied to the citations. The property <code>CitationCharacterFormat</code> controls which format
+			should be applied, and the given format must be defined in your OpenOffice document. Any font settings
+			and effects can be chosen within OpenOffice for your chosen character format.</td>
 			</tr>
 			<tr>
 			<td>GroupedNumbersSeparator</td>
@@ -298,12 +299,6 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td>string</td>
 			<td><code> </code></td>
 			<td>Text inserted between author names and starting bracket before year in in-text citations.</td>
-			</tr>
-			<tr>
-			<td>ItalicCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be in italics.</td>
 			</tr>
 			<tr>
 			<td>MaxAuthors</td>
@@ -330,16 +325,6 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 			<td><code>true</code></td>
 			<td>If <code>true</code>, multiple entries in the same citation are sorted chronologically, otherwise
 			they are sorted alphabetically.</td>
-			</tr>
-			<td>SubscriptCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be in subscript.</td>
-			</tr>
-			<td>SuperscriptCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be in superscript.</td>
 			</tr>
 			<tr>
 			<td>UniquefierSeparator</td>
