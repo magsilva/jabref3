@@ -279,7 +279,10 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         test.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
-                    ooBase.testFrameHandling();
+                    ooBase.testCustomProperties();
+
+                    //ooBase.testFrameHandling();
+
                     //ooBase.combineCiteMarkers(frame.basePanel().database(), style);
                     //insertUsingBST();
                     //ooBase.testFootnote();
@@ -331,7 +334,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         //b.append(update);
 
         //b.append(insertFullRef);
-        //b.append(test);
+        b.append(test);
         //diag.getContentPane().add(b.getPanel(), BorderLayout.CENTER);
 
         JPanel content = new JPanel();

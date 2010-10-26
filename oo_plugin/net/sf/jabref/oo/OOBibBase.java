@@ -2,15 +2,20 @@ package net.sf.jabref.oo;
 
 import com.sun.star.awt.Point;
 import com.sun.star.awt.XWindow;
+import com.sun.star.beans.XPropertyContainer;
 import com.sun.star.beans.XPropertySet;
 import com.sun.star.beans.PropertyValue;
 import com.sun.star.beans.XPropertySetInfo;
 import com.sun.star.comp.helper.Bootstrap;
 import com.sun.star.container.*;
+import com.sun.star.document.XDocumentProperties;
+import com.sun.star.document.XDocumentPropertiesSupplier;
 import com.sun.star.frame.*;
 import com.sun.star.lang.*;
 import com.sun.star.lang.Locale;
 import com.sun.star.text.*;
+import com.sun.star.uno.Any;
+import com.sun.star.uno.Type;
 import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
 import net.sf.jabref.*;
@@ -56,6 +61,9 @@ public class OOBibBase {
     XTextViewCursorSupplier xViewCursorSupplier = null;
     XComponent xCurrentComponent = null;
     XComponentLoader xComponentLoader = null;
+    XPropertyContainer userProperties = null;
+    XPropertySet propertySet = null;
+
     private boolean atEnd;
     private AlphanumericComparator entryComparator = new AlphanumericComparator();
     private YearComparator yearComparator = new YearComparator();
@@ -129,6 +137,12 @@ public class OOBibBase {
         // Access the text document's multi service factory:
         mxDocFactory = (XMultiServiceFactory) UnoRuntime.queryInterface(XMultiServiceFactory.class, mxDoc);
 
+
+        XDocumentPropertiesSupplier supp =
+                UnoRuntime.queryInterface(XDocumentPropertiesSupplier.class, mxDoc);
+        userProperties = supp.getDocumentProperties().getUserDefinedProperties();
+        propertySet = UnoRuntime.queryInterface(XPropertySet.class, userProperties);
+
     }
 
     public XDesktop simpleBootstrap(String pathToExecutable) throws Exception {
@@ -191,6 +205,32 @@ public class OOBibBase {
          return res;
      }
 
+    public void testCustomProperties() throws Exception {
+        XDocumentPropertiesSupplier supp = (XDocumentPropertiesSupplier)UnoRuntime.queryInterface(
+                XDocumentPropertiesSupplier.class, mxDoc);
+        XPropertyContainer cont = supp.getDocumentProperties().getUserDefinedProperties();
+        XPropertySet set = (XPropertySet)UnoRuntime.queryInterface(XPropertySet.class, cont);
+        try {
+            cont.addProperty("JR_cite_1_Danielsen1987", (short)0, new Any(Type.STRING, "Brum"));
+        } catch (Exception ex) {
+            System.out.println("property already exists");
+        }
+        System.out.println(set.getPropertyValue("Test").toString());
+
+    }
+
+    public void setCustomProperty(String property, String value) throws Exception {
+        if (propertySet.getPropertySetInfo().hasPropertyByName(property))
+            userProperties.removeProperty(property);
+        userProperties.addProperty(property, (short)0, new Any(Type.STRING, value));
+    }
+    
+    public String getCustomProperty(String property) throws Exception {
+        if (propertySet.getPropertySetInfo().hasPropertyByName(property))
+            return propertySet.getPropertyValue(property).toString();
+        else return null;
+
+    }
 
      public void updateSortedReferenceMarks() throws Exception {
          XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
@@ -566,7 +606,12 @@ public class OOBibBase {
 
 
             text.removeTextContent(bm);
-            insertReferenceMark(names[i], citMarkers[i], cursor, types[i] != INVISIBLE_CIT, style);
+            String pageInfo = getCustomProperty(names[i]);
+            String finalCit = citMarkers[i];
+            if (pageInfo != null) {
+                finalCit = style.insertPageInfo(finalCit, pageInfo);
+            }
+            insertReferenceMark(names[i], finalCit, cursor, types[i] != INVISIBLE_CIT, style);
             if (hadBibSection && (getBookmarkRange(BIB_SECTION_NAME) == null)) {
                 // We have overwritten the marker for the start of the reference list.
                 // We need to add it again.

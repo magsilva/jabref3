@@ -97,6 +97,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("BracketBefore", "(");
         citProperties.put("BracketAfter", ")");
         citProperties.put("CitationSeparator", "; ");
+        citProperties.put("PageInfoSeparator", "; ");
         citProperties.put("GroupedNumbersSeparator", "-");
         citProperties.put("MinimumGroupingCount", 3);
         citProperties.put("FormatCitations", Boolean.FALSE);
@@ -769,6 +770,22 @@ public class OOBibStyle implements Comparable {
     }
 
     /**
+     * Take a finished citation and insert a string at the end (but inside the end bracket)
+     * separated by "PageInfoSeparator"
+     * @param citation
+     * @param pageInfo
+     * @return
+     */
+    public String insertPageInfo(String citation, String pageInfo) {
+        String bracketAfter = getStringCitProperty("BracketAfter");
+        if (citation.endsWith(bracketAfter)) {
+            String first = citation.substring(0, citation.length()-bracketAfter.length());
+            return first+getStringCitProperty("PageInfoSeparator")+pageInfo+bracketAfter;
+        }
+        else return citation+getStringCitProperty("PageInfoSeparator")+pageInfo;
+    }
+
+    /**
      * Convenience method for checking the property for whether we use number citations or
      * author-year citations.
      * @return true if we use numbered citations, false otherwise.
@@ -825,6 +842,10 @@ public class OOBibStyle implements Comparable {
 
     public int getIntCitProperty(String key) {
         return (Integer)citProperties.get(key);
+    }
+
+    public String getStringCitProperty(String key) {
+        return (String)citProperties.get(key);
     }
 
     public String getCitationCharacterFormat() {
