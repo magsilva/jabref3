@@ -58,6 +58,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         pushEntries = new JButton(Globals.lang("Cite")),
         pushEntriesInt = new JButton(Globals.lang("Cite in-text")),
         pushEntriesEmpty = new JButton(Globals.lang("Insert empty citation")),
+        pushEntriesAdvanced = new JButton(Globals.lang("Cite special")),
         focus = new JButton("Focus OO document"),
         update,
         insertFullRef = new JButton("Insert reference text"),
@@ -194,19 +195,25 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         pushEntries.setToolTipText(Globals.lang("Cite selected entries"));
         pushEntries.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pushEntries(true, true);
+                pushEntries(true, true, false);
             }
         });
         pushEntries.setToolTipText(Globals.lang("Cite selected entries with in-text citation"));
         pushEntriesInt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pushEntries(false, true);
+                pushEntries(false, true, false);
             }
         });
         pushEntriesEmpty.setToolTipText(Globals.lang("Insert a citation without text (the entry will appear in the reference list)"));
         pushEntriesEmpty.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                pushEntries(false, false);
+                pushEntries(false, false, false);
+            }
+        });
+        pushEntriesAdvanced.setToolTipText(Globals.lang("Cite selected entries with extra information"));
+        pushEntriesAdvanced.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                pushEntries(false, true, true);
             }
         });
 
@@ -279,7 +286,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         test.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
-                    ooBase.testCustomProperties();
+                    pushEntries(false, true, true);
 
                     //ooBase.testFrameHandling();
 
@@ -300,6 +307,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         pushEntries.setEnabled(false);
         pushEntriesInt.setEnabled(false);
         pushEntriesEmpty.setEnabled(false);
+        pushEntriesAdvanced.setEnabled(false);
         focus.setEnabled(false);
         update.setEnabled(false);
         insertFullRef.setEnabled(false);
@@ -327,6 +335,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         b.append(setStyleFile);
         b.append(pushEntries);
         b.append(pushEntriesInt);
+        b.append(pushEntriesAdvanced);
         b.append(pushEntriesEmpty);
         b.append(merge);
         b.append(settingsB);
@@ -487,6 +496,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             pushEntries.setEnabled(true);
             pushEntriesInt.setEnabled(true);
             pushEntriesEmpty.setEnabled(true);
+            pushEntriesAdvanced.setEnabled(true);
             focus.setEnabled(true);
             update.setEnabled(true);
             insertFullRef.setEnabled(true);
@@ -653,13 +663,27 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
 
 
-    public void pushEntries(boolean inParenthesis, boolean withText) {
+    public void pushEntries(boolean inParenthesis, boolean withText, boolean addPageInfo) {
         if (!ooBase.isConnectedToDocument()) {
             JOptionPane.showMessageDialog(frame, Globals.lang("Not connected to any Writer document. Please"
                 +" make sure a document is open, and use the 'Select Writer document' button to connect to it."),
                     Globals.lang("Error"), JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        String pageInfo = null;
+        if (addPageInfo) {
+            AdvancedCiteDialog acd = new AdvancedCiteDialog(frame);
+            acd.showDialog();
+            if (acd.cancelled())
+                return;
+            if (acd.getPageInfo().length() > 0)
+                pageInfo = acd.getPageInfo();
+            inParenthesis = acd.isInParenthesisCite();
+
+        }
+
+
         BasePanel panel =frame.basePanel();
         final BibtexDatabase database = panel.database();
         if (panel != null) {
@@ -667,7 +691,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             if (entries.length > 0) {
                 try {
                     ooBase.insertEntry(entries, database, style, inParenthesis, withText,
-                            Globals.prefs.getBoolean("syncOOWhenCiting"));
+                            pageInfo, Globals.prefs.getBoolean("syncOOWhenCiting"));
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
                 } catch (UndefinedCharacterFormatException ex) {
@@ -775,9 +799,23 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     public void pushEntries(boolean inParenthesis, BibtexEntry[] entries) {
         final BibtexDatabase database = frame.basePanel().database();
         if (entries.length > 0) {
+
+            String pageInfo = null;
+            //if (addPageInfo) {
+                AdvancedCiteDialog acd = new AdvancedCiteDialog(frame);
+                acd.showDialog();
+                if (acd.cancelled())
+                    return;
+                if (acd.getPageInfo().length() > 0)
+                    pageInfo = acd.getPageInfo();
+                inParenthesis = acd.isInParenthesisCite();
+
+            //}
+
+
             try {
                 ooBase.insertEntry(entries, database, style, inParenthesis, true,
-                    Globals.prefs.getBoolean("syncOOWhenCiting"));
+                    pageInfo, Globals.prefs.getBoolean("syncOOWhenCiting"));
             } catch (ConnectionLostException ex) {
                 showConnectionLostErrorMessage();
             } catch (UndefinedCharacterFormatException ex) {
@@ -811,9 +849,10 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     }
 
     public JPanel getSettingsPanel() {
-        if (settings == null)
+        return null;
+        /*if (settings == null)
             initSettingsPanel();
-        return settings;
+        return settings;*/
     }
 
     private void initSettingsPanel() {
@@ -838,6 +877,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             connect(true);
         }
         if (ooBase != null) {
+
             pushEntries(Globals.prefs.getBoolean("ooInParCitation"), entries);
         }
     }

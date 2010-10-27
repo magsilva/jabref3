@@ -254,9 +254,11 @@ public class OOBibBase {
      * @throws Exception
      */
     public void insertEntry(BibtexEntry[] entries, BibtexDatabase database, OOBibStyle style,
-                            boolean inParenthesis, boolean withText, boolean sync) throws Exception {
+                            boolean inParenthesis, boolean withText, String pageInfo,
+                            boolean sync) throws Exception {
 
         try {
+
             XTextViewCursor xViewCursor = xViewCursorSupplier.getViewCursor();
 
             if (entries.length > 1) {
@@ -278,6 +280,12 @@ public class OOBibBase {
             String bName = getUniqueReferenceMarkName(keyString,
                     withText ? (inParenthesis ? AUTHORYEAR_PAR : AUTHORYEAR_INTEXT) : INVISIBLE_CIT);
             //XTextContent content = insertBookMark(bName, xViewCursor);
+
+            // If we should store metadata for page info, do that now:
+            if (pageInfo != null) {
+                System.out.println("Storing page info: "+pageInfo);
+                setCustomProperty(bName, pageInfo);
+            }
 
 
             String citeText = style.isNumberEntries() ? "-" : style.getCitationMarker(entries, database, inParenthesis, null, null);
@@ -606,12 +614,8 @@ public class OOBibBase {
 
 
             text.removeTextContent(bm);
-            String pageInfo = getCustomProperty(names[i]);
-            String finalCit = citMarkers[i];
-            if (pageInfo != null) {
-                finalCit = style.insertPageInfo(finalCit, pageInfo);
-            }
-            insertReferenceMark(names[i], finalCit, cursor, types[i] != INVISIBLE_CIT, style);
+
+            insertReferenceMark(names[i], citMarkers[i], cursor, types[i] != INVISIBLE_CIT, style);
             if (hadBibSection && (getBookmarkRange(BIB_SECTION_NAME) == null)) {
                 // We have overwritten the marker for the start of the reference list.
                 // We need to add it again.
@@ -1025,6 +1029,14 @@ public class OOBibBase {
     public void insertReferenceMark(String name, String citText, XTextCursor position, boolean withText,
                                OOBibStyle style)
             throws Exception {
+
+        // Check if there is "page info" stored for this citation. If so, insert it into 
+        // the citation text before inserting the citation:
+        String pageInfo = getCustomProperty(name);
+        if (pageInfo != null) {
+            citText = style.insertPageInfo(citText, pageInfo);
+        }
+
         Object bookmark = mxDocFactory.createInstance("com.sun.star.text.ReferenceMark");
         // Name the reference
         XNamed xNamed = (XNamed) UnoRuntime.queryInterface(
