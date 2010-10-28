@@ -286,7 +286,9 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         test.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
-                    pushEntries(false, true, true);
+                    CitationManager cm = new CitationManager(frame, ooBase);
+                    cm.showDialog();
+                    //pushEntries(false, true, true);
 
                     //ooBase.testFrameHandling();
 

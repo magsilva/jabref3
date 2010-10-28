@@ -40,7 +40,7 @@ public class OOBibBase {
     final static String BIB_SECTION_NAME = "JR_bib";
     final static String BIB_SECTION_END_NAME = "JR_bib_end";
     final static String BIB_CITATION = "JR_cite";
-    final Pattern citePattern = Pattern.compile(BIB_CITATION+"\\d*_(\\d*)_(.*)");
+    public final Pattern citePattern = Pattern.compile(BIB_CITATION+"\\d*_(\\d*)_(.*)");
 
     final static int
         AUTHORYEAR_PAR = 1,
@@ -222,7 +222,9 @@ public class OOBibBase {
     public void setCustomProperty(String property, String value) throws Exception {
         if (propertySet.getPropertySetInfo().hasPropertyByName(property))
             userProperties.removeProperty(property);
-        userProperties.addProperty(property, (short)0, new Any(Type.STRING, value));
+        if (value != null)
+            userProperties.addProperty(property, com.sun.star.beans.PropertyAttribute.REMOVEABLE,
+                   new Any(Type.STRING, value));
     }
     
     public String getCustomProperty(String property) throws Exception {
@@ -359,16 +361,31 @@ public class OOBibBase {
         }
     }
 
+    public XNameAccess getReferenceMarks() {
+        XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
+                XReferenceMarksSupplier.class, xCurrentComponent);
+        return supplier.getReferenceMarks();
+    }
+
+    public String[] getJabRefReferenceMarks(XNameAccess nameAccess) {
+        String[] names = nameAccess.getElementNames();
+        // Remove all reference marks that don't look like JabRef citations:
+        ArrayList<String> tmp = new ArrayList<String>();
+        for (int i = 0; i < names.length; i++) {
+            if (citePattern.matcher(names[i]).find())
+                tmp.add(names[i]);
+        }
+        names = tmp.toArray(new String[tmp.size()]);
+        return names;
+    }
+
     private List<String> refreshCiteMarkersInternal(BibtexDatabase database, OOBibStyle style) throws
             Exception {
 
         List<String> cited = findCitedKeys();
         List<BibtexEntry> entries = findCitedEntries(database, cited);
 
-        XReferenceMarksSupplier supplier = (XReferenceMarksSupplier) UnoRuntime.queryInterface(
-                XReferenceMarksSupplier.class, xCurrentComponent);
-        XNameAccess nameAccess = supplier.getReferenceMarks();
-
+        XNameAccess nameAccess = getReferenceMarks();
 
         String[] names;
         if (style.isSortByPosition()) {
@@ -899,6 +916,48 @@ public class OOBibBase {
             return null;
     }
 
+    public String getCitationContext(XNameAccess nameAccess, String refMarkName,
+                                     int charBefore, int charAfter,
+                                     boolean htmlMarkup) throws Exception {
+        Object o = nameAccess.getByName(refMarkName);
+        XTextContent bm = (XTextContent) UnoRuntime.queryInterface
+                (XTextContent.class, o);
+
+        XTextCursor cursor = bm.getAnchor().getText().createTextCursorByRange(bm.getAnchor());
+        String citPart = cursor.getString();
+        int flex = 8;
+        for (int i=0; i<charBefore; i++) {
+            try {
+                cursor.goLeft((short)1, true);
+                if ((i >= charBefore-flex) && Character.isWhitespace(cursor.getString().charAt(0)))
+                    break;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        int length = cursor.getString().length();
+        int added = length - citPart.length();
+        cursor.collapseToStart();
+        for (int i=0; i<charAfter+length; i++) {
+            try {
+                cursor.goRight((short)1, true);
+                if (i >= charAfter+length-flex) {
+                    String strNow = cursor.getString();
+                    if (Character.isWhitespace(strNow.charAt(strNow.length()-1)))
+                        break;
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        String result = cursor.getString();
+        if (htmlMarkup) {
+            result = result.substring(0, added)+"<b>"+citPart+
+                    "</b>"+result.substring(length);
+        }
+        return result.trim();
+    }
 
     public void insertFullReferenceAtCursor(XTextCursor cursor, BibtexDatabase database,
                                             List<BibtexEntry> entries,
