@@ -459,12 +459,23 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
         // Add OO jars to the classpath:
         try {
-            URL[] jarList = new URL[] {
+            File[] jarFiles = new File[] {
+                    new File(unoilDir, "unoil.jar"),
+                    new File(ooBaseDirectory, "jurt.jar"),
+                    new File(ooBaseDirectory, "juh.jar"),
+                    new File(ooBaseDirectory, "ridl.jar")};
+            URL[] jarList = new URL[jarFiles.length];
+            for (int i = 0; i < jarList.length; i++) {
+                if (!jarFiles[i].exists())
+                    throw new Exception(Globals.lang("File not found")+": "+jarFiles[i].getPath());
+                jarList[i] = jarFiles[i].toURI().toURL();
+            }
+            /*{
                 new File(unoilDir, "unoil.jar").toURI().toURL(),
                 new File(ooBaseDirectory, "jurt.jar").toURI().toURL(),
                 new File(ooBaseDirectory, "juh.jar").toURI().toURL(),
                 new File(ooBaseDirectory, "ridl.jar").toURI().toURL(),
-            };
+            };*/
             addURL(jarList);
             /*ClassLoader aCL = Thread.currentThread().getContextClassLoader();
             loader = new URLClassLoader(jarList, aCL);
@@ -507,10 +518,11 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
         } catch (Exception e) {
             e.printStackTrace();
-            
+
             JOptionPane.showMessageDialog(frame, Globals.lang("Could not connect to running OpenOffice.\n"
-                +"Make sure you have the UNO jars (unoil.jar, juh.jar, jurt.jar and ridl.jar) on your classpath,\n"
-                +"as well as the OpenOffice bin directory.\nError message: "+e.getMessage()));
+                +"Make sure you have installed OpenOffice with Java support.\nIf connecting manually, please verify program and library paths.\n"
+                +"\nError message: "+e.getMessage()));
+
         }
     }
 
@@ -592,11 +604,6 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         browseOOJars.addActionListener(new BrowseAction(null, ooJars, true));
         ooExec.setText(Globals.prefs.get("ooExecutablePath"));
         ooJars.setText(Globals.prefs.get("ooJarsPath"));
-        final JRadioButton oo2 = new JRadioButton("OpenOffice.org 2.x", !Globals.prefs.getBoolean("connectToOO3"));
-        final JRadioButton oo3 = new JRadioButton("OpenOffice.org 3.x", Globals.prefs.getBoolean("connectToOO3"));
-        ButtonGroup bg = new ButtonGroup();
-        bg.add(oo2);
-        bg.add(oo3);
         DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("left:pref, 4dlu, fill:pref:grow, 4dlu, fill:pref", ""));
         if (Globals.ON_WIN || Globals.ON_MAC) {
             builder.append(Globals.lang("Path to OpenOffice directory"));
@@ -615,10 +622,6 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             builder.append(browseOOJars);
             builder.nextLine();
         }
-        builder.append(Globals.lang("Program version"));
-        builder.append(oo2); builder.nextLine();
-        builder.append(new JPanel());
-        builder.append(oo3); builder.nextLine();
 
         ButtonBarBuilder bb = new ButtonBarBuilder();
         JButton ok = new JButton(Globals.lang("Ok"));
@@ -627,7 +630,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         ActionListener tfListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 updateConnectionParams(ooPath.getText(), ooExec.getText(), ooJars.getText(),
-                        oo3.isSelected());
+                        true);
                 diag.dispose();
             }
         };
@@ -638,7 +641,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         ok.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 updateConnectionParams(ooPath.getText(), ooExec.getText(), ooJars.getText(),
-                        oo3.isSelected());
+                        true);
                 dialogOkPressed = true;
                 diag.dispose();
             }

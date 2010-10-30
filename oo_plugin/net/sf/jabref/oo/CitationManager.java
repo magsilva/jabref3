@@ -193,7 +193,7 @@ public class CitationManager {
             diag = new JDialog(CitationManager.this.diag, Globals.lang("Citation"), true);
 
             DefaultFormBuilder b = new DefaultFormBuilder(
-                    new FormLayout("left:pref, 4dlu, fill:pref", "p, p"));
+                    new FormLayout("left:pref, 4dlu, left:150dlu", ""));
             b.append(title, 3);
             b.nextLine();
             b.append(Globals.lang("Extra information (e.g. page number)"));
@@ -209,7 +209,6 @@ public class CitationManager {
             bb.getPanel().setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
             diag.add(bb.getPanel(), BorderLayout.SOUTH);
 
-            diag.pack();
 
             Action okAction = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) {
@@ -238,6 +237,7 @@ public class CitationManager {
         }
 
         public void showDialog() {
+            diag.pack();
             diag.setLocationRelativeTo(diag.getParent());
             diag.setVisible(true);
         }
