@@ -15,7 +15,7 @@ public class LocalizationSupport {
 
     private static final ResourceBundle splmmBundle = ResourceBundle.getBundle("spl.localization.spljabref");
 
-    public static String message(@PropertyKey(resourceBundle = "spl.localization.spljabref") String key){        
+    public static String message(@PropertyKey(resourceBundle = "spl.localization.spljabref") String key){
         String value = splmmBundle.getString(key);
         return value;
     }

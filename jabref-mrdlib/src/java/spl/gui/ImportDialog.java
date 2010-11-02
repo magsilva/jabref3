@@ -247,10 +247,10 @@ public class ImportDialog extends JDialog {
         panel5.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 10, 10), -1, -1, true, false));
         panel4.add(panel5, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         buttonOK = new JButton();
-        this.$$$loadButtonText$$$(buttonOK, ResourceBundle.getBundle("spl/localization/spljabref").getString("general.Ok"));
+        this.$$$loadButtonText$$$(buttonOK, ResourceBundle.getBundle("JabRef").getString("Ok"));
         panel5.add(buttonOK, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         buttonCancel = new JButton();
-        this.$$$loadButtonText$$$(buttonCancel, ResourceBundle.getBundle("spl/localization/spljabref").getString("general.Cancel"));
+        this.$$$loadButtonText$$$(buttonCancel, ResourceBundle.getBundle("JabRef").getString("Cancel"));
         panel5.add(buttonCancel, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel6 = new JPanel();
         panel6.setLayout(new GridLayoutManager(3, 1, new Insets(0, 5, 0, 5), -1, -1));

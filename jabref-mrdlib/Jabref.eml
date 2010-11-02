@@ -3,6 +3,7 @@
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$">
 		<excludeFolder url="file://$MODULE_DIR$/bin"/>
+		<excludeFolder url="file://$MODULE_DIR$/bin"/>
 	</contentEntry>
 	<lib name="commons-logging.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/plugin/commons-logging.jar!/"/>
@@ -46,7 +47,7 @@
 	<lib name="mysql-connector-java-5.0.7-bin.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.0.7-bin.jar!/"/>
 	</lib>
-	<lib name="C:\Users\Christoph Arbeit\Documents\Arbeit\Hiwi\JabRef - MrDlib\lib\looks-2.3.1.jar" scope="COMPILE">
+	<lib name="looks-2.3.1.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/looks-2.3.1.jar!/"/>
 	</lib>
 </component>

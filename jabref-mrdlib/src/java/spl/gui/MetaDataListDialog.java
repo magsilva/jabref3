@@ -146,7 +146,7 @@ public class MetaDataListDialog extends JDialog {
             public void done() {
                 if (webserviceStatus == SplWebClient.WebServiceStatus.OK) {
                     xmlDocuments = SplWebClient.metadata;
-                    if (xmlDocuments != null && xmlDocuments.getDocuments() != null && xmlDocuments.getDocuments().size() > 0) {                        
+                    if (xmlDocuments != null && xmlDocuments.getDocuments() != null && xmlDocuments.getDocuments().size() > 0) {
                         DocumentsWrapper documents = new DocumentsWrapper(xmlDocuments);
                         List<Vector> vectorList = documents.getDocuments();
                         for (Vector vector : vectorList) {
@@ -166,7 +166,7 @@ public class MetaDataListDialog extends JDialog {
                 if (webserviceStatus == SplWebClient.WebServiceStatus.NO_METADATA) {
                     iconLabel.setVisible(false);
                     labelFetch.setText(LocalizationSupport.message("MetadataDialog.NoMetadata"));
-                    blankButton.setVisible(showBlankButton);                    
+                    blankButton.setVisible(showBlankButton);
                 }
                 if (webserviceStatus == SplWebClient.WebServiceStatus.UNAVAILABLE) {
                     iconLabel.setVisible(false);
@@ -280,10 +280,10 @@ public class MetaDataListDialog extends JDialog {
         panel5.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 10, 10), -1, -1));
         panel4.add(panel5, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         buttonOK = new JButton();
-        this.$$$loadButtonText$$$(buttonOK, ResourceBundle.getBundle("spl/localization/spljabref").getString("general.Ok"));
+        this.$$$loadButtonText$$$(buttonOK, ResourceBundle.getBundle("JabRef").getString("Ok"));
         panel5.add(buttonOK, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         buttonCancel = new JButton();
-        this.$$$loadButtonText$$$(buttonCancel, ResourceBundle.getBundle("spl/localization/spljabref").getString("general.Cancel"));
+        this.$$$loadButtonText$$$(buttonCancel, ResourceBundle.getBundle("JabRef").getString("Cancel"));
         panel5.add(buttonCancel, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         blankButton = new JButton();
         this.$$$loadButtonText$$$(blankButton, ResourceBundle.getBundle("spl/localization/spljabref").getString("ImportDialog.BlankEntry"));
