@@ -7,6 +7,8 @@
    format (with the citation property 'CitationCharacterFormat') which can be defined in
    OpenOffice with any formatting. The character format will only be applied if the property
    'FormatCitations' is true. The old citation formatting properties are obsoleted.
+ - Text used in author-year citations is now run through the formatter that handles LaTeX
+   special characters.
  - Style files can now have either Unix or Dos/Windows line breaks. 
 0.8:
  - Added some explanatory text to style selection dialog.

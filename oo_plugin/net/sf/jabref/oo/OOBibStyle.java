@@ -34,11 +34,11 @@ public class OOBibStyle implements Comparable {
     String name = null;
     SortedSet<String> journals = new TreeSet<String>();
 
+    // Formatter to be run on fields before they are used as part of citation marker:
+    LayoutFormatter fieldFormatter = new OOPreFormatter();
+
     Layout defaultBibLayout;
-    // formatters mapped from field names. Each field can have no mapping, or a set of formatters:
-    HashMap formatters = new HashMap();
-    // 0-n formatters applied to all fields before field-speficic formatters:
-    LayoutFormatter[] allBeforeFormat, allAfterFormat;
+
     // reference layout mapped from entry type number:
     HashMap<String, Layout> bibLayout = new HashMap<String, Layout>();
 
@@ -128,7 +128,6 @@ public class OOBibStyle implements Comparable {
     private void initialize(Reader in) throws IOException {
         name = null;
         readFormatFile(in);
-        allBeforeFormat = new LayoutFormatter[] {new RemoveLatexCommands()};
     }
 
     /**
@@ -179,7 +178,7 @@ public class OOBibStyle implements Comparable {
 
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
-            if (line.charAt(line.length()-1) == '\r')
+            if ((line.length() > 0) && (line.charAt(line.length()-1) == '\r'))
                 line = line.substring(0, line.length()-1);
             // Check for empty line or comment:
             if ((line.trim().length() == 0) || (line.charAt(0) == '#'))
@@ -329,36 +328,6 @@ public class OOBibStyle implements Comparable {
             return defaultBibLayout;
     }*/
 
-    /**
-     * Format the given field value based on the rules of this bib style.
-     * @param field The name of the field.
-     * @param content The unformatted field content.
-     * @return The formatted field value.
-     */
-    public String formatField(String field, String content) {
-        if (allBeforeFormat != null)
-            for (int i = 0; i < allBeforeFormat.length; i++) {
-                LayoutFormatter formatter = allBeforeFormat[i];
-                content = formatter.format(content);
-            }
-
-        Object o = formatters.get(field);
-        if (o == null)
-            return content;
-        LayoutFormatter[] form = (LayoutFormatter[])o;
-        for (int i = 0; i < form.length; i++) {
-            LayoutFormatter formatter = form[i];
-            content = formatter.format(content);
-        }
-
-        if (allAfterFormat != null)
-            for (int i = 0; i < allAfterFormat.length; i++) {
-                LayoutFormatter formatter = allAfterFormat[i];
-                content = formatter.format(content);
-            }
-
-        return content;
-    }
 
     /**
      * Format a number-based citation marker for the given number.
@@ -739,8 +708,11 @@ public class OOBibStyle implements Comparable {
         for (int i = 0; i < fields.length; i++) {
             String s = fields[i];
             String content = BibtexDatabase.getResolvedField(s, entry, database);
-            if ((content != null) && (content.trim().length() > 0))
+            if ((content != null) && (content.trim().length() > 0)) {
+                if (fieldFormatter != null)
+                    content = fieldFormatter.format(content);
                 return content;
+            }
         }
         // No luck? Return an empty string:
         return "";
