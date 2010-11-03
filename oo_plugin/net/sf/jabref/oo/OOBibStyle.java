@@ -179,6 +179,8 @@ public class OOBibStyle implements Comparable {
 
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
+            if (line.charAt(line.length()-1) == '\r')
+                line = line.substring(0, line.length()-1);
             // Check for empty line or comment:
             if ((line.trim().length() == 0) || (line.charAt(0) == '#'))
                 continue;
