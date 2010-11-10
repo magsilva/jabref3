@@ -112,6 +112,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         Globals.prefs.putDefaultValue("ooInParCitation", true);
         Globals.prefs.putDefaultValue("syncOOWhenCiting", false);
 
+        Globals.prefs.putDefaultValue("showOOPanel", true);
         
         styleFile = Globals.prefs.get("ooBibliographyStyleFile");
 
@@ -135,6 +136,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
     }
 
     public JMenuItem getMenuItem() {
+        if (Globals.prefs.getBoolean("showOOPanel"))
+            manager.show(getName());
         JMenuItem item = new JMenuItem("OpenOffice.org panel", GUIGlobals.getImage("openoffice"));
         item.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -411,44 +414,31 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             String ooJars = Globals.prefs.get("ooJarsPath");
             sOffice = Globals.prefs.get("ooExecutablePath");
 
-            boolean openOffice3 = Globals.prefs.getBoolean("connectToOO3");
+            boolean openOffice3 = true;//Globals.prefs.getBoolean("connectToOO3");
             if (Globals.ON_WIN) {
-                if (openOffice3) {
+                //if (openOffice3) {
                     unoilDir = ooPath+"\\Basis\\program\\classes";
                     ooBaseDirectory = ooPath+"\\URE\\java";
                     sOffice = ooPath+"\\program\\soffice.exe";
-                }
-                else {
-                    unoilDir = ooPath+"\\program\\classes";
-                    ooBaseDirectory = unoilDir;
-                    sOffice = ooPath+"\\program\\soffice.exe";
-                }
-
+                //}
+                
             }
             else if (Globals.ON_MAC) {
-                if (openOffice3) {
+                //if (openOffice3) {
                     sOffice = ooPath+"/Contents/MacOS/soffice.bin";
                     ooBaseDirectory = ooPath+"/Contents/basis-link/ure-link/share/java";
                     unoilDir = ooPath+"/Contents/basis-link/program/classes"; 
-                }
-                else {
-                    sOffice = ooPath+"/Contents/MacOS/soffice.bin";
-                    ooBaseDirectory = ooPath+"/Contents/MacOS/classes";
-                    unoilDir = ooPath+"/Contents/MacOS/classes";
-                }
+                //}
+
             }
             else {
                 // Linux:
-                if (openOffice3) {
+                //if (openOffice3) {
                     unoilDir = ooJars+"/program/classes";
                     ooBaseDirectory = ooJars+"/ure-link/share/java";
                     //sOffice = ooPath+"/program/soffice";
-                }
-                else {
-                    unoilDir = ooJars;
-                    ooBaseDirectory = ooJars;
+                //}
 
-                }
             }
         }
 
@@ -470,18 +460,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                     throw new Exception(Globals.lang("File not found")+": "+jarFiles[i].getPath());
                 jarList[i] = jarFiles[i].toURI().toURL();
             }
-            /*{
-                new File(unoilDir, "unoil.jar").toURI().toURL(),
-                new File(ooBaseDirectory, "jurt.jar").toURI().toURL(),
-                new File(ooBaseDirectory, "juh.jar").toURI().toURL(),
-                new File(ooBaseDirectory, "ridl.jar").toURI().toURL(),
-            };*/
             addURL(jarList);
-            /*ClassLoader aCL = Thread.currentThread().getContextClassLoader();
-            loader = new URLClassLoader(jarList, aCL);
-            Thread.currentThread().setContextClassLoader(aUrlCL);
-            loader = new URLClassLoader(jarList);
-            */
 
             if (styleFile == null) {
                 JOptionPane.showMessageDialog(diag, "You must choose a style file before you can connect.", "No style file selected", JOptionPane.ERROR_MESSAGE);
@@ -903,6 +882,16 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
         public String getName() {
             return OOTestPanel.this.getName();
+        }
+
+        @Override
+        public void componentClosing() {
+            Globals.prefs.putBoolean("showOOPanel", false);
+        }
+
+        @Override
+        public void componentOpening() {
+            Globals.prefs.putBoolean("showOOPanel", true);
         }
     }
 
