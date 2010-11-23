@@ -3,8 +3,6 @@ package spl.gui;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
-import com.sun.awt.AWTUtilities;
-import org.sciplore.xml.XmlDocument;
 import org.sciplore.xml.XmlDocuments;
 import spl.DocumentsWrapper;
 import spl.SplWebClient;
@@ -12,9 +10,7 @@ import spl.listener.LabelLinkListener;
 import spl.localization.LocalizationSupport;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -39,6 +35,7 @@ public class MetaDataListDialog extends JDialog {
     private JButton blankButton;
     private JLabel labelLogo;
     private JButton moreInformationButton;
+    private JPanel panelMetadata;
     private DefaultTableModel tableModel;
     private int result;
     private XmlDocuments xmlDocuments;
@@ -50,11 +47,12 @@ public class MetaDataListDialog extends JDialog {
 
     public MetaDataListDialog(String fileName, boolean showBlankButton) {
         $$$setupUI$$$();
+        this.setText();
         this.showBlankButton = showBlankButton;
         this.thisDialog = this;
         this.fileName = fileName;
         this.labelLogo.addMouseListener(new LabelLinkListener(this.labelLogo, "www.mr-dlib.org"));
-        this.setTitle(LocalizationSupport.message("MetadataDialog.Title"));
+        this.setTitle(LocalizationSupport.message("Mr._dLib_Metadata_Entries_Associated_With_PDF_File"));
         this.tableMetadata.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         setContentPane(contentPane);
         setModal(true);
@@ -159,36 +157,36 @@ public class MetaDataListDialog extends JDialog {
                         moreInformationButton.setVisible(true);
                     } else {
                         iconLabel.setVisible(false);
-                        labelFetch.setText(LocalizationSupport.message("MetadataDialog.NoMetadata"));
+                        labelFetch.setText(LocalizationSupport.message("No_metadata_found."));
                         blankButton.setVisible(showBlankButton);
                     }
                 }
                 if (webserviceStatus == SplWebClient.WebServiceStatus.NO_METADATA) {
                     iconLabel.setVisible(false);
-                    labelFetch.setText(LocalizationSupport.message("MetadataDialog.NoMetadata"));
+                    labelFetch.setText(LocalizationSupport.message("No_metadata_found."));
                     blankButton.setVisible(showBlankButton);
                 }
                 if (webserviceStatus == SplWebClient.WebServiceStatus.UNAVAILABLE) {
                     iconLabel.setVisible(false);
-                    labelFetch.setText(LocalizationSupport.message("MetadataDialog.ServiceUnavailable"));
+                    labelFetch.setText(LocalizationSupport.message("Mr._dLib_web_service_is_temporarily_unavailable."));
                     blankButton.setVisible(showBlankButton);
                 }
                 if (webserviceStatus == SplWebClient.WebServiceStatus.OUTDATED) {
                     iconLabel.setVisible(false);
-                    labelFetch.setText(LocalizationSupport.message("MetadataDialog.ServiceOutdated"));
+                    labelFetch.setText(LocalizationSupport.message("The_Mr._dLib_web_service_version_you_trying_to_access_is_outdated."));
                     blankButton.setVisible(showBlankButton);
-                    JOptionPane.showMessageDialog(thisDialog, LocalizationSupport.message("MetadataDialog.MessageBoxText"), LocalizationSupport.message("MetadataDialog.MessageBoxHeadline"), JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(thisDialog, LocalizationSupport.message("This_JabRef_version_is_trying_to_access_an_old_version_of_Mr._dLib's_webservice_that_is_not_working_any_more.\\nPlease_visit_http://jabref.sourceforge.net_or_http://www.mr-dlib.org_for_more_information_and_updates.\\n\\n\\n"), LocalizationSupport.message("Web_Service_Version_Outdated"), JOptionPane.INFORMATION_MESSAGE);
                 }
                 if (webserviceStatus == SplWebClient.WebServiceStatus.WEBSERVICE_DOWN) {
                     iconLabel.setVisible(false);
-                    labelFetch.setText(LocalizationSupport.message("MetadataDialog.ServiceDown"));
+                    labelFetch.setText(LocalizationSupport.message("Mr._dLib_web_service_is_temporarily_down._Please_try_again_later."));
                     blankButton.setVisible(showBlankButton);
                 }
                 if (webserviceStatus == SplWebClient.WebServiceStatus.NO_INTERNET) {
                     iconLabel.setVisible(false);
-                    labelFetch.setText(LocalizationSupport.message("MetadataDialog.NoInternet"));
+                    labelFetch.setText(LocalizationSupport.message("No_Internet_Connection."));
                     blankButton.setVisible(showBlankButton);
-                    JOptionPane.showMessageDialog(thisDialog, LocalizationSupport.message("MetadataDialog.NoInternetMessage"), LocalizationSupport.message("MetadataDialog.NoInternet"), JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(thisDialog, LocalizationSupport.message("You_are_not_connected_to_the_Internet._To_access_Mr._dLib_web_service_an_internet_connection_is_needed."), LocalizationSupport.message("No_Internet_Connection."), JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         };
@@ -203,9 +201,9 @@ public class MetaDataListDialog extends JDialog {
 
     private void createUIComponents() {
         this.tableModel = new MyTableModel();
-        this.tableModel.addColumn(LocalizationSupport.message("MetadataDialog.List.HeaderTitle"));
-        this.tableModel.addColumn(LocalizationSupport.message("MetadataDialog.List.HeaderAuthors"));
-        this.tableModel.addColumn(LocalizationSupport.message("MetadataDialog.List.HeaderPubYear"));
+        this.tableModel.addColumn(LocalizationSupport.message("Title"));
+        this.tableModel.addColumn(LocalizationSupport.message("Author(s)"));
+        this.tableModel.addColumn(LocalizationSupport.message("Published_Year"));
         this.tableMetadata = new JTable(this.tableModel);
     }
 
@@ -219,6 +217,15 @@ public class MetaDataListDialog extends JDialog {
 
     public JButton getBlankButton() {
         return blankButton;
+    }
+
+    private void setText() {
+        this.buttonOK.setText(LocalizationSupport.message("Ok"));
+        this.buttonCancel.setText(LocalizationSupport.message("Cancel"));
+        this.blankButton.setText(LocalizationSupport.message("Create_new_blank_entry"));
+        this.moreInformationButton.setText(LocalizationSupport.message("More_Information"));
+        this.panelMetadata.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), LocalizationSupport.message("Metadata")));
+        this.labelFetch.setText(LocalizationSupport.message("Fetching_Metadata..."));
     }
 
     /**
@@ -243,12 +250,12 @@ public class MetaDataListDialog extends JDialog {
         labelLogo.setIcon(new ImageIcon(getClass().getResource("/spl/gui/mrdlib header.png")));
         labelLogo.setText("");
         panel2.add(labelLogo, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel3 = new JPanel();
-        panel3.setLayout(new GridLayoutManager(2, 1, new Insets(5, 5, 10, 5), -1, -1));
-        panel1.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(600, 200), new Dimension(600, 200), null, 0, false));
-        panel3.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Metadata"));
+        panelMetadata = new JPanel();
+        panelMetadata.setLayout(new GridLayoutManager(2, 1, new Insets(5, 5, 10, 5), -1, -1));
+        panel1.add(panelMetadata, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(600, 200), new Dimension(600, 200), null, 0, false));
+        panelMetadata.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), null));
         scrollPane = new JScrollPane();
-        panel3.add(scrollPane, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        panelMetadata.add(scrollPane, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         scrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null));
         tableMetadata.setAutoCreateRowSorter(false);
         tableMetadata.setEnabled(true);
@@ -258,7 +265,7 @@ public class MetaDataListDialog extends JDialog {
         panelWait = new JPanel();
         panelWait.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         panelWait.setBackground(new Color(-1));
-        panel3.add(panelWait, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        panelMetadata.add(panelWait, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         panelWait.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null));
         iconLabel = new JLabel();
         iconLabel.setBackground(new Color(-1));
@@ -269,58 +276,31 @@ public class MetaDataListDialog extends JDialog {
         panelWait.add(iconLabel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         labelFetch = new JLabel();
         labelFetch.setFont(new Font(labelFetch.getFont().getName(), labelFetch.getFont().getStyle(), 13));
-        labelFetch.setText("Fetching Metadata...");
+        labelFetch.setText("");
         panelWait.add(labelFetch, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel4 = new JPanel();
-        panel4.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
-        panel1.add(panel4, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));
+        final JPanel panel3 = new JPanel();
+        panel3.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.add(panel3, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        panel4.add(spacer1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
-        final JPanel panel5 = new JPanel();
-        panel5.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 10, 10), -1, -1));
-        panel4.add(panel5, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        panel3.add(spacer1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        final JPanel panel4 = new JPanel();
+        panel4.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 10, 10), -1, -1));
+        panel3.add(panel4, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         buttonOK = new JButton();
-        this.$$$loadButtonText$$$(buttonOK, ResourceBundle.getBundle("JabRef").getString("Ok"));
-        panel5.add(buttonOK, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        buttonOK.setText("");
+        panel4.add(buttonOK, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         buttonCancel = new JButton();
-        this.$$$loadButtonText$$$(buttonCancel, ResourceBundle.getBundle("JabRef").getString("Cancel"));
-        panel5.add(buttonCancel, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        buttonCancel.setText("");
+        panel4.add(buttonCancel, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         blankButton = new JButton();
-        this.$$$loadButtonText$$$(blankButton, ResourceBundle.getBundle("spl/localization/spljabref").getString("ImportDialog.BlankEntry"));
-        panel5.add(blankButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        blankButton.setText("");
+        panel4.add(blankButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         moreInformationButton = new JButton();
-        this.$$$loadButtonText$$$(moreInformationButton, ResourceBundle.getBundle("spl/localization/spljabref").getString("MetadataDialog.MoreInfo"));
-        panel5.add(moreInformationButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        moreInformationButton.setText("");
+        panel4.add(moreInformationButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         panel1.add(spacer2, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         iconLabel.setLabelFor(scrollPane);
-    }
-
-    /**
-     * @noinspection ALL
-     */
-    private void $$$loadButtonText$$$(AbstractButton component, String text) {
-        StringBuffer result = new StringBuffer();
-        boolean haveMnemonic = false;
-        char mnemonic = '\0';
-        int mnemonicIndex = -1;
-        for (int i = 0; i < text.length(); i++) {
-            if (text.charAt(i) == '&') {
-                i++;
-                if (i == text.length()) break;
-                if (!haveMnemonic && text.charAt(i) != '&') {
-                    haveMnemonic = true;
-                    mnemonic = text.charAt(i);
-                    mnemonicIndex = result.length();
-                }
-            }
-            result.append(text.charAt(i));
-        }
-        component.setText(result.toString());
-        if (haveMnemonic) {
-            component.setMnemonic(mnemonic);
-            component.setDisplayedMnemonicIndex(mnemonicIndex);
-        }
     }
 
     /**

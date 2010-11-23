@@ -13,9 +13,9 @@ import java.util.ResourceBundle;
  */
 public class LocalizationSupport {
 
-    private static final ResourceBundle splmmBundle = ResourceBundle.getBundle("spl.localization.spljabref");
+    private static final ResourceBundle splmmBundle = ResourceBundle.getBundle("resource/JabRef");
 
-    public static String message(@PropertyKey(resourceBundle = "spl.localization.spljabref") String key){
+    public static String message(String key){
         String value = splmmBundle.getString(key);
         return value;
     }
