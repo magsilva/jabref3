@@ -1,4 +1,4 @@
-0.9:
+0.8.99 (beta):
  - Added function for citing with extra information such as page numbers, which is appended
    at the end of the citation marker (inside the end bracket).
  - Added citation manager that shows list of the citations in the current document in context,
