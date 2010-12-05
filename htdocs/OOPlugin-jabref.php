@@ -25,8 +25,22 @@
 
       <p>The plugin should work with OpenOffice versions 2.4.x and 3.x, provided it is installed with Java support (this is usually the case on Windows, while in some Linux distributions you need to install a separate package named <code>openoffice.org-java-common</code> or something similar).</p>
 
+      <h2>Downloads</h2>
+
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.jar">Plugin version 0.8</a></p>
+
+      <p><a href="plugins/JabRef-oo-0.8-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
+
+      <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
+
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.99.jar">Plugin BETA version</a></p>
+
+      <p>The plugin is distributed under the terms of the GNU <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">General Public License</a>, version 2 or later.</p>
+
       <h2>Updates</h2>
       <ul>
+    	<li>2010-10-26: Version 0.8.99 (beta): Formatting of citations is now done by naming a OpenOffice character format.
+    	  Allows addition of extra information e.g. page number, to citations. <b>Requires OpenOffice 3.x</b>.</li>
     	<li>2010-06-03: Version 0.8: Style file format now allows optional double quotes aroung property values.</li>
         <li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>
         <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
@@ -53,16 +67,6 @@
         <li>2007-12-04: Version 0.0.2</li>
         <li>2007-12-01: Version 0.0.1</li>
       </ul>
-
-      <h2>Downloads</h2>
-
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.jar">The plugin.</a></p>
-
-      <p><a href="plugins/JabRef-oo-0.8-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
-
-      <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
-
-      <p>The plugin is distributed under the terms of the GNU <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">General Public License</a>, version 2 or later.</p>
 
       <h2>Using the OpenOffice interface</h2>
 
@@ -115,10 +119,7 @@ UniquefierSeparator=","
 GroupedNumbersSeparator="-"
 MinimumGroupingCount="3"
 FormatCitations="false"
-ItalicCitations="false"
-BoldCitations="false"
-SuperscriptCitations="false"
-SubscriptCitations="false"
+CitationCharacterFormat="Default"
 MultiCiteChronological="false"
 
 LAYOUT
@@ -154,216 +155,200 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <p>The <b>PROPERTIES</b> section describes global properties for the bibliography.
         The following table describes the available properties:</p>
 
-			<table border="1" rules="none">
-			<tr>
+	<table border="1" rules="none">
+		<tr>
 			<td><b>Property</b></td>
 			<td><b>Type</b></td>
 			<td><b>Default value</b></td>
 			<td><b>Description</b></td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>IsNumberEntries</td>
 			<td>boolean</td>
 			<td><code>false</code></td>
 			<td>Determines the type of citations to use. If <code>true</code>, number citations will be
 			used. If <code>false</code>, author-year citations will be used.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>IsSortByPosition</td>
 			<td>boolean</td>
 			<td><code>false</code></td>
 			<td>Determines how the bibliography is sorted. If true, the entries
           will be sorted according to the order in which they are cited. If false, the entries will be
          sorted alphabetically by authors.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>ReferenceParagraphFormat</td>
 			<td>string</td>
 			<td><code>Default</code></td>
 			<td>Gives the name of the paragraph format to be used for the reference list. This format
 			must be defined in your OpenOffice document.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>ReferenceHeaderParagraphFormat</td>
 			<td>string</td>
 			<td><code>Heading 1</code></td>
 			<td>Gives the name of the paragraph format to be used for the headline of the reference list. 
 			This format must be defined in your OpenOffice document.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>Title</td>
 			<td>string</td>
 			<td><code>Bibliography</code></td>
 			<td>The text to enter as the headline of the reference list.</td>
-			</tr>
-			</table>
+		</tr>
+	</table>
 			
 			<h3>Citation properties</h3>
 
         <p>The <b>CITATION</b> section describes the format of the citation markers inserted into the text.</p>
-        
+
         <p>The following table gives a brief description of all the available citation properties. Properties that are not
-		  given in the style file will keep their default value.</p>
-		  
-		  <table border="1" rules="none">
-			<tr>
+	given in the style file will keep their default value.</p>
+
+	<table border="1" rules="none">
+		<tr>
 			<td><b>Property</b></td>
 			<td><b>Type</b></td>
 			<td><b>Default value</b></td>
 			<td><b>Description</b></td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>AuthorField</td>
 			<td>string</td>
 			<td><code>author/editor</code></td>
 			<td>BibTeX field containing author names. Can specify fallback field, e.g. <code>author/editor</code></td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>AuthorLastSeparator</td>
 			<td>string</td>
 			<td><code> &amp; </code></td>
 			<td>Text inserted between the two last author names.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>AuthorLastSeparatorInText</td>
 			<td>string</td>
 			<td>&nbsp;</td>
 			<td>If specified, this propery overrides <code>AuthorLastSeparator</code> for in-text citations such as
 			<code>Smith &amp; Jones (2001)</code>.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>AuthorSeparator</td>
 			<td>string</td>
 			<td><code>, </code></td>
 			<td>Text inserted between author names except the last two.</td>
-			</tr>
-			<tr>
-			<td>BoldCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be bold.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>BracketAfter</td>
 			<td>string</td>
 			<td><code>]</code></td>
 			<td>The closing bracket of citations.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>BracketAfterInList</td>
 			<td>string</td>
 			<td>]</td>
 			<td>The closing bracket for citation numbering in the reference list.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>BracketBefore</td>
 			<td>string</td>
 			<td><code>[</code></td>
 			<td>The opening bracket of citations</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>BracketBeforeInList</td>
 			<td>string</td>
 			<td>[</td>
 			<td>The opening bracket for citation numbering in the reference list.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
+			<td>CitationCharacterFormat</td>
+			<td>string</td>
+			<td><code>Default</code></td>
+			<td>If <code>FormatCitations</code> is set to <code>true</code>, the character format with the name
+			given by this property will be applied to citations. The character format must be defined in your
+			OpenOffice document.</td>
+		</tr>
+       		<tr>
 			<td>CitationSeparator</td>
 			<td>string</td>
 			<td><code>; </code></td>
-			<td>Text inserter between items when a citation contains multiple entries, e.g. <code>[Smith 2001; Jones 2002]</code></td>
-			</tr>
-			<tr>
+			<td>Text inserted between items when a citation contains multiple entries, e.g. <code>[Smith 2001; Jones 2002]</code></td>
+		</tr>
+		<tr>
 			<td>EtAlString</td>
 			<td>string</td>
 			<td><code> et al. </code></td>
 			<td>Text inserted after author names when not all authors are listed, e.g. <code>[Smith et al. 2001]</code></td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>FormatCitations</td>
 			<td>boolean</td>
 			<td><code>false</code></td>
-			<td>Determines whether formatting should be applied to citations. If true, formatting is controlled by
-			properties like <code>BoldCitations</code>, <code>ItalicCitations</code>, <code>SubscriptCitations</code> 
-			and <code>SuperscriptCitations</code>.</td>
-			</tr>
-			<tr>
+			<td>Determines whether formatting should be applied to citations. If true, a character format will be
+			applied to the citations. The property <code>CitationCharacterFormat</code> controls which format
+			should be applied, and the given format must be defined in your OpenOffice document. Any font settings
+			and effects can be chosen within OpenOffice for your chosen character format.</td>
+		</tr>
+		<tr>
 			<td>GroupedNumbersSeparator</td>
 			<td>string</td>
 			<td><code>-</code></td>
 			<td>Text inserted between numbers when numbered citations are grouped, e.g. <code>[4-6]</code></td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>InTextYearSeparator</td>
 			<td>string</td>
 			<td><code> </code></td>
 			<td>Text inserted between author names and starting bracket before year in in-text citations.</td>
-			</tr>
-			<tr>
-			<td>ItalicCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be in italics.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>MaxAuthors</td>
 			<td>integer</td>
 			<td><code>3</code></td>
 			<td>The maximum number of authors to list in a citation that has appeared earlier in the document.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>MaxAuthorsFirst</td>
 			<td>integer</td>
 			<td><code>3</code></td>
 			<td>The maximum number of authors to list in a citation when appearing for the first time.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>MinimumGroupingCount</td>
 			<td>integer</td>
 			<td><code>3</code></td>
-			<td>The minimum number of consecutive entries a citation should contain before the numbers are grouped, 
+			<td>The minimum number of consecutive entries a citation should contain before the numbers are grouped,
 			e.g. <code>[4-6]</code> vs. <code>[4; 5; 6]</code>.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>MultiCiteChronological</td>
 			<td>boolean</td>
 			<td><code>true</code></td>
 			<td>If <code>true</code>, multiple entries in the same citation are sorted chronologically, otherwise
 			they are sorted alphabetically.</td>
-			</tr>
-			<tr>
-			<td>SubscriptCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be in subscript.</td>
-			</tr>
-			<tr>
-			<td>SuperscriptCitations</td>
-			<td>boolean</td>
-			<td><code>false</code></td>
-			<td>If <code>FormatCitations</code> is on, controls whether citations should be in superscript.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>UniquefierSeparator</td>
 			<td>string</td>
 			<td><code>, </code></td>
 			<td>Text inserted between letters used to differentiate citations with similar authors and year. E.g.
 			the text between <code>a</code> and <code>b</code> in <code>[Smith 2001a, b]</code>.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>YearField</td>
 			<td>string</td>
 			<td><code>year</code></td>
 			<td>The BibTeX field to get publication year from.</td>
-			</tr>
-			<tr>
+		</tr>
+		<tr>
 			<td>YearSeparator</td>
 			<td>string</td>
 			<td><code> </code></td>
 			<td>Text inserted between author names and year in parenthesis citations such as <code>[Smith 2001]</code>.</td>
-			</tr>
-			
-			</table>
+		</tr>
+	</table>
 
         <p>If numbered entries are used, the <code>BracketBefore</code> and <code>BracketAfter</code> properties
         are the most important - they define which characters the citation number is wrapped in. The citation is composed
