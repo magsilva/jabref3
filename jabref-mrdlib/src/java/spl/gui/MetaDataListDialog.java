@@ -6,6 +6,7 @@ import com.intellij.uiDesigner.core.Spacer;
 import org.sciplore.xml.XmlDocuments;
 import spl.DocumentsWrapper;
 import spl.SplWebClient;
+import spl.Tools;
 import spl.listener.LabelLinkListener;
 import spl.localization.LocalizationSupport;
 
@@ -103,17 +104,7 @@ public class MetaDataListDialog extends JDialog {
     }
 
     private void onInfo() {
-        Desktop desktop = Desktop.getDesktop();
-        try {
-            URI uri = new URI("www.mr-dlib.org/docs/pdf_metadata_extraction.php");
-            desktop.browse(uri);
-        } catch (MalformedURLException e1) {
-            //Todo logging
-        } catch (IOException e1) {
-            //Todo logging
-        } catch (URISyntaxException e1) {
-            //Todo logging
-        }
+        Tools.openURL("www.mr-dlib.org/docs/pdf_metadata_extraction.php");
     }
 
     private void onBlank() {

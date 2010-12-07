@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
 	<exclude-output/>
-	<contentEntry url="file://$MODULE_DIR$">
-		<excludeFolder url="file://$MODULE_DIR$/bin"/>
-		<excludeFolder url="file://$MODULE_DIR$/bin"/>
-	</contentEntry>
+	<contentEntry url="file://$MODULE_DIR$"/>
 	<lib name="commons-logging.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/plugin/commons-logging.jar!/"/>
 	</lib>
@@ -33,6 +30,7 @@
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/plugin/jpf-boot.jar!/"/>
 	</lib>
 	<lib name="JPFCodeGenerator-rt.jar" scope="COMPILE">
+		<srcroot url="file:///JPFCodeGenerator/src"/>
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/plugin/JPFCodeGenerator-rt.jar!/"/>
 	</lib>
 	<lib name="glazedlists-1.7.0_java15.jar" scope="COMPILE">

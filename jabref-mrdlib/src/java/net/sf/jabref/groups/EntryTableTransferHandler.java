@@ -55,6 +55,7 @@ import net.sf.jabref.imports.OpenDatabaseAction;
 import net.sf.jabref.imports.ParserResult;
 import net.sf.jabref.net.URLDownload;
 import spl.PdfImporter;
+import spl.Tools;
 
 public class EntryTableTransferHandler extends TransferHandler {
 
@@ -150,24 +151,34 @@ public class EntryTableTransferHandler extends TransferHandler {
             // Done by MrDlib
             if(t.isDataFlavorSupported(MindMapNodesSelection.mindMapNodesFlavor)){
                 String xml = (String)t.getTransferData(MindMapNodesSelection.mindMapNodesFlavor);
+                URL mindmapURL = null;
+                if(t.isDataFlavorSupported(MindMapNodesSelection.mindmapUrlFlavor)){
+                    mindmapURL = (URL)t.getTransferData(MindMapNodesSelection.mindmapUrlFlavor);
+                }
                 List<File> files = new ArrayList<File>();
                 String[] xmlNodes = xml.split("<nodeseparator>");
                 for(String xmlNode : xmlNodes){
                     XMLElement element = new XMLElement();
                     element.parseString(xmlNode);
                     String link = element.getStringAttribute("Link");
-                    File file = new File(link);
+                    String absoluteLink = Tools.getLink(link, mindmapURL);
+                    if(absoluteLink == null) continue;
+                    File file = new File(absoluteLink);
                     if(file.exists()){
                         files.add(file);
                     }
                     else{
-                        URL url = new URL(link);
                         try {
+                            URL url = new URL(absoluteLink);
                             file = new File(url.toURI());
                             if(file.exists()){
                                 files.add(file);
                             }
                         } catch (URISyntaxException e) {
+                            // Todo logging
+                        } catch(IllegalArgumentException e){
+                            // Todo logging
+                        } catch(MalformedURLException e){
                             // Todo logging
                         }
                     }

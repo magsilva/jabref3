@@ -1,6 +1,7 @@
 package spl.listener;
 
 
+import spl.Tools;
 import splmm.Localization.LocalizationSupport;
 
 import javax.swing.*;
@@ -30,17 +31,7 @@ public class LabelLinkListener implements MouseListener {
         }
 
         public void mousePressed(MouseEvent e) {
-            Desktop desktop = Desktop.getDesktop();
-            try {
-                URI uri = new URI(link);
-                desktop.browse(uri);
-            } catch (MalformedURLException e1) {
-                //Todo logging
-            } catch (IOException e1) {
-                //Todo logging
-            } catch (URISyntaxException e1) {
-                //Todo logging
-            }
+            Tools.openURL(link);
         }
 
         public void mouseReleased(MouseEvent e) {
