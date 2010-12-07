@@ -173,6 +173,30 @@
       The export filter requires definition of two name formatters - please read the included README file.</p>
       <p><a href="exportfilters/Edward_Elgar_export_filters_v1.0.zip">Download Edward Elgar export filters</a></p>
 
+      <h2 id="endnote_filters">Endnote filter set</h2>
+
+      <p>The default EndNote Import filter does not properly parse authors. The
+      EndNote <b>Import from JabRef</b> filter does. Additionally, this filter will
+      recognize a field endnotereftype that will override the default
+      mapping. To install the filter, download and extract the file
+      <a href="EndNote.zip">EndNote.zip</a>. Then follow the directions in the file Readme.txt.</p>
+
+      <h3 id="Modifying EndNote Reference Types">Modifying EndNote Reference Types</h3>
+      <p>Several fields used by BibTeX are not part of EndNote's default
+      Reference Types. While import from JabRef and export to JabRef will
+      work fine without modifying reference types, the field names will not
+      display correctly in EndNote (e.g. an entry window will call the pdf
+      field Custom 1 instead of pdf. Additionally, these fields cannot be
+      added to new entries in EndNote, since they will not appear in the
+      entry window. To modify the EndNote Reference Types, extract
+      EndNote.zip and follow the directions in the file readme.txt.</p>
+
+      <h3 id="Export to JabRef">Export to JabRef</h3>
+      <p>EndNote comes with an export style BibTeX. However, this does not
+      support all BibTeX types and fields, and does not support the
+      additional General Fields supported by JabRef (pdf, owner, key, etc.)
+      If you wish to have these fields supported, extract EndNote.zip and
+      follow the directions in the file readme.txt.</p>
 
       <h2 id="abbrev_lists"><acronym>JabRef</acronym> journal abbreviation lists</h2>
 
