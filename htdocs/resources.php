@@ -179,9 +179,9 @@
       EndNote <b>Import from JabRef</b> filter does. Additionally, this filter will
       recognize a field endnotereftype that will override the default
       mapping. To install the filter, download and extract the file
-      <a href="EndNote.zip">EndNote.zip</a>. Then follow the directions in the file Readme.txt.</p>
+      <a href="plugins/EndNote.zip">EndNote.zip</a>. Then follow the directions in the file Readme.txt.</p>
 
-      <h3 id="Modifying EndNote Reference Types">Modifying EndNote Reference Types</h3>
+      <h3 id="Modifying_EndNote_Reference_Types">Modifying EndNote Reference Types</h3>
       <p>Several fields used by BibTeX are not part of EndNote's default
       Reference Types. While import from JabRef and export to JabRef will
       work fine without modifying reference types, the field names will not
@@ -191,7 +191,7 @@
       entry window. To modify the EndNote Reference Types, extract
       EndNote.zip and follow the directions in the file readme.txt.</p>
 
-      <h3 id="Export to JabRef">Export to JabRef</h3>
+      <h3 id="Export_to_JabRef">Export to JabRef</h3>
       <p>EndNote comes with an export style BibTeX. However, this does not
       support all BibTeX types and fields, and does not support the
       additional General Fields supported by JabRef (pdf, owner, key, etc.)
