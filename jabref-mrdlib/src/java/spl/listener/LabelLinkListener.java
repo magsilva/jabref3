@@ -1,6 +1,8 @@
 package spl.listener;
 
 
+import net.sf.jabref.MetaData;
+import net.sf.jabref.Util;
 import spl.Tools;
 import splmm.Localization.LocalizationSupport;
 
@@ -31,7 +33,11 @@ public class LabelLinkListener implements MouseListener {
         }
 
         public void mousePressed(MouseEvent e) {
-            Tools.openURL(link);
+            try {
+                Util.openExternalViewer(new MetaData(), "http://www.mr-dlib.org/docs/jabref_metadata_extraction_alpha.php", "url");
+            } catch (IOException exc) {
+                exc.printStackTrace();
+            }
         }
 
         public void mouseReleased(MouseEvent e) {

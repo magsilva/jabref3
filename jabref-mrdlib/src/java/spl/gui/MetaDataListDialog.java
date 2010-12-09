@@ -3,6 +3,8 @@ package spl.gui;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import net.sf.jabref.MetaData;
+import net.sf.jabref.Util;
 import org.sciplore.xml.XmlDocuments;
 import spl.DocumentsWrapper;
 import spl.SplWebClient;
@@ -99,12 +101,16 @@ public class MetaDataListDialog extends JDialog {
 
         this.scrollPane.setVisible(false);
         this.blankButton.setVisible(false);
-        this.moreInformationButton.setVisible(false);
+        this.moreInformationButton.setVisible(true);
         this.setSize(616, 366);
     }
 
     private void onInfo() {
-        Tools.openURL("www.mr-dlib.org/docs/pdf_metadata_extraction.php");
+        try {
+            Util.openExternalViewer(new MetaData(), "http://www.mr-dlib.org/docs/jabref_metadata_extraction_alpha.php", "url");
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
     }
 
     private void onBlank() {
