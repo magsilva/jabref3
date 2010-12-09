@@ -111,39 +111,5 @@ public class Tools {
             return link;
         }
         return link;
-    }
-
-    public static void openURL(String link){
-        ExternalFileType fileType = Globals.prefs.getExternalFileTypeByExt("html");
-        try{
-            if (Globals.ON_MAC) {
-
-                String[] cmd = ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0)) ?
-                        new String[] { "/usr/bin/open", "-a", fileType.getOpenWith(), link } :
-                        new String[] { "/usr/bin/open", link };
-                Runtime.getRuntime().exec(cmd);
-            } else if (Globals.ON_WIN) {
-
-                if ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0)) {
-                    // Application is specified. Use it:
-                    Util.openFileWithApplicationOnWindows(link, fileType.getOpenWith());
-                } else
-                    Util.openFileOnWindows(link, true);
-            } else {
-                // Use the given app if specified, and the universal "xdg-open" otherwise:
-                String[] openWith;
-                if ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0))
-                    openWith = fileType.getOpenWith().split(" ");
-                else
-                    openWith = new String[] {"xdg-open"};
-
-                String[] cmd = new String[openWith.length+1];
-                System.arraycopy(openWith, 0, cmd, 0, openWith.length);
-                cmd[cmd.length-1] = link;
-                Runtime.getRuntime().exec(cmd);
-            }
-        } catch(IOException e){
-
-        }
-    }
+    }    
 }

@@ -146,7 +146,7 @@ public class PdfImporter {
                             insertFields(entry.getRequiredFields(), entry, document);
                             insertFields(entry.getGeneralFields(), entry, document);
                             insertFields(entry.getOptionalFields(), entry, document);
-                            panel.database().insertEntry(entry);
+
                             DroppedFileHandler dfh = new DroppedFileHandler(frame, panel);
                             dfh.linkPdfToEntry(fileName, entryTable, dropRow);
                         }
@@ -175,6 +175,9 @@ public class PdfImporter {
     private void insertFields(String[] fields, BibtexEntry entry, XmlDocument xmlDocument) {
         DocumentWrapper document = new DocumentWrapper(xmlDocument);
         for(String field : fields){
+            if(entry.getField(field) != null){
+                continue;
+            }
             if(field.equalsIgnoreCase("author")){
                 entry.setField(field, document.getAuthors("and"));
             }
