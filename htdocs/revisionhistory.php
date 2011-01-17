@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+	<li class="single_item"><a href="#v2.7b">2.7b</a></li>
 	<li class="single_item"><a href="#v2.6">2.6</a></li>
 	<li class="single_item"><a href="#v2.6b3">2.6b3</a></li>
 	<li class="single_item"><a href="#v2.6b2">2.6b2</a></li>
@@ -70,6 +71,41 @@
       <h2>Revision history</h2>
 
       <div class="aversion" id="v2.6">
+
+	  <h3>Version 2.7beta (January 16th, 2011)</h3>
+          <div class="version_desc">
+	    <ul>
+		<li>Some improvements to MS Office export filter.</li>
+		<li>Introduced three choices for ensuring unique generated keys. The default one (marking
+	      	with a, b, etc.), a modified one (marking with b, c, etc.) and always adding a letter
+	      	(a, b, etc.).</li>
+		<li>Font and background colors are now customizable in the entry editor (Options ->
+	      	Preferences -> Appearance).</li>
+		<li>Window title now includes the full path to the current file.</li>
+		<li>Entries can now be marked in a series of different colors. Automarking of imported
+		entries is now done in separate color without affecting other marked entries.</li>
+		<li>Added new feature (Tools -> Scan database... -> Resolve duplicate BibTeX keys) to
+		search for duplicate keys and offer to generate new keys to resolve the duplicates.
+		Instead of being listed in a warning dialog after opening a bib file, duplicate keys
+		now trigger a dialog asking whether the user wants to resolve the duplicates.</li>
+		<li>Added check that ensures that application doesn't quit while a large save operation
+		is still in progress. Shows wait message with cancel button.</li>
+		<li>Added apostrophe (') as illegal character in BibTeX keys.</li>
+		<li>BibTeX strings that refer each other are now sorted correctly when saving bib file.</li>
+		<li>Fixed bug in merging external changes - file would still be reported as modified
+		externally after merging changes.</li>
+		<li>Fixed bug in Move/rename file link feature that could cause the wrong link to be
+		stored for certain directory structures.</li>
+		<li>Fixed bug: curly braces can now be used in arguments to formatters. </li>
+		<li>Fixed lockup bug when generating key for entries with crossref fields.</li>
+		<li>BibTeX strings are now resolved before attempting to (un)abbreviate journal names.</li>
+		<li>Modified [shorttitle] and [veryshorttitle] key generator markers so they consider
+		a hyphen a word boundary, and remove punctuation characters (keep only numbers and
+		letters).</li>
+            </ul>
+          </div>
+        </div>
+
         <h3>Version 2.6 (April 4th, 2010)</h3>
 
         <div class="version_desc">
