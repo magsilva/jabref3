@@ -107,6 +107,7 @@ public class OOBibStyle implements Comparable {
         citProperties.put("SuperscriptCitations", Boolean.FALSE);
         citProperties.put("SubscriptCitations", Boolean.FALSE);
         citProperties.put("MultiCiteChronological", Boolean.TRUE);
+        citProperties.put("BibtexKeyCitations", Boolean.FALSE);
 
         initialize(in);
 
@@ -805,6 +806,10 @@ public class OOBibStyle implements Comparable {
         return (Boolean)citProperties.get("FormatCitations");
     }
 
+    public boolean isBibtexKeyCiteMarkers() {
+        return (Boolean)citProperties.get("BibtexKeyCitations");
+    }
+    
     /**
      * Get boolean property.
      * @param key The property key

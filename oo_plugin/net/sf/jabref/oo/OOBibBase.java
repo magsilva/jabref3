@@ -452,7 +452,18 @@ public class OOBibBase {
 
                 String[] normCitMarker = new String[keys.length];
                 String citationMarker;
-                if (style.isNumberEntries()) {
+                if (style.isBibtexKeyCiteMarkers()) {
+                    StringBuilder sb = new StringBuilder();
+                    normCitMarkers[i] = new String[keys.length];
+                    for (int j=0; j<keys.length; j++) {
+                        normCitMarkers[i][j] = cEntries[j].getCiteKey();
+                        sb.append(cEntries[j].getCiteKey());
+                        if (j < keys.length-1)
+                            sb.append(",");
+                    }
+                    citationMarker = sb.toString();
+                }
+                else if (style.isNumberEntries()) {
                     if (style.isSortByPosition()) {
                         // We have sorted the citation markers according to their order of appearance,
                         // so we simply count up for each marker referring to a new entry:
@@ -522,7 +533,7 @@ public class OOBibBase {
         }
 
         uniquefiers.clear();
-        if (!style.isNumberEntries()) {
+        if (!style.isBibtexKeyCiteMarkers() && !style.isNumberEntries()) {
             // See if there are duplicate citations marks referring to different entries. If so, we need to
             // use uniquefiers:
             HashMap<String,List<String>> refKeys = new HashMap<String, List<String>>();
@@ -773,6 +784,7 @@ public class OOBibBase {
         List<BibtexEntry> entries = findCitedEntries(database, cited);
         
         String[] names = sortedReferenceMarks;
+        
         if (style.isSortByPosition()) {
             // We need to sort the entries according to their order of appearance:
            entries = getSortedEntriesFromSortedRefMarks(names, database, entries);
@@ -780,7 +792,6 @@ public class OOBibBase {
         else {
             Collections.sort(entries, entryComparator);
         }
-        
         clearBibTextSectionContent();
         populateBibTextSection(database, entries, style);
     }

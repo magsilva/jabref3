@@ -13,6 +13,7 @@ ReferenceParagraphFormat="Text body"
 ReferenceHeaderParagraphFormat="Heading 2"
 
 CITATION
+BibtexKeyCitations=false
 AuthorField="author/editor"
 YearField="year"
 MaxAuthors="2"
