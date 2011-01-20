@@ -792,7 +792,7 @@ public class OOBibBase {
         else {
             Collections.sort(entries, entryComparator);
         }
-        clearBibTextSectionContent();
+        clearBibTextSectionContent2();
         populateBibTextSection(database, entries, style);
     }
 
@@ -1038,14 +1038,54 @@ public class OOBibBase {
         return false;
     }
 
+    public void createBibTextSection2(boolean end) throws Exception {
+
+        XTextCursor mxDocCursor = text.createTextCursor();
+        if (end)
+            mxDocCursor.gotoEnd(false);
+        OOUtil.insertParagraphBreak(text, mxDocCursor);
+        // Create a new TextSection from the document factory and access it's XNamed interface
+        XNamed xChildNamed = UnoRuntime.queryInterface(
+          XNamed.class, mxDocFactory.createInstance("com.sun.star.text.TextSection"));
+        // Set the new sections name to 'Child_Section'
+        xChildNamed.setName(BIB_SECTION_NAME);
+        // Access the Child_Section's XTextContent interface and insert it into the document
+         XTextContent xChildSection = (XTextContent) UnoRuntime.queryInterface(
+             XTextContent.class, xChildNamed);
+         text.insertTextContent (mxDocCursor, xChildSection, false);
+        
+    }
+
+    public void clearBibTextSectionContent2() throws Exception {
+
+        // Check if the section exists:
+        boolean exists = false;
+        XTextSectionsSupplier supp = UnoRuntime.queryInterface(
+                XTextSectionsSupplier.class, mxDoc);
+        if (!supp.getTextSections().hasByName(BIB_SECTION_NAME)) {
+            createBibTextSection2(atEnd);
+        }
+        else {
+            // Clear it:
+            XTextSection section = (XTextSection)((Any)supp.getTextSections().getByName(BIB_SECTION_NAME))
+                    .getObject();
+            XTextCursor cursor = text.createTextCursorByRange(section.getAnchor());
+            cursor.gotoRange(section.getAnchor(), false);
+            cursor.setString("");
+        }
+    }
+
     public void clearBibTextSectionContent() throws Exception {
         // Get a range comparator:
         XTextRangeCompare compare = (XTextRangeCompare) UnoRuntime.queryInterface
                 (XTextRangeCompare.class, text);
         // Find the bookmarks for the bibliography:
         XTextRange range = getBookmarkRange(BIB_SECTION_NAME);
-        if (range == null)
+        if (range == null) {
             createBibTextSection(atEnd);
+        }
+
+
         XTextRange rangeEnd = getBookmarkRange(BIB_SECTION_END_NAME);
         if (rangeEnd == null) {
             // No end bookmark. This means that there is no bibliography.
@@ -1071,8 +1111,10 @@ public class OOBibBase {
     public void populateBibTextSection(BibtexDatabase database, List<BibtexEntry> entries,
                                        OOBibStyle style)
             throws UndefinedParagraphFormatException, Exception {
-        XTextRange range = getBookmarkRange(BIB_SECTION_NAME);
-        XTextCursor cursor = text.createTextCursorByRange(range.getEnd());
+        XTextSectionsSupplier supp = UnoRuntime.queryInterface(XTextSectionsSupplier.class, mxDoc);
+        XTextSection section = (XTextSection)((Any)supp.getTextSections().getByName(BIB_SECTION_NAME))
+                    .getObject();
+        XTextCursor cursor = text.createTextCursorByRange(section.getAnchor());
         OOUtil.insertTextAtCurrentLocation(text, cursor, (String)style.getProperty("Title"),
                 (String)style.getProperty("ReferenceHeaderParagraphFormat"));
         insertFullReferenceAtCursor(cursor, database, entries, style,

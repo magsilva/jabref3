@@ -1,3 +1,6 @@
+ - Reference list is now stored in a text section called "JR_bib" instead of being delimited
+   by bookmarks. This makes it easier to control location of reference list and makes handling
+   of the list more stable.
 0.8.99 (beta):
  - Added function for citing with extra information such as page numbers, which is appended
    at the end of the citation marker (inside the end bracket).
