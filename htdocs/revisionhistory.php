@@ -102,6 +102,8 @@
 		<li>Modified [shorttitle] and [veryshorttitle] key generator markers so they consider
 		a hyphen a word boundary, and remove punctuation characters (keep only numbers and
 		letters).</li>
+		<li>deprecate various export formatters with new Authors formatter, which provides
+		flexible formatting options.</li>
             </ul>
           </div>
         </div>

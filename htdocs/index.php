@@ -27,9 +27,13 @@
       <h3 id="News">News</h3>
 
       <ul class="history_column">
+	<li class="item">January 16th, 2011</li>
+	<li class="item_desc">Version 2.7beta1</li>      
+      
 	<li class="item">April 4th, 2010</li>
 	<li class="item_desc">Version 2.6</li>
 
+<!--
 	<li class="item">March 7th, 2010</li>
 	<li class="item_desc">Version 2.6beta3</li>
 
@@ -38,16 +42,16 @@
 
 	<li class="item">September 29th, 2009</li>
 	<li class="item_desc">Version 2.6beta</li>
-
+-->
 	<li class="item">June 22th, 2009</li>
 	<li class="item_desc">Version 2.5</li>
-
+<!--
 	<li class="item">May 19th, 2009</li>
 	<li class="item_desc">Version 2.5beta2</li>
 
 	<li class="item">April 21st, 2009</li>
 	<li class="item_desc">Version 2.5beta</li>
-
+-->
 	<li class="item">November 1st, 2008</li>
 	<li class="item_desc">Version 2.4.2</li>
 
@@ -56,16 +60,16 @@
 
 	<li class="item">September 1st, 2008</li>
 	<li class="item_desc">Version 2.4</li>
-
+<!--
 	<li class="item">March 12th, 2008</li>
 	<li class="item_desc">Version 2.4beta</li>
-
+-->
 	<li class="item">November 29th, 2007</li>
 	<li class="item_desc">Version 2.3.1</li>
 
 	<li class="item">November 8th, 2007</li>
 	<li class="item_desc">Version 2.3</li>
-
+<!--
 	<li class="item">October 6th, 2007</li>
 	<li class="item_desc">Version 2.3beta3</li>
 
@@ -74,19 +78,19 @@
 
 	<li class="item">June 28th, 2007</li>
 	<li class="item_desc">Version 2.3beta</li>
-
+-->
 	<li class="item">January 30th, 2007</li>
 	<li class="item_desc">Version 2.2</li>
-
+<!--
 	<li class="item">November 26th, 2006</li>
 	<li class="item_desc">Version 2.2beta2</li>
 
 	<li class="item">October 13th, 2006</li>
 	<li class="item_desc">Version 2.2beta</li>
-
+-->
 	<li class="item">August 9th, 2006</li>
 	<li class="item_desc">Version 2.1</li>
-
+<!--
 	<li class="item">June 29th, 2006</li>
 	<li class="item_desc">Version 2.1beta2</li>
 
@@ -95,10 +99,10 @@
 
 	<li class="item">February 2nd, 2006</li>
 	<li class="item_desc">Version 2.0.1</li>
-
+-->
 	<li class="item">January 30th, 2006</li>
 	<li class="item_desc">Version 2.0</li>
-
+<!--
 	<li class="item">January 15th, 2006</li>
 	<li class="item_desc">Version 2.0beta2</li>
 
@@ -115,7 +119,7 @@
 	<li class="item_desc">Version 1.8beta2</li>
 
 	<li class="item">June 6th, 2005</li>
-	<li class="item_desc">Version 1.8beta</li>
+	<li class="item_desc">Version 1.8beta</li> -->
       </ul>
     </div>
 
