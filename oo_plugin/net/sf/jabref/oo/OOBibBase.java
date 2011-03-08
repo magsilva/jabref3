@@ -8,6 +8,7 @@ import com.sun.star.beans.PropertyValue;
 import com.sun.star.beans.XPropertySetInfo;
 import com.sun.star.comp.helper.Bootstrap;
 import com.sun.star.container.*;
+import com.sun.star.container.NoSuchElementException;
 import com.sun.star.document.XDocumentProperties;
 import com.sun.star.document.XDocumentPropertiesSupplier;
 import com.sun.star.frame.*;
@@ -1062,16 +1063,15 @@ public class OOBibBase {
         boolean exists = false;
         XTextSectionsSupplier supp = UnoRuntime.queryInterface(
                 XTextSectionsSupplier.class, mxDoc);
-        if (!supp.getTextSections().hasByName(BIB_SECTION_NAME)) {
-            createBibTextSection2(atEnd);
-        }
-        else {
+        try {
+            XTextSection section = (XTextSection)((Any)supp.getTextSections().getByName(BIB_SECTION_NAME)).getObject();
             // Clear it:
-            XTextSection section = (XTextSection)((Any)supp.getTextSections().getByName(BIB_SECTION_NAME))
-                    .getObject();
             XTextCursor cursor = text.createTextCursorByRange(section.getAnchor());
             cursor.gotoRange(section.getAnchor(), false);
             cursor.setString("");
+
+        } catch (NoSuchElementException ex) {
+            createBibTextSection2(atEnd);
         }
     }
 
