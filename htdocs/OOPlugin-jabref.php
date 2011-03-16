@@ -31,6 +31,8 @@
 
       <p><a href="plugins/JabRef-oo-0.8-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
 
+      <p><a href="OOPlugin-styles.php">User contributed style files</a></p>
+
       <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
 
       <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.999.jar">Plugin BETA version</a></p>
