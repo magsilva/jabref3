@@ -55,7 +55,6 @@ public class MetaDataListDialog extends JDialog {
 
     public MetaDataListDialog(String fileName, boolean showBlankButton) {
         $$$setupUI$$$();
-        this.setText();
         this.showBlankButton = showBlankButton;
         this.thisDialog = this;
         this.fileName = fileName;
@@ -223,16 +222,6 @@ public class MetaDataListDialog extends JDialog {
         return blankButton;
     }
 
-    private void setText() {
-        this.buttonOK.setText(LocalizationSupport.message("Ok"));
-        this.buttonCancel.setText(LocalizationSupport.message("Cancel"));
-        this.blankButton.setText(LocalizationSupport.message("Create_new_blank_entry"));
-        this.moreInformationButton.setText(LocalizationSupport.message("More_Information"));
-        this.panelMetadata.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), LocalizationSupport.message("Metadata")));
-        this.labelFetch.setText(LocalizationSupport.message("Fetching_Metadata..."));
-    }
-
-
     private void $$$setupUI$$$() {
         createUIComponents();
         contentPane = new JPanel();
@@ -255,7 +244,7 @@ public class MetaDataListDialog extends JDialog {
         scrollPane.setViewportView(tableMetadata);
         panelMetadata.add(scrollPane, "scrollPane");
         panelWait = new JPanel();
-        //panelWait.setLayout(new BorderLayout());
+        panelWait.setLayout(new BorderLayout());
         panelWait.setBackground(new Color(-1));
         panelMetadata.add(panelWait, "panelWait");
         panelWait.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLoweredBevelBorder(), null));
@@ -265,13 +254,15 @@ public class MetaDataListDialog extends JDialog {
         iconLabel.setHorizontalTextPosition(11);
         iconLabel.setIcon(new ImageIcon(getClass().getResource("/spl/gui/ajax-loader.gif")));
         iconLabel.setText("");
-        panelWait.add(iconLabel);
+        panelWait.add(iconLabel, BorderLayout.CENTER);
         labelFetch = new JLabel();
+        labelFetch.setHorizontalAlignment(JLabel.CENTER);
         labelFetch.setFont(new Font(labelFetch.getFont().getName(), labelFetch.getFont().getStyle(), 13));
-        labelFetch.setText("");
-        panelWait.add(labelFetch);
+        labelFetch.setText(Globals.lang("Fetching Metadata..."));
+        panelWait.add(labelFetch, BorderLayout.SOUTH);
 
         cardLayou.show(panelMetadata, "panelWait");
+        panelMetadata.setPreferredSize(new Dimension(400, 200));
         contentPane.add(panelMetadata, BorderLayout.CENTER);
 
         buttonOK = new JButton(Globals.lang("Ok"));

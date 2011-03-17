@@ -1,8 +1,6 @@
 package spl.localization;
 
-import org.jetbrains.annotations.PropertyKey;
-
-import java.util.ResourceBundle;
+import net.sf.jabref.Globals;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,11 +11,9 @@ import java.util.ResourceBundle;
  */
 public class LocalizationSupport {
 
-    private static final ResourceBundle splmmBundle = ResourceBundle.getBundle("resource/JabRef");
 
     public static String message(String key){
-        String value = splmmBundle.getString(key);
-        return value;
+        return Globals.lang(key);
     }
 
 }
