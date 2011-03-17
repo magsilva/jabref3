@@ -1,8 +1,9 @@
 package spl.gui;
 
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
+import com.jgoodies.forms.builder.ButtonBarBuilder;
+import com.jgoodies.forms.builder.DefaultFormBuilder;
+import com.jgoodies.forms.layout.FormLayout;
+import net.sf.jabref.Globals;
 import spl.listener.LabelLinkListener;
 import spl.localization.LocalizationSupport;
 
@@ -35,8 +36,57 @@ public class ImportDialog extends JDialog {
 
     public ImportDialog(int dropRow, String fileName) {
         this.dropRow = dropRow;
-        $$$setupUI$$$();
-        this.setText();
+        contentPane = new JPanel();
+        contentPane.setLayout(new BorderLayout());
+        setContentPane(contentPane);
+        JPanel panel3 = new JPanel();
+        panel3.setBackground(new Color(-1643275));
+        labelHeadline = new JLabel(Globals.lang("Import_Metadata_from:"));
+        labelHeadline.setFont(new Font(labelHeadline.getFont().getName(), Font.BOLD, 14));
+        labelSubHeadline = new JLabel(Globals.lang("Choose_the_source_for_the_metadata_import"));
+        labelSubHeadline.setFont(new Font(labelSubHeadline.getFont().getName(), labelSubHeadline.getFont().getStyle(), 13));
+        GridLayout gl = new GridLayout(2,1);
+        gl.setVgap(10);
+        gl.setHgap(10);
+        panel3.setLayout(gl);
+        panel3.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        panel3.add(labelHeadline);
+        panel3.add(labelSubHeadline);
+        radioButtonNoMeta = new JRadioButton(Globals.lang("Create_blank_entry_linking_the_PDF"));
+        radioButtonXmp = new JRadioButton(Globals.lang("Create_entry_based_on_XMP_data"));
+        radioButtonMrDlib = new JRadioButton(Globals.lang("Create_entry_based_on_data_fetched_from"));
+        radioButtononlyAttachPDF = new JRadioButton(Globals.lang("Only_attach_PDF"));
+        radioButtonUpdateEmptyFields = new JRadioButton(Globals.lang("Update_empty_fields_with_data_fetched_from"));
+        labelMrDlib1 = new JLabel("Mr._dLib");
+        labelMrDlib1.setFont(new Font(labelMrDlib1.getFont().getName(), Font.BOLD, 13));
+        labelMrDlib1.setForeground(new Color(-16776961));
+        labelMrDlib2 = new JLabel("Mr._dLib");
+        labelFileName = new JLabel();
+        buttonOK = new JButton(Globals.lang("Ok"));
+        buttonCancel = new JButton(Globals.lang("Cancel"));
+        DefaultFormBuilder b = new DefaultFormBuilder(new FormLayout("left:pref, 4dlu, left:pref",""));
+        b.appendSeparator(Globals.lang("Create New Entry"));
+        b.append(radioButtonNoMeta, 3);
+        b.append(radioButtonXmp, 3);
+        b.append(radioButtonMrDlib);
+        b.append(labelMrDlib2);
+        b.appendSeparator(Globals.lang("Update_Existing_Entry"));
+        b.append(radioButtononlyAttachPDF, 3);
+        b.append(radioButtonUpdateEmptyFields, 3);
+        b.getPanel().setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+        ButtonBarBuilder bb = new ButtonBarBuilder();
+        bb.addGlue();
+        bb.addGridded(buttonOK);
+        bb.addGridded(buttonCancel);
+        bb.addGlue();
+        bb.getPanel().setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+        
+        contentPane.add(panel3, BorderLayout.NORTH);
+        contentPane.add(b.getPanel(), BorderLayout.CENTER);
+        contentPane.add(bb.getPanel(), BorderLayout.SOUTH);
+
+        //$$$setupUI$$$();
+        //this.setText();
         if (this.dropRow < 0) {
             this.radioButtononlyAttachPDF.setEnabled(false);
             this.radioButtonUpdateEmptyFields.setEnabled(false);
@@ -52,7 +102,7 @@ public class ImportDialog extends JDialog {
         this.labelMrDlib1.addMouseListener(new LabelLinkListener(this.labelMrDlib1, "www.mr-dlib.org/docs/pdf_metadata_extraction.php"));
         this.labelMrDlib2.addMouseListener(new LabelLinkListener(this.labelMrDlib2, "www.mr-dlib.org/docs/pdf_metadata_extraction.php"));
         this.setTitle(LocalizationSupport.message("Import_Metadata_From_PDF"));
-        setContentPane(contentPane);
+
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
@@ -221,7 +271,7 @@ public class ImportDialog extends JDialog {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    /*private void $$$setupUI$$$() {
         contentPane = new JPanel();
         contentPane.setLayout(new GridLayoutManager(4, 1, new Insets(0, 0, 0, 0), -1, -1));
         final JPanel panel1 = new JPanel();
@@ -326,7 +376,7 @@ public class ImportDialog extends JDialog {
         panelUpdateEntry.add(labelMrDlib2, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer7 = new Spacer();
         contentPane.add(spacer7, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, new Dimension(-1, 10), null, null, 0, false));
-    }
+    } */
 
     /**
      * @noinspection ALL
