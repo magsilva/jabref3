@@ -70,7 +70,7 @@
 
       <h2>Revision history</h2>
 
-      <div class="aversion" id="v2.6">
+      <div class="aversion" id="v2.7b">
 
 	  <h3>Version 2.7beta (January 16th, 2011)</h3>
           <div class="version_desc">
@@ -108,6 +108,7 @@
           </div>
         </div>
 
+      <div class="aversion" id="v2.6">
         <h3>Version 2.6 (April 4th, 2010)</h3>
 
         <div class="version_desc">
@@ -212,7 +213,7 @@
             <li>Fixed bug: when accepting external changes and not saving before new changes are detected, the previously accepted changes would also be listed.</li>
             <li>Fixed bug in Scifinder import where an empty Inventor field could overwrite the author field.</li>
             <li>Fixed bug in autocompleter. Current suggested completion would be added to the field if the user closed the entry editor or mouse clicked on another field.</li>
-            <li>Fixed problem with exporting to some MySql versions. Patch by François Dorin.</li>
+            <li>Fixed problem with exporting to some MySql versions. Patch by Fran&ccedil;ois Dorin.</li>
             <li>Fixed bug in handling of LaTeX character sequences - now sequences with = as command character (e.g. "\={A}") are recognized.</li>
             <li>Fixed bug: gray out / hide setting in groups panel is overridden on startup by search mode selection. Added separate prefs key for the groups setting. Fix suggested by Igor L. Chernyavsky.</li>
             <li>Fixed bug: cookie manager installed by Download button in file field editor throws an exception when trying to fetch from Medline.</li>
