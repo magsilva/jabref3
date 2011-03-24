@@ -66,13 +66,14 @@
 	<span class="developer">Seb Wills <img src="images/stock_person.png" alt="Contributor" title="several patches" /></span>
 
         <h4 id="translators">Translators</h4>
-	<span class="developer">Morten O. Alver <img src="images/stock_person.png" alt="translator" title="Norwegian translator" /></span>
-	<span class="developer">Thomas Arildsen <img src="images/stock_person.png" alt="translator" title="Danish translator" /></span>
-	<span class="developer">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="translator" title="French translator" /></span>
-	<span class="developer">Ambrogio Oliva <img src="images/stock_person.png" alt="translator" title="Italian translator" /></span>
-	<span class="developer">Gert Renckens <img src="images/stock_person.png" alt="translator" title="Dutch translator" /></span>
-	<span class="developer">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="translator" title="German translator" /></span>
-	<span class="developer">Wenbo Yang <img src="images/stock_person.png" alt="translator" title="Simplified Chinese translator" /></span>
+	<span class="developer">Morten O. Alver <img src="images/stock_person.png" alt="translator" title="Norwegian (no) translator" /></span>
+	<span class="developer">Thomas Arildsen <img src="images/stock_person.png" alt="translator" title="Danish (da) translator" /></span>
+	<span class="developer">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="translator" title="French (fr) translator" /></span>
+	<span class="developer">Ambrogio Oliva <img src="images/stock_person.png" alt="translator" title="Italian (it) translator" /></span>
+	<span class="developer">Gert Renckens <img src="images/stock_person.png" alt="translator" title="Dutch (nl) translator" /></span>
+	<span class="developer">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="translator" title="German (de) translator" /></span>
+	<span class="developer">Wenbo Yang <img src="images/stock_person.png" alt="translator" title="Simplified Chinese (zh) translator" /></span>
+	<span class="developer">Koji Yokota <img src="images/stock_person.png" alt="translator" title="Japanese (ja) translator" /></span>
 
       </div>
 
