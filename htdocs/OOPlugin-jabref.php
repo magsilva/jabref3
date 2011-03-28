@@ -42,8 +42,6 @@
 	<li>2010-10-26: Version 0.9: Reference list is now placed in a section for better mobility and stability.
     	  Formatting of citations is now done by naming a OpenOffice character format.
     	  Allows addition of extra information e.g. page number, to citations. <b>Requires OpenOffice 3.x</b>.</li>
-    	<li>2010-10-26: Version 0.8.99 (beta): Formatting of citations is now done by naming a OpenOffice character format.
-    	  Allows addition of extra information e.g. page number, to citations. <b>Requires OpenOffice 3.x</b>.</li>
     	<li>2010-06-03: Version 0.8: Style file format now allows optional double quotes aroung property values.</li>
         <li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>
         <li>2010-03-04: Version 0.7.3: Added support for &lt;smallcaps&gt; tag to indicate small caps in reference list. Several bug fixes.</li>
