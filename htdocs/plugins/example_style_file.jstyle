@@ -6,36 +6,35 @@ Journal name 1
 Journal name 2
 
 PROPERTIES
-Title=References
-IsSortByPosition=false
-IsNumberEntries=false
-ReferenceParagraphFormat=Default
-ReferenceHeaderParagraphFormat=Heading 2
+Title="References"
+IsSortByPosition="false"
+IsNumberEntries="false"
+ReferenceParagraphFormat="Text body"
+ReferenceHeaderParagraphFormat="Heading 2"
 
 CITATION
-AuthorField=author/editor
-YearField=year
-MaxAuthors=2
-MaxAuthorsFirst=6
-AuthorSeparator=,
-AuthorLastSeparator= & 
-EtAlString= et al.
-YearSeparator= 
-InTextYearSeparator= 
-BracketBefore=[
-BracketAfter=]
-BracketBeforeInList=[
-BracketAfterInList=]
-CitationSeparator=; 
-UniquefierSeparator=,
-GroupedNumbersSeparator=-
-MinimumGroupingCount=3
-FormatCitations=false
-ItalicCitations=false
-BoldCitations=false
-SuperscriptCitations=false
-SubscriptCitations=false
-MultiCiteChronological=true
+BibtexKeyCitations=false
+AuthorField="author/editor"
+YearField="year"
+MaxAuthors="2"
+MaxAuthorsFirst="6"
+AuthorSeparator=","
+AuthorLastSeparator=" & " 
+AuthorLastSeparatorInText=" and "
+EtAlString=" et al."
+YearSeparator=" "
+InTextYearSeparator=" "
+BracketBefore="["
+BracketAfter="]"
+BracketBeforeInList="["
+BracketAfterInList="] "
+CitationSeparator="; "
+UniquefierSeparator=","
+GroupedNumbersSeparator="-"
+MinimumGroupingCount="3"
+FormatCitations="false"
+CitationCharacterFormat="Default"
+MultiCiteChronological="true"
 
 LAYOUT
 article=<b>\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}</b> (<b>\year\uniq</b>). <i>\title</i>, \journal \volume\begin{pages} : \format[FormatPagesForHTML]{\pages}\end{pages}.
