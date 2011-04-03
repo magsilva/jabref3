@@ -29,14 +29,19 @@
 
       <h3 id="introduction">Introduction</h3>
 
-      <p>JabRef comes with a set of translations into other languages. Adding a new language involves adding a new set of translation files - so-called property files. These are text files containing one text entry per line.</p>
+      <p><acronym>JabRef</acronym> comes with a set of translations into other languages, currently Chinese (simplified), Danish, English, French, German, Indonesian, Italian, Japanese, Norwegian, Turkish and Vietnamese.</p>
 
-      <p>Furthermore, for a translation to be available within JabRef, a corresponding line must be added in the Java class GUIGlobals (found in the directory src/java/net/sf/jabref/GUIGlobals.java in the JabRef source code tree). The line is inserted in the static {} section where the map LANGUAGES is populated. The code must of course be recompiled after this modification.</p>
+      <p>We are constantly looking for translators and translations into other languages. For example a Spanish or Portugese translation would be valuable and of course translations into any other language would be very much appreciated.</p>
 
+      <p>Contributing a new language to <acronym>JabRef</acronym> is easy since <acronym>JabRef</acronym> is prepared for multilanguage support. It only requires the creation of a new set of translation files - so-called property files. These are text files containing one text entry per line that can easily be generated using the java program Popeye a from a graphical user interface.</p>
+
+      <p>Furthermore, for a translation to be available within <acronym>JabRef</acronym>, a corresponding line must be added in the Java class GUIGlobals (found in the directory src/java/net/sf/jabref/GUIGlobals.java in the <acronym>JabRef</acronym> source code tree). The line is inserted in the static {} section where the map LANGUAGES is populated. The code must of course be recompiled after this modification.</p>
+
+      <p>If you are interested in translating <acronym>JabRef</acronym> or if you have suggestions or questions, please contact us using the <a href="http://sourceforge.net/mailarchive/forum.php?forum_name=jabref-users">jabref-users mailing list</a>.</p>
 
       <h3 id="translation">List of translation files</h3>
 
-      <p>In the JabRef source code tree, the property files reside in the src/resource directory. For each language there are three files (denotes the country code for the language):</p>
+      <p>In the <acronym>JabRef</acronym> source code tree, the property files reside in the src/resource directory. For each language there are three files (denotes the country code for the language):</p>
       <ul>
 	<li>JabRef_.properties : main translation file</li>
 	<li>Menu_.properties : translation of menu items, marked up for mnemonic keys</li>
@@ -50,7 +55,7 @@
 
       <p>Note that each space character is replaced by an underscore, both in the English and the translated version.</p>
 
-      <p>Some entries contain "variables" that are inserted at runtime by JabRef - this can for instance be a file name or a file type name:</p>
+      <p>Some entries contain "variables" that are inserted at runtime by <acronym>JabRef</acronym> - this can for instance be a file name or a file type name:</p>
       <pre><code>Synchronizing_%0_links...=Synchronisiere_%0-Links...</code></pre>
 
       <p>A variable is denoted by %0, %1, %2 etc. In such entries, simply repeat the same notation in the translated version.</p>
@@ -64,13 +69,13 @@
 
       <h3 id="contribute">How to contribute your translation</h3>
 
-      <p>Before deciding to become a regular translator for JabRef, consider that the application is evolving constantly, meaning that translators need to keep updating their translations! We are interested in supporting as many languages as possible, but we don't want incomplete translations.</p>
+      <p>Before deciding to become a regular translator for <acronym>JabRef</acronym>, consider that the application is evolving constantly, meaning that translators need to keep updating their translations! We are interested in supporting as many languages as possible, but we don't want incomplete translations.</p>
 
-      <p>If you are still interested, you will need to contact the project manager - preferably through the jabref-users mailing list. Then you can send over your initial versions of the translation files, and your language can be added to the current development version of JabRef. You will be made a member of the project group, and given the necessary access to our source control tree. This requires you to have a user account at SourceForge. This means that you will need to learn the basics of using the Subversion system. The <a href="http://sourceforge.net/docman/display_doc.php?docid=31070&amp;group_id=1">SourceForge Subversion documentation</a> is one place to start learning this, although there are several other tutorials available on the web.</p>
+      <p>If you are still interested, you will need to contact the project manager - preferably through the <a href="http://sourceforge.net/mailarchive/forum.php?forum_name=jabref-users">jabref-users mailing list</a>. Then you can send over your initial versions of the translation files, and your language can be added to the current development version of <acronym>JabRef</acronym>. You will be made a member of the project group, and given the necessary access to our source control tree. This requires you to have a user account at SourceForge. This means that you will need to learn the basics of using the Subversion system. The <a href="http://sourceforge.net/docman/display_doc.php?docid=31070&amp;group_id=1">SourceForge Subversion documentation</a> is one place to start learning this, although there are several other tutorials available on the web.</p>
 
       <p>Using Subversion you will be able to keep your local files updated, and you need to translate new text entries as they are added to your language's files.</p>
 
-      <p>To test your translation you must be able to compile the source tree after making your additions. This requires you to install the Java Development Kit 5.0 or newer, and <a href="http://ant.apache.org/bindownload.cgi">Apache Ant</a>. Building JabRef with Ant is quite easy - simply enter the root directory of the source tree with a terminal or a cmd shell (under Windows), and run the command "ant". If everything is working as it should, the JabRef jar file should be built in the build/lib directory below the root directory. The jar file is executable either by double-clicking or by running the command</p>
+      <p>To test your translation you must be able to compile the source tree after making your additions. This requires you to install the Java Development Kit 5.0 or newer, and <a href="http://ant.apache.org/bindownload.cgi">Apache Ant</a>. Building <acronym>JabRef</acronym> with Ant is quite easy - simply enter the root directory of the source tree with a terminal or a cmd shell (under Windows), and run the command "ant". If everything is working as it should, the <acronym>JabRef</acronym> jar file should be built in the build/lib directory below the root directory. The jar file is executable either by double-clicking or by running the command</p>
       <pre><code>java -jar build/lib/JabRef-x.jar</code></pre>
       <p>where &quot;x&quot; is the current version number in the source tree.</p>
 
