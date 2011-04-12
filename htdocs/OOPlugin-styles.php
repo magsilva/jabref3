@@ -23,9 +23,11 @@
       <table border="0" cellpadding="8" rules="none">
         <tr>
           <td><b>Style suitable for</b></td> <td><b>Contributed by</b></td>
+	  <td><b>Example layout</b></td>
         </tr>
         <tr><td><a href="jstyles/J_of_Neurophysiology.jstyle">Journal of Neurophysiology</a></td>
           <td>Ted Carnevale</td>
+          <td><a href="jstyles/J_of_Neurophysiology.png">View</a></td>
         </tr>
       </table>
 
