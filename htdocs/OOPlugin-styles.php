@@ -27,7 +27,7 @@
         </tr>
         <tr><td><a href="jstyles/J_of_Neurophysiology.jstyle">Journal of Neurophysiology</a></td>
           <td>Ted Carnevale</td>
-          <td><a href="jstyles/J_of_Neurophysiology.png"><img src="jstyle_example.png" /></a></td>
+          <td><a href="jstyles/J_of_Neurophysiology.png"><img src="jstyle_example.png" alt="Show" /></a></td>
         </tr>
       </table>
 
