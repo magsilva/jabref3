@@ -27,19 +27,20 @@
 
       <h2>Downloads</h2>
 
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.jar">Plugin version 0.8</a></p>
+      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.9.jar">Plugin version 0.9</a></p>
 
-      <p><a href="plugins/JabRef-oo-0.8-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
+      <p><a href="plugins/JabRef-oo-0.9-src.zip">Plugin source code.</a> The source code tree includes four OpenOffice.org jars and JabRef 2.6. The plugin is built using an included Ant build file.</p>
+
+      <p><a href="OOPlugin-styles.php">User contributed style files</a></p>
 
       <p><a href="plugins/example_style_file.jstyle">Example style file</a></p>
-
-      <p><a href="plugins/net.sf.jabref.oo.ooplugin-0.8.99.jar">Plugin BETA version</a></p>
 
       <p>The plugin is distributed under the terms of the GNU <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">General Public License</a>, version 2 or later.</p>
 
       <h2>Updates</h2>
       <ul>
-    	<li>2010-10-26: Version 0.8.99 (beta): Formatting of citations is now done by naming a OpenOffice character format.
+    	<li>2010-10-26: Version 0.9: Reference list is now placed in a section for better mobility and stability.
+    	  Formatting of citations is now done by naming a OpenOffice character format.
     	  Allows addition of extra information e.g. page number, to citations. <b>Requires OpenOffice 3.x</b>.</li>
     	<li>2010-06-03: Version 0.8: Style file format now allows optional double quotes aroung property values.</li>
         <li>2010-05-12: Version 0.7.4: Added a couple of new citation properties: AuthorLastSeparatorInText and MultiCiteChronological</li>

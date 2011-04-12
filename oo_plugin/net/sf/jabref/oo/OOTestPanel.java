@@ -348,7 +348,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         //b.append(update);
 
         //b.append(insertFullRef);
-        b.append(test);
+        //b.append(test);
         //diag.getContentPane().add(b.getPanel(), BorderLayout.CENTER);
 
         JPanel content = new JPanel();
