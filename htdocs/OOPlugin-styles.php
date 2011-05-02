@@ -25,6 +25,18 @@
           <td><b>Style suitable for</b></td> <td><b>Contributed by</b></td>
 	  <td><b>Example layout</b></td>
         </tr>
+	<tr><td><a href="jstyles/American_Mineralogist.jstyle">American Mineralogist</a></td>
+          <td>Jan Stelling</td>
+          <td><a href="jstyles/American_Mineralogist.png"><img src="jstyle_example.png" alt="Show" /></a></td>
+        </tr>
+	<tr><td><a href="jstyles/Chemical_Geology.jstyle">Chemical Geology</a></td>
+          <td>Jan Stelling</td>
+          <td><a href="jstyles/Chemical_Geology.png"><img src="jstyle_example.png" alt="Show" /></a></td>
+        </tr>
+	<tr><td><a href="jstyles/Geochim_Cosmochim_Acta.jstyle">Geochim. Cosmochim. Acta</a></td>
+          <td>Jan Stelling</td>
+          <td><a href="jstyles/Geochim_Cosmochim_Acta.png"><img src="jstyle_example.png" alt="Show" /></a></td>
+        </tr>
         <tr><td><a href="jstyles/J_of_Neurophysiology.jstyle">Journal of Neurophysiology</a></td>
           <td>Ted Carnevale</td>
           <td><a href="jstyles/J_of_Neurophysiology.png"><img src="jstyle_example.png" alt="Show" /></a></td>
