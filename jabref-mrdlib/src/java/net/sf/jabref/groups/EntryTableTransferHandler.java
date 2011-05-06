@@ -40,8 +40,6 @@ import javax.swing.JComponent;
 import javax.swing.JTable;
 import javax.swing.TransferHandler;
 
-import freemind.controller.MindMapNodesSelection;
-import freemind.main.XMLElement;
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefFrame;
@@ -149,7 +147,7 @@ public class EntryTableTransferHandler extends TransferHandler {
 				return handleDraggedFiles(l, dropRow);
 			}
             // Done by MrDlib
-            if(t.isDataFlavorSupported(MindMapNodesSelection.mindMapNodesFlavor)){
+            /*if(t.isDataFlavorSupported(MindMapNodesSelection.mindMapNodesFlavor)){
                 String xml = (String)t.getTransferData(MindMapNodesSelection.mindMapNodesFlavor);
                 URL mindmapURL = null;
                 if(t.isDataFlavorSupported(MindMapNodesSelection.mindmapUrlFlavor)){
@@ -189,7 +187,7 @@ public class EntryTableTransferHandler extends TransferHandler {
                 else{
                     return false;
                 }
-            }
+            }*/
             // Done by MrDlib
 			if (t.isDataFlavorSupported(urlFlavor)) {
 				URL dropLink = (URL) t.getTransferData(urlFlavor);

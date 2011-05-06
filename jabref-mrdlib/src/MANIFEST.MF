@@ -7,7 +7,4 @@ Class-Path: .
   lib/spl/jersey/jsr311-api-1.1.1.jar
   lib/spl/jersey/jersey-multipart-1.1.5.1.jar
   lib/spl/jersey/mimepull-1.3.jar
-  lib/spl/intellij/annotations.jar
-  lib/spl/intellij/forms_rt.jar
   lib/spl/sciplore/SciPloreDBAccess.jar
-  lib/spl/freemind.jar

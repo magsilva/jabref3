@@ -1,10 +1,6 @@
 package spl;
 
-import freemind.controller.Controller;
-import freemind.modes.MindMapNode;
-import net.sf.jabref.Globals;
-import net.sf.jabref.Util;
-import net.sf.jabref.external.ExternalFileType;
+
 
 import java.awt.*;
 import java.io.*;
@@ -85,7 +81,7 @@ public class Tools {
         if(link == null || link.isEmpty()){
             return null;
         }
-        if(!freemind.main.Tools.isAbsolutePath(link)){
+        if(!Tools.isAbsolutePath(link)){
             try{
                 if(link.startsWith("\\\\")){
                     link = link.replace("\\\\", "file://");
@@ -111,5 +107,30 @@ public class Tools {
             return link;
         }
         return link;
-    }    
+    }
+
+    public static boolean isAbsolutePath(String path) {
+        // On Windows, we cannot just ask if the file name starts with file
+        // separator.
+        // If path contains ":" at the second position, then it is not relative,
+        // I guess.
+        // However, if it starts with separator, then it is absolute too.
+
+        // Possible problems: Not tested on Macintosh, but should work.
+        // Koh, 1.4.2004: Resolved problem: I tested on Mac OS X 10.3.3 and
+        // worked.
+
+        String osNameStart = System.getProperty("os.name").substring(0, 3);
+        String fileSeparator = System.getProperty("file.separator");
+        if (osNameStart.equals("Win")) {
+            //Todo SciPlore
+            return ((path.length() > 1) && path.substring(1, 2).equals(":"))
+                    || (path.startsWith(fileSeparator) && !path.startsWith("\\\\"));
+        } else if (osNameStart.equals("Mac")) {
+            //Koh:Panther (or Java 1.4.2) may change file path rule
+            return path.startsWith(fileSeparator);
+        } else {
+            return path.startsWith(fileSeparator);
+        }
+    }
 }
