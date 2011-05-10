@@ -35,29 +35,32 @@
 
       <ul class="history_column">
 
+	<li class="item">May 09th, 2011</li>
+	<li class="item_desc">Version 2.7 beta 2</li>      
+
 	<li class="item">January 16th, 2011</li>
-	<li class="item_desc">Version 2.7beta1</li>      
+	<li class="item_desc">Version 2.7 beta</li>      
 
 	<li class="item">April 4th, 2010</li>
 	<li class="item_desc">Version 2.6</li>
 
 	<li class="item">March 7th, 2010</li>
-	<li class="item_desc">Version 2.6beta3</li>
+	<li class="item_desc">Version 2.6 beta 3</li>
 
 	<li class="item">November 1st, 2009</li>
-	<li class="item_desc">Version 2.6beta2</li>
+	<li class="item_desc">Version 2.6 beta 2</li>
 
 	<li class="item">September 29th, 2009</li>
-	<li class="item_desc">Version 2.6beta</li>
+	<li class="item_desc">Version 2.6 beta</li>
 
 	<li class="item">June 22th, 2009</li>
 	<li class="item_desc">Version 2.5</li>
 
 	<li class="item">May 19th, 2009</li>
-	<li class="item_desc">Version 2.5beta2</li>
+	<li class="item_desc">Version 2.5 beta 2</li>
 
 	<li class="item">April 21st, 2009</li>
-	<li class="item_desc">Version 2.5beta</li>
+	<li class="item_desc">Version 2.5 beta</li>
 
 	<li class="item">November 1st, 2008</li>
 	<li class="item_desc">Version 2.4.2</li>

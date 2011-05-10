@@ -17,40 +17,41 @@
       <h3>Version</h3>
 
       <ul class="history_column">
-	<li class="single_item"><a href="#v2.7b">2.7b</a></li>
+	<li class="single_item"><a href="#v2.7b2">2.7 beta 2</a></li>
+	<li class="single_item"><a href="#v2.7b">2.7 beta</a></li>
 	<li class="single_item"><a href="#v2.6">2.6</a></li>
-	<li class="single_item"><a href="#v2.6b3">2.6b3</a></li>
-	<li class="single_item"><a href="#v2.6b2">2.6b2</a></li>
-	<li class="single_item"><a href="#v2.6b">2.6b</a></li>
+	<li class="single_item"><a href="#v2.6b3">2.6 beta 3</a></li>
+	<li class="single_item"><a href="#v2.6b2">2.6 beta 2</a></li>
+	<li class="single_item"><a href="#v2.6b">2.6 beta</a></li>
 	<li class="single_item"><a href="#v2.5">2.5</a></li>
-	<li class="single_item"><a href="#v2.5b2">2.5b2</a></li>
-	<li class="single_item"><a href="#v2.5b">2.5b</a></li>
+	<li class="single_item"><a href="#v2.5b2">2.5 beta 2</a></li>
+	<li class="single_item"><a href="#v2.5b">2.5 beta</a></li>
 	<li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
 	<li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
 	<li class="single_item"><a href="#v2.4">2.4</a></li>
-	<li class="single_item"><a href="#v2.4b">2.4b</a></li>
+	<li class="single_item"><a href="#v2.4b">2.4 beta</a></li>
 	<li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
 	<li class="single_item"><a href="#v2.3">2.3</a></li>
-	<li class="single_item"><a href="#v2.3b3">2.3b3</a></li>
-	<li class="single_item"><a href="#v2.3b2">2.3b2</a></li>
-	<li class="single_item"><a href="#v2.3b">2.3b</a></li>
+	<li class="single_item"><a href="#v2.3b3">2.3 beta 3</a></li>
+	<li class="single_item"><a href="#v2.3b2">2.3 beta 2</a></li>
+	<li class="single_item"><a href="#v2.3b">2.3 beta</a></li>
 	<li class="single_item"><a href="#v2.2">2.2</a></li>
-	<li class="single_item"><a href="#v2.2b2">2.2b2</a></li>
-	<li class="single_item"><a href="#v2.2b">2.2b</a></li>
+	<li class="single_item"><a href="#v2.2b2">2.2 beta 2</a></li>
+	<li class="single_item"><a href="#v2.2b">2.2 beta</a></li>
 	<li class="single_item"><a href="#v2.1">2.1</a></li>
-	<li class="single_item"><a href="#v2.1b2">2.1b2</a></li>
-	<li class="single_item"><a href="#v2.1b">2.1b</a></li>
+	<li class="single_item"><a href="#v2.1b2">2.1 beta 2</a></li>
+	<li class="single_item"><a href="#v2.1b">2.1 beta</a></li>
 	<li class="single_item"><a href="#v2.0.1">2.0.1</a></li>
 	<li class="single_item"><a href="#v2.0">2.0</a></li>
-	<li class="single_item"><a href="#v2.0b2">2.0b2</a></li>
-	<li class="single_item"><a href="#v2.0b">2.0b</a></li>
+	<li class="single_item"><a href="#v2.0b2">2.0 beta 2</a></li>
+	<li class="single_item"><a href="#v2.0b">2.0 beta</a></li>
 	<li class="single_item"><a href="#v1.8.1">1.8.1</a></li>
 	<li class="single_item"><a href="#v1.8">1.8</a></li>
-	<li class="single_item"><a href="#v1.8b2">1.8b2</a></li>
-	<li class="single_item"><a href="#v1.8b">1.8b</a></li>
+	<li class="single_item"><a href="#v1.8b2">1.8 beta 2</a></li>
+	<li class="single_item"><a href="#v1.8b">1.8 beta</a></li>
 	<li class="single_item"><a href="#v1.7.1">1.7.1</a></li>
 	<li class="single_item"><a href="#v1.7">1.7</a></li>
-	<li class="single_item"><a href="#v1.7b2">1.7 beta2</a></li>
+	<li class="single_item"><a href="#v1.7b2">1.7 beta 2</a></li>
 	<li class="single_item"><a href="#v1.7b">1.7 beta</a></li>
 	<li class="single_item"><a href="#v1.6">1.6</a></li>
 	<li class="single_item"><a href="#v1.6beta">1.6 beta</a></li>
@@ -69,6 +70,31 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.7b2">
+
+	  <h3>Version 2.7 beta 2 (May 09th, 2010)</h3>
+          <div class="version_desc">
+	    <ul>
+	      <li>Added support for MrdLib lookup or metadata extraction when PDFs are dragged
+	      into JabRef.</li>
+	      <li> Added option under "External programs" for disabling the automatic opening of the
+	      Browse dialog when creating a new file link.</li>
+	      <li>Fixed shortcut key collision. Shortcut for Import to new database is now Ctrl-Alt-I.</li>
+	      <li>The "Open URL or DOI" action now uses URL links in the "file" field as fallback if
+	      no links are found in the "url" or "doi" fields.</li>
+	      <li>Restricted remote listener port numbers to interval 1025-65535.</li>
+	      <li>Added Japanese translation by Koji Yokota.</li>
+	      <li>Added scrollbar to entry editor when it is too high to fit in its panel. Patch
+	      by Matthias Erll.</li>
+	      <li>Made it possible to copy entries from the search dialog.</li>
+	      <li>Added proper error message when trying to search with invalid regular expression.</li>
+	      <li>Added error dialog on startup if custom look and feel cannot be loaded.</li>
+	      <li>Applied Alexander Hug's patch for correctly importing doi from ScienceDirect RIS files.</li>
+	      <li>Removed potential NullPointerException in SearchExpressionTreeParser.</li>
+            </ul>
+          </div>
+        </div>
 
       <div class="aversion" id="v2.7b">
 
@@ -127,7 +153,7 @@
       </div>
 
       <div class="aversion" id="v2.6b3">
-        <h3>Version 2.6beta3 (March 7th, 2010)</h3>
+        <h3>Version 2.6 beta 3 (March 7th, 2010)</h3>
 
         <div class="version_desc">
           <ul>
@@ -167,7 +193,7 @@
       </div>
 
       <div class="aversion" id="v2.6b2">
-        <h3>Version 2.6beta2 (November 1st, 2009)</h3>
+        <h3>Version 2.6 beta 2 (November 1st, 2009)</h3>
 
         <div class="version_desc">
           <ul>
@@ -242,7 +268,7 @@
       </div>
 
       <div class="aversion" id="v2.5b2">
-        <h3>Version 2.5beta2 (May 19th, 2009)</h3>
+        <h3>Version 2.5 beta 2 (May 19th, 2009)</h3>
 
         <div class="version_desc">
           <ul>
@@ -434,7 +460,7 @@
 
 
       <div class="aversion" id="v2.3b3">
-        <h3>Version 2.3beta3 (October 6th, 2007)</h3>
+        <h3>Version 2.3 beta 3 (October 6th, 2007)</h3>
 
         <div class="version_desc">
           <ul>
@@ -464,7 +490,7 @@
 
 
       <div class="aversion" id="v2.3b2">
-        <h3>Version 2.3beta2 (August 29th, 2007)</h3>
+        <h3>Version 2.3 beta 2 (August 29th, 2007)</h3>
 
         <div class="version_desc">
           <ul>
@@ -489,7 +515,7 @@
 
 
       <div class="aversion" id="v2.3b">
-        <h3>Version 2.3beta (June 28th, 2007)</h3>
+        <h3>Version 2.3 beta (June 28th, 2007)</h3>
 
         <div class="version_desc">
           <ul>
@@ -555,7 +581,7 @@
 
 
       <div class="aversion" id="v2.2b2">
-        <h3>Version 2.2beta2 (November 26th, 2006)</h3>
+        <h3>Version 2.2 beta 2 (November 26th, 2006)</h3>
 
         <div class="version_desc">
           <ul>
@@ -576,7 +602,7 @@
 
 
       <div class="aversion" id="v2.2b">
-        <h3>Version 2.2beta (October 13th, 2006)</h3>
+        <h3>Version 2.2 beta (October 13th, 2006)</h3>
 
         <div class="version_desc">
           <ul>
@@ -645,7 +671,7 @@
       </div>
 
       <div class="aversion" id="v2.1b2">
-        <h3>Version 2.1beta2 (June 29th, 2006)</h3>
+        <h3>Version 2.1 beta 2 (June 29th, 2006)</h3>
 
         <div class="version_desc">
           <ul>
@@ -663,7 +689,7 @@
       </div>
 
       <div class="aversion" id="v2.1b">
-        <h3>Version 2.1beta (May 9th, 2006)</h3>
+        <h3>Version 2.1 beta (May 9th, 2006)</h3>
 
         <div class="version_desc">
           <ul>
