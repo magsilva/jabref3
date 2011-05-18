@@ -20,6 +20,10 @@
       to disk rather than copy-pasting the contents from your browser.
       </p>
 
+      <p>Instead of downloading the style files individually, you can <a href="jstyles/All_jstyles.zip">download
+      the entire collection</a>.
+      </p>
+
       <table border="0" cellpadding="8" rules="none">
         <tr>
           <td><b>Style suitable for</b></td> <td><b>Contributed by</b></td>
@@ -40,6 +44,14 @@
         <tr><td><a href="jstyles/J_of_Neurophysiology.jstyle">Journal of Neurophysiology</a></td>
           <td>Ted Carnevale</td>
           <td><a href="jstyles/J_of_Neurophysiology.png"><img src="jstyle_example.png" alt="Show" /></a></td>
+        </tr>
+	<tr><td><a href="jstyles/turabian-deutsch.jstyle">"Turabian" (Deutsch)</a></td>
+          <td>Uwe Jochum</td>
+          <td><a href="jstyles/turabian-deutsch.png"><img src="jstyle_example.png" alt="Show" /></a></td>
+        </tr>
+	<tr><td><a href="jstyles/turabian-english.jstyle">"Turabian" (English)</a></td>
+          <td>Uwe Jochum</td>
+          <td><a href="jstyles/turabian-english.png"><img src="jstyle_example.png" alt="Show" /></a></td>
         </tr>
       </table>
 
