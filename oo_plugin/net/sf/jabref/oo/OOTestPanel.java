@@ -22,6 +22,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -111,9 +112,8 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         Globals.prefs.putDefaultValue("ooStyleFileLastDir", System.getProperty("user.home"));
         Globals.prefs.putDefaultValue("ooInParCitation", true);
         Globals.prefs.putDefaultValue("syncOOWhenCiting", false);
-
         Globals.prefs.putDefaultValue("showOOPanel", true);
-        
+        Globals.prefs.putDefaultValue("useAllOpenBases", true);
         styleFile = Globals.prefs.get("ooBibliographyStyleFile");
 
 
@@ -231,9 +231,11 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
                 try {
                     style.ensureUpToDate();
                     ooBase.updateSortedReferenceMarks();
+
+                    java.util.List<BibtexDatabase> databases = getBaseList();
                     java.util.List<String> unresolvedKeys = ooBase.refreshCiteMarkers
-                            (frame.basePanel().database(), style);
-                    ooBase.rebuildBibTextSection(frame.basePanel().database(), style);
+                            (databases, style);
+                    ooBase.rebuildBibTextSection(databases, style);
                     //ooBase.sync(frame.basePanel().database(), style);
                     if (unresolvedKeys.size() > 0) {
                         JOptionPane.showMessageDialog(frame, Globals.lang("Your OpenOffice document references the BibTeX key '%0', which could not be found in your current database.",
@@ -270,7 +272,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         merge.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
-                    ooBase.combineCiteMarkers(frame.basePanel().database(), style);
+                    ooBase.combineCiteMarkers(getBaseList(), style);
                 } catch (UndefinedCharacterFormatException e) {
                     reportUndefinedCharacterFormat(e);
                 } catch (Exception e) {
@@ -365,6 +367,17 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         //diag.setVisible(true);
     }
 
+    public java.util.List<BibtexDatabase> getBaseList() {
+        java.util.List<BibtexDatabase> databases = new ArrayList<BibtexDatabase>();
+        if (Globals.prefs.getBoolean("useAllOpenBases")) {
+            for (int i=0; i<frame.baseCount(); i++)
+                databases.add(frame.baseAt(i).database());
+        }
+        else
+            databases.add(frame.basePanel().database());
+        System.out.println(databases.size());
+        return databases;
+    }
 
     public void connect(boolean auto) {
         /*if (ooBase != null) {
@@ -674,7 +687,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
             BibtexEntry[] entries = panel.getSelectedEntries();
             if (entries.length > 0) {
                 try {
-                    ooBase.insertEntry(entries, database, style, inParenthesis, withText,
+                    ooBase.insertEntry(entries, database, getBaseList(), style, inParenthesis, withText,
                             pageInfo, Globals.prefs.getBoolean("syncOOWhenCiting"));
                 } catch (ConnectionLostException ex) {
                     showConnectionLostErrorMessage();
@@ -706,14 +719,15 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
               */
             BasePanel panel =frame.basePanel();
             final BibtexDatabase database = panel.database();
+            Map<BibtexEntry,BibtexDatabase> entries = new LinkedHashMap<BibtexEntry,BibtexDatabase>();
             if (panel != null) {
-                BibtexEntry[] entries = panel.getSelectedEntries();
+                BibtexEntry[] e = panel.getSelectedEntries();
                 ArrayList<BibtexEntry> el = new ArrayList<BibtexEntry>();
-                for (int i = 0; i < entries.length; i++) {
-                    el.add(entries[i]);
+                for (int i = 0; i < e.length; i++) {
+                    entries.put(e[i], database);
                 }
 
-                ooBase.insertFullReferenceAtViewCursor(database, el, style, "Default");
+                ooBase.insertFullReferenceAtViewCursor(entries, style, "Default");
             }
         } catch (UndefinedParagraphFormatException ex) {
             reportUndefinedParagraphFormat(ex);
@@ -771,12 +785,37 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
         final JCheckBoxMenuItem autoSync = new JCheckBoxMenuItem(
                 Globals.lang("Automatically sync bibliography when inserting citations"),
                 Globals.prefs.getBoolean("syncOOWhenCiting"));
+        final JRadioButtonMenuItem useActiveBase = new JRadioButtonMenuItem
+                (Globals.lang("Look up BibTeX entries in the active tab only"));
+        final JRadioButtonMenuItem useAllBases = new JRadioButtonMenuItem
+                (Globals.lang("Look up BibTeX entries in all open databases"));
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(useActiveBase);
+        bg.add(useAllBases);
+        if (Globals.prefs.getBoolean("useAllOpenBases"))
+            useAllBases.setSelected(true);
+        else
+            useActiveBase.setSelected(true);
+
         autoSync.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 Globals.prefs.putBoolean("syncOOWhenCiting", autoSync.isSelected());
             }
         });
+        useAllBases.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                Globals.prefs.putBoolean("useAllOpenBases", useAllBases.isSelected());
+            }
+        });
+        useActiveBase.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                Globals.prefs.putBoolean("useAllOpenBases", !useActiveBase.isSelected());
+            }
+        });
         menu.add(autoSync);
+        menu.addSeparator();
+        menu.add(useActiveBase);
+        menu.add(useAllBases);
         menu.show(settingsB, 0, settingsB.getHeight());
     }
 
@@ -798,7 +837,7 @@ public class OOTestPanel extends AbstractWorker implements SidePanePlugin, PushT
 
 
             try {
-                ooBase.insertEntry(entries, database, style, inParenthesis, true,
+                ooBase.insertEntry(entries, database, getBaseList(), style, inParenthesis, true,
                     pageInfo, Globals.prefs.getBoolean("syncOOWhenCiting"));
             } catch (ConnectionLostException ex) {
                 showConnectionLostErrorMessage();

@@ -1,3 +1,5 @@
+ - Added option under "Settings" to look up BibTeX entries from all open tabs, instead of just
+   the active tab. This makes it possible to cite from more than one bib file in the same document.
  - Reference list is now stored in a text section called "JR_bib" instead of being delimited
    by bookmarks. This makes it easier to control location of reference list and makes handling
    of the list more stable.
