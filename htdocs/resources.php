@@ -133,6 +133,19 @@
       <p>JabRef plugin for fetching BibTeX entry from &quot;The SAO/NASA Astrophysics Data System&quot; using Digital Object Identifier (DOI)
       <a href="https://launchpad.net/jabref-ads">More information</a></p>
 
+      <h4 id="ADS_HUG">Modified JabRef ADS fetcher</h4>
+      <p><em>by Alexander Hug</em></p>
+	
+      <p>This ADS fetcher is modified so one can ask for several parameters like authors, title, year etc. Most useful keywords are predefined in 
+      combo-boxes, but may be overwritten by any valid keyword, as described on the ADS homepage and may also be looked up by the "help" button. 
+      you may enter either "hug, a" and select "Author" from the combo-box, OR you enter "author=hug, a" and select "None or special keyword".</p>
+	
+      <p>Version 0.1<br />
+      <a href="plugins/ADSsearch-0.1.jar">Plugin</a> -
+      <a href="plugins/ADSsearch-0.1-src.zip">Source code</a></p>
+	
+
+      <p>The plugin will include the abstract (if available) and may search also for DOI numbers.</p>
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
