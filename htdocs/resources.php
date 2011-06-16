@@ -23,6 +23,7 @@
         <li><a href="#RIS_export">RIS export format</a></li>
         <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
+        <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
