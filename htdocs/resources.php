@@ -24,6 +24,7 @@
         <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
+	<li><a href="#Lehner">Christoph Lehner's plugins</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
@@ -144,9 +145,17 @@
       <p>Version 0.1<br />
       <a href="plugins/ADSsearch-0.1.jar">Plugin</a> -
       <a href="plugins/ADSsearch-0.1-src.zip">Source code</a></p>
-	
 
-      <p>The plugin will include the abstract (if available) and may search also for DOI numbers.</p>
+      <h4 id="Lehner">Christoph Lehner's plugins</h4>
+      <p><em>by Christoph Lehner</em></p>
+      <p><a href="http://www.lhnr.de/ext/">http://www.lhnr.de/ext/</a></p>
+      <p>The page contains the following plugins:
+      <ul>
+      <li>Plugin for automatic download of PDF files from arXiv or DOI links</li>
+      <li>Plugin to browse and import new preprints from arXiv</li>
+      <li>Plugin to import articles from INSPIRE</li>
+      </ul>
+      </p>
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
