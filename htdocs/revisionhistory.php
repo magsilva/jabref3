@@ -17,53 +17,54 @@
       <h3>Version</h3>
 
       <ul class="history_column">
-	<li class="single_item"><a href="#v2.7b2">2.7 beta 2</a></li>
-	<li class="single_item"><a href="#v2.7b">2.7 beta</a></li>
-	<li class="single_item"><a href="#v2.6">2.6</a></li>
-	<li class="single_item"><a href="#v2.6b3">2.6 beta 3</a></li>
-	<li class="single_item"><a href="#v2.6b2">2.6 beta 2</a></li>
-	<li class="single_item"><a href="#v2.6b">2.6 beta</a></li>
-	<li class="single_item"><a href="#v2.5">2.5</a></li>
-	<li class="single_item"><a href="#v2.5b2">2.5 beta 2</a></li>
-	<li class="single_item"><a href="#v2.5b">2.5 beta</a></li>
-	<li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
-	<li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
-	<li class="single_item"><a href="#v2.4">2.4</a></li>
-	<li class="single_item"><a href="#v2.4b">2.4 beta</a></li>
-	<li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
-	<li class="single_item"><a href="#v2.3">2.3</a></li>
-	<li class="single_item"><a href="#v2.3b3">2.3 beta 3</a></li>
-	<li class="single_item"><a href="#v2.3b2">2.3 beta 2</a></li>
-	<li class="single_item"><a href="#v2.3b">2.3 beta</a></li>
-	<li class="single_item"><a href="#v2.2">2.2</a></li>
-	<li class="single_item"><a href="#v2.2b2">2.2 beta 2</a></li>
-	<li class="single_item"><a href="#v2.2b">2.2 beta</a></li>
-	<li class="single_item"><a href="#v2.1">2.1</a></li>
-	<li class="single_item"><a href="#v2.1b2">2.1 beta 2</a></li>
-	<li class="single_item"><a href="#v2.1b">2.1 beta</a></li>
-	<li class="single_item"><a href="#v2.0.1">2.0.1</a></li>
-	<li class="single_item"><a href="#v2.0">2.0</a></li>
-	<li class="single_item"><a href="#v2.0b2">2.0 beta 2</a></li>
-	<li class="single_item"><a href="#v2.0b">2.0 beta</a></li>
-	<li class="single_item"><a href="#v1.8.1">1.8.1</a></li>
-	<li class="single_item"><a href="#v1.8">1.8</a></li>
-	<li class="single_item"><a href="#v1.8b2">1.8 beta 2</a></li>
-	<li class="single_item"><a href="#v1.8b">1.8 beta</a></li>
-	<li class="single_item"><a href="#v1.7.1">1.7.1</a></li>
-	<li class="single_item"><a href="#v1.7">1.7</a></li>
-	<li class="single_item"><a href="#v1.7b2">1.7 beta 2</a></li>
-	<li class="single_item"><a href="#v1.7b">1.7 beta</a></li>
-	<li class="single_item"><a href="#v1.6">1.6</a></li>
-	<li class="single_item"><a href="#v1.6beta">1.6 beta</a></li>
-	<li class="single_item"><a href="#v1.55">1.55</a></li>
-	<li class="single_item"><a href="#v1.5">1.5</a></li>
-	<li class="single_item"><a href="#v1.4">1.4</a></li>
-	<li class="single_item"><a href="#v1.3.1">1.3.1</a></li>
-	<li class="single_item"><a href="#v1.3">1.3</a></li>
-	<li class="single_item"><a href="#v1.2">1.2</a></li>
-	<li class="single_item"><a href="#v1.19">1.19</a></li>
-	<li class="single_item"><a href="#v1.1">1.1</a></li>
-	<li class="single_item"><a href="#v1.0">1.0</a></li>
+        <li class="single_item"><a href="#v2.7">2.7</a></li>
+        <li class="single_item"><a href="#v2.7b2">2.7 beta 2</a></li>
+        <li class="single_item"><a href="#v2.7b">2.7 beta</a></li>
+        <li class="single_item"><a href="#v2.6">2.6</a></li>
+        <li class="single_item"><a href="#v2.6b3">2.6 beta 3</a></li>
+        <li class="single_item"><a href="#v2.6b2">2.6 beta 2</a></li>
+        <li class="single_item"><a href="#v2.6b">2.6 beta</a></li>
+        <li class="single_item"><a href="#v2.5">2.5</a></li>
+        <li class="single_item"><a href="#v2.5b2">2.5 beta 2</a></li>
+        <li class="single_item"><a href="#v2.5b">2.5 beta</a></li>
+        <li class="single_item"><a href="#v2.4.2">2.4.2</a></li>
+        <li class="single_item"><a href="#v2.4.1">2.4.1</a></li>
+        <li class="single_item"><a href="#v2.4">2.4</a></li>
+        <li class="single_item"><a href="#v2.4b">2.4 beta</a></li>
+        <li class="single_item"><a href="#v2.3.1">2.3.1</a></li>
+        <li class="single_item"><a href="#v2.3">2.3</a></li>
+        <li class="single_item"><a href="#v2.3b3">2.3 beta 3</a></li>
+        <li class="single_item"><a href="#v2.3b2">2.3 beta 2</a></li>
+        <li class="single_item"><a href="#v2.3b">2.3 beta</a></li>
+        <li class="single_item"><a href="#v2.2">2.2</a></li>
+        <li class="single_item"><a href="#v2.2b2">2.2 beta 2</a></li>
+        <li class="single_item"><a href="#v2.2b">2.2 beta</a></li>
+        <li class="single_item"><a href="#v2.1">2.1</a></li>
+        <li class="single_item"><a href="#v2.1b2">2.1 beta 2</a></li>
+        <li class="single_item"><a href="#v2.1b">2.1 beta</a></li>
+        <li class="single_item"><a href="#v2.0.1">2.0.1</a></li>
+        <li class="single_item"><a href="#v2.0">2.0</a></li>
+        <li class="single_item"><a href="#v2.0b2">2.0 beta 2</a></li>
+        <li class="single_item"><a href="#v2.0b">2.0 beta</a></li>
+        <li class="single_item"><a href="#v1.8.1">1.8.1</a></li>
+        <li class="single_item"><a href="#v1.8">1.8</a></li>
+        <li class="single_item"><a href="#v1.8b2">1.8 beta 2</a></li>
+        <li class="single_item"><a href="#v1.8b">1.8 beta</a></li>
+        <li class="single_item"><a href="#v1.7.1">1.7.1</a></li>
+        <li class="single_item"><a href="#v1.7">1.7</a></li>
+        <li class="single_item"><a href="#v1.7b2">1.7 beta 2</a></li>
+        <li class="single_item"><a href="#v1.7b">1.7 beta</a></li>
+        <li class="single_item"><a href="#v1.6">1.6</a></li>
+        <li class="single_item"><a href="#v1.6beta">1.6 beta</a></li>
+        <li class="single_item"><a href="#v1.55">1.55</a></li>
+        <li class="single_item"><a href="#v1.5">1.5</a></li>
+        <li class="single_item"><a href="#v1.4">1.4</a></li>
+        <li class="single_item"><a href="#v1.3.1">1.3.1</a></li>
+        <li class="single_item"><a href="#v1.3">1.3</a></li>
+        <li class="single_item"><a href="#v1.2">1.2</a></li>
+        <li class="single_item"><a href="#v1.19">1.19</a></li>
+        <li class="single_item"><a href="#v1.1">1.1</a></li>
+        <li class="single_item"><a href="#v1.0">1.0</a></li>
       </ul>
     </div>
 
@@ -71,68 +72,89 @@
 
       <h2>Revision history</h2>
 
-      <div class="aversion" id="v2.7b2">
+      <div class="aversion" id="v2.7">
 
-	  <h3>Version 2.7 beta 2 (May 09th, 2010)</h3>
-          <div class="version_desc">
-	    <ul>
-	      <li>Added support for MrdLib lookup or metadata extraction when PDFs are dragged
-	      into JabRef.</li>
-	      <li> Added option under "External programs" for disabling the automatic opening of the
-	      Browse dialog when creating a new file link.</li>
-	      <li>Fixed shortcut key collision. Shortcut for Import to new database is now Ctrl-Alt-I.</li>
-	      <li>The "Open URL or DOI" action now uses URL links in the "file" field as fallback if
-	      no links are found in the "url" or "doi" fields.</li>
-	      <li>Restricted remote listener port numbers to interval 1025-65535.</li>
-	      <li>Added Japanese translation by Koji Yokota.</li>
-	      <li>Added scrollbar to entry editor when it is too high to fit in its panel. Patch
-	      by Matthias Erll.</li>
-	      <li>Made it possible to copy entries from the search dialog.</li>
-	      <li>Added proper error message when trying to search with invalid regular expression.</li>
-	      <li>Added error dialog on startup if custom look and feel cannot be loaded.</li>
-	      <li>Applied Alexander Hug's patch for correctly importing doi from ScienceDirect RIS files.</li>
-	      <li>Removed potential NullPointerException in SearchExpressionTreeParser.</li>
-            </ul>
-          </div>
+        <h3>Version 2.7 (August 09th, 2011)</h3>
+        <div class="version_desc">
+          <ul>
+            <li>Medline importer now wraps multipart last names in braces.</li>
+            <li>RIS importer now handles multiple title fields by concatenation.</li>
+            <li>Disallowed &quot;comment&quot; as entry type name, since this conflicts with the BibTeX format.</li>
+            <li>Fixed handling of suffix name parts (Jr, etc.) in Medline importer.</li>
+            <li>Added optional second numeric argument to Authors formatter, which determines how
+                many authors are shown if the maximum number is exceeded.</li>
+            <li>Added content selector for &quot;review&quot; field in entry editor.</li>
+            <li>Improved detection of file type when adding new link. Can now recognize double
+                extensions such as &quot;.ps.gz&quot;.</li>
+            <li>Improved autocompletion of author names. Added options to complete either in
+                'Firstname Lastname' or 'Lastname, Firstname' formats, or in both.</li>
+            <li>Fixed bug in import function if no suitable import filter is found.</li>
+          </ul>
         </div>
+      </div>
+
+      <div class="aversion" id="v2.7b2">
+        <h3>Version 2.7 beta 2 (May 09th, 2011)</h3>
+
+        <div class="version_desc">
+          <ul>
+            <li>Added support for MrdLib lookup or metadata extraction when PDFs are dragged
+                into JabRef.</li>
+            <li>Added option under "External programs" for disabling the automatic opening of the
+                Browse dialog when creating a new file link.</li>
+            <li>Fixed shortcut key collision. Shortcut for Import to new database is now Ctrl-Alt-I.</li>
+            <li>The "Open URL or DOI" action now uses URL links in the "file" field as fallback if
+                no links are found in the "url" or "doi" fields.</li>
+            <li>Restricted remote listener port numbers to interval 1025-65535.</li>
+            <li>Added Japanese translation by Koji Yokota.</li>
+            <li>Added scrollbar to entry editor when it is too high to fit in its panel. Patch
+                by Matthias Erll.</li>
+            <li>Made it possible to copy entries from the search dialog.</li>
+            <li>Added proper error message when trying to search with invalid regular expression.</li>
+            <li>Added error dialog on startup if custom look and feel cannot be loaded.</li>
+            <li>Applied Alexander Hug's patch for correctly importing doi from ScienceDirect RIS files.</li>
+            <li>Removed potential NullPointerException in SearchExpressionTreeParser.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.7b">
+        <h3>Version 2.7beta (January 16th, 2011)</h3>
 
-	  <h3>Version 2.7beta (January 16th, 2011)</h3>
-          <div class="version_desc">
-	    <ul>
-		<li>Some improvements to MS Office export filter.</li>
-		<li>Introduced three choices for ensuring unique generated keys. The default one (marking
-	      	with a, b, etc.), a modified one (marking with b, c, etc.) and always adding a letter
-	      	(a, b, etc.).</li>
-		<li>Font and background colors are now customizable in the entry editor (Options ->
-	      	Preferences -> Appearance).</li>
-		<li>Window title now includes the full path to the current file.</li>
-		<li>Entries can now be marked in a series of different colors. Automarking of imported
-		entries is now done in separate color without affecting other marked entries.</li>
-		<li>Added new feature (Tools -> Scan database... -> Resolve duplicate BibTeX keys) to
-		search for duplicate keys and offer to generate new keys to resolve the duplicates.
-		Instead of being listed in a warning dialog after opening a bib file, duplicate keys
-		now trigger a dialog asking whether the user wants to resolve the duplicates.</li>
-		<li>Added check that ensures that application doesn't quit while a large save operation
-		is still in progress. Shows wait message with cancel button.</li>
-		<li>Added apostrophe (') as illegal character in BibTeX keys.</li>
-		<li>BibTeX strings that refer each other are now sorted correctly when saving bib file.</li>
-		<li>Fixed bug in merging external changes - file would still be reported as modified
-		externally after merging changes.</li>
-		<li>Fixed bug in Move/rename file link feature that could cause the wrong link to be
-		stored for certain directory structures.</li>
-		<li>Fixed bug: curly braces can now be used in arguments to formatters. </li>
-		<li>Fixed lockup bug when generating key for entries with crossref fields.</li>
-		<li>BibTeX strings are now resolved before attempting to (un)abbreviate journal names.</li>
-		<li>Modified [shorttitle] and [veryshorttitle] key generator markers so they consider
-		a hyphen a word boundary, and remove punctuation characters (keep only numbers and
-		letters).</li>
-		<li>deprecate various export formatters with new Authors formatter, which provides
-		flexible formatting options.</li>
-            </ul>
-          </div>
+        <div class="version_desc">
+          <ul>
+            <li>Some improvements to MS Office export filter.</li>
+            <li>Introduced three choices for ensuring unique generated keys. The default one (marking
+                with a, b, etc.), a modified one (marking with b, c, etc.) and always adding a letter
+                (a, b, etc.).</li>
+            <li>Font and background colors are now customizable in the entry editor (Options ->
+                Preferences -> Appearance).</li>
+            <li>Window title now includes the full path to the current file.</li>
+            <li>Entries can now be marked in a series of different colors. Automarking of imported
+                entries is now done in separate color without affecting other marked entries.</li>
+            <li>Added new feature (Tools -> Scan database... -> Resolve duplicate BibTeX keys) to
+                search for duplicate keys and offer to generate new keys to resolve the duplicates.
+                Instead of being listed in a warning dialog after opening a bib file, duplicate keys
+                now trigger a dialog asking whether the user wants to resolve the duplicates.</li>
+            <li>Added check that ensures that application doesn't quit while a large save operation
+                is still in progress. Shows wait message with cancel button.</li>
+            <li>Added apostrophe (') as illegal character in BibTeX keys.</li>
+            <li>BibTeX strings that refer each other are now sorted correctly when saving bib file.</li>
+            <li>Fixed bug in merging external changes - file would still be reported as modified
+                externally after merging changes.</li>
+            <li>Fixed bug in Move/rename file link feature that could cause the wrong link to be
+                stored for certain directory structures.</li>
+            <li>Fixed bug: curly braces can now be used in arguments to formatters. </li>
+            <li>Fixed lockup bug when generating key for entries with crossref fields.</li>
+            <li>BibTeX strings are now resolved before attempting to (un)abbreviate journal names.</li>
+            <li>Modified [shorttitle] and [veryshorttitle] key generator markers so they consider
+                a hyphen a word boundary, and remove punctuation characters (keep only numbers and
+                letters).</li>
+            <li>deprecate various export formatters with new Authors formatter, which provides
+                flexible formatting options.</li>
+          </ul>
         </div>
+      </div>
 
       <div class="aversion" id="v2.6">
         <h3>Version 2.6 (April 4th, 2010)</h3>
