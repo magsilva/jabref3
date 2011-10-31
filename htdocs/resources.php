@@ -149,13 +149,12 @@
       <h4 id="Lehner">Christoph Lehner's plugins</h4>
       <p><em>by Christoph Lehner</em></p>
       <p><a href="http://www.lhnr.de/ext/">http://www.lhnr.de/ext/</a></p>
-      <p>The page contains the following plugins:
+      <p>The page contains the following plugins:</p>
       <ul>
       <li>Plugin for automatic download of PDF files from arXiv or DOI links</li>
       <li>Plugin to browse and import new preprints from arXiv</li>
       <li>Plugin to import articles from INSPIRE</li>
       </ul>
-      </p>
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
