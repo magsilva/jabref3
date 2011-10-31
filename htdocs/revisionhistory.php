@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+        <li class="single_item"><a href="#v2.7.1">2.7.1</a></li>
         <li class="single_item"><a href="#v2.7">2.7</a></li>
         <li class="single_item"><a href="#v2.7b2">2.7 beta 2</a></li>
         <li class="single_item"><a href="#v2.7b">2.7 beta</a></li>
@@ -71,6 +72,35 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.7.1">
+
+        <h3>Version 2.7.1 (October 21st, 2011)</h3>
+        <div class="version_desc">
+          <ul>
+            <li>Fixed problem with search function under Java 7.</li>
+            <li>Made Database properties dialog modal to prevent database from being closed
+                while properties window is open.</li>
+            <li>Fixed error handling in custom import dialog when invalid jar files or class
+                files are specified.</li>
+            <li>Added OR operator for conditional export formatting.</li>
+            <li>DocBook export format switched to 4.4 (based on patch 3313898).</li>
+            <li>Fixed bug that made the key generator combination [shorttitle:abbr] return
+                only a single letter.</li>
+            <li>&quot;of&quot; added to the list of skip words (patch 2781830).</li>
+            <li>Bugfix for NullPointerException in Biblatex mode (patch 3222388 by Matthias Erll).</li>
+            <li>RTFExport: Replaces ligatures `` and '' with RTF control sequences {\ldblquote} and {\rdblquote}.
+                (patch 2905383 by Russell Almond).</li>
+            <li>Fixed bug that made menu items for marking in specific colors invisible
+                under Windows 7.</li>
+            <li>In case a new entry is added, this entry is highlighted and the editor is opened
+                if configured in the settings (patch 3370466). The UI behavior of adding an entry
+                at &quot;new entry from plain text&quot; is now similar to &quot;new entry&quot;.</li>
+            <li>Fixed bug in focus handling that affected some actions.</li>
+            <li>Running JabRef under the Oracle JVM will no longer give a warning.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.7">
 

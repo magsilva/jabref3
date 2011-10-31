@@ -24,7 +24,7 @@
         <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
-	<li><a href="#Lehner">Christoph Lehner's plugins</a></li>
+        <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
