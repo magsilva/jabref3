@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+        <li class="single_item"><a href="#v2.7.2">2.7.2</a></li>
         <li class="single_item"><a href="#v2.7.1">2.7.1</a></li>
         <li class="single_item"><a href="#v2.7">2.7</a></li>
         <li class="single_item"><a href="#v2.7b2">2.7 beta 2</a></li>
@@ -72,6 +73,16 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.7.2">
+
+        <h3>Version 2.7.2 (November 1st, 2011)</h3>
+        <div class="version_desc">
+          <ul>
+            <li>Fixed bug that prevented search functions from working under Java 7.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="aversion" id="v2.7.1">
 

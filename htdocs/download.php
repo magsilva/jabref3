@@ -20,7 +20,7 @@
     <h3 id="stable">Latest stable version</h3>  
     <p>We recommend the stable version for all casual users. These releases are beta-tested and expected to be stable and reliable.</p>
     <p>
-      <a href="http://sourceforge.net/projects/jabref/files/jabref/2.7.1"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
+      <a href="http://sourceforge.net/projects/jabref/files/jabref/2.7.2"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
     </p>
 
 <?php
