@@ -13,7 +13,7 @@
 
       <?php include("navigation.php"); ?>
 
-      <h1>OpenOffice plugin for JabRef</h1>
+      <h1>OpenOffice/LibreOffice plugin for JabRef</h1>
 
       <h2>Introduction</h2>
 
@@ -404,12 +404,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         </p>
 	<p>Author-year citations referring more than one entry will by default be sorted chronologically. If you wish them
  	to be sorted alphabetically, the citation property <code>MultiCiteChronological</code> should be set to <code>false.</code>.</p>
-        <p>The property <code>FormatCitations</code> determines whether the citation markers should be formatted with
-        regards to italics, boldness, superscript and subscript. If <code>FormatCitations</code> is false, no such formatting
-        will be done. If true, the citations will be italicized or not depending on the <code>ItalicCitations</code> property, set to bold
-        or not depending on the <code>BoldCitations</code> property, and similar for the <code>SuperscriptCitations</code> and
-        <code>SubscriptCitations</code> properties.</p>
-
+        
 		          
         <h3>Reference list layout</h3>
         
@@ -441,6 +436,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
       <h2>Known issues</h2>
 
       <ul>
+	<li>If JabRef is running under a 64-bit JVM, you can only connect to a 64-bit OpenOffice/LibreOffice. The same goes for 32-bit JVM and 32-bit OO/LO.
         <li>When running with JabRef versions older than 2.6, institutional authors wrapped in braces, e.g. <code>{World Bank}</code>, are handled as if no braces were added. This happens because the OO-specific formatter, which removes the braces, can only be run after (instead of before) all other formatters in JabRef 2.6 or newer.</li>
         <li>Make sure to save your Writer document in OpenDocument format (odt). Saving to Word format will lose your reference marks.</li>
         <li>There is currently no support for footnote based citations.</li>
