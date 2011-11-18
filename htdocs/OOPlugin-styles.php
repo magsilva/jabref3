@@ -29,6 +29,10 @@
           <td><b>Style suitable for</b></td> <td><b>Contributed by</b></td>
 	  <td><b>Example layout</b></td>
         </tr>
+	<tr><td><a href="jstyles/Adv_Mater.jstyle">Advanced Materials</a></td>
+          <td>Steffan Cook</td>
+          <td>&nbsp;</td>
+        </tr>
 	<tr><td><a href="jstyles/American_Mineralogist.jstyle">American Mineralogist</a></td>
           <td>Jan Stelling</td>
           <td><a href="jstyles/American_Mineralogist.png"><img src="jstyle_example.png" alt="Show" /></a></td>
@@ -41,9 +45,17 @@
           <td>Jan Stelling</td>
           <td><a href="jstyles/Geochim_Cosmochim_Acta.png"><img src="jstyle_example.png" alt="Show" /></a></td>
         </tr>
+        <tr><td><a href="jstyles/J_of_Mater_Chem.jstyle">Journal of Materials Chemistry</a></td>
+          <td>Steffan Cook</td>
+          <td>&nbsp;</td>
+        </tr>
         <tr><td><a href="jstyles/J_of_Neurophysiology.jstyle">Journal of Neurophysiology</a></td>
           <td>Ted Carnevale</td>
           <td><a href="jstyles/J_of_Neurophysiology.png"><img src="jstyle_example.png" alt="Show" /></a></td>
+        </tr>
+	<tr><td><a href="jstyles/Thesis_Number_Style.jstyle">"Thesis, example style with numbered citations</a></td>
+          <td>Seppo Enarvi</td>
+          <td>&nbsp;</td>
         </tr>
 	<tr><td><a href="jstyles/turabian-deutsch.jstyle">"Turabian" (Deutsch)</a></td>
           <td>Uwe Jochum</td>
