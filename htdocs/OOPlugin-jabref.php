@@ -436,7 +436,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
       <h2>Known issues</h2>
 
       <ul>
-	<li>If JabRef is running under a 64-bit JVM, you can only connect to a 64-bit OpenOffice/LibreOffice. The same goes for 32-bit JVM and 32-bit OO/LO.
+	<li>If JabRef is running under a 64-bit JVM, you can only connect to a 64-bit OpenOffice/LibreOffice. The same goes for 32-bit JVM and 32-bit OO/LO.</li>
         <li>When running with JabRef versions older than 2.6, institutional authors wrapped in braces, e.g. <code>{World Bank}</code>, are handled as if no braces were added. This happens because the OO-specific formatter, which removes the braces, can only be run after (instead of before) all other formatters in JabRef 2.6 or newer.</li>
         <li>Make sure to save your Writer document in OpenDocument format (odt). Saving to Word format will lose your reference marks.</li>
         <li>There is currently no support for footnote based citations.</li>
