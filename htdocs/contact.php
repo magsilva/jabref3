@@ -18,7 +18,7 @@
       <h3>Contact</h3>
 
       <span class="single_item"><a href="#mailinglist">Mailing lists</a></span>
-      <span class="single_item"><a href="#subversion">Subversion</a></span>
+      <span class="single_item"><a href="#git">Git</a></span>
       <span class="single_item"><a href="#bugtracker">Bug tracker</a></span>
       <span class="single_item"><a href="#featurerequest">Feature request</a></span>
       <span class="single_item"><a href="#patches">Patches</a></span>
@@ -92,10 +92,10 @@
       <p>For general questions about <acronym>JabRef</acronym>, you can use the
       <a href="https://sourceforge.net/mail/?group_id=92314"><acronym>JabRef</acronym> mailing lists</a>.</p>
 
-      <h3 id="subversion">Subversion access</h3>
-      <p>To browse or check out the <acronym>JabRef</acronym> source code from Subversion,
+      <h3 id="git">Git access</h3>
+      <p>To browse or check out the <acronym>JabRef</acronym> source code from Git,
       take a look at our
-      <a href="http://sourceforge.net/svn/?group_id=92314">Subversion page</a>.</p>
+      <a href="https://sourceforge.net/scm/?type=git&group_id=92314">Git page</a>.</p>
 
       <h3 id="bugtracker">Bug reports</h3>
       <p>To register bug reports, go to the
