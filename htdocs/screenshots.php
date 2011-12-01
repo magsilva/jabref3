@@ -15,7 +15,6 @@
 
     <div id="rightpanel">
       <h3>Screenshots</h3>
-      <span class="single_item"><a href="#filemenu">File Menu</a></span>
       <span class="single_item"><a href="#mainwindow">Main Window</a></span>
       <span class="single_item"><a href="#preferences">Preferences</a></span>
       <span class="single_item"><a href="#preview">Preview</a></span>
@@ -24,9 +23,6 @@
     <div id="main">
 
       <h2>Screenshots</h2>
-
-      <h3 id="filemenu">File Menu</h3>
-      <img class="screenshot" src="images/Jabref-ScreenShot-FileMenu.png" alt="Jabref-ScreenShot-FileMenu.png" />
 
       <h3 id="mainwindow">Main Window</h3>
       <a href="images/Jabref-ScreenShot-MainWindow.png">
