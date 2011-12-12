@@ -25,6 +25,7 @@
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
         <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
+        <li><a href="#GVK">GVK/SRU fetcher</a></li>
       </ul>
 
       <h3 id="exportfilters">Download export filters</h3>
@@ -155,6 +156,12 @@
       <li>Plugin to browse and import new preprints from arXiv</li>
       <li>Plugin to import articles from INSPIRE</li>
       </ul>
+
+      <h4 id="GVK">GVK (Gemeinsamer Verbundkatalog) fetcher</h4>
+      <p><em>by Gemeinsamen Bibliotheksverbund</em></p>
+      <p><a href="http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin">http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin</a></p>
+      <p>This plugin searches and fetcher entries from the GVK (Gemeinsamer Verbundkatalog).</p>
+      
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
