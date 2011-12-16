@@ -1,3 +1,4 @@
+*~
 /jabref/bin
 /jabref/build.number
 /jabref/build/
@@ -5,3 +6,4 @@
 /plugins/net.sf.jabref.export.xml/bin/
 /plugins/net.sf.jabref.imports.acm1/bin/
 /plugins/net.sf.jabref.imports.dblppp/bin/
+
