@@ -1,4 +1,6 @@
 *~
+out
+.idea
 /jabref/bin
 /jabref/build.number
 /jabref/build/
