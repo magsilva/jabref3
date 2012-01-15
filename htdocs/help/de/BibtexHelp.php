@@ -1,27 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>&Uuml;ber <em>BibTeX</em></title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>&Uuml;ber BibTeX</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>&Uuml;ber <em>BibTeX</em></h1>
 
-    <h1>&Uuml;ber <em>BibTeX</em></h1>JabRef hilft Ihnen bei der
+    <p>JabRef hilft Ihnen bei der
     Arbeit mit Ihren <em>BibTeX</em>-Dateien, aber es m&uuml;ssen
     dennoch Regeln beachtet werden, wenn Sie Ihre Eintr&auml;ge
     bearbeiten. Nur so kann sichergestellt werden, dass
-    <em>BibTeX</em> Ihre Datei richtig verarbeiten kann. 
+    <em>BibTeX</em> Ihre Datei richtig verarbeiten kann.</p>
 
-    <h2><em>BibTeX</em> Felder</h2>Es gibt viele unterschiedliche
+    <h2><em>BibTeX</em> Felder</h2>
+
+    <p>Es gibt viele unterschiedliche
     Felder in <em>BibTeX</em> und einige zus&auml;tzliche Felder,
-    die Sie in JabRef einsetzen k&ouml;nnen. 
+    die Sie in JabRef einsetzen k&ouml;nnen.</p>
 
     <p>Grunds&auml;tzlich k&ouml;nnen Sie LaTeX-Befehle in Feldern,
     die Text beinhalten, einsetzen. <em>BibTeX</em> wird Ihr
@@ -43,7 +49,7 @@
         Bibtexkey genau mit dem Verweis im LaTeX-Dokument
         &uuml;bereinstimmen muss (auch die
         Gro&szlig;-/Kleinschreibung).<br />
-        <br /></li>
+        </li>
 
         <li><strong>address<br /></strong> Der Ort des
         <em>Verlags</em> oder einer anderen Institution.</li>
@@ -58,7 +64,7 @@
             Autoren Ihres Eintrags enthalten. Die Namen werden
             durch das Wort <tt>and</tt> getrennt, auch wenn es mehr
             als zwei Autoren gibt. Jeder Name kann in zwei
-            gleichwertigen Formen notiert werden: 
+            gleichwertigen Formen notiert werden:
 
             <ul>
                 <li>Donald E. Knuth <em>oder</em> Knuth, Donald
@@ -69,7 +75,6 @@
             </ul>Die zweite Form sollte f&uuml;r Autoren mit zwei
             oder mehr Nachnamen benutzt werden, um zwischen dem
             mittleren und dem Nachnamen zu unterscheiden.<br />
-            <br />
         </li>
 
         <li><strong>booktitle<br /></strong> Der Titel eines
@@ -195,45 +200,46 @@
         Zeichen (ausgenommen Satzzeichen) Ziffern sind,
         beispielsweise <tt>(um 1984)</tt>. Dieses Feld wird
         f&uuml;r die meisten Eintragstypen ben&ouml;tigt.</li>
-    </ul><br />
-     
+    </ul>
 
-    <h2>Andere Felder</h2>Bibliographie-Stile f&uuml;r BibTeX
+    <h2>Andere Felder</h2>
+
+    <p>Bibliographie-Stile f&uuml;r BibTeX
     wurden von vielen Leuten entwickelt, und einige haben weitere
-    Felder erstellt. Es folgt eine kleine Auswahl.<br />
-    <br />
-    Feldnamen, die mit einem Stern* versehen sind, werden nicht
+    Felder erstellt. Es folgt eine kleine Auswahl.</p>
+
+    <p>Feldnamen, die mit einem Stern* versehen sind, werden nicht
     direkt von JabRef unterst&uuml;tzt, k&ouml;nnen aber
     eingebunden werden (siehe
-    <a href="CustomEntriesHelp.php">Eintragstypen anpassen</a>). 
+    <a href="CustomEntriesHelp.php">Eintragstypen anpassen</a>).</p>
 
     <ul>
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         affiliation*</span><br /></strong> Die Zugeh&ouml;rigkeit
         eines Autors.<br />
-        <br /></li>
+        </li>
 
         <li><strong>abstract<br /></strong> Die Zusammenfassung
         eines Werks.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         contents*</span><br /></strong> Ein
         Inhaltsverzeichnis.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         copyright*</span><br /></strong>
         Copyright-Informationen.<br />
-        <br /></li>
+        </li>
 
         <li><strong>doi<br /></strong> Der <em>Digital Object
         Identifier</em> ist eine permanente Kennung von
         Dokumenten.<br />
-        <br /></li>
+        </li>
 
         <li><strong>eid<br /></strong> Der EID (<em>Electronic
         identifier</em>) wird f&uuml;r elektronische Zeitschriften
@@ -241,72 +247,72 @@
         die die Seitenzahlen ersetzt, l&auml;sst sich der Artikel
         in der gedruckten Ausgabe finden. Der EID wird manchmal
         auch <em>citation number</em> genannt.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         ISBN*</span><br /></strong> Die Internationale
         Standardbuchnummer.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         ISSN*</span><br /></strong> Die Internationale
         Standardseriennummer (f&uuml;r Zeitschriften).<br />
-        <br /></li>
+        </li>
 
         <li><strong>keywords<br /></strong> Stichworte, k&ouml;nnen
         in JabRef gut zum Gruppieren verwendet werden.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         language*</span><br /></strong> Die Sprache des
         Werks.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         location*</span><br /></strong> Der Ort, der mit einem Werk
         in Verbindung steht, z.B. die Stadt, in der eine Konferenz
         stattgefunden hat.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         LCCN*</span><br /></strong> Die <em>Library of Congress
         Call Number</em>. Manchmal hei&szlig;t das Feld auch
         <tt>lib-congress</tt>.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         mrnumber*</span><br /></strong> Die <i>Mathematical
         Reviews</i>-Nummer.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         price*</span><br /></strong> Der Preis.<br />
-        <br /></li>
+        </li>
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
         size*</span><br /></strong> Die physische Gr&ouml;&szlig;e
         eines Dokuments.<br />
-        <br /></li>
+        </li>
 
         <li><strong>url<br /></strong> Der <em>Uniform Resource
         Locator</em> (URL, "einheitlicher Quellenanzeiger"), der
         auf eine Webseite im Internet verweist.<br />
-        <br /></li>
+        </li>
 
         <li><strong>urldate<br /></strong> Das Datum, an dem eine
         Webseite zuletzt besucht wurde.</li>
     </ul><br />
      <br />
      <br />
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

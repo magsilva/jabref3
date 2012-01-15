@@ -1,17 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Unterst&uuml;tzung von XMP-Metadaten in JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Unterst&uuml;tzung von XMP-Metadaten in JabRef</h1>
 
@@ -34,8 +36,10 @@
     alle Informationen zur Verf&uuml;gung, die Sie eingegeben
     haben.</p>
 
-    <h2>Benutzung</h2>Um die XMP-Funktionen in JabRef zu nutzen,
-    gehen Sie folgenderma&szlig;en vor: 
+    <h2>Benutzung</h2>
+
+    <p>Um die XMP-Funktionen in JabRef zu nutzen,
+    gehen Sie folgenderma&szlig;en vor:</p>
 
     <ul>
         <li>Zum <i>Importieren einer einzelnen PDF-Datei mit
@@ -103,7 +107,7 @@
         gespeichert.</li>
     </ul><br />
     <br />
-     
+
 
     <p>Es folgt ein Beispiel:</p>
     <pre>
@@ -116,7 +120,7 @@
   timestamp = {2006.05.29},
   url = {http://james.howison.name/publications.html}
 }
-</pre>wird umgewandelt in 
+</pre>wird umgewandelt in
     <pre>
 &lt;rdf:Description xmlns:bibtex="http://jabref.sourceforge.net/bibteXMP/"
     bibtex:bibtexkey="CroAnnHow05"
@@ -146,7 +150,7 @@
         wiedergegeben werden und vice versa.</li>
     </ul><br />
     <br />
-     
+
 
     <h2>Weiterf&uuml;hrende Links</h2>
 
@@ -158,25 +162,23 @@
         MP3s"</a></li>
 
         <li>
-        <a href="http://www.xml.com/pub/a/2004/09/22/xmp.php">XML.com-Artikel
+        <a href="http://www.xml.com/pub/a/2004/09/22/xmp.html">XML.com-Artikel
         zu XMP</a></li>
 
-        <li><a href="http://jempbox.org">JempBox</a> und
-        <a href="http://pdfbox.org">PDFBox</a> von Ben Litchfield
-        (Java libraries zum Zugriff auf die PDFs und die
-        Metadaten)</li>
+		<li><a href="http://pdfbox.apache.org">PDFBox bibliothek</a> zum Zugriff
+		auf ein PDF und seine Metadaten.</li>
 
         <li>
-        <a href="http://episteme.arstechnica.com/eve/ubb.x/a/tpc/f/8300945231/m/377001889631">
+        <a href="http://arstechnica.com/civis/viewtopic.php?f=19&amp;t=408429">
         Gute Diskussion bei ArsTechnica zum Management von
         PDFs.</a></li>
 
         <li>
-        <a href="http://partners.adobe.com/public/developer/en/xmp/sdk/xmpspecification.pdf">
+        <a href="http://www.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMPSpecificationPart1.pdf">
         Adobe XMP Spezifikation</a></li>
     </ul><br />
     <br />
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

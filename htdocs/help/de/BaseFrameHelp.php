@@ -1,22 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Das Hauptfenster von JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Das Hauptfenster von JabRef</h1>
 
-    <h1>Das Hauptfenster von JabRef</h1><em>Anmerkung:</em> Die
+    <p><em>Anmerkung:</em> Die
     meisten Men&uuml;funktionen, auf die im Folgenden hingewiesen
     wird, haben Tastenk&uuml;rzel, und viele Funktionen k&ouml;nnen
-    &uuml;ber die Werkzeugleiste aufgerufen werden. 
+    &uuml;ber die Werkzeugleiste aufgerufen werden.</p>
 
     <p>Dies ist das Hauptfenster, in dem Sie mit Ihrer Datei
     arbeiten. Unter der Men&uuml;leiste und der Werkzeugleiste
@@ -72,7 +76,7 @@
             <strong>Einstellungs</strong>-Dialog ein- und
             ausgeschaltet werden. Die Farbanzeige illustriert, ob
             Ihre Daten vollst&auml;ndig sind, indem sie die Zellen
-            wie folgt darstellt: 
+            wie folgt darstellt:
 
             <ul>
                 <li>Eine <font color="red">rote</font> Zelle in der
@@ -100,15 +104,16 @@
         </li>
     </ul>
 
-    <h2>Einen neuen Eintrag hinzuf&uuml;gen</h2>Es gibt
-    verschiedene M&ouml;glichkeiten, einen neuen Eintrag
+    <h2>Einen neuen Eintrag hinzuf&uuml;gen</h2>
+
+    <p>Es gibt verschiedene M&ouml;glichkeiten, einen neuen Eintrag
     hinzuzuf&uuml;gen. Im Men&uuml; <strong>BibTeX</strong>
     f&uuml;hrt ein Klick auf <strong>Neuer Eintrag</strong> zu
     einem Dialog, in dem Sie den Eintragstyp aus einer Liste
     w&auml;hlen k&ouml;nnen. Um diesen Dialog zu umgehen, gibt es
     auch eigene Men&uuml;punkte f&uuml;r jeden Eintragstyp und
     au&szlig;erdem Tastenk&uuml;rzel f&uuml;r die g&auml;ngigsten
-    Typen. 
+    Typen.</p>
 
     <p>Wenn ein Eintrag hinzugef&uuml;gt wird, wird
     standardm&auml;&szlig;ig ein
@@ -121,25 +126,27 @@
     die Sie am h&auml;ufigsten benutzen, z.B. STRG-SHIFT-A f&uuml;r
     einen Zeitschriftenaufsatz (<em>article</em>).</p>
 
-    <h2>Einen Eintrag bearbeiten</h2>Um den
-    <a href="EntryEditorHelp.php">Eintrags-Editor</a> zur
+    <h2>Einen Eintrag bearbeiten</h2>
+
+    <p>Um den <a href="EntryEditorHelp.php">Eintrags-Editor</a> zur
     Bearbeitung eines existierenden Eintrags zu &ouml;ffnen,
     klicken Sie einfach doppelt auf die Zeile des Eintrags oder
-    markieren den Eintrag und dr&uuml;cken auf ENTER. 
+    markieren den Eintrag und dr&uuml;cken auf ENTER.</p>
 
-    <h2>Einen <em>BibTeX</em> String in einem Feld verwenden</h2>In
-    JabRef schreiben Sie den Inhalt aller Felder so, wie Sie es in
+    <h2>Einen <em>BibTeX</em> String in einem Feld verwenden</h2>
+
+    <p>In JabRef schreiben Sie den Inhalt aller Felder so, wie Sie es in
     einem Texteditor machen w&uuml;rden, mit einer Ausnahme: um
     einen String (Anm. d. &Uuml;bers.: eine Art Abk&uuml;rzung) zu
     verwenden, umschlie&szlig;en Sie den Namen des Strings mit je
-    einem #, z.B.<br />
-    &nbsp;&nbsp;'#jan# 1997',<br />
-    was interpretiert wird als String mit dem Namen 'jan' gefolgt
-    von '1997'. 
+    einem #, z.B.</p>
+    <p>&nbsp;&nbsp;'#jan# 1997',</p>
+    <p>was interpretiert wird als String mit dem Namen 'jan' gefolgt
+    von '1997'.</p>
 
     <p>Vergleichen Sie auch die Hilfeseite zum
     <a href="StringEditorHelp.php">String-Editor</a>. </p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

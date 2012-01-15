@@ -1,23 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Eintr&auml;ge von Medline abrufen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Eintr&auml;ge von Medline abrufen</h1>
 
-    <h1>Eintr&auml;ge von Medline abrufen</h1>MEDLINE ist die
+    <p>MEDLINE ist die
     wichtigste Datenbank der <em>U.S. National Library of
     Medicine</em>. Sie enth&auml;lt Literaturangaben von
     Zeitschriftenartikeln der Lebenswissenschaften, vornehmlich der
-    Biomedizin. 
+    Biomedizin.</p>
 
     <p>JabRef kann Literaturangaben von der Medline-Datenbank
     herunterladen. Um diese Funktion zu nutzen, w&auml;hlen Sie
@@ -40,22 +44,23 @@
     oder die Schaltfl&auml;che <b>Abrufen</b>. Wenn Sie eine
     Textsuche durchf&uuml;hren, wird Ihnen die Anzahl der
     gefundenen Eintr&auml;ge angezeigt, und Sie k&ouml;nnen
-    w&auml;hlen, wie viele Sie herunterladen m&ouml;chten. 
+    w&auml;hlen, wie viele Sie herunterladen m&ouml;chten.
 
     <p>Die abgerufenen Eintr&auml;ge werden Ihrer zu diesem
     Zeitpunkt aktivierten Datei zugeordnet.</p>
 
-    <h2>Benutzung eines Proxy-Servers</h2>Wenn Sie einen
-    HTTP-Proxy-Server benutzen m&uuml;ssen, &uuml;bergeben Sie den
-    Servernamen und die Portnummer an Java. Diese
-    Umgebungseinstellungen sind dokumentiert unter 
+    <h2>Benutzung eines Proxy-Servers</h2>
 
-    <p>
-    http://java.sun.com/j2se/1.4.2/docs/guide/net/properties.html</p>
+    <p>Wenn Sie einen
+    HTTP-Proxy-Server benutzen m&uuml;ssen, &uuml;bergeben Sie den
+    Servernamen und die Portnummer an Java.</p>
 
     <p><code>java -Dhttp.proxyHost="hostname"
     -Dhttp.proxyPort="portnumber"</code></p>
-    <?php include("../../footer.php"); ?>
+
+    <p>Diese Umgebungseinstellungen sind in der <a href="http://docs.oracle.com/javase/1.4.2/docs/guide/net/properties.html">Sun J2SE Dokumentation</a> beschrieben.</p>
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

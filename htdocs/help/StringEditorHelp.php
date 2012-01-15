@@ -1,20 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>The string editor</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>The string editor</h1>
 
-    <h1>The string editor</h1><em>Opened from the main window
-    by</em> Edit strings or pressing a button in the toolbar. 
+    <p><em>Opened from the main window
+    by <b>BibTeX -> Edit strings</b> or pressing a button in the toolbar.</em></p>
 
     <p><em>Strings</em> are the <em>bibtex</em> equivalent to
     constants in a programming language. Each string is defined
@@ -53,7 +56,7 @@
     JabRef. The strings will be displayed in alphabetical order in
     the string editor, and stored in the same order, except when a
     different ordering is required by BibTeX.</p>
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

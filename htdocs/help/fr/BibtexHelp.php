@@ -1,28 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>A propos de <em>BibTeX</em></title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>A propos de BibTeX</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>A propos de <em>BibTeX</em></h1>JabRef vous aide &agrave;
+    <h1>A propos de <em>BibTeX</em></h1>
+
+    <p>JabRef vous aide &agrave;
     travailler avec vos bases de donn&eacute;es <em>BibTeX</em>,
     mais certaines r&egrave;gles doivent &ecirc;tre gard&eacute;es
     &agrave; l'esprit lorsque vous &eacute;ditez vos entr&eacute;es
     afin d'obtenir un traitement correct de vos bases de
-    donn&eacute;es par le programme <em>BibTeX</em>. 
+    donn&eacute;es par le programme <em>BibTeX</em>.</p>
 
-    <h2>Les champs <em>BibTeX</em></h2>Il y a un grand nombre de
+    <h2>Les champs <em>BibTeX</em></h2>
+
+    <p>Il y a un grand nombre de
     champs possibles dans <em>BibTeX</em>, et quelques champs en
-    plus que vous pouvez param&eacute;trer dans JabRef. 
+    plus que vous pouvez param&eacute;trer dans JabRef.</p>
 
     <p>G&eacute;n&eacute;ralement, vous pouvez utiliser des
     commandes LaTeX &agrave; l'int&eacute;rieur de champs contenant
@@ -191,12 +197,14 @@
         tel que `(autour de 1984)'. Ce champ est requis par la
         plupart des types d'entr&eacute;es.</li>
     </ul><br />
-     
 
-    <h2>Autres champs</h2>BibTeX est tr&egrave;s populaire, et
+
+    <h2>Autres champs</h2>
+
+    <p>BibTeX est tr&egrave;s populaire, et
     beaucoup de gens l'ont utilis&eacute; pour stocker des
     informations. Voici une liste de quelque uns des champs les
-    plus communs&nbsp;: 
+    plus communs&nbsp;:</p>
 
     <ul>
         <li>
@@ -307,7 +315,7 @@
     </ul><br />
      *) non support&eacute; directement par JabRef<br />
      <br />
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

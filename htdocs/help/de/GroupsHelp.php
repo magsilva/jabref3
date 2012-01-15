@@ -1,22 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Gruppen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Gruppen</h1>
 
-    <h1>Gruppen</h1>Mit Gruppen k&ouml;nnen Sie Ihre BibTeX-Datei
+    <p>Mit Gruppen k&ouml;nnen Sie Ihre BibTeX-Datei
     in einer Baumstruktur anordnen, vergleichbar mit einer
     Dateistruktur in Ordnern und Unterordnern. Die beiden
-    Hauptunterschiede sind: 
+    Hauptunterschiede sind:</p>
 
     <ul>
         <li>W&auml;hrend eine Datei auf einer Festplatte immer in
@@ -36,7 +40,7 @@
     die in einer der Gruppen sind (Vereinigung), oder solche, die
     in allen Gruppen vorhanden sind (Schnittmenge) -- das
     h&auml;ngt von Ihren Einstellungen ab. All dies wird im
-    Folgenden detailliert erl&auml;utert. 
+    Folgenden detailliert erl&auml;utert.
 
     <p>Gruppendefinitionen sind dateispezifisch; sie werden als
     <tt>@COMMENT</tt>-Block in der <tt>bib</tt>-Datei gespeichert
@@ -44,26 +48,32 @@
     (K&uuml;nftige Versionen von JabRef werden m&ouml;glicherweise
     benutzerabh&auml;ngige Gruppen unterst&uuml;tzen.)</p>
 
-    <h2>Die Gruppenansicht</h2>Die Gruppenansicht wird im linken
+    <h2>Die Gruppenansicht</h2>
+
+    <p>Die Gruppenansicht wird im linken
     Bereich des Bildschirms angezeigt. Sie kann mit der
     Tastenkombination <tt>STRG-SHIFT-G</tt> oder dem Gruppen-Button
     in der Toolbar ein- und ausgeblendet werden. Die Gruppenansicht
     verf&uuml;gt &uuml;ber mehrere Schaltfl&auml;chen, aber die
     meisten Funktionen werden &uuml;ber das Kontextmen&uuml;
     angesteuert (also mit der rechten Maustaste). Drag &amp; Drop
-    wird ebenfalls unterst&uuml;tzt. 
+    wird ebenfalls unterst&uuml;tzt.</p>
 
     <table cellspacing="0"
            cellpadding="5"
            border="0"
-           bgcolor="#C0FFC0">
+           bgcolor="#C0FFC0"
+		   summary="Beispiele">
         <tr>
             <td>
-                <h2>Einige kurze Beispiele</h2>Sie m&ouml;chten
-                vielleicht... 
+                <h2>Einige kurze Beispiele</h2>
+
+                <p>Sie m&ouml;chten vielleicht...</p>
 
                 <h3>...einfach nur eine Gruppe anlegen und ihr
-                einige Eintr&auml;ge zuordnen</h3>Vergewissern Sie
+                einige Eintr&auml;ge zuordnen</h3>
+
+                <p>Vergewissern Sie
                 sich, dass die Gruppenansicht eingeschaltet ist.
                 Dr&uuml;cken Sie auf den Button <b>Neue Gruppe</b>,
                 geben einen Namen f&uuml;r die Gruppe ein und
@@ -76,10 +86,12 @@
                 Kontextmen&uuml;. Jetzt k&ouml;nnen Sie die Gruppe
                 anklicken, um sich ihren Inhalt anzeigen zu lassen
                 (das sollten die Eintr&auml;ge sein, die Sie gerade
-                hinzugef&uuml;gt haben). 
+                hinzugef&uuml;gt haben).</p>
 
                 <h3>...das Feld <tt>keywords</tt> benutzen, um die
-                Eintr&auml;ge zu gruppieren</h3>Stellen Sie sicher,
+                Eintr&auml;ge zu gruppieren</h3>
+
+                <p>Stellen Sie sicher,
                 dass die Gruppenansicht aktiviert ist. Dr&uuml;cken
                 Sie auf den Button <b>Neue Gruppe</b>, geben einen
                 Namen f&uuml;r die Gruppe ein und w&auml;hlen die
@@ -90,11 +102,12 @@
                 Gruppe anklicken, um sich ihren Inhalt anzeigen zu
                 lassen (das sollten alle Eintr&auml;ge sein, deren
                 <tt>keywords</tt>-Feld das Stichwort enth&auml;lt,
-                das Sie angegeben haben). 
+                das Sie angegeben haben).</p>
 
                 <h3>...einen frei w&auml;hlbaren Suchausdruck
-                verwenden, um eine Gruppe zu definieren</h3>Stellen
-                Sie sicher, dass die Gruppenansicht aktiviert ist.
+                verwenden, um eine Gruppe zu definieren</h3>
+
+                <p>Stellen Sie sicher, dass die Gruppenansicht aktiviert ist.
                 Dr&uuml;cken Sie auf den Button <b>Neue Gruppe</b>,
                 geben einen Namen f&uuml;r die Gruppe ein und
                 w&auml;hlen die Option <b>Dynamisches Gruppieren
@@ -106,11 +119,13 @@
                 Sie die Gruppe anklicken, um sich ihren Inhalt
                 anzeigen zu lassen (das sollten alle Eintr&auml;ge
                 sein, deren <tt>author</tt>-Feld den Namen
-                beinhaltet, den Sie angegeben haben). 
+                beinhaltet, den Sie angegeben haben).</p>
 
-                <h3>...mehrere Gruppen kombinieren</h3>Erstellen
-                sie zwei unterschiedliche Gruppen (z.B. so wie oben
-                beschrieben). Klicken Sie auf den Button
+                <h3>...mehrere Gruppen kombinieren</h3>
+
+                <p>Erstellen sie zwei unterschiedliche Gruppen
+                (z.B. so wie oben beschrieben).
+                Klicken Sie auf den Button
                 <b>Einstellungen</b> in der Gruppenansicht und
                 w&auml;hlen <b>Vereinigung</b>. Jetzt w&auml;hlen
                 Sie beide Gruppen aus (dazu klicken Sie auf eine
@@ -124,10 +139,12 @@
                 Gruppen enthalten sind (das k&ouml;nnen auch keine
                 sein, oder aber genau dieselben Eintr&auml;ge wie
                 zuvor, sofern beide Gruppen dieselben Eintr&auml;ge
-                enthalten). 
+                enthalten).</p>
 
                 <h3>...sehen, welche Gruppen sich
-                &uuml;berschneiden</h3>Mit JabRef k&ouml;nnen Sie
+                &uuml;berschneiden</h3>
+
+                <p>Mit JabRef k&ouml;nnen Sie
                 ganz einfach herausfinden, welche Gruppen sich mit
                 den aktuell ausgew&auml;hlten Gruppen
                 &uuml;berschneiden (d.h. welche Gruppen zumindest
@@ -137,13 +154,14 @@
                 <b>Sich &uuml;berschneidende Gruppen markieren</b>.
                 W&auml;hlen Sie dann eine Gruppe, die sich mit
                 anderen &uuml;berschneidet. Diese anderen Gruppen
-                sollten nun markiert sein.
+                sollten nun markiert sein.</p>
             </td>
         </tr>
     </table>
 
-    <h2>Arten von Gruppen</h2>In JabRef 1.8 gibt es vier
-    verschiedene Arten von Gruppen 
+    <h2>Arten von Gruppen</h2>
+
+    <p>In JabRef 1.8 gibt es vier verschiedene Arten von Gruppen</p>
 
     <ol>
         <li>Die Gruppe <b>Alle Eintr&auml;ge</b>, die -- wie der
@@ -170,7 +188,7 @@
         bestimmten Suchausdruck &uuml;bereinstimmen. Dabei wird
         dieselbe Syntax verwendet wie beim
         <a href="SearchHelp.php">Suchen</a>. Diese
-        <a href="SearchHelp.html#advanced">Syntax</a>
+        <a href="SearchHelp.php#advanced">Syntax</a>
         unterst&uuml;tzt logische Operatoren (<tt>AND</tt>,
         <tt>OR</tt>, <tt>NOT</tt>) und erlaubt es, in einem oder
         mehreren BibTeX-Feldern zu suchen. Dadurch ist eine
@@ -180,10 +198,12 @@
     </ol>Jede Gruppe, die Sie erstellen, ist von einer der drei
     letztgenannten Arten. Der Dialog "Gruppe bearbeiten", der mit
     einem Doppelklick auf eine Gruppe aufgerufen wird, zeigt eine
-    kurze Beschreibung der ausgew&auml;hlten Gruppe. 
+    kurze Beschreibung der ausgew&auml;hlten Gruppe.
 
     <h2>Gruppenstrukturen, Erstellen und L&ouml;schen von
-    Gruppen</h2>Vergleichbar mit Ordnern sind die Gruppen in einer
+    Gruppen</h2>
+
+    <p>Vergleichbar mit Ordnern sind die Gruppen in einer
     Baumansicht strukturiert, wo die Gruppe <b>Alle
     Eintr&auml;ge</b> das Stammelement ist. Mit einem Rechtsklick
     auf eine Gruppe k&ouml;nnen Sie dem Baum eine neue Gruppe
@@ -198,12 +218,14 @@
     k&ouml;nnen Sie auch mit Drag&nbsp;&amp;&nbsp;Drop machen,
     allerdings mit der Einschr&auml;nkung, dass bei
     Drag&nbsp;&amp;&nbsp;Drop die Reihenfolge der Untergruppen
-    einer Gruppe nicht ver&auml;ndert werden kann. 
+    einer Gruppe nicht ver&auml;ndert werden kann.</p>
 
     <p>R&uuml;ckg&auml;ngig und Wiederholen wird f&uuml;r alle
     Bearbeitungsschritte unterst&uuml;tzt.</p>
 
-    <h3>Statische Gruppen</h3>Statische Gruppen werden nur durch
+    <h3>Statische Gruppen</h3>
+
+    <p>Statische Gruppen werden nur durch
     manuelles Zuweisen von Eintr&auml;gen "gef&uuml;ttert". Nachdem
     Sie eine statische Gruppe erstellt haben, w&auml;hlen Sie die
     Eintr&auml;ge aus, die Sie ihr zuweisen wollen, und nutzen
@@ -211,7 +233,7 @@
     der Tabelle, um die Zuweisung durchzuf&uuml;hren. Um
     Eintr&auml;ge aus einer Gruppe zu entfernen, w&auml;hlen Sie
     sie aus und benutzen das Kontextmen&uuml; in der Tabelle. Es
-    k&ouml;nnen keine weiteren Optionen angegeben werden. 
+    k&ouml;nnen keine weiteren Optionen angegeben werden.</p>
 
     <p>Diese Methode des Gruppierens setzt voraus, dass alle
     Eintr&auml;ge einen eindeutigen BibTeX-Key haben. Im Falle von
@@ -219,12 +241,14 @@
     betreffenden Eintr&auml;ge in k&uuml;nftigen Sitzungen nicht
     korrekt wiederhergestellt werden.</p>
 
-    <h3>Dynamische Gruppen</h3>Der Inhalt einer dynamischen Gruppe
+    <h3>Dynamische Gruppen</h3>
+
+    <p>Der Inhalt einer dynamischen Gruppe
     wird von einer logischen Bedingung bestimmt. Nur Eintr&auml;ge,
     die dieser Bedingung entsprechen, geh&ouml;ren zu dieser
     Gruppe. Diese Methode nutzt die bereits in der Datei
     vorhandenen Informationen und wird aktualisiert, sobald Sie
-    Ver&auml;nderungen in der Datei vornehmen. 
+    Ver&auml;nderungen in der Datei vornehmen.</p>
 
     <p>Es gibt zwei m&ouml;gliche Arten von Bedingungen:</p>
 
@@ -256,7 +280,7 @@
         <dd>Diese Vorgehensweise ist ganz &auml;hnlich wie die eben
         beschriebene, aber statt nur ein Feld nach einem
         Suchausdruck zu durchsuchen, kann hierbei die
-        <a href="SearchHelp.html#advanced">Syntax der Suche</a>
+        <a href="SearchHelp.php#advanced">Syntax der Suche</a>
         angewendet werden, die logische Operatoren (<tt>AND</tt>,
         <tt>OR</tt>, <tt>NOT</tt>) und die Suche in mehreren
         Feldern gleichzeitig unterst&uuml;tzt. So fasst z.B. die
@@ -267,9 +291,11 @@
     </dl>In der Gruppenansicht werden dynamische Gruppen
     standardm&auml;&szlig;ig <i>kursiv</i> dargestellt. Dies kann
     unter <strong>Optionen -&gt; Einstellungen -&gt;
-    Gruppen</strong> abgestellt werden. 
+    Gruppen</strong> abgestellt werden.
 
-    <h3>Hierarchischer Kontext</h3>Standardm&auml;&szlig;ig ist
+    <h3>Hierarchischer Kontext</h3>
+
+    <p>Standardm&auml;&szlig;ig ist
     eine Gruppe <b>unabh&auml;ngig</b> von ihrer Position im
     Gruppenbaum. Ist eine Gruppe ausgew&auml;hlt, wird nur der
     Inhalt dieser Gruppe angezeigt. Es ist jedoch -- besonders beim
@@ -288,7 +314,7 @@
     verfeinert, k&ouml;nnen Sie die Gruppierung einfach erweitern.
     Im Gruppenbaum haben solche Gruppen, die ihre Obergruppen
     verfeinern, ein spezielles Icon. (Dieses Verhalten kann in den
-    Einstellungen abgestellt werden.) 
+    Einstellungen abgestellt werden.)</p>
 
     <p>Das logische Gegenst&uuml;ck zu einer solchen verfeinernden
     Untergruppe ist eine Gruppe, die <b>ihre Untergruppen
@@ -299,12 +325,14 @@
     Einstellungen abgestellt werden.)</p>
 
     <h2>Eintr&auml;ge einer Gruppe anzeigen, mehrere Gruppen
-    kombinieren</h2>Wenn Sie eine Gruppe ausw&auml;hlen, werden die
+    kombinieren</h2>
+
+    <p>Wenn Sie eine Gruppe ausw&auml;hlen, werden die
     Eintr&auml;ge, die dieser Gruppe zugeordnet sind, hervorgehoben
     und -- je nach Einstellung (die mit einem Klick auf den
     <b>Einstellungen</b>-Button vorgenommen werden kann) -- an den
     Anfang der Tabelle verschoben und/oder ausgew&auml;hlt. Diese
-    Optionen entsprechen denen f&uuml;r die normale Suche. 
+    Optionen entsprechen denen f&uuml;r die normale Suche.</p>
 
     <p>Wenn Sie meherere Gruppen ausw&auml;hlen (indem Sie die
     STRG-Taste gedr&uuml;ckt halten und mehrere Gruppen anklicken),
@@ -318,13 +346,16 @@
     ausw&auml;hlen (dazu muss <b>Schnittmenge</b> in den
     Einstellungen aktiviert sein).</p>
 
-    <h2>Gruppen und Suche</h2>Wenn der Inhalt einer oder mehrerer
+    <h2>Gruppen und Suche</h2>
+
+    <p>Wenn der Inhalt einer oder mehrerer
     Gruppen angezeigt wird, k&ouml;nnen Sie eine Suche innerhalb
     dieser Eintr&auml;ge durchf&uuml;hren. Benutzen Sie dazu die
-    normalen Suchfunktionen. 
+    normalen Suchfunktionen.</p>
 
-    <h2>Sich &uuml;berschneidende Gruppen markieren</h2>Der
-    <b>Einstellungs</b>-Button bietet eine Option zum Markieren von
+    <h2>Sich &uuml;berschneidende Gruppen markieren</h2>
+
+    <p>Der <b>Einstellungs</b>-Button bietet eine Option zum Markieren von
     sich &uuml;berschneidenden Gruppen. Wenn diese Option aktiviert
     ist und Sie eine (oder mehrere) Gruppe(n) ausw&auml;hlen,
     werden alle Gruppen markiert, die mindestens einen Eintrag
@@ -335,14 +366,18 @@
     erstellen, die alle Eintr&auml;ge enth&auml;lt, die sie lesen
     wollen. Sobald Sie nun eine Gruppe ausw&auml;hlen, wird die
     Gruppe <tt>lesen</tt> markiert, sofern die ausgew&auml;hlte
-    Gruppe Eintr&auml;ge enth&auml;lt, die Sie noch lesen wollten. 
+    Gruppe Eintr&auml;ge enth&auml;lt, die Sie noch lesen wollten.</p>
 
-    <h2>Erweiterte Funktionen</h2>Wenn Sie sich mit dem oben
+    <h2>Erweiterte Funktionen</h2>
+
+    <p>Wenn Sie sich mit dem oben
     beschriebenen Gruppenkonzept vertraut gemacht haben,
     k&ouml;nnten die folgenden erweiterten Funktionen n&uuml;tzlich
-    sein. 
+    sein.</p>
 
-    <h3>Dynamische Gruppen automatisch erstellen</h3>Mit einem
+    <h3>Dynamische Gruppen automatisch erstellen</h3>
+
+    <p>Mit einem
     Klick auf den Button <b>Automatisch Gruppen f&uuml;r die Datei
     anlegen</b> k&ouml;nnen Sie ganz schnell passende Gruppen
     f&uuml;r Ihre Datei erzeugen. Diese Funktion sammelt alle
@@ -352,7 +387,7 @@
     Eintr&auml;ge enth&auml;lt. Mit dem automatischen Erstellen von
     Gruppen basierend auf dem Feld <tt>keywords</tt> k&ouml;nnen
     Sie also ohne gro&szlig;en Aufwand ein Grundger&uuml;st von
-    Gruppen anlegen. 
+    Gruppen anlegen.</p>
 
     <p>Sie k&ouml;nnen auch Buchstaben angeben, die ignoriert
     werden sollen, z.B. Kommas, die zwischen einzelnen Stichworten
@@ -365,21 +400,25 @@
     stattdessen die Gruppen, die Sie nicht wollen, nach dem
     automatischen Erstellen von Hand l&ouml;schen.)</p>
 
-    <h3>Ansicht aktualisieren</h3>Der <b>Aktualisieren</b>-Button
+    <h3>Ansicht aktualisieren</h3>
+
+    <p>Der <b>Aktualisieren</b>-Button
     aktualisiert die Tabelle in Bezug auf die aktuell
     ausgew&auml;hlten Gruppen. Normalerweise erfolgt dies
     automatisch, aber in seltenen F&auml;llen (z.B. nach einem
     R&uuml;ckg&auml;ngig- oder Wiederholen-Vorgang, der mit Gruppen
     zusammenh&auml;ngt) ist ein h&auml;ndisches Aktualisieren
-    n&ouml;tig. 
+    n&ouml;tig.</p>
 
     <h3>Verfeinernde Untergruppen und einbeziehende Obergruppen
-    mischen</h3>Wenn eine verfeinernde Gruppe die Untergruppe von
+    mischen</h3>
+
+    <p>Wenn eine verfeinernde Gruppe die Untergruppe von
     einer Gruppe ist, die ihre Untergruppen ber&uuml;cksichtigt --
     also sozusagen die Geschwister der verfeinernden Gruppe --,
     dann werden diese Geschwister ignoriert, sobald die
-    verfeinernde Gruppe ausgew&auml;hlt wird.
-    <?php include("../../footer.php"); ?>
+    verfeinernde Gruppe ausgew&auml;hlt wird.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

@@ -1,17 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Importfilter anpassen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Importfilter anpassen</h1>
 
@@ -72,9 +74,11 @@
     und dann den Eintrag (Klassendatei), der den neuen Importer
     darstellt.</p>
 
-    <h2>Einen Importfilter entwickeln</h2>Bitte schauen Sie auf
+    <h2>Einen Importfilter entwickeln</h2>
+
+    <p>Bitte schauen Sie auf
     unseren Download-Seiten nach Beispielen und n&uuml;tzliche
-    Dateien zur Entwicklung Ihres Importfilters. 
+    Dateien zur Entwicklung Ihres Importfilters.</p>
 
     <h3>Ein einfaches Beispiel</h3>
 
@@ -84,8 +88,7 @@
 1936;John Maynard Keynes;The General Theory of Employment, Interest and Money
 2003;Boldrin &amp; Levine;Case Against Intellectual Monopoly
 2004;ROBERT HUNT AND JAMES BESSEN;The Software Patent Experiment
-</pre><br />
-    <br />
+</pre>
 
     <p>Erzeugen Sie in einem Text-Editor eine von
     <code>ImportFormat</code> abgeleitete Klasse, die die Methoden
@@ -129,8 +132,7 @@ public class SimpleCsvImporter extends ImportFormat {
     return bibitems;
   }
 }
-</pre><br />
-    <br />
+</pre>
 
     <p>Beachten Sie, dass die Beispielklasse im Default-Package
     liegt. Angenommen, Sie haben sie unter
@@ -143,9 +145,7 @@ public class SimpleCsvImporter extends ImportFormat {
     <pre>
 javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
 </pre>Nun sollte dort auch eine Datei
-<code>/mypath/SimpleCsvImporter.class</code> liegen.<br />
-    <br />
-     
+<code>/mypath/SimpleCsvImporter.class</code> liegen.
 
     <p>&Ouml;ffnen Sie in JabRef <b>Optionen -&gt; Verwaltung
     externer Importfilter</b> und klicken Sie auf <b>Aus
@@ -161,16 +161,18 @@ javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
     und Anh&auml;ngen -&gt; Externe Importfilter</b> des
     JabRef-Hauptfensters.</p>
 
-    <h2>Teilen Sie Ihre Arbeit</h2>Mit externen Importfiltern ist
+    <h2>Teilen Sie Ihre Arbeit</h2>
+
+    <p>Mit externen Importfiltern ist
     es recht einfach, Importfilter zwischen Nutzern auszutauschen
     und gemeinsam zu nutzen. Wenn Sie einen Importer f&uuml;r ein
     Format schreiben, das JabRef noch nicht unterst&uuml;tzt, oder
     einen Importer verbessern, bitten wir Sie, Ihre Ergebnisse auf
     unserer SourceForge.net Seite zu ver&ouml;ffentlichen. Wir
     bieten gerne eine Sammlung eingereichter Importfilter an oder
-    f&uuml;gen sie unserer Auswahl an Standard-Importfiltern hinzu.
-    
-    <?php include("../../footer.php"); ?>
+    f&uuml;gen sie unserer Auswahl an Standard-Importfiltern hinzu.</p>
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

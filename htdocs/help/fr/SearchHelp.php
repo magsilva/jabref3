@@ -1,20 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Recherche</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Recherche</h1>Il y a trois modes diff&eacute;rents de
-    recherche dans JabRef. 
+    <h1>Recherche</h1>
+
+    <p>Il y a trois modes diff&eacute;rents de
+    recherche dans JabRef.</p>
 
     <p><em>CTRL-F</em> ouvre ou active l'interface de recherche.
     Appuyer sur <em>CTRL-F</em> plusieurs fois modifie le mode de
@@ -28,7 +32,9 @@
     sur <em>CTRL-MAJ-F</em> affiche aussi l'occurrence suivante de
     la cha&icirc;ne &agrave; rechercher.</p>
 
-    <h2>Recherche incr&eacute;mentale</h2>En recherche
+    <h2>Recherche incr&eacute;mentale</h2>
+
+    <p>En recherche
     incr&eacute;mentale, le programme effectue une recherche chaque
     fois qu'une lettre est tap&eacute;e. La ligne de statut vous
     informe du r&eacute;sultat de cette recherche. Entrer le
@@ -40,9 +46,11 @@
     L'ordre de recherche se fait toujours selon l'ordre de tri
     actuel de votre base de donn&eacute;es. Pour quitter la
     recherche incr&eacute;mentale, appuyez sur ESC ou cliquez sur
-    "Vider". 
+    "Vider".</p>
 
-    <h2>Recherche normale</h2>Dans une recherche normale, le
+    <h2>Recherche normale</h2>
+
+    <p>Dans une recherche normale, le
     programme recherche dans votre base les occurrences de votre
     cha&icirc;ne de recherche, apr&egrave;s que vous ayez
     appuy&eacute; sur Entr&eacute;e. Toutes les entr&eacute;es qui
@@ -50,17 +58,19 @@
     appara&icirc;tre que les entr&eacute;es correspondant aux
     crit&egrave;res (mode filtre), ou sont gris&eacute;es (mode
     flottante). Pour ne plus afficher les r&eacute;sultats de la
-    recherche, appuyer sur ESC ou cliquer sur "Vider". 
+    recherche, appuyer sur ESC ou cliquer sur "Vider".</p>
 
     <h2><a name="advanced"
        id="advanced">Sp&eacute;cification des champs,
-       op&eacute;rateurs logiques</a></h2>Afin de rechercher
+       op&eacute;rateurs logiques</a></h2>
+
+       <p>Afin de rechercher
        uniquement des champs sp&eacute;cifiques et/ou d'inclure des
        op&eacute;rateurs logiques dans l'expression &agrave;
        rechercher, une syntaxe particuli&egrave;re est disponible.
        Par exemple, pour rechercher les entr&eacute;es dont
        l'auteur est "Miller", entrez (except&eacute; en mode de
-       recherche incr&eacute;mentale)&nbsp;: 
+       recherche incr&eacute;mentale)&nbsp;:</p>
 
     <p>author = miller</p>
 
@@ -87,7 +97,7 @@
     &eacute;quivalent de "not ... contains ..."). Si vous
     sp&eacute;cifiez un type de champ dans l'expression &agrave;
     rechercher, la s&eacute;lection des types de champs (requis,
-    optionels, g&eacute;n&eacute;raux) apparaissant dans les
+    optionnels, g&eacute;n&eacute;raux) apparaissant dans les
     param&egrave;tres de recherche n'est pas prise en compte. Pour
     chercher des entr&eacute;es d'un certain type, un pseudo-champ
     nomm&eacute; "entrytype" est disponible&nbsp;:</p>
@@ -102,13 +112,18 @@
 
     <p>bibtexkey = miller2005</p>
 
-    <h2>Param&egrave;tres de recherche</h2>Le bouton
+    <h2>Param&egrave;tres de recherche</h2>
+
+    <p>Le bouton
     <em>Param&egrave;tres</em> ouvre un menu qui permet de basculer
     en mode "sensible &agrave; la casse", d'utiliser des
     expressions r&eacute;guli&egrave;res lors de la recherche, et
     de d&eacute;finir si les r&eacute;sultats de la recherche
-    doivent &ecirc;tre s&eacute;lectionn&eacute;s dans la table.
-    <?php include("../../footer.php"); ?>
+    doivent &ecirc;tre s&eacute;lectionn&eacute;s dans la table
+    et si les mots recherch&eacute;s doivent &ecirc;tre surlign&eacute;s lors de
+    l'&eacute;dition et de la pr&eacute;visualisation.</p>
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

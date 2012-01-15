@@ -1,28 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>EndNote Export Filter</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
-
-
+	
     <h1>EndNote Export Filter</h1>
 
-    <h2>Export from JabRef</h2>JabRef can export databases to
+    <h2>Export from JabRef</h2>
+
+    <p>JabRef can export databases to
     EndNote-readable files. To use this feature, choose <b>File
     -&gt; Export</b>, choose the file type <b>Endnote (txt)</b> and
-    then specify the name of the export file. 
+    then specify the name of the export file.</p>
 
-    <h2>Import to EndNote</h2>The default EndNote Import filter
+    <h2>Import to EndNote</h2>
+
+    <p>The default EndNote Import filter
     does not handle multiple authors or editors properly. There are
-    two options to work around this: 
+    two options to work around this:</p>
 
     <ol>
         <li>Use the built-in filter and fix the file later. To open
@@ -52,10 +56,12 @@
         import.</li>
     </ol>
 
-    <h2>Notes</h2>The EndNote Export filter maps BibTeX entrytypes
-    to EndNote reference types as follows: 
+    <h2>Notes</h2>
+
+    <p>The EndNote Export filter maps BibTeX entrytypes
+    to EndNote reference types as follows:</p>
     <pre>
-BibTeX entrytype -&gt; Endnote Reference Type
+BibTeX entrytype -&gt; EndNote Reference Type
 ------------------------------------------
 misc, other -&gt; Generic
 unpublished -&gt; Manuscript
@@ -66,46 +72,22 @@ booklet -&gt; Personal Communication
 inbook,incollection -&gt; Book Section
 inproceedings -&gt; Conference Proceedings
 techreport -&gt; Report
-mastersthesis, phdthesis -&gt; Thesis
-</pre>
+mastersthesis, phdthesis -&gt; Thesis</pre>
 
-    <h2>Corporate Authors</h2>By default, the export filter assumes
+    <h2>Corporate Authors</h2>
+
+    <p>By default, the export filter assumes
     that entries in the author or editor fields in brackets are
     corporate authors and replaces the brackets with a trailing
     comma. However, this means that entries that include LaTeX code
     in brackets will be assumed to be corporate authors and
-    therefore will be improperly formatted. 
+    therefore will be improperly formatted.</p>
 
-    <h2>Advanced Use: Endnote Extras</h2>
+    <h2>Advanced Use: EndNote Extras</h2>
 
-    <h3>Installing the EndNote Import from JabRef filter</h3>The
-    default EndNote Import filter does not properly parse authors.
-    The EndNote Import from JabRef filter does. Additionally, this
-    filter will recognize a field endnotereftype that will override
-    the default mapping. To install the filter, extract the EndNote
-    Extras (<b>Tools -&gt; Unpack EndNote filter set</b>) and
-    unpack the Zip file which is created. Then follow the
-    directions in the file Readme.txt.
-
-    <h3>Modifying EndNote Reference Types</h3>Several fields used
-    by BibTeX are not part of EndNote's default Reference Types.
-    While import from JabRef and export to JabRef will work fine
-    without modifying reference types, the field names will not
-    display correctly in EndNote (e.g. an entry window will call
-    the pdf field <i>Custom 1</i> instead of <i>pdf</i>.
-    Additionally, these fields cannot be added to new entries in
-    EndNote, since they will not appear in the entry window. To
-    modify the EndNote Reference Types, extract the EndNote Extras
-    and follow the directions in the file readme.txt.
-
-    <h3>Export to JabRef</h3>EndNote comes with an export style
-    BibTeX. However, this does not support all BibTeX types and
-    fields, and does not support the additional General Fields
-    supported by JabRef (<i>pdf, owner, key,</i> etc.) If you wish
-    to have these fields supported, extract the EndNote Extras
-    (<b>Tools -&gt; Unpack EndNote filter set</b>) and follow the
-    directions in the file readme.txt.
-    <?php include("../footer.php"); ?>
+    For better interoperability between EndNote and JabRef, download the
+    EndNote filter set from the Resources page of JabRef's web page.
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

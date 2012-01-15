@@ -1,30 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>CiteSeer-Import</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>CiteSeer-Import</h1>
 
-    <h1>CiteSeer-Import</h1>CiteSeer ist eine digitale Bibliothek
+    <p>CiteSeer ist eine digitale Bibliothek
     und Suchmaschine f&uuml;r wissenschaftliche Literatur,
-    vornehmlich zu den Bereichen Computer und Informatik. 
+    vornehmlich zu den Bereichen Computer und Informatik.</p>
 
-    <h2>Importieren eines Eintrags von CiteSeer</h2>JabRef kann
+    <h2>Importieren eines Eintrags von CiteSeer</h2>
+
+    <p>JabRef kann
     Informationen &uuml;ber eine bestimmte Literaturangabe aus der
     CiteSeer-Datenbank herunterladen. Um diesen Vorgang zu starten,
     f&uuml;gen Sie Ihrer Datei einen neuen Eintrag hinzu und
     belegen das Feld <em>citeseerurl</em> mit einem Link zur
     entsprechenden Inhaltsseite auf CiteSeer. Das Feld
     <em>citeseerurl</em> muss in einem der folgenden Formate
-    eingegeben werden: 
+    eingegeben werden:</p>
 
     <p>http://citeseer.ist.psu.edu/DDDDDD[.html], oder<br />
      oai:CiteSeerPSU:DDDDDD, oder<br />
@@ -45,7 +51,9 @@
     ausgew&auml;hlt haben, die Sie aktualisieren wollen.</p>
 
     <h2>Eine Datei mit zitierenden Literaturangaben
-    erzeugen</h2>Mit einem Satz von Literaturangaben k&ouml;nnen
+    erzeugen</h2>
+
+    <p>Mit einem Satz von Literaturangaben k&ouml;nnen
     Sie eine Liste der Dokumente erzeugen, die die einzelnen
     Literaturangaben ihrerseits zitieren. Dazu muss jede
     Literaturangabe der entsprechenden Datenbank-Datei ein
@@ -53,21 +61,20 @@
     in <b>Importieren eines Eintrags von CiteSeer</b> beschriebenen
     Format entspricht. Sie k&ouml;nnen diese Funktion nutzen, indem
     Sie <b>Zitierende Literatur von CiteSeer abrufen</b>
-    ausw&auml;hlen. 
+    ausw&auml;hlen.</p>
 
-    <h2>Benutzung eines Proxy-Servers</h2>Wenn Sie einen
+    <h2>Benutzung eines Proxy-Servers</h2>
+
+    <p>Wenn Sie einen
     HTTP-Proxy-Server benutzen m&uuml;ssen, &uuml;bergeben Sie den
-    Servernamen und die Portnummer an Java. Diese
-    Umgebungseinstellungen sind dokumentiert unter 
-
-    <p>
-    http://java.sun.com/j2se/1.4.2/docs/guide/net/properties.html</p>
+    Servernamen und die Portnummer an Java.</p>
 
     <p><code>java -Dhttp.proxyHost="hostname"
     -Dhttp.proxyPort="portnumber"</code></p>
 
-    <p>&nbsp;</p>
-    <?php include("../../footer.php"); ?>
+    <p>Diese Umgebungseinstellungen sind in der <a href="http://java.sun.com/j2se/1.4.2/docs/guide/net/properties.html">Sun J2SE Dokumentation</a> beschrieben.</p>
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

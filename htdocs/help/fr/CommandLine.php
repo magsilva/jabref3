@@ -1,24 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Les options de la ligne de commande</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Les options de la ligne de commande</h1>Bien que JabRef
+    <h1>Les options de la ligne de commande</h1>
+
+    <p>Bien que JabRef
     soit d'abord une application graphique, il offre plusieurs
     options pour la ligne de commande qui peuvent &ecirc;tre utiles
     et qui peuvent r&eacute;aliser des op&eacute;rations de
     conversion de fichiers sans avoir &agrave; ouvrir l'interface
-    graphique. 
+    graphique.</p>
 
     <p>Vous pouvez sp&eacute;cifier le chargement d'un ou de
     plusieurs fichiers BibTeX en indiquant simplement leurs noms.
@@ -41,93 +45,126 @@
     fichier ne soit interpr&eacute;ter comme un argument de
     l'option <code>-n</code></p>
 
-    <h2>Aide&nbsp;: -h</h2>Cette option demande &agrave; JabRef
-    d'afficher un r&eacute;sum&eacute; des options possibles avec
-    la ligne de commande et de quitter imm&eacute;diatement. 
+    <h2>Aide&nbsp;: -h</h2>
 
-    <h2>No-GUI mode&nbsp;: -n</h2>Cette option supprime le
+    <p>Cette option demande &agrave; JabRef
+    d'afficher un r&eacute;sum&eacute; des options possibles avec
+    la ligne de commande et de quitter imm&eacute;diatement.</p>
+
+    <h2>No-GUI mode&nbsp;: -n</h2>
+
+    <p>Cette option supprime le
     lancement de l'interface graphique et du logo JabRef qui
     appara&icirc;t normalement au d&eacute;marrage de
     l'application. Elle permet la sortie du programme
     imm&eacute;diatement apr&egrave;s l'ex&eacute;cution des autres
-    options. 
+    options.</p>
 
     <p>Cette option est quelque fois utile pour r&eacute;aliser des
     op&eacute;rations de conversion &agrave; partir de la ligne de
     commande ou dans un script.</p>
 
-    <h2>Chargement d'une session&nbsp;: -l</h2>Cette option demande
+    <h2>Chargement d'une session&nbsp;: -l</h2>
+
+    <p>Cette option demande
     &agrave; JabRef de charger la session sauvegard&eacute;e, si
-    elle existe, avant d'ouvrir la fen&ecirc;tre principale.<br />
-     
+    elle existe, avant d'ouvrir la fen&ecirc;tre principale.</p>
 
     <h2>Importation de fichier&nbsp;: -i
-    nomdefichier[,format]</h2>Cette option demande &agrave; JabRef
+    nomdefichier[,format]</h2>
+
+    <p>Cette option demande &agrave; JabRef
     d'importer ou de charger le fichier indiqu&eacute;. Si on
     n'indique que le nom du fichier, il est charg&eacute; comme un
     fichier BibTeX. Si le fichier est suivi d'une virgule et d'un
     format d'importation, le filtre d'importation correspondant est
     utilis&eacute;. Utilisez l'option <code>-h</code> pour obtenir
-    la liste des formats d'importations disponibles.<br />
-     <br />
-     Si une option de sortie est ajout&eacute;e, l'importation aura
+    la liste des formats d'importations disponibles.</p>
+
+    <p>Si une option de sortie est ajout&eacute;e, l'importation aura
     toujours lieu avant et le fichier import&eacute; ou
     charg&eacute; sera ensuite converti selon le format
     d'exportation. Si l'interface graphique (GUI) n'est pas
     supprim&eacute;e avec l'option <code>-n</code>, les fichiers
     import&eacute;s ou charg&eacute;s seront affich&eacute;s dans
-    la fen&ecirc;tre principale.<br />
-     <br />
-     L'option <code>-i</code>&nbsp; ne peut &ecirc;tre
+    la fen&ecirc;tre principale.</p>
+
+    <p>L'option <code>-i</code>&nbsp; ne peut &ecirc;tre
     sp&eacute;cifi&eacute;e qu'une seule fois et pour un seul
-    fichier.<br />
-     
+    fichier.</p>
 
     <h2>Exportation de fichier&nbsp;: -o
-    nomdefichier[,format]</h2>Cette option demande &agrave; JabRef
+    nomdefichier[,format]</h2>
+
+    <p>Cette option demande &agrave; JabRef
     de sauvegarder ou d'exporter un fichier charg&eacute; ou
     import&eacute; par la m&ecirc;me commande ligne. Si le fichier
     import&eacute; l'est via une option <code>-i</code>, alors la
     base de donn&eacute;es sera export&eacute;e. Autrement, le
     fichier sp&eacute;cifi&eacute; (et charg&eacute; avec
     succ&egrave;s) sans l'option <code>-i</code> sera
-    export&eacute;. <br />
-    <br />
-    Si seul le nom du fichier est indiqu&eacute;, il est
+    export&eacute;. </p>
+
+    <p>Si seul le nom du fichier est indiqu&eacute;, il est
     sauvegard&eacute; au format BibTeX. Si le fichier est suivi par
     une virgule et un format d'exportation, le filtre d'exportation
     demand&eacute; sera utilis&eacute;. Un filtre d'exportation
     personnel peut ainsi &ecirc;tre utilis&eacute; et sera
     syst&eacute;matiquement pr&eacute;f&eacute;r&eacute; au style
-    d'exportation standard de m&ecirc;me nom.<br />
-    <br />
-    Utilisez l'option <code>-h</code> pour avoir la liste des
-    formats disponibles.<br />
-    <br />
-    Si l'option <code>-n</code> n'a pas &eacute;t&eacute;
+    d'exportation standard de m&ecirc;me nom.</p>
+
+    <p>Utilisez l'option <code>-h</code> pour avoir la liste des
+    formats disponibles.</p>
+
+    <p>Si l'option <code>-n</code> n'a pas &eacute;t&eacute;
     utilis&eacute;e, les op&eacute;rations d'exportation sont
     faites avant l'ouverture de la fen&ecirc;tre JabRef et la base
     import&eacute;e ou charg&eacute;e sera pr&eacute;sente dans la
-    fen&ecirc;tre principale.<br />
-    <br />
-    L'option <code>-o</code> ne peut &ecirc;tre utilis&eacute;e
-    qu'une seule fois et pour un seul fichier.<br />
+    fen&ecirc;tre principale.</p>
+
+    <p>L'option <code>-o</code> ne peut &ecirc;tre utilis&eacute;e
+    qu'une seule fois et pour un seul fichier.</p>
 
     <h2>Exportation des pr&eacute;f&eacute;rences&nbsp;: -x
-    nomdefichier</h2>Cette option indique &agrave; JabRef
+    nomdefichier</h2>
+
+    <p>Cette option indique &agrave; JabRef
     d'exporter sous forme d'un fichier .xml, l'ensemble des
     pr&eacute;f&eacute;rences de l'utilisateur. Apr&egrave;s
-    l'exportation, JabRef est lanc&eacute; normalement.<br />
+    l'exportation, JabRef est lanc&eacute; normalement.</p>
 
     <h2>Importation des pr&eacute;f&eacute;rences&nbsp;: -p
-    nomdefichier</h2>Cette option indique &agrave; JabRef
+    nomdefichier</h2>
+
+    <p>Cette option indique &agrave; JabRef
     d'importer les pr&eacute;f&eacute;rences de l'utilisateur
     pr&eacute;alablement export&eacute;es avec l'option
     <code>-x</code>. Apr&egrave;s l'importation, JabRef
-    d&eacute;marre normalement.<br />
+    d&eacute;marre normalement.</p>
+
+
+    <h2>Exportation des entr&eacute;es correspondantes&nbsp;: -m [field=]TermeDeRecherche,FichierDeSortie[,FormatExportation]</h2>
+    <p>JabRef enregistre toutes les entr&eacute;es de la base correspondant &agrave; un terme de recherche donn&eacute; dans un nouveau fichier.
+    Le format du fichier d'exportation peut &ecirc;tre choisi, le format par d&eacute;faut &eacute;tant un tableau html (avec r&eacute;sum&eacute;
+    et BibTeX, fourni par tablerefsabsbib).
+    </p>
+    <p>Appel&nbsp;: <code>JabRef.jar -m [field=]TermeDeRecherche,FichierDeSortie[,FormatExportation] -n true FichierEntr&eacute;e</code></p>
+    <p>Pour des informations sur la fonction de recherche, voyez l'aide sur la 'recherche avanc&eacute;e'.
+    De plus, il est aussi possible de recherche des entr&eacute;es sur une p&eacute;riode temporelle au lieu
+    de les rechercher uniquement pour une ann&eacute;e donn&eacute;e.</p>
+    <p>Notez que les termes de recherche contenant des espaces doivent &ecirc;tre encadr&eacute;s par des guillemets.</p>
+	<p>Exemples</p>
+	<ul>
+		<li> <code>Year=2005</code> </li>
+		<li> <code>title|keywords=Optimization</code> </li>
+		<li> <code>(author=bock or title|keywords="computer methods")and not(author=sager)</code> </li>
+		<li> <code>Year=1989-2005</code> </li>
+	</ul>
 
     <h2>Exportation des entr&eacute;es utilis&eacute;es&nbsp;: -a
-    nomdefichier[.aux],nouvelleBaseBib[.bib]</h2>Il est quelques
+    nomdefichier[.aux],nouvelleBaseBib[.bib]</h2>
+
+    <p>Il est quelques
     fois utile d'avoir un fichier BibTeX qui ne contienne que les
     r&eacute;f&eacute;rences BibTeX utilis&eacute;es. Une liste de
     ces entr&eacute;es utilis&eacute;es est stock&eacute;e dans un
@@ -136,8 +173,20 @@
     contiendra que les entr&eacute;es connues et utilis&eacute;es.
     Cela veut dire que si une entr&eacute;e n'est pas
     d&eacute;finie dans le fichier BibTeX courant, elle ne sera pas
-    int&eacute;gr&eacute;e dans le nouveau fichier.
-    <?php include("../../footer.php"); ?>
+    int&eacute;gr&eacute;e dans le nouveau fichier.</p>
+    
+      <h2>R&eacute;cup&eacute;ration par internet : --fetch==nom du r&eacute;cup&eacute;rateur:cha&icirc;ne d'interrogation</h2>
+
+    <p>Les r&eacute;cup&eacute;rateurs dans le menu Recherche Internet peuvent aussi fonctionner
+    en ligne de commande. Utilisez l'option --fetch en pr&eacute;cisant &agrave; la fois le nom du
+    r&eacute;cup&eacute;rateur (par exemple ieee, medline ou jstor) et votre recherche (ou l'identit&eacute; du
+    papier)&nbsp;; le r&eacute;cup&eacute;rateur sera lanc&eacute;. Notez que certains r&eacute;cup&eacute;rateurs continueront
+    d'afficher l'interface graphique s'ils n&eacute;cessitent un retour de votre part. Pour obtenir
+    la liste des r&eacute;cup&eacute;rateurs disponibles, lancez l'option --fetch sans param&egrave;tres.
+    </p>
+    
+    
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

@@ -1,30 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>EndNote Exportfilter</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>EndNote Exportfilter</h1>
 
-    <h2>Exportieren aus JabRef</h2>JabRef kann Dateien so
+    <h2>Exportieren aus JabRef</h2>
+
+    <p>JabRef kann Dateien so
     exportieren, dass EndNote sie lesen kann. Um diese Funktion zu
     nutzen, w&auml;hlen Sie <b>Datei -&gt; Exportieren</b>,
     w&auml;hlen als Dateityp <b>Endnote (txt)</b> und dann den
-    Namen der Export-Datei. 
+    Namen der Export-Datei.</p>
 
-    <h2>Importieren in EndNote</h2>Der
+    <h2>Importieren in EndNote</h2>
+
+    <p>Der
     Standard-EndNote-Importfilter kann nicht richtig mit mehreren
     Autoren oder Editoren umgehen. Es gibt zwei M&ouml;glichkeiten,
-    um diese Schwierigkeit zu umgehen: 
+    um diese Schwierigkeit zu umgehen:</p>
 
     <ol>
         <li>Benutzen Sie den eingebauten Filter und bessern Sie die
@@ -64,8 +70,10 @@
         <b>Importieren</b>, um den Importvorgang zu starten.</li>
     </ol>
 
-    <h2>Anmerkungen</h2>Der EndNote Exportfilter ordnet
-    BibTeX-Eintragstypen folgenden EndNote-Referenztypen zu: 
+    <h2>Anmerkungen</h2>
+
+    <p>Der EndNote Exportfilter ordnet
+    BibTeX-Eintragstypen folgenden EndNote-Referenztypen zu:</p>
     <pre>
 BibTeX-Eintragstyp -&gt; Endnote Referenztyp
 ------------------------------------------
@@ -78,21 +86,23 @@ booklet -&gt; Personal Communication
 inbook,incollection -&gt; Book Section
 inproceedings -&gt; Conference Proceedings
 techreport -&gt; Report
-mastersthesis, phdthesis -&gt; Thesis
-</pre>
+mastersthesis, phdthesis -&gt; Thesis</pre>
 
-    <h2>Mehrere Autoren</h2>In der Standardeinstellung geht der
+    <h2>Mehrere Autoren</h2>
+
+    <p>In der Standardeinstellung geht der
     Exportfilter davon aus, dass Eintr&auml;ge in den Feldern
     author oder editor, die geklammert sind, mehrere Autoren
     enthalten und ersetzt die Klammern durch ein angeh&auml;ngtes
     Komma. Dadurch werden Eintr&auml;ge, die LaTeX-Befehle mit
     Klammern enthalten, als Eintrag mit mehreren Autoren gewertet
-    und demzufolge unpassend formatiert. 
+    und demzufolge unpassend formatiert.</p>
 
     <h2>Erweiterte Benutzung: Endnote Extras</h2>
 
-    <h3>Installieren des EndNote Import from JabRef Filters</h3>Der
-    vorgegebene EndNote-Importfilter kann das Feld author nicht
+    <h3>Installieren des EndNote Import from JabRef Filters</h3>
+
+    <p>Der vorgegebene EndNote-Importfilter kann das Feld author nicht
     richtig analysieren. Der EndNote Import from JabRef Filter kann
     dies. Au&szlig;erdem erkennt dieser Filter ein Feld
     <code>endnotereftype</code>, das die vorgegebene Zuordnung
@@ -100,9 +110,11 @@ mastersthesis, phdthesis -&gt; Thesis
     Sie die EndNote Extras (<b>Extras -&gt; EndNote Filter-Set
     entpacken</b>) und entpacken die Zip-Datei, die dabei erstellt
     wird. Dann folgen Sie den Angaben in der Datei
-    <code>readme.txt</code>. 
+    <code>readme.txt</code>.</p>
 
-    <h3>&Auml;ndern der EndNote Referenztypen</h3>Einige Felder,
+    <h3>&Auml;ndern der EndNote Referenztypen</h3>
+
+    <p>Einige Felder,
     die von BibTeX genutzt werden, geh&ouml;ren nicht zu EndNotes
     vorgegebenen Referenztypen. W&auml;hrend der Import in JabRef
     und der Export nach JabRef ohne ein &Auml;ndern der
@@ -113,17 +125,19 @@ mastersthesis, phdthesis -&gt; Thesis
     nicht genutzt werden, weil sie nicht im Eintragsdialog
     erscheinen. Um die EndNote-Referenztypen anzupassen,
     m&uuml;ssen Sie die EndNote Extras extrahieren und den
-    Anweisungen in der Datei <code>readme.txt</code> folgen. 
+    Anweisungen in der Datei <code>readme.txt</code> folgen.</p>
 
-    <h3>Exportieren nach JabRef</h3>EndNote hat einen Export-Stil
+    <h3>Exportieren nach JabRef</h3>
+
+    <p>EndNote hat einen Export-Stil
     BibTeX, der allerdings nicht alle Eintragstypen und Felder von
     BibTeX und auch nicht die zus&auml;tzlich von JabRef genutzten
     Allgemeinen Felder (<i>pdf, owner, key</i> usw.)
     unterst&uuml;tzt. Falls Sie diese Felder nutzen wollen,
     extrahieren Sie die EndNote Extras (<b>Extras -&gt; EndNote
     Filter-Set entpacken</b>) und folgen den Anweisungen in der
-    Datei <code>readme.txt</code>.
-    <?php include("../../footer.php"); ?>
+    Datei <code>readme.txt</code>.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

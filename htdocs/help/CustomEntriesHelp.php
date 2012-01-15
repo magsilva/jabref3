@@ -1,17 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Customizing entry types</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
-
+	
 
     <h1>Customizing entry types</h1>
 
@@ -28,12 +29,14 @@
     <b>Cancel</b> or simply close the dialog, unapplied changes
     will be lost.</p>
 
-    <h2>Using the entry customization dialog</h2>The entry
+    <h2>Using the entry customization dialog</h2>
+
+    <p>The entry
     customization dialog is divided in three main panels. The
     leftmost panel is where you can select an entry type for
     modification, and add new ones. The middle panel is used for
     setting up the required fields of the selected entry type, and
-    the right panel for setting up the optional fields. 
+    the right panel for setting up the optional fields.</p>
 
     <h3>Adding and removing entry types</h3>
 
@@ -57,10 +60,12 @@
     available for customized entry types that modify a standard
     type.</p>
 
-    <h2>Editing entry types</h2>When an entry type is selected, the
+    <h2>Editing entry types</h2>
+
+    <p>When an entry type is selected, the
     current required and optional fields will be listed in the
     center and right panels of the dialog. The process of editing
-    the lists are identical for the required and optional fields. 
+    the lists are identical for the required and optional fields.</p>
 
     <p>To add a new field, edit the text field below the list, or
     select a field name from the dropdown menu, then click
@@ -74,13 +79,15 @@
     and click the arrow buttons to move it up or down in the
     list.</p>
 
-    <p>There is one limitation to customizing entry types; certain
-    types have an and/or condition in their required fields. For
-    instance, a <em>book</em> entry is complete with either the
-    <em>author</em> or the <em>editor</em> field, or both. This
-    type of condition cannot be represented in a customized
-    entry.</p>
-    <?php include("../footer.php"); ?>
+    <h3>Either/or fields</h3>
+    <p>Certain entry types have an either-or condition in their
+    required fields. For instance, a <em>book</em> entry is complete
+    with either the <em>author</em> or the <em>editor</em> field, or
+    both. To indicate such a condition in a custom entry type, you should
+    add a field named as the set of alternative fields separated by slashes,
+    for instance <em>author/editor</em> indicates the condition mentioned above for
+    the <em>book</em> entry type.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

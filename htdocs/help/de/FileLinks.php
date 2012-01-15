@@ -1,32 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Datei-Links in JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Datei-Links in JabRef</h1>
 
-    <h1>Datei-Links in JabRef</h1>JabRef l&auml;sst Sie Ihre
+    <p>JabRef l&auml;sst Sie Ihre
     Eintr&auml;ge mit Dateien jeden Typs verlinken, die Sie auf
     Ihrem System gespeichert haben. Au&szlig;erdem sind Links zu
     Dokumenten im Internet in der Form eines URL oder eines DOI
     m&ouml;glich. Jedem Eintrag kann eine beliebige Anzahl von
     Datei-Links zugeordnet werden und jede verlinkte Datei kann
-    schnell aus JabRef heraus ge&ouml;ffnet werden. 
+    schnell aus JabRef heraus ge&ouml;ffnet werden.</p>
 
     <p>Was BibTeX angeht, werden die Datei-Links eines Eintrags in
     ein einzelnes Feld geschrieben. In JabRef erscheinen sie aber
     als editierbare Liste von Links, die im Eintrags-Editor
     zug&auml;nglich sind.</p>
 
-    <h2>Einrichten der Dateitypen</h2>F&uuml;r jeden Datei-Link
+    <h2>Einrichten der Dateitypen</h2>
+
+    <p>F&uuml;r jeden Datei-Link
     muss ein Dateityp gew&auml;hlt werden, damit das richtige
     Programm zum &Ouml;ffnen der Datei und das entsprechende Icon
     gefunden werden. Die Liste der Dateitypen k&ouml;nnen Sie
@@ -34,7 +40,7 @@
     Dateitypen verwalten</b> w&auml;hlen oder auf die
     Schaltfl&auml;che <b>Externe Dateitypen verwalten</b> im
     Bereich <b>Externe Programme</b> des Einstellungs-Dialogs
-    klicken. 
+    klicken.</p>
 
     <p>Ein Dateityp besteht aus einem Namen, einem graphischen
     Icon, einer Dateierweiterung und einer Anwendung zum
@@ -42,13 +48,15 @@
     Sie den Namen der Anwendung weglassen, wenn Sie das
     Standardprogramm verwenden wollen.</p>
 
-    <h2>Datei-Links zu einem Eintrag hinzuf&uuml;gen</h2>Wenn bei
+    <h2>Datei-Links zu einem Eintrag hinzuf&uuml;gen</h2>
+
+    <p>Wenn bei
     den <a href="GeneralFields.php">Allgemeinen Feldern</a> das
     Feld "file" eingetragen ist, k&ouml;nnen Sie die Liste der
     externen Links im
     <a href="EntryEditorHelp.php">Eintrags-Editor</a> bearbeiten.
     Der Editor hat dann Schaltfl&auml;chen zum Einf&uuml;gen,
-    Bearbeiten, L&ouml;schen und Sortieren der Links. 
+    Bearbeiten, L&ouml;schen und Sortieren der Links.</p>
 
     <p>Eine Datei kann mit Hilfe der <b>Auto</b>-Schaltfl&auml;che
     automatisch verlinkt werden, falls sie in Ihrem
@@ -69,7 +77,9 @@
     Hauptverzeichnis gespeichert, anhand des BibTeX-Keys benannt
     und mit dem Eintrag verkn&uuml;pft.</p>
 
-    <h2>Externe Dateien &ouml;ffnen</h2>Es gibt mehrere
+    <h2>Externe Dateien &ouml;ffnen</h2>
+
+    <p>Es gibt mehrere
     M&ouml;glichkeiten, externe Dateien oder Internetseiten zu
     &ouml;ffnen. In der Tabellenansicht k&ouml;nnen Sie einen
     Eintrag ausw&auml;hlen und mit dem Men&uuml;, einem
@@ -81,8 +91,8 @@
     den ersten Link eines Eintrags zu &ouml;ffnen. Um weitere Links
     zu &ouml;ffnen, klicken Sie mit der rechten Maustaste auf das
     Icon (Mac OS X: <b>Strg-Klick</b>); es erscheint dann ein
-    Men&uuml; mit allen Links.
-    <?php include("../../footer.php"); ?>
+    Men&uuml; mit allen Links.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

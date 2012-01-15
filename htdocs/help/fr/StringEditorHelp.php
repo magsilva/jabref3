@@ -1,23 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>L'&eacute;diteur de cha&icirc;ne</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>L'&eacute;diteur de cha&icirc;ne</h1><em>On l'ouvre
-    &agrave; partir de la fen&ecirc;tre principale par le menu</em>
-    BibTeX -&gt; Editer les cha&icirc;nes ou en appuyant sur un des
+    <h1>L'&eacute;diteur de cha&icirc;ne</h1>
+
+    <p><em>On l'ouvre
+    &agrave; partir de la fen&ecirc;tre principale par le menu<b>
+    BibTeX -&gt; Editer les cha&icirc;nes</b> ou en appuyant sur un des
     ic&ocirc;nes de la barre d'outils. Le raccourci clavier est
-    CTRL-T. 
+    CTRL-T.</em></p>
 
     <p>Les <em>cha&icirc;nes</em> sont l'&eacute;quivalent
     <em>BibTeX</em> des constantes dans un langage de
@@ -68,7 +72,7 @@
     seront affich&eacute;es selon l'ordre alphab&eacute;tique et
     stock&eacute;e dans le m&ecirc;me ordre, except&eacute; quand
     BibTeX aura besoin d'un ordre diff&eacute;rent.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

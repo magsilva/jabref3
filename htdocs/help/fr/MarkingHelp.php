@@ -1,32 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Etiqueter les entr&eacute;es</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Etiqueter les entr&eacute;es</h1>Vous avez la
+    <h1>Etiqueter les entr&eacute;es</h1>
+
+    <p>Vous avez la
     possibilit&eacute; d'<em>&eacute;tiqueter</em> des
     entr&eacute;es. Les raccourcis claviers sont CTRL-M et
     CTRL-MAJ-M pour, respectivement, &eacute;tiqueter et
     d&eacute;s&eacute;tiqueter les entr&eacute;es
     s&eacute;lectionn&eacute;es. Vous pouvez aussi acc&eacute;der
-    &agrave; ces actions en utilisant le menu <b>Edition</b>. 
+    &agrave; ces actions en utilisant le menu <b>Edition</b>.</p>
 
-    <p>Notez qu'&eacute;tiqueter des entr&eacute;es n'est pas la
+    <p>&Eacute;tiqueter des entr&eacute;es n'est pas la
     m&ecirc;me chose que les s&eacute;lectionner. Les
     entr&eacute;es &eacute;tiquet&eacute;es se comportent
     diff&eacute;remment des autres, et ce de deux fa&ccedil;ons.
     Premi&egrave;rement, elles sont toujours affich&eacute;es avec
-    un fond jaune dans le tableau des entr&eacute;es.
+    un fond de couleur diff&eacute;rente dans le tableau des entr&eacute;es.
     Deuxi&egrave;mement, elles seront affich&eacute;es en haut de
     la liste des entr&eacute;es, et ce tant que votre table n'est
     pas tri&eacute;e selon des groupes ou par une recherche
@@ -35,12 +39,44 @@
     <p>Sauver votre base de donn&eacute;es pr&eacute;servera
     l'&eacute;tiquetage.</p>
 
+    <p>La couleur avec laquelle chaque entr&eacute;e &eacute;tiquet&eacute;e
+    est affich&eacute;e d&eacute;pend du niveau d'&eacute;tiquetage de
+    l'entr&eacute;e. Les couleurs par d&eacute;faut vont du jaune au
+    rouge. Des menus permettent &agrave; la fois d'incr&eacute;menter le niveau
+    d'&eacute;tiquetage des entr&eacute;es s&eacute;lectionn&eacute;es et
+    de s&eacute;lectionner directement le niveau d'&eacute;tiquetage
+    d&eacute;sir&eacute;.
+    </p>
+
     <p>Les entr&eacute;es &eacute;tiquet&eacute;es vous seront
     utiles si, par exemple, vous avez besoin de faire plusieurs
     recherches sans perdre vos premiers r&eacute;sultats, ou si
     vous avez besoin de vous souvenir des articles ou des livres
     auxquels il faut que vous pr&ecirc;tiez attention.</p>
-    <?php include("../../footer.php"); ?>
+
+    <p>En  plus de l'&eacute;tiquetage manuel des entr&eacute;es, JabRef peut
+    &eacute;ventuellement &eacute;tiqueter automatiquement les derni&egrave;res
+    entr&eacute;es import&eacute;es et simultan&eacute;ment
+    d&eacute;s&eacute;tiqueter les entr&eacute;es pr&eacute;c&eacute;demment
+    &eacute;tiquet&eacute;es de cette fa&ccedil;on. Ces entr&eacute;es seront
+    affich&eacute;es d'une couleur diff&eacute;rente de celles
+    &eacute;tiquet&eacute;es manuellement - par d&eacute;faut en vert.
+    Cette fonctionnalit&eacute; est activ&eacute; dans
+    <b>Options -> Pr&eacute;f&eacute;rences -> G&eacute;n&eacute;ral</b></p>
+
+    <p>L'&eacute;tiquetage des entr&eacute;es sera associ&eacute; &agrave;
+    votre nom d'utilisateur, le m&ecirc;me nom que vous utilisez pour remplir
+    le champ "owner" des entr&eacute;es que vous cr&eacute;ez ou importez
+    (cela correspondra par d&eacute;faut &agrave; votre nom d'utilisateur dans
+    votre syst&egrave;me d'exploitation, mais peut-&ecirc;tre modifi&eacute;
+    dans <b>Options -> Pr&eacute;f&eacute;rences -> G&eacute;n&eacute;ral</b>.
+    Diff&eacute;rents utilisateurs peuvent marquer des entr&eacute;es
+    ind&eacute;pendamment. L'enregistrement de la base de donn&eacute;es
+    conservera les &eacute;tiquettes.
+    </p>
+
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

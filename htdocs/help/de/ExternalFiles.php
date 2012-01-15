@@ -1,22 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>Links zu PDF- und PS-Dateien, URLs und DOIs in JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title></title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Links zu PDF- und PS-Dateien, URLs und DOIs in
+    JabRef</h1>
 
-    <h1>Links zu PDF- und PS-Dateien, URLs und DOIs in JabRef</h1>
-    <b>Anmerkung:</b> Ab JabRef 2.3 gibt es ein
+    <p><b>Anmerkung:</b> Ab JabRef 2.3 gibt es ein
     <a href="FileLinks.php">verbessertes System f&uuml;r Links zu
-    externen Dateien</a>. 
+    externen Dateien</a>.</p>
 
     <p>Mit JabRef k&ouml;nnen Sie Ihre Eintr&auml;ge mit den
     entsprechenden PDF- oder PS-Dateien, die sich auf Ihrem
@@ -24,19 +28,23 @@
     Dateien im Internet &uuml;ber ein URL oder DOI zu
     verlinken.</p>
 
-    <h2>Externe Betrachter einrichten</h2>JabRef ben&ouml;tigt
+    <h2>Externe Betrachter einrichten</h2>
+
+    <p>JabRef ben&ouml;tigt
     Informationen dar&uuml;ber, welche Programme es f&uuml;r PDF-
     und PS-Dateien und Internetseiten benutzen soll. In der
     Standardeinstellung werden sie auf Werte gesetzt, die
     wahrscheinlich zu Ihrem Betriebssystem passen, so dass eine
     gute Chance besteht, dass Sie diese Werte nicht zu
-    ver&auml;ndern brauchen. 
+    ver&auml;ndern brauchen.</p>
 
     <p>Um die Einstellungen der externen Programme zu &auml;ndern,
     &ouml;ffnen Sie den Unterpunkt <em>Externe Programme</em> im
     Dialog <em>Optionen -&gt; Einstellungen</em>.</p>
 
-    <h2>Externe Dateien oder Links &ouml;ffnen</h2>Es gibt
+    <h2>Externe Dateien oder Links &ouml;ffnen</h2>
+
+    <p>Es gibt
     verschiedene M&ouml;glichkeiten, wie man externe Dateien oder
     Internetseiten aus JabRef &ouml;ffnen kann. Im Eintrags-Editor
     k&ouml;nnen Sie einfach auf das Textfeld, das ein DOI oder URL
@@ -47,7 +55,7 @@
     oder das Kontextmen&uuml; (mit der rechten Maustaste) benutzen,
     um die Datei oder Internetseite zu &ouml;ffnen.
     Schlie&szlig;lich k&ouml;nnen Sie auch auf ein PDF-, PS-, URL-
-    oder DOI-Icon in der Tabelle klicken. 
+    oder DOI-Icon in der Tabelle klicken.</p>
 
     <p>In der Standardeinstellung zeigt die Tabellenansicht zwei
     Spalten mit Icons f&uuml;r die Eintr&auml;ge, die mit externen
@@ -58,7 +66,9 @@
     vorhanden sind), die dritte Spalte zeigt Icons f&uuml;r URL
     oder DOI (nur URL, wenn beide vorhanden sind).</p>
 
-    <h2>Der Standard-Ordner f&uuml;r PDF-Dateien</h2>PDF-Dateien
+    <h2>Der Standard-Ordner f&uuml;r PDF-Dateien</h2>
+
+    <p>PDF-Dateien
     erhalten von JabRef eine "Spezialbehandlung", um das Verlinken
     mit den entsprechenden Eintr&auml;gen so einfach wie
     m&ouml;glich zu gestalten. Um diese "Spezialbehandlung" nutzen
@@ -70,7 +80,7 @@
     einer relativen Pfadangabe referenziert, so dass Sie problemlos
     PDF-Verzeichnisse verschieben oder mit mehreren Benutzern von
     verschiedenen Netzwerkarbeitspl&auml;tzen aus an derselben
-    Datei arbeiten k&ouml;nnen. 
+    Datei arbeiten k&ouml;nnen.</p>
 
     <p>Wenn Sie Ihren PDF-Dateien dann noch Namen geben, die mit
     dem BibTeX Key des entsprechenden Eintrags &uuml;bereinstimmen
@@ -150,7 +160,7 @@
     Dateiendung (z.B. das PDF-Verzeichnis) nach allen Dateien mit
     der richtigen Dateiendung gesucht, die den bibtexkey in ihrem
     Namen haben.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

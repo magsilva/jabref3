@@ -1,32 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Horodatage des entr&eacute;es</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Horodatage des entr&eacute;es</h1>Cette fonction peut
+    <h1>Horodatage des entr&eacute;es</h1>
+
+    <p>Cette fonction peut
     &ecirc;tre activ&eacute;e et configur&eacute;e sous <b>Options
     -&gt; Pr&eacute;f&eacute;rences -&gt;
-    G&eacute;n&eacute;ral</b>. 
+    G&eacute;n&eacute;ral</b>.</p>
 
     <p>JabRef peut automatiquement ins&eacute;rer un champ qui
     contient la date &agrave; laquelle une entr&eacute;e a
     &eacute;t&eacute; ajout&eacute;e &agrave; la base de
     donn&eacute;es.</p>
 
-    <h2>Mise en forme</h2>Le format d'horodatage est
+    <h2>Mise en forme</h2>
+
+    <p>Le format d'horodatage est
     d&eacute;termin&eacute; par une cha&icirc;ne contenant des
     codes qui indiquent la position des diff&eacute;rentes parties
-    de la date. 
+    de la date.</p>
 
     <p>Voici certains des codes disponibles (exemples donn&eacute;s
     entre parenth&egrave;ses pour le mercredi 14 septembre 2005
@@ -45,7 +51,7 @@
 
         <li><b>mm</b>: minute de l'heure (45)</li>
     </ul>Ces codes peuvent &ecirc;tre combin&eacute;s avec des
-    ponctuations et des espaces. Quelques exemples&nbsp;: 
+    ponctuations et des espaces. Quelques exemples&nbsp;:
 
     <ul>
         <li><b>yyyy.MM.dd</b> donne <b>2005.09.14</b></li>
@@ -55,7 +61,7 @@
         <li><b>yyyy.MM.dd HH:mm</b> donne <b>2005.09.14
         17:45</b></li>
     </ul>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

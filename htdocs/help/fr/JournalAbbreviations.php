@@ -1,28 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Abr&eacute;viations des journaux</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Abr&eacute;viations des journaux</h1>Cette fonction peut
+    <h1>Abr&eacute;viations des journaux</h1>
+
+    <p>Cette fonction peut
     &ecirc;tre configur&eacute;e dans <b>Options -&gt; G&eacute;rer
-    les abr&eacute;viations de journaux</b>. 
+    les abr&eacute;viations de journaux</b>.</p>
 
     <p>JabRef peut basculer automatiquement les noms de journaux
     entre leurs formes abr&eacute;g&eacute;es et non
-    abr&eacute;g&eacute;es si les noms sont contenus dans une de
-    vos listes de journaux. Vous pouvez utiliser plusieurs listes,
-    chacune &eacute;tant un fichier texte sauv&eacute; sur votre
-    disque dur.</p>
+    abr&eacute;g&eacute;es tant que les noms sont
+    contenus dans une de vos listes de journaux. 
+    JabRef inclut une tr&egrave;s longue liste d'abr&eacute;viations de journaux,
+    toutefois il est probable qu'elle soit incompl&egrave;te pour les travaux
+    de beaucoup d'utilisateurs. 
+    Vous pouvez ajouter des abr&eacute;viations &agrave; partir d'un nombre
+    quelconque de listes, chacune correspond &agrave; un fichier texte
+    pr&eacute;sent sur votre disque dur.</p>
 
     <h2>Utiliser cette fonction</h2>
 
@@ -45,7 +53,7 @@
         <li>Abr&eacute;viation MEDLINE, par exemple "Aquacult
         Eng"</li>
     </ul>Si le nom du journal actuel n'est pas trouv&eacute; dans
-    la liste des journaux, le champ ne sera pas modifi&eacute;. 
+    la liste des journaux, le champ ne sera pas modifi&eacute;.
 
     <p>Pour convertir en une seule fois les noms de journaux de
     beaucoup d'entr&eacute;es, vous pouvez s&eacute;lectionner ces
@@ -58,14 +66,18 @@
     le nom de journal a pu &ecirc;tre trouv&eacute; dans vos listes
     de journaux.</p>
 
-    <h2>Param&eacute;trer vos listes de journaux</h2>Vous pouvez
-    avoir plusieurs listes de journaux, toutes sous la forme de
-    fichiers externes li&eacute;s depuis JabRef. La liste par
-    d&eacute;faut peut &ecirc;tre &eacute;dit&eacute;e depuis
-    JabRef. 
+    <h2>Param&eacute;trer vos listes de journaux</h2>
 
+    <p>En plus de la liste inclue par d&eacute;faut dans JabRef, 
+    vous pouvez avoir plusieurs listes sous la forme de
+    fichiers texte externes li&eacute;s depuis JabRef.
+    La liste par d&eacute;faut peut &ecirc;tre 
+    &eacute;dit&eacute;e depuis JabRef.</p>
+    
     <h3>Votre liste personnelle des abr&eacute;viations de
-    journaux</h3>Votre liste personnelle de journaux est
+    journaux</h3>
+
+    <p>Votre liste personnelle de journaux est
     g&eacute;r&eacute;e dans la partie sup&eacute;rieure de la
     fen&ecirc;tre <b>G&eacute;rer les abr&eacute;viations de
     journaux</b>. Pour commencer &agrave; construire votre liste
@@ -76,7 +88,7 @@
     comme point de d&eacute;part, choisissez <i>Fichier
     existant</i> et utilisez le bouton <i>Explorer</i> pour choisir
     le fichier. La table sera mise &agrave; jour pour tenir compte
-    du contenu de la liste s&eacute;lectionn&eacute;e. 
+    du contenu de la liste s&eacute;lectionn&eacute;e.</p>
 
     <p>La table et les boutons d'outils &agrave; sa droite vous
     permettent d'ajouter, de supprimer et d'&eacute;diter les
@@ -92,14 +104,16 @@
     sera stock&eacute; dans le fichier s&eacute;lectionn&eacute;,
     et la liste des journaux de JabRef sera mise &agrave; jour.</p>
 
-    <h3>Listes externes de journaux</h3>En plus de votre liste
+    <h3>Listes externes de journaux</h3>
+
+    <p>En plus de votre liste
     personnelle, vous pouvez relier plusieurs listes externes. Ces
     liens peuvent &ecirc;tre param&eacute;tr&eacute; dans la partie
     inf&eacute;rieure de la fen&ecirc;tre <b>G&eacute;rer les
     abr&eacute;viations de journaux</b>. Les listes externes sont
     similaires &agrave; la liste personnelle - la seule
     diff&eacute;rence est que JabRef ne fournit pas d'interface
-    pour &eacute;diter les listes externes. 
+    pour &eacute;diter les listes externes.</p>
 
     <p>Pour ajouter une nouvelle liste externe, cliquez sur le
     bouton <b>+</b>. Cela ajoutera une nouvelle entr&eacute;e
@@ -126,7 +140,7 @@
     m&ecirc;me nom complet dans l'une des listes externes. De
     m&ecirc;me, les listes externes sont prioritaires selon l'ordre
     dans lequel elles sont list&eacute;es.
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

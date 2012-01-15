@@ -1,26 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Journal abbreviations</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
+    <h1>Journal abbreviations</h1>
 
-
-    <h1>Journal abbreviations</h1>This feature can be configured
-    under <b>Options -&gt; Manage journal abbreviations</b>. 
+    <p>This feature can be configured
+    under <b>Options -&gt; Manage journal abbreviations</b>.</p>
 
     <p>JabRef can automatically toggle journal names between
     abbreviated and unabbreviated form, as long as the names are
-    contained in one of your journal lists. You can use several
-    lists, all realized as external text files on your hard
-    disk.</p>
+    contained in one of your journal lists. JabRef includes a fairly
+    extensive list of journal abbreviations, but it it still likely
+    to be incomplete for the purposes of many users. You can add
+    abbreviations from any number of lists, all realized as external
+    text files on your hard disk.</p>
 
     <h2>Using the feature</h2>
 
@@ -38,7 +42,7 @@
 
         <li>MEDLINE abbreviation, e.g. "Aquacult Eng"</li>
     </ul>If the current journal name is not found in your journal
-    lists, the field will not be modified. 
+    lists, the field will not be modified.
 
     <p>To convert the journal names of many entries in bulk, you
     can select any number of entries, and choose <b>Tools -&gt;
@@ -49,11 +53,15 @@
     which the journal name could be found in your journal
     lists.</p>
 
-    <h2>Setting up your journal lists</h2>You can have several
-    journal lists, all external text files linked from JabRef. The
-    primary list can be edited from within JabRef. 
+    <h2>Setting up your journal lists</h2>
 
-    <h3>Your personal journal abbreviations list</h3>Your personal
+    <p>In addition to the list included in JabRef by default, you can
+    have several lists in the form of external text files linked from JabRef.
+    The primary list can be edited from within JabRef.</p>
+
+    <h3>Your personal journal abbreviations list</h3>
+
+    <p>Your personal
     journal list is managed in the upper part of the <b>Manage
     journal abbreviations</b> window. To start building your
     personal journal abbreviations list, choose <i>New file</i>,
@@ -61,7 +69,7 @@
     button. If you already have a file that you want to use as a
     starting point, choose <i>Existing file</i>, and use the
     <i>Browse</i> button to choose the file. The table will update
-    to show the contents of the list you have selected. 
+    to show the contents of the list you have selected.</p>
 
     <p>The table and the tool buttons to the right allow you to
     add, remove and edit journal entries. For each entry you must
@@ -74,12 +82,14 @@
     be stored to the selected file, and JabRef's list of journals
     will be updated.</p>
 
-    <h3>External journal lists</h3>In addition to your personal
+    <h3>External journal lists</h3>
+
+    <p>In addition to your personal
     list, you can link to a number of external lists. These links
     can be set up in the lower part of the <b>Manage journal
     abbreviations</b> window. External lists are similar to the
     personal list - the only difference is that JabRef doesn't
-    provide an interface for editing the external lists. 
+    provide an interface for editing the external lists.</p>
 
     <p>To add a new external list, if necessary, click the <b>+</b>
     button to add another slot to the interface. Then use either
@@ -100,7 +110,7 @@
     entry with the same full journal name in one of the external
     lists. Similarly, the external lists are given precedence in
     the order they are listed.
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

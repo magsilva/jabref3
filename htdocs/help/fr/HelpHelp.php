@@ -1,27 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>La fen&ecirc;tre d'aide</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>La fen&ecirc;tre d'aide</h1><em>S'ouvre en cliquant sur le
-    bouton d'aide ou en appuyant sur F1.</em> 
+    <h1>La fen&ecirc;tre d'aide</h1>
+
+    <p><em>S'ouvre en cliquant sur le
+    bouton d'aide ou en appuyant sur F1.</em></p>
 
     <p>La fen&ecirc;tre d'aide est con&ccedil;ue pour fournir des
     informations sur l'utilisation de JabRef.</p>
 
-    <h2>Naviguer entre les fichiers d'aide</h2>La fen&ecirc;tre
+    <h2>Naviguer entre les fichiers d'aide</h2>
+
+    <p>La fen&ecirc;tre
     d'aide est en fait un navigateur HTML simplifi&eacute;, et les
-    fichiers d'aide sont des fichiers HTML standard. 
+    fichiers d'aide sont des fichiers HTML standard.</p>
 
     <p>A l'ouverture, la fen&ecirc;tre d'aide affichera des
     fichiers diff&eacute;rents selon la fen&ecirc;tre &agrave;
@@ -40,7 +46,7 @@
     pour <em>Suivant</em>.</p>
 
     <p>La fen&ecirc;tre d'aide se ferme en pressant ESCAPE.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

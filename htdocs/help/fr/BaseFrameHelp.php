@@ -1,24 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>La fen&ecirc;tre principale de JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title></title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>La fen&ecirc;tre principale de JabRef</h1>
-    <em>Note&nbsp;:</em> La plupart des menus dont il
+    <h1>La fen&ecirc;tre principale de
+    JabRef</h1>
+
+    <p><em>Note&nbsp;:</em> La plupart des menus dont il
     est question dans les paragraphes suivants ont des raccourcis
     claviers, et beaucoup sont accessibles depuis la barre
     d'outils. Les raccourcis clavier sont affich&eacute;s dans les
-    menus d&eacute;roulants. 
+    menus d&eacute;roulants.</p>
 
     <p>Ceci est la fen&ecirc;tre principale &agrave; partir de
     laquelle vous travaillez avec vos bases de donn&eacute;es. En
@@ -42,10 +46,10 @@
         fl&egrave;ches du clavier.</li>
 
         <li>Le tableau est tri&eacute; selon une s&eacute;rie de
-        champs de votre choix. L'ordre de tri par d&eacute;faut est
+        champs de votre choix. L'ordre de tri par d&eacute;faut peut être
         configur&eacute; dans <strong>Options -&gt;
         Pr&eacute;f&eacute;rences -&gt; Table des
-        entr&eacute;es</strong> mais pour changer rapidement cet
+        entr&eacute;es</strong> mais pour changer plus rapidement cet
         ordre, cliquez l'ent&ecirc;te d'une colonne pour la
         d&eacute;finir comme crit&egrave;re de tri principal, ou
         inverser l'ordre du tri s'il est d&eacute;j&agrave;
@@ -55,24 +59,18 @@
         enfonc&eacute;e et cliquez sur un autre ent&ecirc;te de
         colonne pour l'ajouter, l'inverser ou l'enlever comme
         crit&egrave;re de tri auxiliaire. Vous pouvez ajouter un
-        nombre arbitraire de crit&egrave;res auxiliaires.</li>
+        nombre arbitraire de crit&egrave;res auxiliaires, mais uniquement
+        trois niveaux seront m&eacute;moris&eacute;s pour
+        le d&eacute;marrage suivant de JabRef.</li>
 
         <li>Vous pouvez ajuster la largeur des colonnes en faisant
         glisser les limites entre les ent&ecirc;tes.</li>
-
-        <li>Dans la fen&ecirc;tre de dialogue
-        <strong>Pr&eacute;f&eacute;rences</strong>, choisissez si
-        le tableau doit &ecirc;tre redimensionn&eacute; pour
-        s'ajuster &agrave; la fen&ecirc;tre. S&eacute;lectionnez
-        cette option pour toujours voir l'ensemble du tableau, et
-        d&eacute;s&eacute;lectionnez l&agrave; pour permettre
-        l'affichage de plus d'informations.</li>
 
         <li>
             Les codes de couleurs vous aident &agrave; visualiser
             l'&eacute;tat de votre base de donn&eacute;es. Les
             cellules sont color&eacute;es de la fa&ccedil;on
-            suivante&nbsp;: 
+            suivante&nbsp;:
 
             <ul>
                 <li>Une cellule <font color="red">rouge</font> dans
@@ -104,7 +102,9 @@
         dialogue <strong>Pr&eacute;f&eacute;rences</strong>.</li>
     </ul>
 
-    <h2>Ajouter une nouvelle entr&eacute;e</h2>Il y a plusieurs
+    <h2>Ajouter une nouvelle entr&eacute;e</h2>
+
+    <p>Il y a plusieurs
     fa&ccedil;ons d'ajouter une nouvelle entr&eacute;e.
     L'activation du menu <strong>BibTeX/ Nouvelle
     entr&eacute;e</strong> affiche une fen&ecirc;tre de dialogue
@@ -112,11 +112,11 @@
     partir d'une liste. Pour &eacute;viter cette fen&ecirc;tre de
     dialogue, vous pouvez utilisez le menu <strong>BibTeX/ Nouvelle
     entr&eacute;e...</strong> ainsi que des raccourcis clavier pour
-    les types les plus courants. 
+    les types les plus courants.</p>
 
     <p>Lorsqu'une nouvelle entr&eacute;e est ajout&eacute;e, par
-    d&eacute;faut, une <a href="EntryEditorHelp.php">fen&ecirc;tre
-    d'&eacute;dition</a> s'ouvre. Ce comportement peut &ecirc;tre
+    d&eacute;faut,  l'<a href="EntryEditorHelp.php">&eacute;diteur
+    d'entr&eacute;es</a> s'ouvre. Ce comportement peut &ecirc;tre
     modifi&eacute; dans la fen&ecirc;tre de dialogue
     <strong>Pr&eacute;f&eacute;rences</strong>.</p>
 
@@ -125,15 +125,18 @@
     que vous utilisez le plus souvent, tel que CTRL-SHIFT-A pour
     l'ajout d'une entr&eacute;e <em>article</em>.</p>
 
-    <h2>Editer une entr&eacute;e</h2>Pour ouvrir la
-    <a href="EntryEditorHelp.php">fen&ecirc;tre
-    d'&eacute;dition</a> sur une entr&eacute;e existante,
+    <h2>Editer une entr&eacute;e</h2>
+
+    <p>Pour ouvrir l'<a href="EntryEditorHelp.php">&eacute;diteur
+    d'entr&eacute;es</a> sur une entr&eacute;e existante,
     double-cliquez simplement sur la ligne correspondant &agrave;
     l'entr&eacute;e (ou appuyez sur ENTREE apr&egrave;s avoir
-    s&eacute;lectionner l'entr&eacute;e). 
+    s&eacute;lectionn&eacute; l'entr&eacute;e).</p>
 
     <h2>R&eacute;f&eacute;rencer une cha&icirc;ne <em>BibTeX</em>
-    dans un champ</h2>Dans JabRef vous &eacute;crivez le contenu de
+    dans un champ</h2>
+
+    <p>Dans JabRef vous &eacute;crivez le contenu de
     tous les champs de la m&ecirc;me fa&ccedil;on que dans un
     &eacute;diteur de texte, &agrave; une exception
     pr&egrave;s&nbsp;: pour r&eacute;f&eacute;rencer une
@@ -141,11 +144,11 @@
     caract&egrave;re #, tel que dans&nbsp;:<br />
     &nbsp;&nbsp;'#jan# 1997',<br />
     ce qui sera interpr&eacute;t&eacute; comme la cha&icirc;ne
-    nomm&eacute;e 'jan' suivie de '1997'. 
+    nomm&eacute;e 'jan' suivie de '1997'.</p>
 
     <p>Voir aussi&nbsp;: <a href="StringEditorHelp.php">Editeur de
     cha&icirc;ne</a>. </p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

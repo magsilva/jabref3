@@ -1,22 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>The entry editor</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
+<h1>The entry editor</h1>
 
-
-    <h1>The entry editor</h1><em>Opened from main window by
+    <p><em>Opened from main window by
     double-clicking anywhere on the line of the entry, or selecting
-    the entry and pressing ENTER. The panel is closed by pressing
-    ESC.</em> 
+    the entry and pressing ENTER or CTRL-D. The panel is closed by pressing
+    ESC.</em></p>
 
     <p>In this panel you can specify all relevant information on a
     single entry. The entry editor checks the type of your entry,
@@ -27,21 +29,23 @@
 
     <p>You can fully customize which fields should be regarded as
     required and optional for each type of entry, and which fields
-    appear in the General fields tab. See
+    appear in the General fields tabs. See
     <a href="CustomEntriesHelp.php">Customizing entry types</a>
     for more information about this.</p>
 
     <p>For information about how the fields should be filled out,
     see <a href="BibtexHelp.php">Bibtex help</a>.</p>
 
-    <h2>The entry editor's panels</h2>The entry editor contains six
+    <h2>The entry editor's panels</h2>
+
+    <p>The entry editor contains six
     panels: <em>Required fields</em>, <em>Optional fields</em>,
     <em>General</em>, <em>Abstract</em>, <em>Review</em> and
     <em>BibTeX source</em>, where <em>General</em>,
     <em>Abstract</em> and <em>Review</em> can be customized (see
     <a href="GeneralFields.php">Customizing general fields</a> for
     details). Inside the three first panels, TAB and SHIFT-TAB are
-    used to switch focus between the text fields. 
+    used to switch focus between the text fields.</p>
 
     <p>Switch panels by clicking on the tabs, or navigate to the
     panel to the left or right using the following key
@@ -70,53 +74,73 @@
     unknown to JabRef, these will be visible in the source
     panel.</p>
 
-    <p><strong>Tip:</strong> the <i>pdf</i> and <i>url</i> fields
-    support Drag and Drop operations. You can drop there an url
-    from your browser. either a link to a pdf file (that JabRef can
-    download for you) or you can keep the link.</p>
+    <h2>Field consistency checking</h2>
 
-    <h2>Field consistency checking</h2>When the contents of a field
+    <p>When the contents of a field
     is changed, JabRef checks if the new contents are acceptable.
     For field types that are used by <em>bibtex</em>, the contents
     are checked with respect to the use of the '#' character. The
-    hash symbol is <em>only</em> to be used in pairs, wrapping the
+    hash symbol is <em>only</em> to be used in pairs (except in escaped
+    form, '\#'), wrapping the
     name of a <em>bibtex</em> string that is referenced. Note that
     JabRef does not check if the referenced string actually exists
     (this is not trivial, since the <em>bibtex</em> style you use
-    can define an arbitrary set of strings unknown to JabRef). 
+    can define an arbitrary set of strings unknown to JabRef).</p>
 
     <p>If the contents are not accepted, the field will turn red,
     indicating an error. In this case the change will not be
-    stored. <!--<H2>Word/name autocompletion</H2>
-    The entry editor offers autocompletion of words. In the Preferences dialog
+    stored.</p>
+
+    <!--<h2>Word/name autocompletion</h2>
+
+    <p>The entry editor offers autocompletion of words. In the Preferences dialog
     you can enable or disable autocompletion, and choose for which fields
-    autocompletion is active.
-    <P>With autocompletion, JabRef records all words that appear in
+    autocompletion is active.</p>
+
+    <p>With autocompletion, JabRef records all words that appear in
     each of the chosen fields throughout your database. Whenever you write
     the beginning of one of these words, it will be suggested visually. To
     ignore the suggestion, simply write on. To accept the suggestion,
     either press <em>ENTER</em> or use your arrow keys or other keys to
-    remove the selection box around the suggested characters.
-    <P><em>Note:</em> the words considered for suggestion are only the ones
+    remove the selection box around the suggested characters.</p>
+
+    <p><em>Note:</em> the words considered for suggestion are only the ones
     appearing in the same field in entries of the same database as the one you
     are editing. There are many ways to realise this kind of feature, and if you feel
-    it should have been implemented differently, we'd like to hear your suggestions!
+    it should have been implemented differently, we'd like to hear your suggestions!</p>
 
-    <H2>Copy <em>bibtex</em> key</H2>
-    Pressing CTRL-K or the 'key' button causes the <em>bibtex</em> key for your entry
-    to be copied to the clipboard.
+    <h2>Copy <em>bibtex</em> key</h2>
+
+    <p>Pressing CTRL-K or the 'key' button causes the <em>bibtex</em> key for your entry
+    to be copied to the clipboard.</p>
     -->
-    </p>
 
-    <h2>Autogenerate <em>bibtex</em> key</h2>Press CTRL-G or the
+    <h2>Autogenerate <em>bibtex</em> key</h2>
+
+    <p>Press CTRL-G or the
     'gen key' button (the magic wand) to autogenerate a
     <em>bibtex</em> key for your entry based on the contents of its
-    required fields. 
+    required fields.</p>
 
     <p>For more information on how JabRef generates <em>bibtex</em>
     keys, see <a href="LabelPatterns.php">Customizing the BibTex
     key generator</a>.</p>
-    <?php include("../footer.php"); ?>
+
+    <h2>Word/name autocompletion</h2>
+
+    <p>JabRef offers autocompletion of words and names. Autocompletion can be
+    set up in <b>Options -> Preferences -> Entry editor</b>, and is by default
+    activated for several of the common fields.</p>
+
+    <p>When editing a field for which autocompletion is activated, JabRef will
+    try to suggest word completions as you write, based on which words are used
+    for that specific field elsewhere in your database. The suggestion appears
+    as a highlighted block of text completing the word. If there are several
+    possible completions, you can use the PAGE UP and PAGE DOWN keys to cycle
+    through the possible suggestions. To accept a suggestion, press ENTER once.
+    To ignore the suggestion, just keep typing.</p>
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

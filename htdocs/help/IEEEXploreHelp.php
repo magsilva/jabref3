@@ -1,28 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Search IEEEXplore</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
+    <h1>Search IEEEXplore</h1>
 
+    <p>To use this feature, choose <b>Search -&gt; Web search</b>, and the search
+    interface will appear in the side pane. Select <b>IEEEXplore</b> in the dropdown menu.</p>
 
-    <h1>Search IEEEXplore</h1>IEEEXplore delivers access to
-    technical literature in electrical engineering, computer
-    science, and electronics. 
-
-    <p>JabRef can download citations from the IEEEXplore database.
-    To use this feature, choose <b>Web search -&gt; Search
-    IEEEXplore</b>, and the search interface will appear in the
-    side pane.</p>
-
-    <p>To start a search, enter the words of your query, and press
+    <p>IEEEXplore delivers access to technical literature in electrical engineering, computer
+    science, and electronics. To start a search, enter the words of your query, and press
     <b>Enter</b> or the <b>Fetch</b> button.</p>
 
     <p>The search is done in guest mode, which means that a maximum
@@ -30,12 +27,12 @@
 
     <p>You may opt to download the abstracts along with the cite
     information for each entry, by checking the <b>Include
-    abstracts</b> checkbox. This causes a significantly larger
-    amount of network queries, so to avoid excessive pressure on
-    the IEEEXplore web site, JabRef will refuse to download
-    abstracts for searches returning more than a given number of
-    hits.</p>
-    <?php include("../footer.php"); ?>
+    abstracts</b> checkbox. This will NOT cause more network queries.</p>
+
+    <p>The option to download BibTeX citations directly from IEEEXplore is not working yet.</p>
+
+    <p>Please email Aaron Chen <b>nextAaron@gmail.com</b> for any suggestions.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

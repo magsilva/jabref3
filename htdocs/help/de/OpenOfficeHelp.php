@@ -1,23 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>JabRef-Bibliographien in OpenOffice.org benutzen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>JabRef-Bibliographien in OpenOffice.org benutzen</h1>
 
-    <h1>JabRef-Bibliographien in OpenOffice.org benutzen</h1>JabRef
-    kann Ihre Datei sowohl in das OpenOffice.org 1.1
+    <p>JabRef kann Ihre Datei sowohl in das OpenOffice.org 1.1
     <b>.sxc</b>-Tabellenkalkulationsformat als auch in das
     OpenDocument <b>.ods</b>-Tabellenkalkulationsformat, das von
-    OpenOffice.org 2.0 benutzt wird, exportieren.
+    OpenOffice.org 2.0 benutzt wird, exportieren.</p>
 
     <p>In beiden f&auml;llen besteht die exportierte Tabelle aus
     einem Arbeitsblatt, das die Eintr&auml;ge in Reihen und die
@@ -32,8 +35,9 @@
 
     <h2>Die exportierte Datei als bibliographische Datenbank in
     OpenOffice.org 2.3 und 2.4 benutzen</h2>
-    Mit folgenden Schritten k&ouml;nnen Sie eine aus JabRef exportierte
-    Tabelle als bibliographische Datenbank benutzen:
+
+    <p>Mit folgenden Schritten k&ouml;nnen Sie eine aus JabRef exportierte
+    Tabelle als bibliographische Datenbank benutzen:</p>
 
     <ul>
     <li>Exportieren Sie in JabRef Ihre Datei in das <b>.ods</b>-Format</li>
@@ -63,10 +67,10 @@
 
     <h2>Die exportierte Datei als Bibliographiedatenbank in
     OpenOffice 2.0, 2.1 oder 2.2 benutzen</h2>
-    Gehen Sie
-    folgenderma&szlig;en vor, um eine Tabelle, die von JabRef
+
+    <p>Gehen Sie folgenderma&szlig;en vor, um eine Tabelle, die von JabRef
     exportiert wurde, als Bibliographiedatenbank in OpenOffice.org
-    zu benutzen:
+    zu benutzen:</p>
 
     <ul>
         <li>Exportieren Sie Ihre Datenbank in das <b>.ods</b>
@@ -126,7 +130,7 @@
     </ul>Anschlie&szlig;end w&auml;hlen Sie <b>Extras -&gt;
     Literaturdatenbank</b>. Ihre Datenbank sollte nun angezeigt
     werden.
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

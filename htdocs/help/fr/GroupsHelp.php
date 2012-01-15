@@ -1,23 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Les groupes</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Les groupes</h1>Les groupes permettent de structurer une
+    <h1>Les groupes</h1>
+
+    <p>Les groupes permettent de structurer une
     base de donn&eacute;es BibTeX selon une arborescence rappelant
     l'organisation des fichiers sur un disque dur dans des
     r&eacute;pertoires et sous-r&eacute;pertoires. Les deux
-    principales diff&eacute;rences sont&nbsp;: 
+    principales diff&eacute;rences sont&nbsp;:</p>
 
     <ul>
         <li>Alors qu'un fichier est toujours localis&eacute; dans
@@ -37,7 +41,7 @@
     montre les entr&eacute;es contenues dans au moins un des
     groupes (union) ou dans tous les groupes (intersection), selon
     le param&eacute;trage en cours. Tout ceci est expliqu&eacute;
-    en d&eacute;tail ci-dessous. 
+    en d&eacute;tail ci-dessous.
 
     <p>Les d&eacute;finitions de groupes sont sp&eacute;cifiques
     &agrave; chaque base de donn&eacute;es&nbsp;; Elles sont
@@ -46,26 +50,32 @@
     (des futures versions de JabRef pourrait supporter des groupes
     d&eacute;pendants des utilisateurs).</p>
 
-    <h2>Interface</h2>L'interface des groupes se trouve dans le
+    <h2>Interface</h2>
+
+    <p>L'interface des groupes se trouve dans le
     panneau lat&eacute;ral sur la gauche de l'&eacute;cran. Il peut
     &ecirc;tre affich&eacute; ou masqu&eacute; en appuyant sur
     <tt>CTRL-MAJ-G</tt> ou sur le bouton des groupes dans la barre
     d'outils. L'interface a plusieurs boutons, mais la plupart des
     fonctions sont accessibles par un menu contextuel ("clic
     droit"). La fonction Glisser-D&eacute;placer est aussi
-    disponible. 
+    disponible.</p>
 
     <table cellspacing="0"
            cellpadding="5"
            border="0"
-           bgcolor="#C0FFC0">
+           bgcolor="#C0FFC0"
+		   summary="Exemples">
         <tr>
             <td>
-                <h2>Quelques exemples rapides</h2>Vous pourriez
-                vouloir... 
+                <h2>Quelques exemples rapides</h2>
+
+                <p>Vous pourriez vouloir...</p>
 
                 <h3>...uniquement cr&eacute;er un groupe et lui
-                assigner quelques entr&eacute;es.</h3>Assurez-vous
+                assigner quelques entr&eacute;es.</h3>
+
+                <p>Assurez-vous
                 que l'interface des groupes est visible. Appuyez
                 sur le bouton <b>Nouveau Groupe</b>, entrez un nom
                 pour ce groupe puis appuyez sur OK en conservant
@@ -76,10 +86,12 @@
                 ou l'option <b>Ajouter au groupe</b> du menu
                 contextuel. Enfin, s&eacute;lectionnez le groupe
                 pour voir son contenu (qui doit correspondre aux
-                entr&eacute;es que vous venez de lui assigner). 
+                entr&eacute;es que vous venez de lui assigner).</p>
 
                 <h3>...utiliser le champ <tt>keywords</tt> pour
-                grouper les entr&eacute;es</h3>Assurez-vous que
+                grouper les entr&eacute;es</h3>
+
+                <p>Assurez-vous que
                 l'interface des groupes est visible. Appuyez sur le
                 bouton <b>Nouveau Groupe</b>, entrez un nom pour ce
                 groupe et s&eacute;lectionner l'option qui groupe
@@ -89,11 +101,13 @@
                 s&eacute;lectionnez le groupe pour voir son contenu
                 (qui doit correspondre aux entr&eacute;es dont le
                 champ <tt>keywords</tt> contient le mot-clef que
-                vous avez sp&eacute;cifi&eacute;). 
+                vous avez sp&eacute;cifi&eacute;).</p>
 
                 <h3>...utiliser une expression de recherche de
                 forme libre pour d&eacute;finir un
-                groupe</h3>Assurez-vous que l'interface des groupes
+                groupe</h3>
+
+                <p>Assurez-vous que l'interface des groupes
                 est visible. Appuyez sur le bouton <b>Nouveau
                 Groupe</b>, entrez un nom pour ce groupe et
                 s&eacute;lectionner l'option qui groupe
@@ -105,9 +119,11 @@
                 Enfin, s&eacute;lectionnez le groupe pour voir son
                 contenu (qui doit correspondre aux entr&eacute;es
                 dont le champ <tt>author</tt> contient le nom que
-                vous avez sp&eacute;cifi&eacute;). 
+                vous avez sp&eacute;cifi&eacute;).</p>
 
-                <h3>...combiner plusieurs groupes</h3>Cr&eacute;ez
+                <h3>...combiner plusieurs groupes</h3>
+
+                <p>Cr&eacute;ez
                 deux groupes diff&eacute;rents (par exemple, tel
                 que d&eacute;crit ci-dessus). Cliquez sur le bouton
                 <b>Param&egrave;tres</b> et assurez-vous que
@@ -117,10 +133,12 @@
                 appartenant aux deux groupes (ce qui peut en faire
                 aucune ou exactement les m&ecirc;mes entr&eacute;es
                 que pr&eacute;c&eacute;demment si les deux groupes
-                contiennent les m&ecirc;mes entr&eacute;es). 
+                contiennent les m&ecirc;mes entr&eacute;es).</p>
 
                 <h3>...identifier les groupes se
-                chevauchant</h3>JabRef vous permet d'identifier
+                chevauchant</h3>
+
+                <p>JabRef vous permet d'identifier
                 facilement les groupes qui se chevauchent parmi les
                 groupes actuellement s&eacute;lectionn&eacute;s
                 (c-&agrave;-d ceux qui contiennent au moins une
@@ -130,13 +148,15 @@
                 activ&eacute; l'option pour montrer les groupes qui
                 se chevauchent. Ensuite s&eacute;lectionnez un
                 groupe qui chevauche d'autres groupes. Les noms de
-                ces groupes s'afficheront en rouge.
+                ces groupes s'afficheront en rouge.</p>
             </td>
         </tr>
     </table>
 
-    <h2>Les types de groupes</h2>Dans JabRef, il y a quatre types
-    de groupes diff&eacute;rents&nbsp;: 
+    <h2>Les types de groupes</h2>
+
+    <p>Dans JabRef, il y a quatre types
+    de groupes diff&eacute;rents&nbsp;:</p>
 
     <ol>
         <li>Le groupe <b>Toutes les entr&eacute;es</b>, qui --
@@ -168,7 +188,7 @@
         recherche sp&eacute;cifi&eacute;e et suivant la m&ecirc;me
         syntaxe que <a href="SearchHelp.php">l'interface de
         recherche</a> dans le panneau lat&eacute;ral. Cette
-        <a href="SearchHelp.html#advanced">syntaxe</a> supportent
+        <a href="SearchHelp.php#advanced">syntaxe</a> supportent
         les op&eacute;rateurs logiques (<tt>AND</tt>, <tt>OR</tt>,
         <tt>NOT</tt>) et permet de sp&eacute;cifier un ou plusieurs
         champs BibTeX pour la recherche, autorisant des
@@ -180,10 +200,12 @@
     groupes, qui s'ouvre en double-cliquant sur un groupe, montre
     une description succincte (en fran&ccedil;ais de tous les
     jours) de la d&eacute;finition du groupe
-    s&eacute;lectionn&eacute;/&eacute;dit&eacute;. 
+    s&eacute;lectionn&eacute;/&eacute;dit&eacute;.
 
     <h2>La structure des groupes, cr&eacute;er et supprimer des
-    groupes</h2>Comme pour les r&eacute;pertoires, les groupes sont
+    groupes</h2>
+
+    <p>Comme pour les r&eacute;pertoires, les groupes sont
     structur&eacute;s selon une arborescence, avec le groupe
     <b>Toutes les entr&eacute;es</b> &agrave; la racine. En faisant
     un clic droit sur un groupe, vous pouvez ajoutez un nouveau
@@ -199,18 +221,20 @@
     derni&egrave;re fonction peut aussi &ecirc;tre
     r&eacute;alis&eacute;es par Glisser-D&eacute;placer, avec la
     limitation que le Glisser-D&eacute;placer ne permet pas de
-    changer l'ordre des sous-groupes d'un groupe. 
+    changer l'ordre des sous-groupes d'un groupe.</p>
 
     <p>Annuler et R&eacute;p&eacute;ter fonctionnent pour toutes
     les &eacute;ditions.</p>
 
-    <h3>Les groupes manuels</h3>Les groupes manuels sont
+    <h3>Les groupes manuels</h3>
+
+    <p>Les groupes manuels sont
     aliment&eacute;s uniquement par l'assignation explicite des
     entr&eacute;es. Apr&egrave;s avoir cr&eacute;&eacute; un groupe
     manuel, vous s&eacute;lectionnez les entr&eacute;es &agrave;
     lui assigner et utilisez soit un Glisser-D&eacute;placer soit
     le menu contextuel de la table des entr&eacute;es. Il n'y a pas
-    d'options &agrave; configurer. 
+    d'options &agrave; configurer.</p>
 
     <p>Cette m&eacute;thode de groupement n&eacute;cessite que
     toutes les entr&eacute;es aient une clef BibTeX unique. Dans le
@@ -218,13 +242,15 @@
     l'assignation de ces entr&eacute;es ne pourra pas &ecirc;tre
     correctement r&eacute;tablie lors de futures sessions.</p>
 
-    <h3>Les groupes dynamiques</h3>Le contenu d'un groupe dynamique
+    <h3>Les groupes dynamiques</h3>
+
+    <p>Le contenu d'un groupe dynamique
     est d&eacute;fini par une condition logique. Uniquement les
     entr&eacute;es qui remplissent cette condition sont contenues
     dans le groupe. Cette m&eacute;thode utilise des informations
     stock&eacute;es dans la base de donn&eacute;es elle-m&ecirc;me
     et s'actualise dynamiquement d&eacute;s que la base de
-    donn&eacute;es est modifi&eacute;e. 
+    donn&eacute;es est modifi&eacute;e.</p>
 
     <p>Deux types de conditions logiques peuvent &ecirc;tre
     utilis&eacute;es&nbsp;:</p>
@@ -259,7 +285,7 @@
         <dd>Ceci est similaire &agrave; ce qui est d&eacute;crit
         ci-dessus mais, au lieu de rechercher dans un seul champ
         pour un unique terme de recherche, la
-        <a href="SearchHelp.html#advanced">syntaxe des expressions
+        <a href="SearchHelp.php#advanced">syntaxe des expressions
         de recherche</a> peut &ecirc;tre utilis&eacute;es,
         autorisant l'emploi d'op&eacute;rateurs logiques
         (<tt>AND</tt>, <tt>OR</tt>, <tt>NOT</tt>) et permettant les
@@ -272,9 +298,11 @@
     par d&eacute;faut affich&eacute;s en <i>italique</i>. Cela peut
     &ecirc;tre modifi&eacute; dans les pr&eacute;f&eacute;rences
     (Options -&gt; Pr&eacute;f&eacute;rences -&gt; Groupes, case
-    "Afficher les groupes dynamiques en italique"). 
+    "Afficher les groupes dynamiques en italique").
 
-    <h3>Contexte hi&eacute;rarchique</h3>Par d&eacute;faut, un
+    <h3>Contexte hi&eacute;rarchique</h3>
+
+    <p>Par d&eacute;faut, un
     groupe est <b>ind&eacute;pendant</b> de sa position dans
     l'arbre des groupes&nbsp;: lorsqu'il est
     s&eacute;lectionn&eacute;, uniquement son contenu est
@@ -295,7 +323,7 @@
     groupement peut facilement &ecirc;tre &eacute;tendu. Dans un
     arbre de groupes, les groupes raffinants ont un ic&ocirc;ne
     sp&eacute;cial (cela peut-&ecirc;tre annul&eacute; dans les
-    pr&eacute;f&eacute;rences). 
+    pr&eacute;f&eacute;rences).</p>
 
     <p>Le compl&eacute;ment logique au groupe raffinant est un
     groupe qui <b>inclut ses sous-groupes</b>, c-&agrave;-d qu'en
@@ -307,13 +335,15 @@
     pr&eacute;f&eacute;rences).</p>
 
     <h2>Afficher les entr&eacute;es d'un groupe, combiner plusieurs
-    groupes</h2>S&eacute;lectionner un groupe montre les
+    groupes</h2>
+
+    <p>S&eacute;lectionner un groupe montre les
     entr&eacute;es contenues dans ce groupe en les surlignant et,
     selon le param&eacute;trage (accessible en cliquant sur le
     bouton <b>Param&egrave;tres</b>), les d&eacute;placent au
     sommet de la liste et/ou les s&eacute;lectionnent. Ces options
     sont identiques &agrave; celles disponibles habituellement pour
-    la recherche. 
+    la recherche.</p>
 
     <p>Quand plusieurs groupes sont s&eacute;lectionn&eacute;s,
     soit l'union soit l'intersection de leurs contenus est
@@ -327,12 +357,16 @@
     n&eacute;cessite d'avoir <b>Intersection</b>
     s&eacute;lectionn&eacute; dans les param&egrave;tres).</p>
 
-    <h2>Groupes et recherche</h2>Lors de l'affichage de contenu
+    <h2>Groupes et recherche</h2>
+
+    <p>Lors de l'affichage de contenu
     d'un ou plusieurs groupes, une recherche peut &ecirc;tre
     effectu&eacute;e &agrave; l'int&eacute;rieur de ce contenu en
-    utilisant la technique de recherche habituelle. 
+    utilisant la technique de recherche habituelle.</p>
 
-    <h2>Surligner les groupes se chevauchant</h2>Le bouton
+    <h2>Surligner les groupes se chevauchant</h2>
+
+    <p>Le bouton
     <b>Param&egrave;tres</b> offre une option de surlignement des
     groupes se chevauchant. Si elle est activ&eacute;e, lors de la
     s&eacute;lection d'un ou plusieurs groupes, tous les groupes
@@ -345,17 +379,19 @@
     s&eacute;lectionnez n'importe quel groupe, le groupe <tt>A
     lire</tt> sera surlign&eacute; si le groupe
     s&eacute;lectionn&eacute; contient des entr&eacute;es que vous
-    comptez lire. 
+    comptez lire.</p>
 
-    <h2>Caract&eacute;ristiques avanc&eacute;es</h2>Une fois que
+    <h2>Caract&eacute;ristiques avanc&eacute;es</h2>
+
+    <p>Une fois que
     vous ma&icirc;triserez les concepts de groupe d&eacute;crits
     ci-dessus, les caract&eacute;ristiques avanc&eacute;es
-    suivantes pourraient vous &ecirc;tre utile. 
+    suivantes pourraient vous &ecirc;tre utile.</p>
 
-    <h3>Cr&eacute;ation automatique de groupes dynamiques</h3>En
-    cliquant sur le bouton <b>Cr&eacute;er automatiquement des
-    groupes pour la base de donn&eacute;es</b> (les trois "+"
-    jaunes-orang&eacute;s), vous pouvez facilement cr&eacute;er une
+    <h3>Cr&eacute;ation automatique de groupes dynamiques</h3>
+
+    <p>En cliquant sur le bouton <b>Cr&eacute;er automatiquement des
+    groupes pour la base</b>, vous pouvez facilement cr&eacute;er une
     s&eacute;rie de groupes pertinents pour votre base de
     donn&eacute;es. Ce dispositif collectera tous les mots
     trouv&eacute;s dans le champ que vous aurez
@@ -364,7 +400,7 @@
     mots-clefs pertinents pour toutes les entr&eacute;es. En
     g&ecirc;nerant automatiquement les groupes en se basant sur le
     champ <tt>keywords</tt>, vous devriez avoir une s&eacute;rie de
-    groupes sans effort. 
+    groupes sans effort.</p>
 
     <p>Vous pouvez aussi sp&eacute;cifier des caract&egrave;res
     &agrave; ignorer, par exemple les virgules utilis&eacute;es
@@ -378,21 +414,25 @@
     manuellement les groupes non voulus &agrave; la suite de leur
     cr&eacute;ation automatique.</p>
 
-    <h3>Rafra&icirc;chir l'affichage des groupes</h3>Le bouton
+    <h3>Rafra&icirc;chir l'affichage des groupes</h3>
+
+    <p>Le bouton
     <b>Rafra&icirc;chir</b> met &agrave; jour la table des
     entr&eacute;es pour refl&eacute;ter la s&eacute;lection
     actuelle des groupes. Habituellement, cela s'effectue
     automatiquement, mais, dans quelques occasions (par exemple
     apr&egrave;s un Annuler/R&eacute;p&eacute;ter en rapport avec
     les groupes), un rafra&icirc;chissement manuel est
-    n&eacute;cessaire. 
+    n&eacute;cessaire.</p>
 
     <h3>Combiner des groupes raffinants avec des groupes
-    incluants</h3>Si un groupe raffinant est le sous-groupe d'un
+    incluants</h3>
+
+    <p>Si un groupe raffinant est le sous-groupe d'un
     groupe qui inclue ses sous-groupes -- les fr&egrave;res du
     groupe raffinant --, les fr&egrave;res sont ignor&eacute;s
-    quand le groupe raffinant est s&eacute;lectionn&eacute;. 
-    <?php include("../../footer.php"); ?>
+    quand le groupe raffinant est s&eacute;lectionn&eacute;.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

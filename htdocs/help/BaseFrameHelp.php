@@ -1,22 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>The JabRef main window</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>The JabRef main window</h1>
 
-    <h1>The JabRef main window</h1><em>Note:</em> most menu actions
+    <p><em>Note:</em> most menu actions
     referred in the following have keyboard shortcuts, and many are
     available from the toolbar. The keyboard shortcuts are found in
-    the pull-down menus. 
+    the pull-down menus.</p>
 
     <p>This is the main window from where you work with your
     databases. Below the menubar and the toolbar is a tabbed pane
@@ -35,30 +38,25 @@
         keys.</li>
 
         <li>The table is sorted according to a set of fields of
-        your choosing. The default sort order is set up in
+        your choosing. The default sort order can be set up in
         <strong>Preferences -&gt; Entry table</strong>, but to
-        quickly change the order, click the header of a column to
+        more quickly change the order, click the header of a column to
         set it as the primary sort criterion, or reverse the
         sorting if it is already set. Another click will deselect
         the column as sorting criterion. Hold down <b>CONTROL</b>
         and click a column to add, reverse or remove it as a
         sub-criterion after the primary column. You can add an
-        arbitrary number of sub-criteria.</li>
+        arbitrary number of sub-criteria, but only three levels
+        will be stored for the next time you start JabRef.</li>
 
         <li>Adjust the width of each column by dragging the borders
         between their headers.</li>
-
-        <li>In the <strong>Preferences</strong> dialog, toggle
-        whether the table should be resized to fit the window.
-        Enable this to ensure visibility of the whole table, and
-        disable it to make room for displaying more
-        information.</li>
 
         <li>
             Color codes can be toggled in the
             <strong>Preferences</strong> dialog, and they help you
             visualize the completeness of your database by coloring
-            cells as follows: 
+            cells as follows:
 
             <ul>
                 <li>A <font color="red">red</font> cell in the
@@ -83,15 +81,17 @@
         </li>
     </ul>
 
-    <h2>Adding a new entry</h2>There are several ways to add a new
+    <h2>Adding a new entry</h2>
+
+    <p>There are several ways to add a new
     entry. The <strong>New entry</strong> menu action shows a
     dialog where you can choose the type of the entry from a list.
     To bypass this dialog, there are also separate menu actions for
     each entry type, and keyboard shortcuts for the most common
-    types. 
+    types.</p>
 
     <p>When a new entry is added, by default an
-    <a href="EntryEditorHelp.php">editor dialog</a> for the entry
+    <a href="EntryEditorHelp.php">entry editor</a> for the entry
     will be opened. This behaviour can be toggled in the
     <strong>Preferences</strong> dialog.</p>
 
@@ -99,24 +99,27 @@
     for the entry types you use most often, e.g. CTRL-SHIFT-A for
     adding an <em>article</em> entry.</p>
 
-    <h2>Editing an entry</h2>To open an
-    <a href="EntryEditorHelp.php">editor dialog</a> for an
-    existing entry, simply double-click anywhere on the appropriate
-    line will open the <a href="EntryEditorHelp.php">editor
-    dialog</a> (or select the entry and press ENTER). 
+    <h2>Editing an entry</h2>
 
-    <h2>Referencing a <em>bibtex</em> string in a field</h2>In
-    JabRef you write the contents of all fields the same way as you
+    <p>To open an
+    <a href="EntryEditorHelp.php">entry editor</a> for an
+    existing entry, simply double-click anywhere on the appropriate
+    line will open the <a href="EntryEditorHelp.php">entry editor</a>
+    (or select the entry and press ENTER).</p>
+
+    <h2>Referencing a <em>bibtex</em> string in a field</h2>
+
+    <p>In JabRef you write the contents of all fields the same way as you
     would in a text editor, with one exception: to reference a
     string, enclose the name of the string in a set of #
     characters, e.g.:<br />
     &nbsp;&nbsp;'#jan# 1997',<br />
     which will be interpreted as the string named 'jan' followed by
-    ' 1997'. 
+    ' 1997'.</p>
 
     <p>See also: <a href="StringEditorHelp.php">string editor</a>.
     </p>
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>
