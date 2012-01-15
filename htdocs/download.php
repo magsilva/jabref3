@@ -37,7 +37,7 @@
     <h3 id="subversion">Developer versions</h3>
     <p>
       To browse or check out the <acronym>JabRef</acronym> developer source code from Git, take a look at our
-      <a href="https://sourceforge.net/scm/?type=git&group_id=92314">Git page</a>.
+      <a href="https://sourceforge.net/scm/?type=git&amp;group_id=92314">Git page</a>.
     </p>
 
     </div>

@@ -95,7 +95,7 @@
       <h3 id="git">Git access</h3>
       <p>To browse or check out the <acronym>JabRef</acronym> source code from Git,
       take a look at our
-      <a href="https://sourceforge.net/scm/?type=git&group_id=92314">Git page</a>.</p>
+      <a href="https://sourceforge.net/scm/?type=git&amp;group_id=92314">Git page</a>.</p>
 
       <h3 id="bugtracker">Bug reports</h3>
       <p>To register bug reports, go to the

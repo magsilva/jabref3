@@ -24,7 +24,7 @@
       the entire collection</a>.
       </p>
 
-      <table border="0" cellpadding="8" rules="none">
+      <table border="0" cellpadding="8" rules="none" summary="List of available styles">
         <tr>
           <td><b>Style suitable for</b></td> <td><b>Contributed by</b></td>
 	  <td><b>Example layout</b></td>
