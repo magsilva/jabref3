@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>EndNote書き出しフィルタ</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="container">
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <h1>EndNote書き出しフィルタ</h1>
+
+    <h2>JabRefからの書き出し</h2>
+
+    <p>JabRefは、EndoNoteが読み込み可能な形式のファイルへ書き出すことができます。この機能を使うには、<b>ファイル→書き出す</b>を選択して、ファイル形式 <b>Endnote (*.txt)</b> を選択し、書き出しファイル名を指定してください。</p>
+
+    <h2>EndNoteへの読み込み</h2>
+
+    <p>EndNoteの既定の読み込みフィルタは、複数の著者や編者を適切に取り扱うことができません。これを回避するには、以下の2つの方法があります。</p>
+
+    <ol>
+        <li>組み込みフィルタを使用して、ファイルを後から修正します。ファイルをEndNoteで開くには、EndNoteで新規データベースを作成するか、既存のデータベースを開いてください。その後、<b>File → Import</b>を選んで <b>Choose File</b> をクリックし、書き出したファイルを選択してから <b>Choose</b> をクリックしてください。<b>Import Options</b> をクリックして、<b>EndNote Import</b> を選択します。<b>Import</b> をクリックすれば、読み込みが始まります。読み込み後、<b>Edit → Change Text</b> を選択し、<b>Any Field</b> を <b>Author</b> に変更します。" and "を検索フィールドに入力し(引用符なし)、変更フィールドにリターン文字を入力して(Mac OS Xではoption-return、Windows XPではctrl-return)、<b>Change</b> をクリックしてください。同じことを <b>Secondary Author</b> フィールドについても繰り返します。</li>
+
+        <li><i>EndNote Extras</i> に <i>EndNote Import from JabRef filter</i> を導入します。下記の <b>進んだ使い方</b> の指示に従ってください。ファイルをEndNoteで開くには、EndNoteで新規データベースを作成するか、既存のデータベースを開いてください。その後、<b>File → Import</b>を選んで <b>Choose File</b> をクリックし、書き出したファイルを選択してから <b>Choose</b> をクリックしてください。<b>Import Options</b> をクリックして、<b>EndNote Import from JabRef</b> を選択します(もしこれが表示されていなければ Other filters を選択してください。それでも表示されていなければ、フィルタが正しく導入されていません)。<b>Import</b> をクリックすれば、読み込みが始まります。</li>
+    </ol>
+
+    <h2>注記</h2>
+
+    <p>EndNote書き出しフィルタは、BibTeX項目型を以下のように EndNote reference type に対応させます。</p>
+    <pre>
+BibTeX項目型 → EndNote Reference Type
+------------------------------------------
+misc, other → Generic
+unpublished → Manuscript
+manual → Computer Program
+article → Journal Article
+book → Book
+booklet → Personal Communication
+inbook,incollection → Book Section
+inproceedings → Conference Proceedings
+techreport → Report
+mastersthesis, phdthesis → Thesis</pre>
+
+    <h2>共著者</h2>
+
+    <p>既定の書き出しフィルタは、authorフィールドやeditorフィールド中の角括弧に囲まれた項目は、共著者であるものと見なし、角括弧は後ろに付けたコンマに変換されます。しかし、これは角括弧に囲まれたLaTeXコードを含む項目も共著者と見なされることを意味し、このような場合には適切に整形されません。</p>
+
+    <h2>進んだ使い方: EndNote Extras</h2>
+
+   EndNoteとJabRefの間の相互互換性を向上させるためには、JabRefウェブページにあるResourcesのページからEndNoteフィルターセットをダウンロードしてください。
+  <?php include("../footer.php"); ?>
+  </div>
+
+</body>
+</html>
