@@ -41,7 +41,7 @@
       always be in sync with the latest <acronym>JabRef</acronym> version.</p>
 
       <p>For German readers, a more comprehensive <a href=
-      "help/manual_pdf/JabRef-UserManual_de.pdf">user manual</a>
+      "manuals/JabRef-UserManual_de.pdf">user manual</a>
       (PDF) written by Dominik Wa&szlig;enhoven is also available.
       We hope to offer the user manual in other languages in the
       future.</p>
