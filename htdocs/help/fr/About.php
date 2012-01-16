@@ -14,10 +14,10 @@
     <a href="Contents.php">Back to contents</a>
 	
 
-        <h1>JabRef version @version@</h1>
+        <h1>JabRef version 2.8b</h1>
 
         <div id="logo">
-        <img src="/images/JabRef-icon-48.png" alt="JabRef logo" /><br/>&copy; 2011
+        <img src="/images/JabRef-icon-48.png" alt="JabRef logo"/><br/>&copy; 2003-2012
         </div>
 
         <p>JabRef est librement distribuable selon les termes de la

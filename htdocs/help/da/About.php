@@ -16,11 +16,11 @@
     <basefont size="4" color="#2F4958" face="arial" />
 
     <center>
-        <h1>JabRef version @version@</h1>
+        <h1>JabRef version 2.8b</h1>
 
-        <p>(c) 2011</p>
-
-        <p><img src="/images/JabRef-icon-48.png" alt="JabRef logo" /></p>
+        <div id="logo">
+        <img src="/images/JabRef-icon-48.png" alt="JabRef logo"/><br/>&copy; 2003-2012
+        </div>
 
         <p>JabRef kan frit distribueres under betingelserne i
         GNU <a href="License.php">General Public License</a>,

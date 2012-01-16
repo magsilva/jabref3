@@ -15,11 +15,11 @@
 	
 
     <center>
-        <h1>JabRef versi @version@</h1>
+        <h1>JabRef versi 2.8b</h1>
 
-        <p>(c) 2011</p>
-
-        <p><img src="/images/JabRef-icon-48.png" alt="JabRef logo" /></p>
+        <div id="logo">
+        <img src="/images/JabRef-icon-48.png" alt="JabRef logo"/><br/>&copy; 2003-2012
+        </div>
 
         <p>JabRef dapat disebarkan tanpa bayar mengikut syarat dari
         GNU <a href="License.php">General Public License</a>,

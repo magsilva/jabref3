@@ -15,11 +15,11 @@
 	
 
     <center>
-        <h1>JabRef 第 @version@ 版</h1>
+        <h1>JabRef 第 2.8b 版</h1>
 
-        <p>(c) 2011</p>
-
-        <p><img src="/images/JabRef-icon-48.png" alt="JabRef logo" /></p>
+        <div id="logo">
+        <img src="/images/JabRef-icon-48.png" alt="JabRef logo"/><br/>&copy; 2003-2012
+        </div>
 
         <p>JabRefは、GNU <a href="License.php">General Public License</a>, version 2の下で自由に配布可能です。</p>
 
