@@ -3,14 +3,28 @@
 use constant HELPDIR_JABREF => "jabref/src/help";
 use constant HELPDIR_WEB    => "htdocs/help";
 
+#build.xml for getting string replacements @version@ and @year@
+use constant BUILDXML       => "jabref/build.xml";
+
 #required at cygwin
 use constant FORCE_WINDOWS_NEWLINES => 1;
 
 use warnings;
 use strict;
 
+#enable "given/when"
+use feature ":5.10";
+
 sub handleDir;
 sub handleFile;
+sub loadPreferences;
+
+our $jabref_version;
+our $jabref_year;
+our $jabref_placeholder_version;
+our $jabref_placeholder_year;
+
+loadPreferences();
 
 #Debug call for a single file
 #handleFile("jabref/src/help/About.html", "htdocs/help/About.php", "en");
@@ -41,6 +55,9 @@ while (my $subdir = readdir($helpdirJabRef)) {
 	handleDir($sourcedir, $targetdir, $lang);
 }
 close($helpdirJabRef);
+
+exit 0;
+
 
 
 # Parameters:
@@ -82,8 +99,10 @@ sub handleFile {
   my $outfilename = shift;
   my $lang = shift;
   
+  my $replace_placeholders = ($infilename =~ /About.html$/);
+  
   #Debug output
-  #print("handleFile:\n$infilename\n$outfilename\n$lang\n\n");
+  #print("handleFile:\n$infilename\n$outfilename\n$lang\n$replace_placeholders\n\n");
 
   open(my $infileH, "<", $infilename) or die "cannot open < $infilename: $!";
   my @infile = <$infileH>;
@@ -144,6 +163,10 @@ HTML
     } elsif ($status==1 && $line =~ /\<\/body\>/) {
       $status=0;
     } elsif ($status==1) {
+	  if ($replace_placeholders) {
+	    $line =~ s/$jabref_placeholder_version/$jabref_version/;
+	    $line =~ s/$jabref_placeholder_year/$jabref_year/;
+	  }	  
 	  if (!($line =~ /href=\"http:\/\//)) {
 		#line does NOT contain a href to some http address
 		#we assume that line is NOT a reference to an external site
@@ -176,3 +199,35 @@ HTML
   close($infileH);
 }
 
+#extracts info out of build.xml
+#	<property name="jabref.version" value="2.8b" />
+#	<property name="jabref.year" value="2012" />
+#	<property name="jabref.placeholder.version" value="@version@" />
+#	<property name="jabref.placeholder.year" value="@year@" />
+sub loadPreferences {
+  open(my $buildXML, "<", BUILDXML) or die "cannot open < " . BUILDXML . ": $!";
+  my @buildxml = <$buildXML>;
+  close($buildXML);
+  foreach my $line (@buildxml) {
+    #check for one-line property declaration name / value
+    if ($line =~ /property name="([^"]*)" value="([^"]*)"/) {
+	  #copy value from value to local variable
+	  #a non-hardcoded version using "eval" would also be possible
+	  #the SLOC count would be equal to the count of the following (easier) given/when construct.
+	  given($1) {
+		when ("jabref.version") {
+		  $jabref_version = $2;
+		}
+	    when ("jabref.year") {
+		  $jabref_year = $2;
+		}
+		when ("jabref.placeholder.version") {
+		  $jabref_placeholder_version = $2;
+		}
+		when ("jabref.placeholder.year") {
+		  $jabref_placeholder_year = $2;
+		}
+      }
+    }
+  }
+}
