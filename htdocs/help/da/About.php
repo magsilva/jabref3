@@ -15,7 +15,6 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
-    <basefont size="4" color="#2F4958" face="arial" />
 
     <center>
         <h1>JabRef version 2.8b</h1>

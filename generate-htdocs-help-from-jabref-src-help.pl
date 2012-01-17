@@ -220,23 +220,29 @@ HTML
     } elsif ($status==1 && $line =~ /\<\/body\>/) {
       $status=0;
     } elsif ($status==1) {
-	  if ($replace_placeholders) {
-	    $line =~ s/$jabref_placeholder_version/$jabref_version/;
-	    $line =~ s/$jabref_placeholder_year/$jabref_year/;
-	  }	  
-	  if (!($line =~ /href=\"http:\/\//)) {
-		#line does NOT contain a href to some http address
-		#we assume that line is NOT a reference to an external site
-		#replace "html" extension with "php" extension
-		#still allow links as "...html#part".
-		$line =~  s/href=\"([^\"]*)\.html/href=\"$1\.php/g;
+      #we may not transfer a "basefont"
+	  if ($line =~ /\<basefont/) {
+	    if ($line !~ /\/\>/) {
+		  $status = 2;
+		}
+	  } else {
+	    if ($replace_placeholders) {
+	      $line =~ s/$jabref_placeholder_version/$jabref_version/;
+	      $line =~ s/$jabref_placeholder_year/$jabref_year/;
+	    }
+	    if (!($line =~ /href=\"http:\/\//)) {
+		  #line does NOT contain a href to some http address
+		  #we assume that line is NOT a reference to an external site
+		  #replace "html" extension with "php" extension
+		  #still allow links as "...html#part".
+		  $line =~  s/href=\"([^\"]*)\.html/href=\"$1\.php/g;
+	    }
+        push(@outfile, $line);
 	  }
-      push(@outfile, $line);
-    #} elsif ($status==0 && $line =~ /\<basefont/) {
-    #  $status=2;
-    #} elsif ($status==2 && $line =~ /\/\>/) {
-    #  $status=1;
-    }
+	} elsif (($status==2) && ($line =~ /\/\>/)) {
+		#basefont ended, reset to "inhtml"
+		$status = 1;
+	}
   }
 
   push(@outfile, $footer);

@@ -15,7 +15,6 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
-    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Unterst&uuml;tzung von XMP-Metadaten in JabRef</h1>
 

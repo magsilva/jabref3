@@ -15,7 +15,6 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
-    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Anpassen der automatischen Erstellung von
     BibTeX-Keys</h1>
