@@ -1,6 +1,24 @@
 #!/usr/bin/perl
 
+#validate-htdocs-syntax.pl 
+#(c) 2012 Oliver Kopp
+
+#This scripts validates the syntax of all files in the htdocs directory
+#using tidy
+
+#This script requires "tidy".
+#It was tested using cygwin's perl and cygwin's tidy.
+
+#Start it from the root directory of your git repository.
+#  Windows: perl validate-htdocs-syntax.pl 
+
+#There are NO command line parameters
+
+#configuration: should there be a prompt after each error?
 use constant WAITAFTEREACHERROR => 1;
+
+
+#configuration: directory to check
 
 #online web site
 use constant STARTDIR => "htdocs";
@@ -11,6 +29,7 @@ use constant STARTDIR => "htdocs";
 #JabRef help
 #  never validates as no HTML head is used and no DOCTYPE is declared.
 #use constant STARTDIR => "jabref/src/help/da";
+
 
 use File::Find;
 use strict;
