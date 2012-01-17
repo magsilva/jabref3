@@ -1,21 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Groups</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
+<h1>Groups</h1>
 
-
-    <h1>Groups</h1>Groups allow to structure a BibTeX database in a
+    <p>Groups allow to structure a BibTeX database in a
     tree-like way that is similar to organizing files on disk in
-    directories and subdirectories. The two main differences are: 
+    directories and subdirectories. The two main differences are:</p>
 
     <ul>
         <li>While a file is always located in exactly one
@@ -31,30 +33,37 @@
     group. Selecting multiple groups shows the entries contained in
     any group (union) or those contained in all groups
     (intersection), depending on the current settings. All this is
-    explained in detail below. 
+    explained in detail below.
 
     <p>Group definitions are database-specific; they are saved as a
     <tt>@COMMENT</tt> block in the <tt>.bib</tt>-file and are
     shared among all users. (Future versions of JabRef might
     support user-dependent groups.)</p>
 
-    <h2>Interface</h2>The groups interface is shown in the side
+    <h2>Interface</h2>
+
+    <p>The groups interface is shown in the side
     pane on the left of the screen. It can be toggled on or off by
     pressing <tt>CTRL-SHIFT-G</tt> or by the groups button in the
     toolbar. The interface has several buttons, but most functions
     are accessed via a context ("right-click") menu. Drag and Drop
-    is also supported. 
+    is also supported.</p>
 
     <table cellspacing="0"
            cellpadding="5"
            border="0"
-           bgcolor="#C0FFC0">
+           bgcolor="#C0FFC0"
+		   summary="Examples">
         <tr>
             <td>
-                <h2>Some quick examples</h2>You might want to... 
+                <h2>Some quick examples</h2>
+
+                <p>You might want to...</p>
 
                 <h3>...just create a group and assign some entries
-                to it</h3>Ensure that the groups interface is
+                to it</h3>
+
+                <p>Ensure that the groups interface is
                 visible. Press the <b>New Group</b> button, enter a
                 name for the group, then press OK, leaving all
                 values at their defaults. Now select the entries to
@@ -62,10 +71,12 @@
                 the group, or the option <b>Add to group</b> in the
                 context menu. Finally select the group to see its
                 content (which should be the entries you just
-                assigned). 
+                assigned).</p>
 
                 <h3>...use the <tt>keywords</tt> field to group the
-                entries</h3>Ensure that the groups interface is
+                entries</h3>
+
+                <p>Ensure that the groups interface is
                 visible. Press the <b>New Group</b> button, enter a
                 name for the group, and select the option to
                 dynamically group entries by searching a field for
@@ -73,10 +84,12 @@
                 click OK. Finally select the group to see its
                 content (which should be all entries whose
                 <tt>keywords</tt> field contains the keyword you
-                specified). 
+                specified).</p>
 
                 <h3>...use a free-form search expression to define
-                a group</h3>Ensure that the groups interface is
+                a group</h3>
+
+                <p>Ensure that the groups interface is
                 visible. Press the <b>New Group</b> button, enter a
                 name for the group, and select the option to
                 dynamically group entries by a free-form search
@@ -86,9 +99,11 @@
                 <b>OK</b>. Finally select the group to see its
                 content (which should be all entries whose
                 <tt>author</tt> field contains the name you
-                specified). 
+                specified).</p>
 
-                <h3>...combine multiple groups</h3>Create two
+                <h3>...combine multiple groups</h3>
+
+                <p>Create two
                 different groups (e.g. as described above). Click
                 the <b>Settings</b> button and make sure that
                 <b>Union</b> is selected. Now select both groups.
@@ -97,23 +112,25 @@
                 <b>Intersection</b>. Now you should see only those
                 entries contained in both groups (which might be
                 none at all, or exactly the same entries as before
-                in case both groups contain the same entries). 
+                in case both groups contain the same entries).</p>
 
-                <h3>...identify overlapping groups</h3>JabRef
-                allows you to easily identify groups that overlap
+                <h3>...identify overlapping groups</h3>
+
+                <p>JabRef allows you to easily identify groups that overlap
                 with the currently selected groups (i.e. that
                 contain at least one entry that is also contained
                 in the currently selected groups). Click
                 <b>Settings</b> and activate the option to
                 highlight overlapping groups. Then select a group
                 that overlaps with other groups. The other groups
-                should be highlighted.
+                should be highlighted.</p>
             </td>
         </tr>
     </table>
 
-    <h2>Types of groups</h2>In JabRef there are four different
-    types of groups: 
+    <h2>Types of groups</h2>
+
+    <p>In JabRef there are four different types of groups:</p>
 
     <ol>
         <li>The group <b>All Entries</b>, which -- as the name
@@ -137,7 +154,7 @@
         expressions</b> contain entries that match a specified
         search expression, using the same syntax as the
         <a href="SearchHelp.php">search panel</a> on the side
-        pane. This <a href="SearchHelp.html#advanced">syntax</a>
+        pane. This <a href="SearchHelp.php#advanced">syntax</a>
         supports logical operators (<tt>AND</tt>, <tt>OR</tt>,
         <tt>NOT</tt>) and allows to specify one or more BibTeX
         fields to search, facilitating more flexible group
@@ -146,10 +163,11 @@
     </ol>Every group that you create is of one of the last three
     types. The group editing dialog, which is invoked by
     double-clicking on a group, shows a short description of the
-    selected/edited group in plain English. 
+    selected/edited group in plain English.
 
-    <h2>Groups structure, creating and removing groups</h2>Just
-    like directories, groups are structured like a tree, with the
+    <h2>Groups structure, creating and removing groups</h2>
+
+    <p>Just like directories, groups are structured like a tree, with the
     group <b>All Entries</b> at the root. By right-clicking on a
     group you can add a new group to the tree, either at the same
     level as the selected group or as a subgroup of it. The <b>New
@@ -159,28 +177,32 @@
     subgroups, to sort subgroups alphabetically, or to move groups
     to a different location in the tree. The latter can also be
     done by Drag and Drop, with the restriction that Drag and Drop
-    does not support changing the order of a group's subgroups. 
+    does not support changing the order of a group's subgroups.</p>
 
     <p>Undo and redo is supported for all edits.</p>
 
-    <h3>Static groups</h3>Static groups are populated only by
+    <h3>Static groups</h3>
+
+    <p>Static groups are populated only by
     explicit manual assignment of entries. After creating a static
     group you select the entries to be assigned to it, and use
     either Drag and Drop or the main table's context menu to
     perform the assignment. To remove entries from a static group,
     select them and use the main table's context menu. There are no
-    options to be configured. 
+    options to be configured.</p>
 
     <p>This method of grouping requires that all entries have a
     unique BibTeX key. In case of missing or duplicate BibTeX keys,
     the assignment of the affected entries cannot be correctly
     restored in future sessions.</p>
 
-    <h3>Dynamic groups</h3>The content of a dynamic group is
+    <h3>Dynamic groups</h3>
+
+    <p>The content of a dynamic group is
     defined by a logical condition. Only entries that meet this
     condition are contained in the group. This method uses the
     information stored in the database itself, and updates
-    dynamically whenever the database changes. 
+    dynamically whenever the database changes.</p>
 
     <p>Two types of conditions can be used:</p>
 
@@ -207,7 +229,7 @@
 
         <dd>This is similar to the above, but rather than search a
         single field for a single search term, the
-        <a href="SearchHelp.html#advanced">search expression
+        <a href="SearchHelp.php#advanced">search expression
         syntax</a> can be used, which supports logical operators
         (<tt>AND</tt>, <tt>OR</tt>, <tt>NOT</tt>) and allows to
         search multiple BibTeX fields. For example, the search
@@ -217,9 +239,11 @@
     </dl>In the groups view, dynamic groups are shown in
     <i>italics</i> by default. This can be turned off in the
     preferences (Options -&gt; Preferences -&gt; Groups, box "Show
-    dynamic groups in italics"). 
+    dynamic groups in italics").
 
-    <h3>Hierarchical context</h3>By default, a group is
+    <h3>Hierarchical context</h3>
+
+    <p>By default, a group is
     <b>independent</b> of its position in the groups tree: When
     selected, only the group's contents are shown. However,
     especially when using dynamic groups, it is often useful to
@@ -233,7 +257,7 @@
     adding another refining subgroup for <tt>laplace</tt> to the
     original supergroup, the grouping can easily be extended. In
     the groups tree, refining groups have a special icon (this can
-    be turned off in the preferences). 
+    be turned off in the preferences).</p>
 
     <p>The logical complement to a refining group is a group that
     <b>includes its subgroups</b>, i.e. when selected, not only the
@@ -242,12 +266,14 @@
     can be turned off in the preferences).</p>
 
     <h2>Viewing a group's entries, combining multiple
-    groups</h2>Selecting a group shows the entries contained in
+    groups</h2>
+
+    <p>Selecting a group shows the entries contained in
     that group by highlighting them and, depending on the settings
     (accessible by clicking the <b>Settings</b> button), moving
     them to the top of the list and/or selecting them. These
     options are identical to those available for the regular
-    search. 
+    search.</p>
 
     <p>When multiple groups are selected, either the union or the
     intersection of their content is shown, depending on the
@@ -258,11 +284,15 @@
     other group by selecting both groups (this requires to have
     <b>Intersection</b> selected in the settings).</p>
 
-    <h2>Groups and searching</h2>When viewing the contents of the
-    selected group(s), a search can be performed within these
-    contents using the regular search facility. 
+    <h2>Groups and searching</h2>
 
-    <h2>Highlighting overlapping groups</h2>The <b>Settings</b>
+    <p>When viewing the contents of the
+    selected group(s), a search can be performed within these
+    contents using the regular search facility.</p>
+
+    <h2>Highlighting overlapping groups</h2>
+
+    <p>The <b>Settings</b>
     button offers an option to highlight overlapping groups. If
     this is activated, upon selection of one or more groups, all
     groups that contain at least one of the entries contained in
@@ -271,13 +301,17 @@
     example, create a group <tt>To Read</tt> that contains all
     entries which you plan to read. Now, whenever you select any
     group, the group <tt>To Read</tt> is highlighted if the
-    selected group contains entries that you plan to read. 
+    selected group contains entries that you plan to read.</p>
 
-    <h2>Advanced features</h2>After mastering the grouping concepts
+    <h2>Advanced features</h2>
+
+    <p>After mastering the grouping concepts
     described above, the following advanced features might come in
-    handy. 
+    handy.</p>
 
-    <h3>Automatically creating dynamic groups</h3>By clicking the
+    <h3>Automatically creating dynamic groups</h3>
+
+    <p>By clicking the
     <b>Automatically create groups for database</b> button, you can
     quickly create a set of groups appropriate for your database.
     This feature will gather all words found in a specific field of
@@ -285,7 +319,7 @@
     for instance if your database contains suitable keywords for
     all entries. By autogenerating groups based on the
     <tt>keywords</tt> field, you should have a basic set of groups
-    at no cost. 
+    at no cost.</p>
 
     <p>You can also specify characters to ignore, for instance
     commas used between keywords. These will be treated as
@@ -296,17 +330,20 @@
     delete the unwanted groups manually after they were created
     automatically.)</p>
 
-    <h3>Refreshing the groups view</h3>The <b>Refresh</b> button
+    <h3>Refreshing the groups view</h3>
+
+    <p>The <b>Refresh</b> button
     updates the entry table to reflect the current groups
     selection. This is usually done automatically, but in rare
     occasions (e.g. after a group-related undo/redo) a manual
-    refresh is required. 
+    refresh is required.</p>
 
-    <h3>Mixing refining groups with including groups</h3>If a
-    refining group is a subgroup of a group that includes its
+    <h3>Mixing refining groups with including groups</h3>
+
+    <p>If a refining group is a subgroup of a group that includes its
     subgroups -- the refining group's siblings --, these siblings
-    are ignored when the refining group is selected. 
-    <?php include("../footer.php"); ?>
+    are ignored when the refining group is selected.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

@@ -169,8 +169,8 @@
           from document data, e.g. using author names, title and year.
         </li>
 	
-	<li class="feature">Search Medline, Citeseer, IEEEXplore and arXiv</li>
-        <li class="feature_desc"></li>
+	<li class="feature">Search Medline, CiteseerX, Google Scholar, IEEEXplore, and arXiv</li>
+        <li class="feature_desc">Entries can be searched in external databases and BibTeX entries can be fetched from there</li>
 	
 	<li class="feature">Support for XMP Metadata in PDFs</li>
         <li class="feature_desc">Improve the workflow of sharing PDFs and bibliography information</li>

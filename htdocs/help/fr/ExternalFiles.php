@@ -1,23 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Les liens PDF/PS/URL/DOI dans JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Les liens PDF/PS/URL/DOI dans JabRef</h1><b>Note:</b>
+    <h1>Les liens PDF/PS/URL/DOI dans JabRef</h1>
+
+    <p><b>Note:</b>
     JabRef 2.3 et suivants offrent un
-    <a href="FileLinks.php">syst&Atilde;&uml;me
-    am&Atilde;&copy;lior&Atilde;&copy; pour les liens vers les
-    fichiers externes</a>.
+    <a href="FileLinks.php">syst&egrave;me am&eacute;lior&eacute; pour les liens vers les
+    fichiers externes</a>.</p>
 
     <p>JabRef vous permet de lier vos entr&eacute;es avec des
     fichiers PDF ou PS stock&eacute;s sur votre ordinateur, ainsi
@@ -25,19 +28,23 @@
     par l'interm&eacute;diaire d'une URL ou d'un identifiant
     DOI.</p>
 
-    <h2>Configurer les visionneurs externes</h2>Le programme doit
+    <h2>Configurer les visionneurs externes</h2>
+
+    <p>Le programme doit
     savoir quels visionneurs externes utiliser pour les fichiers
     PDF et PS ainsi que pour les pages internet. Ils sont par
     d&eacute;faut configur&eacute;s avec des valeurs qui
     fonctionnent probablement avec votre syst&egrave;me
     d'exploitation&nbsp;; aussi, il est tr&egrave;s possible que
-    vous n'ayez pas besoin de changer ces valeurs 
+    vous n'ayez pas besoin de changer ces valeurs</p>
 
     <p>Pour changer la configuration des visionneurs externes,
     allez dans le menu <b>Options -&gt; Pr&eacute;f&eacute;rences
     -&gt; Programmes externes</b>.</p>
 
-    <h2>Ouvrir des fichiers externes ou des liens</h2>Il y a
+    <h2>Ouvrir des fichiers externes ou des liens</h2>
+
+    <p>Il y a
     plusieurs fa&ccedil;ons d'ouvrir un fichier externe ou une page
     internet. Dans l'&eacute;diteur d'entr&eacute;es, vous pouvez
     double-cliquer sur le texte du champ contenant le nom du
@@ -46,7 +53,7 @@
     le menu (<b>Outils/ Ouvrir PS ou PDF</b> et <b>Outils/ Ouvrir
     URL ou DOI</b>), le raccourci clavier ou le menu contextuel
     (avec un clic droit). Enfin, vous pouvez cliquer sur les
-    ic&ocirc;nes PDF, PS, URL ou DOI de la barre d'outils. 
+    ic&ocirc;nes PDF, PS, URL ou DOI de la barre d'outils.</p>
 
     <p>Par d&eacute;faut, le tableau des entr&eacute;es contient
     deux colonnes dans lesquelles des ic&ocirc;nes s'affichent pour
@@ -68,9 +75,11 @@
     <a href="GeneralFields.php">personnaliser les champs
     g&eacute;n&eacute;raux</a>.</p>
 
-    <h2>Les r&eacute;pertoires PDF et PS principaux</h2>JabRef
+    <h2>Les r&eacute;pertoires PDF et PS principaux</h2>
+
+    <p>JabRef
     permet de lier facilement les fichiers PDF et PS
-    &iuml;&iquest;&frac12; vos entr&iuml;&iquest;&frac12;es. Pour
+    &agrave; vos entr&eacute;es. Pour
     b&eacute;n&eacute;ficier de cette fonction, vous devez
     d&eacute;finir dans le menu <b>Options -&gt;
     Pr&eacute;f&eacute;rences -&gt; Programmes externes</b> vos
@@ -81,7 +90,7 @@
     sera ainsi facile de d&eacute;placer les r&eacute;pertoires PDF
     et PS principaux ou de partager votre base de donn&eacute;es
     avec d'autres utilisateurs situ&eacute;s en des points
-    diff&eacute;rents du r&eacute;seau. 
+    diff&eacute;rents du r&eacute;seau.</p>
 
     <p>De plus, si vous donnez &agrave; vos fichiers PDF et PS des
     noms qui correspondent &agrave; la clef BibTeX des
@@ -103,7 +112,7 @@
     n'appara&icirc;tra pas dans le tableau des entr&eacute;es.</p>
 
     <h2>Les r&eacute;pertoires PDF et PS
-    sp&iuml;&iquest;&frac12;cifiques &agrave; la base de
+    sp&eacute;cifiques &agrave; la base de
     donn&eacute;es</h2>
 
     <p>Vous pouvez d&eacute;finir des r&eacute;pertoires PDF et PS
@@ -177,7 +186,7 @@
     r&eacute;pertoire PDF) de tout nom de fichier qui
     poss&egrave;de la bonne extension et qui contient quelque part
     la clef BibTeX.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

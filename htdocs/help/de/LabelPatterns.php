@@ -1,32 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>Anpassen der automatischen Erstellung von BibTeX-Keys</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title></title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Anpassen der automatischen Erstellung von
+    BibTeX-Keys</h1>
 
-    <h1>Anpassen der automatischen Erstellung von BibTeX-Keys</h1>
-    Im Tab "Key-Muster" im Dialog "Einstellungen"
+    <p>Im Tab "Key-Muster" im Dialog "Einstellungen"
     kann man die Felder bestimmen, die zur automatischen
     Generierung der BibTeX-Labels (bibtexkey) herangezogen werden.
     Das Muster kann f&uuml;r jeden der vorgegebenen Eintragstypen
-    bestimmt werden. 
+    bestimmt werden.</p>
 
-    <h2>Key-Muster</h2>Das Muster kann beliebigen Text enthalten,
+    <h2>Key-Muster</h2>
+
+    <p>Das Muster kann beliebigen Text enthalten,
     unabh&auml;ngig von und zus&auml;tzlich zu den Feldmarken, die
     angeben, dass ein bestimmtes Feld des Eintrags an dieser Stelle
     des Keys eingef&uuml;gt werden soll. Eine Feldmarke besteht
     gew&ouml;hnlich aus dem Feldnamen in eckigen Klammern, z.B.
     <b>[volume]</b>. Wenn dieses Feld zum Zeitpunkt der Erstellung
-    des Keys leer ist, wird kein Text eingef&uuml;gt. 
+    des Keys leer ist, wird kein Text eingef&uuml;gt.</p>
 
     <p>Es gibt au&szlig;erdem mehrere spezielle Feldmarken, die nur
     einen bestimmten Teil aus einem Feld extrahieren. Sie werden
@@ -42,9 +48,19 @@
         <li><b>[<code>authors</code>]</b>: Die Nachnamen aller
         Autoren.<br /></li>
 
+        <li><b>[<code>authorLast</code>]</b>: Der Nachname des
+        letzten Autors<br /></li>
+
         <li><b>[<code>authorsN</code>]</b>: Die Nachnamen von bis
         zu N Autoren. Falls es mehr Autoren gibt, wird EtAl
         angeh&auml;ngt.<br /></li>
+
+        <li><b>[<code>authorsAlpha</code>]</b>: Wie bei dem BibTeX-Stil
+        "alpha". Ein Autor: Erste drei Buchstaben des Nachnamens.
+        Zwei bis vier Autoren: Der erste Buchstabe jedes Nachnamens wird 
+        hintereinandergeh&auml;gt. Mehr als vier Autoren: Jeweils der erste 
+        Buchstabe der ersten drei Nachnamens wird hintereinandergeh&auml;ngt. 
+        Zus&auml;tzlich ein "+" am Ende. <br /></li>  
 
         <li><b>[<code>authIniN</code>]</b>: Der Anfang des
         Nachnamens von jedem Autoren, wobei nicht mehr als N
@@ -82,37 +98,40 @@
     die Feldmarke stattdessen bei einem leeren author-Feld zu
     nichts expandieren soll, m&uuml;ssen Sie <b>pureauth</b> statt
     <b>auth</b> verwenden, z.B.: <b>[pureauth]</b> oder
-    <b>[pureauthors3]</b>. 
+    <b>[pureauthors3]</b>.
 
     <ul>
         <li><b>[<code>edtr</code>]</b>: Der Nachname des ersten
-        Editors.<br /></li>
+        Herausgebers.<br /></li>
 
         <li><b>[<code>editors</code>]</b>: Die Nachnamen aller
-        Editoren.<br /></li>
+        Herausgeber.<br /></li>
+
+        <li><b>[<code>editorLast</code>]</b>: Der Nachname des letzten
+        Herausgebers.<br /></li>
 
         <li><b>[<code>edtrIniN</code>]</b>: Der Anfang des
-        Nachnamens von jedem Editor, wobei nicht mehr als N
+        Nachnamens von jedem Herausgeber, wobei nicht mehr als N
         Buchstaben verwendet werden.<br /></li>
 
         <li><b>[<code>editorIni</code>]</b>: Die ersten 5
-        Buchstaben des Nachnamens des Editors und die Initialen der
-        Nachnamen der restlichen Editoren.<br /></li>
+        Buchstaben des Nachnamens des Herausgebers und die Initialen der
+        Nachnamen der restlichen Herausgeber.<br /></li>
 
         <li><b>[<code>edtrN</code>]</b>: Die ersten N Buchstaben
-        des Nachnamens des ersten Editors.<br /></li>
+        des Nachnamens des ersten Herausgebers.<br /></li>
 
         <li><b>[<code>edtrN_M</code>]</b>: Die ersten N Buchstaben
-        des Nachnamens des M. Editors.<br /></li>
+        des Nachnamens des M. Herausgebers.<br /></li>
 
         <li><b>[<code>edtr.edtr.ea</code>]</b>: Der Nachname der
-        ersten beiden Editoren und ".ea", falls es mehr als zwei
-        Editoren sind.<br /></li>
+        ersten beiden Herausgeber und ".ea", falls es mehr als zwei
+        Herausgeber sind.<br /></li>
 
         <li><b>[<code>edtrshort</code>]</b>: Der Nachname bei einem
-        Editor; der erste Buchstabe der Nachnamen von bis zu drei
-        Editoren, falls mehr als ein Editor vorhanden ist. Ein Plus
-        (+) wird angeh&auml;ngt, falls es mehr als drei Editoren
+        Herausgeber; der erste Buchstabe der Nachnamen von bis zu drei
+        Herausgebern, falls mehr als ein Herausgeber vorhanden ist. Ein Plus
+        (+) wird angeh&auml;ngt, falls es mehr als drei Herausgeber
         gibt.<br /></li>
 
         <li><b>[<code>firstpage</code>]</b>: Die erste Seitenzahl
@@ -176,17 +195,18 @@
         <code>Yared1998b</code>
     </blockquote>
 
-    <h2>Ersetzen eines regul&auml;ren Ausdrucks</h2>Nachdem das
-    Key-Muster angewendet wurde, um einen BibTeX-Key zu erstellen,
-    k&ouml;nnen Sie den Key-Generator nach einem bestimmten
+    <h2>Ersetzen eines regul&auml;ren Ausdrucks</h2>
+
+    <p>Nachdem das Key-Muster angewendet wurde, um einen BibTeX-Key
+    zu erstellen, k&ouml;nnen Sie den Key-Generator nach einem bestimmten
     regul&auml;ren Ausdruck suchen und ihn durch eine Zeichenfolge
     ersetzen lassen. Der regul&auml;re Ausdruck und die
     Zeichenfolge, die ihn ersetzen soll, werden in den Textfeldern
     unter der Liste der Key-Muster eingegeben. Falls das Feld zur
     Ersetzung des regul&auml;ren Ausdrucks leer ist, werden die mit
     der Suche &uuml;bereinstimmenden regul&auml;ren Ausdr&uuml;cke
-    einfach gel&ouml;scht. 
-    <?php include("../../footer.php"); ?>
+    einfach gel&ouml;scht.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

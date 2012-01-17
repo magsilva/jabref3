@@ -1,17 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Custom import filters</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
-
+	
 
     <h1>Custom import filters</h1>
 
@@ -61,9 +62,11 @@
     ZIP- or JAR-file, simply select the Zip- or Jar-archive, then
     the entry (class-file) that represents the new importer.</p>
 
-    <h2>Creating an import filter</h2>For examples and some helpful
+    <h2>Creating an import filter</h2>
+
+    <p>For examples and some helpful
     files on how to build your own importer, please check our
-    download page. 
+    download page.</p>
 
     <h3>A simple example</h3>
 
@@ -96,11 +99,11 @@ public class SimpleCsvImporter extends ImportFormat {
   public boolean isRecognizedFormat(InputStream stream) throws IOException {
     return true; // this is discouraged except for demonstration purposes
   }
-  
-  public List importEntries(InputStream stream) throws IOException {    
+
+  public List importEntries(InputStream stream) throws IOException {
         ArrayList bibitems = new ArrayList();
     BufferedReader in = new BufferedReader(ImportFormatReader.getReaderDefaultEncoding(stream));
-      
+
     String line = in.readLine();
     while (line != null) {
       if (!"".equals(line.trim())) {
@@ -112,9 +115,9 @@ public class SimpleCsvImporter extends ImportFormat {
         be.setField("title", fields[2]);
         bibitems.add(be);
         line = in.readLine();
-      }     
+      }
     }
-        return bibitems;                
+        return bibitems;
   }
 }
 </pre><br />
@@ -131,7 +134,7 @@ javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
 </pre>Now there should be a file
 <code>/mypath/SimpleCsvImporter.class</code>.<br />
     <br />
-     
+
 
     <p>In JabRef, open <b>Options -&gt; Manage custom imports</b>,
     and click <b>Add from folder</b>. Navigate to
@@ -153,7 +156,7 @@ javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
     SourceForge.net page. We'd be happy to distribute a collection
     of submitted import files, or to add to the selection of
     standard importers.</p>
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

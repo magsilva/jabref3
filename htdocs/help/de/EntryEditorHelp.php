@@ -1,23 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Der Eintrags-Editor</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Der Eintrags-Editor</h1>
 
-    <h1>Der Eintrags-Editor</h1><em>Ge&ouml;ffnet wird der
+    <p><em>Ge&ouml;ffnet wird der
     Eintrags-Editor im Hauptfenster durch einen Doppelklick auf die
     Zeile eines Eintrags oder durch Dr&uuml;cken auf ENTER. Der
     Eintrags-Editor wird geschlossen, indem man auf ESC
-    dr&uuml;ckt.</em> 
+    dr&uuml;ckt.</em></p>
 
     <p>Im Eintrags-Editor k&ouml;nnen Sie alle relevanten
     Informationen eines Eintrags festlegen. Der Editor
@@ -38,7 +42,9 @@
     eingetragen werden soll, finden sie in der
     <a href="BibtexHelp.php">Bibtex Hilfe</a>.</p>
 
-    <h2>Die Panels des Eintrags-Editors</h2>Der Eintrags-Editor
+    <h2>Die Panels des Eintrags-Editors</h2>
+
+    <p>Der Eintrags-Editor
     besteht in der Standardeinstellung aus f&uuml;nf Panels:
     <em>Ben&ouml;tigte Felder</em>, <em>Optionale Felder</em>,
     <em>General</em>, <em>Abstract</em> und <em>BibTeX
@@ -46,7 +52,7 @@
     vom Benutzer angepasst werden k&ouml;nnen (siehe dazu
     <a href="GeneralFields.php">Allgemeine Felder festlegen</a>).
     In den ersten drei Panels k&ouml;nnen Sie mit TAB und SHIFT-TAB
-    zwischen den einzelnen Feldern hin- und herwechseln. 
+    zwischen den einzelnen Feldern hin- und herwechseln.</p>
 
     <p>Zu einem anderen Panel gelangen Sie, indem Sie auf die Tabs
     klicken. Mit den folgenden Tastaturk&uuml;rzeln k&ouml;nnen Sie
@@ -84,7 +90,9 @@
     unterst&uuml;tzen Drag &amp; Drop. Sie k&ouml;nnen z.B. ein URL
     aus Ihrem Browser dort einf&uuml;gen.</p>
 
-    <h2>&Uuml;berpr&uuml;fung der Feldkonsistenz</h2>Wenn der
+    <h2>&Uuml;berpr&uuml;fung der Feldkonsistenz</h2>
+
+    <p>Wenn der
     Inhalt eines Feldes ge&auml;ndert wird, &uuml;berpr&uuml;ft
     JabRef, ob der neue Inhalt akzeptiert werden kann. Bei Feldern,
     die von <em>BibTeX</em> genutzt werden, wird der Inhalt zum
@@ -96,44 +104,57 @@
     dass JabRef nicht &uuml;berpr&uuml;ft, ob der angef&uuml;hrte
     String tats&auml;chlich vorhanden ist (der
     <em>BibTeX</em>-Stil, den Sie benutzen, kann eine beliebige
-    Anzahl von Strings definieren, die JabRef nicht kennt). 
+    Anzahl von Strings definieren, die JabRef nicht kennt).</p>
 
     <p>Falls die Inhalte nicht akzeptabel sind, wird das Feld mit
     roter Farbe hinterlegt, was auf einen Fehler hindeutet. In
-    diesem Fall werden die &Auml;nderungen nicht gespeichert. 
-    <!--<H2>Autovervollst&auml;ndigung von W&ouml;rtern und Namen</H2>
-    Der Eintragseditor bietet die Autovervollst&auml;ndigung von W&ouml;rtern.
-    Im Dialog <em>Einstellungen</em> k&ouml;nnen Sie die Autovervollst&auml;ndigung
-    ein- oder ausschalten und ausw&auml;hlen, in welchen Feldern die Autovervollst&auml;ndigung
-    aktiviert werden soll.
-    <P>Bei aktiver Autovervollst&auml;ndigung zeichnet JabRef alle Worte auf, die in jedem der
-    ausgew&auml;hlten Felder der Datei vorkommen. Immer wenn Sie den Anfang eines dieser
-    W&ouml;rter schreiben, wird das Wort sichtbar vorgeschlagen. Sie k&ouml;nnen den
-    Vorschlag ignorieren, indem Sie einfach weiterschreiben. Um den Vorschlag anzunehmen,
-    dr&uuml;cken Sie entweder auf <em>ENTER</em> oder benutzen die Pfeiltasten oder
-    andere Tasten, um die Auswahlbox um die vorgeschlagenen Buchstaben zu entfernen.
-    <P><em>Anmerkung:</em> Bei den W&ouml;rtern, die f&uuml;r die Vorschl&auml;ge ber&uuml;cksichtigt
-    werden, handelt es sich nur um solche, die in demselben Feld in Eintr&auml;gen der Datei vorkommen, die Sie
-    gerade bearbeiten. Es gibt viele M&ouml;glichkeiten, um dieses Feature zu realisieren, und wenn Sie der
-    Meinung sind, das es auf eine andere Art implementiert werden sollte, w&uuml;rden wir gerne Ihre
-    Vorschl&auml;ge h&ouml;ren.
+    diesem Fall werden die &Auml;nderungen nicht gespeichert.
 
-    <H2><em>BibTeX</em> Key kopieren</H2>
-    Mit STRG-K oder dem 'Key'-Knopf wird der <em>BibTeX</em> Key des ausgew&auml;hlten Eintrags
-    in die Zwischenablage kopiert.
-    -->
-    </p>
+    <h2>Autovervollst&auml;ndigung von W&ouml;rtern und Namen</h2>
 
-    <h2><em>BibTeX</em> Key automatisch generieren</h2>Um einen
+    <p>Der Eintragseditor bietet die Autovervollst&auml;ndigung von W&ouml;rtern.
+    Im Dialog <em>Optionen -> Einstellungen</em> k&ouml;nnen Sie ausw&auml;hlen,
+    in welchen Feldern die Autovervollst&auml;ndigung aktiviert werden soll.</p>
+
+    <p>Bei aktiver Autovervollst&auml;ndigung zeichnet JabRef alle Worte
+	auf, die in jedem der ausgew&auml;hlten Felder der Datei vorkommen.
+	Immer wenn Sie den Anfang eines dieser W&ouml;rter schreiben, wird das
+	Wort sichtbar vorgeschlagen. Sie k&ouml;nnen den Vorschlag ignorieren,
+	indem Sie einfach weiterschreiben. Um den Vorschlag anzunehmen,
+	dr&uuml;cken Sie entweder auf <em>ENTER</em> oder benutzen die Pfeiltasten
+	oder andere Tasten, um die Auswahlbox um die vorgeschlagenen Buchstaben
+	zu entfernen.</p>
+
+    <p><em>Anmerkung:</em> Bei den W&ouml;rtern, die f&uuml;r
+    die Vorschl&auml;ge ber&uuml;cksichtigt werden, handelt es sich nur um
+    solche, die in demselben Feld in Eintr&auml;gen der Datei vorkommen, die Sie
+    gerade bearbeiten. Es gibt viele M&ouml;glichkeiten, um dieses Feature
+    zu realisieren, und wenn Sie der Meinung sind, das es auf eine andere
+    Art implementiert werden sollte, w&uuml;rden wir gerne Ihre
+    Vorschl&auml;ge h&ouml;ren.</p>
+
+    <h2><em>BibTeX</em> Key kopieren</h2>
+
+    <p>Mit STRG-K oder dem 'Key'-Knopf wird der <em>BibTeX</em> Key des
+    ausgew&auml;hlten Eintrags mit umgebenden <code>\cite{...}</code> in die Zwischenablage kopiert.</p>
+
+    <h2>Nur <em>BibTeX</em> Key kopieren</h2>
+
+    <p>Mit STRG-SHIFT-K wird der <em>BibTeX</em> Key des
+    ausgew&auml;hlten Eintrags in die Zwischenablage kopiert.</p>
+
+    <h2><em>BibTeX</em> Key automatisch generieren</h2>
+
+    <p>Um einen
     <em>BibTeX</em> Key f&uuml;r einen Eintrag automatisch
     erstellen zu lassen, dr&uuml;cken Sie STRG-G oder den
-    entsprechenden (Zauberstab-)Knopf in der Toolbar-Leiste. 
+    entsprechenden (Zauberstab-)Knopf in der Toolbar-Leiste.</p>
 
     <p>F&uuml;r n&auml;here Informationen, wie die <em>BibTeX</em>
     Keys generiert werden, schauen Sie bitte unter
     <a href="LabelPatterns.php">Anpassen der automatischen
     Generierung von BibTeX-keys</a> nach.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

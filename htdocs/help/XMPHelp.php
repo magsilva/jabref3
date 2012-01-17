@@ -1,17 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>XMP metadata support in JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
-
+	
 
     <h1>XMP metadata support in JabRef</h1>
 
@@ -31,8 +32,10 @@
     file into JabRef and all information that you entered will be
     available to her.</p>
 
-    <h2>Usage</h2>To use the XMP-feature in JabRef you can do the
-    following: 
+    <h2>Usage</h2>
+
+    <p>To use the XMP-feature in JabRef you can do the
+    following:</p>
 
     <ul>
         <li>To <b>import a single annotated PDF-file</b> that
@@ -94,7 +97,7 @@
                     field-name as is.</li>
                 </ul><br />
                 <br />
-                 
+
 
                 <p>The following is an example of the mapping</p>
                 <pre>
@@ -107,7 +110,7 @@
   timestamp = {2006.05.29},
   url = {http://james.howison.name/publications.html}
 }
-</pre>will be transformed into 
+</pre>will be transformed into
                 <pre>
 &lt;rdf:Description xmlns:bibtex="http://jabref.sourceforge.net/bibteXMP/"
     bibtex:bibtexkey="CroAnnHow05"
@@ -137,7 +140,7 @@
                     expressed as nodes and vice versa.</li>
                 </ul><br />
                 <br />
-                 
+
 
                 <h2>Related Links:</h2>
 
@@ -150,29 +153,27 @@
                     Papers like MP3s"</a></li>
 
                     <li>
-                    <a href="http://www.xml.com/pub/a/2004/09/22/xmp.php">
+                    <a href="http://www.xml.com/pub/a/2004/09/22/xmp.html">
                     XML.com article about XMP</a></li>
 
-                    <li><a href="http://jempbox.org">JempBox</a>
-                    and <a href="http://pdfbox.org">PDFBox</a> by
-                    Ben Litchfield are the Jaba libraries used to
-                    access the PDFs and the metadata stream.</li>
+					<li><a href="http://pdfbox.apache.org">PDFBox libraries</a> for PDF
+				    file and metadata handling. They are distributed under the Apache License.</li>
 
                     <li>
-                    <a href="http://episteme.arstechnica.com/eve/ubb.x/a/tpc/f/8300945231/m/377001889631">
+                    <a href="http://arstechnica.com/civis/viewtopic.php?f=19&amp;t=408429">
                     Good thread on ArsTechnica discussing the
                     management of PDFs.</a></li>
 
                     <li>
-                    <a href="http://partners.adobe.com/public/developer/en/xmp/sdk/xmpspecification.pdf">
+                    <a href="http://www.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMPSpecificationPart1.pdf">
                     Adobe XMP Specification</a></li>
                 </ul><br />
                 <br />
-                 
+
             </div>
         </li>
     </ul>
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

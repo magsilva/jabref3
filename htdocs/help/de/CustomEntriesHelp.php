@@ -1,17 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Eintragstypen anpassen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Eintragstypen anpassen</h1>
 
@@ -32,14 +34,16 @@
     schlie&szlig;en, gehen die bislang nicht &uuml;bernommenen
     &Auml;nderungen verloren.</p>
 
-    <h2>Der Dialog <i>Eintragstypen anpassen</i></h2>Der Dialog
+    <h2>Der Dialog <i>Eintragstypen anpassen</i></h2>
+
+    <p>Der Dialog
     <i>Eintragstypen anpassen</i> ist in drei Hauptbereiche
     unterteilt. Im linken Bereich k&ouml;nnen Sie den Eintragstyp
     ausw&auml;hlen, den Sie bearbeiten wollen, und neue
     Eintragstypen hinzuf&uuml;gen. Im mittleren Bereich werden die
     Einstellungen f&uuml;r die ben&ouml;tigten Felder des
     ausgew&auml;hlten Eintragstyps vorgenommen und im rechten
-    Bereich diejenigen der optionalen Felder. 
+    Bereich diejenigen der optionalen Felder.</p>
 
     <h3>Eintragstypen hinzuf&uuml;gen und l&ouml;schen</h3>
 
@@ -66,12 +70,14 @@
     Dieser Vorgang ist nur f&uuml;r Standard-Typen verf&uuml;gbar,
     die bearbeitet wurden.</p>
 
-    <h2>Eintragstypen bearbeiten</h2>Wenn ein Eintragstyp
+    <h2>Eintragstypen bearbeiten</h2>
+
+    <p>Wenn ein Eintragstyp
     ausgew&auml;hlt ist, werden die derzeitigen ben&ouml;tigten und
     optionalen Felder im mittleren und rechten Bereich des
     Dialogfensters aufgelistet. Das Vorgehen beim Bearbeiten dieser
     Listen ist f&uuml;r die ben&ouml;tigten und optionalen Felder
-    identisch. 
+    identisch.</p>
 
     <p>Um ein neues Feld hinzuzuf&uuml;gen, bearbeiten Sie das
     Textfeld unterhalb der Liste oder w&auml;hlen einen Feldnamen
@@ -95,7 +101,7 @@
     oder <em>editor</em> oder beide gesetzt sind. Diese Art von
     Bedingung kann in einem angepassten Eintragstyp nicht
     realisiert werden.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

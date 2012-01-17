@@ -1,27 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Exportfilter anpassen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Exportfilter anpassen</h1>
 
-    <h1>Exportfilter anpassen</h1>Mit JabRef k&ouml;nnen Sie Ihre
+    <p>Mit JabRef k&ouml;nnen Sie Ihre
     eigenen Exportfilter definieren und genau so wie die
     Standard-Exportfilter benutzen. Ein Exportfilter wird durch
     eine oder mehr <i>Layout-Dateien</i> definiert, die mittels
     eingebauter Formatierprogramme das Format der exportierten
     Dateien festlegen. Ihre Layout-Datei m&uuml;ssen Sie in einem
-    separaten Texteditor erstellen. 
+    separaten Texteditor erstellen.</p>
 
-    <h2>Hinzuf&uuml;gen eines Exportfilters</h2>Die einzige
+    <h2>Hinzuf&uuml;gen eines Exportfilters</h2>
+
+    <p>Die einzige
     Voraussetzung f&uuml;r einen Exportfilter ist, da&szlig; eine
     Datei mit der Endung <b>.layout</b> vorhanden ist. Um einen
     neuen, eigenen Exportfilter hinzuzuf&uuml;gen, &ouml;ffnen Sie
@@ -34,15 +40,19 @@
     <b>.layout</b>-Datei und die gew&uuml;nschte Dateiendung
     f&uuml;r den Exportfilter angeben k&ouml;nnen. Wenn Sie den
     Exportfilter benutzen, wird diese Endung im Datei-Dialog
-    automatisch vorgeschlagen. 
+    automatisch vorgeschlagen.</p>
 
-    <h2>Das Erstellen des Exportfilters</h2>Um einen Eindruck zu
+    <h2>Das Erstellen des Exportfilters</h2>
+
+    <p>Um einen Eindruck zu
     bekommen, wie Exportfilter auszusehen haben, suchen Sie am
     besten auf unserer Homepage nach dem Paket, das die
-    Layout-Dateien der Standard-Exportfilter enth&auml;lt. 
+    Layout-Dateien der Standard-Exportfilter enth&auml;lt.</p>
 
-    <h3>Layout-Dateien</h3>Nehmen wir einmal an, dass wir einen
-    HTML-Exportfilter erstellen wollen. 
+    <h3>Layout-Dateien</h3>
+
+    <p>Nehmen wir einmal an, dass wir einen
+    HTML-Exportfilter erstellen wollen.</p>
 
     <p>Der Exportfilter muss lediglich aus einer einzigen
     <b>.layout</b>-Datei bestehen, die in diesem Fall
@@ -94,11 +104,13 @@
     Standard-Layout-Datei so allgemein gehalten werden kann, dass
     sie die meisten Eintragstypen abdeckt.</p>
 
-    <h3>Das Format der Layout-Datei</h3>Layout-Dateien werden mit
+    <h3>Das Format der Layout-Datei</h3>
+
+    <p>Layout-Dateien werden mit
     einem einfachen markup-Format erstellt, bei dem die Kommandos
     mit einem "backslash" (<code>\</code>) eingeleitet werden. Alle
     Textbestandteile, die nicht als Kommando identifiziert werden,
-    gelangen direkt in die Ausgabedatei. 
+    gelangen direkt in die Ausgabedatei.</p>
 
     <h3>Feldkommandos</h3>
 
@@ -139,7 +151,8 @@
     <ul>
         <li><code>HTMLChars</code> : ersetzt TeX-spezifische
         Sonderzeichen (z.B. {\^a} oder {\"{o}}) durch ihre
-        HTML-Entsprechungen.</li>
+        HTML-Entsprechungen und &uuml;bersetzt die LaTeX-Befehle
+        \emph, \textit, \textbf in ihre HTML-Entsprechungen.</li>
 
         <li><code>HTMLParagraphs</code> : interpretiert zwei
         aufeinanderfolgende Zeilenumbr&uuml;che (z.B. \n \n) als
@@ -167,38 +180,50 @@
         <li><code>AuthorFirstFirst</code> : formatiert die Felder
         author/editor mit den Vornamen zuerst.</li>
 
-        <li><code>AuthorFirstFirstCommas</code> : formatiert die
-        Felder author/editor mit den Vornamen zuerst und abgetrennt
+        <li><code>AuthorFirstFirstCommas</code> oder <code>AuthorFirstLastCommas</code> :
+        formatiert die Felder author/editor mit den Vornamen zuerst und abgetrennt
         durch Kommas.</li>
 
-        <li><code>AuthorFirstAbbrLastCommas</code> : Dokumentation
-        folgt.</li>
+        <li><code>AuthorFirstLastOxfordCommas</code> : &auml;hnlich wie
+        <code>AuthorFirstLastCommas</code>, au&szlig;er dass das "and"
+        zwischen den letzten beiden Namen durch ein Komma eingeleitet
+        wird.</li>
 
-        <li><code>AuthorFirstAbbrLastOxfordCommas</code> :
-        Dokumentation folgt.</li>
+        <li><code>AuthorFirstAbbrLastCommas</code> : formatiert die
+        Felder author/editor mit abgek&uuml;rzten Vornamen, abgetrennt durch
+        Kommas, mit einem "and" zwischen den letzten beiden Namen.</li>
 
-        <li><code>AuthorFirstLastOxfordCommas</code> :
-        Dokumentation folgt.</li>
+        <li><code>AuthorFirstAbbrLastOxfordCommas</code> : &auml;hnlich wie
+        <code>AuthorFirstAbbrLastCommas</code>, au&szlig;er dass das "and"
+        zwischen den letzten beiden Namen durch ein Komma eingeleitet
+        wird.</li>
 
         <li><code>AuthorLastFirst</code> : formatiert die Felder
         author/editor mit den Nachnamen zuerst.</li>
 
-        <li><code>AuthorLastFirstAbbreviator</code> : k&uuml;rzt
-        die Vornamen aller Autoren. Dieser Formatierer kann nur
-        angewendet werden, wenn <code>AuthorLastFirst</code>
-        bereits benutzt wurde.</li>
+        <li><code>AuthorAbbreviator</code> oder <code>AuthorLastFirstAbbreviator</code> :
+        k&uuml;rzt die Vornamen und mittleren Namen aller Autoren. Dieser Formatierer gibt
+        Nachnamen zuerst aus. Wenn Sie abgek&uuml;rzte Namen mit vorangestellten Initialen
+        wollen, wenden Sie anschlie&szlig;end den Formatierer <code>AuthorFirstFirst</code> an.
 
-        <li><code>AuthorLastFirstCommas</code> : Dokumentation
-        folgt.</li>
+        <li><code>AuthorLastFirstCommas</code> : formatiert die Felder
+        author/editor mit den Nachnamen zuerst, abgetrennt durch Kommas,
+        mit einem "and" zwischen den letzten beiden Namen.</li>
 
-        <li><code>AuthorLastFirstOxfordCommas</code> :
-        Dokumentation folgt.</li>
+        <li><code>AuthorLastFirstOxfordCommas</code> : &auml;hnlich wie
+        <code>AuthorLastFirstCommas</code>, au&szlig;er dass das "and"
+        zwischen den letzten beiden Namen durch ein Komma eingeleitet
+        wird.</li>
 
-        <li><code>AuthorLastFirstAbbrCommas</code> : Dokumentation
-        folgt.</li>
+        <li><code>AuthorLastFirstAbbrCommas</code> : formatiert die Felder
+        author/editor mit Nachnamen zuerst und abgek&uuml;rzten Vornamen,
+        abgetrennt durch Kommas, mit einem "and" zwischen den letzten
+        beiden Namen.</li>
 
-        <li><code>AuthorLastFirstAbbrOxfordCommas</code> :
-        Dokumentation folgt.</li>
+        <li><code>AuthorLastFirstAbbrOxfordCommas</code> : &auml;hnlich wie
+        <code>AuthorLastFirstAbbrCommas</code>, au&szlig;er dass das "and"
+        zwischen den letzten beiden Namen durch ein Komma eingeleitet
+        wird.</li>
 
         <li><code>AuthorAndsReplacer</code> : ersetzt "and"
         zwischen den Namen durch ";", zwischen den letzten beiden
@@ -224,11 +249,34 @@
         zwischen mehreren abgek&uuml;rzten Vornamen werden
         gel&ouml;scht.</li>
 
+        <li><code>FileLink(Dateityp)</code> : wenn kein Argument angegeben
+        wird, gibt dieser Formatierer den ersten externen Dateityp aus, der
+        in dem Feld "file" angegeben ist.
+        <p>Dieser Formatierer nimmt den Namen eines Dateityps als optionales
+        Argument, das in Klammern nach dem Namen des Formatierers angegeben
+        wird. Zum Beispiel wird mit <code>\format[FileLink(pdf)]{\file}</code>
+        der Dateityp <code>pdf</code> als Argument angegeben. Wenn ein Argument
+        mitgegeben wird, w&auml;hlt der Formatierer den ersten Dateilink des
+        entsprechenden Typs. Im Beispiel wird der Pfad zum ersten PDF-Link
+        ausgegeben.</p></li>
+
         <li><code>FormatPagesForHTML</code> : ersetzt "--" durch
         "-".</li>
 
         <li><code>FormatPagesForXML</code> : ersetzt "--" durch
         einen XML en-dash (Gedanken- bzw. Bis-Strich).</li>
+
+        <li><code>Replace(regexp,ersetzedurch)</code> : f&uuml;hrt eine Ersetzung
+        mit einem Regul&auml;ren Ausdruck durch. Um diesen Formatierer zu
+        benutzen, muss ein zweiteiliges Argument mitgegeben werden. Die Teile
+        werden durch ein Komma getrennt. Will man ein Komma ausgeben lassen,
+        muss man es maskieren: \,
+        <p>Der erste Teil ist der Regul&auml;re Ausdruck, nach dem gesucht wird.
+        Er wird normal geschrieben, ohne Backslashes (\) zu maskieren.
+        Eine Beschreibung von Regul&auml;ren Ausdr&uuml;cken ist hier zu finden:<br />
+        http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html</p>
+        <p>Der zweite Teil ist der Text, der f&uuml;r alle Treffer eingesetzt
+        werden soll.</li>
 
         <li><code>RemoveBrackets</code> : entfernt alle
         geschweiften Klammern "{" oder "}".</li>
@@ -236,11 +284,10 @@
         <li><code>RemoveBracketsAddComma</code> : Dokumentation
         folgt.</li>
 
-        <li><code>RemoveWhitespace</code> : Dokumentation
-        folgt.</li>
+        <li><code>RemoveWhitespace</code> : l&ouml;scht alle Leerzeichen.</li>
 
         <li><code>RemoveLatexCommands</code> : entfernt LaTeX
-        Kommandos wie <code>\em</code>, <code>\textbf</code> etc.
+        Kommandos wie <code>\emph</code>, <code>\textbf</code> etc.
         Zusammen mit <code>HTMLChars</code> oder
         <code>XMLChars</code> sollte dieser Formatierer zuletzt
         aufgerufen werden.</li>
@@ -254,15 +301,19 @@
         <li><code>ToLowerCase</code> : macht aus allen Buchstaben
         Kleinbuchstaben.</li>
 
-        <li><code>CompositeFormat</code> : Dokumentation
-        folgt.</li>
+        <li><code>ToUpperCase</code> : macht aus allen Buchstaben
+        Gro&szlig;buchstaben.</li>
 
-        <li><code>GetOpenOfficeType</code> : Dokumentation
-        folgt.</li>
+        <li><code>GetOpenOfficeType</code> : gibt die Nummer wieder,
+        die vom bibliographischen System von OpenOffice.org (Versionen
+        1.x und 2.x) benutzt wird, um den Typ dieses Eintrags zu
+        bezeichnen.</li>
 
-        <li><code>RTFChars</code> : Dokumentation folgt.</li>
+        <li><code>RTFChars</code> : ersetzt alle TeX-spezifischen
+        Sonderzeichen (z.B. {\^a} oder {\"{o}}) durch ihre
+        RTF-Entsprechung und &uuml;bersetzt LaTeX-Befehle wie \emph, \textit,
+        \textbf in ihre RTF-Entsprechungen.</li>
 
-        <li><code>ResolvePDF</code> : Dokumentation folgt.</li>
     </ul>
 
     <p>Falls keiner der verf&uuml;gbaren Formatierer das Ergebnis
@@ -377,10 +428,12 @@
     m&ouml;chte: Wenden Sie sich einfach an die
     JabRef-Maililnglisten!</p>
 
-    <h3>Bedingte Ausgabe</h3>Manche statische Ausgabe macht nur
+    <h3>Bedingte Ausgabe</h3>
+
+    <p>Manche statische Ausgabe macht nur
     Sinn, wenn ein bestimmtes Feld nicht leer ist. Wenn wir z.B.
     hinter den Namen der Editoren den Text <code>(Hrsg.)</code>
-    haben wollen, brauchen wir folgendes: 
+    haben wollen, brauchen wir folgendes:</p>
 
     <p><code>\format[HTMLChars,AuthorFirstFirst]{\editor}
     (Hrsg.)</code></p>
@@ -407,13 +460,15 @@
     Schl&uuml;ssel zum Erstellen von Layout-Dateien, die mit einer
     Vielzahl von Eintragstypen umgehen k&ouml;nnen.</p>
 
-    <h3>Gruppierte Ausgabe</h3>Wenn Sie Ihre Eintr&auml;ge auf der
+    <h3>Gruppierte Ausgabe</h3>
+
+    <p>Wenn Sie Ihre Eintr&auml;ge auf der
     Basis eines bestimmten Feldes gruppieren wollen, benutzen Sie
     die Kommandos f&uuml;r die gruppierte Ausgabe. Die gruppierte
     Ausgabe ist der bedingten Ausgabe sehr &auml;hnlich, au&szlig;
     dass der Text zwischen den Kommandos nur ausgegeben wird, wenn
     das Feld, auf das in den geschweiften Klammern verwiesen wird,
-    unterschiedliche Werte enth&auml;lt. 
+    unterschiedliche Werte enth&auml;lt.</p>
 
     <p>Nehmen wir zum Beispiel an, dass wir die Ausgabe nach dem
     keyword (Stichwort) gruppieren wollen. Bevor die Datei
@@ -425,7 +480,9 @@
     \format[HTMLChars]{\keywords}<br />
      \endgroup{keywords}</code></p>
 
-    <h2>Teilen Sie Ihre Arbeit mit anderen</h2>Mit externen
+    <h2>Teilen Sie Ihre Arbeit mit anderen</h2>
+
+    <p>Mit externen
     Layout-Dateien ist es einfach, Ihre eigenen Export-Formate mit
     anderen Anwendern gemeinsam zu benutzen. Falls Sie einen
     Exportfilter f&uuml;r ein Format erstellen, das nicht von
@@ -435,8 +492,8 @@
     gilt f&uuml;r Formatierklassen, die Sie schreiben. Wir
     w&uuml;rden uns freuen, eine Sammlung von bereitgestellten
     Layout-Dateien verteilen zu k&ouml;nnen oder die
-    Standard-Export-Filter und Standard-Formatierer zu erweitern. 
-    <?php include("../../footer.php"); ?>
+    Standard-Export-Filter und Standard-Formatierer zu erweitern.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

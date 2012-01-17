@@ -17,7 +17,9 @@
       <h3>Online documentation</h3>
       <span class="single_item"><a href="help/Contents.php">English</a></span>
       <span class="single_item"><a href="help/fr/Contents.php">French</a></span>
+	  <span class="single_item"><a href="help/ja/Contents.php">Japanese</a></span>
       <span class="single_item"><a href="help/de/Contents.php">German</a></span>
+	  <span class="single_item"><a href="help/in/Contents.php">Indonesian</a></span>
 
       <h3>Installation</h3>
       <span class="single_item"><a href="#java">Installing Java</a></span>
@@ -41,7 +43,7 @@
       always be in sync with the latest <acronym>JabRef</acronym> version.</p>
 
       <p>For German readers, a more comprehensive <a href=
-      "help/manual_pdf/JabRef-UserManual_de.pdf">user manual</a>
+      "manuals/JabRef-UserManual_de.pdf">user manual</a>
       (PDF) written by Dominik Wa&szlig;enhoven is also available.
       We hope to offer the user manual in other languages in the
       future.</p>
@@ -51,7 +53,7 @@
       <h4 id="java">Installing Java</h4>
 
       <p>Go to the <a href=
-      " http://java.sun.com/javase/downloads/index.jsp">Sun Java download page</a>,
+      "http://www.oracle.com/technetwork/java/javase/downloads/index.html">Sun Java download page</a>,
       download the "jre" version for your operating system and
       install it.</p>
 

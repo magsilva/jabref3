@@ -1,19 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>Personnalisation du g&eacute;n&eacute;rateur de clefs BibTeX</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title></title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Personnalisation du g&eacute;n&eacute;rateur de clefs BibTeX</h1>
+    <h1>Personnalisation du g&eacute;n&eacute;rateur de clefs
+    BibTeX</h1>
 
     <p>Dans le menu 'Param&eacute;trage des clefs' de la
     fen&ecirc;tre Pr&eacute;f&eacute;rences, on peut indiquer les
@@ -48,9 +51,18 @@
         <li><b>[<code>authors</code>]</b>&nbsp;: Le nom de tous les
         auteurs<br /></li>
 
+        <li><b>[<code>authorLast</code>]</b>: Le nom propre du dernier
+        auteur<br /></li>
+
         <li><b>[<code>authorsN</code>]</b>: Les noms des N premiers
         auteurs. S'il y a plus d'auteurs, "EtAl" est
         ajout&eacute;.<br /></li>
+                
+        <li><b>[<code>authorsAlpha</code>]</b>&nbsp;: correspond au style
+        BibTeX "alpha". Un auteur&nbsp;: les trois premi&egrave;res lettres du nom.
+        Deux &agrave; quatre auteurs&nbsp;: Les premi&egrave;res lettres des noms, concat&eacute;n&eacute;es.
+        Plus de quatre auterus&nbsp;: Les premi&egrave;res lettres des noms des trois
+        premiers auteurs, concat&eacute;n&eacute;es, avec un "+" &agrave; la fin.<br /></li>
 
         <li><b>[<code>authIniN</code>]</b>&nbsp;: Les N
         premi&egrave;res lettres (ou moins) du nom de chacun des
@@ -91,19 +103,22 @@
     d'auteur, utilisez le code <b><code>pureauth</code></b> au lieu
     du code <b><code>auth</code></b> dans les marqueurs ci-dessus.
     Par exemple, <b><code>[pureauth]</code></b> ou
-    <b><code>[pureauthors3]</code></b>. 
+    <b><code>[pureauthors3]</code></b>.
 
     <ul>
         <li><b>[<code>edtr</code>]</b>&nbsp;: Le nom du premier
-        &eacute;diteur<br /></li>
+        &eacute;diteur.<br /></li>
 
         <li><b>[<code>edtrIniN</code>]</b>&nbsp;: Les N
         premi&egrave;res lettres du nom de chaque
-        &eacute;diteur<br /></li>
+        &eacute;diteur.<br /></li>
 
         <li><b>[<code>editors</code>]</b>&nbsp;: Le nom des chacun
-        des &eacute;diteurs<br /></li>
+        des &eacute;diteurs.<br /></li>
 
+        <li><b>[<code>editorLast</code>]</b>: Le nom propre du dernier
+        &eacute;diteur<br /></li>
+        
         <li><b>[<code>editorIni</code>]</b>&nbsp;: Les cinq
         premi&egrave;res lettres du nom du premier &eacute;diteur
         suivi des initiales du nom des &eacute;diteurs
@@ -111,7 +126,7 @@
 
         <li><b>[<code>edtrN</code>]</b>&nbsp;: Les N
         premi&egrave;res lettres du nom du premier
-        &eacute;diteur<br /></li>
+        &eacute;diteur.<br /></li>
 
         <li><b>[<code>edtrN_M</code>]</b>&nbsp;: Les N
         premi&egrave;res lettres du nom des M premiers
@@ -128,7 +143,9 @@
         caract&egrave;re plus (+) est ajout&eacute;.<br /></li>
 
         <li><b>[<code>firstpage</code>]</b>&nbsp;: Le num&eacute;ro
-        de la premi&egrave;re page de la publication<br /></li>
+        de la premi&egrave;re page de la publication (Attention&nbsp;: cela retournera
+        le plus petit nombre trouv&eacute; dans le champ pages, puisque BibTeX
+        permet <code>7,41,73--97</code> ou <code>43+</code>).<br /></li>
 
         <li><b>[<code>keywordN</code>]</b>: Nombre de mots-clefs
         dans le champ "keywords" en supposant que les mots-clefs
@@ -136,13 +153,14 @@
         points-virgules.<br /></li>
 
         <li><b>[<code>lastpage</code>]</b>&nbsp;: Le num&eacute;ro
-        de la derni&egrave;re page de la publication<br /></li>
+        de la derni&egrave;re page de la publication (voir la remarque dans
+        <code>firstpage</code>).<br /></li>
 
         <li><b>[<code>shorttitle</code>]</b>&nbsp;: Les 3 premiers
-        mots du titre<br /></li>
+        mots du titre.<br /></li>
 
         <li><b>[<code>shortyear</code>]</b>&nbsp;: Les 2 derniers
-        chiffres de l'ann&eacute;e de publication<br /></li>
+        chiffres de l'ann&eacute;e de publication.<br /></li>
 
         <li><b>[<code>veryshorttitle</code>]</b>&nbsp;: Le premier
         mot du titre qui ne soit pas 'the', 'a', 'an'.<br /></li>
@@ -206,7 +224,7 @@
     correspondances de l'expression r&eacute;guli&egrave;re seront
     simplement supprim&eacute;es de la clef
     g&eacute;n&eacute;r&eacute;e.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

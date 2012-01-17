@@ -1,24 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>L'&eacute;diteur d'entr&eacute;es</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>L'&eacute;diteur d'entr&eacute;es</h1><em>On l'ouvre
+    <h1>L'&eacute;diteur d'entr&eacute;es</h1>
+
+    <p><em>On l'ouvre
     &agrave; partir de la fen&ecirc;tre principale en
     double-cliquant n'importe o&ugrave; sur la ligne de
     l'entr&eacute;e, ou en s&eacute;lectionnant l'entr&eacute;e et
-    en appuyant sur ENTREE. L'&eacute;diteur d'entr&eacute;es se
-    ferme en appuyant sur ESC.</em> 
+    en appuyant sur ENTREE ou CTRL-D. L'&eacute;diteur d'entr&eacute;es se
+    ferme en appuyant sur ESC.</em></p>
 
     <p>Dans l'&eacute;diteur d'entr&eacute;es, vous pouvez
     sp&eacute;cifier toutes les informations pertinentes pour une
@@ -42,7 +46,9 @@
     champs, voir <a href="BibtexHelp.php">Aide sur BibTeX</a>.</p>
 
     <h2>Le panneau &agrave; onglets de l'&eacute;diteur
-    d'entr&eacute;es</h2>L'&eacute;diteur d'entr&eacute;e contient
+    d'entr&eacute;es</h2>
+
+    <p>L'&eacute;diteur d'entr&eacute;e contient
     six onglets&nbsp;: <em>Champs requis</em>, <em>Champs
     optionnels</em>, <em>G&eacute;n&eacute;ral</em>,
     <em>Abstract</em>, <em>Review</em> et <em>Source BibTeX</em>.
@@ -51,7 +57,7 @@
     (voir <a href="GeneralFields.php">Personnalisation des champs
     g&eacute;n&eacute;raux</a> pour plus de d&eacute;tails). A
     l'int&eacute;rieur des trois premiers onglets, TAB et MAJ-TAB
-    sont utilis&eacute;s pour naviguer entre les champs de texte. 
+    sont utilis&eacute;s pour naviguer entre les champs de texte.</p>
 
     <p>Naviguez entre les onglets en cliquant sur les onglets ou en
     utilisant les combinaisons de touches suivantes pour vous
@@ -84,10 +90,6 @@
     d'utiliser les quatre autres onglets, vous devez cocher cette
     option.</p>
 
-    <p><strong>Astuce&nbsp;:</strong> Si votre base contient des
-    champs que JabRef ne conna&icirc;t pas, ils seront visibles
-    dans l'onglet <em>Source BibTeX</em>.</p>
-
     <p><strong>Astuce&nbsp;:</strong> les champs <i>pdf</i> et
     <i>url</i> supportent les op&eacute;rations de
     Glisser-D&eacute;placer. Vous pouvez faire glisser une url
@@ -96,54 +98,82 @@
     fichier.</p>
 
     <h2>V&eacute;rification de la coh&eacute;rence des
-    champs</h2>Quand le contenu d'un champ est modifi&eacute;,
+    champs</h2>
+
+    <p>Quand le contenu d'un champ est modifi&eacute;,
     JabRef v&eacute;rifie que le nouveau contenu est acceptable.
     Pour les champs qui sont utilis&eacute;s par <em>BibTeX</em>,
     le contenu est v&eacute;rifi&eacute; par rapport &agrave;
     l'utilisation du caract&eacute;re '#'. Le symbole di&egrave;se
-    doit <em>toujours</em> &ecirc;tre utilis&eacute; par paires,
+    doit <em>toujours</em> &ecirc;tre utilis&eacute; par paires
+    (except&eacute; pour la forme d'&eacute;chappement '\#'),
     encadrant le nom d'une cha&icirc;ne <em>BibTeX</em> existante.
     Notez que JabRef ne v&eacute;rifie pas si la cha&icirc;ne
     <em>BibTeX</em> est vraiment d&eacute;finie (ce n'est pas
     trivial, puisque le style <em>BibTeX</em> que vous utilisez
     peut d&eacute;finir une s&eacute;rie arbitraire de
-    cha&icirc;nes dont JabRef n'a pas connaissance). 
+    cha&icirc;nes dont JabRef n'a pas connaissance).</p>
 
     <p>Si le contenu n'est pas valide, le champ sera affich&eacute;
     en rouge, indiquant ainsi une erreur. Dans ce cas, le
-    changement ne sera pas sauv&eacute;. 
-    <!--<H2>Word/name autocompletion</H2>
-    The entry editor offers autocompletion of words. In the Preferences dialog
-    you can enable or disable autocompletion, and choose for which fields
-    autocompletion is active.
-    <P>With autocompletion, JabRef records all words that appear in
+    changement ne sera pas sauv&eacute;.</p>
+
+    <!--<h2>Word/name autocompletion</h2>
+
+    <p>The entry editor offers
+    autocompletion of words. In the Preferences dialog you can enable or
+    disable autocompletion, and choose for which fields autocompletion is
+    active.</p>
+
+    <p>With autocompletion, JabRef records all words that appear in
     each of the chosen fields throughout your database. Whenever you write
     the beginning of one of these words, it will be suggested visually. To
-    ignore the suggestion, simply write on. To accept the suggestion,
-    either press <em>ENTER</em> or use your arrow keys or other keys to
-    remove the selection box around the suggested characters.
-    <P><em>Note:</em> the words considered for suggestion are only the ones
-    appearing in the same field in entries of the same database as the one you
-    are editing. There are many ways to realise this kind of feature, and if you feel
-    it should have been implemented differently, we'd like to hear your suggestions!
+    ignore the suggestion, simply write on. To accept the suggestion, either
+    press <em>ENTER</em> or use your arrow keys or other keys to remove the
+    selection box around the suggested characters.</p>
 
-    <H2>Copy <em>bibtex</em> key</H2>
-    Pressing CTRL-K or the 'key' button causes the <em>bibtex</em> key for your entry
-    to be copied to the clipboard.
-    -->
-    </p>
+    <p><em>Note:</em> the
+    words considered for suggestion are only the ones appearing in the same
+    field in entries of the same database as the one you are editing. There
+    are many ways to realise this kind of feature, and if you feel it should
+    have been implemented differently, we'd like to hear your suggestions!
+
+    <h2>Copy <em>bibtex</em> key</h2>
+
+    <p>Pressing CTRL-K or the 'key' button
+    causes the <em>bibtex</em> key for your entry to be copied to the
+    clipboard.</p>-->
 
     <h2>G&eacute;n&eacute;ration automatique des clefs
-    <em>BibTeX</em></h2>Appuyez sur CTRL-G ou sur le bouton
+    <em>BibTeX</em></h2>
+
+    <p>Appuyez sur CTRL-G ou sur le bouton
     'Cr&eacute;er la clef BibTeX' (la baguette magique) pour
     g&eacute;n&eacute;rer automatiquement une clef <em>BibTeX</em>
-    &agrave; partir du contenu des champs requis. 
+    &agrave; partir du contenu des champs requis.</p>
 
     <p>Pour plus d'informations sur la fa&ccedil;on dont JabRef
     g&eacute;n&egrave;re les clefs <em>BibTeX</em>, voir
     <a href="LabelPatterns.php">Personnalisation du
     g&eacute;n&eacute;rateur de clefs BibTeX</a>.</p>
-    <?php include("../../footer.php"); ?>
+    
+    <h2>Compl&egrave;tement automatique des mots/noms</h2>
+
+    <p>JabRef permet le compl&egrave;tement automatique des mots et des noms.
+    Le compl&egrave;tement automatique peut &ecirc;tre param&eacute;tr&eacute; dans
+    <b>Options -> Pr&eacute;f&eacute;rences -> Editeur d'entr&eacute;es</b> et est, par d&eacute;faut,
+    activ&eacute; pour plusieurs champs usuels.</p>
+
+    <p>Quand on &eacute;dite un champ pour lequel le compl&egrave;tement automatique est activ&eacute;,
+    Jabref essaye de sugg&eacute;rer des compl&egrave;tements de mots au cours de la frappe sur
+    la base des mots qui ont &eacute;t&eacute; utilis&eacute;s dans la base pour ce m&ecirc;me champ.
+    La suggestion appara&icirc;t comme un bloc de texte surlign&eacute; compl&eacute;tant le mot. S'il
+    y a plusieurs compl&egrave;tements possibles, vous pouvez utiliser les touches
+    PAGE SUIVANTE et PAGE PRECEDENTE pour faire d&eacute;filer les possibilit&eacute;s.
+    Pour accepter une suggestion, taper ENTREE une fois. Pour l'ignorer, continuer
+    simplement la frappe.</p>
+    
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

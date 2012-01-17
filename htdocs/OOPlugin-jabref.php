@@ -156,7 +156,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <p>The <b>PROPERTIES</b> section describes global properties for the bibliography.
         The following table describes the available properties:</p>
 
-	<table border="1" rules="none">
+	<table border="1" rules="none" summary="available properties">
 		<tr>
 			<td><b>Property</b></td>
 			<td><b>Type</b></td>
@@ -207,7 +207,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <p>The following table gives a brief description of all the available citation properties. Properties that are not
 	given in the style file will keep their default value.</p>
 
-	<table border="1" rules="none">
+	<table border="1" rules="none" summary="Available Citation Properties">
 		<tr>
 			<td><b>Property</b></td>
 			<td><b>Type</b></td>
@@ -301,7 +301,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 		<tr>
 			<td>InTextYearSeparator</td>
 			<td>string</td>
-			<td><code> </code></td>
+			<td>Single Space</td>
 			<td>Text inserted between author names and starting bracket before year in in-text citations.</td>
 		</tr>
 		<tr>
@@ -346,7 +346,7 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
 		<tr>
 			<td>YearSeparator</td>
 			<td>string</td>
-			<td><code> </code></td>
+			<td>Single Space</td>
 			<td>Text inserted between author names and year in parenthesis citations such as <code>[Smith 2001]</code>.</td>
 		</tr>
 	</table>

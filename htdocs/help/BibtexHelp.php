@@ -1,26 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>About <em>bibtex</em></title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>About bibtex</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>About <em>bibtex</em></h1>
 
-    <h1>About <em>bibtex</em></h1>JabRef helps you work with your
+    <p>JabRef helps you work with your
     <em>bibtex</em> databases, but there are still rules to keep in
     mind when editing your entries, to ensure that your database is
-    treated properly by the <em>bibtex</em> program. 
+    treated properly by the <em>bibtex</em> program.</p>
 
-    <h2><em>Bibtex</em> fields</h2>There is a lot of different
+    <h2><em>Bibtex</em> fields</h2>
+
+    <p>There is a lot of different
     fields in <em>bibtex</em>, and some additional fields that you
-    can set in JabRef. 
+    can set in JabRef.</p>
 
     <p>Generally, you can use LaTeX commands inside of fields
     containing text. <em>Bibtex</em> will automatically format your
@@ -165,11 +170,13 @@
         such as `(about 1984)'. This field is required for most
         entry types.</li>
     </ul><br />
-     
 
-    <h2>Other fields</h2>BibTeX is extremely popular, and many
+
+    <h2>Other fields</h2>
+
+    <p>BibTeX is extremely popular, and many
     people have used it to store information. Here is a list of
-    some of the more common fields: 
+    some of the more common fields:</p>
 
     <ul>
         <li>
@@ -236,7 +243,7 @@
 
         <li>
         <strong><span style="font-weight: normal; font-style: italic;">
-        LCCN*</span><br /></strong> The Library of Congress Call
+        LCCN*</span><br /></strong> The Library of Congress Control
         Number. I've also seen this as <tt>lib-congress</tt>.<br />
         <br /></li>
 
@@ -258,7 +265,7 @@
         work.<br />
         <br /></li>
 
-        <li><strong>URL<br /></strong> The WWW Universal Resource
+        <li><strong>URL<br /></strong> The WWW Uniform Resource
         Locator that points to the item being referenced. This
         often is used for technical reports to point to the ftp
         site where the postscript source of the report is
@@ -273,7 +280,7 @@
     </ul><br />
      *) not direct supported by JabRef<br />
      <br />
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

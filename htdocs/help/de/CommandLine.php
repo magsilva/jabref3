@@ -1,23 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Kommandozeilen-Optionen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Kommandozeilen-Optionen</h1>
 
-    <h1>Kommandozeilen-Optionen</h1>Obwohl JabRef in erster Linie
+    <p>Obwohl JabRef in erster Linie
     ein Programm mit grafischer Benutzeroberfl&auml;che ist, bietet
     es einige n&uuml;tzliche Optionen f&uuml;r die Kommandozeile
     und kann sogar Dateikonvertierungen durchf&uuml;hren, ohne die
-    grafische Benutzeroberfl&auml;che zu &ouml;ffnen. 
+    grafische Benutzeroberfl&auml;che zu &ouml;ffnen.</p>
 
     <p>Sie k&ouml;nnen eine oder mehrere BibTeX-Dateien laden,
     indem Sie auf der Kommandozeile die entsprechenden Dateinamen
@@ -40,26 +44,33 @@
     verhindert, dass der Dateiname als Argument der Option
     <code>-n</code> interpretiert wird.</p>
 
-    <h2>Hilfe: -h</h2>Diese Option veranlasst JabRef, eine
-    Zusammenfassung der Kommandozeilen-Optionen anzuzeigen und das
-    Programm unmittelbar darauf zu schlie&szlig;en. 
+    <h2>Hilfe: -h</h2>
 
-    <h2>Kein GUI-Modus: -n</h2>Diese Option unterdr&uuml;ckt sowohl
+    <p>Diese Option veranlasst JabRef, eine
+    Zusammenfassung der Kommandozeilen-Optionen anzuzeigen und das
+    Programm unmittelbar darauf zu schlie&szlig;en.</p>
+
+    <h2>Kein GUI-Modus: -n</h2>
+
+    <p>Diese Option unterdr&uuml;ckt sowohl
     das JabRef-Fenster als auch den Er&ouml;ffnungsbildschirm, der
     normalerweise beim Programmstart angezeigt wird. Das Programm
     wird beendet, sobald die Kommandozeilen-Optionen abgearbeitet
-    wurden. 
+    wurden.</p>
 
     <p>Diese Option ist n&uuml;tzlich, um Dateikonvertierungen von
     der Kommandozeile oder mit Hilfe eines Scripts
     durchzuf&uuml;hren.</p>
 
-    <h2>Sitzung laden: -l</h2>Diese Option veranlasst JabRef, eine
-    gespeicherte Sitzung zu laden, sofern eine vorhanden ist, bevor
-    sich das Hauptfenster &ouml;ffnet. 
+    <h2>Sitzung laden: -l</h2>
 
-    <h2>Datei importieren: -i Dateiname[,Importformat]</h2>Bei
-    dieser Option importiert oder l&auml;dt JabRef eine bestimmte
+    <p>Diese Option veranlasst JabRef, eine
+    gespeicherte Sitzung zu laden, sofern eine vorhanden ist, bevor
+    sich das Hauptfenster &ouml;ffnet.</p>
+
+    <h2>Datei importieren: -i Dateiname[,Importformat]</h2>
+
+    <p>Bei dieser Option importiert oder l&auml;dt JabRef eine bestimmte
     Datei. Wenn nur ein Dateiname angegeben wird oder ein Komma und
     ein *-Zeichen hinter dem Dateinamen stehen, versucht JabRef,
     das Dateiformat automatisch zu erkennen. Das sollte bei allen
@@ -68,7 +79,7 @@
     vorliegen. Wenn dem Dateinamen ein Komma und ein Importformat
     folgen, wird der angegebene Importfilter benutzt. Mit der
     Option <code>-h</code> k&ouml;nnen Sie sich eine Liste der
-    verf&uuml;gbaren Importformate anzeigen lassen. 
+    verf&uuml;gbaren Importformate anzeigen lassen.</p>
 
     <p>Wenn Sie zus&auml;tzlich eine Export-Option angeben, wird
     der Import immer zuerst ausgef&uuml;hrt, bevor die importierte
@@ -81,14 +92,15 @@
     <p>Die Option <code>-i</code> kann nur einmal angegeben werden
     und nimmt als Argument maximal eine Datei.</p>
 
-    <h2>Datei exportieren: -o Dateiname[,Exportformat]</h2>Diese
-    Option veranlasst JabRef, eine Datei zu speichern oder zu
+    <h2>Datei exportieren: -o Dateiname[,Exportformat]</h2>
+
+    <p>Diese Option veranlasst JabRef, eine Datei zu speichern oder zu
     exportieren, die von derselben Kommandozeile geladen oder
     importiert wurde. Wenn eine Datei mit der Option
     <code>-i</code> importiert wurde, wird diese Datei exportiert.
     Ansonsten wird die Datei exportiert, die
     <em>zuletzt</em>&nbsp;- ohne die Option <code>-i</code>&nbsp;-
-    angegeben (und erfolgreich geladen) wurde. 
+    angegeben (und erfolgreich geladen) wurde.</p>
 
     <p>Wird nur ein Dateiname angegeben, so wird diese Datei im
     BibTeX-Format gespeichert. Wenn dem Dateinamen ein Komma und
@@ -110,18 +122,22 @@
     <p>Die Option <code>-o</code> kann nur einmal angegeben werden
     und nimmt als Argument maximal eine Datei.</p>
 
-    <h2>Einstellungen exportieren: -x Dateiname</h2>Mit dieser
-    Option k&ouml;nnen Sie JabRef veranlassen, alle
-    Benutzer-Einstellungen in eine XML-Datei zu speichern. Nach dem
-    Export startet JabRef normal. 
+    <h2>Einstellungen exportieren: -x Dateiname</h2>
 
-    <h2>Einstellungen importieren: -p Dateiname</h2>Mit dieser
-    Option importiert JabRef Benutzer-Einstellungen, die mit der
+    <p>Mit dieser Option k&ouml;nnen Sie JabRef veranlassen, alle
+    Benutzer-Einstellungen in eine XML-Datei zu speichern. Nach dem
+    Export startet JabRef normal.</p>
+
+    <h2>Einstellungen importieren: -p Dateiname</h2>
+
+    <p>Mit dieser Option importiert JabRef Benutzer-Einstellungen, die mit der
     Option <code>-x</code> exportiert wurden. Nach dem Import
-    startet JabRef normal. 
+    startet JabRef normal.</p>
 
     <h2>Nur benutzte Eintr&auml;ge exportieren: -a
-    Dateiname[.aux],neueBibDatei[.bib]</h2>Manchmal ist es
+    Dateiname[.aux],neueBibDatei[.bib]</h2>
+
+    <p>Manchmal ist es
     n&uuml;tzlich, eine BibTeX-Datei zu haben, die nur die
     benutzten Eintr&auml;ge enth&auml;lt. Eine Liste dieser
     benutzten Eintr&auml;ge findet sich in einer .aux-Datei (sobald
@@ -130,8 +146,21 @@
     die bekannten und benutzten Eintr&auml;ge enth&auml;lt. Das
     bedeutet, dass ein Eintrag, der in der Standard-BibTeX-Datei
     nicht definiert ist, auch nicht in die neue Datei geschrieben
-    werden kann.
-    <?php include("../../footer.php"); ?>
+    werden kann.</p>
+
+    <h2>Aus dem Internet abrufen: --fetch==Name des Fetchers:Suchausdruck</h2>
+
+    <p>Die <em>Fetcher</em>, also die direkte Suche in Online-Datenbanken,
+	die Sie im Men&uuml; <b>Internet</b> finden, k&ouml;nnen auch von der Kommandozeile
+    aus gestartet werden. Nutzen Sie dazu die Option <code>--fetch</code> und geben
+    sowohl den Namen des Fetchers (z.B. 'ieee', 'medline' oder 'jstor')
+    als auch den Suchausdruck oder die ID des gesuchten Mediums an. Beachten
+    Sie, dass einige Fetcher eine graphische Oberfl&auml;che (GUI) anzeigen,
+    falls Sie eine R&uuml;ckmeldung von Ihnen brauchen. Um eine &Uuml;bersicht der
+    verf&uuml;gbaren Fetcher zu erhalten, geben Sie <code>--fetch</code> ohne
+    Parameter ein.
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

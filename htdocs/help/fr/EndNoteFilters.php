@@ -1,31 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Filtre d'exportation EndNote</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+ />
 
     <h1>Filtre d'exportation EndNote</h1>
 
-    <h2>Exportation &agrave; partir de JabRef</h2>JabRef peut
+    <h2>Exportation &agrave; partir de JabRef</h2>
+
+    <p>JabRef peut
     exporter des bases de donn&eacute;es dans des fichiers lisibles
     par EndNote. Pour utiliser cette fonction, choisissez
     <b>Fichier -&gt; Export</b>, choisissez le type de fichier
     <b>Endnote (*.txt)</b> et sp&eacute;cifiez le nom du fichier
-    d'exportation. 
+    d'exportation.</p>
 
-    <h2>Importer dans EndNote</h2>Le fichier par d&eacute;faut
+    <h2>Importer dans EndNote</h2>
+
+    <p>Le fichier par d&eacute;faut
     d'importation d'EndNote ne traite pas proprement les auteurs ou
     les &eacute;diteurs multiples. Il y a deux fa&ccedil;ons de
-    contourner cela&nbsp;: 
+    contourner cela&nbsp;:</p>
 
     <ol>
         <li>Utiliser le filtre interne et corriger ensuite le
@@ -67,10 +73,12 @@
         pour d&eacute;marrer l'importation.</li>
     </ol>
 
-    <h2>Notes</h2>Le filtre d'exportation EndNote fait correspondre
+    <h2>Notes</h2>
+
+    <p>Le filtre d'exportation EndNote fait correspondre
     les types d'entr&eacute;es BibTeX avec les types de
     r&eacute;f&eacute;rence d'EndNote de la fa&ccedil;on
-    suivante&nbsp;: 
+    suivante&nbsp;:</p>
     <pre>
 Type d'entr&eacute;e BibTeX -&gt; Type de r&eacute;f&eacute;rence d'EndNote
 ---------------------------------------------------
@@ -83,16 +91,17 @@ booklet -&gt; Personal Communication
 inbook,incollection -&gt; Book Section
 inproceedings -&gt; Conference Proceedings
 techreport -&gt; Report
-mastersthesis, phdthesis -&gt; Thesis
-</pre>
+mastersthesis, phdthesis -&gt; Thesis</pre>
 
-    <h2>Auteurs collectifs</h2>Par d&eacute;faut, le filtre
+    <h2>Auteurs collectifs</h2>
+
+    <p>Par d&eacute;faut, le filtre
     d'exportation suppose que le contenu des champs author ou
     editor qui sont dans des accolades sont des auteurs collectifs
     et remplace les accolades par une virgule. Cependant, cela
     signifie que les champs qui contiennent du code LaTeX entre
     accolades seront suppos&eacute;s &ecirc;tre des auteurs
-    collectifs et seront donc improprement format&eacute;s. 
+    collectifs et seront donc improprement format&eacute;s.</p>
 
     <h2>Utilisation avanc&eacute;e&nbsp;: Suppl&eacute;ments
     EndNote</h2>
@@ -104,7 +113,7 @@ mastersthesis, phdthesis -&gt; Thesis
     reconna&icirc;tra un champ EndNotereftype qui supplantera la
     table des correspondances par d&eacute;faut. Pour installer ce
     filtre, extraire les suppl&eacute;ments pour EndNote (<b>Outils
-    - &gt; D&eacute;compacter la s&eacute;rie de filtres
+    -&gt; D&eacute;compacter la s&eacute;rie de filtres
     EndNote</b>) et d&eacute;compresser le fichier Zip qui est
     cr&eacute;e. Ensuite, suivez les instructions du fichier
     readme.txt.
@@ -125,7 +134,7 @@ mastersthesis, phdthesis -&gt; Thesis
     EndNote. Pour modifier les Types de R&eacute;f&eacute;rences
     d'EndNote, extrayez les Suppl&eacute;ments EndNote et suivez
     les instructions du fichier readme.txt.
-
+ 
     <h3>Exportation vers JabRef</h3>EndNote est fourni avec un
     style d'exportation BibTeX. Cependant, il ne prend pas en
     compte tous les types et les champs BibTeX et ne prend pas non
@@ -135,7 +144,7 @@ mastersthesis, phdthesis -&gt; Thesis
     les Suppl&eacute;ments EndNote (<b>Outils - &gt;
     D&eacute;compacter la s&eacute;rie de filtres EndNote</b>) et
     suivez les instructions du fichier readme.txt.
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

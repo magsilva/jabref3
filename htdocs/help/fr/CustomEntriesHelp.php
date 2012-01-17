@@ -1,17 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Personnaliser les types d'entr&eacute;es</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
     <h1>Personnaliser les types d'entr&eacute;es</h1>
 
@@ -35,7 +36,9 @@
     perdus.</p>
 
     <h2>Utiliser la fen&ecirc;tre de personnalisation des
-    entr&eacute;es</h2>La fen&ecirc;tre de personnalisation des
+    entr&eacute;es</h2>
+
+    <p>La fen&ecirc;tre de personnalisation des
     entr&eacute;es est divis&eacute;e en 3 panneaux principaux. Le
     panneau de gauche vous permet de s&eacute;lectionner
     l'entr&eacute;e &agrave; modifier, et d'en ajouter de
@@ -43,7 +46,7 @@
     param&eacute;trer les champs requis du type d'entr&eacute;e
     s&eacute;lectionn&eacute;. Le panneau de droite est
     utilis&eacute; pour param&eacute;trer les champs optionnels du
-    type d'entr&eacute;e s&eacute;lectionn&eacute;. 
+    type d'entr&eacute;e s&eacute;lectionn&eacute;.</p>
 
     <h3>Ajouter et supprimer des types d'entr&eacute;es</h3>
 
@@ -73,12 +76,14 @@
     pour les types d'entr&eacute;es personnalis&eacute;s qui
     modifient un type standard.</p>
 
-    <h2>Editer les types d'entr&eacute;es</h2>Quand un type
+    <h2>Editer les types d'entr&eacute;es</h2>
+
+    <p>Quand un type
     d'entr&eacute;es est s&eacute;lectionn&eacute;, ses champs
     requis et optionnels sont list&eacute;s dans les panneaux du
     centre et de droite. La m&eacute;thode d'&eacute;dition des
     listes de champs est la m&ecirc;me pour les champs requis et
-    optionnels. 
+    optionnels.</p>
 
     <p>Pour ajouter un nouveau champ, &eacute;ditez le champ de
     texte situ&eacute; sous la liste, ou s&eacute;lectionnez un nom
@@ -93,14 +98,22 @@
     <p>Pour changer l'ordre des champs, s&eacute;lectionner le nom
     d'un champ et cliquer sur les boutons en forme de
     fl&egrave;ches pour le d&eacute;placer vers le haut ou vers le
-    bas de la liste. Il y a une limitation &agrave; la
-    personnalisation des entr&eacute;es&nbsp;; certains types ont
-    une condition "et/ou" dans les champs requis. Par exemple, une
-    entr&eacute;e <em>book</em> est compl&egrave;te lorsque au
-    moins un des champs <em>author</em> ou <em>editor</em> est
-    rempli. Ce type de condition ne peut pas &ecirc;tre introduite
-    dans une entr&eacute;e personnalis&eacute;e.</p>
-    <?php include("../../footer.php"); ?>
+    bas de la liste.</p> 
+    
+    <h3>Les champs et/ou </h3>
+    <p>Certains types d'entr&eacute;es ont une condition et/ou
+    dans leurs champs requis. Par exemple, une entr&eacute;e <em>book</em>
+    est compl&egrave;te quand au moins un des champs <em>author</em> ou
+    <em>editor</em> est rempli.
+    Pour indiquer une telle condition dans un type d'entr&eacute;e
+    personnalis&eacute;, vous devez ajouter un champ nomm&eacute;
+    par une s&eacute;rie de champs alternatifs s&eacute;par&eacute;s
+    par des slashs (/), comme par exemple <em>author/editor</em>
+    pour indiquer la condition mentionn&eacute;e ci-dessus
+    pour l'entr&eacute;e de type <em>book</em>.</p>
+    
+    
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

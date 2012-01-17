@@ -1,20 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Suchfunktionen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
-
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Suchfunktionen</h1>
-    <!--Es gibt drei verschiedene Suchmethoden in JabRef.-->
 
     <p><em>STRG-F</em> &ouml;ffnet oder aktiviert den Suchdialog.
     Dr&uuml;ckt man mehrmals auf <em>STRG-F</em>, so werden die
@@ -26,7 +27,9 @@
     direkten Suche springt man mit <em>STRG-SHIFT-F</em> ebenfalls
     zum n&auml;chsten Treffer.</p>
 
-    <h2>Direkte Suche</h2>Bei der direkten Suche sucht das Programm
+    <h2>Direkte Suche</h2>
+
+    <p>Bei der direkten Suche sucht das Programm
     sofort, sobald Sie einen Buchstaben eingeben. Die Statuszeile
     informiert Sie &uuml;ber den Sucherfolg. Mit den
     Tastaturk&uuml;rzeln wird das Programm dazu veranlasst, nach
@@ -36,9 +39,11 @@
     die Suche vom Anfang der Datei. Die Suchreihenfolge richtet
     sich nach der aktuellen Sortierung Ihrer Datei. Um die direkte
     Suche zu verlassen, dr&uuml;cken Sie ESC oder klicken Sie auf
-    "Zur&uuml;cksetzen". 
+    "Zur&uuml;cksetzen".</p>
 
-    <h2>Normale Suche</h2>Hierbei sucht das Programm nach allen
+    <h2>Normale Suche</h2>
+
+    <p>Hierbei sucht das Programm nach allen
     Vorkommen der W&ouml;rter ihres Suchausdrucks, sobald Sie ENTER
     dr&uuml;cken. Nur Eintr&auml;ge, die alle W&ouml;rter
     enthalten, gelten als Treffer. Um nach festen Ausdr&uuml;cken
@@ -53,15 +58,17 @@
     angezeigt werden (Option <b>Oben einsortieren</b>). Um die
     Trefferanzeige zu beenden, dr&uuml;cken Sie ESC oder klicken
     auf die Schaltfl&auml;che <b>Zur&uuml;cksetzen</b> im
-    Suchen-Dialog. 
+    Suchen-Dialog.</p>
 
     <h2><a name="advanced"
        id="advanced">Feldbezeichner und logische
-       Operatoren</a></h2>Um nur einige bestimmte Felder zu
+       Operatoren</a></h2>
+
+       <p>Um nur einige bestimmte Felder zu
        durchsuchen und/oder logische Operatoren im Suchbegriff zu
        benutzen, wird eine spezielle Syntax zur Verf&uuml;gung
        gestellt. Um beispielsweise nach Eintr&auml;gen mit dem
-       Autor "Miller" zu suchen, geben Sie 
+       Autor "Miller" zu suchen, geben Sie</p>
 
     <p>author = miller</p>
 
@@ -105,12 +112,15 @@
 
     <p>bibtexkey = miller2005</p>
 
-    <h2>Suchoptionen</h2>Der <em>Einstellungen</em>-Knopf
+    <h2>Suchoptionen</h2>
+
+    <p>Der <em>Einstellungen</em>-Knopf
     &ouml;ffnet ein Men&uuml; mit mehreren Optionen: das Beachten
     von Gro&szlig;- und Kleinschreibung, das Nutzen regul&auml;rer
     Ausdr&uuml;cke sowie das Ausw&auml;hlen der Suchergebnisse in
-    der Tabelle.
-    <?php include("../../footer.php"); ?>
+    der Tabelle und das Hervorheben der einzelnen Suchwörter in dem
+    Editor sowie der Vorschau.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

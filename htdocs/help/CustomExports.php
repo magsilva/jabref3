@@ -1,27 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Custom export filters</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>Custom export filters</h1>
 
-    <h1>Custom export filters</h1>JabRef allows you to define and
+    <p>JabRef allows you to define and
     use your own export filters, in the same way as the standard
     export filters are defined. An export filter is defined by one
     or more <i>layout files</i>, which with the help of a
     collection of built-in formatter routines specify the format of
     the exported files. Your layout files must be prepared in a
-    text editor outside of JabRef. 
+    text editor outside of JabRef.</p>
 
-    <h2>Adding a custom export filter</h2>The only requirement for
+    <h2>Adding a custom export filter</h2>
+
+    <p>The only requirement for
     a valid export filter is the existence of a file with the
     extension <b>.layout</b>. To add a new custom export filter,
     open the dialog box <b>Options -&gt; Manage custom exports</b>,
@@ -32,17 +37,18 @@
     Export</b> menu choice in the JabRef window), the path to the
     <b>.layout</b> file, and the preferred file extension for the
     export filter (which will be the suggested extension in the
-    file dialog when you use the export filter). 
+    file dialog when you use the export filter).</p>
 
-    <h2>Creating the export filter</h2>To see examples of how
-    export filters are made, look for the package containing the
-    layout files for the standard export filters on our download
-    page. 
+    <h2>Creating the export filter</h2>
 
-    <h3>Layout files</h3>Let us assume that we are creating an HTML
-    export filter. 
+    <p>To see examples of how export filters are made, look for
+    the package containing the layout files for the standard
+    export filters on our download page.</p>
 
-    <p>While the export filter only needs to consist of a single
+    <h3>Layout files</h3>
+
+    <p>Let us assume that we are creating an HTML export filter. 
+     While the export filter only needs to consist of a single
     <b>.layout</b> file, which in this case could be called
     <i>html.layout</i>, you may also want to add two files called
     <i>html.begin.layout</i> and <i>html.end.layout</i>. The former
@@ -54,20 +60,16 @@
 
     <p>Note that these files must reside in the same directory as
     <i>html.layout</i>, and must be named by inserting
-    <b>.begin</b> and <b>.end</b>, respectively.</p>
-
-    <p>In our example export filter, these could look like the
+    <b>.begin</b> and <b>.end</b>, respectively.
+    In our example export filter, these could look like the
     following:</p>
 
     <p><i>html.begin.layout</i>:<br />
-    <code>&lt;HTML&gt;<br />
-     &lt;BODY&gt; text="#275856"&gt;<br />
-    &lt;basefont size="4" color="#2F4958"
-    face="arial"&gt;</code></p>
+    <code>&lt;!DOCTYPE html&gt;<br/>&lt;html&gt;<br /> &lt;body style="color:#275856; font-family: Arial, sans-serif;"&gt;</code>
+    </p>
 
     <p><i>html.end.layout</i>:<br />
-    <code>&lt;/BODY&gt;<br />
-     &lt;/HTML&gt;</code></p>
+    <code>&lt;/body&gt;<br />&lt;/html&gt;</code></p>
 
     <p>The file <i>html.layout</i> provides the <i>default</i>
     template for exporting one single entry. If you want to use
@@ -84,10 +86,12 @@
     type. Note that the default file can easily be made general
     enough to cover most entry types in most export filters.</p>
 
-    <h3>The layout file format</h3>Layout files are created using a
+    <h3>The layout file format</h3>
+
+    <p>Layout files are created using a
     simple markup format where commands are identified by a
     preceding backslash. All text not identified as part of a
-    command will be copied verbatim to the output file. 
+    command will be copied verbatim to the output file.</p>
 
     <h3>Field commands</h3>
 
@@ -128,27 +132,102 @@
     some fomatters, e.g. the CurrentDate formatter (described
     below).</p>
 
-    <p>JabRef provides the following set of formatters, some of
-    which depend on the others:</p>
+    <p>Some formatters take an extra argument, given in parentheses
+    immediately after the formatter name. The argument can be enclosed
+    in quotes, which is necessary if it includes the parenthesis characters.
+    For instance, <code>\format[Replace("\s,_")]{\journal}</code> calls
+    the <b>Replace</b> formatter with the argument <b>\s,_</b> (which results
+    in the "journal" field after replacing all whitespace by underscores).
+    </p>
+
+    <p>See below for a list of built-in export formatters.</p>
+
+    <h3>Conditional output</h3>
+
+    <p>Some static output might only make
+    sense if a specific field is set. For instance, say we want to
+    follow the editor names with the text <code>(Ed.)</code>. This
+    can be done with the following text:</p>
+
+    <p><code>\format[HTMLChars,AuthorFirstFirst]{\editor}
+    (Ed.)</code></p>
+
+    <p>However, if the <code>editor</code> field has not been set -
+    it might not even make sense for the entry being exported - the
+    <code>(Ed.)</code> would be left hanging. This can be prevented
+    by instead using the <code>\begin</code> and <code>\end</code>
+    commands:</p>
+
+    <p><code>\begin{editor}<br />
+    \format[HTMLChars,AuthorFirstFirst]{\editor} (Ed.)<br />
+     \end{editor}</code></p>
+
+    <p>The <code>\begin</code> and <code>\end</code> commands make
+    sure the text in between is printed if and only if the field
+    referred in the curly braces is defined for the entry being
+    exported.</p>
+
+    <p>A conditional block can also be dependent on more than one field, and the content is only printed when simple boolean conditions are satisfied. Two boolean operator are provided:</p>
+    <ul>
+	<li>AND operator : <code>&amp;</code>, <code>&amp;&amp;</code></li>
+	<li>OR operator : <code>|</code>, <code>||</code></li>
+    </ul>
+    <p>To output text only if both <code>year</code> and <code>month</code> are set, use a block like the following:<br/><br/> <code>\begin{year&amp;&amp;month}Month: \format[HTMLChars]{\month}\end{year&amp;&amp;month}</code><br/><br/>which will print "Month: " plus the contents of the <code>month</code> field, but only if also the <code>year</code> field is defined.</p>
+
+    <p><b>Note:</b> Use of the <code>\begin</code> and
+    <code>\end</code> commands is a key to creating layout files
+    that work well with a variety of entry types.</p>
+
+    <h3>Grouped output</h3>
+
+    <p>If you wish to separate your entries
+    into groups based on a certain field, use the grouped output
+    commands. Grouped output is very similar to conditional output,
+    except that the text in between is printed only if the field
+    referred in the curly braces has changed value.</p>
+
+    <p>For example, let's assume I wish to group by keyword. Before
+    exporting the file, make sure you have sorted your entries
+    based on keyword. Now use the following commands to group by
+    keyword:</p>
+
+    <p><code>\begingroup{keywords}New Category:
+    \format[HTMLChars]{\keywords}<br />
+     \endgroup{keywords}</code></p>
+
+    <h2>Sharing your work</h2>
+
+    <p>With external layout files, it's
+    fairly simple to share custom export formats between users. If
+    you write an export filter for a format not supported by
+    JabRef, or an improvement over an existing one, we encourage
+    you to post your work on our SourceForge.net page. The same
+    goes for formatter classes that you write. We'd be happy to
+    distribute a collection of submitted layout files, or to add to
+    the selection of standard export filters and formatters.</p>
+
+    <p>Starting with JabRef 2.4 you can also package your 
+	ExportFormat or LayoutFormatter as a plug-in. If you do so,
+	you can provide a single zip-file to other user to make use
+	of your ExportFormat. For an example download the JabRef
+	source release and have a look at the directory
+	<code>src/plugins/</code>. Don't hesitate to stop by the
+	forums on Sourceforge, since we don't have extensive documentation, yet.</p>
+
+
+    <h2>Built-in export formatters</h2>
+
+    <p>JabRef provides the following set of formatters:</p>
 
     <ul>
-        <li><code>HTMLChars</code> : replaces TeX-specific special
-        characters (e.g. {\^a} or {\"{o}}) with their HTML
-        representations.</li>
+        <li><code>Authors</code> : this formatter provides formatting options for the author and editor fields; for detailed information, see below. It deprecates a range of dedicated formatters provided in versions of JabRef prior to 2.7.</li>
 
-        <li><code>HTMLParagraphs</code> : interprets two
-        consecutive newlines (e.g. \n \n) as the beginning of a new
-        paragraph and creates paragraph-html-tags accordingly.</li>
-
-        <li><code>XMLChars</code> : replaces TeX-specific special
-        characters (e.g. {\^a} or {\"{o}}) with their XML
-        representations.</li>
+		<li><code>CreateBibORDFAuthors</code> : formats authors for according to the requirements of the Bibliographic Ontology (bibo).</li>
 
         <li><code>CreateDocBookAuthors</code> : formats the author
         field in DocBook style.</li>
 
-        <li><code>CreateDocBookEditors</code> : to be
-        documented.</li>
+        <li><code>CreateDocBookEditors</code> : formats the editor field in DocBook style. </li>
 
         <li><code>CurrentDate</code> : outputs the current date.
         With no argument, this formatter outputs the current date
@@ -158,77 +237,77 @@
         <code>\format[CurrentDate]{yyyy.MM.dd}</code> will give the
         date only, e.g. 2005.11.30.</li>
 
-        <li><code>AuthorFirstFirst</code> : formats author/editor
-        fields with the first names first.</li>
+        <li><code>Default</code> : takes a single argument, which serves as a default value.
+        If the string to format is non-empty, it is output without changes. If it is empty,
+        the default value is output. For instance, <code>\format[Default(unknown)]{\year}</code>
+        will output the entry's year if set, and "unknown" if no year is set.</li>
+	
+        <li><code>DOIStrip</code> : strips any prefixes from the DOI string.</li>
+        <li><code>DOICheck</code> : provides the full url for a DOI link.</li>
 
-        <li><code>AuthorFirstFirstCommas</code> : formats
-        author/editor fields with the first names first, and
-        deliminated by commas.</li>
+        <li><code>FileLink(filetype)</code> : if no argument is given, this formatter outputs
+        the first external file link encoded in the field. To work, the formatter must
+        be supplied with the contents of the "file" field.
+        <p>This formatter takes the name of an external file type as an optional argument,
+        specified in parentheses after the formatter name. For instance,
+        <code>\format[FileLink(pdf)]{\file}</code> specifies <code>pdf</code> as an
+        argument. When an argument is given, the formatter selects the first file
+        link of the specified type. In the example, the path to the first PDF link will
+        be output.</p></li>
 
-        <li><code>AuthorFirstAbbrLastCommas</code> : to be
-        documented.</li>
+        <li><code>FirstPage</code> : returns the first page from the "pages" field, if set.
+            For instance, if the pages field is set to "345-360" or "345--360",
+            this formatter will return "345".</li>
+            
+        <li><code>FormatChars</code> : This formatter converts LaTeX character sequences 
+        their equicalent unicode characters and removes other LaTeX commands without
+        handling them.</li>
 
-        <li><code>AuthorFirstAbbrLastOxfordCommas</code> : to be
-        documented.</li>
+        <li><code>FormatPagesForHTML</code> : replaces "--" with "-".</li>
 
-        <li><code>AuthorFirstLastOxfordCommas</code> : to be
-        documented.</li>
+        <li><code>FormatPagesForXML</code> : replaces "--" with an XML en-dash.</li>
 
-        <li><code>AuthorLastFirst</code> : formats author/editor
-        fields with the last names first.</li>
+        <li><code>GetOpenOfficeType</code> : returns the number used by the OpenOffice.org
+        bibliography system (versions 1.x and 2.x) to denote the type of this entry.</li>
 
-        <li><code>AuthorLastFirstAbbreviator</code> : abbreviates
-        first and middle names of all authors. This formatter
-        requires AuthorLastFirst to have been run earlier.</li>
+        <li><code>HTMLChars</code> : replaces TeX-specific special
+        characters (e.g. {\^a} or {\"{o}}) with their HTML
+        representations, and translates LaTeX commands \emph, \textit,
+        \textbf into HTML equivalents.</li>
 
-        <li><code>AuthorLastFirstCommas</code> : to be
-        documented.</li>
+        <li><code>HTMLParagraphs</code> : interprets two
+        consecutive newlines (e.g. \n \n) as the beginning of a new
+        paragraph and creates paragraph-html-tags accordingly.</li>
 
-        <li><code>AuthorLastFirstOxfordCommas</code> : to be
-        documented.</li>
+        <li><code>IfPlural</code> : outputs its first argument if the input field looks
+        like an author list with two or more names, or its second argument otherwise.
+        E.g. <code>\format[IfPlural(Eds.,Ed.)]{\editor}</code> will output "Eds." if there
+        is more than one editor, and "Ed." if there is only one.</li>
+        
+        <li><code>JournalAbbreviator</code> : The given input text is abbreviated according to the journal abbreviation lists.
+		If no abbreviation for input is found (e.g. not in list or already abbreviated), the input will be returned unmodified.
+		For instance, when using <code>\format[JournalAbbreviator]{\journal}</code>, 
+		"Physical Review Letters" gets "Phys. Rev. Lett." </li>
 
-        <li><code>AuthorLastFirstAbbrCommas</code> : to be
-        documented.</li>
+        <li><code>LastPage</code> : returns the last page from the "pages" field, if set.
+            For instance, if the pages field is set to "345-360" or "345--360",
+            this formatter will return "360".</li>
+            
+        <li><code>NoSpaceBetweenAbbreviations</code> :  LayoutFormatter that removes
+        the space between abbreviated First names. Example: J. R. R. Tolkien becomes J.R.R. Tolkien.</li>
+        
+        <li><code>NotFoundFormatter</code> : Formatter used to signal that a formatter hasn't been found.
+        This can be used for graceful degradation if a layout uses an undefined format.</li>
+ 
+        <li><code>Number</code> : outputs the 1-based sequence number of the current entry in the
+        current export. This formatter can be used to make a numbered list of entries. The
+        sequence number depends on the current entry's place in the current sort order, not on
+        the number of calls to this formatter.</li>
 
-        <li><code>AuthorLastFirstAbbrOxfordCommas</code> : to be
-        documented.</li>
+        <li><code>RemoveBrackets</code> : removes all curly brackets "{" or "}".</li>
 
-        <li><code>AuthorAndsReplacer</code> : replaces "and"
-        between names with ";", and "&amp;" between the last
-        two.</li>
-
-        <li><code>AuthorAndsCommaReplacer</code> : replaces "and"
-        between names with ",", and "&amp;" between the last
-        two.</li>
-
-        <li><code>AuthorOrgSci</code> : first author is in "last,
-        first" all others in "first last". First names are
-        abbreviated.</li>
-
-        <li><code>AuthorAbbreviator</code> : to be documented.</li>
-
-        <li><code>AuthorNatBib</code> : formats author names in
-        NatBib style, with last names only, separating names by
-        "and" if there are two authors, and giving the first author
-        followed by "et al." if there are more than two
-        authors.</li>
-
-        <li><code>NoSpaceBetweenAbbreviations</code> : spaces
-        between multiple abbreviated first names are removed.</li>
-
-        <li><code>FormatPagesForHTML</code> : replaces "--" with
-        "-".</li>
-
-        <li><code>FormatPagesForXML</code> : replaces "--" with an
-        XML en-dash.</li>
-
-        <li><code>RemoveBrackets</code> : removes all curly
-        brackets "{" or "}".</li>
-
-        <li><code>RemoveBracketsAddComma</code> : to be
-        documented.</li>
-
-        <li><code>RemoveWhitespace</code> : to be documented.</li>
+        <li><code>RemoveBracketsAddComma</code> : removes all curly brackets "{" or "}". The closing curly bracket
+        is replaced by a comma.</li>
 
         <li><code>RemoveLatexCommands</code> : removes LaTeX
         commands like <code>\em</code>, <code>\textbf</code>, etc.
@@ -241,18 +320,170 @@
         Useful in combination with the NameFormatter discussed in
         the next section.</li>
 
+        <li><code>RemoveWhitespace</code> : removes all whitespace characters.</li>
+
+        <li><code>Replace(regexp,replacewith)</code> : does a regular expression replacement.
+        To use this formatter, a two-part argument must be given. The parts are
+        separated by a comma. To indicate the comma character, use an escape
+        sequence: \,<br/>&nbsp;<br/>
+        The first part is the regular expression to search for. Remember that any commma
+        character must be preceded by a backslash, and consequently a literal backslash must
+        be written as a pair of backslashes. A description of Java regular expressions can be
+        found at:<br/>
+        &nbsp;http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html
+         <br/>&nbsp;<br/>
+        The second part is the text to replace all matches with.</li>
+
+		<li><code>RisAuthors</code> : to be documented.</li>
+		<li><code>RisKeywords</code> : to be documented.</li>
+		<li><code>RisMonth</code> : to be documented.</li>
+
+        <li><code>RTFChars</code> : replaces TeX-specific special
+        characters (e.g. {\^a} or {\"{o}}) with their RTF
+        representations, and translates LaTeX commands \emph, \textit,
+        \textbf into RTF equivalents.</li>
+
         <li><code>ToLowerCase</code> : turns all characters into
         lower case.</li>
 
-        <li><code>CompositeFormat</code> : to be documented.</li>
+        <li><code>ToUpperCase</code> : turns all characters into
+        upper case.</li>
 
-        <li><code>GetOpenOfficeType</code> : to be documented.</li>
+        <li><code>WrapContent</code> : This formatter outputs the input value after adding a
+        prefix and a postfix, as long as the input value is non-empty. If the input value
+        is empty, an empty string is output (the prefix and postfix are not output in this case).
+        The formatter requires an argument containing the prefix and postix separated
+        by a comma. To include the comma character in either, use an escape sequence
+        (\,).</li>
 
-        <li><code>RTFChars</code> : to be documented.</li>
+        <li><code>WrapFileLinks</code> : See below.</li>
 
-        <li><code>ResolvePDF</code> : to be documented.</li>
+        <li><code>XMLChars</code> : replaces TeX-specific special
+        characters (e.g. {\^a} or {\"{o}}) with their XML
+        representations.</li>
+
     </ul>
 
+<h3>The <code>Authors</code> formatter</h3>
+
+<p>To accommodate for the numerous citation styles, the <code>Authors</code> formatter allows flexible control over the layout of the author list. The formatter takes a comma-separated list of options, by which the default values can be overridden. The following option/value pairs are currently available, where the default values are given in curly brackets.</p>
+<dl>
+<dt><code>AuthorSort = [ {FirstFirst} | LastFirst | LastFirstFirstFirst ]</code></dt>
+<dd>specifies the order in which the author names are formatted.
+	<ul>
+		<li><code>FirstFirst</code> : first names are followed by the surname.</li>
+		<li><code>LastFirst</code> : the authors' surnames are followed by their first names, separated by a comma.</li>		
+		<li><code>LastFirstFirstFirst</code> : the first author is formatted as LastFirst, the subsequent authors as FirstFirst.</li>
+	</ul>
+</dd>
+
+<dt><code>AuthorAbbr = [ FullName | LastName | {Initials} | InitialsNoSpace | FirstInitial | MiddleInitial ]</code></dt>
+<dd>specifies how the author names are abbreviated.
+	<ul>
+		<li><code>FullName</code> : shows full author names; first names are not abbreviated.</li>
+		<li><code>LastName</code> : show only surnames, first names are removed.</li> 
+		<li><code>Initials</code> : all first names are abbreviated.</li> 
+		<li><code>InitialsNospace</code> : as Initials, with any spaces between initials removed.</li>
+		<li><code>FirstInitial</code> : only first initial is shown.</li> 
+		<li><code>MiddleInitial</code> : first name is shown, but all middle names are abbreviated.</li>
+	</ul>	
+</dd>
+
+<dt><code>AuthorPunc = [ {FullPunc} | NoPunc | NoComma | NoPeriod ]</code></dt>
+<dd>specifies the punctuation used in the author list when <code>AuthorAbbr</code> is used
+	<ul>
+		<li><code>FullPunc</code> : no changes are made to punctuation.</li>
+		<li><code>NoPunc</code> : all full stops and commas are removed from the author name.</li>
+		<li><code>NoComma</code> : all commas are removed from the author name.</li>
+		<li><code>NoPeriod</code> : all full stops are removed from the author name.</li>
+	</ul>	
+</dd>
+
+<dt><code>AuthorSep = [ {Comma} | And | Colon | Semicolon | Sep=&lt;string&gt; ]</code></dt>
+<dd>specifies the separator to be used between authors. Any separator can be specified, with the <code>Sep=&lt;string&gt;</code> option. Note that appropriate spaces need to be added around <code>string</code>.</dd> 
+
+<dt><code>AuthorLastSep = [ Comma | {And} | Colon | Semicolon | Amp | Oxford | LastSep=&lt;string&gt; ]</code></dt>
+<dd>specifies the last separator in the author list. Any separator can be specified, with the <code>LastSep=&lt;string&gt;</code> option. Note that appropriate spaces need to be added around <code>string</code>.</dd>
+
+<dt><code>AuthorNumber = [ {inf} | &lt;integer&gt; ]</code></dt>
+<dd>specifies the number of authors that are printed. If the number of authors exceeds the maximum specified, the authorlist is replaced by the first author (or any number specified by <code>AuthorNumberEtAl</code>), followed by <code>EtAlString</code>.</dd>
+
+<dt><code>AuthorNumberEtAl = [ {1} | &lt;integer&gt; ]</code></dt>
+<dd>specifies the number of authors that are printed if the total number of authors exceeds <code>AuthorNumber</code>.
+This argument can only be given after <code>AuthorNumber</code> has already been given.</dd>
+
+<dt><code>EtAlString = [ { et al.} | EtAl=&lt;string&gt; ]</code></dt>
+<dd>specifies the string used to replace multiple authors. Any string can be given, using <code>EtAl=&lt;string&gt;</code></dd>
+
+</dl>
+
+<p>If an option is unspecified, the default value (shown in curly brackets above) is used. Therefore, only layout options that differ from the defaults need to be specified. The order in which the options are defined is (mostly) irrelevant. So, for example,</p>
+<p><code>\format[Authors(Initials,Oxford)]{\author}</code></p>
+<p>is equivalent to</p>
+<p><code>\format[Authors(Oxford,Initials)]{\author}</code></p>
+<p>As mentioned, the order in which the options are specified is irrelevant. There is one possibility for ambiguity, and that is if both <code>AuthorSep</code> and <code>AuthorLastSep</code> are given. In that case, the first applicable value encountered would be for <code>AuthorSep</code>, and the second for <code>AuthorLastSep</code>. It is good practise to specify both when changing the default, to avoid ambiguity.</p>
+
+<h4>Examples</h4>
+<p>Given the following authors, <i>"Joe James Doe and Mary Jane and Bruce Bar and Arthur Kay"</i> ,the <code>Authors</code> formatter will give the following results:</p>
+<dl>
+<dt><code>Authors()</code>, or equivalently, <code>Authors(FirstFirst,Initials,FullPunc,Comma,And,inf,EtAl= et al.)</code></dt>
+<dd><pre>J. J. Doe, M. Jane, B. Bar and A. Kay</pre></dd>
+
+<dt><code>Authors(LastFirstFirstFirst,MiddleInitial,Semicolon)</code></dt>
+<dd><pre>Doe, Joe J.; Mary Jane; Bruce Bar and Arthur Kay</pre></dd>
+
+<dt><code>Authors(LastFirst,InitialsNoSpace,NoPunc,Oxford)</code></dt>
+<dd><pre>Doe JJ, Jane M, Bar B, and Kay A</pre></dd>
+
+<dt><code>Authors(2,EtAl= and others)</code></dt>
+<dd><pre>J. J. Doe and others</pre></dd>
+</dl>
+<p>Most commonly available citation formats should be possible with this formatter. For even more advanced options, consider using the Custom Formatters detailed below.</p>
+
+<h3>The <code>WrapFileLinks</code> formatter</h3>
+
+<p>This formatter iterates over all file links, or all file links of a specified type, outputting a format string given as the first argument. The format string can contain a number of escape sequences indicating file link information to be inserted into the string.</p>
+<p>This formatter can take an optional second argument specifying the name of a file type. If specified, the iteration will only include those files with a file type matching the given name (case-insensitively). If specified as an empty argument, all file links will be included.</p>
+<p> After the second argument, pairs of additional arguments can be added in order to specify regular expression replacements to be done upon the inserted link information before insertion into the output string. A non-paired argument will be ignored. In order to specify replacements without filtering on file types, use an empty second argument.</p>
+<p>The escape sequences for embedding information are as follows:</p>
+<ul>
+	<li><code>\i</code> : This inserts the iteration index (starting from 1), and can be useful if the output list of files should be enumerated.</li>
+	<li><code>\p</code> : This inserts the file path of the file link.</li>
+	<li><code>\f</code> : This inserts the name of the file link's type.</li>
+	<li><code>\x</code> : This inserts the file's extension, if any.</li>
+	<li><code>\d</code> : This inserts the file link's description, if any.</li>
+</ul>
+<p>For instance, an entry could contain a file link to the file "/home/john/report.pdf" of the "PDF" type with description "John's final report". Using the WrapFileLinks formatter with the following argument:</p>
+<p><code>\format[WrapFileLinks(\i. \d (\p))]{\file}</code></p>
+<p>would give the following output:</p>
+<pre>
+    1. John's final report (/home/john/report.pdf)
+
+</pre>
+<p>If the entry contained a second file link to the file "/home/john/draft.txt" of the "Text file" type with description 'An early "draft"', the output would be as follows:</p>
+<pre>
+    1. John's final report (/home/john/report.pdf)
+    2. An early "draft" (/home/john/draft.txt)
+
+</pre>
+<p>If the formatter was called with a second argument, the list would be filtered. For instance:</p>
+<p><code>\format[WrapFileLinks(\i. \d (\p),,text file)]{\file}</code></p>
+<p> would show only the text file:</p>
+<pre>
+    1. An early "draft" (/home/john/draft.txt)
+
+</pre>
+<p>If we wanted this output to be part of an XML styled output, the quotes in the file description could cause problems. Adding two additional arguments to translate the quotes into XML characters solves this:</p>
+<p><code>\format[WrapFileLinks(\i. \d (\p),,text file,",&amp;quot;)]{\file}</code></p>
+<p>would give the following output:</p>
+<pre>
+    1. An early &quot;draft&quot; (/home/john/draft.txt)
+
+</pre>
+<p>Additional pairs of replacements could be added.</p>
+
+
+    <h3>Custom formatters</h3>
     <p>If none of the available formatters can do what you want to
     achieve, you can add your own by implementing the
     <code>net.sf.jabref.export.layout.LayoutFormatter</code>
@@ -267,7 +498,7 @@
     <h2><a name="NameFormatter"
        id="NameFormatter">Using Custom Name Formatters</a></h2>
 
-    <p>With JabRef 2.2 it is now possible to define custom name
+    <p>From JabRef 2.2, it is possible to define custom name
     formatters using the bibtex-sty-file syntax. This allows
     ultimate flexibility, but is a cumbersome to write</p>
 
@@ -276,7 +507,7 @@
     with the name given to it as any other formatter</p>
     <code>&lt;case1&gt;@&lt;range11&gt;@&lt;format&gt;@&lt;range12&gt;@&lt;format&gt;@&lt;range13&gt;...@@<br />
 
-     &lt;case2&gt;@&lt;range21&gt;@... and so on.</code> 
+     &lt;case2&gt;@&lt;range21&gt;@... and so on.</code>
 
     <p>This format first splits the task to format a list of author
     into cases depending on how many authors there are (this is
@@ -355,57 +586,8 @@
     <p>If somebody would like to write a better tutorial about
     this: Write a mail to one of the JabRef mailinglists!</p>
 
-    <h3>Conditional output</h3>Some static output might only make
-    sense if a specific field is set. For instance, say we want to
-    follow the editor names with the text <code>(Ed.)</code>. This
-    can be done with the following text: 
 
-    <p><code>\format[HTMLChars,AuthorFirstFirst]{\editor}
-    (Ed.)</code></p>
-
-    <p>However, if the <code>editor</code> field has not been set -
-    it might not even make sense for the entry being exported - the
-    <code>(Ed.)</code> would be left hanging. This can be prevented
-    by instead using the <code>\begin</code> and <code>\end</code>
-    commands:</p>
-
-    <p><code>\begin{editor}<br />
-    \format[HTMLChars,AuthorFirstFirst]{\editor} (Ed.)<br />
-     \end{editor}</code></p>
-
-    <p>The <code>\begin</code> and <code>\end</code> commands make
-    sure the text in between is printed if and only if the field
-    referred in the curly braces is defined for the ently being
-    exported.</p>
-
-    <p><b>Note:</b> Use of the <code>\begin</code> and
-    <code>\end</code> commands is a key to creating layout files
-    that work well with a variety of entry types.</p>
-
-    <h3>Grouped output</h3>If you wish to separate your entries
-    into groups based on a certain field, use the grouped output
-    commands. Grouped output is very similar to conditional output,
-    except that the text in between is printed only if the field
-    referred in the curly braces has changed value. 
-
-    <p>For example, let's assume I wish to group by keyword. Before
-    exporting the file, make sure you have sorted your entries
-    based on keyword. Now use the following commands to group by
-    keyword:</p>
-
-    <p><code>\begingroup{keywords}New Category:
-    \format[HTMLChars]{\keywords}<br />
-     \endgroup{keywords}</code></p>
-
-    <h2>Sharing your work</h2>With external layout files, it's
-    fairly simple to share custom export formats between users. If
-    you write an export filter for a format not supported by
-    JabRef, or an improvement over an existing one, we encourage
-    you to post your work on our SourceForge.net page. The same
-    goes for formatter classes that you write. We'd be happy to
-    distribute a collection of submitted layout files, or to add to
-    the selection of standard export filters and formatters. 
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

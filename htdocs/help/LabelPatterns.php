@@ -1,30 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Customizing the BibTeX key generator</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>Customizing the BibTeX key generator</h1>
 
-    <h1>Customizing the BibTeX key generator</h1>In the 'Key
-    pattern' tab in Preferences, one can set the fields used in
-    auto generation of BibTex labels. The pattern can be set for
-    each of the standard entry types. 
+    <p>In the 'Key pattern' tab in Preferences, one can set the fields
+    used in auto generation of BibTex labels. The pattern can be
+    set for each of the standard entry types.</p>
 
-    <h2>Key patterns</h2>The pattern can contain any text you wish,
+    <h2>Key patterns</h2>
+
+    <p>The pattern can contain any text you wish,
     in addition to field markers that indicate that a specific
     field of the entry should be inserted at that position of the
     key. A field marker generally consists of the field name
     enclosed in square braces, e.g. <b>[volume]</b>. If the field
     is undefined in an entry at the time of key generation, no text
-    will be inserted by the field marker. 
+    will be inserted by the field marker.</p>
 
     <p>Several special field markers are offered, which extract
     only a specific part of a field. These are listed below. Feel
@@ -39,9 +43,18 @@
         <li><b>[<code>authors</code>]</b>: The last name of all
         authors<br /></li>
 
+        <li><b>[<code>authorLast</code>]</b>: The last name of the last
+        author<br /></li>
+
         <li><b>[<code>authorsN</code>]</b>: The last name of up to
         N authors. If there are more authors, "EtAl" is
         appended.<br /></li>
+        
+        <li><b>[<code>authorsAlpha</code>]</b>: Corresponds to the BibTeX
+        style "alpha". One author: First three letters of the last name.
+        Two to four authors: First letters of last names concatenated.
+        More than four authors: First letters of last names of first three
+        authors concatenated. "+" at the end. <br /></li>  
 
         <li><b>[<code>authIniN</code>]</b>: The beginning of each
         author's last name, using no more than N
@@ -81,7 +94,7 @@
     <b><code>pureauth</code></b> instead of
     <b><code>auth</code></b> in the above codes. For example,
     <b><code>[pureauth]</code></b>, or
-    <b><code>[pureauthors3]</code></b>. 
+    <b><code>[pureauthors3]</code></b>.
 
     <ul>
         <li><b>[<code>edtr</code>]</b>: The last name of the first
@@ -93,6 +106,9 @@
 
         <li><b>[<code>editors</code>]</b>: The last name of all
         editors<br /></li>
+
+        <li><b>[<code>editorLast</code>]</b>: The last name of the last
+        editor<br /></li>
 
         <li><b>[<code>editorIni</code>]</b>: The first 5 characters
         of the first editor's last name, and the last name initials
@@ -115,14 +131,17 @@
         editors.<br /></li>
 
         <li><b>[<code>firstpage</code>]</b>: The number of the
-        first page of the publication<br /></li>
+        first page of the publication (Caution: this will return 
+        the lowest number found in the pages field, since bibtex 
+        allows <code>7,41,73--97</code> or <code>43+</code>.)<br /></li>
 
         <li><b>[<code>keywordN</code>]</b>: Keyword number N from
         the "keywords" field, assuming keywords are separated by
         commas or semicolons.<br /></li>
 
         <li><b>[<code>lastpage</code>]</b>: The number of the last
-        page of the publication<br /></li>
+        page of the publication (See the remark on 
+        <code>firstpage</code>)<br /></li>
 
         <li><b>[<code>shorttitle</code>]</b>: The first 3 words of
         the title<br /></li>
@@ -150,6 +169,18 @@
         marker to be in lowercase. For example, <b>[auth:lower]</b>
         expands the last name of the first author in
         lowercase.<br /></li>
+
+        <li><b>:upper</b>: Forces the text inserted by the field
+        marker to be in uppercase. For example, <b>[auth:upper]</b>
+        expands the last name of the first author in
+        uppercase.<br /></li>
+
+        <li><b>:(x)</b>: Replace x by any string. The string between
+        the parentheses will be inserted if the field marker preceding this
+        modifier resolves to an empty value. For instance, the marker
+        <b>[volume:(unknown)]</b> will return the entry's volume if set, and the
+        string <b>unknown</b> if the entry's <code>volume</code> field is not set.
+        </li>
     </ul>
 
     <p>If you haven't defined a key pattern for a certain entry
@@ -170,15 +201,17 @@
         <code>Yared1998b</code>
     </blockquote>
 
-    <h2>Regular expression replace</h2>After the key pattern has
+    <h2>Regular expression replace</h2>
+
+    <p>After the key pattern has
     been applied to produce a key, you can choose to have the key
     generator search for occurences of a specific regular
     expression, and replace it with a string. The regular
     expression and replacement string are entered in the text
     fields below the list of key patterns. If the replacement
     string is empty, matches of the regular expression will simply
-    be removed from the generated key. 
-    <?php include("../footer.php"); ?>
+    be removed from the generated key.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

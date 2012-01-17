@@ -1,9 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>Das Plugin-System von JabRef</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
 
-<body text="#275856">
-    <basefont size="4"
-          color="#2F4958"
-          face="arial" />
+<body>
+  <div id="container">
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
     <h1>Das Plugin-System von JabRef</h1>
 
@@ -61,7 +71,7 @@
     <p>Um eine neue Erweiterungs-M&ouml;glichkeit hinzuzuf&uuml;gen, m&uuml;ssen Sie diese in der plugin.xml des core-plugins
     deklarieren. Hier ist ein Beispiel:</p>
 
-<code><pre>
+<pre>
 &lt;extension-point id=&quot;PushToApplication&quot;&gt;
 	&lt;parameter-def type=&quot;string&quot; id=&quot;pushToApp&quot;
 		custom-data=&quot;&lt;classname of the interface that plugin providers need to implement&gt;&quot; /&gt;
@@ -71,7 +81,7 @@
 			multiplicity=&quot;none-or-one&quot; /&gt;
 			--&gt;
 &lt;/extension-point&gt;
-</pre></code>
+</pre>
 
 	<p>Anschlie&szlig;end m&uuml;ssen Sie den Plugin-Code-Generator "<code>ant generate</code>" aufrufen,
     der die Klasse "<code>net.sf.jabref.plugin.core.generated</code>" neu erstellt, so dass sie
@@ -80,7 +90,7 @@
 
     <p>Diese Liste kann dann folgenderma&szlig;en genutzt werden (als Beispiel dient die EntryFetcher-Erweiterung):</p>
 
-<code><pre>
+<pre>
 /*
  * Load fetchers that are plug-in extensions
  */
@@ -101,7 +111,10 @@ for (EntryFetcher fetcher : fetchers){
   web.add(generalFetcher.getAction());
   fetcherActions.add(generalFetcher.getAction());
 }
-</pre></code>
+</pre>
+
+  <?php include("../footer.php"); ?>
+  </div>
 
 </body>
 </html>

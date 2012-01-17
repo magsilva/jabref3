@@ -1,42 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>PDF/PS/URL/DOI links in JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>PDF/PS/URL/DOI links in JabRef</h1>
 
-    <h1>PDF/PS/URL/DOI links in JabRef</h1><b>Note:</b> JabRef 2.3
+    <p><b>Note:</b> JabRef 2.3
     and later versions offer an <a href="FileLinks.php">improved
-    system for external file links</a>. 
+    system for external file links</a>.</p>
 
     <p>JabRef lets you link up your entries with PDF or PS files
     stored on your system, as well as links to the document on the
     web in the form of an URL or a DOI identifier.</p>
 
-    <h2>Setting up external viewers</h2>The program has to know
+    <h2>Setting up external viewers</h2>
+
+    <p>The program has to know
     which external viewers to use for PDF, PS and web pages. These
     are by default set to values that probably make sense for your
     operating system, so there's a fair chance you don't have to
-    change these values. 
+    change these values.</p>
 
     <p>To change the external viewer settings, go to <b>Options
     -&gt; Preferences -&gt; External programs</b>.</p>
 
-    <h2>Opening external files or links</h2>There are several ways
+    <h2>Opening external files or links</h2>
+
+    <p>There are several ways
     to open an external file or web page. In the entry editor, you
     can double click on the text field containing the file name,
     DOI or URL. In the entry table you can select an entry and use
     the menu choice, keyboard shortcut or the right-click menu to
     open the file or web page. Finally, you can click on a PDF, PS,
-    URL or DOI icon. 
+    URL or DOI icon.</p>
 
     <p>By default the entry table will contain two columns with
     icons for those entries that link to external files and URLs.
@@ -51,7 +58,9 @@
     <a href="GeneralFields.php">customize the entry types of the
     general fields</a>.</p>
 
-    <h2>The main PDF and PS directories</h2>JabRef makes it easy to
+    <h2>The main PDF and PS directories</h2>
+
+    <p>JabRef makes it easy to
     link PDF and PS files to your entries. To take advantage of
     this, you have to indicate in <b>Options -&gt; Preferences
     -&gt; External programs</b> your main PDF and PS directories.
@@ -59,7 +68,7 @@
     directories will be referred to with a relative path by JabRef,
     making it easy for you if you need to move the PDF and PS
     directories, or if several users use the same database from
-    different network places. 
+    different network places.</p>
 
     <p>Additionally, if you give your PDF and PS files names that
     correspond to the relevant entry's bibtex key (plus '.pdf' or
@@ -134,7 +143,7 @@
     directory (for instance in the PDF directory) for any file that
     has the correct extension and contains the Bibtex-key
     somewhere.</p>
-    <?php include("../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

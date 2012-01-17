@@ -1,16 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Filtres d'importation personnalis&eacute;s</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
     <h1>Filtres d'importation personnalis&eacute;s</h1>
@@ -87,10 +89,12 @@
     ou Jar, puis l'entr&eacute;e (fichier de classe) qui correspond
     au nouveau filtre d'importation.</p>
 
-    <h2>Cr&eacute;er un filtre d'importation</h2>Pour des exemples
+    <h2>Cr&eacute;er un filtre d'importation</h2>
+
+    <p>Pour des exemples
     et quelques fichiers utiles sur la fa&ccedil;on de construire
     vos propres filtres d'importation, consultez s'il vous
-    pla&icirc;t la page de t&eacute;l&eacute;chargement. 
+    pla&icirc;t la page de t&eacute;l&eacute;chargement.</p>
 
     <h3>Un exemple simple</h3>
 
@@ -100,8 +104,7 @@
 1936;John Maynard Keynes;The General Theory of Employment, Interest and Money
 2003;Boldrin &amp; Levine;Case Against Intellectual Monopoly
 2004;ROBERT HUNT AND JAMES BESSEN;The Software Patent Experiment
-</pre><br />
-    <br />
+</pre>
 
     <p>Dans votre outil de d&eacute;veloppement ou &eacute;diteur
     de texte pr&eacute;f&eacute;r&eacute;, cr&eacute;ez une classe
@@ -126,11 +129,11 @@ public class SimpleCsvImporter extends ImportFormat {
   public boolean isRecognizedFormat(InputStream stream) throws IOException {
     return true; // ceci est d&eacute;conseill&eacute; sauf pour les besoins de la d&eacute;monstration
   }
-  
-  public List importEntries(InputStream stream) throws IOException {    
+
+  public List importEntries(InputStream stream) throws IOException {
         ArrayList bibitems = new ArrayList();
     BufferedReader in = new BufferedReader(ImportFormatReader.getReaderDefaultEncoding(stream));
-      
+
     String line = in.readLine();
     while (line != null) {
       if (!"".equals(line.trim())) {
@@ -142,13 +145,12 @@ public class SimpleCsvImporter extends ImportFormat {
         be.setField("title", fields[2]);
         bibitems.add(be);
         line = in.readLine();
-      }     
+      }
     }
-        return bibitems;                
+        return bibitems;
   }
 }
-</pre><br />
-    <br />
+</pre>
 
     <p>Notez que l'exemple est dans le paquetage par d&eacute;faut.
     Supposez que vous l'avez sauv&eacute; sous
@@ -160,9 +162,7 @@ public class SimpleCsvImporter extends ImportFormat {
     <pre>
 javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
 </pre>A pr&eacute;sent il doit y avoir un fichier
-<code>/mypath/SimpleCsvImporter.class</code>.<br />
-    <br />
-     
+<code>/mypath/SimpleCsvImporter.class</code>.
 
     <p>Dans JabRef, ouvrez <b>Options -&gt; G&eacute;rer les
     importations personnalis&eacute;es</b>, et cliquez sur
@@ -192,7 +192,7 @@ javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
     heureux de distribuer la collection des fichiers d'importation
     soumis, ou d'en ajouter &agrave; la s&eacute;lection de filtres
     d'importation standard.</p>
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

@@ -1,20 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title>Support des metadonn&eacute;es XMP dans JabRef</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title></title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Retour au contenu</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
 
 
-    <h1>Support des metadonn&eacute;es XMP dans JabRef</h1>
-    NdT&nbsp;: Menus &agrave; v&eacute;rifier !!! 
+    <h1>Support des metadonn&eacute;es XMP dans
+    JabRef</h1>
+
+    <p>NdT&nbsp;: Menus &agrave; v&eacute;rifier !!!</p>
 
     <p>XMP est un standard cr&eacute;&eacute; par Adobe Systems
     pour stocker des m&eacute;tadonn&eacute;es (des donn&eacute;es
@@ -40,8 +44,10 @@
     fichier dans JabRef pour que toutes les informations que vous y
     avez entr&eacute;es lui soient disponibles.</p>
 
-    <h2>Utilisation</h2>Pour utiliser la fonction XMP dans JabRef,
-    vous pouvez faire les choses suivantes&nbsp;: 
+    <h2>Utilisation</h2>
+
+    <p>Pour utiliser la fonction XMP dans JabRef,
+    vous pouvez faire les choses suivantes&nbsp;:</p>
 
     <ul>
         <li><b>Importer un unique fichier PDF annot&eacute;</b>
@@ -111,7 +117,7 @@
         directement le nom de leur champ.</li>
     </ul><br />
     <br />
-     
+
 
     <p>Ci-dessous, un exemple de mise en correspondance</p>
     <pre>
@@ -124,7 +130,7 @@
   timestamp = {2006.05.29},
   url = {http://james.howison.name/publications.html}
 }
-</pre>sera transform&eacute; en 
+</pre>sera transform&eacute; en
     <pre>
 &lt;rdf:Description xmlns:bibtex="http://jabref.sourceforge.net/bibteXMP/"
     bibtex:bibtexkey="CroAnnHow05"
@@ -155,7 +161,7 @@
         vice-versa.</li>
     </ul><br />
     <br />
-     
+
 
     <h2>Liens&nbsp;:</h2>
 
@@ -168,25 +174,23 @@
         MP3s"</a></li>
 
         <li>
-        <a href="http://www.xml.com/pub/a/2004/09/22/xmp.php">XML.com
+        <a href="http://www.xml.com/pub/a/2004/09/22/xmp.html">XML.com
         article about XMP</a></li>
 
-        <li><a href="http://jempbox.org">JempBox</a> and
-        <a href="http://pdfbox.org">PDFBox</a> by Ben Litchfield
-        are the Jaba libraries used to access the PDFs and the
-        metadata stream.</li>
+		<li><a href="http://pdfbox.apache.org">PDFBox libraries</a> for PDF
+	    file and metadata handling. They are distributed under the Apache License.</li>
 
         <li>
-        <a href="http://episteme.arstechnica.com/eve/ubb.x/a/tpc/f/8300945231/m/377001889631">
+        <a href="http://arstechnica.com/civis/viewtopic.php?f=19&amp;t=408429">
         Good thread on ArsTechnica discussing the management of
         PDFs.</a></li>
 
         <li>
-        <a href="http://partners.adobe.com/public/developer/en/xmp/sdk/xmpspecification.pdf">
+        <a href="http://www.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMPSpecificationPart1.pdf">
         Adobe XMP Specification</a></li>
     </ul><br />
     <br />
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

@@ -1,21 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Zeitschriftentitel abk&uuml;rzen</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
-    <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
+    <?php include("../navigation.php"); ?>
+    <a href="Contents.php">Back to contents</a>
+	
+    <basefont size="4" color="#2F4958" face="arial" />
 
+    <h1>Zeitschriftentitel abk&uuml;rzen</h1>
 
-    <h1>Zeitschriftentitel abk&uuml;rzen</h1>Diese Funktion kann
+    <p>Diese Funktion kann
     unter <b>Optionen -&gt; Abk&uuml;rzungen der Zeitschriften
-    verwalten</b> eingestellt werden. 
+    verwalten</b> eingestellt werden.</p>
 
     <p>JabRef kann automatisch zwischen Zeitschriftentiteln in
     abgek&uuml;rzter und ausf&uuml;hrlicher Form hin- und
@@ -41,7 +45,7 @@
         <li>MEDLINE-Abk&uuml;rzung, z.B. "Aquacult Eng"</li>
     </ul>Falls der Zeitschriftenname sich nicht in Ihren
     Zeitschriftenlisten findet, wird das Feld nicht ver&auml;ndert.
-    
+
 
     <p>Um die Zeitschriftennamen mehrerer Eintr&auml;ge auf einmal
     zu konvertieren, k&ouml;nnen Sie eine beliebige Anzahl von
@@ -54,13 +58,17 @@
     die in den Zeitschriftenlisten gefunden werden konnten,
     abgek&uuml;rzt oder komplett ausgeschrieben werden.</p>
 
-    <h2>Zeitschriftenlisten verwalten</h2>Sie k&ouml;nnen mehrere
+    <h2>Zeitschriftenlisten verwalten</h2>
+
+    <p>Sie k&ouml;nnen mehrere
     Zeitschriftenlisten als externe Textdateien benutzen, die mit
     JabRef verlinkt sind. Die prim&auml;re Liste kann in JabRef
-    selbst verwaltet werden. 
+    selbst verwaltet werden.</p>
 
     <h3>Ihre pers&ouml;nliche
-    Zeitschriften-Abk&uuml;rzungsliste</h3>Ihre pers&ouml;nliche
+    Zeitschriften-Abk&uuml;rzungsliste</h3>
+
+    <p>Ihre pers&ouml;nliche
     Liste verwalten Sie im oberen Teil des <b>Abk&uuml;rzung der
     Zeitschriftennamen</b>-Dialogs. W&auml;hlen Sie <b>Neue
     Datei</b> und geben einen Dateinamen ein oder klicken auf den
@@ -69,7 +77,7 @@
     stattdessen <b>Bestehende Datei</b> und benutzen den
     <b>Durchsuchen</b>-Button zum Ausw&auml;hlen dieser Datei. Die
     Tabelle zeigt dann den Inhalt der Liste, die Sie
-    ausgew&auml;hlt haben. 
+    ausgew&auml;hlt haben.</p>
 
     <p>Sie k&ouml;nnen mit Hilfe der <b>+</b> und <b>-</b> Buttons
     an der rechten Seite Eintr&auml;ge hinzuf&uuml;gen oder
@@ -85,13 +93,15 @@
     ausgew&auml;hlte Datei geschrieben und die Zeitschriftenliste
     von JabRef wird aktualisiert.</p>
 
-    <h3>Externe Zeitschriftenlisten</h3>Zus&auml;tzlich zu Ihrer
+    <h3>Externe Zeitschriftenlisten</h3>
+
+    <p>Zus&auml;tzlich zu Ihrer
     pers&ouml;nlichen Liste k&ouml;nnen Sie mehrere externe Listen
     verlinken. Diese Verkn&uuml;pfungen werden im unteren Teil des
     <b>Abk&uuml;rzung der Zeitschriftennamen</b>-Dialogs verwaltet.
     Externe Listen sind den pers&ouml;nlichen Listen &auml;hnlich -
     der einzige Unterschied ist, dass Sie nicht mit JabRef selbst
-    verwaltet werden k&ouml;nnen. 
+    verwaltet werden k&ouml;nnen.</p>
 
     <p>Um eine externe Liste hinzuzuf&uuml;gen, klicken Sie
     zun&auml;chst auf den <b>+</b> Knopf, falls n&ouml;tig (das
@@ -115,7 +125,7 @@
     vollst&auml;ndigen Zeitschriftennamen in einer Ihrer externen
     Listen. In &auml;hnlicher Weise werden die externen Listen in
     der Reihenfolge, wie sie aufgelistet werden, abgearbeitet.
-    <?php include("../../footer.php"); ?>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

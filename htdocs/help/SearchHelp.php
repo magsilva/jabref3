@@ -1,20 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>Searching</title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
+	
 
+    <h1>Searching</h1>
 
-    <h1>Searching</h1>There are three different search modes in
-    JabRef. 
+    <p>There are three different search modes in JabRef.</p>
 
     <p><em>CTRL-F</em> opens or focuses the search interface.
     Pressing <em>CTRL-F</em> several times toggles search mode.
@@ -27,7 +29,9 @@
     <em>CTRL-SHIFT-F</em> also finds the next occurence of the
     search string.</p>
 
-    <h2>Incremental search</h2>When searching incrementally, the
+    <h2>Incremental search</h2>
+
+    <p>When searching incrementally, the
     program searches immediately each time you press a letter. The
     status line informs you about the success of the search.
     Pressing the search shortcut keys causes the program to find
@@ -36,9 +40,11 @@
     this. Repeating the search again causes the search to restart
     at the top. The search order always follows the current sorting
     of your database. To escape an incremental search, press ESC or
-    click "Clear search". 
+    click "Clear search".</p>
 
-    <h2>Normal</h2>In a normal search, the program searches your
+    <h2>Normal</h2>
+
+    <p>In a normal search, the program searches your
     database for all occurences of the words in your search string,
     once you press ENTER. Only entries containing all words will be
     considered matches. To search for sequences of words, enclose
@@ -48,15 +54,17 @@
     aquaculture". All entries that don't match are hidden, leaving
     for display the matching entries only (filter mode), or are
     grayed-out (float mode). To stop displaying the search results,
-    press ESC or click "Clear search". 
+    press ESC or click "Clear search".</p>
 
     <h2><a name="advanced"
        id="advanced">Field specification, logical
-       operators</a></h2>In order to search specific fields only
+       operators</a></h2>
+
+       <p>In order to search specific fields only
        and/or include logical operators in the search expression, a
        special syntax is available in which these can be specified.
        E.g. to search for entries whose author is "Miller", enter
-       (in any but incremental search mode): 
+       (in any but incremental search mode):</p>
 
     <p>author = miller</p>
 
@@ -92,11 +100,14 @@
 
     <p>bibtexkey = miller2005</p>
 
-    <h2>Search settings</h2>The <em>Settings</em> button opens a
+    <h2>Search settings</h2>
+
+    <p>The <em>Settings</em> button opens a
     menu that allows to toggle case sensitivity and use of regular
     expressions in the search, and whether search results should be
-    selected in the table.
-    <?php include("../footer.php"); ?>
+    selected in the table and whether the search words should be
+    highlighted in the editor and the preview.</p>
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>
