@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -74,7 +74,7 @@
     seront affich&eacute;es selon l'ordre alphab&eacute;tique et
     stock&eacute;e dans le m&ecirc;me ordre, except&eacute; quand
     BibTeX aura besoin d'un ordre diff&eacute;rent.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

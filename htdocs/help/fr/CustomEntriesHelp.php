@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
     <h1>Personnaliser les types d'entr&eacute;es</h1>
@@ -115,7 +115,7 @@
     pour l'entr&eacute;e de type <em>book</em>.</p>
     
     
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

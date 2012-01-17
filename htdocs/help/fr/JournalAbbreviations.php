@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -142,7 +142,7 @@
     m&ecirc;me nom complet dans l'une des listes externes. De
     m&ecirc;me, les listes externes sont prioritaires selon l'ordre
     dans lequel elles sont list&eacute;es.
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

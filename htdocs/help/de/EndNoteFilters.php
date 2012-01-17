@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -139,7 +139,7 @@ mastersthesis, phdthesis -&gt; Thesis</pre>
     extrahieren Sie die EndNote Extras (<b>Extras -&gt; EndNote
     Filter-Set entpacken</b>) und folgen den Anweisungen in der
     Datei <code>readme.txt</code>.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 <h1>Penyunting entri</h1>
@@ -145,7 +145,7 @@
     kata, kemudian tekan ENTER. Untuk mengabaikan saran, teruskan menulis kata
     anda sendiri.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

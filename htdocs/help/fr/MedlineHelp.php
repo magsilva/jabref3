@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -80,7 +80,7 @@
     <p>Ces param&egrave;tres d'environnement sont
     expliqu&eacute;s dans la <a href="http://docs.oracle.com/javase/1.4.2/docs/guide/net/properties.html">documentation Oracle J2SE</a>.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

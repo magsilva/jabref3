@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -22,7 +22,7 @@
 
     <p>この取得子は、ScienceDirectウェブサイトのクイックサーチを実行し、最大100ヒットまで表示します。そして全ヒット分が取り込まれます。</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

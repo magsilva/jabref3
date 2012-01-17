@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -28,7 +28,7 @@
     preview you need to edit the preview layouts using the syntax
     described in the help file on
     <a href="CustomExports.php">Custom export filters</a>.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

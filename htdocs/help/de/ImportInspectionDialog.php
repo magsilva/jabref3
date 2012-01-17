@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -35,7 +35,7 @@
     leichter, diese Arbeiten durchzuf&uuml;hren, bevor die neuen
     Eintr&auml;ge zwischen die bereits bestehenden sortiert
     wurden.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

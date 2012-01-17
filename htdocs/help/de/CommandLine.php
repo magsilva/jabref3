@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -162,7 +162,7 @@
     verf&uuml;gbaren Fetcher zu erhalten, geben Sie <code>--fetch</code> ohne
     Parameter ein.
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

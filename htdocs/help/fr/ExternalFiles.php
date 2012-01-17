@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -188,7 +188,7 @@
     r&eacute;pertoire PDF) de tout nom de fichier qui
     poss&egrave;de la bonne extension et qui contient quelque part
     la clef BibTeX.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

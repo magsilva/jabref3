@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>JabRef</h1>
@@ -24,7 +24,7 @@
     <p>JabRefは、使用しているデータベース内容の全体像を得られるように、整序機能や検索機能を備えています。また、どの情報が必須だったか暗記しておくことなく、簡単に新しいデータベース項目を追加することができますし、<em>bibtex</em>キーを自動生成させることもできます。JabRefは、<em>bibtex</em>やCiteMakerを利用している方々に最適ですが、その他の参照システムを使用している方や、単に文献ソースを整理したいという方にも便利です。</p>
 
     <p><a href="BaseFrameHelp.php">JabRef 基本ウィンドウ</a></p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

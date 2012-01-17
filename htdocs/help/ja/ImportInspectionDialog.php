@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -31,7 +31,7 @@
     an existing database, it is often easier to perform these
     operations before they are mixed in between the entries of the
     existing database.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

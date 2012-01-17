@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -53,7 +53,7 @@
     vous sera demand&eacute;. Une recherche renvoie un maximum de 200 r&eacute;sultats
     (8&nbsp;pages de 25&nbsp;r&eacute;sultats) afin de limiter la charge.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>IEEEXploreの検索</h1>
@@ -30,7 +30,7 @@
     <p>BibTeX引用をIEEEXploreから直接ダウンロードするオプションは、まだ動作しません。</p>
 
     <p>何かご提案がありましたら、Aaron Chen <b>nextAaron@gmail.com</b>にメールを送ってください。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

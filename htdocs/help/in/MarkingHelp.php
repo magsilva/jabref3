@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>Menandai entri</h1>
@@ -54,7 +54,7 @@
     berkas basisdata, penandaan yang anda lakukan juga akan disimpan.</p>
 
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

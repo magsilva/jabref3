@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -125,7 +125,7 @@
     et si les mots recherch&eacute;s doivent &ecirc;tre surlign&eacute;s lors de
     l'&eacute;dition et de la pr&eacute;visualisation.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

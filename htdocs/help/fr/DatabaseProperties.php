@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -56,7 +56,7 @@ pourra annuler des changements individuels au cours de sa relecture).</p>
 &eacute;crasent par inadvertance les changements effectu&eacute;s par d'autres utilisateurs. Cette fonction ne prot&egrave;ge pas votre
 base de donn&eacute;es contre des utilisateurs ind&eacute;licats.
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

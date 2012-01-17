@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -36,7 +36,7 @@
     <p>produit un onglet appel&eacute; "General" contenant les
     champs url, keywords, doi et pdf et un onglet appel&eacute;
     "Abstract" contenant les champs abstract et annote.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

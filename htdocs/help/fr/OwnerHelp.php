@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -33,7 +33,7 @@
     'owner', qui, par d&eacute;faut, est visible dans l'onglet
     <b>Champs G&eacute;n&eacute;raux</b> de l'&eacute;diteur
     d'entr&eacute;es.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

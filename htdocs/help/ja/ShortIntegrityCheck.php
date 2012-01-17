@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -20,7 +20,7 @@
 
     <p>Integrity check is a process that checks for indications of wrongly filled out bibtex fields. "Scan" is the button that starts the check. </p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

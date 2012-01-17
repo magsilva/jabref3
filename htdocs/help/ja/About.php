@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -121,7 +121,7 @@
         <p>JabRefは、PDF取扱のために、JempBoxおよびPDFBoxライブラリを使用しています。両者ともBSDスタイルライセンスの下で配布されています。
 		</p>
    </center>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

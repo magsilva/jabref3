@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
  />
 
@@ -146,7 +146,7 @@ mastersthesis, phdthesis -&gt; Thesis</pre>
     les Suppl&eacute;ments EndNote (<b>Outils - &gt;
     D&eacute;compacter la s&eacute;rie de filtres EndNote</b>) et
     suivez les instructions du fichier readme.txt.
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

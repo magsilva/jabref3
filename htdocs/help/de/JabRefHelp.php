@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -48,7 +48,7 @@
 
     <p><a href="BaseFrameHelp.php">Das Hauptfenster von
     JabRef</a></p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

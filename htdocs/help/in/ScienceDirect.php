@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -24,7 +24,7 @@
     <p>Pengambil data dari situs web ScienceDirect, akan menghasilkan
         100 data. Semuanya kemudian bisa diimpor masuk ke JabRef.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

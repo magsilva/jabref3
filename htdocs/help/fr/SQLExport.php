@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -57,7 +57,7 @@
 		Si vous souhaitez exporter vers une base de donn&eacute;es diff&eacute;rente, vous pouvez changez les informations de connexion en choisissant <b>Fichier -&gt; Connecter vers une base SQL externe</b> (ou en cliquant sur le bouton correspondant dans le barre d'outils), puis en effectuant une exportation.
     </p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

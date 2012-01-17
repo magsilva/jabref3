@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>JabRef</h1>
@@ -40,7 +40,7 @@
     pustaka.</p>
 
     <p><a href="BaseFrameHelp.php">Jendela utama JabRef</a></p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

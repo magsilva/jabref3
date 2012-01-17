@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -39,7 +39,7 @@
     les nouvelles entr&eacute;es soient ins&eacute;r&eacute;es
     parmi les entr&eacute;es d&eacute;j&agrave; pr&eacute;sentes
     dans la base de donn&eacute;es.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -208,7 +208,7 @@
     Ersetzung des regul&auml;ren Ausdrucks leer ist, werden die mit
     der Suche &uuml;bereinstimmenden regul&auml;ren Ausdr&uuml;cke
     einfach gel&ouml;scht.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

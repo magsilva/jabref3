@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -79,7 +79,7 @@
 
         <li><b>OK</b> をクリックして<b>データソース</b>ウィンドウを閉じてください。</li>
     </ul>これらのステップを終えた後に<b>ツール→参考文献データベース</b>を選んでください。すると、あなたのデータベースが表示されているはずです。
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

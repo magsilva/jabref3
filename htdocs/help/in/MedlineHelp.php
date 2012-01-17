@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>Mengambil entri dari Medline</h1>
@@ -53,7 +53,7 @@
     <p>Pengaturan lingkungan ini didokumentasikan di 
     <a href="http://docs.oracle.com/javase/1.4.2/docs/guide/net/properties.html">Sun J2SE documentation</a>.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

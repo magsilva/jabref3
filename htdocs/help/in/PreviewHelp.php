@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -29,7 +29,7 @@
     perlu menyunting tataletak pratampilan menggunakan sintak
     yang dijelaskan di berkas bantuan 
     <a href="CustomExports.php">Penapis ekspor suaian</a>.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

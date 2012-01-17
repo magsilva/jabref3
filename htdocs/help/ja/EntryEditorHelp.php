@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 <h1>項目エディタ</h1>
@@ -77,7 +77,7 @@
 
     <p>自動補完が有効になっているフィールドを編集すると、JabRefは、これまでにデータベース中のその特定のフィールドで使用された単語に基づいて、あなたが書き込むと同時に単語補完を提案しようとします。提案候補は、補完時に強調されたテキストブロックとして表示されます。補完候補が複数ある場合には、候補を変えるのにPAGE UPおよびPAGE DOWNを使用することができます。候補を受け入れるには、ENTERを一度押してください。候補を無視するには、入力をそのまま続けてください。</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

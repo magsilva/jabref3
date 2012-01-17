@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -226,7 +226,7 @@
     correspondances de l'expression r&eacute;guli&egrave;re seront
     simplement supprim&eacute;es de la clef
     g&eacute;n&eacute;r&eacute;e.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

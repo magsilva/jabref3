@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -66,7 +66,7 @@
     のように、文字列名を#で囲んでください。こうすると、文字列名「jan」の後に「 1997」が続いているものと解釈されます。</p>
 
     <p><a href="StringEditorHelp.php">文字列エディタ</a>もご参照ください。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

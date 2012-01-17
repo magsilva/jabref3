@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -45,7 +45,7 @@
 
     <p>これらの環境設定は、<a href="http://java.sun.com/j2se/1.4.2/docs/guide/net/properties.html">Sun J2SE documentation</a>で説明されています。</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

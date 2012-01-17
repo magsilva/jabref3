@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -28,7 +28,7 @@
     <p>Nama pemilik dituliskan dalam bidang bernama 'pemilik',
     yang pada pengaturan bawaan akan muncul dalam tab <b>Umum</b>
     pada Penyunting Entri.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

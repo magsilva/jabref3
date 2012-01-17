@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -21,7 +21,7 @@
     <p>Pemeriksaan integritas adalah suatu proses untuk melakukan pemeriksaan adanya indikasi
     kesalahan mengisi bidang bibtex. "Memindai" adalah tombol untuk memulai pemeiksaan ini.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>Menyimpan otomatis</h1>
@@ -35,7 +35,7 @@
     Jika anda menginginkan, anda dapat mematikan dialog yang muncul menanyakan untuk
     melakukan penyimpanan otomatis. Pada kasus ini, JabRef akan memanggil berkas hasil
     simpanan otomatis secara diam-diam tanpa menanyakan pemberitahuan pada anda.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

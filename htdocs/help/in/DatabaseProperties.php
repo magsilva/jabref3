@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>Jendela propereti basisdata</h1>
@@ -58,7 +58,7 @@
      <p><b>Catatan:</b> fitur ini bukan berhubungan dengan keamanan, namun hanya untuk 
      menghindari penindihan perubahan yang sudah dilakukan oleh pengguna lain.
      Fitur ini tidak akan mengenali perubahan pengguna yang tidak sah.
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

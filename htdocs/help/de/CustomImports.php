@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -174,7 +174,7 @@ javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
     bieten gerne eine Sammlung eingereichter Importfilter an oder
     f&uuml;gen sie unserer Auswahl an Standard-Importfiltern hinzu.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

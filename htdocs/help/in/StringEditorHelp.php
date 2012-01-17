@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -57,7 +57,7 @@
     String dapat ditampilkan menurut urutan alfabet pada penyunting
     string, kemudian disimpan dengan dengan urutan yang sama, kecuali
     BibTeX memerlukan urutan tertentu yang berbeda.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

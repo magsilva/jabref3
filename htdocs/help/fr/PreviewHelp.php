@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -33,7 +33,7 @@
     utilisant la syntaxe d&eacute;crite dans le fichier d'aide
     portant sur les <a href="CustomExports.php">filtres
     d'exportation personnalis&eacute;s</a>.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

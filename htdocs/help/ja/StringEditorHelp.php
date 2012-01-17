@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -29,7 +29,7 @@
     <p>文字列は、参照される文字列が参照する文字列の<em>前に</em>定義されている限り、他の文字列の内容を同じように参照することができます。</p>
 
     <p>BibTeXファイル中の文字列の順序は場合により重要ですが、JabRefを使用している場合には、その心配をする必要はありません。文字列エディタでは、文字列はアルファベット順に表示され、同じ順序で保存されますが、BibTeXが異なる順序を要求する場合には調整されます。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

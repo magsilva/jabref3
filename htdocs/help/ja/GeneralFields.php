@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -34,7 +34,7 @@
     fields <em>url</em>, <em>keywords</em>, <em>doi</em> and
     <em>pdf</em>, and another tab named "Abstract" containing the
     fields <em>abstract</em> and <em>annote</em>.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

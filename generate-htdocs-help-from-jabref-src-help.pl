@@ -19,11 +19,27 @@
 #set FORCE_WINDOWS_NEWLINES to 0
 
 
+#Error:
+#Use of uninitialized value in concatenation (.) or string at generate-htdocs-help-from-jabref-src-help.pl line 174, <$infileH> line 138.
+#Reason:
+#A new language has been added to HELPDIR_JABREF, where no translation is contained in
+#%translation_back_to_contents. Please add the language to there.
+
 use constant HELPDIR_JABREF => "jabref/src/help";
 use constant HELPDIR_WEB    => "htdocs/help";
 
 #required at cygwin
 use constant FORCE_WINDOWS_NEWLINES => 1;
+
+#translations for "Back to contents"
+our %translation_back_to_contents = (
+  "da" => "Back to contents",
+  "de" => "Zur&uuml;ck zum Inhaltsverzeichnis",
+  "en" => "Back to contents",
+  "fr" => "Retour au contenu",
+  "in" => "Back to contents",
+  "ja" => "Back to contents"
+);
 
 
 #build.xml for getting string replacements @version@ and @year@
@@ -148,8 +164,21 @@ sub handleFile {
   #even if <em> is not allowed in h1 elements, JabRef doc uses that
   $title =~ s#<(.|\n)*?>##g;
   
-#Following prefix does not work.
+#Following prefix does not work at sourceforge.
 #<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+#We use php's header statement instead
+
+  #add to the relative path to navigation|footer if help is non-english
+  my $pathaddition;
+  if ($lang eq 'en') {
+    $pathaddition = "";
+  } else {
+    $pathaddition = "../";
+  }
+  
+  my $navigationlink = $pathaddition . "../navigation.php";
+  my $footerlink = $pathaddition . "../footer.php";
+  
   my $header=<<HTML;
 <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"
     \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
@@ -165,13 +194,13 @@ sub handleFile {
 
 <body>
   <div id=\"container\">
-    <?php include(\"../navigation.php\"); ?>
-    <a href=\"Contents.php\">Back to contents</a>
+    <?php include(\"$navigationlink\"); ?>
+    <a href=\"Contents.php\">$translation_back_to_contents{$lang}</a>
 
 HTML
 
   my $footer=<<HTML;
-  <?php include(\"../footer.php\"); ?>
+  <?php include(\"$footerlink\"); ?>
   </div>\n\n</body>\n</html>
 HTML
 

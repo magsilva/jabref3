@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
         <h1>JabRef version 2.8b</h1>
@@ -163,7 +163,7 @@
 	distribu&eacute;es sous licence Apache. Voir 
         <code>http://pdfbox.apache.org</code> pour plus d'informations.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

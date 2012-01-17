@@ -12,14 +12,14 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
     <p>La v&eacute;rification d'int&eacute;grit&eacute; est un processus qui recherche des indices de champs BibTeX mal remplis."D&eacute;marrer" est le bouton pour lancer la v&eacute;rification.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

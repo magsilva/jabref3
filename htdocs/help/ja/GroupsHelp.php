@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 <h1>Groups</h1>
@@ -345,7 +345,7 @@
     <p>If a refining group is a subgroup of a group that includes its
     subgroups -- the refining group's siblings --, these siblings
     are ignored when the refining group is selected.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

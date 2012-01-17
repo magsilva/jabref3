@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -39,7 +39,7 @@
     appuyer sur la touche Enter. A partir de la fen&ecirc;tre
     <i>G&eacute;rer les s&eacute;lecteurs</i>, vous pouvez aussi
     supprimer les mots que vous avez ajout&eacute;s.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

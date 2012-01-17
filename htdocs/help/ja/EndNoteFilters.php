@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>EndNote書き出しフィルタ</h1>
@@ -55,7 +55,7 @@ mastersthesis, phdthesis → Thesis</pre>
     <h2>進んだ使い方: EndNote Extras</h2>
 
    EndNoteとJabRefの間の相互互換性を向上させるためには、JabRefウェブページにあるResourcesのページからEndNoteフィルターセットをダウンロードしてください。
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

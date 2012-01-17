@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -31,7 +31,7 @@
     <p>さらに、ツールバーには、次または前のファイルを表示するための移動ボタンがあります。これらは、標準的なウェブブラウザの<em>戻る</em>ボタンや<em>進む</em>ボタンに似たものです。<em> 戻る</em>の移動短絡キーは左矢印キーであり、<em>進む</em>の移動短絡キーは右矢印キーです。</p>
 
     <p>ヘルプウィンドウは、エスケープ鍵を押すと閉じます。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

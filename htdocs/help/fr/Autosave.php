@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -30,7 +30,7 @@
     <p>La sauvegarde automatique est activ&eacute;e par d&eacute;faut, avec un intervalle de sauvegarde de 5&nbsp;minutes. Si vous le voulez, vous
     pouvez d&eacute;sactiver l'option vous demandant de confirmer la r&eacute;cup&eacute;ration de la base &agrave; partir du fichier de sauvegarde automatique.
     Dans ce cas, JabRef r&eacute;cup&eacute;rera la base directement, sans vous en informer.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

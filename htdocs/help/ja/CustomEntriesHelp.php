@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -89,7 +89,7 @@
     add a field named as the set of alternative fields separated by slashes,
     for instance <em>author/editor</em> indicates the condition mentioned above for
     the <em>book</em> entry type.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

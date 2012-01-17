@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -31,7 +31,7 @@
     <p>この点に関して、ACM Portalに頻繁に接続すると、お使いのIPアドレスが数時間アクセス不能になります。そこで、JabRefは、各接続の間に5秒間待機しますので、ダウンロード手順は非常に遅くなります。</p>
 
     <p>何かご提案がありましたら、Aaron Chen <b>nextAaron@gmail.com</b>にメールを送ってください。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -34,7 +34,7 @@
     sebelah kanan kemudian tekan Enter. Dalam dialog
     <em>Pengaturan pengisian kata</em> ini anda juga
     bisa menghapus kata-kata yang anda tambahkan.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

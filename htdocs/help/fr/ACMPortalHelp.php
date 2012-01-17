@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
     <h1>R&eacute;cup&eacute;ration des entr&eacute;es depuis le portail <em>ACM</em></h1>
@@ -48,7 +48,7 @@
     <p>Pour toute suggestion, envoyez s'il vous pla&icirc;t
     un courriel &agrave; Aaron Chen <b>nextAaron@gmail.com</b>.</p>    
     
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

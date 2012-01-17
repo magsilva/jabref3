@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
     <h1>Filtres d'exportation personnalis&eacute;s</h1>
@@ -769,7 +769,7 @@
     sur ce sujet, envoyez un courriel sur l'une des listes de
     diffusion de JabRef&nbsp;!</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

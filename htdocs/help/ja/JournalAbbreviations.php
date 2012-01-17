@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <h1>学術誌名の短縮形</h1>
@@ -58,7 +58,7 @@
 
         <li><b>ダウンロード</b>ボタンを使うと、URLを入力してインターネットから誌名表をダウンロードし、コンピューター上のローカルファイルとして保存して、JabRefから誌名表としてリンクすることができます。URLは、既定でJabRefのウェブページにある誌名表のアドレスになっています。この誌名表は完全ではありませんが、将来的に改善されていくでしょう。</li>
     </ul>個人用誌名表にある項目は、外部誌名表のいずれかに存在する、同じ完全名の項目に優先します。同様に、外部誌名表間の優先順位は、ウィンドウに挙げられている順で優先されます。
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

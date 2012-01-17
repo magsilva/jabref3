@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -130,7 +130,7 @@
     l'ic&ocirc;ne avec le bouton droit de la souris (ou
     <b>Ctrl-clic</b> sur Max OS X) pour afficher un menu montrant
     tous les liens.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

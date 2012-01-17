@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
   <h1>Recherche ScienceDirect</h1>
@@ -30,7 +30,7 @@
     r&eacute;sultant à 100&nbsp;r&eacute;sultats maximum. Tous les r&eacute;sultats sont ensuite
     import&eacute;s.</p>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

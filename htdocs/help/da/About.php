@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
@@ -148,7 +148,7 @@
         PDF-h&aring;ndtering; begge distribueres under en BSD-lignende
         licens.</p>
     </center>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

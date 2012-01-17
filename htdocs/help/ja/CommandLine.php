@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -141,7 +141,7 @@
     the given fetcher will be run. Note that some fetcher will still display 
     GUI if they need feedback from you. To get a list of available fetchers run
     --fetch without parameters.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

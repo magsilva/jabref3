@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -37,7 +37,7 @@
         <li><em>a smith and not t processor</em>: 著者"smith"を検索するが、タイトルに"processor"があるものを省略</li>
     </ul>
 
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

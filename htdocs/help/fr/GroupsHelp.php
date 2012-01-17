@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Retour au contenu</a>
 
 
 
@@ -434,7 +434,7 @@
     groupe qui inclue ses sous-groupes -- les fr&egrave;res du
     groupe raffinant --, les fr&egrave;res sont ignor&eacute;s
     quand le groupe raffinant est s&eacute;lectionn&eacute;.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

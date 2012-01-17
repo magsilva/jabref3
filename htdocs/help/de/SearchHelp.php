@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -122,7 +122,7 @@
     Ausdr&uuml;cke sowie das Ausw&auml;hlen der Suchergebnisse in
     der Tabelle und das Hervorheben der einzelnen Suchwörter in dem
     Editor sowie der Vorschau.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

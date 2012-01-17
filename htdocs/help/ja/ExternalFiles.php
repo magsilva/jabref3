@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -74,7 +74,7 @@
       </ul>
 
     <p>検索の既定値は、<code>**/.*[bibtexkey].*\\.[extension]</code>です。これは、この種のファイルのためのディレクトリ(たとえばPDFディレクトリ)のすべてのサブディレクトリを検索し、正しい拡張子を持ち、名称のどこかにBibtexキーを含んでいるファイルを探し出します。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

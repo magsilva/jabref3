@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -51,7 +51,7 @@
 
         <li><b>yyyy/MM/dd HH:mm</b> は <b>2005/09/14 17:45</b> となります。</li>
     </ul>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

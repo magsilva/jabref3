@@ -12,8 +12,8 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <?php include("../../navigation.php"); ?>
+    <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
     <basefont size="4" color="#2F4958" face="arial" />
 
@@ -94,7 +94,7 @@
     zu &ouml;ffnen, klicken Sie mit der rechten Maustaste auf das
     Icon (Mac OS X: <b>Strg-Klick</b>); es erscheint dann ein
     Men&uuml; mit allen Links.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -158,7 +158,7 @@ javac -classpath JabRef-2.0.jar SimpleCsvImporter.java
     SourceForge.net page. We'd be happy to distribute a collection
     of submitted import files, or to add to the selection of
     standard importers.</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

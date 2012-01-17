@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -21,7 +21,7 @@
     <p>JabRefでは、データベースに追加したり読み込んだりした新しい項目すべてに、あなたのユーザー名を付加することができます。この機能は、<b>設定→一般</b>で無効にしたり有効にしたりすることができ、項目に付加するのに使う名前も変更することができます。既定値は、あなたのユーザー名です。</p>
 
     <p>名前は、「owner」というフィールドに書き込まれ、既定では、項目エディタの<b>汎用フィールド</b>に表示されます。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>

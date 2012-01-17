@@ -12,7 +12,7 @@
 
 <body>
   <div id="container">
-    <?php include("../navigation.php"); ?>
+    <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
 
@@ -23,7 +23,7 @@
     <p>設定した単語は、データベース毎に固有のものであり、文献データとともに.bibファイルに保存されます。</p>
 
     <p>単語を新しく付け加えるには、<em>選択メニューを設定</em>ダイアログのキーワード欄に書き込んでEnter鍵を押してください。削除ボタンを使えば、単語を削除することができます。</p>
-  <?php include("../footer.php"); ?>
+  <?php include("../../footer.php"); ?>
   </div>
 
 </body>
