@@ -30,17 +30,23 @@
 	<span class="developer">Nizar N. Batada <img src="images/stock_person.png" alt="Developer" title="Main Author" /></span>
 	<span class="developer">Michel Baylac <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Kolja Brix <img src="images/stock_person.png" alt="Developer" title="" /></span>
+	<span class="developer">Fr&eacute;d&eacute;ric Darboux <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Guillaume Gardey <img src="images/stock_person.png" alt="Developer" title="Webdesign and HTML export" /></span>
 	<span class="developer">Cyrille d'Haese <img src="images/stock_person.png" alt="Developer" title="" /></span>
+	<span class="developer">Oliver Kopp <img src="images/stock_person.png" alt="Developer" title="" /></span>
+	<span class="developer">S M Mahbub Murshed <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Raik Nagel <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Christopher Oezbeck <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Ellen Reitmayr <img src="images/stock_person.png" alt="Developer" title="" /></span>
+	<span class="developer">Gert Renckens <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Andreas Rudert <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Michael Spiegel <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Ulrik Stervbo <img src="images/stock_person.png" alt="Developer" title="Label generation" /></span>
+	<span class="developer">Dominik Wa&szlig;enhoven <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Joerg K. Wegner <img src="images/stock_person.png" alt="Developer" title="Export" /></span>
 	<span class="developer">Michael Wrighton <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">Egon Willighagen <img src="images/stock_person.png" alt="Developer" title="" /></span>
+	<span class="developer">Wenbo Yang <img src="images/stock_person.png" alt="Developer" title="" /></span>
 	<span class="developer">J&ouml;rg Zieren <img src="images/stock_person.png" alt="Developer" title="advanced search" /></span>
 
         <h4 id="contributors">Contributors</h4>
