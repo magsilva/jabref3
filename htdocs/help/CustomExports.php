@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
@@ -319,7 +319,7 @@
 
         <li><code>RemoveTilde</code> : replaces the tilde character
         used in LaTeX as a non-breakable space by a regular space.
-        Useful in combination with the NameFormatter discussed in
+        Useful in combination with the <a href="#NameFormatter">NameFormatter</a> discussed in
         the next section.</li>
 
         <li><code>RemoveWhitespace</code> : removes all whitespace characters.</li>
@@ -497,8 +497,7 @@ This argument can only be given after <code>AuthorNumber</code> has already been
     the formatter must be in your classpath when running
     JabRef.</p>
 
-    <h2><a name="NameFormatter"
-       id="NameFormatter">Using Custom Name Formatters</a></h2>
+    <h2 id="NameFormatter">Using Custom Name Formatters</h2>
 
     <p>From JabRef 2.2, it is possible to define custom name
     formatters using the bibtex-sty-file syntax. This allows
