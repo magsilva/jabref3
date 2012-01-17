@@ -34,6 +34,7 @@
         Fr&eacute;d&eacute;ric Darboux,
         Guillaume Gardey,
         Cyrille d'Haese,
+        Oliver Kopp,
         S. M. Mahbub Murshed,
         Raik Nagel,
         Christopher Oezbek,
@@ -46,7 +47,7 @@
         Joerg K. Wegner,
         Michael Wrighton,
         Egon Willighagen,
-	Wenbo Yang,
+        Wenbo Yang,
         J&ouml;rg Zieren</p>
 
         <h2>Beitr&auml;ge von:</h2>
