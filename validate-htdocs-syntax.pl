@@ -28,7 +28,7 @@ use constant STARTDIR => "htdocs";
 
 #JabRef help
 #  never validates as no HTML head is used and no DOCTYPE is declared.
-#use constant STARTDIR => "jabref/src/help/da";
+#use constant STARTDIR => "jabref/src/help/";
 
 
 use File::Find;
@@ -46,6 +46,9 @@ sub verifyFile {
 	#my $fullfilename = $File::Find::name;
 	my $filename = $_;
 	return unless ($filename =~ /(\.php)|(\.html)$/);
+	
+	#Debug output
+	#print "Checking $File::Find::name\n";
 
 	system("tidy", "-eq", "-utf8", "$filename");
 
