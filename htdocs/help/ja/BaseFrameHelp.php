@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -34,13 +34,13 @@
 	<li>色コードは、<strong>設定</strong>ダイアログの中で入切することができ、以下のようにセルを色づけすることによって、お使いのデータベースの完全性を維持するために視覚化することができます。
 
 	<ul>
-	  <li>最左列の<font color="red">赤色</font>セルは、その項目が不完全であることを示します。</li>
+	  <li>最左列の<span style="color: red">赤色</span>セルは、その項目が不完全であることを示します。</li>
 
-	  <li>最左列の<font color="#909000">黄色</font>セルは、それ自身で全必須フィールドを定義しておらず、内部参照が使用されていることを示します。</li>
+	  <li>最左列の<span style="color: #909000">黄色</span>セルは、それ自身で全必須フィールドを定義しておらず、内部参照が使用されていることを示します。</li>
 
-	  <li><font color="blue">青色</font>セルは、必須フィールドを示します。</li>
+	  <li><span style="color: blue">青色</span>セルは、必須フィールドを示します。</li>
 
-	  <li><font color="green">緑色</font>セルは、非必須フィールドを示します。</li>
+	  <li><span style="color: green">緑色</span>セルは、非必須フィールドを示します。</li>
 
 	  <li>色づけされていないセルは、<em>bibtex</em>プログラムが、この型の項目用にこのフィールドを使用していないことを示します。このフィールドは、JabRef中では編集することができます。</li>
 	</ul>

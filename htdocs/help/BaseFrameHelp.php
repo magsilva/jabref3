@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -61,18 +61,18 @@
             cells as follows:
 
             <ul>
-                <li>A <font color="red">red</font> cell in the
+                <li>A <span style="color: red">red</span> cell in the
                 leftmost column denotes an incomplete entry.</li>
 
-                <li>A <font color="#909000">yellow</font> cell in
+                <li>A <span style="color: #909000">yellow</span> cell in
                 the leftmost column denotes an entry that doesn't
                 define all required fields by itself, but that
                 contains a cross-reference.</li>
 
-                <li>A <font color="blue">blue</font> cell denotes a
+                <li>A <span style="color: blue">blue</span> cell denotes a
                 required field.</li>
 
-                <li>A <font color="green">green</font> cell denotes
+                <li>A <span style="color: green">green</span> cell denotes
                 an optional field.</li>
 
                 <li>An uncolored cell denotes a field which is not

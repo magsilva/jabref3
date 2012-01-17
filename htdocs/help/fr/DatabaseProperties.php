@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -54,7 +54,7 @@ pourra annuler des changements individuels au cours de sa relecture).</p>
 
 <p><b>Note&nbsp;:</b> Ceci n'est pas une fonction de s&eacute;curit&eacute;, mais juste une fa&ccedil;on d'&eacute;viter que des utilisateurs
 &eacute;crasent par inadvertance les changements effectu&eacute;s par d'autres utilisateurs. Cette fonction ne prot&egrave;ge pas votre
-base de donn&eacute;es contre des utilisateurs ind&eacute;licats.
+base de donn&eacute;es contre des utilisateurs ind&eacute;licats.</p>
 
   <?php include("../../footer.php"); ?>
   </div>

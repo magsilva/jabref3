@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -72,6 +72,7 @@
       <li><a href="Spires.php"><em>Spires</em> search</a></li>
       <li><a href="SQLExport.php">Export to an External SQL Database</a></li>
       <li><a href="XMPHelp.php">XMP metadata support in JabRef</a></li>
+      <li><a href="OpenOfficeHelp.php">Using JabRef bibliographies in OpenOffice.org</a></li>
       <li><a href="CommandLine.php">Command line options</a></li>
       <li><a href="RemoteHelp.php">Remote operations</a></li>
     </ul>

@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -197,11 +197,11 @@
     of the letters a-z until a unique key is found. Thus, the
     labels might look like:</p>
 
-    <blockquote>
+    <p style="margin-left: 28pt">
         <code>Yared1998</code><br />
-         <code>Yared1998a</code><br />
+        <code>Yared1998a</code><br />
         <code>Yared1998b</code>
-    </blockquote>
+    </p>
 
     <h2>Regular expression replace</h2>
 

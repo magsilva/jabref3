@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -83,20 +83,20 @@
             suivante&nbsp;:
 
             <ul>
-                <li>Une cellule <font color="red">rouge</font> dans
+                <li>Une cellule <span style="color: red">rouge</span> dans
                 la colonne la plus &agrave; gauche signale une
                 entr&eacute;e incompl&egrave;te.</li>
 
-                <li>Une cellule <font color="#909000">jaune</font>
+                <li>Une cellule <span style="color: #909000">jaune</span>
                 dans la colonne la plus &agrave; gauche signale une
                 entr&eacute;e qui ne d&eacute;finit pas par
                 elle-m&ecirc;me l'ensemble des champs requis, mais
                 qui contient un renvoi.</li>
 
-                <li>Une cellule <font color="blue">bleue</font>
+                <li>Une cellule <span style="color: blue">bleue</span>
                 correspond &agrave; un champ requis.</li>
 
-                <li>Une cellule <font color="green">verte</font>
+                <li>Une cellule <span style="color: green">verte</span>
                 correspond &agrave; un champ optionnel.</li>
 
                 <li>Une cellule sans couleur correspond &agrave; un

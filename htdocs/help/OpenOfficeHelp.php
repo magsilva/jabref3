@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -44,7 +44,7 @@
     <li>Choose <b>Edit -&gt; Change database</b>. Click on <b>Select</b>, and select your database exported to the .ods format.</li>
     <li>Unfold the <b>+</b> located in front of the name of the imported database, then click on the displayed filename, and, finally, on the button <b>Define</b>.</li>
     <li>Choose <b>Tools -&gt; Options -&gt; OpenOffice.org Base -&gt; Database</b>. In this window, the database you just imported should be displayed. The default OOo bibliographic database should also be displayed (<i>Bibliography</i>).</li>
-    <li>Edit the Bibliography database, and alter its name, such as <i>Bibliography-old</i> (in fact, OpenOffice.org Writer does not allow selecting several bibliographic databases).
+    <li>Edit the Bibliography database, and alter its name, such as <i>Bibliography-old</i> (in fact, OpenOffice.org Writer does not allow selecting several bibliographic databases).</li>
     <li>Select your bibliographic database, edit it, and rename it <i>Bibliography</i> (pay a special attention to the capital letter at the beginning of the name).</li>
     </ul>
 

@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -199,7 +199,7 @@
     <p>Un bloc conditionnel peut aussi d&eacute;pendre de plus d'un champ,
     et le contenu du bloc est affich&eacute; uniquement
     quand toutes les conditions sont remplies.
-    Deux op&eacute;rateurs conditionnels sont disponibles&nbsp;:
+    Deux op&eacute;rateurs conditionnels sont disponibles&nbsp;:</p>
     <ul>
         <li>op&eacute;rateur ET&nbsp;: <code>&amp;</code>, <code>&amp;&amp;</code></li>
         <li>op&eacute;rateur OU&nbsp;: <code>|</code>, <code>||</code></li>
@@ -210,7 +210,7 @@
     un bloc tel que celui-ci&nbsp;:<br/><br/>
     <code>\begin{year&amp;&amp;month}Month: \format[HTMLChars]
         {\month}\end{year&amp;&amp;month}</code><br/><br/>
-    <p>qui imprimera "Month: " plus le contenu du champ <code>month</code>, mais
+    qui imprimera "Month: " plus le contenu du champ <code>month</code>, mais
     seulement si le champ <code>year</code> est lui-aussi d&eacute;fini.</p>
 
     <p><b>Note&nbsp;:</b> L'utilisation des commandes

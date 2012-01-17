@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -109,7 +109,7 @@
 
     <p>Falls die Inhalte nicht akzeptabel sind, wird das Feld mit
     roter Farbe hinterlegt, was auf einen Fehler hindeutet. In
-    diesem Fall werden die &Auml;nderungen nicht gespeichert.
+    diesem Fall werden die &Auml;nderungen nicht gespeichert.</p>
 
     <h2>Autovervollst&auml;ndigung von W&ouml;rtern und Namen</h2>
 

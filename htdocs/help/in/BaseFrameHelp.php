@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="in">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="in" xml:lang="in">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -61,17 +61,17 @@
             warna sel sebagai berikut:
 
             <ul>
-                <li>Warna <font color="red">merah</font> di sel
+                <li>Warna <span style="color: red">merah</span> di sel
                 kolom paling kiri menunjukkan entri tidak lengkap.</li>
 
-                <li>Warna <font color="#909000">kuning</font> di sel
+                <li>Warna <span style="color: #909000">kuning</span> di sel
                 kolom palingkiri menunjukkan entri yang tidak didefinisikan
 		semua bidangnya, tetapi mengandung referensi-silang.</li>
 
-                <li>Warna sel <font color="blue">biru</font> menunjukkan
+                <li>Warna sel <span style="color: blue">biru</span> menunjukkan
                 bidang utama yang diperlukan.</li>
 
-                <li>Warna sel <font color="green">hijau</font> menunjukkan
+                <li>Warna sel <span style="color: green">hijau</span> menunjukkan
                 bidang sel tambahan.</li>
 
                 <li>Sel tanpa warna menunjukkan bidang yang tidak digunakan

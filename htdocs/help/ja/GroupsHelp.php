@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -54,7 +54,7 @@
     <table cellspacing="0"
            cellpadding="5"
            border="0"
-           bgcolor="#C0FFC0"
+           style="background-color: #C0FFC0"
 		   summary="Examples">
         <tr>
             <td>

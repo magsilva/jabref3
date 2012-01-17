@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -51,7 +51,7 @@ enabled, users will only be able to save after any external changes have been re
 the user can disable individual changes in the course of reviewing them).</p>
 
 <p><b>Note:</b> this is not a security feature, merely a way to prevent users from overwriting other users'
-changes inadvertently. This feature does not protect your database against malicious users.
+changes inadvertently. This feature does not protect your database against malicious users.</p>
 
 
 

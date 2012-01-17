@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -159,7 +159,8 @@
     Sie, dass einige Fetcher eine graphische Oberfl&auml;che (GUI) anzeigen,
     falls Sie eine R&uuml;ckmeldung von Ihnen brauchen. Um eine &Uuml;bersicht der
     verf&uuml;gbaren Fetcher zu erhalten, geben Sie <code>--fetch</code> ohne
-    Parameter ein.
+    Parameter ein.</p>
+	
 
   <?php include("../../footer.php"); ?>
   </div>

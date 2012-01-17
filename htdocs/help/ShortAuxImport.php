@@ -1,10 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<?php
+  header('Content-type: application/xhtml+xml; charset=utf-8');
+?>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-  <title></title>
-  <link href='/css/style.css' rel='stylesheet' type='text/css' />
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>Aux Import</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -12,11 +15,13 @@
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
-	  
-	  This feature generates a new database,
+
+    <h1>Aux Import</h1>
+    <p>This feature generates a new database,
           which contains only the used references of an existing
-          TeX project.
-    <?php include("../footer.php"); ?>
+          TeX project.</p>
+
+  <?php include("../footer.php"); ?>
   </div>
 
 </body>

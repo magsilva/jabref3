@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -15,8 +15,6 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
-
-    <center>
         <h1>JabRef 第 2.8b 版</h1>
 
         <div id="logo">
@@ -120,7 +118,6 @@
 
         <p>JabRefは、PDF取扱のために、JempBoxおよびPDFBoxライブラリを使用しています。両者ともBSDスタイルライセンスの下で配布されています。
 		</p>
-   </center>
   <?php include("../../footer.php"); ?>
   </div>
 

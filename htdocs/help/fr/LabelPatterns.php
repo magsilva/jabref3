@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -204,11 +204,11 @@
     et ceci jusqu'a ce quelle soit unique. De cette fa&ccedil;on,
     les &eacute;tiquettes ressemblent &agrave;&nbsp;:</p>
 
-    <blockquote>
+    <p style="margin-left: 28pt">
         <code>Yared1998</code><br />
         <code>Yared1998a</code><br />
         <code>Yared1998b</code>
-    </blockquote>
+    </p>
 
     <h2>Remplacement d'expressions r&eacute;guli&egrave;res</h2>
 

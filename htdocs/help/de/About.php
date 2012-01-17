@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <?php
   header('Content-type: application/xhtml+xml; charset=utf-8');
 ?>
@@ -15,8 +15,6 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Zur&uuml;ck zum Inhaltsverzeichnis</a>
 
-
-    <center>
         <h1>JabRef Version 2.8b</h1>
 
         <div id="logo">
@@ -144,8 +142,7 @@
 
         <p>JabRef verwendet f&uuml;r die Behandlung von PDF-Dateien
         die JempBox- und PDFBox-Bibliotheken, die unter einer
-        BSD-Lizenz vertrieben werden.</p>
-    </center>
+        Apache-Lizenz vertrieben werden.</p>
   <?php include("../../footer.php"); ?>
   </div>
 
