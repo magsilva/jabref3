@@ -1,13 +1,33 @@
 #!/usr/bin/perl
+#requires: perl >= 5.10
+
+#generate-htdocs-help-form-jabref-src-help.pl 
+#(c) 2012 Kolja Brix and Oliver Kopp
+
+#This scripts converts the help files 
+#from the source directory of JabRef (HELPDIR_JABREF)
+#to help files for the web page (HELPDIR_WEB)
+
+#Start it from the root directory of your git repository.
+#  Windows: perl generate-htdocs-help-form-jabref-src-help.pl 
+#It will overwrite all help files in HELPDIR_WEB
+#It will NOT delete files in HELPDIR_WEB which were removed in HELPDIR_JABREF
+
+#There are NO command line parameters
+
+#If you have newline issues at the generated files,
+#set FORCE_WINDOWS_NEWLINES to 0
+
 
 use constant HELPDIR_JABREF => "jabref/src/help";
 use constant HELPDIR_WEB    => "htdocs/help";
 
-#build.xml for getting string replacements @version@ and @year@
-use constant BUILDXML       => "jabref/build.xml";
-
 #required at cygwin
 use constant FORCE_WINDOWS_NEWLINES => 1;
+
+
+#build.xml for getting string replacements @version@ and @year@
+use constant BUILDXML       => "jabref/build.xml";
 
 use warnings;
 use strict;
@@ -115,6 +135,10 @@ sub handleFile {
   foreach $line(@infile) {
     if ($line =~ /\<h1\>(.*)\<\/h1\>/) {
       $title=$1;
+	  if ($replace_placeholders) {
+	    $title =~ s/$jabref_placeholder_version/$jabref_version/;
+	    $title =~ s/$jabref_placeholder_year/$jabref_year/;
+	  }	  
 	  # title is found, go to the normal handling
 	  last;
     }
@@ -124,11 +148,15 @@ sub handleFile {
   #even if <em> is not allowed in h1 elements, JabRef doc uses that
   $title =~ s#<(.|\n)*?>##g;
   
+#Following prefix does not work.
+#<?xml version=\"1.0\" encoding=\"UTF-8\"?>
   my $header=<<HTML;
-<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"
     \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
 <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"$lang\">
+<?php
+  header('Content-type: application/xhtml+xml; charset=utf-8');
+?>
 <head>
   <meta http-equiv=\"content-type\" content=\"application/xhtml+xml; charset=UTF-8\" />
   <title>$title</title>
@@ -139,7 +167,7 @@ sub handleFile {
   <div id=\"container\">
     <?php include(\"../navigation.php\"); ?>
     <a href=\"Contents.php\">Back to contents</a>
-	
+
 HTML
 
   my $footer=<<HTML;

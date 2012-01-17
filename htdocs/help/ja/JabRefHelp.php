@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<?php
+  header('Content-type: application/xhtml+xml; charset=utf-8');
+?>
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
   <title>JabRef</title>
@@ -12,7 +14,7 @@
   <div id="container">
     <?php include("../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
-	
+
     <h1>JabRef</h1>
 
     <p><strong>《註》</strong><em>bibtex</em>プログラムは、各ヘルプファイル中で繰り返し言及されています。<em>Bibtex</em>は、Oren Patashniによって作られた、LaTeX文書中の書誌参照を生成するためのユーティリティです。同じデータベース形式が、Adobe FrameMaker中の書誌情報生成ユーティリティであるCiteMakerでも使用されています。</p>
