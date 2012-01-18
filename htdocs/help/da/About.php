@@ -15,8 +15,6 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">Back to contents</a>
 
-
-    <center>
         <h1>JabRef version 2.8b</h1>
 
         <div id="logo">
@@ -146,7 +144,6 @@
         <p>JabRef benytter JempBox og PDFBox bibliotekerne til
         PDF-h&aring;ndtering; begge distribueres under en BSD-lignende
         licens.</p>
-    </center>
   <?php include("../../footer.php"); ?>
   </div>
 
