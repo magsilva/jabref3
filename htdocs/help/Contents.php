@@ -72,7 +72,6 @@
       <li><a href="Spires.php"><em>Spires</em> search</a></li>
       <li><a href="SQLExport.php">Export to an External SQL Database</a></li>
       <li><a href="XMPHelp.php">XMP metadata support in JabRef</a></li>
-      <li><a href="OpenOfficeHelp.php">Using JabRef bibliographies in OpenOffice.org</a></li>
       <li><a href="CommandLine.php">Command line options</a></li>
       <li><a href="RemoteHelp.php">Remote operations</a></li>
     </ul>
