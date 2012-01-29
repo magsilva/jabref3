@@ -13,7 +13,7 @@
 <body>
   <div id="container">
     <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <a href="Contents.php">Kembali ke Daftar Isi</a>
 
     <h1>Menyimpan otomatis</h1>
 

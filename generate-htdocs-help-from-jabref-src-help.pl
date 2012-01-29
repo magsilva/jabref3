@@ -37,7 +37,7 @@ our %translation_back_to_contents = (
   "de" => "Zur&uuml;ck zum Inhaltsverzeichnis",
   "en" => "Back to contents",
   "fr" => "Retour au contenu",
-  "in" => "Back to contents",
+  "in" => "Kembali ke Daftar Isi",
   "ja" => "Back to contents"
 );
 
