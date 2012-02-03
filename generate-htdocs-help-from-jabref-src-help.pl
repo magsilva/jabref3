@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+﻿#!/usr/bin/perl
 #requires: perl >= 5.10
 
 #generate-htdocs-help-form-jabref-src-help.pl 
@@ -38,7 +38,7 @@ our %translation_back_to_contents = (
   "en" => "Back to contents",
   "fr" => "Retour au contenu",
   "in" => "Kembali ke Daftar Isi",
-  "ja" => "Back to contents"
+  "ja" => "目次に戻る"
 );
 
 

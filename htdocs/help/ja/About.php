@@ -13,7 +13,7 @@
 <body>
   <div id="container">
     <?php include("../../navigation.php"); ?>
-    <a href="Contents.php">Back to contents</a>
+    <a href="Contents.php">目次に戻る</a>
 
         <h1>JabRef 第 2.8b 版</h1>
 
