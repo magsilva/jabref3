@@ -17,9 +17,9 @@
       <h3>Online documentation</h3>
       <span class="single_item"><a href="help/Contents.php">English</a></span>
       <span class="single_item"><a href="help/fr/Contents.php">French</a></span>
-	  <span class="single_item"><a href="help/ja/Contents.php">Japanese</a></span>
       <span class="single_item"><a href="help/de/Contents.php">German</a></span>
-	  <span class="single_item"><a href="help/in/Contents.php">Indonesian</a></span>
+      <span class="single_item"><a href="help/in/Contents.php">Indonesian</a></span>
+      <span class="single_item"><a href="help/ja/Contents.php">Japanese</a></span>
 
       <h3>Installation</h3>
       <span class="single_item"><a href="#java">Installing Java</a></span>
@@ -36,11 +36,12 @@
       pages, accessible from the Help menu.</p>
 
       <p>There is an online copy of these help documents
-      (<a href="help/Contents.php">English version,</a>
-      <a href="help/fr/Contents.php">French version,</a>
-      <a href="help/de/Contents.php">German version</a>). 
-      Note that the online copy may not
-      always be in sync with the latest <acronym>JabRef</acronym> version.</p>
+      (<a href="help/Contents.php">English version</a>,
+       <a href="help/fr/Contents.php">French version</a>,
+       <a href="help/de/Contents.php">German version</a>, 
+       <a href="help/ja/Contents.php">Japanese</a>,
+       <a href="help/in/Contents.php">Indonesian</a>).
+      Note that the online copy may not always be in sync with the latest <acronym>JabRef</acronym> version.</p>
 
       <p>For German readers, a more comprehensive <a href=
       "manuals/JabRef-UserManual_de.pdf">user manual</a>
