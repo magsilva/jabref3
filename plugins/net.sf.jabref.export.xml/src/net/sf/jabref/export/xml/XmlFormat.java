@@ -9,6 +9,7 @@ import java.util.Set;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.Globals;
+import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.MetaData;
 import net.sf.jabref.export.ExportFormat;
 import net.sf.jabref.export.FileActions;
@@ -68,7 +69,7 @@ public class XmlFormat extends ExportFormat {
         final SaveSession ss;
         if (entryIds == null || entryIds.isEmpty()) {
             ss = FileActions.saveDatabase(database, null, tmpFile,
-                Globals.prefs, false, false, encoding);
+                Globals.prefs, false, false, encoding, false);
         } else {
             List<BibtexEntry> sortedEntries = FileActions.getSortedEntries(
                 database, entryIds, true);
