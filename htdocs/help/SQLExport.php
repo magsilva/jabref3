@@ -22,7 +22,7 @@
         exporting the contents of the BibTeX database, along with groups
     	information, to an external MySQL or PostgreSQL database.</p>
 
-		<p>You just need to be sure you have an user/password with full privileges on a MySQL or PostgreSQL server</p>
+		<p>You just need to be sure you have an user/password with full privileges on a MySQL or PostgreSQL server.</p>
 
     <h2>Export</h2>
     <ol>
@@ -43,7 +43,7 @@
 		Since version 2.8 tables are not dropped, and user is able to store more than one JabRef database into a single SQL database.
     </p>	
 
-	<p>When importing a database from an SQL database (<b>File -&gt; Import from external SQL database</b>), JabRef will place each database found in a different tab.
+	<p>When importing a database from an SQL database (<b>File -&gt; Import from external SQL database</b>), JabRef will place each database found in a different tab.</p>
   <?php include("../footer.php"); ?>
   </div>
 
