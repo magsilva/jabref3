@@ -10,3 +10,4 @@ out
 /plugins/net.sf.jabref.imports.acm1/bin/
 /plugins/net.sf.jabref.imports.dblppp/bin/
 .bak
+/jabref/nbproject/private/
