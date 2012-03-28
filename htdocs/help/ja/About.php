@@ -6,7 +6,7 @@
 ?>
 <head>
   <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
-  <title>JabRef 第 2.8b 版</title>
+  <title>JabRef 第 2.8b2 版</title>
   <link href="/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -15,7 +15,7 @@
     <?php include("../../navigation.php"); ?>
     <a href="Contents.php">目次に戻る</a>
 
-        <h1>JabRef 第 2.8b 版</h1>
+        <h1>JabRef 第 2.8b2 版</h1>
 
         <div id="logo">
         <img src="/images/JabRef-icon-48.png" alt="JabRef logo"/><br/>&copy; 2003-2012

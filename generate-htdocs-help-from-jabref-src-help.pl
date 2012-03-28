@@ -16,7 +16,7 @@
 #There are NO command line parameters
 
 #If you have newline issues at the generated files,
-#set FORCE_WINDOWS_NEWLINES to 0
+#adapt FORCE_WINDOWS_NEWLINES
 
 
 #Error:
@@ -28,8 +28,9 @@
 use constant HELPDIR_JABREF => "jabref/src/help";
 use constant HELPDIR_WEB    => "htdocs/help";
 
-#required at cygwin
-use constant FORCE_WINDOWS_NEWLINES => 1;
+#0 for normal operationrequired
+#1 for cygwin's perl
+use constant FORCE_WINDOWS_NEWLINES => 0;
 
 #translations for "Back to contents"
 our %translation_back_to_contents = (

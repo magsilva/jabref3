@@ -90,6 +90,7 @@ MaxAuthorsFirst="3"
 AuthorSeparator=", "
 AuthorLastSeparator=" &amp; "
 EtAlString=" et al."
+ItalicEtAl="true"
 YearSeparator=" "
 InTextYearSeparator=" "
 BracketBefore="["
@@ -103,6 +104,7 @@ MinimumGroupingCount="3"
 FormatCitations="false"
 CitationCharacterFormat="Default"
 MultiCiteChronological="false"
+PageInfoSeparator="; "
 
 LAYOUT
 article=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
@@ -295,6 +297,12 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <td>Text inserted between author names and starting bracket before year in in-text citations.</td>
     </tr>
     <tr>
+        <td>ItalicEtAl</td>
+        <td>boolean</td>
+        <td><code>true</code></td>
+        <td>If true, the "et al." string in citation markers is italicized.</td>
+    </tr>
+    <tr>
         <td>MaxAuthors</td>
         <td>integer</td>
         <td><code>3</code></td>
@@ -320,6 +328,15 @@ default=\format[AuthorLastFirst,AuthorAbbreviator,AuthorAndsReplacer]{\author}
         <td><code>true</code></td>
         <td>If <code>true</code>, multiple entries in the same citation are sorted chronologically, otherwise
             they are sorted alphabetically.
+        </td>
+    </tr>
+    <tr>
+        <td>PageInfoSeparator</td>
+        <td>string</td>
+        <td><code>; </code></td>
+        <td>For citations with extra information, e.g. page numbers, this string is inserted between the year
+            (for author-year citations) or the citation number (for numbered citations) and the extra information.
+            E.g. the text between <code>2001</code> and <code>p. 301</code> in <code>[Smith 2001; p. 301]</code>.
         </td>
     </tr>
     <tr>
