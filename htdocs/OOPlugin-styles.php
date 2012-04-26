@@ -29,6 +29,13 @@
           <td><b>Style suitable for</b></td> <td><b>Contributed by</b></td>
 	  <td><b>Example layout</b></td>
         </tr>
+
+
+
+	<tr><td><a href="jstyles/BJAST.jstyle">Brazilian Journal of Aquatic Science and Technology</a></td>
+          <td>Colin Beasley</td>
+          <td>&nbsp;</td>
+        </tr>
 	<tr><td><a href="jstyles/Adv_Mater.jstyle">Advanced Materials</a></td>
           <td>Steffan Cook</td>
           <td>&nbsp;</td>
