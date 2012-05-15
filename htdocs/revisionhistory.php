@@ -17,6 +17,8 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+        <li class="single_item"><a href="#v2.8">2.8</a></li>
+        <li class="single_item"><a href="#v2.8b2">2.8 beta 2</a></li>
         <li class="single_item"><a href="#v2.8b">2.8 beta</a></li>
         <li class="single_item"><a href="#v2.7.2">2.7.2</a></li>
         <li class="single_item"><a href="#v2.7.1">2.7.1</a></li>
@@ -74,6 +76,41 @@
     <div id="main">
 
       <h2>Revision history</h2>
+
+      <div class="aversion" id="v2.8">
+
+        <h3>Version 2.8 (May 14th, 2012)</h3
+        <div class="version_desc">
+          <ul>
+            <li>Applied Oscar Gustafsson's fix for IEEEXplore fetcher.</li>
+            <li>Added capability to remove databases from SQL database.</li>
+            <li>Modified Google Scholar fetcher to adapt to changes to web site.</li>
+            <li>Fixed customization of entries in Biblatex mode.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="aversion" id="v2.8b2">
+
+        <h3>Version 2.8 beta 2 (March 14th, 2012)</h3
+        <div class="version_desc">
+          <ul>
+            <li>Improvements to SQL export and import. Fixed bug where subsequent exports to same database would fail. Can now save multiple bib bases to a single SQL database.</li>
+            <li>"abbr" modifier in BibTeX key generator now skips parentheses.</li>
+            <li>Minor change to FirstPage formatter. Now splits at spaces as well as hyphens, and returns original field content if only one page number is found.</li>
+            <li>When using the preferences import command line option, preferences are now imported before load/import/export operations are handled.</li>
+            <li>Applied Nicolas Pavillon's patch for proper keystroke handling on Mac OS X.</li>
+            <li>Applied Ivanilton Polato's patch for handling multi-line fields in CSV export.</li>
+            <li>Fixed bug: "Send as Email" did not handle absolute paths correctly.</li>
+            <li>Fixed bug 3472991: Search: "Highlight Words" inconsistent.</li>
+            <li>Fixed bug 2933201: Exporting InProceedings to Word 2007.</li>
+            <li>Fixed bug 3146059: Error in translating author field to MS Office.</li>
+            <li>Fixed bug: entering field names containing capital letters in table columns tab in Preferences makes the columns empty.</li>
+          </ul>
+        </div>
+      </div>
+
 
       <div class="aversion" id="v2.8b">
 

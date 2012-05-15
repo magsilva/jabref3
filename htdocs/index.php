@@ -27,13 +27,21 @@
       <a href="http://jabref.sourceforge.net/jws/jabref.jnlp">
       <img src="images/RunJabRef.png" alt="Run JabRef instantly" /></a>
 
-      <a href="http://sourceforge.net/projects/jabref/files/jabref/2.7.2"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
+      <a href="http://sourceforge.net/projects/jabref/files/jabref/2.8"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
 
-      <a href="download.php#beta"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+      <?php
+      // <a href="download.php#beta"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+      ?>
 
       <h3 id="News">News</h3>
 
       <ul class="history_column">
+
+        <li class="item">May 14th, 2012</li>
+        <li class="item_desc">Version 2.8</li>
+
+        <li class="item">March 14th, 2012</li>
+        <li class="item_desc">Version 2.8 beta 2</li>
 
 	<li class="item">January 05th, 2012</li>
 	<li class="item_desc">Version 2.8 beta</li>
