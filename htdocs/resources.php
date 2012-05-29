@@ -15,6 +15,10 @@
 
     <div id="rightpanel">
 
+      <h3 id="tools">External tools</h3>
+      <ul>
+        <li><a href="#OOtool">JabRef formatter</a></li>
+      </ul>
       <h3 id="plugins_">Plugins</h3>
       <ul>
         <li><a href="#OOintegration">Openoffice.org integration</a></li>
@@ -49,12 +53,23 @@
 
     <div id="main">
 
+      <h2 id="plugins">External tools</h2>
+
+      <h3 id="OOtool">JabRef formatter</h3>
+      <p><em>by Felix Wilke</em></p>
+	
+      <p>The JabRef formatter is a LibreOffice spreadsheet that lets you build
+      HTML, RTF or OpenOffice/LibreOffice export filters, as well as jstyle files
+      for direct integration with OpenOffice or LibreOffice.</p>
+
+      <a href="tools/jabref_formatter.ods">JabRef formatter</a>
+
       <h2 id="plugins">Plugins</h2>
 
-      <p>Starting with version 2.4, JabRef offers a plugin framework
-      that allows the application to be extended with further import and
-      export filters, web search modules (fetchers), layout formatters,
-      cite-while-you-write modules and general sidepane components.</p>
+      <p>JabRef offers a plugin framework that allows the application to 
+      be extended with further import and export filters, web search modules 
+      (fetchers), layout formatters, cite-while-you-write modules and general
+      sidepane components.</p>
 
       <h3 id="Installing_plugins">Installing plugins</h3>
 
