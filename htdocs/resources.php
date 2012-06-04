@@ -21,7 +21,6 @@
       </ul>
       <h3 id="plugins_">Plugins</h3>
       <ul>
-        <li><a href="#OOintegration">Openoffice.org integration</a></li>
         <li><a href="#BibSonomy">BibSonomy plugin</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
         <li><a href="#RIS_export">RIS export format</a></li>
@@ -88,14 +87,6 @@
       loaded automatically when you start up JabRef.</p>
 
       <h3>Plugins available for download</h3>
-
-      <h4 id="OOintegration"><a href="OOPlugin-jabref.php">Openoffice.org integration</a></h4>
-      <p><em>by Morten O. Alver</em></p>
-
-      <p>This plugin provides cite-while-you-write functionality for OpenOffice.org Writer.</p>
-
-      <p><a href="OOPlugin-jabref.php">See extra page for this plugin.</a></p>
-
 
       <h4 id="BibSonomy">BibSonomy plugin</h4>
       <p><em>by <a href="http://www.bibsonomy.org/help/contact/team">BibSonomy team</a></em></p>
