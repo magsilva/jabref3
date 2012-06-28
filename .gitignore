@@ -6,8 +6,14 @@ out
 /jabref/build/
 /jabref/src/resource/build.properties
 /jabref/src/windows/nsis/dist/
+/jpfcodegen/*.jar
+/jpfcodegen/build/
 /plugins/net.sf.jabref.export.xml/bin/
+/plugins/net.sf.jabref.export.xml/build/
 /plugins/net.sf.jabref.imports.acm1/bin/
+/plugins/net.sf.jabref.imports.acm1/build/
+/plugins/net.sf.jabref.imports.acm1/dist/
 /plugins/net.sf.jabref.imports.dblppp/bin/
+/plugins/net.sf.jabref.imports.dblppp/build/
 .bak
 /jabref/nbproject/private/

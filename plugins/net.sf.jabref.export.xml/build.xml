@@ -12,7 +12,7 @@
 	<property name="build.classes" value="${build.dir}/cls" />
 	<property name="build.lib" value="${build.dir}/lib" />
 
-	<property name="jabref.dir" value="../Jabref" />
+	<property name="jabref.dir" value="../../Jabref" />
 
 	<property name="version" value="1.0" />
 	<property name="jar.small" value="${build.lib}/${ant.project.name}-${version}-no-dep.jar" />
