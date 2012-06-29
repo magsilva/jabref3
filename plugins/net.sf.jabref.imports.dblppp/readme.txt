@@ -1,3 +1,4 @@
+This plugin is out of date and does not work with the current DBLP++ page.
 
 net.sf.jabref.imports.dblppp - Plugin
 ---------------------------------
