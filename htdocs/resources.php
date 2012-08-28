@@ -25,6 +25,7 @@
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
         <li><a href="#RIS_export">RIS export format</a></li>
         <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
+	<li><a href="#Turabian">Turabian export filters</a></li>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
         <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
@@ -129,12 +130,19 @@
       <h4 id="Chicago_Manual">Chicago Manual of Style export filters</h4>
       <p><em>by Juan Jose Baldrich</em></p>
 
-      <a href="plugins/net.sf.jabref.export.ChicagoExport(English)-1.0.jar">Plugin (English)</a> -
-      <a href="plugins/net.sf.jabref.export.ChicagoExport(espanol)-1.0.jar">Plugin (Espa&ntilde;ol)</a>
+      <a href="plugins/net.sf.jabref.export.Chicago(English)-1.2.jar">Plugin (English)</a> -
+      <a href="plugins/net.sf.jabref.export.Chicago(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
 
       <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
       <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
 
+      <h4 id="Turabian">Turabian export filters</h4>
+      <p><em>by Juan Jose Baldrich</em></p>
+
+      <a href="plugins/net.sf.jabref.export.Turabian(English)-1.2.jar">Plugin (English)</a> -
+      <a href="plugins/net.sf.jabref.export.Turabian(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
+
+      <p>Export filters for preparation of bibliographies according to the Turabian style.
 
       <h4 id="ADS">JabRef ADS fetcher</h4>
       <p><em>by Ryo Igarashi</em></p>
