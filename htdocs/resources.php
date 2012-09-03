@@ -53,7 +53,7 @@
 
     <div id="main">
 
-      <h2 id="plugins">External tools</h2>
+      <h2 id="exttools">External tools</h2>
 
       <h3 id="OOtool">JabRef formatter</h3>
       <p><em>by Felix Wilke</em></p>
@@ -143,7 +143,7 @@
       <a href="plugins/net.sf.jabref.export.Turabian(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
 
       <p>Export filters for preparation of bibliographies according to the Turabian style.
-
+      </p>
       <h4 id="ADS">JabRef ADS fetcher</h4>
       <p><em>by Ryo Igarashi</em></p>
 
