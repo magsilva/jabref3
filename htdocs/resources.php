@@ -15,35 +15,36 @@
 
     <div id="rightpanel">
 
-      <h3 id="tools">External tools</h3>
+      <h3>External tools</h3>
       <ul>
         <li><a href="#OOtool">JabRef formatter</a></li>
       </ul>
-      <h3 id="plugins_">Plugins</h3>
+      <h3>Plugins</h3>
       <ul>
         <li><a href="#BibSonomy">BibSonomy plugin</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
-        <li><a href="#RIS_export">RIS export format</a></li>
-        <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
-	<li><a href="#Turabian">Turabian export filters</a></li>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
         <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
         <li><a href="#GVK">GVK/SRU fetcher</a></li>
       </ul>
 
-      <h3 id="exportfilters">Download export filters</h3>
+      <h3>Export filters</h3>
       <ul>
-        <li><a href="http://jabref.sourceforge.net/help/CustomExports.php">Mark Schenk's HTML export filters</a></li>
-        <li><a href="exportfilters/Marten_Kooiker_export_filters_v1.0.zip">Marten Kooiker's RTF export filters</a></li>
+        <li><a href="#Marks_filters">Mark Schenk's HTML export filters</a></li>
+        <li><a href="#Martens_filters">Marten Kooiker's RTF export filters</a></li>
+        <li><a href="#Edward_Elgar_filters">Edward Elgar export filters</a></li>
+        <li><a href="#RIS_export">RIS export format</a></li>
+        <li><a href="#Chicago_Manual">Chicago Manual of Style export filters</a></li>
+        <li><a href="#Turabian">Turabian export filters</a></li>
       </ul>
 
-      <h3 id="downloadlist">Downloadable journal lists</h3>
+      <h3>Journal lists</h3>
       <ul>
         <li><a href="journals/journal_abbreviations_general.txt">General list</a></li>
         <li><a href="journals/journal_abbreviations_entrez.txt">Entrez journals abbreviation list</a> by Emmanuel Charpentier. <i>Note: provides Medline (dotless) abbr. only.</i></li>
         <li><a href="journals/journal_abbreviations_medicus.txt">Index Medicus abbreviation list</a> by Guy Tsafnat.
-	    <i>Note: provides Medline (dotless) abbr. only.</i></li>
+        <i>Note: provides Medline (dotless) abbr. only.</i></li>
         <li><a href="journals/journal_abbreviations_lifescience.txt">Life Science abbreviation list</a> by Z&eacute; Roberto Ribeiro</li>
         <li><a href="journals/journal_abbreviations_meteorology.txt">Meteorology journal list</a> by Thijs Heus.</li>
         <li><a href="journals/journal_abbreviations_sociology.txt">Sociology journal list</a> by Ronggui Huang.</li>
@@ -53,11 +54,11 @@
 
     <div id="main">
 
-      <h2 id="plugins">External tools</h2>
+      <h2 id="ExtTools">External tools</h2>
 
       <h3 id="OOtool">JabRef formatter</h3>
       <p><em>by Felix Wilke</em></p>
-	
+    
       <p>The JabRef formatter is a LibreOffice spreadsheet that lets you build
       HTML, RTF or OpenOffice/LibreOffice export filters, as well as jstyle files
       for direct integration with OpenOffice or LibreOffice.</p>
@@ -115,34 +116,7 @@
       <p>This plugin provides the same functionality as the built-in Push to Emacs feature,
       except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
       to communicate with Emacs. This requires a recent version of Emacs to work.</p>
-
-
-      <h4 id="RIS_export">RIS export format</h4>
-      <p><em>by Morten O. Alver</em></p>
-
-      <p>Version 1.0<br />
-      <a href="plugins/net.sf.jabref.export.RISExport-1.0.jar">Plugin</a> -
-      <a href="plugins/RISExport-1.0-src.zip">Source code</a></p>
-
-      <p>This plugin provides RIS export format functionality.</p>
-
-
-      <h4 id="Chicago_Manual">Chicago Manual of Style export filters</h4>
-      <p><em>by Juan Jose Baldrich</em></p>
-
-      <a href="plugins/net.sf.jabref.export.Chicago(English)-1.2.jar">Plugin (English)</a> -
-      <a href="plugins/net.sf.jabref.export.Chicago(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
-
-      <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
-      <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
-
-      <h4 id="Turabian">Turabian export filters</h4>
-      <p><em>by Juan Jose Baldrich</em></p>
-
-      <a href="plugins/net.sf.jabref.export.Turabian(English)-1.2.jar">Plugin (English)</a> -
-      <a href="plugins/net.sf.jabref.export.Turabian(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
-
-      <p>Export filters for preparation of bibliographies according to the Turabian style.
+      <p>Since JabRef 2.8, this behavior is built-in</p>
 
       <h4 id="ADS">JabRef ADS fetcher</h4>
       <p><em>by Ryo Igarashi</em></p>
@@ -152,11 +126,11 @@
 
       <h4 id="ADS_HUG">Modified JabRef ADS fetcher</h4>
       <p><em>by Alexander Hug</em></p>
-	
+    
       <p>This ADS fetcher is modified so one can ask for several parameters like authors, title, year etc. Most useful keywords are predefined in 
       combo-boxes, but may be overwritten by any valid keyword, as described on the ADS homepage and may also be looked up by the "help" button. 
       you may enter either "hug, a" and select "Author" from the combo-box, OR you enter "author=hug, a" and select "None or special keyword".</p>
-	
+    
       <p>Version 0.1<br />
       <a href="plugins/ADSsearch-0.1.jar">Plugin</a> -
       <a href="plugins/ADSsearch-0.1-src.zip">Source code</a></p>
@@ -188,15 +162,15 @@
       <h2 id="export_filters">Export filters</h2>
 
       <p><acronym>JabRef</acronym> allows you to create custom export
-	filters. This functionality is described in the help file
-	on <a href="http://jabref.sourceforge.net/help/CustomExports.php">
-	Custom export filters</a>. Some users have created export filters that
-	can be useful to many others, and on this page we provide links or direct
-	downloads for some of these export filters.
+    filters. This functionality is described in the help file
+    on <a href="http://jabref.sourceforge.net/help/CustomExports.php">
+    Custom export filters</a>. Some users have created export filters that
+    can be useful to many others, and on this page we provide links or direct
+    downloads for some of these export filters.
       </p>
       <p>If you have created one or more export filters that you want to
-	share with other users, please notify us, and we can provide a download
-	from this page, or link to your own page.</p>
+    share with other users, please notify us, and we can provide a download
+    from this page, or link to your own page.</p>
 
       <h3 id="Marks_filters">Mark Schenk's HTML export filters</h3>
       <p><a href="http://www.markschenk.com/tools/jabref/">Mark Schenk's
@@ -215,6 +189,33 @@
       <p>Christian Bartolomaeus has made an export filter matching the author guidelines of Edward Elgar.
       The export filter requires definition of two name formatters - please read the included README file.</p>
       <p><a href="exportfilters/Edward_Elgar_export_filters_v1.0.zip">Download Edward Elgar export filters</a></p>
+
+      <h3 id="RIS_export">RIS export format</h3>
+      <p><em>by Morten O. Alver</em></p>
+
+      <p>Version 1.0<br />
+      <a href="plugins/net.sf.jabref.export.RISExport-1.0.jar">Plugin</a> -
+      <a href="plugins/RISExport-1.0-src.zip">Source code</a></p>
+
+      <p>This plugin provides RIS export format functionality.</p>
+
+
+      <h3 id="Chicago_Manual">Chicago Manual of Style export filters</h3>
+      <p><em>by Juan Jose Baldrich</em></p>
+
+      <a href="plugins/net.sf.jabref.export.Chicago(English)-1.2.jar">Plugin (English)</a> -
+      <a href="plugins/net.sf.jabref.export.Chicago(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
+
+      <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
+      <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
+
+      <h3 id="Turabian">Turabian export filters</h3>
+      <p><em>by Juan Jose Baldrich</em></p>
+
+      <a href="plugins/net.sf.jabref.export.Turabian(English)-1.2.jar">Plugin (English)</a> -
+      <a href="plugins/net.sf.jabref.export.Turabian(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
+
+      <p>Export filters for preparation of bibliographies according to the Turabian style.</p>
 
       <h2 id="endnote_filters">Endnote filter set</h2>
 
