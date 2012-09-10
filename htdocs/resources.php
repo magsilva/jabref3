@@ -23,9 +23,14 @@
       <ul>
         <li><a href="#BibSonomy">BibSonomy plugin</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
+        <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
+        <li><a href="#renamer">Rename files plugin</a></li>
+      </ul>
+      
+      <h3>Entry fetchers</h3>
+      <ul>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
-        <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
         <li><a href="#GVK">GVK/SRU fetcher</a></li>
       </ul>
 
@@ -115,25 +120,8 @@
 
       <p>This plugin provides the same functionality as the built-in Push to Emacs feature,
       except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
-      to communicate with Emacs. This requires a recent version of Emacs to work.</p>
-      <p>Since JabRef 2.8, this behavior is built-in</p>
-
-      <h4 id="ADS">JabRef ADS fetcher</h4>
-      <p><em>by Ryo Igarashi</em></p>
-
-      <p>JabRef plugin for fetching BibTeX entry from &quot;The SAO/NASA Astrophysics Data System&quot; using Digital Object Identifier (DOI)
-      <a href="https://launchpad.net/jabref-ads">More information</a></p>
-
-      <h4 id="ADS_HUG">Modified JabRef ADS fetcher</h4>
-      <p><em>by Alexander Hug</em></p>
-    
-      <p>This ADS fetcher is modified so one can ask for several parameters like authors, title, year etc. Most useful keywords are predefined in 
-      combo-boxes, but may be overwritten by any valid keyword, as described on the ADS homepage and may also be looked up by the "help" button. 
-      you may enter either "hug, a" and select "Author" from the combo-box, OR you enter "author=hug, a" and select "None or special keyword".</p>
-    
-      <p>Version 0.1<br />
-      <a href="plugins/ADSsearch-0.1.jar">Plugin</a> -
-      <a href="plugins/ADSsearch-0.1-src.zip">Source code</a></p>
+      to communicate with Emacs. This requires a recent version of Emacs to work.<br />
+      Since JabRef 2.8, this behavior is built-in</p>
 
       <h4 id="Lehner">Christoph Lehner's plugins</h4>
       <p><em>by Christoph Lehner</em></p>
@@ -144,11 +132,16 @@
       <li>Plugin to browse and import new preprints from arXiv</li>
       <li>Plugin to import articles from INSPIRE</li>
       </ul>
-
-      <h4 id="GVK">GVK (Gemeinsamer Verbundkatalog) fetcher</h4>
-      <p><em>by Gemeinsamen Bibliotheksverbund</em></p>
-      <p><a href="http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin">http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin</a></p>
-      <p>This plugin searches and fetcher entries from the GVK (Gemeinsamer Verbundkatalog).</p>
+      
+      <h4 id="renamer">Rename file plugin</h4>
+      <p><em>by Sergey</em></p>
+      <p>
+      This plugin allows to automatically rename/copy/delete attached files.
+      Files can be renamed according to their BibTeX entry.
+      The rename pattern uses the same syntax as a BibTeX key generator of JabRef. 
+      <a href="https://github.com/korv/Jabref-plugins/downloads">Download</a><br/>
+      JabRef 2.9 will contain the rename functionality as part of the &ldquo;Clean up&rdquo; functionality.
+      </p>
       
 
       <h3>Developing plugins</h3>
@@ -157,6 +150,29 @@
       plugin and which extension points it connects to.
       See our <a href="http://jabref.wiki.sourceforge.net/Getting+started+with+JabRef+plugin+development">
       Wiki page on getting started writing plugins</a>.</p>
+
+      <h2>Entry fetchers</h2>
+      <h3 id="ADS">JabRef ADS fetcher</h3>
+      <p><em>by Ryo Igarashi</em></p>
+
+      <p>JabRef plugin for fetching BibTeX entry from &ldquo;The SAO/NASA Astrophysics Data System&rdquo; using Digital Object Identifiers (DOI)
+      <a href="https://launchpad.net/jabref-ads">More information</a></p>
+
+      <h3 id="ADS_HUG">Modified JabRef ADS fetcher</h3>
+      <p><em>by Alexander Hug</em></p>
+    
+      <p>This ADS fetcher is modified so one can ask for several parameters like authors, title, year etc. Most useful keywords are predefined in 
+      combo-boxes, but may be overwritten by any valid keyword, as described on the ADS homepage and may also be looked up by the &ldquo;help&rdquo; button. 
+      you may enter either &ldquo;hug, a&rdquo; and select &ldquo;Author&rdquo; from the combo-box, OR you enter &ldquo;author=hug, a&rdquo; and select &ldquo;None or special keyword&rdquo;.</p>
+    
+      <p>Version 0.1<br />
+      <a href="plugins/ADSsearch-0.1.jar">Plugin</a> -
+      <a href="plugins/ADSsearch-0.1-src.zip">Source code</a></p>
+
+      <h3 id="GVK">GVK (Gemeinsamer Verbundkatalog) fetcher</h3>
+      <p><em>by Gemeinsamen Bibliotheksverbund</em></p>
+      <p><a href="http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin">http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin</a></p>
+      <p>This plugin searches and fetcher entries from the GVK (Gemeinsamer Verbundkatalog).</p>
 
 
       <h2 id="export_filters">Export filters</h2>
