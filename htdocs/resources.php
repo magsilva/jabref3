@@ -59,7 +59,7 @@
 
     <div id="main">
 
-      <h2 id="ExtTools">External tools</h2>
+      <h2 id="exttools">External tools</h2>
 
       <h3 id="OOtool">JabRef formatter</h3>
       <p><em>by Felix Wilke</em></p>
@@ -121,7 +121,7 @@
       <p>This plugin provides the same functionality as the built-in Push to Emacs feature,
       except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
       to communicate with Emacs. This requires a recent version of Emacs to work.<br />
-      Since JabRef 2.8, this behavior is built-in</p>
+      Since JabRef 2.8, this behavior is built-in.</p>
 
       <h4 id="Lehner">Christoph Lehner's plugins</h4>
       <p><em>by Christoph Lehner</em></p>
@@ -134,7 +134,7 @@
       </ul>
       
       <h4 id="renamer">Rename file plugin</h4>
-      <p><em>by Sergey</em></p>
+      <p><em>by Sergey Kor</em></p>
       <p>
       This plugin allows to automatically rename/copy/delete attached files.
       Files can be renamed according to their BibTeX entry.
