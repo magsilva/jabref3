@@ -15,26 +15,27 @@
 
     <div id="rightpanel">
 
-      <h3>External tools</h3>
+      <h3 id="tools_rightpanel">External tools</h3>
       <ul>
         <li><a href="#OOtool">JabRef formatter</a></li>
       </ul>
-      <h3>Plugins</h3>
+
+      <h3 id="plugins_rightpanel">Plugins</h3>
       <ul>
         <li><a href="#BibSonomy">BibSonomy plugin</a></li>
         <li><a href="#PushEmacsclient">Push to Emacsclient</a></li>
         <li><a href="#Lehner">Christoph Lehner's plugins</a></li>
         <li><a href="#renamer">Rename files plugin</a></li>
       </ul>
-      
-      <h3>Entry fetchers</h3>
+
+      <h3 id="fetchers_rightpanel">Entry fetchers</h3>
       <ul>
         <li><a href="#ADS">JabRef ADS fetcher</a></li>
         <li><a href="#ADS_HUG">Modified JabRef ADS fetcher</a></li>
         <li><a href="#GVK">GVK/SRU fetcher</a></li>
       </ul>
 
-      <h3>Export filters</h3>
+      <h3 id="exportfilters_rightpanel">Export filters</h3>
       <ul>
         <li><a href="#Marks_filters">Mark Schenk's HTML export filters</a></li>
         <li><a href="#Martens_filters">Marten Kooiker's RTF export filters</a></li>
@@ -44,7 +45,7 @@
         <li><a href="#Turabian">Turabian export filters</a></li>
       </ul>
 
-      <h3>Journal lists</h3>
+      <h3 id="journallists_rightpanel">Journal lists</h3>
       <ul>
         <li><a href="journals/journal_abbreviations_general.txt">General list</a></li>
         <li><a href="journals/journal_abbreviations_entrez.txt">Entrez journals abbreviation list</a> by Emmanuel Charpentier. <i>Note: provides Medline (dotless) abbr. only.</i></li>
@@ -123,16 +124,20 @@
       to communicate with Emacs. This requires a recent version of Emacs to work.<br />
       Since JabRef 2.8, this behavior is built-in.</p>
 
+
       <h4 id="Lehner">Christoph Lehner's plugins</h4>
       <p><em>by Christoph Lehner</em></p>
-      <p><a href="http://www.lhnr.de/ext/">http://www.lhnr.de/ext/</a></p>
+
+      <p><a href="http://www.lhnr.de/ext/">Home page (see also for source code)</a></p>
+
       <p>The page contains the following plugins:</p>
       <ul>
       <li>Plugin for automatic download of PDF files from arXiv or DOI links</li>
       <li>Plugin to browse and import new preprints from arXiv</li>
       <li>Plugin to import articles from INSPIRE</li>
       </ul>
-      
+
+
       <h4 id="renamer">Rename file plugin</h4>
       <p><em>by Sergey Kor</em></p>
       <p>
@@ -142,7 +147,7 @@
       <a href="https://github.com/korv/Jabref-plugins/downloads">Download</a><br/>
       JabRef 2.9 will contain the rename functionality as part of the &ldquo;Clean up&rdquo; functionality.
       </p>
-      
+
 
       <h3>Developing plugins</h3>
       <p>A plugin is basically an implementation of one or more of JabRef's
@@ -151,42 +156,43 @@
       See our <a href="http://jabref.wiki.sourceforge.net/Getting+started+with+JabRef+plugin+development">
       Wiki page on getting started writing plugins</a>.</p>
 
+
       <h2>Entry fetchers</h2>
+
       <h3 id="ADS">JabRef ADS fetcher</h3>
       <p><em>by Ryo Igarashi</em></p>
 
       <p>JabRef plugin for fetching BibTeX entry from &ldquo;The SAO/NASA Astrophysics Data System&rdquo; using Digital Object Identifiers (DOI)
       <a href="https://launchpad.net/jabref-ads">More information</a></p>
 
+
       <h3 id="ADS_HUG">Modified JabRef ADS fetcher</h3>
       <p><em>by Alexander Hug</em></p>
-    
+
       <p>This ADS fetcher is modified so one can ask for several parameters like authors, title, year etc. Most useful keywords are predefined in 
       combo-boxes, but may be overwritten by any valid keyword, as described on the ADS homepage and may also be looked up by the &ldquo;help&rdquo; button. 
       you may enter either &ldquo;hug, a&rdquo; and select &ldquo;Author&rdquo; from the combo-box, OR you enter &ldquo;author=hug, a&rdquo; and select &ldquo;None or special keyword&rdquo;.</p>
-    
+
       <p>Version 0.1<br />
       <a href="plugins/ADSsearch-0.1.jar">Plugin</a> -
       <a href="plugins/ADSsearch-0.1-src.zip">Source code</a></p>
 
+
       <h3 id="GVK">GVK (Gemeinsamer Verbundkatalog) fetcher</h3>
       <p><em>by Gemeinsamen Bibliotheksverbund</em></p>
-      <p><a href="http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin">http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin</a></p>
+      <p><a href="http://www.gbv.de/wikis/cls/Jabref-GVK-Plugin">Home page (see also for source code)</a></p>
       <p>This plugin searches and fetcher entries from the GVK (Gemeinsamer Verbundkatalog).</p>
 
 
       <h2 id="export_filters">Export filters</h2>
 
-      <p><acronym>JabRef</acronym> allows you to create custom export
-    filters. This functionality is described in the help file
-    on <a href="http://jabref.sourceforge.net/help/CustomExports.php">
-    Custom export filters</a>. Some users have created export filters that
-    can be useful to many others, and on this page we provide links or direct
-    downloads for some of these export filters.
-      </p>
-      <p>If you have created one or more export filters that you want to
-    share with other users, please notify us, and we can provide a download
-    from this page, or link to your own page.</p>
+      <p><acronym>JabRef</acronym> allows you to create custom export filters. This functionality is described in the help file
+      on <a href="http://jabref.sourceforge.net/help/CustomExports.php">Custom export filters</a>. Some users have created export filters that
+      can be useful to many others, and on this page we provide links or direct downloads for some of these export filters.</p>
+
+      <p>If you have created one or more export filters that you want to share with other users, please notify us,
+      and we can provide a download from this page, or link to your own page.</p>
+
 
       <h3 id="Marks_filters">Mark Schenk's HTML export filters</h3>
       <p><a href="http://www.markschenk.com/tools/jabref/">Mark Schenk's
@@ -196,15 +202,18 @@
       <p><i>Note: some of Mark Schenk's filters
       are distributed with JabRef as standard export filters.</i></p>
 
+
       <h3 id="Martens_filters">Marten Kooiker's RTF export filters</h3>
       <p>Marten Kooiker has put together a number of export filters outputting
       RTF references formatted for specific journals.</p>
       <p><a href="exportfilters/Marten_Kooiker_export_filters_v1.0.zip">Download Marten Kooiker's RTF export filters</a></p>
 
+
       <h3 id="Edward_Elgar_filters">Edward Elgar export filters</h3>
       <p>Christian Bartolomaeus has made an export filter matching the author guidelines of Edward Elgar.
       The export filter requires definition of two name formatters - please read the included README file.</p>
       <p><a href="exportfilters/Edward_Elgar_export_filters_v1.0.zip">Download Edward Elgar export filters</a></p>
+
 
       <h3 id="RIS_export">RIS export format</h3>
       <p><em>by Morten O. Alver</em></p>
@@ -225,6 +234,7 @@
       <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
       <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
 
+
       <h3 id="Turabian">Turabian export filters</h3>
       <p><em>by Juan Jose Baldrich</em></p>
 
@@ -232,6 +242,7 @@
       <a href="plugins/net.sf.jabref.export.Turabian(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
 
       <p>Export filters for preparation of bibliographies according to the Turabian style.</p>
+
 
       <h2 id="endnote_filters">Endnote filter set</h2>
 
@@ -258,6 +269,7 @@
       If you wish to have these fields supported, extract EndNote.zip and
       follow the directions in the file readme.txt.</p>
 
+
       <h2 id="abbrev_lists"><acronym>JabRef</acronym> journal abbreviation lists</h2>
 
       <p><acronym>JabRef</acronym> can help you refactor your reference list by
@@ -265,6 +277,7 @@
       requires that you keep one or more lists of journal names and their
       respective abbreviations. to set up these lists, choose 
       <b>Options -> Manage journal abbreviations</b>.</p>
+
 
       <h3 id="downloadlists">Downloadable journal lists</h3>
       <p><acronym>JabRef</acronym> includes no list of journals by default. Instead, the
