@@ -25,18 +25,18 @@
       <h2>Screenshots</h2>
 
       <h3 id="mainwindow">Main Window</h3>
-      <a href="images/Jabref-ScreenShot-MainWindow.png">
-      <img class="screenshot" src="images/Jabref-ScreenShot-MainWindow.png" alt="Jabref-ScreenShot-MainWindow.png" />
+      <a href="images/JabRef-ScreenShot-MainWindow.png">
+      <img class="screenshot" src="images/JabRef-ScreenShot-MainWindow.png" alt="JabRef-ScreenShot-MainWindow.png" />
       </a>
 
       <h3 id="preferences">Preferences</h3>
-      <a href="images/Jabref-ScreenShot-Preferences.png">
-      <img class="screenshot" src="images/Jabref-ScreenShot-Preferences.png" alt="Jabref-ScreenShot-Preferences.png" />
+      <a href="images/JabRef-ScreenShot-Preferences.png">
+      <img class="screenshot" src="images/JabRef-ScreenShot-Preferences.png" alt="JabRef-ScreenShot-Preferences.png" />
       </a>
 
       <h3 id="preview">Entry Preview</h3>
-      <a href="images/Jabref-ScreenShot-Preview.png">
-      <img class="screenshot" src="images/Jabref-ScreenShot-Preview.png" alt="Jabref-ScreenShot-Preview.png" />
+      <a href="images/JabRef-ScreenShot-Preview.png">
+      <img class="screenshot" src="images/JabRef-ScreenShot-Preview.png" alt="JabRef-ScreenShot-Preview.png" />
       </a>
     </div>
     <?php include("footer.php"); ?>
