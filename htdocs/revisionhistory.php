@@ -17,6 +17,7 @@
       <h3>Version</h3>
 
       <ul class="history_column">
+        <li class="single_item"><a href="#v2.8.1">2.8.1</a></li>
         <li class="single_item"><a href="#v2.8">2.8</a></li>
         <li class="single_item"><a href="#v2.8b2">2.8 beta 2</a></li>
         <li class="single_item"><a href="#v2.8b">2.8 beta</a></li>
@@ -77,6 +78,20 @@
 
       <h2>Revision history</h2>
 
+      <div class="aversion" id="v2.8.1">
+
+        <h3>Version 2.8.1 (July 4th, 2012)</h3
+        <div class="version_desc">
+          <ul>
+            <li>New DBLP fetcher. Patch 3462232 by Sascha Hunold.</li>
+            <li>Disabled ACM portal fetcher to avoid users of getting banned.</li>
+            <li>Fixed bug in PostgreSQL export/import.</li>
+            <li>Improved handling of file fields written in the style exported from Zotero.</li>
+          </ul>
+        </div>
+      </div>
+
+
       <div class="aversion" id="v2.8">
 
         <h3>Version 2.8 (May 14th, 2012)</h3
@@ -84,7 +99,6 @@
           <ul>
             <li>Applied Oscar Gustafsson's fix for IEEEXplore fetcher.</li>
             <li>Added capability to remove databases from SQL database.</li>
-            <li>Modified Google Scholar fetcher to adapt to changes to web site.</li>
             <li>Fixed customization of entries in Biblatex mode.</li>
           </ul>
         </div>
