@@ -59,7 +59,7 @@
 
     <div id="main">
 
-      <h2 id="exttools">External tools</h2>
+      <h2 id="ExtTools">External tools</h2>
 
       <h3 id="OOtool">JabRef formatter</h3>
       <p><em>by Felix Wilke</em></p>
@@ -121,35 +121,7 @@
       <p>This plugin provides the same functionality as the built-in Push to Emacs feature,
       except that it uses <em>emacsclient</em> instead of <em>gnuclient</em>
       to communicate with Emacs. This requires a recent version of Emacs to work.<br />
-      Since JabRef 2.8, this behavior is built-in.</p>
-
-      <h4 id="RIS_export">RIS export format</h4>
-      <p><em>by Morten O. Alver</em></p>
-
-      <p>Version 1.0<br />
-      <a href="plugins/net.sf.jabref.export.RISExport-1.0.jar">Plugin</a> -
-      <a href="plugins/RISExport-1.0-src.zip">Source code</a></p>
-
-      <p>This plugin provides RIS export format functionality.</p>
-
-
-      <h4 id="Chicago_Manual">Chicago Manual of Style export filters</h4>
-      <p><em>by Juan Jose Baldrich</em></p>
-
-      <a href="plugins/net.sf.jabref.export.Chicago(English)-1.2.jar">Plugin (English)</a> -
-      <a href="plugins/net.sf.jabref.export.Chicago(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
-
-      <p>Export filters for preparation of bibliographies according to the Chicago Manual of Style.
-      <a href="plugins/Chicago_export_filters.pdf">More information</a></p>
-
-      <h4 id="Turabian">Turabian export filters</h4>
-      <p><em>by Juan Jose Baldrich</em></p>
-
-      <a href="plugins/net.sf.jabref.export.Turabian(English)-1.2.jar">Plugin (English)</a> -
-      <a href="plugins/net.sf.jabref.export.Turabian(Espanol)-1.2.jar">Plugin (Espa&ntilde;ol)</a>
-
-      <p>Export filters for preparation of bibliographies according to the Turabian style.
-      </p>
+      Since JabRef 2.8, this behavior is built-in</p>
 
       <h4 id="Lehner">Christoph Lehner's plugins</h4>
       <p><em>by Christoph Lehner</em></p>
