@@ -107,7 +107,7 @@
       by <acronym>JabRef</acronym> is <acronym>BibTeX</acronym>,
       the standard <acronym>LaTeX</acronym> bibliography format.
       <acronym>JabRef</acronym> runs on the Java VM (version
-      1.5 or newer), and should work equally well on Windows,
+      1.6 or newer), and should work equally well on Windows,
       Linux and Mac OS X.</p>
 
       <p><acronym>BibTeX</acronym> is an application and a bibliography file format

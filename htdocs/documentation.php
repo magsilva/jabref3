@@ -74,19 +74,19 @@
 
       <h4 id="linux">Linux</h4>
 
-      <p>You must have Java 1.5 or newer installed. Most current Linux
-      distributions offer both Java 1.5 and 1.6 from their
-      repositories. For instance, in Ubuntu 7.10, if you have enabled
-      the <code>non-free</code> repository, you can install Java by
+      <p>You must have Java 1.6 or newer installed. Most current Linux
+      distributions offer both Java 1.6 and 1.7 from their
+      repositories. For instance, in Ubuntu 12.04 LTS, if you have enabled
+      the <code>universe</code> repository, you can install Java by
       typing the command
       </p>
-      <pre>sudo apt-get install sun-java6-jre</pre>
+      <pre>sudo apt-get install default-jre</pre>
       <p>and entering your password, or by installing the package
-      <code>sun-java6-jre</code> in Synaptic.</p>
+      <code>default-jre</code> in Synaptic.</p>
 
       <p>Your Linux distro might offer <acronym>JabRef</acronym> through its repositories - e.g. Ubuntu
-	offers <acronym>JabRef</acronym> in its <code>Multiverse</code> repositories, and Debian offers
-	<acronym>JabRef</acronym> in its <code>unstable</code>
+      offers <acronym>JabRef</acronym> in its <code>universe</code> repositories, and Debian offers
+      <acronym>JabRef</acronym> in its <code>unstable</code>
       version. After installing the application through the package
       manager, you can typically run it from the standard application
       menu (for instance, Ubuntu places it in the <i>Office</i>
@@ -119,7 +119,8 @@
 
       <p>Mac users should download the OSX zip file available from our download page.
       This zip file unzips into an application directory which is run similarly to other
-      applications. Recent versions of Mac OS X should come with Java 1.5 or 1.6 preinstalled.
+      applications. Mac OS X 10.6 and 10.7 come with Java 1.6 preinstalled.
+      For Mac OS X 10.8, Java 7 can be downloaded at <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1637588.html">Oracle</a>.
       </p>
     </div>
     <?php include("footer.php"); ?>
