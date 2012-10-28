@@ -1,7 +1,0 @@
-
-* Mulighet for superskript for cite-markør.
-
-* BUG: med nummererte entries og sort by position stemmer ikke rekkefølgen i ref-listen med
-  numrene i teksten. Kan det være at ref-merkene ikke alltid kommer i riktig rekkefølge
-  ved bruk av getCitedKeys() ?
-
