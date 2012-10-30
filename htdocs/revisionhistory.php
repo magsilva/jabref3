@@ -81,7 +81,7 @@
 
     <div class="aversion" id="v2.9b">
 
-    <h3>Version 2.9 (October 24th, 2012)</h3>
+    <h3>Version 2.9 beta (October 24th, 2012)</h3>
     <div class="version_desc">
     <ul>
       <li>Replaced notification dialog after moving/renaming linked file by status message.</li>
