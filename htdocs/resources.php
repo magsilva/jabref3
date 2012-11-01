@@ -18,6 +18,7 @@
       <h3 id="tools_rightpanel">External tools</h3>
       <ul>
         <li><a href="#OOtool">JabRef formatter</a></li>
+        <li><a href="#PocketBib">PocketBib</a></li>
       </ul>
 
       <h3 id="plugins_rightpanel">Plugins</h3>
@@ -64,12 +65,19 @@
 
       <h3 id="OOtool">JabRef formatter</h3>
       <p><em>by Felix Wilke</em></p>
-    
+
       <p>The JabRef formatter is a LibreOffice spreadsheet that lets you build
       HTML, RTF or OpenOffice/LibreOffice export filters, as well as jstyle files
       for direct integration with OpenOffice or LibreOffice.</p>
 
       <a href="tools/jabref_formatter.ods">JabRef formatter</a>
+
+      <h3 id="PocketBib">PocketBib</h3>
+      <p><em>by Graham Dennis</em></p>
+
+      <p>PocketBib is a BibTeX library reader for iPads and iPhones that's compatible with JabRef.  With PocketBib you can search, browse and read the linked papers in your library, and synchronise them over Dropbox.</p>
+
+      <a href="http://www.grahamdennis.me/pocketbib/">PocketBib</a>
 
       <h2 id="plugins">Plugins</h2>
 
