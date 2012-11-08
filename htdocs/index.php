@@ -29,13 +29,15 @@
 
       <a href="http://sourceforge.net/projects/jabref/files/jabref/2.8.1"><img src="images/Download-stable.png" alt="Download current stable version" /></a>
 
-      <?php
-      // <a href="download.php#beta"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
-      ?>
+      <a href="download.php#beta"><img src="images/Download-beta.png" alt="Download latest beta version" /></a>
+
 
       <h3 id="News">News</h3>
 
       <ul class="history_column">
+
+	<li class="item">October 24th, 2012</li>
+	<li class="item_desc">Version 2.9 beta</li>
 
         <li class="item">July 4th, 2012</li>
         <li class="item_desc">Version 2.8.1</li>

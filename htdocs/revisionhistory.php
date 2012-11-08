@@ -81,68 +81,58 @@
 
     <div class="aversion" id="v2.9b">
 
-    <h3>Version 2.9 beta (October 24th, 2012)</h3>
-    <div class="version_desc">
-    <ul>
-      <li>Replaced notification dialog after moving/renaming linked file by status message.</li>
-      <li>Replaced dialog warnings about empty/duplicate key in entry editor by status line messages,
-      to prevent lockup if Save button is pressed directly.</li>
-      <li>Replaced window icon with 48x48 image.</li>
-      <li>Added local undo/redo handling for entry editor text fields.</li>
-      <li>Added special field functionality for ranking, marking as relevant,
-      marking as quality assured, and prioritizing. Can be enabled by &ldquo&;Entry table columns&rdquo&;.
-      Based on the work by Igor Chernyavsky, Florian Straﬂer, and Marius Kleiner.</li>
-      <li>Added PDF preview functionality to the preview panel. Configurable via &ldquo&;Entry preview&rdquo&; settings.</li>
-      <li>Group edit dialog now closes when Escape is pressed.</li>
-      <li>Fixed MS bib import, month was lost on import.</li>
-      <li>Generate key action in entry editor now honors key overwrite settings.</li>
-      <li>Fixed bug when importing XMP data from PDF, file will now be linked from the new entry.</li>
-      <li>Fixed bug in layout processing - quoted formatter argments are now handled correctly.</li>
-      <li>Fixed bug 3545394: null and curly brackets in custom export filter.</li>
-      <li>Added &ldquo&;Manage keywords&rdquo&; popup menu to manage common keywords of selected entries.</li>
-      <li>Added support for pushing citations to TeXstudio (requires TeXstudio >=2.4)</li>
-      <li>Text-based citations can now be imported using <a href="http://freecite.library.brown.edu">FreeCite by Brown University</a>. By Kai Mindermann and Daniel Maurer.</li>
-      <li>JabRef supports synchronization of unlinked PDFs. Feature request &ldquo&;[2163626] Scan database - find unlinked files&rdquo&;.
-      Based on patch 3122104.</li>
-      <li>Added command line argument -d/-prdef for resetting preferences to default values. Can
-      reset a comma-separated list of preference values, or all values.</li>
-      <li>Added small right-click popup menu at each tab</li>
-      <li>A PDF can also be dropped to the preview panel to trigger linking it</li>
-      <li>Drag'n'drop of text from the preview panel to other applications is now working</li>
-      <li>Added highlighting in preview area for search text (based on patch 3121914 by
-      Maximilian Lengsfeld).</li>
-      <li>New context menu option &ldquo&;Switch preview layout&rdquo&; in the preview panel. </li>
-      <li>BibTeX key generator patterns can now be stored in per database (implements feature 3495993)</li>
-      <li>Braces around author names are now dropped internally. They remain in the .bib though
-      Effects (incomplete list): Authors in the main window are shown without braces,
-      autocompletion does not show these braces</li>
-      <li>Autocompletion: &ldquo&;;&rdquo&; is now also a delimiter allowing &ldquo&;keyword1; keyword2&rdquo&; in the keyword fields</li>
-      <li>Autocompletion: the amount of characters to trigger autocompletion may now be configured
-      (default is 2)</li>
-      <li>Autocompletion: in case lower case letters are used, the search is case-insenstive,
-      otherwise the search is case sensitive.</li>
-      <li>Autocompletion: new preference to choose how to deal with first names 
-      (always full/always abbreviated/both full and abbreviated)</li>
-      <li>Added functionality &ldquo&;clean up entries&rdquo&;
-      <ul>
-        <li>Includes clean up DOI functionality by Florian Straﬂer and Marius Kleiner
-          (move of DOIs from ee, note, and url field is supported)</li>
-        <li>Option to rename PDF of entry according to configured PDF-naming-scheme</li>
-          (by Florian Straﬂer and Marius Kleiner)</li>
-        <li>make file paths relative</li>
-        <li>clean up month (functionality based on patch 3470076 by Mathias Walter)</li>
-        <li>clean up pages</li>
-        <li>fix superscripts</li>
-      </ul>
-    </li>
-    <li>New &ldquo&;ISBN to BibTeX&rdquo&; fetcher. Uses the online &ldquo&;ISBN to BibTeX Converter&rdquo&; service by Manas Tungare.</li>
-    <li>Added support for drag'n'drop of tabs by Florian Straﬂer and Marius Kleiner.</li>
-    <li>PDF import dialog now always stores settings: checkbox removed</li>
-    <li>float search now also jumps to first entry if entry editor is opened</li>
-    <li>usability improvements of &ldquo&;content selectors&rdquo&;</li>
-    </ul>
+      <h3>Version 2.9 beta (October 24th, 2012)</h3>
+        <div class="version_desc">
+          <ul>
+            <li>Replaced notification dialog after moving/renaming linked file by status message.</li>
+            <li>Replaced dialog warnings about empty/duplicate key in entry editor by status line messages, to prevent lockup if Save button is pressed directly.</li>
+            <li>Replaced window icon with 48x48 image.</li>
+            <li>Added local undo/redo handling for entry editor text fields.</li>
+            <li>Added special field functionality for ranking, marking as relevant, marking as quality assured, and prioritizing. Can be enabled by &quot;Entry table columns&quot;. Based on the work by Igor Chernyavsky, Florian Stra&szlig;er, and Marius Kleiner.</li>
+            <li>Added PDF preview functionality to the preview panel. Configurable via &quot;Entry preview&quot; settings.</li>
+            <li>Group edit dialog now closes when Escape is pressed.</li>
+            <li>Fixed MS bib import, month was lost on import.</li>
+            <li>Generate key action in entry editor now honors key overwrite settings.</li>
+            <li>Fixed bug when importing XMP data from PDF, file will now be linked from the new entry.</li>
+            <li>Fixed bug in layout processing - quoted formatter argments are now handled correctly.</li>
+            <li>Fixed bug 3545394: null and curly brackets in custom export filter.</li>
+            <li>Added &quot;Manage keywords&quot; popup menu to manage common keywords of selected entries.</li>
+            <li>Added support for pushing citations to TeXstudio (requires TeXstudio >=2.4)</li>
+            <li>Text-based citations can now be imported using <a href="http://freecite.library.brown.edu">FreeCite by Brown University</a>. By Kai Mindermann and Daniel Maurer.</li>
+            <li>JabRef supports synchronization of unlinked PDFs. Feature request &quot;[2163626] Scan database - find unlinked files&quot;. Based on patch 3122104.</li>
+            <li>Added command line argument -d/-prdef for resetting preferences to default values. Can reset a comma-separated list of preference values, or all values.</li>
+            <li>Added small right-click popup menu at each tab</li>
+            <li>A PDF can also be dropped to the preview panel to trigger linking it</li>
+            <li>Drag'n'drop of text from the preview panel to other applications is now working</li>
+            <li>Added highlighting in preview area for search text (based on patch 3121914 by Maximilian Lengsfeld).</li>
+            <li>New context menu option &quot;Switch preview layout&quot; in the preview panel. </li>
+            <li>BibTeX key generator patterns can now be stored in per database (implements feature 3495993)</li>
+            <li>Braces around author names are now dropped internally. They remain in the .bib though. Effects (incomplete list): Authors in the main window are shown without braces, autocompletion does not show these braces</li>
+            <li>Autocompletion: &quot;;&quot; is now also a delimiter allowing &quot;keyword1; keyword2&quot; in the keyword fields</li>
+            <li>Autocompletion: the amount of characters to trigger autocompletion may now be configured (default is 2)</li>
+            <li>Autocompletion: in case lower case letters are used, the search is case-insenstive, otherwise the search is case sensitive.</li>
+            <li>Autocompletion: new preference to choose how to deal with first names (always full/always abbreviated/both full and abbreviated)</li>
+            <li>Added functionality &quot;clean up entries&quot;
+              <ul>
+                <li>Includes clean up DOI functionality by Florian Stra&szlig;er and Marius Kleiner (move of DOIs from ee, note, and url field is supported)</li>
+                <li>Option to rename PDF of entry according to configured PDF-naming-scheme (by Florian Stra&szlig;er and Marius Kleiner)</li>
+                <li>make file paths relative</li>
+                <li>clean up month (functionality based on patch 3470076 by Mathias Walter)</li>
+                <li>clean up pages</li>
+                <li>fix superscripts</li>
+              </ul>
+            </li>
+            <li>New &quot;ISBN to BibTeX&quot; fetcher. Uses the online &quot;ISBN to BibTeX Converter&quot; service by Manas Tungare.</li>
+            <li>Added support for drag'n'drop of tabs by Florian Stra&szlig;er and Marius Kleiner.</li>
+            <li>PDF import dialog now always stores settings: checkbox removed</li>
+            <li>float search now also jumps to first entry if entry editor is opened</li>
+            <li>usability improvements of &quot;content selectors&quot;</li>
+          </ul>
         </div>
       </div>
+
+
+      <div class="aversion" id="v2.8.1">
 
         <h3>Version 2.8.1 (July 4th, 2012)</h3>
         <div class="version_desc">
@@ -1849,6 +1839,7 @@
           First release of JabRef
         </div>
       </div>
+    </div>
     </div>
     <?php include("footer.php"); ?>
   
