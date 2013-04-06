@@ -1,0 +1,265 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.sf.jabref</groupId>
+	<artifactId>jabref</artifactId>
+	<packaging>jar</packaging>
+	<version>2.9</version>
+
+
+	<name>JabRef</name>
+	<description>Reference Manager</description>
+	<url>http://jabref.sourceforge.net/</url>
+	<inceptionYear>2003</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License (GPL) 2</name>
+			<url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
+		</license>
+	</licenses>
+
+
+	<repositories>
+		<repository>
+			<id>labes-pc-010808-releases</id>
+			<url>http://www.ironiacorp.com/Apps/Artifactory/repo</url>
+		</repository>
+
+		<repository>
+			<id>java.net</id>
+			<url>https://maven.java.net/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4.11,)</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>3.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.jgoodies</groupId>
+			<artifactId>jgoodies-common</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jgoodies</groupId>
+			<artifactId>jgoodies-looks</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jgoodies</groupId>
+			<artifactId>jgoodies-forms</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.glazedlists</groupId>
+			<artifactId>glazedlists_java15</artifactId>
+			<version>1.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>spin</groupId>
+			<artifactId>spin</artifactId>
+			<version>[1.5,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>[1.1.1,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>jempbox</artifactId>
+			<version>[1.7.0,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>[1.7.1,)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.michaelbaranov</groupId>
+			<artifactId>microba</artifactId>
+			<version>0.4.4.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jpf</groupId>
+			<artifactId>jpf</artifactId>
+			<version>[1.5,)</version>
+			<scope>runtime</scope>
+		</dependency>
+	
+		<dependency>
+			<groupId>net.sf.jpf</groupId>
+			<artifactId>jpf-boot</artifactId>
+			<version>[1.5,)</version>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<directory>target</directory>
+
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/test</testSourceDirectory>
+
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+
+		<resources>
+			<resource>
+				<targetPath>resource/</targetPath>
+				<filtering>false</filtering>
+				<directory>${project.basedir}/resource</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<fork>true</fork>
+					<meminitial>128m</meminitial>
+					<maxmem>512m</maxmem>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<classesDirectory>${project.build.outputDirectory}</classesDirectory>
+					<finalName>jabref</finalName>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<mainClass>net.sf.jabref.JabRef</mainClass>
+							<packageName>jabref</packageName>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!--
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			        <executions>
+					<execution>
+						<phase>package</phase>
+			            		<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			-->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>antlr-maven-plugin</artifactId>
+				<version>2.2</version>
+        		<configuration>
+					<grammars>Parser.g,TreeParser.g,Lexer.g</grammars>
+					<sourceDirectory>${project.build.sourceDirectory}/net/sf/jabref/search</sourceDirectory>
+					<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr3-maven-plugin</artifactId>
+				<version>3.5</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>antlr</goal>
+						</goals>
+						<configuration>
+                			<sourceDirectory>>${project.build.sourceDirectory}/net/sf/jabref/bst</sourceDirectory>
+                			<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-clean-plugin</artifactId>
+			    <version>2.5</version>
+				<configuration>
+					<filesets>
+					    <fileset>
+							<directory>${project.build.sourceDirectory}/net/sf/jabref/search</directory>
+							<includes>
+								<include>SearchExpressionLexer*.java</include>
+								<include>SearchExpressionParser*.java</include>
+								<include>SearchExpressionTreeParser*.java</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					    
+						<fileset>
+							<directory>${project.build.sourceDirectory}/net/sf/jabref/bst</directory>
+							<includes>
+								<include>BstLexer*.java</include>
+								<include>BstParser*.java</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

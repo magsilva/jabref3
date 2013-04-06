@@ -1,0 +1,6 @@
+Build requirements
+---
+
+* OpenOffice or LibreOffice development libraries
+	* /usr/lib64/libreoffice/ure/share/java/
+	* /usr/lib64/libreoffice/program/classes/unoil.jar
