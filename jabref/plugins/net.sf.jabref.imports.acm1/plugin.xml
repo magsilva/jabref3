@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="net.sf.jabref.imports.acm1" version="1.0">
+	
+	<requires>
+		<import plugin-id="net.sf.jabref.core"/>
+	</requires>
+	
+	<!-- Will load code and resources from the home folder -->
+	<runtime>
+		<library type="code" path="./" id="code"/>
+		<library type="resources" path="./" id="resouces"/>
+	</runtime>
+	
+	<extension id="ACMFetcher" plugin-id="net.sf.jabref.core"
+		point-id="EntryFetcher">
+		<parameter id="entryFetcher"
+			value="net.sf.jabref.imports.ACMFetcher" />
+		<parameter id="name" value="ACM Entry Fetcher" />
+		<parameter id="description"
+			value="Fetch Entries from ACM digital library." />
+	</extension>
+
+</plugin>

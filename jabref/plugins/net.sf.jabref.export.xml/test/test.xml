@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file xmlns="http://bibtexml.sf.net/">
+  <entry id="bib.book.doc_soft_arch">
+    <book>
+      <title>Documenting Software Architectures: Views and Beyond</title>
+      <publisher>Addison-Wesley Professional</publisher>
+      <year>2002</year>
+      <author>Clements, Paul</author>
+      <author>Bachmann, Felix</author>
+      <author>Bass, Len</author>
+      <author>Garlan, David</author>
+      <author>Ivers, James</author>
+      <author>Little, Reed</author>
+      <author>Nord, Robert</author>
+      <author>Stafford, Judith</author>
+      <isbn>0201703726</isbn>
+      <price>$55.69</price>
+    </book>
+  </entry>
+  <entry id="bib.book.org_pat_agile">
+    <book>
+      <title>Organizational Patterns of Agile Software Development</title>
+      <publisher>Prentice Hall PTR</publisher>
+      <year>2004</year>
+      <author>Coplien, James O.</author>
+      <author>Harrison, Neil B.</author>
+      <isbn>0131467409</isbn>
+      <price>$37.35</price>
+    </book>
+  </entry>
+  <entry id="bib.book.understanding_users">
+    <book>
+      <title>Understanding Your Users: A Practical Guide to User Requirements Methods, Tools, and Techniques (Interactive Technologies)</title>
+      <publisher>Morgan Kaufmann</publisher>
+      <year>2004</year>
+      <author>Courage, Catherine</author>
+      <author>Baxter, Kathy</author>
+      <month>12</month>
+      <isbn>1558609350</isbn>
+      <price>$62.95</price>
+      <totalpages>704</totalpages>
+      <url>http://amazon.com/o/ASIN/1558609350/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.odt_essentials">
+    <book>
+      <title>OASIS OpenDocument Essentials</title>
+      <publisher>O’Reilly \&amp;amp; Associates, Inc.</publisher>
+      <year>2005</year>
+      <author>Eisenberg, J. David</author>
+      <month>December</month>
+      <url>http://books.evc-cit.info/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.kovitz">
+    <book>
+      <title>Practical Software Requirements: A Manual of Content and Style</title>
+      <publisher>Manning Publications</publisher>
+      <year>1998</year>
+      <author>Kovitz, Benjamin L.</author>
+      <isbn>1884777597</isbn>
+      <price>$47.95</price>
+    </book>
+  </entry>
+  <entry id="bib.book.soft_req_styles_tech">
+    <book>
+      <title>Software Requirements: Styles and Techniques</title>
+      <publisher>Addison-Wesley Professional</publisher>
+      <year>2002</year>
+      <author>Lauesen, Soren</author>
+      <abstract>Suitable for most any IT professional who wants to build better software, Software Requirements: Styles and Techniques offers a surprisingly readable textbook-style treatment of software engineering's numerous attempts to get it right with defining requirements. Surveying nearly every conceivable style of defining requirements, yet remaining thoroughly practical, this book can let your organization do more with its requirements documents, which is a good step to creating software that ...</abstract>
+      <isbn>0201745704</isbn>
+      <price>$43.05</price>
+    </book>
+  </entry>
+  <entry id="bib.book.req_management">
+    <book>
+      <title>Managing Software Requirements</title>
+      <publisher>Pearson Education</publisher>
+      <year>2003</year>
+      <author>Leffingwell, Dean</author>
+      <edition>2</edition>
+      <isbn>032112247X</isbn>
+    </book>
+  </entry>
+  <entry id="bib.book.req_analysis">
+    <book>
+      <title>Requirements Analysis and System Design</title>
+      <publisher>Addison Wesley Publishing Company</publisher>
+      <year>2005</year>
+      <author>Maciaszek, Leszek A.</author>
+      <edition>2 Pap/Cdr</edition>
+      <month>1</month>
+      <isbn>0321204646</isbn>
+      <price>$99.50</price>
+      <totalpages>464</totalpages>
+      <url>http://amazon.com/o/ASIN/0321204646/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.pyramid">
+    <book>
+      <title>The Pyramid Principle: Present Your Thinking So Clearly That the Ideas Jump Off the Page and into the Reader's Mind</title>
+      <publisher>Financial Times / Prentice Hall</publisher>
+      <year>2001</year>
+      <author>Minto, Barbara</author>
+      <isbn>0273659030</isbn>
+      <price>EUR 56,95</price>
+      <url>http://amazon.de/o/ASIN/0273659030/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.docbook-xsl">
+    <book>
+      <title>DocBook XSL: The Complete Guide</title>
+      <publisher>Sagehill Enterprises</publisher>
+      <year>2002, 2003</year>
+      <author>Stayton, Bob</author>
+      <edition>3</edition>
+      <url>http://www.sagehill.net/docbookxsl/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.docbook-tdg">
+    <book>
+      <title>DocBook: The Definitive Guide</title>
+      <publisher>O'Reilly \&amp;amp; Associates, Inc</publisher>
+      <year>1999, 2000-2003, 2005</year>
+      <author>Walsh, Norman</author>
+      <author>Muellner, Leonard</author>
+      <edition>2</edition>
+      <url>http://docbook.org/tdg/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.software_req">
+    <book>
+      <title>Software Requirements, Second Edition</title>
+      <publisher>Microsoft Press</publisher>
+      <year>2003</year>
+      <author>Wiegers, Karl E.</author>
+      <edition>2 Sub</edition>
+      <month>2</month>
+      <isbn>0735618798</isbn>
+      <price>$39.99</price>
+      <totalpages>430</totalpages>
+      <url>http://amazon.com/o/ASIN/0735618798/</url>
+    </book>
+  </entry>
+  <entry id="bib.book.req_engineering">
+    <book>
+      <title>Requirements Engineering: Frameworks for Understanding</title>
+      <publisher>John Wiley \&amp;amp; Sons Ltd.</publisher>
+      <year>1995</year>
+      <author>Wieringa, Roel J.</author>
+      <comment>ISBN: 0 471 95884 0</comment>
+    </book>
+  </entry>
+</file>
+
