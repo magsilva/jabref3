@@ -38,6 +38,8 @@ public class ImportSettingsTab extends JPanel implements PrefsTab {
             "\\bibtexkey",
             "\\bibtexkey\\begin{title} - \\format[RemoveBrackets]{\\title}\\end{title}"
     };
+    
+	public final static Object DEFAULT_STYLE = "importDefaultPDFimportStyle";
 	
     private JRadioButton radioButtonXmp;
 	private JRadioButton radioButtonPDFcontent;
