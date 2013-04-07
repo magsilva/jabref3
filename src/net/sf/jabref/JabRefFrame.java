@@ -805,7 +805,7 @@ public JabRefPreferences prefs() {
     
 
   private void macOSXRegistration() {
-    if (Globals.osName.equals(Globals.MAC)) {
+    if (Globals.ON_MAC) {
       try {
         Class<?> osxAdapter = Class.forName("osxadapter.OSXAdapter");
 

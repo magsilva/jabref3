@@ -172,9 +172,19 @@
 				<filtering>false</filtering>
 				<directory>${project.basedir}/resource</directory>
 				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+
+			<resource>
+				<targetPath>plugins</targetPath>
+				<filtering>false</filtering>
+				<directory>${project.basedir}/plugins</directory>
+				<includes>
 					<include>**</include>
 				</includes>
 			</resource>
+			
 		</resources>
 
 		<plugins>

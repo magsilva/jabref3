@@ -33,6 +33,8 @@ public abstract class _JabRefXmlPlugin extends Plugin {
 						ext.getDeclaringPluginDescriptor().getId()), ext));
 			} catch (PluginLifecycleException e) {
 				log.error("Failed to activate plug-in " + ext.getDeclaringPluginDescriptor().getId(), e);
+			} catch (Exception e) {
+				log.error("Failed to activate plug-in " + ext.getDeclaringPluginDescriptor().getId(), e);
 			}
 		}
         return result;

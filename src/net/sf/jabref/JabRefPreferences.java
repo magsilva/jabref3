@@ -146,7 +146,7 @@ public class JabRefPreferences {
         
         prefs = Preferences.userNodeForPackage(JabRef.class);
         
-        if (Globals.osName.equals(Globals.MAC)) {
+        if (Globals.ON_MAC) {
 			//defaults.put("pdfviewer", "/Applications/Preview.app");
 			//defaults.put("psviewer", "/Applications/Preview.app");
 			//defaults.put("htmlviewer", "/Applications/Safari.app");

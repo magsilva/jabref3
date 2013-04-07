@@ -223,9 +223,6 @@ public class BibtexFields
     dummy.setDisplayable(false);
     add(dummy) ;
 
-     // read external field definitions
-    readXML( Globals.additionalFields ) ;
-
     // collect all public fields for the PUBLIC_FIELDS array
     Vector<String> pFields = new Vector<String>( fieldSet.size()) ;
     for (BibtexSingleField sField : fieldSet.values()){

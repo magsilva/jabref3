@@ -13,6 +13,7 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
+
 package net.sf.jabref;
 
 import java.awt.Toolkit;
@@ -41,43 +42,86 @@ import net.sf.jabref.util.TBuildInfo;
 import net.sf.jabref.export.AutoSaveManager;
 
 
-public class Globals {
-
+public class Globals
+{
 	private static int SHORTCUT_MASK = -1;
-    public static int
-		FUTURE_YEAR = 2050, // Needs to give a year definitely in the future.
-		// Used for guessing the
-		// year field when parsing textual data. :-)
 
-		STANDARD_EXPORT_COUNT = 5, // The number of standard export formats.
-		METADATA_LINE_LENGTH = 70; // The line length used to wrap metadata.
+	/**
+	 * Used for guessing the year field when parsing textual data.
+	 *
+	 * Needs to give a year definitely in the future. :-)
+	 */
+	public static final int FUTURE_YEAR = 2050;
+
+	/**
+	 * The line length used to wrap metadata.
+	 */
+	public static int METADATA_LINE_LENGTH = 70; 
     
-    // used at highlighting in preview area. 
-    // Color chosen similar to JTextComponent.getSelectionColor(), which is
-    // used at highlighting words at the editor 
+    /**
+     * Used at highlighting in preview area.
+     * 
+     *  Color chosen similar to JTextComponent.getSelectionColor(), which is used
+     *  at highlighting words at the editor.
+     */ 
     public static final String highlightColor = "#3399FF";
 
-	private static String resourcePrefix = "resource/JabRef", menuResourcePrefix = "resource/Menu",
-		integrityResourcePrefix = "resource/IntegrityMessage";
 
-	private static final String buildInfos = "/resource/build.properties";
-
-    public static String JOURNALS_FILE_BUILTIN = "/resource/journalList.txt";
-	/*
-	 * some extra field definitions
+	/**
+	 * Current application locale.
 	 */
-	public static final String additionalFields = "/resource/fields/fields.xml";
+	public static Locale locale;
 
-	public static ResourceBundle messages, menuTitles, intMessages;
+    
+    /**
+     * Resource bundle for general application's messages.
+     */
+	public static ResourceBundle messages;
 
+    /**
+     * Location and prefix for translation files for the application.
+     */
+	private static final String resourcePrefix = "messages/JabRef";
+
+
+    /**
+     * Resource bundle for menu messages.
+     */
+	public static ResourceBundle menuTitles;
+	
+    /**
+     * Location and prefix for translation files for the menu.
+     */
+	private static final String menuResourcePrefix = "messages/Menu";
+
+	
+	/**
+     * Resource bundle for integrity checking (error) messages.
+     */
+	public static ResourceBundle intMessages;
+
+    /**
+     * Location and prefix for translation files for integrity check messages.
+     */
+	private static final String integrityResourcePrefix = "messages/IntegrityMessage";
+
+
+    public static final String JOURNALS_FILE_BUILTIN = "/journalList.txt";
+
+    
 	public static FileUpdateMonitor fileUpdateMonitor;
 
 	public static ImportFormatReader importFormatReader = new ImportFormatReader();
 
 	public static ErrorConsole errorConsole;
 
-	public static String VERSION, BUILD, BUILD_DATE;
 
+    /**
+     * Release information.
+     */
+	private static final String buildInfos = "/build.properties";
+
+	public static String VERSION, BUILD, BUILD_DATE;
 	static {
 		TBuildInfo bi = new TBuildInfo(buildInfos);
 		VERSION = bi.getBUILD_VERSION();
@@ -86,33 +130,36 @@ public class Globals {
 
 	}
 
-	public static Locale locale;
 
-	public static final String FILETYPE_PREFS_EXT = "_dir", SELECTOR_META_PREFIX = "selector_",
-        PROTECTED_FLAG_META = "protectedFlag",
-        LAYOUT_PREFIX = "/resource/layout/", MAC = "Mac OS X",
-		DOI_LOOKUP_PREFIX = "http://dx.doi.org/", NONE = "_non__",
-		ARXIV_LOOKUP_PREFIX = "http://arxiv.org/abs/",
-		FORMATTER_PACKAGE = "net.sf.jabref.export.layout.format.";
+	public static final String FILETYPE_PREFS_EXT = "_dir";
+	
+	public static final String SELECTOR_META_PREFIX = "selector_";
+	
+	public static final String PROTECTED_FLAG_META = "protectedFlag";
+	
+	public static final String LAYOUT_PREFIX = "/layout/";
+	
+	public static final String DOI_LOOKUP_PREFIX = "http://dx.doi.org/";
+	
+	public static final String NONE = "_non__";
+	
+	public static final String ARXIV_LOOKUP_PREFIX = "http://arxiv.org/abs/";
+	
+	public static final String FORMATTER_PACKAGE = "net.sf.jabref.export.layout.format.";
 
     private static Handler consoleHandler;
 
-	public static String[] ENCODINGS, ALL_ENCODINGS = // (String[])
-		// Charset.availableCharsets().keySet().toArray(new
-		// String[]{});
-		new String[] { "ISO8859_1", "UTF8", "UTF-16", "ASCII", "Cp1250", "Cp1251", "Cp1252",
-			"Cp1253", "Cp1254", "Cp1257", "SJIS",
-            "KOI8_R", // Cyrillic
-			"EUC_JP", // Added Japanese encodings.
-			"Big5", "Big5_HKSCS", "GBK", "ISO8859_2", "ISO8859_3", "ISO8859_4", "ISO8859_5",
-			"ISO8859_6", "ISO8859_7", "ISO8859_8", "ISO8859_9", "ISO8859_13", "ISO8859_15" };
-    public static Map<String,String> ENCODING_NAMES_LOOKUP;
-
-    // String array that maps from month number to month string label:
-	public static String[] MONTHS = new String[] { "jan", "feb", "mar", "apr", "may", "jun", "jul",
-		"aug", "sep", "oct", "nov", "dec" };
+    /**
+     * Months of the year.
+     */
+	public static String[] MONTHS = {
+		"jan", "feb", "mar", "apr", "may", "jun",
+		"jul", "aug", "sep", "oct", "nov", "dec"
+	};
 	
-	// Map that maps from month string labels to
+	/**
+	 * Map month abbreviation to full month name.
+	 */
 	public static Map<String, String> MONTH_STRINGS = new HashMap<String, String>();
 	static {
 		MONTH_STRINGS.put("jan", "January");
@@ -127,44 +174,68 @@ public class Globals {
 		MONTH_STRINGS.put("oct", "October");
 		MONTH_STRINGS.put("nov", "November");
 		MONTH_STRINGS.put("dec", "December");
+	}
 
-		// Build list of encodings, by filtering out all that are not supported
-		// on this system:
-		List<String> encodings = new ArrayList<String>();
-		for (int i = 0; i < ALL_ENCODINGS.length; i++) {
-			if (Charset.isSupported(ALL_ENCODINGS[i])) {
-				encodings.add(ALL_ENCODINGS[i]);
+	/**
+	 * Available charset encoding.
+	 */
+	public static String[] ENCODINGS;
+	
+	/**
+	 * Pretty name for available encodings.
+	 */
+	public static Map<String, String> ENCODING_NAMES_LOOKUP;
+	static {
+		 // Partially retrieved from Charset.availableCharsets().keySet().toArray(new String[]{});
+		String[] availableEncodings = {
+			"ISO8859_1",
+			"UTF8", "UTF-16",
+			"ASCII",
+			"Cp1250", "Cp1251", "Cp1252", "Cp1253", "Cp1254", "Cp1257", "SJIS",
+			"KOI8_R", // Cyrillic
+			"EUC_JP", // Added Japanese encodings.
+			"Big5", "Big5_HKSCS", "GBK",
+			"ISO8859_2", "ISO8859_3", "ISO8859_4", "ISO8859_5",	"ISO8859_6", "ISO8859_7", "ISO8859_8", "ISO8859_9", "ISO8859_13", "ISO8859_15"
+		};
+		List<String> availableEncodingsTemp = new ArrayList<String>(availableEncodings.length);
+
+		Map<String, String> encodingPrettyNames = new HashMap<String, String>();
+		encodingPrettyNames.put("Cp1250", "windows-1250");
+		encodingPrettyNames.put("Cp1251", "windows-1251");
+		encodingPrettyNames.put("Cp1252", "windows-1252");
+		encodingPrettyNames.put("Cp1253", "windows-1253");
+		encodingPrettyNames.put("Cp1254", "windows-1254");
+		encodingPrettyNames.put("Cp1257", "windows-1257");
+		encodingPrettyNames.put("ISO8859_1", "ISO-8859-1");
+		encodingPrettyNames.put("ISO8859_2", "ISO-8859-2");
+		encodingPrettyNames.put("ISO8859_3", "ISO-8859-3");
+		encodingPrettyNames.put("ISO8859_4", "ISO-8859-4");
+		encodingPrettyNames.put("ISO8859_5", "ISO-8859-5");
+		encodingPrettyNames.put("ISO8859_6", "ISO-8859-6");
+		encodingPrettyNames.put("ISO8859_7", "ISO-8859-7");
+		encodingPrettyNames.put("ISO8859_8", "ISO-8859-8");
+		encodingPrettyNames.put("ISO8859_9", "ISO-8859-9");
+		encodingPrettyNames.put("ISO8859_13", "ISO-8859-13");
+		encodingPrettyNames.put("ISO8859_15", "ISO-8859-15");
+		encodingPrettyNames.put("KOI8_R", "KOI8-R");
+		encodingPrettyNames.put("UTF8", "UTF-8");
+		encodingPrettyNames.put("UTF-16", "UTF-16");
+		encodingPrettyNames.put("SJIS", "Shift_JIS");
+		encodingPrettyNames.put("GBK", "GBK");
+		encodingPrettyNames.put("Big5_HKSCS", "Big5-HKSCS");
+		encodingPrettyNames.put("Big5", "Big5");
+		encodingPrettyNames.put("EUC_JP", "EUC-JP");
+		encodingPrettyNames.put("ASCII", "US-ASCII");
+
+		// Filter out encodings that are not supported by the system
+        ENCODING_NAMES_LOOKUP = new HashMap<String,String>();
+		for (String encoding : availableEncodings) {
+			if (Charset.isSupported(encoding)) {
+				availableEncodingsTemp.add(encoding);
+				ENCODING_NAMES_LOOKUP.put(encoding, encodingPrettyNames.get(encoding));
 			}
 		}
-		ENCODINGS = encodings.toArray(new String[0]);
-        // Build a map for translating Java encoding names into common encoding names:
-        ENCODING_NAMES_LOOKUP = new HashMap<String,String>();
-        ENCODING_NAMES_LOOKUP.put("Cp1250", "windows-1250");
-        ENCODING_NAMES_LOOKUP.put("Cp1251", "windows-1251");
-        ENCODING_NAMES_LOOKUP.put("Cp1252", "windows-1252");
-        ENCODING_NAMES_LOOKUP.put("Cp1253", "windows-1253");
-        ENCODING_NAMES_LOOKUP.put("Cp1254", "windows-1254");
-        ENCODING_NAMES_LOOKUP.put("Cp1257", "windows-1257");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_1", "ISO-8859-1");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_2", "ISO-8859-2");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_3", "ISO-8859-3");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_4", "ISO-8859-4");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_5", "ISO-8859-5");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_6", "ISO-8859-6");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_7", "ISO-8859-7");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_8", "ISO-8859-8");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_9", "ISO-8859-9");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_13", "ISO-8859-13");
-        ENCODING_NAMES_LOOKUP.put("ISO8859_15", "ISO-8859-15");
-        ENCODING_NAMES_LOOKUP.put("KOI8_R", "KOI8-R");
-        ENCODING_NAMES_LOOKUP.put("UTF8", "UTF-8");
-        ENCODING_NAMES_LOOKUP.put("UTF-16", "UTF-16");
-        ENCODING_NAMES_LOOKUP.put("SJIS", "Shift_JIS");
-        ENCODING_NAMES_LOOKUP.put("GBK", "GBK");
-        ENCODING_NAMES_LOOKUP.put("Big5_HKSCS", "Big5-HKSCS");
-        ENCODING_NAMES_LOOKUP.put("Big5", "Big5");
-        ENCODING_NAMES_LOOKUP.put("EUC_JP", "EUC-JP");
-        ENCODING_NAMES_LOOKUP.put("ASCII", "US-ASCII");
+		ENCODINGS = availableEncodingsTemp.toArray(new String[0]);
     }
 
 	public static GlobalFocusListener focusListener;
@@ -177,16 +248,20 @@ public class Globals {
 
 	public static final String osName = System.getProperty("os.name", "def");
 
-	public static final boolean ON_MAC = (osName.equals(MAC)), ON_WIN = osName.startsWith("Windows");
+	public static final boolean ON_MAC = osName.equals("Mac OS X");
+	
+	public static final boolean ON_WIN = osName.startsWith("Windows");
 
 	public static final String[] SKIP_WORDS = { "a", "an", "the", "for", "on", "of" };
 	
 	public static final String SEPARATING_CHARS         = ";,\n ";
+	
 	public static final String SEPARATING_CHARS_NOSPACE = ";,\n";
 
 	public static SidePaneManager sidePaneManager;
 
 	public static final String NEWLINE = System.getProperty("line.separator");
+	
     public static final int NEWLINE_LENGTH = System.getProperty("line.separator").length();
 
     // Instantiate logger:
@@ -194,10 +269,6 @@ public class Globals {
     // private static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private static Logger logger = Logger.getLogger("global");
 
-    /**
-	 * true if we have unix newlines
-	 */
-	public static final boolean UNIX_NEWLINE = NEWLINE.equals("\n");
 
 	/**
 	 * 	"Fieldname" to indicate that a field should be treated as a bibtex 
@@ -206,7 +277,6 @@ public class Globals {
 	public static final String BIBTEX_STRING = "__string";
 
     public static void startBackgroundTasks() {
-
         focusListener = new GlobalFocusListener();
 
         // TODO: Error console initialization here. When should it be used?
@@ -214,8 +284,6 @@ public class Globals {
 
         fileUpdateMonitor = new FileUpdateMonitor();
         fileUpdateMonitor.start();
-
-
     }
 
     /**
@@ -406,13 +474,6 @@ public class Globals {
 
     public static String SPECIAL_COMMAND_CHARS = "\"`^~'c=";
 
-	public static HashMap<String, String> HTML_CHARS = new HashMap<String, String>();
-	public static HashMap<String, String> HTMLCHARS = new HashMap<String, String>();
-	public static HashMap<String, String> XML_CHARS = new HashMap<String, String>();
-	public static HashMap<String, String> ASCII2XML_CHARS = new HashMap<String, String>();
-	public static HashMap<String, String> UNICODE_CHARS = new HashMap<String, String>();
-	public static HashMap<String, String> RTFCHARS = new HashMap<String, String>();
-	public static HashMap<String, String> URL_CHARS = new HashMap<String,String>();
 
     public static int getShortcutMask() {
         if (SHORTCUT_MASK == -1)
@@ -424,11 +485,13 @@ public class Globals {
 
         return SHORTCUT_MASK;
     }
-	static {
 
-
-		// Special characters in URLs need to be replaced to ensure that the URL
-		// opens properly on all platforms:
+	/**
+	 * Special characters in URLs need to be replaced to ensure that the URL
+	 * opens properly on all platforms:
+	 */
+	public static Map<String, String> URL_CHARS = new HashMap<String,String>();
+    static {
 		URL_CHARS.put("<", "%3c");
 		URL_CHARS.put(">", "%3e");
 		URL_CHARS.put("(", "%28");
@@ -436,7 +499,10 @@ public class Globals {
 		URL_CHARS.put(" ", "%20");
 		URL_CHARS.put("&", "%26");
 		URL_CHARS.put("$", "%24");
-
+    }
+    
+	public static HashMap<String, String> HTMLCHARS = new HashMap<String, String>();
+	static {
 		// HTMLCHARS.put("\"a", "&auml;");
 		// HTMLCHARS.put("\"A", "&Auml;");
 		// HTMLCHARS.put("\"e", "&euml;");
@@ -688,7 +754,10 @@ public class Globals {
 		HTMLCHARS.put("vz", "&#382;"); // "zcaron"
 		// Symbol #383 (f) has no special Latex command
         HTMLCHARS.put("%", "%"); // percent sign
-
+	}
+	
+	public static HashMap<String, String> XML_CHARS = new HashMap<String, String>();
+	static {
         XML_CHARS.put("\\{\\\\\\\"\\{a\\}\\}", "&#x00E4;");
         XML_CHARS.put("\\{\\\\\\\"\\{A\\}\\}", "&#x00C4;");
         XML_CHARS.put("\\{\\\\\\\"\\{e\\}\\}", "&#x00EB;");
@@ -816,10 +885,18 @@ public class Globals {
         XML_CHARS.put("\\{\\\\\\~a\\}", "&#x00E3;");
         XML_CHARS.put("\\{\\\\\\~A\\}", "&#x00C3;");
 
+		// XML_CHARS.put("\\u00E1", "&#x00E1;");
+	}
+	
+	public static HashMap<String, String> ASCII2XML_CHARS = new HashMap<String, String>();
+	static {
 		ASCII2XML_CHARS.put("<", "&lt;");
 		ASCII2XML_CHARS.put("\"", "&quot;");
 		ASCII2XML_CHARS.put(">", "&gt;");
+	}
 
+	public static HashMap<String, String> UNICODE_CHARS = new HashMap<String, String>();
+	static {
 		UNICODE_CHARS.put("\u00C0", "A");
 		UNICODE_CHARS.put("\u00C1", "A");
 		UNICODE_CHARS.put("\u00C2", "A");
@@ -1051,9 +1128,12 @@ public class Globals {
 
         UNICODE_CHARS.put("\u0178", "Y");
         UNICODE_CHARS.put("\u00FE", ""); // thorn character
-        
-        // UNICODE_CHARS.put("\u0100", "");
 
+        // UNICODE_CHARS.put("\u0100", "");
+	}
+	
+	public static HashMap<String, String> RTFCHARS = new HashMap<String, String>();
+	static {
 		RTFCHARS.put("`a", "\\'e0");
 		RTFCHARS.put("`e", "\\'e8");
 		RTFCHARS.put("`i", "\\'ec");
@@ -1330,19 +1410,16 @@ public class Globals {
 		RTFCHARS.put("vZ", "\\u381Z"); // "Zcaron"
 		RTFCHARS.put("vz", "\\u382z"); // "zcaron"
 		// Symbol #383 (f) has no special Latex command
-
-		// XML_CHARS.put("\\u00E1", "&#x00E1;");
 	}
 
 	public static void initializeJournalNames() {
-
         // Read internal lists:
         journalAbbrev = new JournalAbbreviations(JOURNALS_FILE_BUILTIN);
-		if (prefs.getBoolean("useIEEEAbrv"))
-			journalAbbrev.readJournalList("/resource/IEEEJournalList.txt");
+		if (prefs.getBoolean("useIEEEAbrv")) {
+			journalAbbrev.readJournalList("/IEEEJournalList.txt");
+		}
 
-		// Read external lists, if any (in reverse order, so the upper lists
-		// override the lower):
+		// Read external lists, if any (in reverse order, so the upper lists override the lower):
 		String[] lists = prefs.getStringArray("externalJournalLists");
 		if ((lists != null) && (lists.length > 0)) {
 			for (int i = lists.length - 1; i >= 0; i--) {
@@ -1356,12 +1433,12 @@ public class Globals {
 		}
 
 		// Read personal list, if set up:
-		if (prefs.get("personalJournalList") != null) {
+		String personalJournalList = prefs.get("personalJournalList");
+		if (personalJournalList != null) {
 			try {
-				journalAbbrev.readJournalList(new File(prefs.get("personalJournalList")));
+				journalAbbrev.readJournalList(new File(personalJournalList));
 			} catch (FileNotFoundException e) {
-				Globals.logger("Personal journal list file '" + prefs.get("personalJournalList")
-					+ "' not found.");
+				Globals.logger("Personal journal list file '" + prefs.get("personalJournalList") + "' not found.");
 			}
 		}
 
