@@ -49,7 +49,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.Vector;
@@ -2182,71 +2181,6 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 	// ========================================================
 	static Pattern titleCapitalPattern = Pattern.compile("[A-Z]+");
 
-	/**
-	 * Wrap all uppercase letters, or sequences of uppercase letters, in curly
-	 * braces. Ignore letters within a pair of # character, as these are part of
-	 * a string label that should not be modified.
-	 * 
-	 * @param s
-	 *            The string to modify.
-	 * @return The resulting string after wrapping capitals.
-	 */
-	public static String putBracesAroundCapitals(String s) {
-
-		boolean inString = false, isBracing = false, escaped = false;
-		int inBrace = 0;
-		StringBuffer buf = new StringBuffer();
-		for (int i = 0; i < s.length(); i++) {
-			// Update variables based on special characters:
-			int c = s.charAt(i);
-			if (c == '{')
-				inBrace++;
-			else if (c == '}')
-				inBrace--;
-			else if (!escaped && (c == '#'))
-				inString = !inString;
-
-			// See if we should start bracing:
-			if ((inBrace == 0) && !isBracing && !inString && Character.isLetter((char) c)
-				&& Character.isUpperCase((char) c)) {
-
-				buf.append('{');
-				isBracing = true;
-			}
-
-			// See if we should close a brace set:
-			if (isBracing && !(Character.isLetter((char) c) && Character.isUpperCase((char) c))) {
-
-				buf.append('}');
-				isBracing = false;
-			}
-
-			// Add the current character:
-			buf.append((char) c);
-
-			// Check if we are entering an escape sequence:
-			if ((c == '\\') && !escaped)
-				escaped = true;
-			else
-				escaped = false;
-
-		}
-		// Check if we have an unclosed brace:
-		if (isBracing)
-			buf.append('}');
-
-		return buf.toString();
-
-		/*
-		 * if (s.length() == 0) return s; // Protect against ArrayIndexOutOf....
-		 * StringBuffer buf = new StringBuffer();
-		 * 
-		 * Matcher mcr = titleCapitalPattern.matcher(s.substring(1)); while
-		 * (mcr.find()) { String replaceStr = mcr.group();
-		 * mcr.appendReplacement(buf, "{" + replaceStr + "}"); }
-		 * mcr.appendTail(buf); return s.substring(0, 1) + buf.toString();
-		 */
-	}
 
 	static Pattern bracedTitleCapitalPattern = Pattern.compile("\\{[A-Z]+\\}");
 

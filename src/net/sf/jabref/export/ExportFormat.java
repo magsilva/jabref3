@@ -218,8 +218,8 @@ public class ExportFormat implements IExportFormat {
 		 * be non-null, and be used to choose entries. Otherwise, it will be
 		 * null, and be ignored.
 		 */
-		List<BibtexEntry> sorted = FileActions.getSortedEntries(database,
-			entryIds, false);
+		FileActions factions = new FileActions();
+		List<BibtexEntry> sorted = factions.getSortedEntries(database, entryIds, false);
 
 		// Load default layout
 		reader = getReader(lfFileName + ".layout");

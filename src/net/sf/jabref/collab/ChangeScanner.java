@@ -145,7 +145,8 @@ public class ChangeScanner extends Thread {
         new Thread(new Runnable() {
             public void run() {
                 try {
-                    SaveSession ss = FileActions.saveDatabase(inTemp, mdInTemp,
+                	FileActions factions = new FileActions();
+                    SaveSession ss = factions.saveDatabase(inTemp, mdInTemp,
                         Globals.fileUpdateMonitor.getTempFile(panel.fileMonitorHandle()), Globals.prefs,
                         false, false, panel.getEncoding(), true);
                     ss.commit();

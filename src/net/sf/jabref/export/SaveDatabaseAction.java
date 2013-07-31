@@ -213,11 +213,12 @@ public class SaveDatabaseAction extends AbstractWorker {
         SaveSession session;
         frame.block();
         try {
+        	FileActions factions = new FileActions();
             if (!selectedOnly)
-                session = FileActions.saveDatabase(panel.database(), panel.metaData(), file,
+                session = factions.saveDatabase(panel.database(), panel.metaData(), file,
                         Globals.prefs, false, false, encoding, false);
             else
-                session = FileActions.savePartOfDatabase(panel.database(), panel.metaData(), file,
+                session = factions.savePartOfDatabase(panel.database(), panel.metaData(), file,
                         Globals.prefs, panel.getSelectedEntries(), encoding);
 
         } catch (UnsupportedCharsetException ex2) {

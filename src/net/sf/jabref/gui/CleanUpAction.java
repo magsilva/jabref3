@@ -16,11 +16,7 @@
 package net.sf.jabref.gui;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.swing.JCheckBox;
@@ -29,9 +25,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.undo.CannotRedoException;
-import javax.swing.undo.CannotUndoException;
-import javax.swing.undo.UndoableEdit;
 
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.CellConstraints;
@@ -45,7 +38,6 @@ import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
 import net.sf.jabref.ImportSettingsTab;
 import net.sf.jabref.JabRefFrame;
-import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.Util;
 import net.sf.jabref.external.ExternalFileType;
 import net.sf.jabref.undo.NamedCompound;
@@ -64,7 +56,7 @@ public class CleanUpAction extends AbstractWorker {
 		CLEANUP_RENAMEPDF_ONLYRELATIVE_PATHS = "CleanUpRenamePDFonlyRelativePaths",
 		CLEANUP_SUPERSCRIPTS = "CleanUpSuperscripts";
 	
-	public static void putDefaults(HashMap<String, Object> defaults) {
+	public static void putDefaults(Map<String, Object> defaults) {
 		defaults.put(AKS_AUTO_NAMING_PDFS_AGAIN, Boolean.TRUE);
 		defaults.put(CLEANUP_SUPERSCRIPTS, Boolean.TRUE);
 		defaults.put(CLEANUP_DOI, Boolean.TRUE);

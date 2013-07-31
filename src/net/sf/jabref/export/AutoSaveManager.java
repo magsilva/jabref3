@@ -90,7 +90,8 @@ public class AutoSaveManager {
     public static boolean autoSave(BasePanel panel) {
         File backupFile = getAutoSaveFile(panel.getFile());
         try {
-            SaveSession ss = FileActions.saveDatabase(panel.database(), panel.metaData(),
+        	FileActions factions = new FileActions();
+            SaveSession ss = factions.saveDatabase(panel.database(), panel.metaData(),
                     backupFile, Globals.prefs,
                     false, false, panel.getEncoding(), true);
             ss.commit();

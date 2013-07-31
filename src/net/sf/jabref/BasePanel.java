@@ -1665,12 +1665,11 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
         SaveSession session;
         frame.block();
         try {
+        	FileActions factions = new FileActions();
             if (!selectedOnly)
-                session = FileActions.saveDatabase(database, metaData, file,
-                                           Globals.prefs, false, false, encoding, false);
+                session = factions.saveDatabase(database, metaData, file, Globals.prefs, false, false, encoding, false);
             else
-                session = FileActions.savePartOfDatabase(database, metaData, file,
-                                               Globals.prefs, mainTable.getSelectedEntries(), encoding);
+                session = factions.savePartOfDatabase(database, metaData, file, Globals.prefs, mainTable.getSelectedEntries(), encoding);
 
         } catch (UnsupportedCharsetException ex2) {
             JOptionPane.showMessageDialog(frame, Globals.lang("Could not save file. "

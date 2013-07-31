@@ -58,12 +58,13 @@ public class FileActions
     private static Pattern refPat = Pattern.compile("(#[A-Za-z]+#)"); // Used to detect string references in strings
 
 
-    private static void writePreamble(Writer fw, String preamble) throws IOException {
-    if (preamble != null) {
-        fw.write("@PREAMBLE{");
-        fw.write(preamble);
-        fw.write("}"+Globals.NEWLINE +Globals.NEWLINE);
-    }
+    private void writePreamble(Writer fw, String preamble) throws IOException
+    {
+    	if (preamble != null) {
+    		fw.write("@PREAMBLE{");
+    		fw.write(preamble);
+    		fw.write("}"+Globals.NEWLINE +Globals.NEWLINE);
+    	}
     }
 
     /**
@@ -73,12 +74,15 @@ public class FileActions
      * @param database The database whose strings we should write.
      * @throws IOException If anthing goes wrong in writing.
      */
-    private static void writeStrings(Writer fw, BibtexDatabase database) throws IOException {
+    private void writeStrings(Writer fw, BibtexDatabase database) throws IOException
+    {
         List<BibtexString> strings = new ArrayList<BibtexString>();
         for (String s : database.getStringKeySet()) {
             strings.add(database.getString(s));
         }
+    
         Collections.sort(strings, new BibtexStringComparator(true));
+        
         // First, make a Map of all entries:
         HashMap<String, BibtexString> remaining = new HashMap<String, BibtexString>();
         for (Iterator<BibtexString> i=strings.iterator(); i.hasNext();) {
@@ -87,12 +91,14 @@ public class FileActions
         }
         for (Iterator<BibtexString> i = strings.iterator(); i.hasNext();) {
             BibtexString bs = i.next();
-            if (remaining.containsKey(bs.getName()))
+            if (remaining.containsKey(bs.getName())) {
                 writeString(fw, bs, remaining);
+            }
         }
     }
 
-    private static void writeString(Writer fw, BibtexString bs, HashMap<String, BibtexString> remaining) throws IOException {
+    private void writeString(Writer fw, BibtexString bs, HashMap<String, BibtexString> remaining) throws IOException
+    {
         // First remove this from the "remaining" list so it can't cause problem with circular refs:
         remaining.remove(bs.getName());
 
@@ -112,7 +118,7 @@ public class FileActions
         }
 
         fw.write("@STRING{" + bs.getName() + " = ");
-        if (!bs.getContent().equals("")) {
+        if (! bs.getContent().equals("")) {
             try {
                 String formatted = (new LatexFieldFormatter()).format(bs.getContent(), Globals.BIBTEX_STRING);
                 fw.write(formatted);
@@ -122,9 +128,9 @@ public class FileActions
                         Globals.lang("Before saving, please edit any strings containing the # character."));
             }
 
-        }
-        else
+        } else {
             fw.write("{}");
+        }
 
         fw.write("}" + Globals.NEWLINE + Globals.NEWLINE);
     }
@@ -134,12 +140,11 @@ public class FileActions
      *
      * @param encoding String the name of the encoding, which is part of the header.
      */
-    private static void writeBibFileHeader(Writer out, String encoding) throws IOException {
-        out.write("% ");
-      out.write(GUIGlobals.SIGNATURE);
-      out.write(" "+GUIGlobals.version+"."+Globals.NEWLINE + "% " + 
-              GUIGlobals.encPrefix+encoding+Globals.NEWLINE +Globals.NEWLINE);
-    }
+	private void writeBibFileHeader(Writer out, String encoding) throws IOException
+	{
+		out.write("% " + GUIGlobals.SIGNATURE + " " + GUIGlobals.version + "." + Globals.NEWLINE);
+		out.write("% " + GUIGlobals.encPrefix + encoding + Globals.NEWLINE + Globals.NEWLINE);
+	}
 
     /**
      * Saves the database to file. Two boolean values indicate whether
@@ -148,36 +153,40 @@ public class FileActions
      * saved. This can be used to let the user save only the results of
      * a search. False and false means all entries are saved.
      */
-    public static SaveSession saveDatabase(BibtexDatabase database,
-		MetaData metaData, File file, JabRefPreferences prefs,
-		boolean checkSearch, boolean checkGroup, String encoding, boolean suppressBackup)
+    public SaveSession saveDatabase(
+    		BibtexDatabase database,
+    		MetaData metaData,
+    		File file,
+    		JabRefPreferences prefs,
+    		boolean checkSearch,
+    		boolean checkGroup,
+    		String encoding,
+    		boolean suppressBackup)
 		throws SaveException {
     	
 		TreeMap<String, BibtexEntryType> types = new TreeMap<String, BibtexEntryType>();
 		
 		boolean backup = prefs.getBoolean("backup");
-        if (suppressBackup)
+        if (suppressBackup) {
             backup = false;
+        }
 
 		SaveSession session;
 		BibtexEntry exceptionCause = null;
 		try {
 			session = new SaveSession(file, encoding, backup);
 		} catch (Throwable e) {
-			System.err.println("Error from encoding: '" + encoding + "' Len: "
-				+ encoding.length());
+			System.err.println("Error from encoding: '" + encoding + "' Len: " + encoding.length());
 			// we must catch all exceptions to be able notify users that
 			// saving failed, no matter what the reason was
 			// (and they won't just quit JabRef thinking
 			// everyting worked and loosing data)
-			e.printStackTrace();
 			throw new SaveException(e.getMessage());
 		}
 
 		try {
 
-			// Get our data stream. This stream writes only to a temporary file,
-			// until committed.
+			// Get our data stream. This stream writes only to a temporary file, until committed.
 			VerifyingWriter fw = session.getWriter();
 
 			// Write signature.
@@ -189,34 +198,27 @@ public class FileActions
 			// Write strings if there are any.
 			writeStrings(fw, database);
 
-			// Write database entries. Take care, using CrossRefEntry-
-			// Comparator, that referred entries occur after referring
-			// ones. Apart from crossref requirements, entries will be
-			// sorted as they appear on the screen.
+			// Write database entries. Take care, using CrossRefEntryComparator, that referred entries occur after referring
+			// ones. Apart from crossref requirements, entries will be sorted as they appear on the screen.
 			List<BibtexEntry> sorter = getSortedEntries(database, null, true);
-
 			FieldFormatter ff = new LatexFieldFormatter();
-
 			for (BibtexEntry be : sorter) {
 				exceptionCause = be;
 
-				// Check if we must write the type definition for this
-				// entry, as well. Our criterion is that all non-standard
-				// types (*not* customized standard types) must be written.
+				// Check if we must write the type definition for this entry, as
+				// well. Our criterion is that all non-standard types (*not*
+				// customized standard types) must be written.
 				BibtexEntryType tp = be.getType();
-
 				if (BibtexEntryType.getStandardType(tp.getName()) == null) {
 					types.put(tp.getName(), tp);
 				}
 
 				// Check if the entry should be written.
 				boolean write = true;
-
-				if (checkSearch && !nonZeroField(be, BibtexFields.SEARCH)) {
+				if (checkSearch && ! nonZeroField(be, BibtexFields.SEARCH)) {
 					write = false;
 				}
-
-				if (checkGroup && !nonZeroField(be, BibtexFields.GROUPSEARCH)) {
+				if (checkGroup && ! nonZeroField(be, BibtexFields.GROUPSEARCH)) {
 					write = false;
 				}
 
@@ -232,17 +234,13 @@ public class FileActions
 			}
 
 			// Write type definitions, if any:
-			if (types.size() > 0) {
-				for (Iterator<String> i = types.keySet().iterator(); i
-					.hasNext();) {
-                    BibtexEntryType type = types.get(i.next());
-                    if (type instanceof CustomEntryType) {
-                        CustomEntryType tp = (CustomEntryType)type;
-                        tp.save(fw);
-                        fw.write(Globals.NEWLINE);
-                    }
-				}
-
+			for (Iterator<String> i = types.keySet().iterator(); i.hasNext();) {
+				BibtexEntryType type = types.get(i.next());
+				if (type instanceof CustomEntryType) {
+					CustomEntryType tp = (CustomEntryType)type;
+					tp.save(fw);
+                    fw.write(Globals.NEWLINE);
+                }
 			}
 
 			fw.close();
@@ -274,17 +272,17 @@ public class FileActions
 	 * @return A List containing warnings, if any.
 	 */
     @SuppressWarnings("unchecked")
-	public static SaveSession savePartOfDatabase(BibtexDatabase database, MetaData metaData,
-                                                 File file, JabRefPreferences prefs, BibtexEntry[] bes, String encoding) throws SaveException
+	public SaveSession savePartOfDatabase(
+			BibtexDatabase database,
+			MetaData metaData,
+			File file,
+			JabRefPreferences prefs,
+			BibtexEntry[] bes,
+			String encoding
+	) throws SaveException
     {
-
-    TreeMap<String, BibtexEntryType> types = new TreeMap<String, BibtexEntryType>(); // Map
-																						// to
-																						// collect
-																						// entry
-																						// type
-																						// definitions
-    // that we must save along with entries using them.
+    	// Map to collect entry type definitions that we must save along with entries using them.
+    	TreeMap<String, BibtexEntryType> types = new TreeMap<String, BibtexEntryType>(); 
 
         BibtexEntry be = null;
         boolean backup = prefs.getBoolean("backup");
@@ -296,8 +294,7 @@ public class FileActions
             throw new SaveException(e.getMessage());
         }
 
-        try
-        {
+        try {
 
             // Define our data stream.
             VerifyingWriter fw = session.getWriter();
@@ -309,103 +306,93 @@ public class FileActions
             writePreamble(fw, database.getPreamble());
 
             // Write strings if there are any.
-        writeStrings(fw, database);
+            writeStrings(fw, database);
 
             // Write database entries. Take care, using CrossRefEntry-
             // Comparator, that referred entries occur after referring
             // ones. Apart from crossref requirements, entries will be
             // sorted as they appear on the screen.
-        String pri, sec, ter;
+            String pri, sec, ter;
 
-        boolean priD, secD, terD;
-        if (!prefs.getBoolean("saveInStandardOrder")) {
-        // The setting is to save according to the current table order.
-        pri = prefs.get("priSort");
-        sec = prefs.get("secSort");
-        // sorted as they appear on the screen.
-        ter = prefs.get("terSort");
-        priD = prefs.getBoolean("priDescending");
-        secD = prefs.getBoolean("secDescending");
-        terD = prefs.getBoolean("terDescending");
-        } else {
-        // The setting is to save in standard order: author, editor, year
-        pri = "author";
-        sec = "editor";
-        ter = "year";
-        priD = false;
-        secD = false;
-        terD = true;
-        }
-
-        List<Comparator<BibtexEntry>> comparators = new ArrayList<Comparator<BibtexEntry>>();
-        comparators.add(new CrossRefEntryComparator());
-        comparators.add(new FieldComparator(pri, priD));
-        comparators.add(new FieldComparator(sec, secD));
-        comparators.add(new FieldComparator(ter, terD));
-        comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
-        // Use glazed lists to get a sorted view of the entries:
-        BasicEventList entryList = new BasicEventList();
-        SortedList sorter = new SortedList(entryList, new FieldComparatorStack<BibtexEntry>(comparators));
-
-        if ((bes != null) && (bes.length > 0))
-        for (int i=0; i<bes.length; i++) {
-            sorter.add(bes[i]);
-        }
-
-            FieldFormatter ff = new LatexFieldFormatter();
-
-            for (Iterator<BibtexEntry> i = sorter.iterator(); i.hasNext();)
-            {
-                be = (i.next());
-
-        // Check if we must write the type definition for this
-        // entry, as well. Our criterion is that all non-standard
-        // types (*not* customized standard types) must be written.
-        BibtexEntryType tp = be.getType();
-        if (BibtexEntryType.getStandardType(tp.getName()) == null) {
-            types.put(tp.getName(), tp);
-        }
-
-        be.write(fw, ff, true);
-        fw.write(Globals.NEWLINE);
-        }
-
-            // Write meta data.
-            if (metaData != null)
-            {
-                metaData.writeMetaData(fw);
+            boolean priD, secD, terD;
+            if (! prefs.getBoolean("saveInStandardOrder")) {
+            	// The setting is to save according to the current table order.
+            	pri = prefs.get("priSort");
+            	sec = prefs.get("secSort");
+            	// sorted as they appear on the screen.
+            	ter = prefs.get("terSort");
+            	priD = prefs.getBoolean("priDescending");
+            	secD = prefs.getBoolean("secDescending");
+            	terD = prefs.getBoolean("terDescending");
+            } else {
+            	// The setting is to save in standard order: author, editor, year
+            	pri = "author";
+            	sec = "editor";
+            	ter = "year";
+            	priD = false;
+            	secD = false;
+            	terD = true;
             }
 
-        // Write type definitions, if any:
-        if (types.size() > 0) {
-        for (Iterator<String> i=types.keySet().iterator(); i.hasNext();) {
-            CustomEntryType tp = (CustomEntryType)types.get(i.next());
-            tp.save(fw);
-            fw.write(Globals.NEWLINE);
-        }
+	        List<Comparator<BibtexEntry>> comparators = new ArrayList<Comparator<BibtexEntry>>();
+	        comparators.add(new CrossRefEntryComparator());
+	        comparators.add(new FieldComparator(pri, priD));
+	        comparators.add(new FieldComparator(sec, secD));
+	        comparators.add(new FieldComparator(ter, terD));
+	        comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
+	        // Use glazed lists to get a sorted view of the entries:
+	        BasicEventList entryList = new BasicEventList();
+	        SortedList sorter = new SortedList(entryList, new FieldComparatorStack<BibtexEntry>(comparators));
+	
+	        if ((bes != null) && (bes.length > 0))
+		        for (int i=0; i<bes.length; i++) {
+		            sorter.add(bes[i]);
+		        }
 
-        }
+            	FieldFormatter ff = new LatexFieldFormatter();
 
-            fw.close();
-        }
-         catch (Throwable ex)
-        {
-            try {
-                session.cancel();
-                //repairAfterError(file, backup, status);
-            } catch (IOException e) {
-                // Argh, another error? Can we do anything?
-                e.printStackTrace();
-                throw new SaveException(ex.getMessage()+"\n"+
+            	for (Iterator<BibtexEntry> i = sorter.iterator(); i.hasNext();) {
+            		be = (i.next());
+
+			        // Check if we must write the type definition for this
+			        // entry, as well. Our criterion is that all non-standard
+			        // types (*not* customized standard types) must be written.
+			        BibtexEntryType tp = be.getType();
+			        if (BibtexEntryType.getStandardType(tp.getName()) == null) {
+			            types.put(tp.getName(), tp);
+			        }
+	
+			        be.write(fw, ff, true);
+			        fw.write(Globals.NEWLINE);
+            	}
+
+		        // Write meta data.
+		        if (metaData != null) {
+		            metaData.writeMetaData(fw);
+		        }
+
+		        // Write type definitions, if any:
+		        for (Iterator<String> i=types.keySet().iterator(); i.hasNext();) {
+		            CustomEntryType tp = (CustomEntryType)types.get(i.next());
+		            tp.save(fw);
+		            fw.write(Globals.NEWLINE);
+		        }
+		        fw.close();
+        	} catch (Throwable ex) {
+        		try {
+        			session.cancel();
+                //	repairAfterError(file, backup, status);
+        		} catch (IOException e) {
+        			// Argh, another error? Can we do anything?
+        			e.printStackTrace();
+        			throw new SaveException(ex.getMessage()+"\n"+
                         Globals.lang("Warning: could not complete file repair; your file may "
                         +"have been corrupted. Error message")+": "+e.getMessage());
-            }
-            throw new SaveException(ex.getMessage(), be);
-    }
-
-        return session;
-
-    }
+        		}
+        		throw new SaveException(ex.getMessage(), be);
+        	}
+        	return session;
+    	}
 
 
     /**
@@ -444,11 +431,10 @@ public class FileActions
     * global preference of saving in standard order.
     */
     @SuppressWarnings("unchecked")
-	public static List<BibtexEntry> getSortedEntries(BibtexDatabase database, Set<String> keySet, boolean isSaveOperation) {
+	public List<BibtexEntry> getSortedEntries(BibtexDatabase database, Set<String> keySet, boolean isSaveOperation) {
         FieldComparatorStack<BibtexEntry> comparatorStack = null;
 
-        boolean inOriginalOrder = isSaveOperation ? Globals.prefs.getBoolean("saveInOriginalOrder") :
-            Globals.prefs.getBoolean("exportInOriginalOrder");
+        boolean inOriginalOrder = isSaveOperation ? Globals.prefs.getBoolean("saveInOriginalOrder") : Globals.prefs.getBoolean("exportInOriginalOrder");
         if (inOriginalOrder) {
             // Sort entries based on their creation order, utilizing the fact
             // that IDs used for entries are increasing, sortable numbers.
@@ -456,14 +442,11 @@ public class FileActions
             comparators.add(new CrossRefEntryComparator());
             comparators.add(new IdComparator());
             comparatorStack = new FieldComparatorStack<BibtexEntry>(comparators);
-
         } else {
             String pri, sec, ter;
             boolean priD, secD, terD = false;
-
-            boolean inStandardOrder = isSaveOperation ? Globals.prefs.getBoolean("saveInStandardOrder") :
-                Globals.prefs.getBoolean("exportInStandardOrder");
-            if (!inStandardOrder) {
+            boolean inStandardOrder = isSaveOperation ? Globals.prefs.getBoolean("saveInStandardOrder") : Globals.prefs.getBoolean("exportInStandardOrder");
+            if (! inStandardOrder) {
                 // The setting is to save according to the current table order.
                 pri = Globals.prefs.get("priSort");
                 sec = Globals.prefs.get("secSort");
@@ -472,7 +455,6 @@ public class FileActions
                 priD = Globals.prefs.getBoolean("priDescending");
                 secD = Globals.prefs.getBoolean("secDescending");
                 terD = Globals.prefs.getBoolean("terDescending");
-
             } else {
                 // The setting is to save in standard order: author, editor, year
                 pri = "author";
@@ -510,18 +492,12 @@ public class FileActions
         return sorter;
     }
 
-    /** Returns true iff the entry has a nonzero value in its field.
+    /**
+     * Returns true iff the entry has a nonzero value in its field.
      */
-    private static boolean nonZeroField(BibtexEntry be, String field)
+    private boolean nonZeroField(BibtexEntry be, String field)
     {
         String o = (be.getField(field));
-
         return ((o != null) && !o.equals("0"));
     }
 }
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-//  END OF FILE.
-///////////////////////////////////////////////////////////////////////////////

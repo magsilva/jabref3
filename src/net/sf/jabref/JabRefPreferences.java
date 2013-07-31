@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
 import java.util.prefs.BackingStoreException;
@@ -84,12 +86,10 @@ public class JabRefPreferences {
     public String WRAPPED_USERNAME, MARKING_WITH_NUMBER_PATTERN;
 
     Preferences prefs;
-    public HashMap<String, Object> defaults = new HashMap<String, Object>();
-    public HashMap<String, String>
-        keyBinds = new HashMap<String, String>(),
-        defKeyBinds = new HashMap<String, String>();
-    private HashSet<String> putBracesAroundCapitalsFields = new HashSet<String>(4);
-    private HashSet<String> nonWrappableFields = new HashSet<String>(5);
+    public Map<String, Object> defaults = new HashMap<String, Object>();
+    public Map<String, String> keyBinds = new HashMap<String, String>();
+    public Map<String, String> defKeyBinds = new HashMap<String, String>();
+    private Set<String> nonWrappableFields = new HashSet<String>(5);
     private static LabelPattern keyPattern;
 
     // Object containing custom export formats:
@@ -530,26 +530,13 @@ public class JabRefPreferences {
 	public static final String OPEN_FOLDERS_OF_ATTACHED_FILES = "openFoldersOfAttachedFiles";
 
 
-	public boolean putBracesAroundCapitals(String fieldName) {
-        return putBracesAroundCapitalsFields.contains(fieldName);
-    }
-
     public void updateSpecialFieldHandling() {
-        putBracesAroundCapitalsFields.clear();
-        String fieldString = get("putBracesAroundCapitals");
-        if (fieldString.length() > 0) {
-            String[] fields = fieldString.split(";");
-            for (int i=0; i<fields.length; i++)
-                putBracesAroundCapitalsFields.add(fields[i].trim());
+        String fieldString = get("nonWrappableFields");
+        if (! fieldString.isEmpty()) {
+        	for (String field : fieldString.split(";")) {
+                nonWrappableFields.add(field.trim());
+        	} 
         }
-        nonWrappableFields.clear();
-        fieldString = get("nonWrappableFields");
-        if (fieldString.length() > 0) {
-            String[] fields = fieldString.split(";");
-            for (int i=0; i<fields.length; i++)
-                nonWrappableFields.add(fields[i].trim());
-        }
-
     }
 
     /**
@@ -783,14 +770,14 @@ public class JabRefPreferences {
     /**
      * Returns the HashMap containing all key bindings.
      */
-    public HashMap<String, String> getKeyBindings() {
+    public Map<String, String> getKeyBindings() {
         return keyBinds;
     }
 
     /**
      * Returns the HashMap containing default key bindings.
      */
-    public HashMap<String, String> getDefaultKeys() {
+    public Map<String, String> getDefaultKeys() {
         return defKeyBinds;
     }
 
@@ -828,14 +815,15 @@ public class JabRefPreferences {
      * Stores new key bindings into Preferences, provided they
      * actually differ from the old ones.
      */
-    public void setNewKeyBindings(HashMap<String, String> newBindings) {
-        if (!newBindings.equals(keyBinds)) {
+    public void setNewKeyBindings(Map<String, String> newBindings)
+    {
+        if (! newBindings.equals(keyBinds)) {
             // This confirms that the bindings have actually changed.
-            String[] bindNames = new String[newBindings.size()],
-                bindings = new String[newBindings.size()];
+            String[] bindNames = new String[newBindings.size()];
+            String[] bindings = new String[newBindings.size()];
             int index = 0;
-            for (Iterator<String> i=newBindings.keySet().iterator();
-                 i.hasNext();) {
+            Iterator<String> i = newBindings.keySet().iterator();
+            while (i.hasNext()) {
                 String nm = i.next();
                 String bnd = newBindings.get(nm);
                 bindNames[index] = nm;
@@ -876,8 +864,6 @@ public class JabRefPreferences {
          */
         public void putKeyPattern(LabelPattern pattern){
             keyPattern = pattern;
-            LabelPattern parent = pattern.getParent();
-
             // Store overridden definitions to Preferences.
             Preferences pre = Preferences.userNodeForPackage
                 (net.sf.jabref.labelPattern.LabelPattern.class);
@@ -1408,6 +1394,6 @@ public class JabRefPreferences {
      * @return true if the field should not be wrapped.
      */
     public boolean isNonWrappableField(String fieldName) {
-        return nonWrappableFields.contains(fieldName);
+        return (nonWrappableFields.contains("*") || nonWrappableFields.contains(fieldName));
     }
 }

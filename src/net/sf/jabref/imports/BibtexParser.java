@@ -503,12 +503,6 @@ public class BibtexParser {
 		skipWhitespace();
 		consume('=');
 		String content = parseFieldContent(key);
-		// Now, if the field in question is set up to be fitted automatically
-		// with braces around
-		// capitals, we should remove those now when reading the field:
-		if (Globals.prefs.putBracesAroundCapitals(key)) {
-			content = Util.removeBracesAroundCapitals(content);
-		}
 		if (content.length() > 0) {
 			if (entry.getField(key) == null)
 				entry.setField(key, content);
@@ -848,9 +842,6 @@ public class BibtexParser {
 	}
 
 	private class NoLabelException extends Exception {
-		public NoLabelException(String hasRead) {
-			super(hasRead);
-		}
 	}
 
 	private StringBuffer parseBracketedText() throws IOException {

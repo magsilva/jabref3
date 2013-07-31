@@ -449,12 +449,11 @@ public class JabRef {
                     // This signals that the latest import should be stored in BibTeX
                     // format to the given file.
                     if (loaded.size() > 0) {
-                        ParserResult pr =
-                            loaded.elementAt(loaded.size() - 1);
+                        ParserResult pr = loaded.elementAt(loaded.size() - 1);
                         if (!pr.isInvalid()) {
                             try {
-                                System.out.println(Globals.lang("Saving") + ": " + data[0]);
-                                SaveSession session = FileActions.saveDatabase(pr.getDatabase(),
+                            	FileActions factions = new FileActions();
+                                SaveSession session = factions.saveDatabase(pr.getDatabase(),
                                     pr.getMetaData(), new File(data[0]), Globals.prefs,
                                     false, false, Globals.prefs.get("defaultEncoding"), false);
                                 // Show just a warning message if encoding didn't work for all characters:
@@ -539,9 +538,8 @@ public class JabRef {
                             String subName = Util.getCorrectFileName(data[1], "bib");
 
                             try {
-                                System.out.println(Globals.lang("Saving") + ": "
-                                    + subName);
-                                SaveSession session = FileActions.saveDatabase(newBase, new MetaData(), // no Metadata
+                            	FileActions factions = new FileActions();
+                                SaveSession session = factions.saveDatabase(newBase, new MetaData(), // no Metadata
                                     new File(subName), Globals.prefs, false, false,
                                     Globals.prefs.get("defaultEncoding"), false);
                                 // Show just a warning message if encoding didn't work for all characters:

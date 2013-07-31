@@ -33,15 +33,9 @@ public class LatexFieldFormatter implements FieldFormatter {
         this.neverFailOnHashes = neverFailOnHashes;
     }
 
-    public String format(String text, String fieldName)
-            throws IllegalArgumentException {
+    public String format(String text, String fieldName) throws IllegalArgumentException {
 
-        if (Globals.prefs.putBracesAroundCapitals(fieldName) && !Globals.BIBTEX_STRING.equals(fieldName)) {
-            text = Util.putBracesAroundCapitals(text);
-        }
-
-        // If the field is non-standard, we will just append braces,
-        // wrap and write.
+        // If the field is non-standard, we will just append braces, wrap and write.
         boolean resolveStrings = true;
         if (Globals.prefs.getBoolean("resolveStringsAllFields")) {
             // Resolve strings for all fields except some:
@@ -54,10 +48,10 @@ public class LatexFieldFormatter implements FieldFormatter {
             }
         } else {
             // Default operation - we only resolve strings for standard fields:
-            resolveStrings = BibtexFields.isStandardField(fieldName)
-                    || Globals.BIBTEX_STRING.equals(fieldName);
+            resolveStrings = BibtexFields.isStandardField(fieldName) || Globals.BIBTEX_STRING.equals(fieldName);
         }
-        if (!resolveStrings) {
+        
+        if (! resolveStrings) {
             int brc = 0;
             boolean ok = true;
             for (int i = 0; i < text.length(); i++) {
@@ -76,11 +70,7 @@ public class LatexFieldFormatter implements FieldFormatter {
                 throw new IllegalArgumentException("Curly braces { and } must be balanced.");
 
             sb = new StringBuffer("{");
-            // No formatting at all for these fields, to allow custom formatting?
-            //if (Globals.prefs.getBoolean("preserveFieldFormatting"))
-            //  sb.append(text);
-            //else
-            if (!Globals.prefs.isNonWrappableField(fieldName))
+            if (! Globals.prefs.isNonWrappableField(fieldName))
                 sb.append(Util.wrap2(text, GUIGlobals.LINE_LENGTH));
             else
                 sb.append(text);

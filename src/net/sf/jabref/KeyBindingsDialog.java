@@ -18,8 +18,8 @@ package net.sf.jabref;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.*;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.TreeMap;
 
 import javax.swing.*;
@@ -29,25 +29,33 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumnModel;
 
 //
-class KeyBindingsDialog
-    extends JDialog {
-  KeystrokeTable table;
-  KeystrokeTableModel tableModel;
-  //JList list = new JList();
-  JTextField keyTF = new JTextField();
-  JButton ok, cancel, grabB, defB;
-  HashMap<String, String> bindHM, defBinds;
-  boolean clickedSave = false;
-  int selectedRow = -1;
-  boolean getAction() {
-    return clickedSave;
-  }
+class KeyBindingsDialog extends JDialog
+{
+	KeystrokeTable table;
+	
+	KeystrokeTableModel tableModel;
+	
+	JTextField keyTF = new JTextField();
+  
+	JButton ok, cancel, grabB, defB;
+  
+	Map<String, String> bindHM, defBinds;
+  
+	boolean clickedSave = false;
+  
+	int selectedRow = -1;
+  
+	boolean getAction() {
+		return clickedSave;
+	}
 
-  HashMap<String, String> getNewKeyBindings() {
-    return bindHM;
-  }
+	Map<String, String> getNewKeyBindings()
+	{
+		return bindHM;
+	}
 
-  public KeyBindingsDialog(HashMap<String, String> name2binding, HashMap<String, String> defBinds) {
+  public KeyBindingsDialog(Map<String, String> name2binding, Map<String, String> defBinds)
+  {
     super();
     this.defBinds = defBinds;
     setTitle(Globals.lang("Key bindings"));
