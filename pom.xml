@@ -296,15 +296,73 @@
 							<goal>antlr</goal>
 						</goals>
 						<configuration>
-						    <!-- This is not working. 
-                			<sourceDirectory>>src/net/sf/jabref/bst</sourceDirectory>
-                			 -->
-                			<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+							<!-- This is not working. 
+							<sourceDirectory>>src/net/sf/jabref/bst</sourceDirectory>
+							-->
+							<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>net.sf.jabref.plugin.util.CodeGenerator</mainClass>
+							<arguments>
+								<argument>${project.basedir}/plugins</argument>
+							</arguments>
+							<includePluginDependencies>true</includePluginDependencies>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<!--
+ java -cp /home/magsilva/.m2/repository/net/sf/jabref/jpfcodegen/0.4/jpfcodegen-0.4.jar:/home/magsilva/.m2/repository/net/sf/jpf/jpf/1.5/jpf-1.5.jar:/home/magsilva/.m2/repository/net/sf/jpf/jpf-boot/1.5/jpf-boot-1.5.jar:/home/magsilva/.m2/repository/org/apache/velocity/velocity/1.7/velocity-1.7.jar:/home/magsilva/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/home/magsilva/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/home/magsilva/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar net.sf.jabref.plugin.util.CodeGenerator plugins/
+					-->
+					<dependency>
+						<groupId>net.sf.jabref</groupId>
+						<artifactId>jpfcodegen</artifactId>
+						<version>[0.4,)</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+							<overwrite>true</overwrite>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/java</directory>
+									<includes>
+										<include>**/*.java</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -352,60 +410,6 @@
 						</fileset>
 					</filesets>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>java</goal>
-						</goals>
-						<configuration>
-							<mainClass>net.sf.jabref.plugin.util.CodeGenerator</mainClass>
-							<arguments>
-								<argument>${project.basedir}/plugins</argument>
-							</arguments>
-							<includePluginDependencies>true</includePluginDependencies>
-						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>net.sf.jabref</groupId>
-						<artifactId>jpfcodegen</artifactId>
-						<version>[0.4,)</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-resources-plugin</artifactId>
-			    <version>2.6</version>
-				<executions>
-					<execution>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
-							<overwrite>true</overwrite>
-							<resources>
-								<resource>
-									<directory>${project.basedir}/java</directory>
-									<includes>
-										<include>**/*.java</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 

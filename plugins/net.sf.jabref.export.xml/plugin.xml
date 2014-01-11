@@ -13,19 +13,6 @@
 		<library type="resources" path="./" id="resouces"/>
 	</runtime>
 	
-	<extension id="XmlFormat" plugin-id="net.sf.jabref.core" point-id="ExportFormat">
-		<parameter id="exportFormat" value="net.sf.jabref.export.xml.XmlFormat" />
-		<parameter id="displayName" value="BibTeXML (bibtexconverter)" />
-		<parameter id="consoleName" value="bibtexml-xml" />
-		<parameter id="extension" value=".xml" />
-	</extension>
-	
-	<extension id="XmlFormatProvider" plugin-id="net.sf.jabref.core" point-id="ExportFormatProvider">
-		<parameter id="formatProvider" value="net.sf.jabref.export.xml.XmlFormatProvider" />
-		<parameter id="name" value="XML-based Format Provider" />
-		<parameter id="description" value="Provides the infrastructure for XML-based formatters" />
-	</extension>
-	
 	<!-- Export Formats-->
 	<extension-point id="XmlBasedFormat">
 		<!-- Name of this export format to display to the user -->
@@ -45,4 +32,16 @@
 		<parameter id="extension" value="-docbook.xml" />
 	</extension>
 
+	<extension id="XmlFormat" plugin-id="net.sf.jabref.core" point-id="ExportFormat">
+		<parameter id="exportFormat" value="net.sf.jabref.export.xml.XmlFormat" />
+		<parameter id="displayName" value="BibTeXML (bibtexconverter)" />
+		<parameter id="consoleName" value="bibtexml-xml" />
+		<parameter id="extension" value=".xml" />
+	</extension>
+	
+	<extension id="XmlFormatProvider" plugin-id="net.sf.jabref.core" point-id="ExportFormatProvider">
+		<parameter id="formatProvider" value="net.sf.jabref.export.xml.XmlFormatProvider" />
+		<parameter id="name" value="XML-based Format Provider" />
+		<parameter id="description" value="Provides the infrastructure for XML-based formatters" />
+	</extension>
 </plugin>
