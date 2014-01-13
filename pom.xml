@@ -267,9 +267,9 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.antlr</groupId>
+				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>antlr3-maven-plugin</artifactId>
-				<version>3.4</version>
+				<version>1.1-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
@@ -277,10 +277,12 @@
 							<goal>antlr</goal>
 						</goals>
 						<configuration>
-							<!-- This is not working. 
-							<sourceDirectory>>src/net/sf/jabref/bst</sourceDirectory>
-							-->
+							<sourceDirectory>${project.build.sourceDirectory}/net/sf/jabref/bst</sourceDirectory>
 							<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+							<includes>
+								<include>**/*.g</include>
+								<include>**/*.g3</include>
+							</includes>
 						</configuration>
 					</execution>
 				</executions>
