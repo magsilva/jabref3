@@ -28,7 +28,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-package com.jgoodies.uif_lite.panel;
+package net.sf.jabref;
 
 import com.jgoodies.looks.LookUtils;
 

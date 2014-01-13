@@ -28,7 +28,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-package com.jgoodies.uif_lite.component;
+package net.sf.jabref;
 
 import java.awt.Component;
 

@@ -25,8 +25,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 
-import com.jgoodies.uif_lite.panel.SimpleInternalFrame;
-
 public abstract class SidePaneComponent extends SimpleInternalFrame {
 
 	protected JButton close = new JButton(GUIGlobals.getImage("close"));

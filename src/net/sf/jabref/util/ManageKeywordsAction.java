@@ -62,7 +62,6 @@ import net.sf.jabref.undo.NamedCompound;
 import com.jgoodies.forms.builder.ButtonBarBuilder;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
-import com.sun.star.bridge.oleautomation.Date;
 
 /**
  * An Action for launching mass field.

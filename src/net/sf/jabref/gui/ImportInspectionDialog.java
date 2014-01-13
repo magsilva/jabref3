@@ -69,7 +69,6 @@ import ca.odell.glazedlists.swing.TableComparatorChooser;
 
 import com.jgoodies.forms.builder.ButtonBarBuilder;
 import com.jgoodies.forms.builder.ButtonStackBuilder;
-import com.jgoodies.uif_lite.component.UIFSplitPane;
 
 /**
  * Dialog to allow the selection of entries as part of an Import.

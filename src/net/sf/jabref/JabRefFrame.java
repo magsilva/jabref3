@@ -58,7 +58,6 @@ import net.sf.jabref.label.BookLabelRule;
 import net.sf.jabref.label.IncollectionLabelRule;
 import net.sf.jabref.label.InproceedingsLabelRule;
 import net.sf.jabref.label.LabelMaker;
-import net.sf.jabref.oo.OpenOfficePanel;
 import net.sf.jabref.plugin.PluginCore;
 import net.sf.jabref.plugin.PluginInstallerAction;
 import net.sf.jabref.plugin.core.JabRefPlugin;
@@ -79,7 +78,6 @@ import net.sf.jabref.wizard.integrity.gui.IntegrityWizard;
 
 import com.jgoodies.looks.HeaderStyle;
 import com.jgoodies.looks.Options;
-import com.jgoodies.uif_lite.component.UIFSplitPane;
 
 /**
  * The main window of the application.
@@ -157,9 +155,6 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
       contents = new HelpAction("Help contents", helpDiag,
                                 GUIGlobals.helpContents, Globals.lang("Help contents"),
                                 GUIGlobals.getIconUrl("helpContents")),
-      about = new HelpAction("About JabRef", helpDiag,
-                             GUIGlobals.aboutPage, Globals.lang("About JabRef"),
-                             GUIGlobals.getIconUrl("about")),
       editEntry = new GeneralAction("edit", "Edit entry",
                                Globals.lang("Edit entry"),
                                prefs.getKey("Edit entry")),
@@ -600,57 +595,6 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
     }
 
 
-AboutAction aboutAction = new AboutAction();
-  class AboutAction
-      extends AbstractAction {
-    public AboutAction() {
-      super(Globals.lang("About JabRef"));
-
-    }
-
-    public void actionPerformed(ActionEvent e) {
-      about();
-    }
-  }
-
-
-  // General info dialog.  The OSXAdapter calls this method when "About OSXAdapter"
-  // is selected from the application menu.
-  public void about() {
-    JDialog about = new JDialog(JabRefFrame.this, Globals.lang("About JabRef"),
-                                true);
-    JEditorPane jp = new JEditorPane();
-    JScrollPane sp = new JScrollPane
-        (jp, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-         JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-    jp.setEditable(false);
-    try {
-      jp.setPage(GUIGlobals.class.getResource("/help/About.html"));//GUIGlobals.aboutPage);
-      // We need a hyperlink listener to be able to switch to the license
-      // terms and back.
-      jp.addHyperlinkListener(new javax.swing.event.HyperlinkListener() {
-        public void hyperlinkUpdate(javax.swing.event.HyperlinkEvent e) {
-          if (e.getEventType()
-              == javax.swing.event.HyperlinkEvent.EventType.ACTIVATED) {
-            try {
-              ( (JEditorPane) e.getSource()).setPage(e.getURL());
-            }
-            catch (IOException ex) {}
-          }
-        }
-      });
-      about.getContentPane().add(sp);
-      about.setSize(GUIGlobals.aboutSize);
-      Util.placeDialog(about, JabRefFrame.this);
-      about.setVisible(true);
-    }
-    catch (IOException ex) {
-      ex.printStackTrace();
-      JOptionPane.showMessageDialog(JabRefFrame.this, "Could not load file 'About.html'",
-                                    "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
-  }
 
   // General preferences dialog.  The OSXAdapter calls this method when "Preferences..."
   // is selected from the application menu.
@@ -1355,9 +1299,6 @@ public JabRefPreferences prefs() {
       //tools.add(downloadFullText);
       tools.add(newSubDatabaseAction);
       tools.add(writeXmpAction);
-      OpenOfficePanel otp = OpenOfficePanel.getInstance();
-      otp.init(this, sidePaneManager);
-      tools.add(otp.getMenuItem());
       tools.add(pushExternalButton.getMenuAction());
       tools.addSeparator();
       tools.add(manageSelectors);
@@ -1425,8 +1366,6 @@ public JabRefPreferences prefs() {
       helpMenu.add(help);
       helpMenu.add(contents);
       helpMenu.addSeparator();
-//old about    helpMenu.add(about);
-      helpMenu.add(about);
       mb.add(helpMenu);
       helpMenu.addSeparator();
       helpMenu.add(errorConsole);

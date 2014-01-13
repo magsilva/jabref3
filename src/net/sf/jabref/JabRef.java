@@ -64,34 +64,33 @@ import net.sf.jabref.wizard.auximport.AuxCommandLine;
 public class JabRef {
 
 	public static JabRef singleton;
+	
     public static RemoteListener remoteListener = null;
+    
     public static JabRefFrame jrf;
-    public Options options;
+    
     public static Frame splashScreen = null;
 
+    public Options options;
+    
     boolean graphicFailure = false;
 
-    StringOption importFile, exportFile, exportPrefs, importPrefs, auxImExport, importToOpenBase,
-            fetcherEngine, exportMatches, defPrefs;
+    StringOption importFile, exportFile, exportPrefs, importPrefs, auxImExport, importToOpenBase, fetcherEngine, exportMatches, defPrefs;
     BooleanOption helpO, disableGui, blank, loadSess, showVersion, disableSplash;
 
     private final static String exportMatchesSyntax = "[".concat(Globals.lang("field")).concat("]").concat("searchTerm").concat(",").concat("outputFile").concat(": ").concat(Globals.lang("file")).concat("[,").concat(Globals.lang("exportFormat")).concat("]");
 
     public static final int MAX_DIALOG_WARNINGS = 10;
 
-    public static void main(String[] args) {
-        new JabRef(args);
-    }
-
     protected JabRef(String[] args) {
 
 		singleton = this;
 
-		// The following two lines signal that the system proxy settings should
-		// be used:
+		// The following two lines signal that the system proxy settings should be used
 		System.setProperty("java.net.useSystemProxies", "true");
 		System.getProperties().put("proxySet", "true");
 
+		
 		JabRefPreferences prefs = JabRefPreferences.getInstance();
 
         // See if there are plugins scheduled for deletion:
@@ -106,18 +105,19 @@ public class JabRef {
         String langStr = prefs.get("language");
         String[] parts = langStr.split("_");
         String language, country;
+        
         if (parts.length == 1) {
             language = langStr;
             country = "";
-        }
-        else {
+        } else {
             language = parts[0];
             country = parts[1];
         }
 
 		Globals.setLanguage(language, country);
         Globals.prefs.setLanguageDependentDefaultValues();
-		/*
+		
+        /*
 		 * The Plug-in System is started automatically on the first call to
 		 * PluginCore.getManager().
 		 * 
@@ -278,8 +278,7 @@ public class JabRef {
                 splashScreen = SplashScreen.splash();
             } catch (Throwable ex) {
                 graphicFailure = true;
-                System.err.println(Globals.lang("Unable to create graphical interface")
-                    + ".");
+                System.err.println(Globals.lang("Unable to create graphical interface") + ".");
             }
         }
 
@@ -744,15 +743,11 @@ public class JabRef {
                 jrf.loadSessionAction.actionPerformed(new java.awt.event.ActionEvent(
                         jrf, 0, ""));
 
-            if (splashScreen != null) {// do this only if splashscreen was actually created
+            // do this only if splashscreen was actually created
+            if (splashScreen != null) {
                 splashScreen.dispose();
                 splashScreen = null;
             }
-
-            /*JOptionPane.showMessageDialog(null, Globals.lang("Please note that this "
-                +"is an early beta version. Do not use it without backing up your files!"),
-                    Globals.lang("Beta version"), JOptionPane.WARNING_MESSAGE);*/
-
 
             // Start auto save timer:
             if (Globals.prefs.getBoolean("autoSave"))
@@ -970,4 +965,9 @@ public class JabRef {
     	
     	return result;
     }
+    
+    public static void main(String[] args) {
+        JabRef jabref = new JabRef(args);
+    }
+    
 }

@@ -24,8 +24,7 @@ public class AuthorListTest extends TestCase {
 		// Is not cached!
 		assertTrue(AuthorList
 			.fixAuthor_Natbib("John von Neumann and John Smith and Black Brown, Peter") == AuthorList
-			.fixAuthor_Natbib("John von Neumann" + (0 == 1 ? "" : " and ")
-				+ "John Smith and Black Brown, Peter"));
+			.fixAuthor_Natbib("John von Neumann" + " and " + "John Smith and Black Brown, Peter"));
 	}
 
 	public void testGetAuthorList() {
