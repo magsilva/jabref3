@@ -178,19 +178,19 @@
 			
 		</resources>
 
-		                <extensions>
-                        <extension>
-                                <groupId>org.apache.maven.wagon</groupId>
-                                <artifactId>wagon-webdav-jackrabbit</artifactId>
-                                <version>2.4</version>
-                        </extension>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>2.4</version>
+			</extension>
 
-                        <extension>
-                                <groupId>org.slf4j</groupId>
-                                <artifactId>slf4j-nop</artifactId>
-                                <version>1.6.6</version>
-                        </extension>
-                </extensions>
+			<extension>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-nop</artifactId>
+				<version>1.6.6</version>
+			</extension>
+		</extensions>
 
 
 		<plugins>
@@ -316,6 +316,7 @@
 				</dependencies>
 			</plugin>
 
+			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -341,7 +342,7 @@
 					</execution>
 				</executions>
 			</plugin>
-
+ 			-->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -410,6 +411,19 @@
 										<versionRange>[1.2.1,)</versionRange>
 										<goals>
 											<goal>java</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>antlr3-maven-plugin</artifactId>
+										<versionRange>[1.1-SNAPSHOT,)</versionRange>
+										<goals>
+											<goal>antlr</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>

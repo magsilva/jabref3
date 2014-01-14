@@ -135,8 +135,6 @@ public class CompressedEntryEditorTab extends EntryEditorTab {
             }
             //ta.addUndoableEditListener(bPanel.undoListener);
 
-            JComponent ex = parent.getExtra(fields[i], ta);
-
             // Add autocompleter listener, if required for this field:
             AbstractAutoCompleter autoComp = bPanel.getAutoCompleter(fields[i]);
             AutoCompleteListener acl = null;
@@ -154,15 +152,7 @@ public class CompressedEntryEditorTab extends EntryEditorTab {
             //ta.getPane().setPreferredSize(new Dimension(100,
             //        (int)(50.0*BibtexFields.getFieldWeight(fields[i]))));
             builder.append(ta.getLabel());
-            if (ex == null)
-                builder.append(ta.getPane(), 3);
-            else {
-                builder.append(ta.getPane());
-                JPanel pan = new JPanel();
-                pan.setLayout(new BorderLayout());
-                pan.add(ex, BorderLayout.NORTH);
-                builder.append(pan);
-            }
+            builder.append(ta.getPane(), 3);
             if (i%2 == 1) builder.nextLine();
         }
 

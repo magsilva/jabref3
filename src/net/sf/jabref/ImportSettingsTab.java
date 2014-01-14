@@ -124,7 +124,6 @@ public class ImportSettingsTab extends JPanel implements PrefsTab {
 	
 	public void setValues() {
 		useDefaultPDFImportStyle.setSelected(Globals.prefs.getBoolean(PREF_IMPORT_ALWAYSUSE));
-		int style = Globals.prefs.getInt(PREF_IMPORT_DEFAULT_PDF_IMPORT_STYLE);
 		radioButtonPDFcontent.setSelected(true);
 		fileNamePattern.setText(Globals.prefs.get(PREF_IMPORT_FILENAMEPATTERN));
 	}

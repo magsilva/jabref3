@@ -577,7 +577,11 @@ public class JabRefPreferences {
     }
 
     public int getIntDefault(String key) {
-        return ((Integer)defaults.get(key)).intValue();
+    	try {
+    		return ((Integer) defaults.get(key)).intValue();
+    	} catch (Exception e) {
+    		throw new IllegalArgumentException("Key '" + key + "' is not an integer: " + defaults.get(key).toString());
+    	}
     }
     
     public byte[] getByteArray(String key) {

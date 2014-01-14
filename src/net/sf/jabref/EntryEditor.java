@@ -75,7 +75,6 @@ import net.sf.jabref.gui.FileDialogs;
 import net.sf.jabref.gui.FileListEditor;
 import net.sf.jabref.gui.FileListTableModel;
 import net.sf.jabref.gui.VerticalLabelUI;
-import net.sf.jabref.gui.date.DatePickerButton;
 import net.sf.jabref.imports.BibtexParser;
 import net.sf.jabref.journals.JournalAbbreviations;
 import net.sf.jabref.labelPattern.LabelPatternUtil;
@@ -385,138 +384,7 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
         repaint();
     }
 
-    /**
-     * getExtra checks the field name against BibtexFields.getFieldExtras(name).
-     * If the name has an entry, the proper component to be shown is created and
-     * returned. Otherwise, null is returned. In addition, e.g. listeners can be
-     * added to the field editor, even if no component is returned.
-     * 
-     * @param string
-     *            Field name
-     * @return Component to show, or null if none.
-     */
-    public JComponent getExtra(String string, final FieldEditor ed) {
-
-        // fieldName and parameter string identically ????
-        final String fieldName = ed.getFieldName();
-
-        String s = BibtexFields.getFieldExtras(string);
-
-        // timestamp or a other field with datepicker command
-        if ((fieldName.equals(Globals.prefs.get("timeStampField")))
-            || ((s != null) && s.equals("datepicker"))) {
-            // double click AND datefield => insert the current date (today)
-            ((JTextArea) ed).addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    if (e.getClickCount() == 2) // double click
-                    {
-                        String date = Util.easyDateFormat();
-                        ed.setText(date);
-                    }
-                }
-            });
-
-            // insert a datepicker, if the extras field contains this command
-            if ((s != null) && s.equals("datepicker")) {
-                DatePickerButton datePicker = new DatePickerButton(ed);
-                return datePicker.getDatePicker();
-            }
-        }
-
-        if ((s != null) && s.equals("external")) {
-
-            // Add external viewer listener for "pdf" and "url" fields.
-            ((JComponent) ed).addMouseListener(new ExternalViewerListener());
-
-            return null;
-        } else if ((s != null) && s.equals("journalNames")) {
-            // Add controls for switching between abbreviated and full journal
-            // names.
-            // If this field also has a FieldContentSelector, we need to combine
-            // these.
-            JPanel controls = new JPanel();
-            controls.setLayout(new BorderLayout());
-            if (panel.metaData.getData(Globals.SELECTOR_META_PREFIX + ed.getFieldName()) != null) {
-                FieldContentSelector ws = new FieldContentSelector(frame, panel, frame, ed,
-                    panel.metaData, storeFieldAction, false, ", ");
-                contentSelectors.add(ws);
-                controls.add(ws, BorderLayout.NORTH);
-            }
-            controls.add(JournalAbbreviations.getNameSwitcher(this, ed, panel.undoManager),
-                BorderLayout.SOUTH);
-            return controls;
-        } else if (panel.metaData.getData(Globals.SELECTOR_META_PREFIX + ed.getFieldName()) != null) {
-            FieldContentSelector ws = new FieldContentSelector(frame, panel, frame, ed,
-                panel.metaData, storeFieldAction, false,
-                ((ed.getFieldName().equals("author") || ed.getFieldName().equals("editor")) ? " and " : ", "));
-            contentSelectors.add(ws);
-
-            return ws;
-        } else if ((s != null) && s.equals("browse")) {
-            JButton but = new JButton(Globals.lang("Browse"));
-            ((JComponent) ed).addMouseListener(new ExternalViewerListener());
-
-            // but.setBackground(GUIGlobals.lightGray);
-            but.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    String dir = ed.getText();
-
-                    if (dir.equals(""))
-                        dir = prefs.get(fieldName + Globals.FILETYPE_PREFS_EXT, "");
-
-                    String chosenFile = FileDialogs.getNewFile(frame, new File(dir), "." + fieldName,
-                        JFileChooser.OPEN_DIALOG, false);
-
-                    if (chosenFile != null) {
-                        File newFile = new File(chosenFile); // chooser.getSelectedFile();
-                        ed.setText(newFile.getPath());
-                        prefs.put(fieldName + Globals.FILETYPE_PREFS_EXT, newFile.getPath());
-                        updateField(ed);
-                    }
-                }
-            });
-
-            return but;
-            // } else if ((s != null) && s.equals("browsePdf")) {
-        } else if ((s != null) && (s.equals("browseDoc") || s.equals("browseDocZip"))) {
-
-            final String ext = "." + fieldName.toLowerCase();
-            final OpenFileFilter off;
-            if (s.equals("browseDocZip"))
-                off = new OpenFileFilter(new String[] { ext, ext + ".gz", ext + ".bz2" });
-            else
-                off = new OpenFileFilter(new String[] { ext });
-
-            ExternalFilePanel pan = new ExternalFilePanel(frame, panel.metaData(), this, fieldName,
-                off, ed);
-            return pan;
-        }
-        /*
-         * else if ((s != null) && s.equals("browsePs")) { ExternalFilePanel pan =
-         * new ExternalFilePanel(frame, this, "ps", off, ed); return pan; }
-         */
-        else if ((s != null) && s.equals("url")) {
-            ((JComponent) ed).setDropTarget(new DropTarget((Component) ed,
-                DnDConstants.ACTION_NONE, new SimpleUrlDragDrop(ed, storeFieldAction)));
-
-            return null;
-        }
-
-        else if ((s != null) && (s.equals("setOwner"))) {
-            JButton button = new JButton(Globals.lang("Auto"));
-            button.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent actionEvent) {
-                    ed.setText(Globals.prefs.get("defaultOwner"));
-                    storeFieldAction.actionPerformed(new ActionEvent(ed, 0, ""));
-                }
-            });
-            return button;
-        }
-        else
-            return null;
-    }
-
-    private void setupSourcePanel() {
+     private void setupSourcePanel() {
         source = new JTextAreaWithHighlighting();
         frame.getSearchManager().addSearchListener((SearchTextListener)source);
         
