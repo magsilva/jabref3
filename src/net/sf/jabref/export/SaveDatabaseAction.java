@@ -340,7 +340,7 @@ public class SaveDatabaseAction extends AbstractWorker {
         String chosenFile = null;
         File f = null;
         while (f == null) {
-            chosenFile = FileDialogs.getNewFile(frame, new File(Globals.prefs.get("workingDirectory")), ".bib",
+            chosenFile = FileDialogs.getNewFile(frame, new File(Globals.prefs.get("workingDirectory")), BibtexDatabase.EXTENSION,
                     JFileChooser.SAVE_DIALOG, false, null);
             if (chosenFile == null) {
                 cancelled = true;

@@ -280,14 +280,12 @@ public class JabRefPreferences {
         defaults.put("memoryStickMode", Boolean.FALSE);
         defaults.put("renameOnMoveFileToFileDir", Boolean.TRUE);
 
-    // The general fields stuff is made obsolete by the CUSTOM_TAB_... entries.
-        defaults.put("generalFields", "crossref;keywords;file;doi;url;urldate;"+
-                     "pdf;comment;owner");
+        // The general fields stuff is made obsolete by the CUSTOM_TAB_... entries.
+        defaults.put("generalFields", "crossref;keywords;file;doi;url;urldate;comment;owner");
 
         defaults.put("useCustomIconTheme", Boolean.FALSE);
         defaults.put("customIconThemeFile", "/home/alver/div/crystaltheme_16/Icons.properties");
 
-        //defaults.put("recentFiles", "/home/alver/Documents/bibk_dok/hovedbase.bib");
         defaults.put("historySize", new Integer(8));
         defaults.put("fontStyle", new Integer(java.awt.Font.PLAIN));
         defaults.put("fontSize", new Integer(12));
@@ -321,17 +319,13 @@ public class JabRefPreferences {
         defaults.put("antialias", Boolean.FALSE);
         defaults.put("ctrlClick", Boolean.FALSE);
         defaults.put("disableOnMultipleSelection", Boolean.FALSE);
-        defaults.put("pdfColumn", Boolean.FALSE);
         defaults.put("urlColumn", Boolean.TRUE);
         defaults.put("fileColumn", Boolean.TRUE);
-        defaults.put("arxivColumn", Boolean.FALSE);
         
         defaults.put(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED, SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED_DEFAULT);
         defaults.put(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY, SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY_DEFAULT);
-        defaults.put(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY, SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY_DEFAULT);
         defaults.put(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING, SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING_DEFAULT);
         defaults.put(SpecialFieldsUtils.PREF_RANKING_COMPACT, SpecialFieldsUtils.PREF_RANKING_COMPACT_DEFAULT);
-        defaults.put(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE, SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE_DEFAULT);
         defaults.put(SpecialFieldsUtils.PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS, SpecialFieldsUtils.PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS_DEFAULT);
     	defaults.put(SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS, SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS_DEFAULT);
     	

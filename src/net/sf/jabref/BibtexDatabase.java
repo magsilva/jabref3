@@ -53,8 +53,10 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
-public class BibtexDatabase {
-    
+public class BibtexDatabase
+{
+	public static final String EXTENSION = ".bib";
+	
 	Map<String, BibtexEntry> _entries = new Hashtable<String, BibtexEntry>();
 
 	String _preamble = null;

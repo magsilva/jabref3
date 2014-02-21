@@ -111,23 +111,13 @@ public class PreventDraggingJTableHeader extends JTableHeader {
         if (Globals.prefs.getBoolean("fileColumn")) {
             count++;
         }
-        if (Globals.prefs.getBoolean("pdfColumn")) {
-            count++;
-        }
         if (Globals.prefs.getBoolean("urlColumn")) {
-            count++;
-        }
-        if (Globals.prefs.getBoolean("arxivColumn")) {
             count++;
         }
         
         // special field columns may also not be dragged
         if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
 	        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING))
-	            count++;
-	        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE))
-	            count++;
-	        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY))
 	            count++;
 	        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY))
 	            count++;

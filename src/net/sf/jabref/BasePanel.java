@@ -89,9 +89,7 @@ import net.sf.jabref.search.NoSearchMatcher;
 import net.sf.jabref.search.SearchMatcher;
 import net.sf.jabref.specialfields.SpecialFieldAction;
 import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Quality;
 import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.Relevance;
 import net.sf.jabref.specialfields.SpecialFieldDatabaseChangeListener;
 import net.sf.jabref.specialfields.SpecialFieldValue;
 import net.sf.jabref.specialfields.SpecialFieldsUtils;
@@ -385,7 +383,7 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
         actions.put("saveSelectedAs", new BaseAction () {
                 public void action() throws Throwable {
 
-                  String chosenFile = FileDialogs.getNewFile(frame, new File(Globals.prefs.get("workingDirectory")), ".bib",
+                  String chosenFile = FileDialogs.getNewFile(frame, new File(Globals.prefs.get("workingDirectory")), BibtexDatabase.EXTENSION,
                                                          JFileChooser.SAVE_DIALOG, false);
                   if (chosenFile != null) {
                     File expFile = new File(chosenFile);
@@ -1105,91 +1103,82 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
                                 return;
                             }
                             // If we didn't find anything in the "file" field, check "ps" and "pdf" fields:
-                            Object link = bes[0].getField("ps");
-                            if (bes[0].getField("pdf") != null) {
-                                link = bes[0].getField("pdf");
-                                field = "pdf";
-                            }
                             String filepath = null;
-                            if (link != null) {
-                                filepath = link.toString();
-                            } else {
-                                if (Globals.prefs.getBoolean("runAutomaticFileSearch")) {
+                            if (Globals.prefs.getBoolean("runAutomaticFileSearch")) {
 
-                                     /*  The search can lead to an unexpected 100% CPU usage which is perceived
-                                         as a bug, if the search incidentally starts at a directory with lots
-                                         of stuff below. It is now disabled by default. */
+							     /*  The search can lead to an unexpected 100% CPU usage which is perceived
+							         as a bug, if the search incidentally starts at a directory with lots
+							         of stuff below. It is now disabled by default. */
 
-                                    // see if we can fall back to a filename based on the bibtex key
-                                    final Collection<BibtexEntry> entries = new ArrayList<BibtexEntry>();
-                                    entries.add(bes[0]);
-                                    ExternalFileType[] types = Globals.prefs.getExternalFileTypeSelection();
-                                    ArrayList<File> dirs = new ArrayList<File>();
-                                    if (metaData.getFileDirectory(GUIGlobals.FILE_FIELD).length > 0) {
-                                        String[] mdDirs = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
-                                        for (int i = 0; i < mdDirs.length; i++) {
-                                            dirs.add(new File(mdDirs[i]));
+							    // see if we can fall back to a filename based on the bibtex key
+							    final Collection<BibtexEntry> entries = new ArrayList<BibtexEntry>();
+							    entries.add(bes[0]);
+							    ExternalFileType[] types = Globals.prefs.getExternalFileTypeSelection();
+							    ArrayList<File> dirs = new ArrayList<File>();
+							    if (metaData.getFileDirectory(GUIGlobals.FILE_FIELD).length > 0) {
+							        String[] mdDirs = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+							        for (int i = 0; i < mdDirs.length; i++) {
+							            dirs.add(new File(mdDirs[i]));
 
-                                        }
-                                    }
-                                    Collection<String> extensions = new ArrayList<String>();
-                                    for (int i = 0; i < types.length; i++) {
-                                        final ExternalFileType type = types[i];
-                                        extensions.add(type.getExtension());
-                                    }
-                                    // Run the search operation:
-                                    Map<BibtexEntry, List<File>> result;
-                                    if (Globals.prefs.getBoolean(JabRefPreferences.USE_REG_EXP_SEARCH_KEY)) {
-                                        String regExp = Globals.prefs.get(JabRefPreferences.REG_EXP_SEARCH_EXPRESSION_KEY);
-                                        result = RegExpFileSearch.findFilesForSet(entries, extensions, dirs, regExp);
-                                    }
-                                    else
-                                        result = Util.findAssociatedFiles(entries, extensions, dirs);
-                                    if (result.get(bes[0]) != null) {
-                                        List<File> res = result.get(bes[0]);
-                                        if (res.size() > 0) {
-                                            filepath = res.get(0).getPath();
-                                            int index = filepath.lastIndexOf('.');
-                                            if ((index >= 0) && (index < filepath.length()-1)) {
-                                                String extension = filepath.substring(index+1);
-                                                ExternalFileType type = Globals.prefs.getExternalFileTypeByExt(extension);
-                                                if (type != null) {
-                                                    try {
-                                                        Util.openExternalFileAnyFormat(metaData, filepath, type);
-                                                        output(Globals.lang("External viewer called") + ".");
-                                                        return;
-                                                    } catch (IOException ex) {
-                                                        output(Globals.lang("Error") + ": " + ex.getMessage());
-                                                    }
-                                                }
-                                            }
+							        }
+							    }
+							    Collection<String> extensions = new ArrayList<String>();
+							    for (int i = 0; i < types.length; i++) {
+							        final ExternalFileType type = types[i];
+							        extensions.add(type.getExtension());
+							    }
+							    // Run the search operation:
+							    Map<BibtexEntry, List<File>> result;
+							    if (Globals.prefs.getBoolean(JabRefPreferences.USE_REG_EXP_SEARCH_KEY)) {
+							        String regExp = Globals.prefs.get(JabRefPreferences.REG_EXP_SEARCH_EXPRESSION_KEY);
+							        result = RegExpFileSearch.findFilesForSet(entries, extensions, dirs, regExp);
+							    }
+							    else
+							        result = Util.findAssociatedFiles(entries, extensions, dirs);
+							    if (result.get(bes[0]) != null) {
+							        List<File> res = result.get(bes[0]);
+							        if (res.size() > 0) {
+							            filepath = res.get(0).getPath();
+							            int index = filepath.lastIndexOf('.');
+							            if ((index >= 0) && (index < filepath.length()-1)) {
+							                String extension = filepath.substring(index+1);
+							                ExternalFileType type = Globals.prefs.getExternalFileTypeByExt(extension);
+							                if (type != null) {
+							                    try {
+							                        Util.openExternalFileAnyFormat(metaData, filepath, type);
+							                        output(Globals.lang("External viewer called") + ".");
+							                        return;
+							                    } catch (IOException ex) {
+							                        output(Globals.lang("Error") + ": " + ex.getMessage());
+							                    }
+							                }
+							            }
 
-                                            // TODO: add code for opening the file
-                                        }
-                                    }
-                                    /*String basefile;
-                                    Object key = bes[0].getField(BibtexFields.KEY_FIELD);
-                                    if (key != null) {
-                                        basefile = key.toString();
-                                        final ExternalFileType[] types = Globals.prefs.getExternalFileTypeSelection();
-                                        final String sep = System.getProperty("file.separator");
-                                        String dir = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
-                                        if ((dir != null) && (dir.length() > 0)) {
-                                            if (dir.endsWith(sep)) {
-                                                dir = dir.substring(0, dir.length() - sep.length());
-                                            }
-                                            for (int i = 0; i < types.length; i++) {
-                                                String found = Util.findPdf(basefile, types[i].getExtension(),
-                                                        dir, new OpenFileFilter("." + types[i].getExtension()));
-                                                if (found != null) {
-                                                    filepath = dir + sep + found;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }*/
-                                }
-                            }
+							            // TODO: add code for opening the file
+							        }
+							    }
+							    /*String basefile;
+							    Object key = bes[0].getField(BibtexFields.KEY_FIELD);
+							    if (key != null) {
+							        basefile = key.toString();
+							        final ExternalFileType[] types = Globals.prefs.getExternalFileTypeSelection();
+							        final String sep = System.getProperty("file.separator");
+							        String dir = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+							        if ((dir != null) && (dir.length() > 0)) {
+							            if (dir.endsWith(sep)) {
+							                dir = dir.substring(0, dir.length() - sep.length());
+							            }
+							            for (int i = 0; i < types.length; i++) {
+							                String found = Util.findPdf(basefile, types[i].getExtension(),
+							                        dir, new OpenFileFilter("." + types[i].getExtension()));
+							                if (found != null) {
+							                    filepath = dir + sep + found;
+							                    break;
+							                }
+							            }
+							        }
+							    }*/
+							}
 
 
                             if (filepath != null) {
@@ -1514,12 +1503,7 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
                   markBaseChanged();
                 }
               });
-              
-              actions.put(Relevance.getInstance().getValues().get(0).getActionName(), 
-                  new SpecialFieldAction(frame, Relevance.getInstance(), Relevance.getInstance().getValues().get(0).getFieldValue(), true, Globals.lang("Marked entries as relevant"), "Marked %0 entries as relevant"));
-              actions.put(Quality.getInstance().getValues().get(0).getActionName(),
-                  new SpecialFieldAction(frame, Quality.getInstance(), Quality.getInstance().getValues().get(0).getFieldValue(), true, Globals.lang("Marked entries' quality as good"), "Set quality of %0 entries to good"));
-              
+                          
               for (SpecialFieldValue prio: Priority.getInstance().getValues()) {
 	              actions.put(prio.getActionName(), prio.getAction(this.frame));
               }
@@ -1589,8 +1573,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
         actions.put("abbreviateIso", new AbbreviateAction(this, true));
         actions.put("abbreviateMedline", new AbbreviateAction(this, false));
         actions.put("unabbreviate", new UnabbreviateAction(this));
-        actions.put("autoSetPdf", new AutoSetExternalFileForEntries(this, "pdf"));
-        actions.put("autoSetPs", new AutoSetExternalFileForEntries(this, "ps"));
         actions.put("autoSetFile", new SynchronizeFileField(this));
         actions.put("upgradeLinks", new UpgradeExternalLinks(this));
 
@@ -1796,9 +1778,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
 
                 //Add the new entry to the group(s) selected in the Group Panel
                 addToSelectedGroup(be);
-
-                // Set Self-Created entries to have a high quality
-                be.setField("quality", "1");
                 
                 return be;
             } catch (KeyCollisionException ex) {

@@ -162,8 +162,8 @@ public class Util {
 	
 	public static String checkName(String s) {
 		// Append '.bib' to the string unless it ends with that.
-		if (s.length() < 4 || !s.substring(s.length() - 4).equalsIgnoreCase(".bib")) {
-			return s + ".bib";
+		if (s.length() < 4 || !s.substring(s.length() - 4).equalsIgnoreCase(BibtexDatabase.EXTENSION)) {
+			return s + BibtexDatabase.EXTENSION;
 		}
 		return s;
 	}
@@ -521,14 +521,13 @@ public class Util {
 	/**
 	 * Open a http/pdf/ps viewer for the given link string.
 	 */
-	public static void openExternalViewer(MetaData metaData, String link, String fieldName)
-		throws IOException {
-
-        if (fieldName.equals("ps") || fieldName.equals("pdf")) {
-
+	public static void openExternalViewer(MetaData metaData, String link, String fieldName)	throws IOException
+	{
+		String dataType = "";
+		
+        if (fieldName.equals("file")) {
             // Find the default directory for this field type:
 			String[] dir = metaData.getFileDirectory(fieldName);
-
 			File file = expandFilename(link, dir);
 
 			// Check that the file exists:
@@ -542,30 +541,21 @@ public class Util {
 			String[] split = file.getName().split("\\.");
 			if (split.length >= 2) {
 				if (split[split.length - 1].equalsIgnoreCase("pdf"))
-					fieldName = "pdf";
+					dataType = "pdf";
 				else if (split[split.length - 1].equalsIgnoreCase("ps")
 					|| (split.length >= 3 && split[split.length - 2].equalsIgnoreCase("ps")))
-					fieldName = "ps";
+					dataType = "ps";
 			}
 
         } else if (fieldName.equals("doi")) {
-            fieldName = "url";
+        	dataType = "url";
             
             // sanitizing is done below at the treatment of "URL"
             // in sanatizeUrl a doi-link is correctly treated
 
-        } else if (fieldName.equals("eprint")) {
-            fieldName = "url";
-
-            link = sanitizeUrl(link);
-
-            // Check to see if link field already contains a well formated URL
-            if (!link.startsWith("http://")) {
-                link = Globals.ARXIV_LOOKUP_PREFIX + link;
-            }
         }
 
-		if (fieldName.equals("url")) { // html
+		if (dataType.equals("url")) { // html
 			try {
 				link = sanitizeUrl(link);
                 ExternalFileType fileType = Globals.prefs.getExternalFileTypeByExt("html");
@@ -600,7 +590,7 @@ public class Util {
                 System.err.println(Globals.lang("Error_opening_file_'%0'.", link));
                 e.printStackTrace();
 			}
-		} else if (fieldName.equals("ps")) {
+		} else if (dataType.equals("ps")) {
 			try {
 				if (Globals.ON_MAC) {
                     ExternalFileType type = Globals.prefs.getExternalFileTypeByExt("ps");
@@ -626,7 +616,7 @@ public class Util {
 				System.err.println("An error occured on the command: "
 					+ Globals.prefs.get("psviewer") + " " + link);
 			}
-		} else if (fieldName.equals("pdf")) {
+		} else if (dataType.equals("pdf")) {
 			try {
 				if (Globals.ON_MAC) {
                     ExternalFileType type = Globals.prefs.getExternalFileTypeByExt("pdf");

@@ -178,14 +178,12 @@ public class FileLinksUpgradeWarning implements PostOpenAction {
 
         if (upgradePrefs) {
             // Exchange table columns:
-            Globals.prefs.putBoolean("pdfColumn", Boolean.FALSE);
             Globals.prefs.putBoolean("fileColumn", Boolean.TRUE);
 
             // Modify General fields if necessary:
             // If we don't find the file field, insert it at the bottom of the first tab:
             if (!showsFileInGenFields()) {
                 String gfs = Globals.prefs.get(Globals.prefs.CUSTOM_TAB_FIELDS+"0");
-                //System.out.println(gfs);
                 StringBuffer sb = new StringBuffer(gfs);
                 if (gfs.length() > 0)
                     sb.append(";");

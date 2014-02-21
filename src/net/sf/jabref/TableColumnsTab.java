@@ -42,15 +42,15 @@ class TableColumnsTab extends JPanel implements PrefsTab {
     private Vector<TableRow> tableRows = new Vector<TableRow>(10);
     private JabRefFrame frame;
 
-    private JCheckBox pdfColumn, urlColumn, fileColumn, arxivColumn;
+    private JCheckBox urlColumn, fileColumn;
     
     private JCheckBox showOneLetterHeadingForIconColumns;
     private boolean oldShowOneLetterHeadingForIconColumns;
 
 	/*** begin: special fields ***/
-	private JCheckBox specialFieldsEnabled, rankingColumn, compactRankingColumn, qualityColumn, priorityColumn, relevanceColumn;
+	private JCheckBox specialFieldsEnabled, rankingColumn, compactRankingColumn, priorityColumn;
 	private JRadioButton syncKeywords, writeSpecialFields;
-	private boolean oldSpecialFieldsEnabled, oldRankingColumn, oldCompcatRankingColumn, oldQualityColumn, oldPriorityColumn, oldRelevanceColumn, oldSyncKeyWords, oldWriteSpecialFields;
+	private boolean oldSpecialFieldsEnabled, oldRankingColumn, oldCompcatRankingColumn, oldPriorityColumn, oldSyncKeyWords, oldWriteSpecialFields;
 	private final JButton hlb; 
 	/*** end: special fields ***/
 
@@ -181,9 +181,7 @@ class TableColumnsTab extends JPanel implements PrefsTab {
         showOneLetterHeadingForIconColumns = new JCheckBox(Globals.lang("Show one letter heading for icon columns"));
 
         fileColumn = new JCheckBox(Globals.lang("Show file column"));
-        pdfColumn = new JCheckBox(Globals.lang("Show PDF/PS column"));
 		urlColumn = new JCheckBox(Globals.lang("Show URL/DOI column"));
-		arxivColumn = new JCheckBox(Globals.lang("Show ArXiv column"));
 
 		/*** begin: special table columns and special fields ***/
 
@@ -198,10 +196,8 @@ class TableColumnsTab extends JPanel implements PrefsTab {
 			public void stateChanged(ChangeEvent event) {
 				boolean isEnabled = specialFieldsEnabled.isSelected();
 				rankingColumn.setEnabled(isEnabled);
-				compactRankingColumn.setEnabled(isEnabled?rankingColumn.isSelected():false);
-				qualityColumn.setEnabled(isEnabled);
+				compactRankingColumn.setEnabled(isEnabled?rankingColumn.isSelected():false);	
 				priorityColumn.setEnabled(isEnabled);
-				relevanceColumn.setEnabled(isEnabled);
 				syncKeywords.setEnabled(isEnabled);
 				writeSpecialFields.setEnabled(isEnabled);
 			}
@@ -213,9 +209,7 @@ class TableColumnsTab extends JPanel implements PrefsTab {
 			}
 		});
 		compactRankingColumn = new JCheckBox(Globals.lang("Compact rank"));
-		qualityColumn = new JCheckBox(Globals.lang("Show quality"));
 		priorityColumn = new JCheckBox(Globals.lang("Show priority"));
-		relevanceColumn = new JCheckBox(Globals.lang("Show relevance"));
 		
 		// "sync keywords" and "write special" fields may be configured mutually exclusive only
 		// The implementation supports all combinations (TRUE+TRUE and FALSE+FALSE, even if the latter does not make sense)
@@ -237,18 +231,13 @@ class TableColumnsTab extends JPanel implements PrefsTab {
         specialTableColumnsBuilder.add(specialFieldsEnabled, cc.xyw(1, 1, 3));
         specialTableColumnsBuilder.add(rankingColumn, cc.xyw(2, 2, 2));
         specialTableColumnsBuilder.add(compactRankingColumn, cc.xy(3, 3));
-        specialTableColumnsBuilder.add(relevanceColumn, cc.xyw(2, 4, 2));
-        specialTableColumnsBuilder.add(qualityColumn, cc.xyw(2, 5, 2));
         specialTableColumnsBuilder.add(priorityColumn, cc.xyw(2, 6, 2));
         specialTableColumnsBuilder.add(syncKeywords, cc.xyw(2, 7, 2));
         specialTableColumnsBuilder.add(writeSpecialFields, cc.xyw(2, 8, 2));
         specialTableColumnsBuilder.add(showOneLetterHeadingForIconColumns, cc.xyw(1, 9, 5));
 		specialTableColumnsBuilder.add(hlb, cc.xyw(1, 10, 2));
-
 		specialTableColumnsBuilder.add(fileColumn, cc.xy(5, 1));	
-		specialTableColumnsBuilder.add(pdfColumn, cc.xy(5, 2));	
 		specialTableColumnsBuilder.add(urlColumn, cc.xy(5, 3));	
-		specialTableColumnsBuilder.add(arxivColumn, cc.xy(5, 4));	
 
 		builder.append(specialTableColumnsBuilder.getPanel());
 		builder.nextLine();
@@ -277,10 +266,8 @@ class TableColumnsTab extends JPanel implements PrefsTab {
 
     public void setValues() {
 		fileColumn.setSelected(_prefs.getBoolean("fileColumn"));
-        pdfColumn.setSelected(_prefs.getBoolean("pdfColumn"));
 		urlColumn.setSelected(_prefs.getBoolean("urlColumn"));
         fileColumn.setSelected(_prefs.getBoolean("fileColumn"));
-        arxivColumn.setSelected(_prefs.getBoolean("arxivColumn"));
 
         /*** begin: special fields ***/
 
@@ -290,14 +277,8 @@ class TableColumnsTab extends JPanel implements PrefsTab {
         oldCompcatRankingColumn = _prefs.getBoolean(SpecialFieldsUtils.PREF_RANKING_COMPACT);
         compactRankingColumn.setSelected(oldCompcatRankingColumn);
 		
-        oldQualityColumn = _prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY);
-        qualityColumn.setSelected(oldQualityColumn);
-        
 		oldPriorityColumn = _prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY);
         priorityColumn.setSelected(oldPriorityColumn);
-		
-		oldRelevanceColumn = _prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE);
-        relevanceColumn.setSelected(oldRelevanceColumn);
 		
 		oldSyncKeyWords = _prefs.getBoolean(SpecialFieldsUtils.PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS);
 		syncKeywords.setSelected(oldSyncKeyWords);
@@ -539,9 +520,7 @@ class TableColumnsTab extends JPanel implements PrefsTab {
      */
     public void storeSettings() {
         _prefs.putBoolean("fileColumn", fileColumn.isSelected());
-        _prefs.putBoolean("pdfColumn", pdfColumn.isSelected());
 		_prefs.putBoolean("urlColumn", urlColumn.isSelected());
-		_prefs.putBoolean("arxivColumn", arxivColumn.isSelected());
 		
 		_prefs.putBoolean(JabRefPreferences.SHOWONELETTERHEADINGFORICONCOLUMNS, showOneLetterHeadingForIconColumns.isSelected());
 
@@ -551,9 +530,7 @@ class TableColumnsTab extends JPanel implements PrefsTab {
 		newSpecialFieldsEnabled = specialFieldsEnabled.isSelected(),
 		newRankingColumn = rankingColumn.isSelected(),
 		newCompactRankingColumn = compactRankingColumn.isSelected(),
-		newQualityColumn = qualityColumn.isSelected(), 
 		newPriorityColumn = priorityColumn.isSelected(), 
-		newRelevanceColumn = relevanceColumn.isSelected(), 
 		newSyncKeyWords = syncKeywords.isSelected(), 
 		newWriteSpecialFields = writeSpecialFields.isSelected();
 		
@@ -561,9 +538,7 @@ class TableColumnsTab extends JPanel implements PrefsTab {
 		restartRequired = (oldSpecialFieldsEnabled != newSpecialFieldsEnabled) ||
 				(oldRankingColumn != newRankingColumn) ||
 				(oldCompcatRankingColumn != newCompactRankingColumn) ||
-				(oldQualityColumn != newQualityColumn) ||
 				(oldPriorityColumn != newPriorityColumn) ||
-				(oldRelevanceColumn != newRelevanceColumn) ||
 				(oldSyncKeyWords != newSyncKeyWords) ||
 				(oldWriteSpecialFields != newWriteSpecialFields);
 		if (restartRequired) {
@@ -582,8 +557,6 @@ class TableColumnsTab extends JPanel implements PrefsTab {
 			_prefs.putBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING, newRankingColumn);
 			_prefs.putBoolean(SpecialFieldsUtils.PREF_RANKING_COMPACT, newCompactRankingColumn);
 			_prefs.putBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY, newPriorityColumn);
-			_prefs.putBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY, newQualityColumn);
-			_prefs.putBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE, newRelevanceColumn);
 			_prefs.putBoolean(SpecialFieldsUtils.PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS, newSyncKeyWords);
 			_prefs.putBoolean(SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS, newWriteSpecialFields);
 		}

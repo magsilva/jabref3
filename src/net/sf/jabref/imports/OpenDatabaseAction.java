@@ -29,7 +29,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import net.sf.jabref.*;
-
 import net.sf.jabref.export.AutoSaveManager;
 import net.sf.jabref.export.SaveSession;
 import net.sf.jabref.gui.FileDialogs;
@@ -75,21 +74,12 @@ public class OpenDatabaseAction extends MnemonicAwareAction {
 
         if (showDialog) {
 
-            String[] chosen = FileDialogs.getMultipleFiles(frame, new File(Globals.prefs.get("workingDirectory")), ".bib",
+            String[] chosen = FileDialogs.getMultipleFiles(frame, new File(Globals.prefs.get("workingDirectory")), BibtexDatabase.EXTENSION,
                     true);
             if (chosen != null) for (int i=0; i<chosen.length; i++) {
                 if (chosen[i] != null)
                     filesToOpen.add(new File(chosen[i]));
             }
-
-            /*
-            String chosenFile = Globals.getNewFile(frame,
-                    new File(Globals.prefs.get("workingDirectory")), ".bib",
-                    JFileChooser.OPEN_DIALOG, true);
-
-            if (chosenFile != null) {
-                fileToOpen = new File(chosenFile);
-            }*/
         } else {
             Util.pr(NAME);
             Util.pr(e.getActionCommand());

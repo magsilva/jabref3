@@ -25,9 +25,7 @@ import javax.swing.event.PopupMenuListener;
 
 import net.sf.jabref.groups.*;
 import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Quality;
 import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.Relevance;
 import net.sf.jabref.specialfields.SpecialField;
 import net.sf.jabref.specialfields.SpecialFieldValue;
 import net.sf.jabref.specialfields.SpecialFieldsUtils;
@@ -168,16 +166,6 @@ public class RightClickMenu extends JPopupMenu
     	        add(this.rankingMenu);
         	}
 	        
-	        // TODO: multiple handling for relevance and quality-assurance
-	        // if multiple values are selected ("if (multiple)"), two options (set / clear) should be offered
-	        // if one value is selected either set or clear should be offered
-        	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE)) {
-        		add(Relevance.getInstance().getValues().get(0).getMenuAction(panel.frame));
-        	}
-        	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY)) {
-        		add(Quality.getInstance().getValues().get(0).getMenuAction(panel.frame));
-        	}
-
         	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY)) {
 		        populateSpecialFieldMenu(this.priorityMenu, Priority.getInstance(), panel.frame);
 		        add(this.priorityMenu);

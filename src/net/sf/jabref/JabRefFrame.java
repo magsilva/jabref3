@@ -63,9 +63,7 @@ import net.sf.jabref.plugin.PluginInstallerAction;
 import net.sf.jabref.plugin.core.JabRefPlugin;
 import net.sf.jabref.plugin.core.generated._JabRefPlugin.EntryFetcherExtension;
 import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Quality;
 import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.Relevance;
 import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import net.sf.jabref.sql.importer.DbImportAction;
 import net.sf.jabref.undo.NamedCompound;
@@ -205,16 +203,7 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
                                   Globals.lang("Unmark entries"),
                                   prefs.getKey("Unmark entries")),
        unmarkAll = new GeneralAction("unmarkAll", "Unmark all"),
-       toggleRelevance = new GeneralAction(
-    		   Relevance.getInstance().getValues().get(0).getActionName(), 
-    		   Relevance.getInstance().getValues().get(0).getMenuString(),
-    		   Relevance.getInstance().getValues().get(0).getToolTipText()),
-       toggleQualityAssured = new GeneralAction(
-				Quality.getInstance().getValues().get(0).getActionName(),
-				Quality.getInstance().getValues().get(0).getMenuString(),
-				Quality.getInstance().getValues().get(0).getToolTipText()),
-//    	priority = new GeneralAction("setPriority", "Set priority",
-//    			                                            Globals.lang("Set priority")),
+
       manageSelectors = new GeneralAction("manageSelectors", "Manage content selectors"),
       saveSessionAction = new SaveSessionAction(),
       loadSessionAction = new LoadSessionAction(),
@@ -1229,12 +1218,7 @@ public JabRefPreferences prefs() {
 	    	  RightClickMenu.populateSpecialFieldMenu(m, Rank.getInstance(), this);
 	    	  edit.add(m);
     	  }
-    	  if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE)) {
-    		  edit.add(toggleRelevance);
-    	  }
-    	  if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY)) {
-    		  edit.add(toggleQualityAssured);
-    	  }
+
     	  if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY)) {
     		  m = new JMenu();
     		  RightClickMenu.populateSpecialFieldMenu(m, Priority.getInstance(), this);
@@ -1435,12 +1419,6 @@ public JabRefPreferences prefs() {
     if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
     	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING)) {
     		tlb.add(net.sf.jabref.specialfields.SpecialFieldDropDown.generateSpecialFieldButtonWithDropDown(Rank.getInstance(), this));
-    	}
-    	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE)) {
-    		tlb.addAction(toggleRelevance);
-    	}
-    	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY)) {
-    		tlb.addAction(toggleQualityAssured);
     	}
     	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY)) {
     		tlb.add(net.sf.jabref.specialfields.SpecialFieldDropDown.generateSpecialFieldButtonWithDropDown(Priority.getInstance(), this));

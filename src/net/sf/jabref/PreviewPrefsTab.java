@@ -185,47 +185,38 @@ public class PreviewPrefsTab extends JPanel implements PrefsTab {
 			return entry;
 		entry = new BibtexEntry(Util.createNeutralId(), BibtexEntryType.getType("article"));
 		entry.setField(BibtexFields.KEY_FIELD, "conceicao1997");
-		entry
-			.setField(
-				"author",
-				"Luis E. C. Conceic{\\~a}o and Terje van der Meeren and Johan A. J. Verreth and M S. Evjen and D. F. Houlihan and H. J. Fyhn");
-		entry
-			.setField(
-				"title",
-				"Amino acid metabolism and protein turnover in larval turbot (Scophthalmus maximus) fed natural zooplankton or Artemia");
+		entry.setField("author", "Luis E. C. Conceic{\\~a}o and Terje van der Meeren and Johan A. J. Verreth and M S. Evjen and D. F. Houlihan and H. J. Fyhn");
+		entry.setField("title", "Amino acid metabolism and protein turnover in larval turbot (Scophthalmus maximus) fed natural zooplankton or Artemia");
 		entry.setField("year", "1997");
 		entry.setField("journal", "Marine Biology");
 		entry.setField("month", "January");
 		entry.setField("number", "2");
 		entry.setField("volume", "123");
-		entry.setField("pdf", "conceicao1997.pdf");
+		entry.setField("file", "conceicao1997.pdf");
 		entry.setField("pages", "255--265");
 		entry.setField("keywords", "energetics, artemia, metabolism, amino acid, turbot");
-		entry.setField("url",
-			"http://ejournals.ebsco.com/direct.asp?ArticleID=TYY4NT82XA9H7R8PFPPV");
-		entry
-			.setField(
-				"abstract",
-				"Abstract The present paper studied the influence of different food regimes "
-					+ "on the free amino acid (FAA) pool, the rate of protein turnover, the flux of amino acids, and "
-					+ "their relation to growth of larval turbot (Scophthalmus maximus L.) from first feeding until "
-					+ "metamorphosis. The amino acid profile of protein was stable during the larval period although "
-					+ "some small, but significant, differences were found. Turbot larvae had proteins which were rich "
-					+ "in leucine and aspartate, and poor in glutamate, suggesting a high leucine requirement. The "
-					+ "profile of the FAA pool was highly variable and quite different from the amino acid profile in "
-					+ "protein. The proportion of essential FAA decreased with development. High contents of free tyrosine "
-					+ "and phenylalanine were found on Day 3, while free taurine was present at high levels throughout "
-					+ "the experimental period. Larval growth rates were positively correlated with taurine levels, "
-					+ "suggesting a dietary dependency for taurine and/or sulphur amino acids.\n\nReduced growth rates in "
-					+ "Artemia-fed larvae were associated with lower levels of free methionine, indicating that this diet "
-					+ "is deficient in methionine for turbot larvae. Leucine might also be limiting turbot growth as the "
-					+ "different diet organisms had lower levels of this amino acid in the free pool than was found in the "
-					+ "larval protein. A previously presented model was used to describe the flux of amino acids in growing "
-					+ "turbot larvae. The FAA pool was found to be small and variable. It was estimated that the daily dietary "
-					+ "amino acid intake might be up to ten times the larval FAA pool. In addition, protein synthesis and "
-					+ "protein degradation might daily remove and return, respectively, the equivalent of up to 20 and 10 "
-					+ "times the size of the FAA pool. In an early phase (Day 11) high growth rates were associated with a "
-					+ "relatively low protein turnover, while at a later stage (Day 17), a much higher turnover was observed.");
+		entry.setField("url", "http://ejournals.ebsco.com/direct.asp?ArticleID=TYY4NT82XA9H7R8PFPPV");
+		entry.setField("abstract",
+			"Abstract The present paper studied the influence of different food regimes "
+			+ "on the free amino acid (FAA) pool, the rate of protein turnover, the flux of amino acids, and "
+			+ "their relation to growth of larval turbot (Scophthalmus maximus L.) from first feeding until "
+			+ "metamorphosis. The amino acid profile of protein was stable during the larval period although "
+			+ "some small, but significant, differences were found. Turbot larvae had proteins which were rich "
+			+ "in leucine and aspartate, and poor in glutamate, suggesting a high leucine requirement. The "
+			+ "profile of the FAA pool was highly variable and quite different from the amino acid profile in "
+			+ "protein. The proportion of essential FAA decreased with development. High contents of free tyrosine "
+			+ "and phenylalanine were found on Day 3, while free taurine was present at high levels throughout "
+			+ "the experimental period. Larval growth rates were positively correlated with taurine levels, "
+			+ "suggesting a dietary dependency for taurine and/or sulphur amino acids.\n\nReduced growth rates in "
+			+ "Artemia-fed larvae were associated with lower levels of free methionine, indicating that this diet "
+			+ "is deficient in methionine for turbot larvae. Leucine might also be limiting turbot growth as the "
+			+ "different diet organisms had lower levels of this amino acid in the free pool than was found in the "
+			+ "larval protein. A previously presented model was used to describe the flux of amino acids in growing "
+			+ "turbot larvae. The FAA pool was found to be small and variable. It was estimated that the daily dietary "
+			+ "amino acid intake might be up to ten times the larval FAA pool. In addition, protein synthesis and "
+			+ "protein degradation might daily remove and return, respectively, the equivalent of up to 20 and 10 "
+			+ "times the size of the FAA pool. In an early phase (Day 11) high growth rates were associated with a "
+			+ "relatively low protein turnover, while at a later stage (Day 17), a much higher turnover was observed.");
 		return entry;
 	}
 

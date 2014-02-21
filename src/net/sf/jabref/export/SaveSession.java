@@ -15,6 +15,7 @@
 */
 package net.sf.jabref.export;
 
+import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.Globals;
 import net.sf.jabref.Util;
 import net.sf.jabref.GUIGlobals;
@@ -48,7 +49,7 @@ public class SaveSession {
 
     private static final String TEMP_PREFIX = "jabref";
     
-    private static final String TEMP_SUFFIX = "save.bib";
+    private static final String TEMP_SUFFIX = "save" + BibtexDatabase.EXTENSION;
 
     File file, tmp, backupFile;
     String encoding;

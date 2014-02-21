@@ -184,8 +184,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
             .getImage("pdfSmall")), psLabel = new JLabel(GUIGlobals.getImage("psSmall")),
         urlLabel = new JLabel(GUIGlobals.getImage("wwwSmall"));
 
-    protected final int DUPL_COL = 1, FILE_COL = 2, PDF_COL = -1,// 3,
-        PS_COL = -2,// 4,
+    protected final int DUPL_COL = 1, FILE_COL = 2, // 3,
         URL_COL = 3,// 5,
         PAD = 4; // 6;
 
@@ -268,8 +267,6 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
         popup.add(new LinkLocalFile());
         popup.add(new DownloadFile());
         popup.add(new AutoSetLinks());
-        // popup.add(new AttachFile("pdf"));
-        // popup.add(new AttachFile("ps"));
         popup.add(new AttachUrl());
         getContentPane().add(centerPan, BorderLayout.CENTER);
 
@@ -935,7 +932,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
     class TableClickListener implements MouseListener {
 
         public boolean isIconColumn(int col) {
-            return (col == FILE_COL) || (col == PDF_COL) || (col == PS_COL) || (col == URL_COL);
+            return (col == FILE_COL) || (col == URL_COL);
         }
 
         public void mouseClicked(MouseEvent e) {
@@ -959,12 +956,6 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                     break;
                 case URL_COL:
                     openExternalLink("url", e);
-                    break;
-                case PDF_COL:
-                    openExternalLink("pdf", e);
-                    break;
-                case PS_COL:
-                    openExternalLink("ps", e);
                     break;
                 }
             }
@@ -1341,10 +1332,6 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
             comparators.clear();
             if (i == FILE_COL)
                 comparators.add(new IconComparator(new String[] { GUIGlobals.FILE_FIELD }));
-            else if (i == PDF_COL)
-                comparators.add(new IconComparator(new String[] { "pdf" }));
-            else if (i == PS_COL)
-                comparators.add(new IconComparator(new String[] { "ps" }));
             else if (i == URL_COL)
                 comparators.add(new IconComparator(new String[] { "url" }));
 
@@ -1445,21 +1432,6 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                         if (model.getRowCount() > 0)
                             fileLabel.setIcon(model.getEntry(0).getType().getIcon());
                         return fileLabel;
-                    } else
-                        return null;
-                case PDF_COL:
-                    o = entry.getField("pdf");
-                    if (o != null) {
-                        pdfLabel.setToolTipText((String) o);
-                        return pdfLabel;
-                    } else
-                        return null;
-
-                case PS_COL:
-                    o = entry.getField("ps");
-                    if (o != null) {
-                        psLabel.setToolTipText((String) o);
-                        return psLabel;
                     } else
                         return null;
                 case URL_COL:

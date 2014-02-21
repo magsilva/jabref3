@@ -144,10 +144,8 @@ public class SixpackImporter extends ImportFormat {
 			else if (fld.equals("pages")) ImportFormatReader.setIfNecessary(entry, fld, fields[i]
 							       .replaceAll("-", "--"));
             else if (fld.equals("file")) {
-                String fieldName = "pdf"; // We set pdf as default.
-                if (fields[i].endsWith("ps") || fields[i].endsWith("ps.gz"))
-                    fieldName = "ps";
-                else if (fields[i].endsWith("html"))
+                String fieldName = "file";
+                if (fields[i].endsWith("html") || fields[i].endsWith("htm") || fields[i].endsWith("/"))
                     fieldName = "url";
                 ImportFormatReader.setIfNecessary(entry, fieldName, fields[i]);
             }

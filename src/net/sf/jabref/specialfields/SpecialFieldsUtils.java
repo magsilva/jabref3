@@ -28,8 +28,6 @@ public class SpecialFieldsUtils {
 	
 	public final static String FIELDNAME_PRIORITY = "priority";
 	public final static String FIELDNAME_RANKING = "ranking";
-	public final static String FIELDNAME_RELEVANCE = "relevance";
-	public final static String FIELDNAME_QUALITY = "qualityassured";
 
 	public final static String  PREF_SPECIALFIELDSENABLED = "specialFieldsEnabled";
 	public final static Boolean PREF_SPECIALFIELDSENABLED_DEFAULT = Boolean.FALSE;
@@ -43,12 +41,6 @@ public class SpecialFieldsUtils {
 	public final static String  PREF_SHOWCOLUMN_PRIORITY = "showPriorityColumn";
 	public final static Boolean PREF_SHOWCOLUMN_PRIORITY_DEFAULT = Boolean.FALSE;
 
-	public final static String  PREF_SHOWCOLUMN_RELEVANCE = "showRelevanceColumn";
-	public final static Boolean PREF_SHOWCOLUMN_RELEVANCE_DEFAULT = Boolean.FALSE;
-	
-	public final static String  PREF_SHOWCOLUMN_QUALITY = "showQualityColumn";
-	public final static Boolean PREF_SHOWCOLUMN_QUALITY_DEFAULT = Boolean.FALSE;
-	
 	public final static String  PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS = "autoSyncSpecialFieldsToKeywords";
 	public final static Boolean PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS_DEFAULT = Boolean.FALSE;
 	
@@ -112,8 +104,6 @@ public class SpecialFieldsUtils {
 	public static void syncKeywordsFromSpecialFields(BibtexEntry be, NamedCompound nc) {
 		exportFieldToKeywords(Priority.getInstance(), be, nc);
 		exportFieldToKeywords(Rank.getInstance(), be, nc);
-		exportFieldToKeywords(Relevance.getInstance(), be, nc);
-		exportFieldToKeywords(Quality.getInstance(), be, nc);
 	}
 	
 	private static void importKeywordsForField(ArrayList<String> keywordList, SpecialField c, BibtexEntry be, NamedCompound nc) {
@@ -139,8 +129,6 @@ public class SpecialFieldsUtils {
 		ArrayList<String> keywordList = Util.getSeparatedKeywords(be.getField("keywords"));
 		importKeywordsForField(keywordList, Priority.getInstance(), be, ce);
 		importKeywordsForField(keywordList, Rank.getInstance(), be, ce);
-		importKeywordsForField(keywordList, Quality.getInstance(), be, ce);
-		importKeywordsForField(keywordList, Relevance.getInstance(), be, ce);
 	}
 	
 	/**
@@ -150,12 +138,8 @@ public class SpecialFieldsUtils {
 	public static SpecialField getSpecialFieldInstanceFromFieldName(String fieldName) {
 		if (fieldName.equals(FIELDNAME_PRIORITY)) {
 			return Priority.getInstance();
-		} else if (fieldName.equals(FIELDNAME_QUALITY)) {
-			return Quality.getInstance();
 		} else if (fieldName.equals(FIELDNAME_RANKING)) {
 			return Rank.getInstance();
-		} else if (fieldName.equals(FIELDNAME_RELEVANCE)) {
-			return Relevance.getInstance();
 		} else {
 			return null;
 		}

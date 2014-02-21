@@ -51,15 +51,11 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
     // Values to gather iconImages for those columns
     // These values are also used to put a heading into the table; see getColumnName(int)
     public static final String[]
-    PDF = {"pdf", "ps"},
-    URL_ = {"url", "doi"},
-    CITESEER = {"citeseerurl"},
-    ARXIV = {"eprint"},
-    RANKING = {SpecialFieldsUtils.FIELDNAME_RANKING},
-    PRIORITY = {SpecialFieldsUtils.FIELDNAME_PRIORITY},
-    RELEVANCE = {SpecialFieldsUtils.FIELDNAME_RELEVANCE},
-    QUALITY = {SpecialFieldsUtils.FIELDNAME_QUALITY},
-    FILE = {GUIGlobals.FILE_FIELD};
+    		PDF = {"pdf", "ps"},
+    		URL_ = {"url", "doi"},
+    		RANKING = {SpecialFieldsUtils.FIELDNAME_RANKING},
+    		PRIORITY = {SpecialFieldsUtils.FIELDNAME_PRIORITY},
+    		FILE = {GUIGlobals.FILE_FIELD};
 
     BasePanel panel;
 
@@ -291,22 +287,14 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
         if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
             if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING))
                 iconCols.put(coln++, RANKING);
-            if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RELEVANCE))
-                iconCols.put(coln++, RELEVANCE);
-            if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_QUALITY))
-                iconCols.put(coln++, QUALITY);
             if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY))
                 iconCols.put(coln++, PRIORITY);
         }
 
         if (Globals.prefs.getBoolean("fileColumn"))
             iconCols.put(coln++, FILE);
-        if (Globals.prefs.getBoolean("pdfColumn"))
-            iconCols.put(coln++, PDF);
         if (Globals.prefs.getBoolean("urlColumn"))
             iconCols.put(coln++, URL_);
-        if (Globals.prefs.getBoolean("arxivColumn"))
-            iconCols.put(coln++, ARXIV);
 
         // Add 1 to the number of icon columns to get padleft.
         padleft = 1 + iconCols.size();

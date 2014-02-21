@@ -29,9 +29,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Quality;
 import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.Relevance;
 import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 /**
@@ -383,49 +381,24 @@ public class GUIGlobals {
 		typeNameFont = new Font("arial", Font.ITALIC+Font.BOLD, 24);
 		fieldNameFont = new Font("arial", Font.ITALIC+Font.BOLD, 14);
 		JLabel lab;
-		lab = new JLabel(getImage("pdfSmall"));
-		lab.setToolTipText(Globals.lang("Open")+" PDF");
-		tableIcons.put("pdf", lab);
 		lab = new JLabel(getImage("wwwSmall"));
 		lab.setToolTipText(Globals.lang("Open")+" URL");
 		tableIcons.put("url", lab);
-		lab = new JLabel(getImage("citeseer"));
-		lab.setToolTipText(Globals.lang("Open")+" CiteSeer URL");
-		tableIcons.put("citeseerurl", lab);
-		lab = new JLabel(getImage("arxiv"));
-		lab.setToolTipText(Globals.lang("Open")+" ArXiv URL");
-		tableIcons.put("eprint", lab);
 		lab = new JLabel(getImage("doiSmall"));
 		lab.setToolTipText(Globals.lang("Open")+" DOI "+Globals.lang("web link"));
 		tableIcons.put("doi", lab);
-		lab = new JLabel(getImage("psSmall"));
-		lab.setToolTipText(Globals.lang("Open")+" PS");
-		tableIcons.put("ps", lab);
-        lab = new JLabel(getImage("psSmall"));
         lab.setToolTipText(Globals.lang("Open file"));
         tableIcons.put(GUIGlobals.FILE_FIELD, lab);
-        
-        lab = new JLabel(Relevance.getInstance().getRepresentingIcon());
-        lab.setToolTipText(Relevance.getInstance().getToolTip());
-        tableIcons.put(SpecialFieldsUtils.FIELDNAME_RELEVANCE, lab);
-        
-        lab = new JLabel(Quality.getInstance().getRepresentingIcon());
-        lab.setToolTipText(Quality.getInstance().getToolTip());
-        //tableIcons.put("quality", lab);
-        tableIcons.put(SpecialFieldsUtils.FIELDNAME_QUALITY, lab);
         
         // Ranking item in the menu uses one star
         lab = new JLabel(Rank.getInstance().getRepresentingIcon());
         lab.setToolTipText(Rank.getInstance().getToolTip());
-//        lab.setName("0");
         tableIcons.put(SpecialFieldsUtils.FIELDNAME_RANKING, lab);	
 
         // Priority icon used for the menu
         lab = new JLabel(Priority.getInstance().getRepresentingIcon());
         lab.setToolTipText(Rank.getInstance().getToolTip());
         tableIcons.put(SpecialFieldsUtils.FIELDNAME_PRIORITY, lab);
-        
-        //jabRefFont = new Font("arial", Font.ITALIC/*+Font.BOLD*/, 20); 
 	}
 
 }

@@ -53,9 +53,7 @@ import net.sf.jabref.Util;
 import net.sf.jabref.autocompleter.AbstractAutoCompleter;
 import net.sf.jabref.gui.AutoCompleteListener;
 import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Quality;
 import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.Relevance;
 import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import net.sf.jabref.undo.NamedCompound;
 
@@ -312,25 +310,11 @@ public class ManageKeywordsAction extends MnemonicAwareAction {
 	        		keywordsToRemove.addAll(Priority.getInstance().getKeyWords());
 	        	}
 	        	
-	        	// Quality
-	        	clone = (HashSet<String>) keywordsToAdd.clone();
-	        	clone.retainAll(Quality.getInstance().getKeyWords());
-	        	if (!clone.isEmpty()) {
-	        		keywordsToRemove.addAll(Quality.getInstance().getKeyWords());
-	        	}
-	        	
 	        	// Rank
 	        	clone = (HashSet<String>) keywordsToAdd.clone();
 	        	clone.retainAll(Rank.getInstance().getKeyWords());
 	        	if (!clone.isEmpty()) {
 	        		keywordsToRemove.addAll(Rank.getInstance().getKeyWords());
-	        	}
-	        	
-	        	// Relevance
-	        	clone = (HashSet<String>) keywordsToAdd.clone();
-	        	clone.retainAll(Relevance.getInstance().getKeyWords());
-	        	if (!clone.isEmpty()) {
-	        		keywordsToRemove.addAll(Relevance.getInstance().getKeyWords());
 	        	}
 	        }
         }

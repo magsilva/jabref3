@@ -1177,7 +1177,7 @@ public class XMPUtil {
 					System.out.println(sw.getBuffer().toString());
 				}
 
-			} else if (args[0].endsWith(".bib")) {
+			} else if (args[0].endsWith(BibtexDatabase.EXTENSION)) {
 				// Read from bib and write as XMP
 
 				ParserResult result = BibtexParser
@@ -1212,7 +1212,7 @@ public class XMPUtil {
 				break;
 			}
 
-			if (args[0].endsWith(".bib") && args[1].endsWith(".pdf")) {
+			if (args[0].endsWith(BibtexDatabase.EXTENSION) && args[1].endsWith(".pdf")) {
 				ParserResult result = BibtexParser
 						.parse(new FileReader(args[0]));
 
@@ -1234,7 +1234,7 @@ public class XMPUtil {
 			break;
 		}
 		case 3: {
-			if (!args[1].endsWith(".bib") && !args[2].endsWith(".pdf")) {
+			if (!args[1].endsWith(BibtexDatabase.EXTENSION) && !args[2].endsWith(".pdf")) {
 				usage();
 				break;
 			}

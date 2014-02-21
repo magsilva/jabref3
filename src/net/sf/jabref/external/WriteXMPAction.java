@@ -113,16 +113,8 @@ public class WriteXMPAction extends AbstractWorker {
 
             // Make a list of all PDFs linked from this entry:
             List<File> files = new ArrayList<File>();
-
-            // First check the (legacy) "pdf" field:
-            String pdf = entry.getField("pdf");
-            String[] dirs = panel.metaData().getFileDirectory("pdf");
-            File f = Util.expandFilename(pdf, dirs);
-            if (f != null)
-                files.add(f);
-
-            // Then check the "file" field:
-            dirs = panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+            String[] dirs = panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+            File f;
             String field = entry.getField(GUIGlobals.FILE_FIELD);
             if (field != null) {
                 FileListTableModel tm = new FileListTableModel();

@@ -69,14 +69,11 @@ public class JabRef {
     
     public static JabRefFrame jrf;
     
-    public static Frame splashScreen = null;
-
     public Options options;
     
-    boolean graphicFailure = false;
-
     StringOption importFile, exportFile, exportPrefs, importPrefs, auxImExport, importToOpenBase, fetcherEngine, exportMatches, defPrefs;
-    BooleanOption helpO, disableGui, blank, loadSess, showVersion, disableSplash;
+    
+    BooleanOption helpO, disableGui, blank, loadSess, showVersion;
 
     private final static String exportMatchesSyntax = "[".concat(Globals.lang("field")).concat("]").concat("searchTerm").concat(",").concat("outputFile").concat(": ").concat(Globals.lang("file")).concat("[,").concat(Globals.lang("exportFormat")).concat("]");
 
@@ -192,7 +189,6 @@ public class JabRef {
         exportFile = new StringOption("");
         helpO = new BooleanOption();
         disableGui = new BooleanOption();
-        disableSplash = new BooleanOption();
         blank = new BooleanOption();
         loadSess = new BooleanOption();
         showVersion = new BooleanOption();
@@ -212,8 +208,6 @@ public class JabRef {
                 Globals.lang("Display version"), showVersion);
         options.register("nogui", 'n',
             Globals.lang("No GUI. Only process command line options."), disableGui);
-        options.register("nosplash", 's',
-                Globals.lang("Do not show splash window at startup"), disableSplash);
         options.register("import", 'i',
             Globals.lang("Import file") + ": " + Globals.lang("filename")
             + "[,import format]", importFile);
@@ -230,7 +224,7 @@ public class JabRef {
         options.register("prdef", 'd', Globals.lang("Reset preferences (key1,key2,... or 'all')"),
             defPrefs);
         options.register("aux", 'a',
-            Globals.lang("Subdatabase from aux") + ": " + Globals.lang("file")+"[.aux]" + ","+Globals.lang("new")+"[.bib]",
+            Globals.lang("Subdatabase from aux") + ": " + Globals.lang("file")+"[.aux]" + ","+Globals.lang("new")+"[" + BibtexDatabase.EXTENSION + "]",
             auxImExport);
         options.register("blank", 'b', Globals.lang("Do not open any files at startup"), blank);
 
@@ -267,21 +261,6 @@ public class JabRef {
             System.exit(0);
         }
         
-        boolean commandmode = disableGui.isInvoked() || fetcherEngine.isInvoked();
-        
-        // First we quickly scan the command line parameters for any that signal
-        // that the GUI
-        // should not be opened. This is used to decide whether we should show the
-        // splash screen or not.
-        if (initialStartup && !commandmode && !disableSplash.isInvoked()) {
-            try {
-                splashScreen = SplashScreen.splash();
-            } catch (Throwable ex) {
-                graphicFailure = true;
-                System.err.println(Globals.lang("Unable to create graphical interface") + ".");
-            }
-        }
-
         // Check if we should reset all preferences to default values:
         if (defPrefs.isInvoked()) {
             String value = defPrefs.getStringValue();
@@ -643,7 +622,7 @@ public class JabRef {
     }
 
 	public void openWindow(Vector<ParserResult> loaded) {
-        if (!graphicFailure && !disableGui.isInvoked()) {
+        if (! disableGui.isInvoked()) {
             // Call the method performCompatibilityUpdate(), which does any
             // necessary changes for users with a preference set from an older
             // Jabref version.
@@ -656,15 +635,9 @@ public class JabRef {
             // TODO: remove temporary registering of external file types?
             Globals.prefs.updateExternalFileTypes();
 
-           // This property is set to make the Mac OSX Java VM move the menu bar to
-            // the top
+           	// This property is set to make the Mac OSX Java VM move the menu bar to the top
             // of the screen, where Mac users expect it to be.
             System.setProperty("apple.laf.useScreenMenuBar", "true");
-
-            // Set antialiasing on everywhere. This only works in JRE >= 1.5.
-            // Or... it doesn't work, period.
-            //System.setProperty("swing.aatext", "true");
-            // TODO test and maybe remove this! I found this commented out with no additional info ( payload@lavabit.com )
 
             // Set the Look & Feel for Swing.
             try {
@@ -742,12 +715,6 @@ public class JabRef {
             if (loadSess.isInvoked())
                 jrf.loadSessionAction.actionPerformed(new java.awt.event.ActionEvent(
                         jrf, 0, ""));
-
-            // do this only if splashscreen was actually created
-            if (splashScreen != null) {
-                splashScreen.dispose();
-                splashScreen = null;
-            }
 
             // Start auto save timer:
             if (Globals.prefs.getBoolean("autoSave"))
