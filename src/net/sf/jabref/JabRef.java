@@ -20,7 +20,6 @@ import gnu.dtools.ritopt.Options;
 import gnu.dtools.ritopt.StringOption;
 
 import java.awt.Font;
-import java.awt.Frame;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
