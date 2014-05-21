@@ -29,6 +29,7 @@ import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
 import net.sf.jabref.gui.FileDialogs;
 
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.forms.builder.ButtonBarBuilder;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
@@ -92,7 +93,7 @@ public class ExternalFileTypeEntryEditor {
         builder.nextLine();
         builder.append(Globals.lang("Application"));
         JButton browseBut = new JButton(Globals.lang("Browse"));
-        if (Globals.ON_WIN) {
+        if (Globals.prefs.osType == OperationalSystemType.Windows) {
             builder.append(useDefault);
             builder.nextLine();
             JPanel p1 = new JPanel();
@@ -145,7 +146,7 @@ public class ExternalFileTypeEntryEditor {
             }
         });
 
-        if (Globals.ON_WIN) {
+        if (Globals.prefs.osType == OperationalSystemType.Windows) {
             application.getDocument().addDocumentListener(new DocumentListener() {
                 private void handle(DocumentEvent e) {
                     if (application.getText().length() == 0) {
@@ -224,7 +225,7 @@ public class ExternalFileTypeEntryEditor {
         
         if (selectedIcon != null)
             entry.setIconName(selectedIcon);
-        if (!Globals.ON_WIN) {
+        if (Globals.prefs.osType != OperationalSystemType.Windows) {
             entry.setOpenWith(application.getText().trim());
         } else {
             // On Windows, store application as empty if the "Default" option is selected,

@@ -89,6 +89,7 @@ import net.sf.jabref.undo.NamedCompound;
 import net.sf.jabref.undo.UndoableFieldChange;
 import net.sf.jabref.util.FileNameCleaner;
 
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 
@@ -559,13 +560,13 @@ public class Util {
 			try {
 				link = sanitizeUrl(link);
                 ExternalFileType fileType = Globals.prefs.getExternalFileTypeByExt("html");
-				if (Globals.ON_MAC) {
+				if (Globals.prefs.osType == OperationalSystemType.MacOS) {
 
                     String[] cmd = ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0)) ?
                             new String[] { "/usr/bin/open", "-a", fileType.getOpenWith(), link } :
                             new String[] { "/usr/bin/open", link };
 					Runtime.getRuntime().exec(cmd);
-				} else if (Globals.ON_WIN) {
+				} else if (Globals.prefs.osType == OperationalSystemType.Windows) {
 
                     if ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0)) {
                         // Application is specified. Use it:
@@ -592,12 +593,12 @@ public class Util {
 			}
 		} else if (dataType.equals("ps")) {
 			try {
-				if (Globals.ON_MAC) {
+				if (Globals.prefs.osType == OperationalSystemType.MacOS) {
                     ExternalFileType type = Globals.prefs.getExternalFileTypeByExt("ps");
                     String viewer = type != null ? type.getOpenWith() : Globals.prefs.get("psviewer");
                     String[] cmd = { "/usr/bin/open", "-a", viewer, link };
 					Runtime.getRuntime().exec(cmd);
-				} else if (Globals.ON_WIN) {
+				} else if (Globals.prefs.osType == OperationalSystemType.Windows) {
 					openFileOnWindows(link, true);
 					/*
 					 * cmdArray[0] = Globals.prefs.get("psviewer"); cmdArray[1] =
@@ -618,12 +619,12 @@ public class Util {
 			}
 		} else if (dataType.equals("pdf")) {
 			try {
-				if (Globals.ON_MAC) {
+				if (Globals.prefs.osType == OperationalSystemType.MacOS) {
                     ExternalFileType type = Globals.prefs.getExternalFileTypeByExt("pdf");
                     String viewer = type != null ? type.getOpenWith() : Globals.prefs.get("psviewer");
                     String[] cmd = { "/usr/bin/open", "-a", viewer, link };
 					Runtime.getRuntime().exec(cmd);
-				} else if (Globals.ON_WIN) {
+				} else if (Globals.prefs.osType == OperationalSystemType.Windows) {
 					openFileOnWindows(link, true);
 					/*
 					 * String[] spl = link.split("\\\\"); StringBuffer sb = new
@@ -679,11 +680,12 @@ public class Util {
 		// Bug fix for:
 		// http://sourceforge.net/tracker/index.php?func=detail&aid=1489454&group_id=92314&atid=600306
 		String cmd;
-		if (Globals.osName.startsWith("Windows 9")) {
-			cmd = "command.com /c start " + link;
-		} else {
+		// TODO: improve ironiacorp-commons-computer to identify different versions of Windows
+		// if (Globals.osName.startsWith("Windows 9")) {
+        //	cmd = "command.com /c start " + link;
+		//} else {
 			cmd = "cmd.exe /c start " + link;
-		}
+		//}
 
         Runtime.getRuntime().exec(cmd);
 	}
@@ -752,13 +754,13 @@ public class Util {
             // Open the file:
 			try {
                 String filePath = httpLink ? link : file.getPath();
-                if (Globals.ON_MAC) {
+                if (Globals.prefs.osType == OperationalSystemType.MacOS) {
                     // Use "-a <application>" if the app is specified, and just "open <filename>" otherwise:
                     String[] cmd = ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0)) ?
                             new String[] { "/usr/bin/open", "-a", fileType.getOpenWith(), filePath } :
                             new String[] { "/usr/bin/open", filePath };
 					Runtime.getRuntime().exec(cmd);
-				} else if (Globals.ON_WIN) {
+				} else if (Globals.prefs.osType == OperationalSystemType.Windows) {
                     if ((fileType.getOpenWith() != null) && (fileType.getOpenWith().length() > 0)) {
                         // Application is specified. Use it:
                         openFileWithApplicationOnWindows(filePath, fileType.getOpenWith());
@@ -1637,7 +1639,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
             if (file.exists())
                 return file;
             // Ok, try to fix / and \ problems:
-            if (Globals.ON_WIN) {
+            if (Globals.prefs.osType == OperationalSystemType.Windows) {
                 // workaround for catching Java bug in regexp replacer
                 // and, why, why, why ... I don't get it - wegner 2006/01/22
                 try {
@@ -1689,7 +1691,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 			return fileName;
 
 		String longName;
-        if (Globals.ON_WIN) {
+        if (Globals.prefs.osType == OperationalSystemType.Windows) {
         	// case-insensitive matching on Windows
         	longName = fileName.toString().toLowerCase();
         	dir = dir.toLowerCase();

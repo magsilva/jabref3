@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.looks.HeaderStyle;
 import com.jgoodies.looks.Options;
 
@@ -38,7 +39,7 @@ public class SpecialFieldDropDown {
 		JButton button = new JButton(field.getRepresentingIcon());
 		button.setToolTipText(field.getToolTip());
 		button.setPreferredSize(buttonDim);
-		if (!Globals.ON_MAC)
+		if (Globals.prefs.osType != OperationalSystemType.MacOS)
 			button.setMargin(new Insets(1, 0, 2, 0));
 		button.setBorder(null);
 		button.setBorderPainted(false);

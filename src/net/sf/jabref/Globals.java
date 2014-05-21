@@ -246,12 +246,6 @@ public class Globals
 
 	public static HelpDialog helpDiag = null;
 
-	public static final String osName = System.getProperty("os.name", "def");
-
-	public static final boolean ON_MAC = osName.equals("Mac OS X");
-	
-	public static final boolean ON_WIN = osName.startsWith("Windows");
-
 	public static final String[] SKIP_WORDS = { "a", "an", "the", "for", "on", "of" };
 	
 	public static final String SEPARATING_CHARS         = ";,\n ";

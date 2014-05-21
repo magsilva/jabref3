@@ -29,13 +29,14 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
+import com.ironiacorp.computer.OperationalSystemType;
+
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.EntryEditor;
 import net.sf.jabref.FocusRequester;
 import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
-import net.sf.jabref.JabRefFrame;
 import net.sf.jabref.PreviewPanel;
 import net.sf.jabref.RightClickMenu;
 import net.sf.jabref.Util;
@@ -267,7 +268,7 @@ public class MainTableSelectionListener implements ListEventListener<BibtexEntry
          // Workaround for Windows. Right-click is not popup trigger on mousePressed, but
          // on mouseReleased. Therefore we need to avoid taking action at this point, because
          // action will be taken when the button is released:
-        if (Globals.ON_WIN && (iconType != null) && (e.getButton() != MouseEvent.BUTTON1))
+        if (Globals.prefs.osType == OperationalSystemType.Windows && (iconType != null) && (e.getButton() != MouseEvent.BUTTON1))
             return;
 
         if (iconType != null) {

@@ -23,7 +23,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Arrays;
@@ -74,6 +73,7 @@ import net.sf.jabref.util.MassSetFieldAction;
 import net.sf.jabref.wizard.auximport.gui.FromAuxDialog;
 import net.sf.jabref.wizard.integrity.gui.IntegrityWizard;
 
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.looks.HeaderStyle;
 import com.jgoodies.looks.Options;
 
@@ -100,8 +100,9 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
       void addAction(Action a) {
         JButton b = new JButton(a);
         b.setText(null);
-        if (!Globals.ON_MAC)
+        if (Globals.prefs.osType != OperationalSystemType.MacOS) {
             b.setMargin(marg);
+        }
         add(b);
       }
     }
@@ -270,24 +271,11 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
       openFile = new GeneralAction("openExternalFile", "Open file",
                                    Globals.lang("Open file"),
                                    prefs.getKey("Open file")),
-      openPdf = new GeneralAction("openFile", "Open PDF or PS",
-                                   Globals.lang("Open PDF or PS"),
-                                   prefs.getKey("Open PDF or PS")),
       openUrl = new GeneralAction("openUrl", "Open URL or DOI",
                                   Globals.lang("Open URL or DOI"),
                                   prefs.getKey("Open URL or DOI")),
-      openSpires = new GeneralAction("openSpires", "Open SPIRES entry",
-                                          Globals.lang("Open SPIRES entry"),
-                                          prefs.getKey("Open SPIRES entry")),
-      /*
-	   * It looks like this wasn't being implemented for spires anyway so we
-	   * comment it out for now.
-	   *
-	  openInspire = new GeneralAction("openInspire", "Open INSPIRE entry",
-                                          Globals.lang("Open INSPIRE entry"),
-                                          prefs.getKey("Open INSPIRE entry")),
-		*/
-      dupliCheck = new GeneralAction("dupliCheck", "Find duplicates"),
+
+                                  dupliCheck = new GeneralAction("dupliCheck", "Find duplicates"),
       //strictDupliCheck = new GeneralAction("strictDupliCheck", "Find and remove exact duplicates"),
       plainTextImport = new GeneralAction("plainTextImport",
                                           "New entry from plain text",
@@ -299,8 +287,6 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
       customFileTypesAction = ExternalFileTypeEditor.getAction(this),
       exportToClipboard = new GeneralAction("exportToClipboard", "Export selected entries to clipboard"),
       //expandEndnoteZip = new ExpandEndnoteFilters(this),
-        autoSetPdf = new GeneralAction("autoSetPdf", Globals.lang("Synchronize %0 links", "PDF"), Globals.prefs.getKey("Synchronize PDF")),
-        autoSetPs = new GeneralAction("autoSetPs", Globals.lang("Synchronize %0 links", "PS"), Globals.prefs.getKey("Synchronize PS")),
         autoSetFile = new GeneralAction("autoSetFile", Globals.lang("Synchronize file links"), Globals.prefs.getKey("Synchronize files")),
 
     abbreviateMedline = new GeneralAction("abbreviateMedline", "Abbreviate journal names (MEDLINE)",
@@ -370,10 +356,10 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
       customExportMenu = subMenu("Custom export"),
       newDatabaseMenu = subMenu("New database" );
 
-  // Other submenus
-  JMenu checkAndFix = subMenu("Legacy tools...");
+      // Other submenus
+      JMenu checkAndFix = subMenu("Legacy tools...");
 
-
+  
   // The action for adding a new entry of unspecified type.
   NewEntryAction newEntryAction = new NewEntryAction(prefs.getKey("New entry"));
   NewEntryAction[] newSpecificEntryAction = new NewEntryAction[]
@@ -406,7 +392,9 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
   private void init() {
 	    tabbedPane = new DragDropPopupPane(manageSelectors, databaseProperties, bibtexKeyPattern);
 
-        macOSXRegistration();
+	    if (Globals.prefs.osType == OperationalSystemType.MacOS) {
+	    	macOSXRegistration();
+	    }
 
         UIManager.put("FileChooser.readOnly", Globals.prefs.getBoolean("filechooserDisableRename"));
 
@@ -735,7 +723,6 @@ public JabRefPreferences prefs() {
     
 
   private void macOSXRegistration() {
-    if (Globals.ON_MAC) {
       try {
         Class<?> osxAdapter = Class.forName("osxadapter.OSXAdapter");
 
@@ -776,7 +763,6 @@ public JabRefPreferences prefs() {
         System.err.println("Exception while loading the OSXAdapter:");
         e.printStackTrace();
       }
-    }
   }
 
 
@@ -1288,17 +1274,13 @@ public JabRefPreferences prefs() {
       tools.add(manageSelectors);
       tools.addSeparator();
       tools.add(openFile);
-      tools.add(openPdf);
       tools.add(openUrl);
-      //tools.add(openSpires);
       tools.add(findUnlinkedFiles);
       tools.addSeparator();
       tools.add(abbreviateIso);
       tools.add(abbreviateMedline);
       tools.add(unabbreviate);
       tools.addSeparator();
-      checkAndFix.add(autoSetPdf);
-      checkAndFix.add(autoSetPs);
       checkAndFix.add(integrityCheckAction);
       //checkAndFix.addSeparator();
       checkAndFix.add(upgradeExternalLinks);
@@ -1428,32 +1410,32 @@ public JabRefPreferences prefs() {
     tlb.addSeparator();
     searchToggle = new JToggleButton(toggleSearch);
     searchToggle.setText(null);
-    if (!Globals.ON_MAC)
+    if (Globals.prefs.osType != OperationalSystemType.MacOS)
         searchToggle.setMargin(marg);
     tlb.add(searchToggle);
 
     previewToggle = new JToggleButton(togglePreview);
     previewToggle.setText(null);
-    if (!Globals.ON_MAC)
+    if (Globals.prefs.osType != OperationalSystemType.MacOS)
         previewToggle.setMargin(marg);
     tlb.add(previewToggle);
     tlb.addSeparator();
 
     groupToggle = new JToggleButton(toggleGroups);
     groupToggle.setText(null);
-    if (!Globals.ON_MAC)
+    if (Globals.prefs.osType != OperationalSystemType.MacOS)
         groupToggle.setMargin(marg);
     tlb.add(groupToggle);
 
 
     highlightAny = new JToggleButton(toggleHighlightAny);
     highlightAny.setText(null);
-    if (!Globals.ON_MAC)
+    if (Globals.prefs.osType != OperationalSystemType.MacOS)
         highlightAny.setMargin(marg);
     tlb.add(highlightAny);
     highlightAll = new JToggleButton(toggleHighlightAll);
     highlightAll.setText(null);
-    if (!Globals.ON_MAC)
+    if (Globals.prefs.osType != OperationalSystemType.MacOS)
         highlightAll.setMargin(marg);
     tlb.add(highlightAll);
 
@@ -1467,8 +1449,6 @@ public JabRefPreferences prefs() {
       tlb.add(pushExternalButton.getComponent());
 
       tlb.addAction(openFile);
-    //tlb.addAction(openPdf);
-    //tlb.addAction(openUrl);
 
     //tlb.addSeparator();
     //tlb.addAction(showPrefs);
@@ -1510,11 +1490,9 @@ public JabRefPreferences prefs() {
             selectAll, copyKey, copyCiteKey, copyKeyAndTitle, editPreamble, editStrings, toggleGroups, toggleSearch,
             makeKeyAction, normalSearch,
             incrementalSearch, replaceAll, importMenu, exportMenu,
-			/* openSpires wasn't being supported so no point in supporting
-			 * openInspire */
-                openPdf, openUrl, openFile, openSpires, /*openInspire,*/ togglePreview, dupliCheck, /*strictDupliCheck,*/ highlightAll,
+			openUrl, openFile, togglePreview, dupliCheck, /*strictDupliCheck,*/ highlightAll,
             highlightAny, newEntryAction, plainTextImport, massSetField, manageKeywords,
-            closeDatabaseAction, switchPreview, integrityCheckAction, autoSetPdf, autoSetPs,
+            closeDatabaseAction, switchPreview, integrityCheckAction, autoSetFile, 
             toggleHighlightAny, toggleHighlightAll, databaseProperties, abbreviateIso,
             abbreviateMedline, unabbreviate, exportAll, exportSelected,
             importCurrent, saveAll, dbConnect, dbExport, focusTable}));
@@ -2378,7 +2356,6 @@ class SaveSessionAction
         }
 
         public void actionPerformed(ActionEvent e) {
-        	final JabRefPreferences prefs = JabRefPreferences.getInstance();
             if (bibtexKeyPatternDialog == null) {
                 // if no instance of BibtexKeyPatternDialog exists, create new one
             	bibtexKeyPatternDialog = new BibtexKeyPatternDialog(JabRefFrame.this, basePanel());

@@ -23,6 +23,8 @@ import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+import com.ironiacorp.computer.OperationalSystemType;
+
 import net.sf.jabref.*;
 import net.sf.jabref.gui.FileListEntry;
 import net.sf.jabref.gui.FileListEntryEditor;
@@ -274,10 +276,9 @@ public class DownloadExternalFile {
         * http://sourceforge.net/tracker/index.php?func=detail&aid=1548875&group_id=92314&atid=600306
         *
         */
-        if (Globals.ON_WIN) {
-            plannedName = plannedName.replaceAll(
-                    "\\?|\\*|\\<|\\>|\\||\\\"|\\:|\\.$|\\[|\\]", "");
-        } else if (Globals.ON_MAC) {
+        if (Globals.prefs.osType == OperationalSystemType.Windows) {
+            plannedName = plannedName.replaceAll("\\?|\\*|\\<|\\>|\\||\\\"|\\:|\\.$|\\[|\\]", "");
+        } else if (Globals.prefs.osType == OperationalSystemType.MacOS) {
             plannedName = plannedName.replaceAll(":", "");
         }
 
@@ -285,7 +286,7 @@ public class DownloadExternalFile {
     }
 
     /**
-     * Look for the last '.' in the link, and returnthe following characters.
+     * Look for the last '.' in the link, and return the following characters.
      * This gives the extension for most reasonably named links.
      *
      * @param link The link

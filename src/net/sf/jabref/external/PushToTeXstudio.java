@@ -7,6 +7,8 @@ import javax.swing.*;
 
 import net.sf.jabref.*;
 import net.sf.jabref.external.PushToApplication;
+
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 
@@ -47,7 +49,7 @@ public class PushToTeXstudio implements PushToApplication {
     }
 
     protected String defaultProgramPath() {
-        if (Globals.ON_WIN) {
+        if (Globals.prefs.osType == OperationalSystemType.Windows) {
             String progFiles = System.getenv("ProgramFiles(x86)");
             if (progFiles == null)
                 progFiles = System.getenv("ProgramFiles");
@@ -95,7 +97,7 @@ public class PushToTeXstudio implements PushToApplication {
         String programPath = Globals.prefs.get("TeXstudioPath");
         if (programPath == null) programPath = defaultProgramPath();
         try {
-            String[] com = Globals.ON_WIN ?
+            String[] com = Globals.prefs.osType == OperationalSystemType.Windows ?
                 // No additional escaping is needed for TeXstudio:
 		        new String[] {programPath, "--insert-cite", citeCom + "{" + keys + "}"}
                 : new String[] {programPath, "--insert-cite", citeCom + "{" + keys + "}"};

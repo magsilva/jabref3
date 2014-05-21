@@ -35,6 +35,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+import com.ironiacorp.computer.OperationalSystemType;
+
 import net.sf.jabref.export.AutoSaveManager;
 import net.sf.jabref.export.ExportFormats;
 import net.sf.jabref.export.FileActions;
@@ -875,12 +877,10 @@ public class JabRef {
                 System.out.println(Globals.lang("Importing") + ": " + data[0]);
                 try {
                     List<BibtexEntry> entries;
-                    if (Globals.ON_WIN) {
+                    if (Globals.prefs.osType == OperationalSystemType.Windows) {
                       entries = Globals.importFormatReader.importFromFile(data[1], data[0], jrf);
-                    }
-                    else {
-                      entries = Globals.importFormatReader.importFromFile( data[1],
-                                data[0].replaceAll("~", System.getProperty("user.home")), jrf );
+                    } else {
+                      entries = Globals.importFormatReader.importFromFile( data[1], data[0].replaceAll("~", System.getProperty("user.home")), jrf );
                     }
                     return new ParserResult(entries);
                 } catch (IllegalArgumentException ex) {
@@ -889,16 +889,13 @@ public class JabRef {
                 }
             } else {
                 // * means "guess the format":
-                System.out.println(Globals.lang("Importing in unknown format")
-                        + ": " + data[0]);
+                System.out.println(Globals.lang("Importing in unknown format") + ": " + data[0]);
 
                 Pair<String, ParserResult>  importResult;
-                if (Globals.ON_WIN) {
+                if (Globals.prefs.osType == OperationalSystemType.Windows) {
             	  importResult = Globals.importFormatReader.importUnknownFormat(data[0]);
-                }
-                else {
-                  importResult = Globals.importFormatReader.importUnknownFormat(
-                                 data[0].replaceAll("~", System.getProperty("user.home")));
+                } else {
+                  importResult = Globals.importFormatReader.importUnknownFormat(data[0].replaceAll("~", System.getProperty("user.home")));
                 }
             	
             	if (importResult != null){

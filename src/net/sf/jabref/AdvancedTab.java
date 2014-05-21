@@ -24,6 +24,7 @@ import javax.swing.event.ChangeListener;
 import net.sf.jabref.journals.JournalAbbreviations;
 import net.sf.jabref.remote.RemoteListener;
 
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 
@@ -36,8 +37,7 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     JPanel pan = new JPanel(),
         lnf = new JPanel();
     JLabel lab;
-    JCheckBox useDefault, useRemoteServer, useNativeFileDialogOnMac, filechooserDisableRename,
-            useIEEEAbrv, biblatexMode;
+    JCheckBox useDefault, useRemoteServer, filechooserDisableRename, useIEEEAbrv, biblatexMode;
     JTextField className, remoteServerPort;
     JButton def1 = new JButton(Globals.lang("Default")),
         def2 = new JButton(Globals.lang("Default"));
@@ -55,7 +55,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
                 GUIGlobals.getIconUrl("helpSmall"));
     useDefault = new JCheckBox(Globals.lang("Use other look and feel"));
     useRemoteServer = new JCheckBox(Globals.lang("Listen for remote operation on port")+":");
-    useNativeFileDialogOnMac = new JCheckBox(Globals.lang("Use native file dialog"));
     filechooserDisableRename = new JCheckBox(Globals.lang("Disable file renaming in non-native file dialog"));
     useIEEEAbrv = new JCheckBox(Globals.lang("Use IEEE LaTeX abbreviations"));
     biblatexMode = new JCheckBox(Globals.lang("BibLaTeX mode"));
@@ -75,7 +74,7 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     DefaultFormBuilder builder = new DefaultFormBuilder(layout);
     JPanel pan = new JPanel();
 
-    if (!Globals.ON_MAC) {
+    if (Globals.prefs.osType != OperationalSystemType.MacOS) {
         builder.appendSeparator(Globals.lang("Look and feel"));
         JLabel lab = new JLabel(Globals.lang("Default look and feel")+": "+UIManager.getSystemLookAndFeelClassName());
         builder.nextLine();
@@ -122,9 +121,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     builder.appendSeparator(Globals.lang("File dialog"));
     builder.nextLine();
     builder.append(new JPanel());
-    builder.append(useNativeFileDialogOnMac);
-    builder.nextLine();
-    builder.append(new JPanel());
     builder.append(filechooserDisableRename);
     //}
 	// IEEE
@@ -155,7 +151,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
         useRemoteServer.setSelected(_prefs.getBoolean("useRemoteServer"));
         oldPort = _prefs.getInt("remoteServerPort");
         remoteServerPort.setText(String.valueOf(oldPort));
-        useNativeFileDialogOnMac.setSelected(Globals.prefs.getBoolean("useNativeFileDialogOnMac"));
         filechooserDisableRename.setSelected(Globals.prefs.getBoolean("filechooserDisableRename"));
         useIEEEAbrv.setSelected(Globals.prefs.getBoolean("useIEEEAbrv"));
         oldBiblMode = Globals.prefs.getBoolean("biblatexMode");
@@ -165,7 +160,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     public void storeSettings() {
         _prefs.putBoolean("useDefaultLookAndFeel", !useDefault.isSelected());
         _prefs.put("lookAndFeel", className.getText());
-        _prefs.putBoolean("useNativeFileDialogOnMac", useNativeFileDialogOnMac.isSelected());
         _prefs.putBoolean("filechooserDisableRename", filechooserDisableRename.isSelected());
         UIManager.put("FileChooser.readOnly", filechooserDisableRename.isSelected());
         _prefs.putBoolean("useIEEEAbrv", useIEEEAbrv.isSelected());

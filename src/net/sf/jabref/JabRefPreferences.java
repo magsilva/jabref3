@@ -43,6 +43,9 @@ import java.net.UnknownHostException;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
 
+import com.ironiacorp.computer.OperationalSystemDetector;
+import com.ironiacorp.computer.OperationalSystemType;
+
 import net.sf.jabref.export.CustomExportList;
 import net.sf.jabref.export.ExportComparator;
 import net.sf.jabref.external.DroppedFileHandler;
@@ -133,6 +136,8 @@ public class JabRefPreferences {
 		return singleton;
 	}
 
+    public final OperationalSystemType osType;
+    
     // The constructor is made private to enforce this as a singleton class:
     private JabRefPreferences() {
 
@@ -146,38 +151,45 @@ public class JabRefPreferences {
         
         prefs = Preferences.userNodeForPackage(JabRef.class);
         
-        if (Globals.ON_MAC) {
-			//defaults.put("pdfviewer", "/Applications/Preview.app");
-			//defaults.put("psviewer", "/Applications/Preview.app");
-			//defaults.put("htmlviewer", "/Applications/Safari.app");
-        	defaults.put(EMACS_PATH, "emacsclient");
-        	defaults.put(EMACS_23, true);
-        	defaults.put(EMACS_ADDITIONAL_PARAMETERS, "-n -e");
-            defaults.put("fontFamily", "SansSerif");
-
-		} else if (Globals.osName.toLowerCase().startsWith("windows")) {
-			//defaults.put("pdfviewer", "cmd.exe /c start /b");
-			//defaults.put("psviewer", "cmd.exe /c start /b");
-			//defaults.put("htmlviewer", "cmd.exe /c start /b");
-			defaults.put("lookAndFeel", "com.jgoodies.looks.windows.WindowsLookAndFeel");
-            defaults.put("winEdtPath", "C:\\Program Files\\WinEdt Team\\WinEdt\\WinEdt.exe");
-            defaults.put("latexEditorPath", "C:\\Program Files\\LEd\\LEd.exe");
-        	defaults.put(EMACS_PATH, "emacsclient.exe");
-        	defaults.put(EMACS_23, true);
-        	defaults.put(EMACS_ADDITIONAL_PARAMETERS, "-n -e");
-            defaults.put("fontFamily", "Arial");
-
-        } else {
-			//defaults.put("pdfviewer", "evince");
-			//defaults.put("psviewer", "gv");
-			//defaults.put("htmlviewer", "firefox");
-			defaults.put("lookAndFeel", "com.jgoodies.plaf.plastic.Plastic3DLookAndFeel");
-            defaults.put("fontFamily", "SansSerif");
-            
-        	// linux
-        	defaults.put(EMACS_PATH, "gnuclient");
-        	defaults.put(EMACS_23, false);
-        	defaults.put(EMACS_ADDITIONAL_PARAMETERS, "-batch -eval");
+        OperationalSystemDetector detector = new OperationalSystemDetector();
+        osType = detector.detectCurrentOS();
+        
+        switch (osType) {
+        
+        	case MacOS:
+        		//defaults.put("pdfviewer", "/Applications/Preview.app");
+        		// defaults.put("psviewer", "/Applications/Preview.app");
+        		//defaults.put("htmlviewer", "/Applications/Safari.app");
+	        	defaults.put(EMACS_PATH, "emacsclient");
+	        	defaults.put(EMACS_23, true);
+	        	defaults.put(EMACS_ADDITIONAL_PARAMETERS, "-n -e");
+	            defaults.put("fontFamily", "SansSerif");
+	            break;
+	         
+        	case Windows:
+				//defaults.put("pdfviewer", "cmd.exe /c start /b");
+				//defaults.put("psviewer", "cmd.exe /c start /b");
+				//defaults.put("htmlviewer", "cmd.exe /c start /b");
+				defaults.put("lookAndFeel", "com.jgoodies.looks.windows.WindowsLookAndFeel");
+	            defaults.put("winEdtPath", "C:\\Program Files\\WinEdt Team\\WinEdt\\WinEdt.exe");
+	            defaults.put("latexEditorPath", "C:\\Program Files\\LEd\\LEd.exe");
+	        	defaults.put(EMACS_PATH, "emacsclient.exe");
+	        	defaults.put(EMACS_23, true);
+	        	defaults.put(EMACS_ADDITIONAL_PARAMETERS, "-n -e");
+	            defaults.put("fontFamily", "Arial");
+	            break;
+	            
+	        default:
+				//defaults.put("pdfviewer", "evince");
+				//defaults.put("psviewer", "gv");
+				//defaults.put("htmlviewer", "firefox");
+				defaults.put("lookAndFeel", "com.jgoodies.plaf.plastic.Plastic3DLookAndFeel");
+	            defaults.put("fontFamily", "SansSerif");
+	            
+	        	// linux
+	        	defaults.put(EMACS_PATH, "gnuclient");
+	        	defaults.put(EMACS_23, false);
+	        	defaults.put(EMACS_ADDITIONAL_PARAMETERS, "-batch -eval");
 		}
         defaults.put(PDF_PREVIEW, Boolean.FALSE);
         defaults.put("useDefaultLookAndFeel", Boolean.TRUE);
@@ -417,7 +429,6 @@ public class JabRefPreferences {
         defaults.put("citeCommandLed", "\\cite");
         defaults.put("floatMarkedEntries", Boolean.TRUE);
 
-        defaults.put("useNativeFileDialogOnMac", Boolean.FALSE);
         defaults.put("filechooserDisableRename", Boolean.TRUE);
 
         defaults.put("lastUsedExport", null);
@@ -735,10 +746,11 @@ public class JabRefPreferences {
           Globals.logger("Could not get key binding for \"" + bindName + "\"");
         }
 
-        if (Globals.ON_MAC)
+        if (osType == OperationalSystemType.MacOS) {
           return getKeyForMac(KeyStroke.getKeyStroke(s));
-        else
+        } else {
           return KeyStroke.getKeyStroke(s);
+        }
     }
 
     /**

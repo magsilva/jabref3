@@ -22,6 +22,7 @@ import javax.swing.*;
 
 import net.sf.jabref.*;
 
+import com.ironiacorp.computer.OperationalSystemType;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
 
@@ -121,7 +122,7 @@ public class PushToEmacs implements PushToApplication {
         		suffix = ")";
         	}
         		
-            com[com.length-1] = Globals.ON_WIN ?
+            com[com.length-1] = Globals.prefs.osType == OperationalSystemType.Windows ?
                 // Windows gnuclient escaping:
                 // java string: "(insert \\\"\\\\cite{Blah2001}\\\")";
                 // so cmd receives: (insert \"\\cite{Blah2001}\")

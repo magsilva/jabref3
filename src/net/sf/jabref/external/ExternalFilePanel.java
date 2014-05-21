@@ -35,6 +35,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.xml.transform.TransformerException;
 
+import com.ironiacorp.computer.OperationalSystemType;
+
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.BibtexFields;
@@ -294,10 +296,9 @@ public class ExternalFilePanel extends JPanel {
 				 * http://sourceforge.net/tracker/index.php?func=detail&aid=1548875&group_id=92314&atid=600306
 				 * 
 				 */
-				if (Globals.ON_WIN) {
-					plannedName = plannedName.replaceAll(
-						"\\?|\\*|\\<|\\>|\\||\\\"|\\:|\\.$|\\[|\\]", "");
-				} else if (Globals.ON_MAC) {
+				if (Globals.prefs.osType == OperationalSystemType.Windows) {
+					plannedName = plannedName.replaceAll("\\?|\\*|\\<|\\>|\\||\\\"|\\:|\\.$|\\[|\\]", "");
+				} else if (Globals.prefs.osType == OperationalSystemType.MacOS) {
 					plannedName = plannedName.replaceAll(":", "");
 				}
 

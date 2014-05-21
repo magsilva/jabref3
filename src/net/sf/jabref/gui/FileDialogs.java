@@ -19,6 +19,9 @@ import net.sf.jabref.OpenFileFilter;
 import net.sf.jabref.Globals;
 
 import javax.swing.*;
+
+import com.ironiacorp.computer.OperationalSystemType;
+
 import java.io.File;
 import java.io.FilenameFilter;
 
@@ -115,12 +118,10 @@ public class FileDialogs {
                                         String description, OpenFileFilter off, int dialogType, boolean updateWorkingDirectory,
                                         boolean dirOnly, boolean multipleSelection, JComponent accessory) {
 
-// Added the !dirOnly condition below as a workaround to the native file dialog
-// not supporting directory selection:
-        if (!dirOnly && Globals.prefs.getBoolean("useNativeFileDialogOnMac")) {
-
-            return getNewFileForMac(owner, directory, extension, dialogType,
-                    updateWorkingDirectory, dirOnly, off);
+    	// Added the !dirOnly condition below as a workaround to the native file dialog
+    	// not supporting directory selection:
+        if (! dirOnly && Globals.prefs.osType == OperationalSystemType.MacOS) {
+            return getNewDirWithWorkaround(owner, directory, extension, dialogType, updateWorkingDirectory, dirOnly, off);
         }
 
         JFileChooser fc;
@@ -134,8 +135,7 @@ public class FileDialogs {
             // bug in JGoodies Windows PLAF. This clause can be removed if the
             // bug is fixed, but for now we just resort to the native file
             // dialog, using the same method as is always used on Mac:
-            return getNewFileForMac(owner, directory, extension, dialogType,
-                    updateWorkingDirectory, dirOnly, off);
+            return getNewDirWithWorkaround(owner, directory, extension, dialogType, updateWorkingDirectory, dirOnly, off);
         }
 
         if (dirOnly) {
@@ -192,7 +192,7 @@ public class FileDialogs {
         }
     }
 
-    public static String getNewFileForMac(JFrame owner, File directory, String extensions,
+    public static String getNewDirWithWorkaround(JFrame owner, File directory, String extensions,
                                           int dialogType, boolean updateWorkingDirectory, boolean dirOnly, FilenameFilter filter) {
 
         java.awt.FileDialog fc = new java.awt.FileDialog(owner);
