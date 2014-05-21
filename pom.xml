@@ -40,6 +40,11 @@
 			<id>java.net</id>
 			<url>https://maven.java.net/content/groups/public/</url>
 		</repository>
+
+		<repository>
+			<id>CodeHaus</id>
+			<url>http://repository.codehaus.org/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -282,9 +287,12 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>org.antlr</groupId>
 				<artifactId>antlr3-maven-plugin</artifactId>
+<!--
 				<version>1.1-SNAPSHOT</version>
+-->
+				<version>3.5.2</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
