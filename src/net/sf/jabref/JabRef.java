@@ -870,7 +870,7 @@ public class JabRef {
 
     }
 
-    public static ParserResult importFile(String argument){
+    public ParserResult importFile(String argument){
     	String[] data = argument.split(",");
         try {
             if ((data.length > 1) && !"*".equals(data[1])) {
@@ -920,7 +920,7 @@ public class JabRef {
      * @param argument See importFile.
      * @return ParserResult with setToOpenTab(true)
      */
-    public static ParserResult importToOpenBase(String argument) {
+    public ParserResult importToOpenBase(String argument) {
     	ParserResult result = importFile(argument);
     	
     	if (result != null)
