@@ -771,8 +771,7 @@ public JabRefPreferences prefs() {
 
     setProgressBarVisible(false);
 
-      pushExternalButton = new PushToApplicationButton(this,
-              PushToApplicationButton.applications);
+    pushExternalButton = new PushToApplicationButton(this,  PushToApplicationButton.applications);
     fillMenu();
     createToolBar();
     getContentPane().setLayout(gbl);

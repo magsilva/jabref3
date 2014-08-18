@@ -26,6 +26,7 @@ import spin.Spin;
  * the CallBack interface. This procedure ensures that run() cannot freeze
  * the GUI, and that update() can safely update GUI components.
  */
+// TODO: replace by SwingWorker
 public abstract class AbstractWorker implements Worker, CallBack {
 
     private Worker worker;

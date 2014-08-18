@@ -16,6 +16,7 @@
 package net.sf.jabref.external;
 
 import com.jgoodies.forms.builder.ButtonBarBuilder;
+
 import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefFrame;
@@ -25,6 +26,7 @@ import net.sf.jabref.plugin.core.JabRefPlugin;
 import net.sf.jabref.plugin.core.generated._JabRefPlugin;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,7 +34,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,47 +45,54 @@ import java.util.List;
  * invoked, the currently selected PushToApplication is activated. The actionPerformed()
  * method can be called with a null argument.
  */
-public class PushToApplicationButton implements ActionListener {
-
-    public static List<PushToApplication> applications;
+public class PushToApplicationButton implements ActionListener
+{
+	public static List<PushToApplication> applications;
 
     private JabRefFrame frame;
+    
     private List<PushToApplication> pushActions;
+    
     private JPanel comp;
+    
     private JButton pushButton, menuButton;
+    
     private int selected = 0;
+    
     private JPopupMenu popup = null;
+    
     private HashMap<PushToApplication, PushToApplicationAction> actions = new HashMap<PushToApplication, PushToApplicationAction>();
+    
     private final Dimension buttonDim = new Dimension(23, 23);
+    
     private static final URL ARROW_ICON = GUIGlobals.class.getResource("/images/secondary_sorted_reverse.png");
+    
     private MenuAction mAction = new MenuAction();
+    
     private JPopupMenu optPopup = new JPopupMenu();
+    
     private JMenuItem settings = new JMenuItem(Globals.lang("Settings"));
 
     /**
      * Set up the current available choices:
      */
     static {
-
         applications = new ArrayList<PushToApplication>();
-
         JabRefPlugin jabrefPlugin = JabRefPlugin.getInstance(PluginCore.getManager());
-        if(jabrefPlugin != null){
+        if (jabrefPlugin != null) {
 		    List<_JabRefPlugin.PushToApplicationExtension> plugins = jabrefPlugin.getPushToApplicationExtensions();
 		    for (_JabRefPlugin.PushToApplicationExtension extension : plugins) {
 		        applications.add(extension.getPushToApp());
 		    }
-		
-		    applications.add(new PushToLyx());
-		    applications.add(new PushToEmacs());
-		    applications.add(new PushToWinEdt());
-		    applications.add(new PushToLatexEditor());
-		    applications.add(new PushToVim());
-            applications.add(new PushToTeXstudio());
-		
-		    // Finally, sort the entries:
-		    //Collections.sort(applications, new PushToApplicationComparator());
         }
+	    applications.add(new PushToLyx());
+	    applications.add(new PushToEmacs());
+	    applications.add(new PushToLatexEditor());
+	    applications.add(new PushToVim());
+        applications.add(new PushToTeXstudio());
+		
+	    // Finally, sort the entries:
+	    Collections.sort(applications, new PushToApplicationComparator());
     }
 
 
@@ -207,10 +216,11 @@ public class PushToApplicationButton implements ActionListener {
         
         final BooleanHolder okPressed = new BooleanHolder(false);
         JDialog dg;
-        if (parent instanceof JDialog)
+        if (parent instanceof JDialog) {
             dg = new JDialog((JDialog)parent, Globals.lang("Settings"), true);
-        else
+        } else {
             dg = new JDialog((JFrame)parent, Globals.lang("Settings"), true);
+        }
         final JDialog diag = dg;
         options.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
         diag.getContentPane().add(options, BorderLayout.CENTER);
@@ -324,16 +334,6 @@ public class PushToApplicationButton implements ActionListener {
             if (toApp.getSettingsPanel() != null)
                 optPopup.show(pushButton, e.getX(), e.getY());
 
-        }
-    }
-
-    /**
-     * Comparator for sorting the selection according to name.
-     */
-    static class PushToApplicationComparator implements Comparator<PushToApplication> {
-
-        public int compare(PushToApplication one, PushToApplication two) {
-            return one.getName().compareTo(two.getName());
         }
     }
 }

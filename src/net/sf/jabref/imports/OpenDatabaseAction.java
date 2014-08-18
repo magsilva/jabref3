@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,10 +31,8 @@ import net.sf.jabref.*;
 import net.sf.jabref.export.AutoSaveManager;
 import net.sf.jabref.export.SaveSession;
 import net.sf.jabref.gui.FileDialogs;
-import net.sf.jabref.external.FileLinksUpgradeWarning;
 import net.sf.jabref.label.HandleDuplicateWarnings;
 import net.sf.jabref.specialfields.SpecialFieldsUtils;
-import net.sf.jabref.undo.NamedCompound;
 
 // The action concerned with opening an existing database.
 
@@ -53,8 +50,6 @@ public class OpenDatabaseAction extends MnemonicAwareAction {
         // Add the action for checking for new custom entry types loaded from
         // the bib file:
         postOpenActions.add(new CheckForNewEntryTypesAction());
-        // Add the action for the new external file handling system in version 2.3:
-        postOpenActions.add(new FileLinksUpgradeWarning());
         // Add the action for warning about and handling duplicate BibTeX keys:
         postOpenActions.add(new HandleDuplicateWarnings());
     }

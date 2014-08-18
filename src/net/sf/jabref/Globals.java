@@ -44,7 +44,7 @@ import net.sf.jabref.export.AutoSaveManager;
 
 public class Globals
 {
-	private static int SHORTCUT_MASK = -1;
+	public static final int SHORTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
 
 	/**
 	 * Used for guessing the year field when parsing textual data.
@@ -467,18 +467,6 @@ public class Globals
 
 
     public static String SPECIAL_COMMAND_CHARS = "\"`^~'c=";
-
-
-    public static int getShortcutMask() {
-        if (SHORTCUT_MASK == -1)
-        try {
-			SHORTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
-		} catch (Throwable t) {
-
-		}
-
-        return SHORTCUT_MASK;
-    }
 
 	/**
 	 * Special characters in URLs need to be replaced to ensure that the URL

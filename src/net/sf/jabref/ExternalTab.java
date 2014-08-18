@@ -148,7 +148,6 @@ public class ExternalTab extends JPanel implements PrefsTab {
         butpan.setLayout(new GridLayout(2,3));
         addSettingsButton(new PushToLyx(), butpan);
         addSettingsButton(new PushToEmacs(), butpan);
-        addSettingsButton(new PushToWinEdt(), butpan);
         addSettingsButton(new PushToVim(), butpan);
         addSettingsButton(new PushToLatexEditor(), butpan);
         addSettingsButton(new PushToTeXstudio(), butpan);

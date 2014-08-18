@@ -742,14 +742,16 @@ public class JabRefPreferences {
             // will appear in the KeyBindingsDialog.
             keyBinds.put(bindName, s);
         }
+        
         if (s == null) {
           Globals.logger("Could not get key binding for \"" + bindName + "\"");
-        }
-
-        if (osType == OperationalSystemType.MacOS) {
-          return getKeyForMac(KeyStroke.getKeyStroke(s));
+          return null;
         } else {
-          return KeyStroke.getKeyStroke(s);
+	        KeyStroke ks = KeyStroke.getKeyStroke(s);
+	        if (osType == OperationalSystemType.MacOS) {
+	          ks = getKeyForMac(ks);
+	        }
+	        return ks;
         }
     }
 
@@ -758,13 +760,12 @@ public class JabRefPreferences {
      * defaults, or in the Preferences, but adapted for Mac users,
      * with the Command key preferred instead of Control.
      */
-    private KeyStroke getKeyForMac(KeyStroke ks) {
-      if (ks == null) return null;
+    private KeyStroke getKeyForMac(KeyStroke ks)
+    {
       int keyCode = ks.getKeyCode();
       if ((ks.getModifiers() & KeyEvent.CTRL_MASK) == 0) {
         return ks;
-      }
-      else {
+      } else {
     	int modifiers = 0;
         if ((ks.getModifiers() & KeyEvent.SHIFT_MASK) != 0) {
           modifiers = modifiers | KeyEvent.SHIFT_MASK;
@@ -773,7 +774,7 @@ public class JabRefPreferences {
             modifiers = modifiers | KeyEvent.ALT_MASK;
         }
         
-        return KeyStroke.getKeyStroke(keyCode, Globals.getShortcutMask()+modifiers);
+        return KeyStroke.getKeyStroke(keyCode, Globals.SHORTCUT_MASK + modifiers);
       }
     }
 

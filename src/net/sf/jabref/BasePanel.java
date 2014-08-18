@@ -55,6 +55,7 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 import javax.swing.tree.TreePath;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
@@ -160,14 +161,9 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
     private List<BibtexEntry> previousEntries = new ArrayList<BibtexEntry>(),
         nextEntries = new ArrayList<BibtexEntry>();
 
-    //ExampleFileFilter fileFilter;
-    // File filter for .bib files.
-
     boolean baseChanged = false, nonUndoableChange = false;
     // Used to track whether the base has changed since last save.
 
-    //EntryTableModel tableModel = null;
-    //public EntryTable entryTable = null;
     public MainTable mainTable = null;
     public MainTableFormat tableFormat = null;
     public FilterList<BibtexEntry> searchFilterList = null, groupFilterList = null;
@@ -185,9 +181,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
     // To contain instantiated entry editors. This is to save time
     // in switching between entries.
 
-    //HashMap entryTypeForms = new HashMap();
-    // Hashmap to keep track of which entries currently have open
-    // EntryTypeForm dialogs.
 
     PreambleEditor preambleEditor = null;
     // Keeps track of the preamble dialog if it is open.
@@ -224,6 +217,7 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
     private boolean suppressOutput = false;
 
     private HashMap<String, Object> actions = new HashMap<String, Object>();
+    
     private SidePaneManager sidePaneManager;
 
     /**
@@ -331,40 +325,9 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
         // The action for opening an entry editor.
         actions.put("edit", new BaseAction() {
             public void action() {
-                /*System.out.println(Globals.focusListener.getFocused().getClass().getName());
-                if (Globals.focusListener.getFocused() instanceof FieldEditor)
-                    new FocusRequester(mainTable);
-                else*/
                     selectionListener.editSignalled();
             }
-                /*
-                  if (isShowingEditor()) {
-                      new FocusRequester(splitPane.getBottomComponent());
-                      return;
-                  }
-
-                  frame.block();
-                //(new Thread() {
-                //public void run() {
-                int clickedOn = -1;
-                // We demand that one and only one row is selected.
-                if (entryTable.getSelectedRowCount() == 1) {
-                  clickedOn = entryTable.getSelectedRow();
-                }
-                if (clickedOn >= 0) {
-                  String id = tableModel.getIdForRow(clickedOn);
-                  BibtexEntry be = database.getEntryById(id);
-                  showEntry(be);
-
-                  if (splitPane.getBottomComponent() != null) {
-                      new FocusRequester(splitPane.getBottomComponent());
-                  }
-
-                }
-        frame.unblock();
-              }
-                */
-            });
+        });
 
 
         actions.put("test",// new AccessLinksForEntries.SaveWithLinkedFiles(this));
@@ -669,8 +632,7 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
 
         // action for collecting database strings from user
         actions.put("dbConnect", new DbConnectAction(this));
-
-
+       
         // action for exporting database to external SQL database
         actions.put("dbExport", new AbstractWorker () {
 
@@ -1601,45 +1563,33 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
      * @param _command The name of the command to run.
     */
     public void runCommand(String _command) {
-      final String command = _command;
-      //(new Thread() {
-      //  public void run() {
-          if (actions.get(command) == null)
+    	final String command = _command;
+    	Object o = actions.get(command);
+        if (o == null) {
             Util.pr("No action defined for'" + command + "'");
-            else {
-        Object o = actions.get(command);
-        try {
-            if (o instanceof BaseAction)
-            ((BaseAction)o).action();
-            else {
-            // This part uses Spin's features:
-            Worker wrk = ((AbstractWorker)o).getWorker();
-            // The Worker returned by getWorker() has been wrapped
-            // by Spin.off(), which makes its methods be run in
-            // a different thread from the EDT.
-            CallBack clb = ((AbstractWorker)o).getCallBack();
-
-            ((AbstractWorker)o).init(); // This method runs in this same thread, the EDT.
-            // Useful for initial GUI actions, like printing a message.
-
-            // The CallBack returned by getCallBack() has been wrapped
-            // by Spin.over(), which makes its methods be run on
-            // the EDT.
-            wrk.run(); // Runs the potentially time-consuming action
-            // without freezing the GUI. The magic is that THIS line
-            // of execution will not continue until run() is finished.
-            clb.update(); // Runs the update() method on the EDT.
-            }
-        } catch (Throwable ex) {
-            // If the action has blocked the JabRefFrame before crashing, we need to unblock it.
-            // The call to unblock will simply hide the glasspane, so there is no harm in calling
-            // it even if the frame hasn't been blocked.
-            frame.unblock();
-            ex.printStackTrace();
+        } else {
+        	try {
+	            if (o instanceof BaseAction) {
+	            	((BaseAction)o).action();
+	            } else {
+	            	// This part uses Spin's features:
+	            	Worker wrk = ((AbstractWorker)o).getWorker();
+	            	// The Worker returned by getWorker() has been wrappedby Spin.off(), which makes its methods be run in a different thread from the EDT.
+	            	CallBack clb = ((AbstractWorker)o).getCallBack();
+	            	((AbstractWorker)o).init(); // This method runs in this same thread, the EDT (useful for initial GUI actions, like printing a message)
+	
+	            	// The CallBack returned by getCallBack() has been wrapped by Spin.over(), which makes its methods be run on the EDT.
+	            	wrk.run(); // Runs the potentially time-consuming action without freezing the GUI. The magic is that THIS line of execution will not continue until run() is finished.
+	            	clb.update(); // Runs the update() method on the EDT.
+	            }
+        	} catch (Throwable ex) {
+        		// If the action has blocked the JabRefFrame before crashing, we need to unblock it.
+        		// The call to unblock will simply hide the glasspane, so there is no harm in calling
+        		// it even if the frame hasn't been blocked.
+        		frame.unblock();
+        		ex.printStackTrace();
+        	}
         }
-        }
-      //  }
-      //}).start();
     }
 
     private boolean saveDatabase(File file, boolean selectedOnly, String encoding) throws SaveException {
