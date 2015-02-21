@@ -21,7 +21,6 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import net.sf.jabref.journals.JournalAbbreviations;
 import net.sf.jabref.remote.RemoteListener;
 
 import com.ironiacorp.computer.OperationalSystemType;
@@ -37,7 +36,7 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     JPanel pan = new JPanel(),
         lnf = new JPanel();
     JLabel lab;
-    JCheckBox useDefault, useRemoteServer, filechooserDisableRename, useIEEEAbrv, biblatexMode;
+    JCheckBox useDefault, useRemoteServer, filechooserDisableRename, biblatexMode;
     JTextField className, remoteServerPort;
     JButton def1 = new JButton(Globals.lang("Default")),
         def2 = new JButton(Globals.lang("Default"));
@@ -56,7 +55,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     useDefault = new JCheckBox(Globals.lang("Use other look and feel"));
     useRemoteServer = new JCheckBox(Globals.lang("Listen for remote operation on port")+":");
     filechooserDisableRename = new JCheckBox(Globals.lang("Disable file renaming in non-native file dialog"));
-    useIEEEAbrv = new JCheckBox(Globals.lang("Use IEEE LaTeX abbreviations"));
     biblatexMode = new JCheckBox(Globals.lang("BibLaTeX mode"));
     remoteServerPort = new JTextField();
     className = new JTextField(50);
@@ -128,7 +126,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     builder.appendSeparator(Globals.lang("Search IEEEXplore"));
     builder.nextLine();
     builder.append(new JPanel());
-    builder.append(useIEEEAbrv);
 
     builder.nextLine();
     builder.appendSeparator(Globals.lang("BibLaTeX mode"));
@@ -152,7 +149,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
         oldPort = _prefs.getInt("remoteServerPort");
         remoteServerPort.setText(String.valueOf(oldPort));
         filechooserDisableRename.setSelected(Globals.prefs.getBoolean("filechooserDisableRename"));
-        useIEEEAbrv.setSelected(Globals.prefs.getBoolean("useIEEEAbrv"));
         oldBiblMode = Globals.prefs.getBoolean("biblatexMode");
         biblatexMode.setSelected(oldBiblMode);
     }
@@ -162,9 +158,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
         _prefs.put("lookAndFeel", className.getText());
         _prefs.putBoolean("filechooserDisableRename", filechooserDisableRename.isSelected());
         UIManager.put("FileChooser.readOnly", filechooserDisableRename.isSelected());
-        _prefs.putBoolean("useIEEEAbrv", useIEEEAbrv.isSelected());
-        if (useIEEEAbrv.isSelected())
-        	Globals.journalAbbrev = new JournalAbbreviations("/resource/IEEEJournalList.txt");
         try {
             int port = Integer.parseInt(remoteServerPort.getText());
             if (port != oldPort) {

@@ -36,7 +36,6 @@ import java.util.regex.Pattern;
 
 import net.sf.jabref.collab.FileUpdateMonitor;
 import net.sf.jabref.imports.ImportFormatReader;
-import net.sf.jabref.journals.JournalAbbreviations;
 import net.sf.jabref.util.ErrorConsole;
 import net.sf.jabref.util.TBuildInfo;
 import net.sf.jabref.export.AutoSaveManager;
@@ -340,8 +339,6 @@ public class Globals
         Locale.setDefault(locale);
 		javax.swing.JComponent.setDefaultLocale(locale);
 	}
-
-	public static JournalAbbreviations journalAbbrev;
 
 	public static String lang(String key, String[] params) {
 		String translation = null;
@@ -1392,38 +1389,6 @@ public class Globals
 		RTFCHARS.put("vZ", "\\u381Z"); // "Zcaron"
 		RTFCHARS.put("vz", "\\u382z"); // "zcaron"
 		// Symbol #383 (f) has no special Latex command
-	}
-
-	public static void initializeJournalNames() {
-        // Read internal lists:
-        journalAbbrev = new JournalAbbreviations(JOURNALS_FILE_BUILTIN);
-		if (prefs.getBoolean("useIEEEAbrv")) {
-			journalAbbrev.readJournalList("/IEEEJournalList.txt");
-		}
-
-		// Read external lists, if any (in reverse order, so the upper lists override the lower):
-		String[] lists = prefs.getStringArray("externalJournalLists");
-		if ((lists != null) && (lists.length > 0)) {
-			for (int i = lists.length - 1; i >= 0; i--) {
-				try {
-					journalAbbrev.readJournalList(new File(lists[i]));
-				} catch (FileNotFoundException e) {
-					// The file couldn't be found... should we tell anyone?
-					Globals.logger(e.getMessage());
-				}
-			}
-		}
-
-		// Read personal list, if set up:
-		String personalJournalList = prefs.get("personalJournalList");
-		if (personalJournalList != null) {
-			try {
-				journalAbbrev.readJournalList(new File(personalJournalList));
-			} catch (FileNotFoundException e) {
-				Globals.logger("Personal journal list file '" + prefs.get("personalJournalList") + "' not found.");
-			}
-		}
-
 	}
 
 	/**

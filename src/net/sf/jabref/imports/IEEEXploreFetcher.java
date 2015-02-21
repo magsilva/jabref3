@@ -452,13 +452,7 @@ public class IEEEXploreFetcher implements EntryFetcher {
 			}
 			if (type.getName() == "Article") {
 				fullName = fullName.replace(" - ", "-"); //IEE Proceedings-
-				
 				fullName = fullName.trim();
-				if (Globals.prefs.getBoolean("useIEEEAbrv")) {
-					String id = Globals.journalAbbrev.getAbbreviatedName(fullName, false);
-					if (id != null)
-						fullName = id;
-				}
 	        }
 			if (type.getName() == "Inproceedings") {
 	            Matcher m2 = proceedingPattern.matcher(fullName);

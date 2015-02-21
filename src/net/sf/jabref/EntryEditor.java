@@ -76,7 +76,6 @@ import net.sf.jabref.gui.FileListEditor;
 import net.sf.jabref.gui.FileListTableModel;
 import net.sf.jabref.gui.VerticalLabelUI;
 import net.sf.jabref.imports.BibtexParser;
-import net.sf.jabref.journals.JournalAbbreviations;
 import net.sf.jabref.labelPattern.LabelPatternUtil;
 import net.sf.jabref.undo.NamedCompound;
 import net.sf.jabref.undo.UndoableChangeType;

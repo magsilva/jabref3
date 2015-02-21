@@ -82,8 +82,6 @@ import net.sf.jabref.imports.AppendDatabaseAction;
 import net.sf.jabref.imports.BibtexParser;
 import net.sf.jabref.imports.SPIRESFetcher;
 import net.sf.jabref.imports.INSPIREFetcher;
-import net.sf.jabref.journals.AbbreviateAction;
-import net.sf.jabref.journals.UnabbreviateAction;
 import net.sf.jabref.labelPattern.LabelPatternUtil;
 import net.sf.jabref.labelPattern.SearchFixDuplicateLabels;
 import net.sf.jabref.search.NoSearchMatcher;
@@ -1518,9 +1516,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
           
         actions.put("writeXMP", new WriteXMPAction(this));
         
-        actions.put("abbreviateIso", new AbbreviateAction(this, true));
-        actions.put("abbreviateMedline", new AbbreviateAction(this, false));
-        actions.put("unabbreviate", new UnabbreviateAction(this));
         actions.put("autoSetFile", new SynchronizeFileField(this));
         actions.put("upgradeLinks", new UpgradeExternalLinks(this));
 
@@ -1998,7 +1993,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
             Util.updateCompletersForEntry(autoCompleters, entry);
         }
 
-        addJournalListToAutoCompleter();
         addContentSelectorValuesToAutoCompleters();
     }
 
@@ -2019,22 +2013,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
             }
         }
     }
-
-    /**
-     * If an autocompleter exists for the "journal" field, add all
-     * journal names in the journal abbreviation list to this autocompleter.
-     */
-    public void addJournalListToAutoCompleter() {
-        if (autoCompleters.containsKey("journal")) {
-            AbstractAutoCompleter ac = autoCompleters.get("journal");
-            Set<String> journals = Globals.journalAbbrev.getJournals().keySet();
-            for (String journal : journals)
-                ac.addWordToIndex(journal);
-        }
-
-
-    }
-
 
     /*
     public void refreshTable() {

@@ -51,7 +51,6 @@ import net.sf.jabref.imports.ImportFormat;
 import net.sf.jabref.imports.ImportFormats;
 import net.sf.jabref.imports.ImportMenuItem;
 import net.sf.jabref.imports.OpenDatabaseAction;
-import net.sf.jabref.journals.ManageJournalsAction;
 import net.sf.jabref.label.ArticleLabelRule;
 import net.sf.jabref.label.BookLabelRule;
 import net.sf.jabref.label.IncollectionLabelRule;
@@ -296,7 +295,6 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
     unabbreviate = new GeneralAction("unabbreviate", "Unabbreviate journal names",
                     Globals.lang("Unabbreviate journal names of the selected entries"),
             Globals.prefs.getKey("Unabbreviate")),
-    manageJournals = new ManageJournalsAction(this),
     databaseProperties = new DatabasePropertiesAction(),
     bibtexKeyPattern = new BibtexKeyPatternAction(),
     upgradeExternalLinks = new GeneralAction("upgradeLinks", "Upgrade external links",
@@ -1278,7 +1276,6 @@ public JabRefPreferences prefs() {
       options.add(customExpAction);
       options.add(customImpAction);
       options.add(customFileTypesAction);
-      options.add(manageJournals);
 
       /*options.add(new AbstractAction("Font") {
       public void actionPerformed(ActionEvent e) {
