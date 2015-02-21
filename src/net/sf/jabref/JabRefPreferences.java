@@ -55,7 +55,6 @@ import net.sf.jabref.gui.CleanUpAction;
 import net.sf.jabref.gui.PersistenceTableColumnListener;
 import net.sf.jabref.imports.CustomImportList;
 import net.sf.jabref.labelPattern.LabelPattern;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 public class JabRefPreferences {
 
@@ -222,11 +221,9 @@ public class JabRefPreferences {
         defaults.put("terDescending", Boolean.FALSE);
         defaults.put("columnNames", "entrytype;author;title;year;journal;owner;timestamp;bibtexkey");
         defaults.put("columnWidths","75;280;400;60;100;100;100;100");
-        defaults.put(PersistenceTableColumnListener.ACTIVATE_PREF_KEY, 
-        		new Boolean(PersistenceTableColumnListener.DEFAULT_ENABLED));
+        defaults.put(PersistenceTableColumnListener.ACTIVATE_PREF_KEY, new Boolean(PersistenceTableColumnListener.DEFAULT_ENABLED));
         defaults.put("xmpPrivacyFilters", "pdf;timestamp;keywords;owner;note;review");
         defaults.put("useXmpPrivacyFilter", Boolean.FALSE);
-        defaults.put("numberColWidth",new Integer(GUIGlobals.NUMBER_COL_LENGTH));
         defaults.put("workingDirectory", System.getProperty("user.home"));
         defaults.put("exportWorkingDirectory", System.getProperty("user.home"));
         defaults.put("importWorkingDirectory", System.getProperty("user.home"));
@@ -334,13 +331,6 @@ public class JabRefPreferences {
         defaults.put("urlColumn", Boolean.TRUE);
         defaults.put("fileColumn", Boolean.TRUE);
         
-        defaults.put(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED, SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED_DEFAULT);
-        defaults.put(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY, SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY_DEFAULT);
-        defaults.put(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING, SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING_DEFAULT);
-        defaults.put(SpecialFieldsUtils.PREF_RANKING_COMPACT, SpecialFieldsUtils.PREF_RANKING_COMPACT_DEFAULT);
-        defaults.put(SpecialFieldsUtils.PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS, SpecialFieldsUtils.PREF_AUTOSYNCSPECIALFIELDSTOKEYWORDS_DEFAULT);
-    	defaults.put(SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS, SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS_DEFAULT);
-    	
     	defaults.put(SHOWONELETTERHEADINGFORICONCOLUMNS, Boolean.FALSE);
         
         defaults.put("useOwner", Boolean.TRUE);

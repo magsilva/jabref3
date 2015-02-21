@@ -22,7 +22,6 @@ import javax.swing.table.TableColumnModel;
 
 import net.sf.jabref.Globals;
 import net.sf.jabref.Util;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 /**
  * Related to <code>MainTable</code> class. <br/>
@@ -93,37 +92,10 @@ public class PreventDraggingJTableHeader extends JTableHeader {
     public TableColumn getDraggedColumn() {
         TableColumn column = super.getDraggedColumn();
         if (column != null) {
-            preventDragBeforeIndex(this.getTable(), column.getModelIndex(),
-                    getSpecialColumnsCount());
+            preventDragBeforeIndex(this.getTable(), column.getModelIndex(), 0);
         }
 
         return column;
-    }
-
-    /**
-     * Note: used to prevent dragging of other columns before the special
-     * columns.
-     * 
-     * @return count of special columns
-     */
-    private int getSpecialColumnsCount() {
-        int count = 0;
-        if (Globals.prefs.getBoolean("fileColumn")) {
-            count++;
-        }
-        if (Globals.prefs.getBoolean("urlColumn")) {
-            count++;
-        }
-        
-        // special field columns may also not be dragged
-        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
-	        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING))
-	            count++;
-	        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY))
-	            count++;
-        }
-
-        return count;
     }
 
     private static boolean isUnnamed(TableColumn column) {

@@ -243,11 +243,6 @@ public class EntryTableTransferHandler extends TransferHandler {
                 super.exportAsDrag(comp, e, DnDConstants.ACTION_LINK);
                 return;
             }
-            // We have an icon column:
-            if (res == MainTableFormat.FILE) {
-                System.out.println("dragging file");
-                draggingFile = true;
-            }
         }
         super.exportAsDrag(comp, e, DnDConstants.ACTION_LINK);
 	}

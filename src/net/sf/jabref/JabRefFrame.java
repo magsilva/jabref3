@@ -61,9 +61,6 @@ import net.sf.jabref.plugin.PluginCore;
 import net.sf.jabref.plugin.PluginInstallerAction;
 import net.sf.jabref.plugin.core.JabRefPlugin;
 import net.sf.jabref.plugin.core.generated._JabRefPlugin.EntryFetcherExtension;
-import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import net.sf.jabref.sql.importer.DbImportAction;
 import net.sf.jabref.undo.NamedCompound;
 import net.sf.jabref.undo.UndoableInsertEntry;
@@ -1196,21 +1193,6 @@ public JabRefPreferences prefs() {
       edit.add(unmark);
       edit.add(unmarkAll); 
       edit.addSeparator();
-      if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
-    	  JMenu m;
-    	  if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING)) {
-	    	  m = new JMenu();
-	    	  RightClickMenu.populateSpecialFieldMenu(m, Rank.getInstance(), this);
-	    	  edit.add(m);
-    	  }
-
-    	  if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY)) {
-    		  m = new JMenu();
-    		  RightClickMenu.populateSpecialFieldMenu(m, Priority.getInstance(), this);
-    		  edit.add(m);
-    	  }
-      }
-      edit.addSeparator();
       edit.add(manageKeywords);
       edit.add(selectAll);
       mb.add(edit);
@@ -1397,16 +1379,7 @@ public JabRefPreferences prefs() {
     tlb.addAction(mark);
     tlb.addAction(unmark);
     tlb.addSeparator();
-    if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
-    	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING)) {
-    		tlb.add(net.sf.jabref.specialfields.SpecialFieldDropDown.generateSpecialFieldButtonWithDropDown(Rank.getInstance(), this));
-    	}
-    	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY)) {
-    		tlb.add(net.sf.jabref.specialfields.SpecialFieldDropDown.generateSpecialFieldButtonWithDropDown(Priority.getInstance(), this));
-    	}
-    }
 
-    tlb.addSeparator();
     searchToggle = new JToggleButton(toggleSearch);
     searchToggle.setText(null);
     if (Globals.prefs.osType != OperationalSystemType.MacOS)

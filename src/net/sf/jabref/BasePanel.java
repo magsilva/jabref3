@@ -88,12 +88,6 @@ import net.sf.jabref.labelPattern.LabelPatternUtil;
 import net.sf.jabref.labelPattern.SearchFixDuplicateLabels;
 import net.sf.jabref.search.NoSearchMatcher;
 import net.sf.jabref.search.SearchMatcher;
-import net.sf.jabref.specialfields.SpecialFieldAction;
-import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.SpecialFieldDatabaseChangeListener;
-import net.sf.jabref.specialfields.SpecialFieldValue;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import net.sf.jabref.sql.DBConnectDialog;
 import net.sf.jabref.sql.DBStrings;
 import net.sf.jabref.sql.DbConnectAction;
@@ -1466,14 +1460,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
                 }
               });
                           
-              for (SpecialFieldValue prio: Priority.getInstance().getValues()) {
-	              actions.put(prio.getActionName(), prio.getAction(this.frame));
-              }
-              
-              for (SpecialFieldValue prio: Rank.getInstance().getValues()) {
-	              actions.put(prio.getActionName(), prio.getAction(this.frame));
-              }
-              
               actions.put("togglePreview", new BaseAction() {
                       public void action() {
                           boolean enabled = !Globals.prefs.getBoolean("previewEnabled");
@@ -1801,7 +1787,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
         // Must initialize sort columns somehow:
 
         database.addDatabaseChangeListener(eventList);
-        database.addDatabaseChangeListener(SpecialFieldDatabaseChangeListener.getInstance());
         groupFilterList = new FilterList<BibtexEntry>(eventList.getTheList(), NoSearchMatcher.INSTANCE);
         searchFilterList = new FilterList<BibtexEntry>(groupFilterList, NoSearchMatcher.INSTANCE);
         //final SortedList sortedList = new SortedList(searchFilterList, null);

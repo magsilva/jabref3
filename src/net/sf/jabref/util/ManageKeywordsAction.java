@@ -52,9 +52,6 @@ import net.sf.jabref.MnemonicAwareAction;
 import net.sf.jabref.Util;
 import net.sf.jabref.autocompleter.AbstractAutoCompleter;
 import net.sf.jabref.gui.AutoCompleteListener;
-import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import net.sf.jabref.undo.NamedCompound;
 
 import com.jgoodies.forms.builder.ButtonBarBuilder;
@@ -294,31 +291,6 @@ public class ManageKeywordsAction extends MnemonicAwareAction {
         	return;
         }
         
-    	if (SpecialFieldsUtils.keywordSyncEnabled()) {
-	        if (!keywordsToAdd.isEmpty()) {
-	        	// we need to check whether a special field is added
-	        	// for each field:
-	        	//   check if something is added
-	        	//   if yes, add all keywords of that special fields to the keywords to be removed
-	        	
-	        	HashSet<String> clone;
-	        	
-	        	// Priority
-	        	clone = (HashSet<String>) keywordsToAdd.clone();
-	        	clone.retainAll(Priority.getInstance().getKeyWords());
-	        	if (!clone.isEmpty()) {
-	        		keywordsToRemove.addAll(Priority.getInstance().getKeyWords());
-	        	}
-	        	
-	        	// Rank
-	        	clone = (HashSet<String>) keywordsToAdd.clone();
-	        	clone.retainAll(Rank.getInstance().getKeyWords());
-	        	if (!clone.isEmpty()) {
-	        		keywordsToRemove.addAll(Rank.getInstance().getKeyWords());
-	        	}
-	        }
-        }
-
         BibtexEntry[] entries = bp.getSelectedEntries();
         NamedCompound ce = new NamedCompound(Globals.lang("Update keywords"));
         for (BibtexEntry entry: entries) {
@@ -339,9 +311,6 @@ public class ManageKeywordsAction extends MnemonicAwareAction {
             separatedKeywords.addAll(keywords);
             Util.putKeywords(entry, separatedKeywords, ce);
             
-        	if (SpecialFieldsUtils.keywordSyncEnabled()) {
-        		SpecialFieldsUtils.syncSpecialFieldsFromKeywords(entry, ce);
-        	}
         }
         ce.end();
         bp.undoManager.addEdit(ce);

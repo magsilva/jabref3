@@ -38,13 +38,11 @@ import net.sf.jabref.Globals;
  */
 public class PersistenceTableColumnListener implements TableColumnModelListener {
 
-	public static final String ACTIVATE_PREF_KEY = 
-	    "ActivatePersistenceTableColumnListener";
+	public static final String ACTIVATE_PREF_KEY = "ActivatePersistenceTableColumnListener";
 
 	public static final boolean DEFAULT_ENABLED = true;
 
-	private static final String simpleClassName = 
-	    PersistenceTableColumnListener.class.getSimpleName();
+	private static final String simpleClassName = PersistenceTableColumnListener.class.getSimpleName();
 
 	// needed to get column names / indices mapped from view to model 
 	// and to access the table model 
@@ -64,31 +62,20 @@ public class PersistenceTableColumnListener implements TableColumnModelListener 
         final int columnCount = mainTable.getColumnCount();
 		Vector<String> storedColumns = new Vector<String>(columnCount - 1);
 		Vector<String> columnsWidths = new Vector<String>(columnCount - 1);
-		int ncWidth = -1;
 
 		for (int i = 0; i < columnCount; i++) {
 			final String name = mainTable.getColumnName(i);
             if (name == null || name.equals("")) {
 				continue;
-			} else if (name.equals("#")) { // TODO: get "#" from prefs?
-				ncWidth = mainTable.getColumnModel().getColumn(i).getWidth();
-
 			} else {
 				storedColumns.add(name.toLowerCase());
-				columnsWidths.add(String.valueOf(mainTable.getColumnModel().getColumn(
-						i).getWidth()));
-
+				columnsWidths.add(String.valueOf(mainTable.getColumnModel().getColumn(i).getWidth()));
 			}
 		}
 
 		// Finally, we store the new preferences.
-		Globals.prefs.putStringArray("columnNames",
-				storedColumns.toArray(new String[0]));
-		Globals.prefs.putStringArray("columnWidths",
-				columnsWidths.toArray(new String[0]));
-
-		// width of the number ("#") column
-		Globals.prefs.putInt("numberColWidth", ncWidth);
+		Globals.prefs.putStringArray("columnNames", storedColumns.toArray(new String[0]));
+		Globals.prefs.putStringArray("columnWidths", columnsWidths.toArray(new String[0]));
 	}
 
 	/**

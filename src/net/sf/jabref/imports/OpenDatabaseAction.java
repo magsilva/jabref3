@@ -32,7 +32,6 @@ import net.sf.jabref.export.AutoSaveManager;
 import net.sf.jabref.export.SaveSession;
 import net.sf.jabref.gui.FileDialogs;
 import net.sf.jabref.label.HandleDuplicateWarnings;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 // The action concerned with opening an existing database.
 
@@ -351,13 +350,6 @@ public class OpenDatabaseAction extends MnemonicAwareAction {
         ParserResult pr = bp.parse();
         pr.setEncoding(encoding);
         pr.setFile(fileToOpen);
-
-        if (SpecialFieldsUtils.keywordSyncEnabled()) {
-        	for (BibtexEntry entry: pr.getDatabase().getEntries()) {
-        		SpecialFieldsUtils.syncSpecialFieldsFromKeywords(entry, null);
-        	}
-        	Globals.logger(Globals.lang("Synchronized special fields based on keywords"));
-        }
 
         if (!pr.getMetaData().isGroupTreeValid())
             pr.addWarning(Globals.lang("Group tree could not be parsed. If you save the BibTeX database, all groups will be lost."));

@@ -44,9 +44,6 @@ import net.sf.jabref.external.ExternalFileMenuItem;
 import ca.odell.glazedlists.EventList;
 import ca.odell.glazedlists.event.ListEvent;
 import ca.odell.glazedlists.event.ListEventListener;
-import net.sf.jabref.specialfields.SpecialField;
-import net.sf.jabref.specialfields.SpecialFieldValue;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 /**
  * List event, mouse, key and focus listener for the main table that makes up the
@@ -272,23 +269,6 @@ public class MainTableSelectionListener implements ListEventListener<BibtexEntry
             return;
 
         if (iconType != null) {
-        	// left click on icon field
-        	SpecialField field = SpecialFieldsUtils.getSpecialFieldInstanceFromFieldName(iconType[0]);
-        	if ((e.getClickCount() == 1) && (field != null)) {
-        		// special field found
-        		if (field.isSingleValueField()) {
-        			// directly execute toggle action instead of showing a menu with one action
-        			field.getValues().get(0).getAction(panel.frame()).action();
-        		} else {
-	        		JPopupMenu menu = new JPopupMenu();
-	                for (SpecialFieldValue val: field.getValues()) {
-	                	menu.add(val.getMenuAction(panel.frame()));
-	                }
-	        		menu.show(table, e.getX(), e.getY());
-        		}
-        		return;
-        	}
-
             Object value = table.getValueAt(row, col);
             if (value == null) return; // No icon here, so we do nothing.
 
@@ -414,22 +394,13 @@ public class MainTableSelectionListener implements ListEventListener<BibtexEntry
                 showDefaultPopup = false;
             }
         } else {
-        	SpecialField field = SpecialFieldsUtils.getSpecialFieldInstanceFromFieldName(iconType[0]);
-        	if (field != null) {
-//                for (SpecialFieldValue val: field.getValues()) {
-//                	menu.add(val.getMenuAction(panel.frame()));
-//                }
-        		// full pop should be shown as left click already shows short popup
-                showDefaultPopup = true;
-        	} else {
-	            for (int i=0; i<iconType.length; i++) {
-	                Object o = entry.getField(iconType[i]);
-	                if (o != null) {
-	                    menu.add(new ExternalFileMenuItem(panel.frame(), entry, (String)o, (String)o,
-	                            GUIGlobals.getTableIcon(iconType[i]).getIcon(),
-	                            panel.metaData(), iconType[i]));
-	                    showDefaultPopup = false;
-	                }
+            for (int i=0; i<iconType.length; i++) {
+                Object o = entry.getField(iconType[i]);
+                if (o != null) {
+                    menu.add(new ExternalFileMenuItem(panel.frame(), entry, (String)o, (String)o,
+                            GUIGlobals.getTableIcon(iconType[i]).getIcon(),
+                            panel.metaData(), iconType[i]));
+                    showDefaultPopup = false;
 	            }
             }
         }

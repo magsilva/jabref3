@@ -17,11 +17,16 @@ package net.sf.jabref.export;
 
 import com.jgoodies.forms.builder.DefaultFormBuilder;
 import com.jgoodies.forms.layout.FormLayout;
+
 import net.sf.jabref.*;
 import net.sf.jabref.gui.FileDialogs;
 import net.sf.jabref.collab.ChangeScanner;
 
 import javax.swing.*;
+
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.UnsupportedCharsetException;
@@ -252,32 +257,38 @@ public class SaveDatabaseAction extends AbstractWorker {
         }
 
         boolean commit = true;
-        if (!session.getWriter().couldEncodeAll()) {
+        if (! session.getWriter().couldEncodeAll()) {
             DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("left:pref, 4dlu, fill:pref", ""));
             JTextArea ta = new JTextArea(session.getWriter().getProblemCharacters());
             ta.setEditable(false);
-            builder.append(Globals.lang("The chosen encoding '%0' could not encode the following characters: ",
-                    session.getEncoding()));
+            builder.append(Globals.lang("The chosen encoding '%0' could not encode the following characters: ", session.getEncoding()));
             builder.append(ta);
             builder.append(Globals.lang("What do you want to do?"));
             String tryDiff = Globals.lang("Try different encoding");
-            int answer = JOptionPane.showOptionDialog(frame, builder.getPanel(), Globals.lang("Save database"),
+            int answer = JOptionPane.showOptionDialog(
+            		frame, builder.getPanel(), Globals.lang("Save database"),
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
-                    new String[]{Globals.lang("Save"), tryDiff, Globals.lang("Cancel")}, tryDiff);
+                    new String[]{
+            			tryDiff, Globals.lang("Cancel"), Globals.lang("Cancel (and copy chars to clipboard)"),
+            		},
+            		tryDiff);
 
-            if (answer == JOptionPane.NO_OPTION) {
+            if (answer == JOptionPane.YES_OPTION) {
                 // The user wants to use another encoding.
-                Object choice = JOptionPane.showInputDialog(frame, Globals.lang("Select encoding"), Globals.lang("Save database"),
-                        JOptionPane.QUESTION_MESSAGE, null, Globals.ENCODINGS, encoding);
+                Object choice = JOptionPane.showInputDialog(frame, Globals.lang("Select encoding"), Globals.lang("Save database"), JOptionPane.QUESTION_MESSAGE, null, Globals.ENCODINGS, encoding);
                 if (choice != null) {
                     String newEncoding = (String) choice;
                     return saveDatabase(file, selectedOnly, newEncoding);
-                } else
+                } else {
                     commit = false;
-            } else if (answer == JOptionPane.CANCEL_OPTION)
-                commit = false;
-
-
+                }
+            } else if (answer == JOptionPane.NO_OPTION) {
+            	StringSelection stringSelection = new StringSelection(session.getWriter().getProblemCharacters());
+            	Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
+            	clpbrd.setContents(stringSelection, null);
+            } else if (answer == JOptionPane.CANCEL_OPTION) {
+            	commit = false;
+            }
         }
 
         try {

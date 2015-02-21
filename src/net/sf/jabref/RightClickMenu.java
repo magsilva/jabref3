@@ -24,11 +24,6 @@ import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 
 import net.sf.jabref.groups.*;
-import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.SpecialField;
-import net.sf.jabref.specialfields.SpecialFieldValue;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 public class RightClickMenu extends JPopupMenu
         implements PopupMenuListener {
@@ -159,21 +154,7 @@ public class RightClickMenu extends JPopupMenu
             }
             addSeparator();
         }
-
-        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
-        	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING)) {
-        		populateSpecialFieldMenu(this.rankingMenu, Rank.getInstance(), panel.frame);
-    	        add(this.rankingMenu);
-        	}
-	        
-        	if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY)) {
-		        populateSpecialFieldMenu(this.priorityMenu, Priority.getInstance(), panel.frame);
-		        add(this.priorityMenu);
-        	}
-	        
-	        addSeparator();
-        }
-        
+      
         add(new AbstractAction(Globals.lang("Open file"), GUIGlobals.getImage("openExternalFile")) {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -256,19 +237,6 @@ public class RightClickMenu extends JPopupMenu
         for (String key : BibtexEntryType.ALL_TYPES.keySet()){
             typeMenu.add(new ChangeTypeAction
                     (BibtexEntryType.getType(key), panel));
-        }
-    }
-    
-    /**
-     * Remove all types from the menu. 
-     * Then cycle through all available values, and add them.
-     */
-    public static void populateSpecialFieldMenu(JMenu menu, SpecialField field, JabRefFrame frame) {
-        //menu.removeAll();
-    	menu.setText(field.getMenuString());
-        menu.setIcon(field.getRepresentingIcon());
-        for (SpecialFieldValue val: field.getValues()) {
-        	menu.add(val.getMenuAction(frame));
         }
     }
     

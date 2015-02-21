@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.HashSet;
 
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import net.sf.jabref.util.TXMLReader;
 
 import org.w3c.dom.Element;
@@ -109,23 +108,7 @@ public class BibtexFields
     add( new BibtexSingleField( "language", true, GUIGlobals.SMALL_W  ) ) ;
     add( new BibtexSingleField( "volume", true, GUIGlobals.SMALL_W, 60  ).setNumeric(true) ) ;
     add( new BibtexSingleField( "year", true, GUIGlobals.SMALL_W, 60 ).setNumeric(true) ) ;
-
-    // custom fields not displayed at editor, but as columns in the UI
-    dummy =  new BibtexSingleField( SpecialFieldsUtils.FIELDNAME_RANKING , false) ;
-    if (!Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS)) {
-    	dummy.setPrivate();
-    	dummy.setWriteable(false);
-    	dummy.setDisplayable(false);
-    }
-    add(dummy) ;
-    dummy =  new BibtexSingleField( SpecialFieldsUtils.FIELDNAME_PRIORITY , false) ;
-    if (!Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SERIALIZESPECIALFIELDS)) {
-    	dummy.setPrivate();
-    	dummy.setWriteable(false);
-    	dummy.setDisplayable(false);
-    }
-    add(dummy) ;
-    
+ 
     // some semi-standard fields
     dummy = new BibtexSingleField( KEY_FIELD, true ) ;
     dummy.setPrivate();
@@ -161,14 +144,6 @@ public class BibtexFields
 
 
     add( new BibtexSingleField( "search", false, 75 ) ) ;
-
-
-    // some internal fields ----------------------------------------------
-    dummy = new BibtexSingleField( GUIGlobals.NUMBER_COL, false, 32  ) ;
-    dummy.setPrivate() ;
-    dummy.setWriteable(false);
-    dummy.setDisplayable(false);
-    add( dummy ) ;
 
     dummy = new BibtexSingleField( OWNER, false, GUIGlobals.SMALL_W ) ;
     dummy.setExtras("setOwner");

@@ -28,9 +28,6 @@ import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 
 /**
  * Static variables for graphics files and keyboard shortcuts.
@@ -46,7 +43,6 @@ public class GUIGlobals {
 	untitledTitle = "untitled",
 	helpTitle = "JabRef help",
 	TYPE_HEADER = "entrytype",
-	NUMBER_COL = "#",
 	encPrefix = "Encoding: "; // Part of the signature in written bib files.
 
 	public static Font CURRENTFONT,
@@ -389,16 +385,6 @@ public class GUIGlobals {
 		tableIcons.put("doi", lab);
         lab.setToolTipText(Globals.lang("Open file"));
         tableIcons.put(GUIGlobals.FILE_FIELD, lab);
-        
-        // Ranking item in the menu uses one star
-        lab = new JLabel(Rank.getInstance().getRepresentingIcon());
-        lab.setToolTipText(Rank.getInstance().getToolTip());
-        tableIcons.put(SpecialFieldsUtils.FIELDNAME_RANKING, lab);	
-
-        // Priority icon used for the menu
-        lab = new JLabel(Priority.getInstance().getRepresentingIcon());
-        lab.setToolTipText(Rank.getInstance().getToolTip());
-        tableIcons.put(SpecialFieldsUtils.FIELDNAME_PRIORITY, lab);
 	}
 
 }

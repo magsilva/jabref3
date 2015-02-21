@@ -29,10 +29,6 @@ import net.sf.jabref.JabRef;
 import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.SearchRuleSet;
 import net.sf.jabref.Util;
-import net.sf.jabref.specialfields.Priority;
-import net.sf.jabref.specialfields.Rank;
-import net.sf.jabref.specialfields.SpecialFieldValue;
-import net.sf.jabref.specialfields.SpecialFieldsUtils;
 import ca.odell.glazedlists.gui.TableFormat;
 import ca.odell.glazedlists.matchers.Matcher;
 
@@ -48,20 +44,9 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
 
     public static final String ICON_COLUMN_PREFIX = "iconcol:";
 
-    // Values to gather iconImages for those columns
-    // These values are also used to put a heading into the table; see getColumnName(int)
-    public static final String[]
-    		PDF = {"pdf", "ps"},
-    		URL_ = {"url", "doi"},
-    		RANKING = {SpecialFieldsUtils.FIELDNAME_RANKING},
-    		PRIORITY = {SpecialFieldsUtils.FIELDNAME_PRIORITY},
-    		FILE = {GUIGlobals.FILE_FIELD};
-
     BasePanel panel;
 
     private String[][] columns; // Contains the current column names.
-    public int padleft = -1; // padleft indicates how many columns (starting from left) are
-    // special columns (number column or icon column).
     private HashMap<Integer, String[]> iconCols = new HashMap<Integer, String[]>();
     int[][] nameCols = null;
     boolean namesAsIs, abbr_names, namesNatbib, namesFf, namesLf, namesLastOnly, showShort;
@@ -71,16 +56,14 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
     }
 
     public int getColumnCount() {
-        return padleft + columns.length;
+        return columns.length;
     }
 
     /**
      * @return the string that should be put in the column header
      */
     public String getColumnName(int col) {
-        if (col == 0) {
-            return GUIGlobals.NUMBER_COL;
-        } else if (getIconTypeForColumn(col) != null) {
+    	if (getIconTypeForColumn(col) != null) {
             if (JabRef.jrf.prefs().getBoolean(JabRefPreferences.SHOWONELETTERHEADINGFORICONCOLUMNS)) {
                 return getIconTypeForColumn(col)[0].substring(0,1).toUpperCase();
             } else {
@@ -89,7 +72,7 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
         }
         else // try to find an alternative fieldname (for display)
         {
-            String[] fld = columns[col - padleft];
+            String[] fld = columns[col];
             StringBuilder sb = new StringBuilder();
             for (int i=0; i<fld.length; i++) {
                 if (i > 0)
@@ -149,34 +132,16 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
         for (int i=0; i<columns.length; i++) {
             // TODO: is the following line correct with [0] ?
             if (columns[i][0].equalsIgnoreCase(colName))
-                return i+padleft;
+                return i;
         }
         return -1;
-    }
-
-    /**
-     * Checks, if the Column (int col) is a Ranking-Column
-     * @param col Column Number
-     * @return Is Ranking-Column or not?
-     */
-    public boolean isRankingColumn(int col) {
-        if (iconCols.get(col) != null) {
-            if (iconCols.get(col)[0] == RANKING[0]){
-                return true;
-            }
-        }
-        return false;
     }
 
     public Object getColumnValue(BibtexEntry be, int col) {
         Object o = null;
         String[] iconType = getIconTypeForColumn(col); // If non-null, indicates an icon column's type.
 
-        if (col == 0) {
-            o = "#";// + (row + 1);
-        }
-
-        else if (iconType != null) {
+        if (iconType != null) {
             int hasField = -1;
             for (int i = iconType.length - 1; i >= 0; i--)
                 if (hasField(be, iconType[i]))
@@ -187,27 +152,11 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
             // Ok, so we are going to display an icon. Find out which one, and return it:
             if (iconType[hasField].equals(GUIGlobals.FILE_FIELD)) {
                 o = FileListTableModel.getFirstLabel(be.getField(GUIGlobals.FILE_FIELD));
-
-            // Handle priority column special
-            // Extra handling because the icon depends on a FieldValue
-            } else if (iconType[hasField].equals(PRIORITY[0])) {
-                SpecialFieldValue prio = Priority.getInstance().parse(be.getField(SpecialFieldsUtils.FIELDNAME_PRIORITY));
-                if (prio != null) {
-                    // prio might be null if fieldvalue is an invalid value, therefore we check for != null
-                    o = prio.createLabel();
-                }
-            // Handle ranking column special
-            // Extra handling because the icon depends on a FieldValue
-            } else if (iconType[hasField].equals(RANKING[0])) {
-                SpecialFieldValue rank = Rank.getInstance().parse(be.getField(SpecialFieldsUtils.FIELDNAME_RANKING));
-                if (rank != null) {
-                    o = rank.createLabel();
-                }
             } else {
                 o = GUIGlobals.getTableIcon(iconType[hasField]);
             }
         } else {
-            String[] fld = columns[col - padleft];
+            String[] fld = columns[col];
             // Go through the fields until we find one with content:
             int j = 0;
             for (int i = 0; i < fld.length; i++) {
@@ -222,7 +171,7 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
             }
 
             for (int i = 0; i < nameCols.length; i++) {
-                if ((col - padleft == nameCols[i][0]) && (nameCols[i][1] == j)) {
+                if ((col == nameCols[i][0]) && (nameCols[i][1] == j)) {
                     return formatName(o);
                 }
             }
@@ -281,23 +230,6 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
         // Set the icon columns, indicating the number of special columns to the left.
         // We add those that are enabled in preferences.
         iconCols.clear();
-        int coln = 1;
-
-        // Add special Icon Columns
-        if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SPECIALFIELDSENABLED)) {
-            if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_RANKING))
-                iconCols.put(coln++, RANKING);
-            if (Globals.prefs.getBoolean(SpecialFieldsUtils.PREF_SHOWCOLUMN_PRIORITY))
-                iconCols.put(coln++, PRIORITY);
-        }
-
-        if (Globals.prefs.getBoolean("fileColumn"))
-            iconCols.put(coln++, FILE);
-        if (Globals.prefs.getBoolean("urlColumn"))
-            iconCols.put(coln++, URL_);
-
-        // Add 1 to the number of icon columns to get padleft.
-        padleft = 1 + iconCols.size();
 
         // Set up the int[][] nameCols, to mark which columns should be
         // treated as lists of names. This is to provide a correct presentation
