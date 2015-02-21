@@ -121,8 +121,6 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
     private EntryEditor currentEditor = null;
     private PreviewPanel currentPreview = null;
 
-    boolean tmp = true;
-
     private MainTableSelectionListener selectionListener = null;
     private ListEventListener<BibtexEntry> groupsHighlightListener;
     UIFSplitPane contentPane = new UIFSplitPane();
@@ -217,45 +215,33 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
      * @param frame The application window.
      */
     public BasePanel(JabRefFrame frame) {
-      this.sidePaneManager = Globals.sidePaneManager;
-      database = new BibtexDatabase();
-      metaData = new MetaData();
-        metaData.initializeNewDatabase();
-      this.frame = frame;
-      setupActions();
-      setupMainPanel();
-        encoding = Globals.prefs.get("defaultEncoding");
-        //System.out.println("Default: "+encoding);
+    	this(frame, new BibtexDatabase(), null, null, Globals.prefs.get("defaultEncoding"));
     }
 
-    public BasePanel(JabRefFrame frame, BibtexDatabase db, File file,
-                     MetaData metaData, String encoding) {
-        init(frame, db, file, metaData, encoding);
-    }
-
-    private void init(JabRefFrame frame, BibtexDatabase db, File file,
-                      MetaData metaData, String encoding) {
-        this.encoding = encoding;
-        this.metaData = metaData;
-        // System.out.println(encoding);
-        //super(JSplitPane.HORIZONTAL_SPLIT, true);
+    public BasePanel(JabRefFrame frame, BibtexDatabase db, File file, MetaData metaData, String encoding) {
         this.sidePaneManager = Globals.sidePaneManager;
+        this.encoding = encoding;
         this.frame = frame;
-        database = db;
-
+        this.database = db;
+        if (metaData == null) {
+  	      this.metaData = new MetaData();
+  	      this.metaData.initializeNewDatabase();
+        } else {
+            this.metaData = metaData;
+        }
+        if (file != null) {
+            this.metaData.setFile(file);
+        }
         setupActions();
         setupMainPanel();
 
-        metaData.setFile(file);
-
         // Register so we get notifications about outside changes to the file.
-        if (file != null)
+        if (file != null) {
             try {
-                fileMonitorHandle = Globals.fileUpdateMonitor.addUpdateListener(this,
-                        file);
+                fileMonitorHandle = Globals.fileUpdateMonitor.addUpdateListener(this, file);
             } catch (IOException ex) {
             }
-        
+        }
     }
 
     public boolean isBaseChanged(){
@@ -1347,11 +1333,8 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
                   if (tp == null)
                     return;
 
-                  String id = Util.createNeutralId();
-                  BibtexEntry bibEntry = new BibtexEntry(id, tp) ;
-                  TextInputDialog tidialog = new TextInputDialog(frame, BasePanel.this,
-                                                                 "import", true,
-                                                                 bibEntry) ;
+                  BibtexEntry bibEntry = new BibtexEntry(tp) ;
+                  TextInputDialog tidialog = new TextInputDialog(frame, BasePanel.this, "import", true, bibEntry) ;
                   Util.placeDialog(tidialog, BasePanel.this);
                   tidialog.setVisible(true);
 
@@ -1673,8 +1656,7 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
             type = etd.getChoice();
         }
         if (type != null) { // Only if the dialog was not cancelled.
-            String id = Util.createNeutralId();            
-            final BibtexEntry be = new BibtexEntry(id, type);
+            final BibtexEntry be = new BibtexEntry(type);
             try {
                 database.insertEntry(be);
                 // Set owner/timestamp if options are enabled:
@@ -1784,10 +1766,8 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
         database.addDatabaseChangeListener(eventList);
         groupFilterList = new FilterList<BibtexEntry>(eventList.getTheList(), NoSearchMatcher.INSTANCE);
         searchFilterList = new FilterList<BibtexEntry>(groupFilterList, NoSearchMatcher.INSTANCE);
-        //final SortedList sortedList = new SortedList(searchFilterList, null);
         tableFormat = new MainTableFormat(this);
         tableFormat.updateTableFormat();
-        //EventTableModel tableModel = new EventTableModel(sortedList, tableFormat);
         mainTable = new MainTable(tableFormat, searchFilterList, frame, this);
         
         selectionListener = new MainTableSelectionListener(this, mainTable);
@@ -1890,54 +1870,27 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
     }
 
     public void setupMainPanel() {
-        //System.out.println("setupMainPanel");
-        //splitPane = new com.jgoodies.uif_lite.component.UIFSplitPane(JSplitPane.VERTICAL_SPLIT);
         splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
         splitPane.setDividerSize(GUIGlobals.SPLIT_PANE_DIVIDER_SIZE);
-        // We replace the default FocusTraversalPolicy with a subclass
-        // that only allows FieldEditor components to gain keyboard focus,
-        // if there is an entry editor open.
-        /*splitPane.setFocusTraversalPolicy(new LayoutFocusTraversalPolicy() {
-                protected boolean accept(Component c) {
-                    Util.pr("jaa");
-                    if (showing == null)
-                        return super.accept(c);
-                    else
-                        return (super.accept(c) &&
-                                (c instanceof FieldEditor));
-                }
-                });*/
-
         createMainTable();
-
         for (EntryEditor ee : entryEditors.values()) {
             ee.validateAllFields();
         }
-
-
-
         splitPane.setTopComponent(mainTable.getPane());
 
-        //setupTable();
         // If an entry is currently being shown, make sure it stays shown,
         // otherwise set the bottom component to null.
         if (mode == SHOWING_PREVIEW) {
             mode = SHOWING_NOTHING;
             int row = mainTable.findEntry(currentPreview.entry);
-            if (row >= 0)
+            if (row >= 0) {
                 mainTable.setRowSelectionInterval(row, row);
-
-        }
-        else if (mode == SHOWING_EDITOR) {
+            }
+        } else if (mode == SHOWING_EDITOR) {
             mode = SHOWING_NOTHING;
-            /*int row = mainTable.findEntry(currentEditor.entry);
-            if (row >= 0)
-                mainTable.setRowSelectionInterval(row, row);
-            */
-            //showEntryEditor(currentEditor);
-        } else
+        } else {
             splitPane.setBottomComponent(null);
-
+        }
 
         setLayout(new BorderLayout());
         removeAll();
@@ -2567,8 +2520,7 @@ public class BasePanel extends JPanel implements ClipboardOwner, FileUpdateListe
                 String oldKey = bes.getCiteKey();
                 if ((oldKey == null) || (oldKey.equals(""))) {
                     LabelPatternUtil.makeLabel(metaData, database, bes);
-                    ce.addEdit(new UndoableKeyChange(database, bes.getId(), null,
-                        bes.getField(BibtexFields.KEY_FIELD)));
+                    ce.addEdit(new UndoableKeyChange(database, bes.getId(), null, bes.getField(BibtexFields.KEY_FIELD)));
                     any = true;
                 }
             }

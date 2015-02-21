@@ -27,16 +27,15 @@ import net.sf.jabref.Globals;
  */
 public class UndoableKeyChange extends AbstractUndoableEdit {
 
-    private String entryId;
+    private int entryId;
     private BibtexDatabase base;
     private String oldValue, newValue;
 
-    public UndoableKeyChange(BibtexDatabase base, String entryId,
-			     String oldValue, String newValue) {
-	this.base = base;
-	this.entryId = entryId;
-	this.oldValue = oldValue;
-	this.newValue = newValue;
+    public UndoableKeyChange(BibtexDatabase base, int entryId, String oldValue, String newValue) {
+		this.base = base;
+		this.entryId = entryId;
+		this.oldValue = oldValue;
+		this.newValue = newValue;
     }
 
     public String getUndoPresentationName() {
@@ -62,7 +61,7 @@ public class UndoableKeyChange extends AbstractUndoableEdit {
     }
 
     private void set(String to) {
-	base.setCiteKeyForEntry(entryId, to);
+    	base.setCiteKeyForEntry(entryId, to);
     }
 
 }

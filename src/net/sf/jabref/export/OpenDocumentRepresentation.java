@@ -45,7 +45,7 @@ public class OpenDocumentRepresentation {
     private BibtexDatabase database;
 
     @SuppressWarnings("unchecked")
-	public OpenDocumentRepresentation(BibtexDatabase database, Set<String> keySet) {
+	public OpenDocumentRepresentation(BibtexDatabase database, Set<Integer> keySet) {
         this.database = database;
         // Make a list of comparators for sorting the entries:
         List<FieldComparator> comparators = new ArrayList<FieldComparator>();
@@ -60,7 +60,7 @@ public class OpenDocumentRepresentation {
         if (keySet == null)
             entryList.addAll(database.getEntries());
         else {
-            for (String key : keySet)
+            for (int key : keySet)
                 entryList.add(database.getEntryById(key));
         }
 
@@ -194,7 +194,7 @@ public class OpenDocumentRepresentation {
     }
 
     protected String getField(BibtexEntry e, String field) {
-        String s = BibtexDatabase.getResolvedField(field, e, database);
+        String s = database.getResolvedField(field, e);
         return s == null ? "" : s;
     }
 

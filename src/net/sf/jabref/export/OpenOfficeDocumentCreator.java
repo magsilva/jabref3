@@ -44,7 +44,7 @@ public class OpenOfficeDocumentCreator extends ExportFormat {
     }
 
     public void performExport(final BibtexDatabase database, final MetaData metaData,
-                              final String file, final String encoding, Set<String> keySet) throws Exception {
+                              final String file, final String encoding, Set<Integer> keySet) throws Exception {
         exportOpenOfficeCalc(new File(file), database, keySet);
     }
 
@@ -73,7 +73,7 @@ public class OpenOfficeDocumentCreator extends ExportFormat {
     }
 
     public static void exportOpenOfficeCalc(File file, BibtexDatabase database,
-        Set<String> keySet) throws Exception {
+        Set<Integer> keySet) throws Exception {
 
 
         // First store the xml formatted content to a temporary file.
@@ -88,7 +88,7 @@ public class OpenOfficeDocumentCreator extends ExportFormat {
         tmpFile.delete();
     }
 
-    public static void exportOpenOfficeCalcXML(File tmpFile, BibtexDatabase database, Set<String> keySet) {
+    public static void exportOpenOfficeCalcXML(File tmpFile, BibtexDatabase database, Set<Integer> keySet) {
         OOCalcDatabase od = new OOCalcDatabase(database, keySet);
 
         try {

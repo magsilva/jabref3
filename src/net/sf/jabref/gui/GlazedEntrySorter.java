@@ -34,15 +34,13 @@ public class GlazedEntrySorter implements DatabaseChangeListener {
     String[] idArray;
     BibtexEntry[] entryArray;
     
-    public GlazedEntrySorter(Map<String, BibtexEntry> entries) {
+    public GlazedEntrySorter(Map<Integer, BibtexEntry> entries) {
         list = new BasicEventList<BibtexEntry>();
         list.getReadWriteLock().writeLock().lock();
-        Set<String> keySet = entries.keySet();
-        if (keySet != null) {
-            Iterator<String> i = keySet.iterator();
-            while (i.hasNext()) {
-                list.add(entries.get(i.next()));
-            }
+        Set<Integer> keySet = entries.keySet();
+        Iterator<Integer> i = keySet.iterator();
+        while (i.hasNext()) {
+            list.add(entries.get(i.next()));
         }
 
         // Sort the list so it is ordered according to creation (or read) order

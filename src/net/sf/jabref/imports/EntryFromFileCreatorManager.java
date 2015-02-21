@@ -132,9 +132,6 @@ public final class EntryFromFileCreatorManager {
 				if (entryType != null) {
 					entry.setType(entryType);
 				}
-				if (entry.getId() == null) {
-					entry.setId(Util.createNeutralId());
-				}
 				/*
 				 * TODO: database.insertEntry(BibtexEntry) is not sensible. Why
 				 * does 'true' mean "There were duplicates", while 'false' means

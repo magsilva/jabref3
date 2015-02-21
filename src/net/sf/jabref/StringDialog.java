@@ -183,7 +183,7 @@ public class StringDialog extends JDialog {
     private void sortStrings() {
 	// Rebuild our sorted set of strings:
 	stringsSet = new TreeSet<BibtexString>(new BibtexStringComparator(false));
-	for (String s : base.getStringKeySet()){
+	for (Integer s : base.getStringKeySet()){
 	    stringsSet.add(base.getString(s));
 	}
 	strings = stringsSet.toArray();
@@ -381,7 +381,7 @@ public class StringDialog extends JDialog {
              return;
            }
 	    try {
-		String newId = Util.createNeutralId();
+		int newId = Util.createNeutralId();
 		BibtexString bs = new BibtexString(newId, name, "");
 
 		// Store undo information:

@@ -178,7 +178,7 @@ public class LayoutEntry {
 		case LayoutHelper.IS_LAYOUT_TEXT:
 			return text;
 		case LayoutHelper.IS_SIMPLE_FIELD:
-			String value = BibtexDatabase.getResolvedField(text, bibtex, database);
+			String value = database.getResolvedField(text, bibtex);
 			
             if (value == null)
                 value = "";
@@ -190,13 +190,13 @@ public class LayoutEntry {
 		case LayoutHelper.IS_GROUP_START: {
             String field;
             if (type == LayoutHelper.IS_GROUP_START) {
-                field = BibtexDatabase.getResolvedField(text, bibtex, database);
+                field = database.getResolvedField(text, bibtex);
             } else if(text.matches(".*(;|(\\&+)).*")) {
 		// split the strings along &, && or ; for AND formatter
                 String[] parts = text.split("\\s*(;|(\\&+))\\s*");
                 field = null;
                 for (int i = 0; i < parts.length; i++) {
-                    field = BibtexDatabase.getResolvedField(parts[i], bibtex, database);
+                    field = database.getResolvedField(parts[i], bibtex);
                     if (field == null)
                         break;
                     
@@ -206,7 +206,7 @@ public class LayoutEntry {
                 String[] parts = text.split("\\s*(\\|+)\\s*");
                 field = null;
                 for (int i = 0; i < parts.length; i++) {
-                    field = BibtexDatabase.getResolvedField(parts[i], bibtex, database);
+                    field = database.getResolvedField(parts[i], bibtex);
                     if (field != null)
                         break;
                 }
@@ -288,8 +288,7 @@ public class LayoutEntry {
 			} else {
 				// changed section begin - arudert
 				// resolve field (recognized by leading backslash) or text
-				String field = text.startsWith("\\") ? BibtexDatabase.getResolvedField(text.substring(1), bibtex, database)
-					: BibtexDatabase.getText(text, database);
+				String field = text.startsWith("\\") ? database.getResolvedField(text.substring(1), bibtex)	: database.getText(text);
 				// changed section end - arudert
 				if (field == null) {
 					fieldEntry = "";
@@ -315,7 +314,7 @@ public class LayoutEntry {
             // Printing the encoding name is not supported in entry layouts, only
             // in begin/end layouts. This prevents breakage if some users depend
             // on a field called "encoding". We simply return this field instead:
-            return BibtexDatabase.getResolvedField("encoding", bibtex, database);
+            return database.getResolvedField("encoding", bibtex);
         }
         default:
 			return "";
@@ -343,7 +342,7 @@ public class LayoutEntry {
 			throw new UnsupportedOperationException(
 				"field and group ends not allowed in begin or end layout");
 		} else if (type == LayoutHelper.IS_OPTION_FIELD) {
-			String field = BibtexDatabase.getText(text, database);
+			String field = database.getText(text);
 			if (option != null) {
 				for (int i = 0; i < option.length; i++) {
 					field = option[i].format(field);

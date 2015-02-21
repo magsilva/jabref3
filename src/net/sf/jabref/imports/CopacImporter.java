@@ -123,8 +123,7 @@ public class CopacImporter extends ImportFormat {
 
 			// Copac does not contain enough information on the type of the
 			// document. A book is assumed.
-			BibtexEntry b = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID,
-				BibtexEntryType.BOOK);
+			BibtexEntry b = new BibtexEntry(BibtexEntryType.BOOK);
 
 			String[] lines = it.next().toString().split("\n");
 

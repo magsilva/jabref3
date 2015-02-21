@@ -129,7 +129,7 @@ public class AppendDatabaseAction extends BaseAction {
               boolean overwriteOwner = Globals.prefs.getBoolean("overwriteOwner");
               boolean overwriteTimeStamp = Globals.prefs.getBoolean("overwriteTimeStamp");
 
-        	  for (String key : fromDatabase.getKeySet()){
+        	  for (Integer key : fromDatabase.getKeySet()){
         	      originalEntry = fromDatabase.getEntryById(key);
                   BibtexEntry be = (BibtexEntry) (originalEntry.clone());
                   be.setId(Util.createNeutralId());

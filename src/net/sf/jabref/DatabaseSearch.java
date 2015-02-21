@@ -64,7 +64,7 @@ public class DatabaseSearch extends Thread {
 		BibtexEntry bes = null;
 		int hits = 0;
 
-		for (String id : thisDatabase.getKeySet()){
+		for (int id : thisDatabase.getKeySet()){
 
 			// 1. search all required fields using searchString
 			bes = thisDatabase.getEntryById(id);

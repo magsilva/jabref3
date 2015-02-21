@@ -248,8 +248,7 @@ public class BiblioscapeImporter extends ImportFormat {
                 s.append(i > 0 ? "; " : "").append(comments.elementAt(i).toString());
             hm.put("comment", s.toString());
           }
-          BibtexEntry b = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID,
-              Globals.getEntryType(bibtexType));
+          BibtexEntry b = new BibtexEntry(Globals.getEntryType(bibtexType));
           b.setField(hm);
           bibItems.add(b);
 

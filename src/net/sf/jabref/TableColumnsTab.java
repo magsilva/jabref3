@@ -35,23 +35,34 @@ class TableColumnsTab extends JPanel implements PrefsTab
         
         int length;
         
+        public TableRow() {
+        	this("", GUIGlobals.DEFAULT_FIELD_LENGTH, "");
+        }
+
+        
         public TableRow(String name) {
-            this.name = name;
-            length = GUIGlobals.DEFAULT_FIELD_LENGTH;
+        	this(name, GUIGlobals.DEFAULT_FIELD_LENGTH, name);
         }
         
         public TableRow(int length) {
-            this.length = length;
-            name = "";
+        	this("", length, "");
         }
         
         public TableRow(String name, int length) {
+        	this(name, length, name);
+        }
+
+        public TableRow(String name, int length, String fields) {
             this.name = name;
             this.length = length;
         }
+        
     }
 
-
+    public static final String COLUMN_NAME = "columnNames";
+    
+    public static final String COLUMN_WIDTH = "columnWidths";
+    
     JabRefPreferences _prefs;
     
     private boolean tableChanged = false;
@@ -97,7 +108,7 @@ class TableColumnsTab extends JPanel implements PrefsTab
                 	if (row >= tableRows.size() || row < 0) {
                 		throw new IllegalArgumentException("Invalid row");
                 	}
-                	if (column >= 2 || column < 0) {
+                	if (column >= getColumnCount() || column < 0) {
                 		throw new IllegalArgumentException("Invalid column");
                 	}
 
@@ -122,10 +133,11 @@ class TableColumnsTab extends JPanel implements PrefsTab
                 }
                 
                 public Class<?> getColumnClass(int column) {
-                    if (column == 0)
+                    if (column == 0) {
                     	return String.class;
-                    else
+                    } else {
                     	return Integer.class;
+                    }
                 }
                 
                 public boolean isCellEditable(int row, int col) {
@@ -148,7 +160,7 @@ class TableColumnsTab extends JPanel implements PrefsTab
                         } else {
                         	rowContent.length = Integer.parseInt(value.toString());
                         }
-                    }
+	                }
                     tableChanged = true;
                 }
 
@@ -191,8 +203,8 @@ class TableColumnsTab extends JPanel implements PrefsTab
     public void setValues()
     {
 		tableRows.clear();
-		String[] names = _prefs.getStringArray("columnNames");
-		String[] lengths = _prefs.getStringArray("columnWidths");
+		String[] names = _prefs.getStringArray(TableColumnsTab.COLUMN_NAME);
+		String[] lengths = _prefs.getStringArray(TableColumnsTab.COLUMN_WIDTH);
         for (int i = 0; i < names.length; i++) {
             try {
                 tableRows.add(new TableRow(names[i], Integer.parseInt(lengths[i])));
@@ -233,11 +245,11 @@ class TableColumnsTab extends JPanel implements PrefsTab
             int[] rows = colSetup.getSelectedRows();
             if (rows.length == 0) {
                 // No rows selected, so we just add one at the end.
-                tableRows.add(new TableRow(GUIGlobals.DEFAULT_FIELD_LENGTH));
+                tableRows.add(new TableRow());
             } else {
                 Arrays.sort(rows);
 	            for (int i = (rows.length - 1); i >= 0; i--) {
-                    tableRows.add(rows[i], new TableRow(GUIGlobals.DEFAULT_FIELD_LENGTH));
+                    tableRows.add(rows[i], new TableRow());
 	            }
 	        	colSetup.clearSelection();
             }
@@ -421,6 +433,7 @@ class TableColumnsTab extends JPanel implements PrefsTab
             // Then we make arrays
             String[] names = new String[tableRows.size()];
             String[] widths = new String[tableRows.size()];
+            String[] bibtexFields = new String[tableRows.size()];
 
             for (int i = 0; i < tableRows.size(); i++) {
                 TableRow tr = tableRows.elementAt(i);
@@ -429,8 +442,8 @@ class TableColumnsTab extends JPanel implements PrefsTab
             }
 
             // Finally, we store the new preferences.
-            _prefs.putStringArray("columnNames", names);
-            _prefs.putStringArray("columnWidths", widths);
+            _prefs.putStringArray(TableColumnsTab.COLUMN_NAME, names);
+            _prefs.putStringArray(TableColumnsTab.COLUMN_WIDTH, widths);
             tableChanged = false;
         }
 

@@ -53,7 +53,7 @@ public void run() {
     return;
   bes = new BibtexEntry[keys.length];
   for (int i=0; i<keys.length; i++)
-    bes[i] = panel.database.getEntryById((String)keys[i]);
+    bes[i] = panel.database.getEntryById((Integer)keys[i]);
 
   SearcherThread st = new SearcherThread();
   st.setPriority(Thread.MIN_PRIORITY);

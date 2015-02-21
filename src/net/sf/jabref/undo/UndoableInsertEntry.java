@@ -67,7 +67,7 @@ public class UndoableInsertEntry extends AbstractUndoableEdit {
 
         // Redo the change.
         try {
-              String id = Util.createNeutralId();
+        	int id = Util.createNeutralId();
             entry.setId(id);
             base.insertEntry(entry);
         } catch (Throwable ex) {

@@ -17,19 +17,23 @@ package net.sf.jabref;
 
 public class BibtexString {
 
-    String _name, _content, _id;
+    String _name;
+    
+    String _content;
+    
+    int _id;
 
-    public BibtexString(String id, String name, String content) {
+    public BibtexString(int id, String name, String content) {
 	_id = id;
 	_name = name;
 	_content = content;
     }
 
-    public String getId() {
+    public int getId() {
 	return _id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
 	_id = id;
     }
 

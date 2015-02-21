@@ -113,7 +113,7 @@ public class ExportToClipboardAction extends AbstractWorker {
             tmp = File.createTempFile("jabrefCb", ".tmp");
             tmp.deleteOnExit();
             BibtexEntry[] bes = panel.getSelectedEntries();
-            HashSet<String> entries = new HashSet<String>(bes.length);
+            HashSet<Integer> entries = new HashSet<Integer>(bes.length);
             for (BibtexEntry be : bes)
                 entries.add(be.getId());
             

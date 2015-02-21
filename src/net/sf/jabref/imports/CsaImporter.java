@@ -241,9 +241,7 @@ public class CsaImporter extends ImportFormat {
                         hm.put("journal", booktitle);
                     }
 
-                    BibtexEntry b =
-                        new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID,
-                                        Globals.getEntryType(Type));
+                    BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type));
 
                     // create one here
                     b.setField(hm);

@@ -77,7 +77,7 @@ public class FileActions
     private void writeStrings(Writer fw, BibtexDatabase database) throws IOException
     {
         List<BibtexString> strings = new ArrayList<BibtexString>();
-        for (String s : database.getStringKeySet()) {
+        for (Integer s : database.getStringKeySet()) {
             strings.add(database.getString(s));
         }
     
@@ -431,7 +431,7 @@ public class FileActions
     * global preference of saving in standard order.
     */
     @SuppressWarnings("unchecked")
-	public List<BibtexEntry> getSortedEntries(BibtexDatabase database, Set<String> keySet, boolean isSaveOperation) {
+	public List<BibtexEntry> getSortedEntries(BibtexDatabase database, Set<Integer> keySet, boolean isSaveOperation) {
         FieldComparatorStack<BibtexEntry> comparatorStack = null;
 
         boolean inOriginalOrder = isSaveOperation ? Globals.prefs.getBoolean("saveInOriginalOrder") : Globals.prefs.getBoolean("exportInOriginalOrder");
@@ -483,7 +483,7 @@ public class FileActions
             keySet = database.getKeySet();
 
         if (keySet != null) {
-            Iterator<String> i = keySet.iterator();
+            Iterator<Integer> i = keySet.iterator();
 
             for (; i.hasNext();) {
                 sorter.add(database.getEntryById((i.next())));

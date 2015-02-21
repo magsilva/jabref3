@@ -138,7 +138,7 @@ public class CustomEntryType extends BibtexEntryType {
         boolean[] isSet = new boolean[req.length];
         // First check for all fields, whether they are set here or in a crossref'd entry:
 	    for (int i=0; i<req.length; i++)
-            isSet[i] = BibtexDatabase.getResolvedField(req[i], entry, database) != null;
+            isSet[i] = database.getResolvedField(req[i], entry) != null;
         // Then go through all fields. If a field is not set, see if it is part of an either-or
         // set where another field is set. If not, return false:
     	for (int i=0; i<req.length; i++) {
@@ -161,7 +161,7 @@ public class CustomEntryType extends BibtexEntryType {
                 if (reqSets[i][j].equalsIgnoreCase(field))
                     takesPart = true;
                 // If it is a different field, check if it is set:
-                else if (BibtexDatabase.getResolvedField(reqSets[i][j], entry, database) != null)
+                else if (database.getResolvedField(reqSets[i][j], entry) != null)
                     oneSet = true;
             }
             // Ths the field is part of the set, and at least one other field is set, return true:

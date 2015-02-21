@@ -44,7 +44,7 @@ public class OOCalcDatabase {
     protected Collection<BibtexEntry> entries;
 
     @SuppressWarnings("unchecked")
-	public OOCalcDatabase(BibtexDatabase bibtex, Set<String> keySet) {
+	public OOCalcDatabase(BibtexDatabase bibtex, Set<Integer> keySet) {
         // Make a list of comparators for sorting the entries:
         List<FieldComparator> comparators = new ArrayList<FieldComparator>();
         comparators.add(new FieldComparator("author"));
@@ -57,7 +57,7 @@ public class OOCalcDatabase {
         if (keySet == null)
             entryList.addAll(bibtex.getEntries());
         else {
-            for (String key : keySet)
+            for (int key : keySet)
                 entryList.add(bibtex.getEntryById(key));
         }
         

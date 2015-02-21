@@ -95,9 +95,7 @@ public class MySQLExporter extends DBExporter {
 				out,
 				"CREATE TABLE IF NOT EXISTS entries ( \n"
 						+ "entries_id      INTEGER         NOT NULL AUTO_INCREMENT, \n"
-						+ "jabref_eid      VARCHAR("
-						+ Util.getMinimumIntegerDigits()
-						+ ")   DEFAULT NULL, \n"
+						+ "jabref_eid      INTEGER         DEFAULT NULL, \n"
 						+ "database_id INT UNSIGNED, \n"
 						+ "entry_types_id  INT UNSIGNED         DEFAULT NULL, \n"
 						+ "cite_key        VARCHAR(100)     DEFAULT NULL, \n"

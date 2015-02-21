@@ -55,11 +55,11 @@ public class MSBibDatabase {
     }
 
 	public MSBibDatabase(BibtexDatabase bibtex) {
-		Set<String> keySet = bibtex.getKeySet();
+		Set<Integer> keySet = bibtex.getKeySet();
         addEntries(bibtex, keySet);
     }
 
-    public MSBibDatabase(BibtexDatabase bibtex, Set<String> keySet) {
+    public MSBibDatabase(BibtexDatabase bibtex, Set<Integer> keySet) {
         if (keySet == null)
             keySet = bibtex.getKeySet();
         addEntries(bibtex, keySet);
@@ -99,9 +99,9 @@ public class MSBibDatabase {
    		return bibitems;
     }
 
-    private void addEntries(BibtexDatabase database, Set<String> keySet) {
+    private void addEntries(BibtexDatabase database, Set<Integer> keySet) {
         entries = new HashSet<MSBibEntry>();
-        for (String s : keySet){
+        for (Integer s : keySet){
         	BibtexEntry entry = database.getEntryById(s);
 			MSBibEntry newMods = new MSBibEntry(entry);
 			entries.add(newMods);

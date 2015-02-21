@@ -165,7 +165,7 @@ public class ExportFormat implements IExportFormat {
 	 */
 	public void performExport(final BibtexDatabase database,
             final MetaData metaData, final String file,
-		final String encoding, Set<String> entryIds) throws Exception {
+		final String encoding, Set<Integer> entryIds) throws Exception {
 
         File outFile = new File(file);
         SaveSession ss = null;

@@ -87,7 +87,7 @@ public class MainTable extends JTable {
         this.tableFormat = tableFormat;
         this.panel = panel;
         // This SortedList has a Comparator controlled by the TableComparatorChooser
-        // we are going to install, which responds to user sorting selctions:
+        // we are going to install, which responds to user sorting sections:
         sortedForTable = new SortedList<BibtexEntry>(list, null);
         // This SortedList applies afterwards, and floats marked entries:
         sortedForMarking = new SortedList<BibtexEntry>(sortedForTable, null);
@@ -229,35 +229,10 @@ public class MainTable extends JTable {
         // Now, a grayed out renderer is for entries with -1, and
         // a very grayed out one for entries with -2
         if (score < -1) {
-            if (column == 0) {
-                veryGrayedOutNumberRenderer.setNumber(row);
-                renderer = veryGrayedOutNumberRenderer;
-            } else renderer = veryGrayedOutRenderer;
-        }
-        else if (score == -1) {
-            if (column == 0) {
-                grayedOutNumberRenderer.setNumber(row);
-                renderer = grayedOutNumberRenderer;
-            } else renderer = grayedOutRenderer;
-        }
-
-        else if (column == 0) {
-            // Return a renderer with red background if the entry is incomplete.
-            if (!isComplete(row)) {
-                incRenderer.setNumber(row);
-                renderer = incRenderer;
-            } else {
-                compRenderer.setNumber(row);
-                int marking = isMarked(row);
-                if (marking > 0) {
-                    marking = Math.min(marking, Util.MARK_COLOR_LEVELS);
-                    renderer = markedNumberRenderers[marking-1];
-                    markedNumberRenderers[marking-1].setNumber(row);
-                } else
-                    renderer = compRenderer;
-            }
-        }
-        else if (tableColorCodes) {
+            renderer = veryGrayedOutRenderer;
+        } else if (score == -1) {
+        	renderer = grayedOutRenderer;
+        } else if (tableColorCodes) {
             if (status == REQUIRED)
                 renderer = reqRenderer;
             else if (status == OPTIONAL)
@@ -439,16 +414,6 @@ public class MainTable extends JTable {
 
     private boolean matches(int row, Matcher<BibtexEntry> m) {
         return m.matches(sortedForGrouping.get(row));
-    }
-
-    private boolean isComplete(int row) {
-        try {
-            BibtexEntry be = sortedForGrouping.get(row);
-            return be.hasAllRequiredFields(panel.database());
-        } catch (NullPointerException ex) {
-            //System.out.println("Exception: isComplete");
-            return true;
-        }
     }
 
     private int isMarked(int row) {

@@ -44,15 +44,15 @@ public class MODSDatabase {
         addEntries(bibtex, bibtex.getKeySet());
     }
 
-    public MODSDatabase(BibtexDatabase bibtex, Set<String> keySet) {
+    public MODSDatabase(BibtexDatabase bibtex, Set<Integer> keySet) {
         if (keySet == null)
             keySet = bibtex.getKeySet();
         addEntries(bibtex, keySet);
     }
 
-    private void addEntries(BibtexDatabase database, Set<String> keySet) {
+    private void addEntries(BibtexDatabase database, Set<Integer> keySet) {
         entries = new HashSet<MODSEntry>();
-        for(Iterator<String> iter = keySet.iterator(); iter.hasNext(); ) {
+        for(Iterator<Integer> iter = keySet.iterator(); iter.hasNext(); ) {
 			BibtexEntry entry = database.getEntryById(iter.next());
 			MODSEntry newMods = new MODSEntry(entry);
 			entries.add(newMods);

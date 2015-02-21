@@ -188,7 +188,7 @@ public class BiomailImporter extends ImportFormat {
                 hm.put("author", shortauthor);
 
             BibtexEntry b =
-                    new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, Globals.getEntryType(Type)); // id assumes an existing database so don't
+                    new BibtexEntry(Globals.getEntryType(Type)); // id assumes an existing database so don't
 
             // create one here
             b.setField(hm);

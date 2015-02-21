@@ -118,8 +118,7 @@ public class EntryFromPDFCreator extends EntryFromFileCreator {
 					}
 		
 					if (pdfDocInfo.getCustomMetadataValue("bibtex/bibtexkey") != null){
-						entry.setId(pdfDocInfo
-								.getCustomMetadataValue("bibtex/bibtexkey"));
+						entry.setId(Integer.parseInt(pdfDocInfo.getCustomMetadataValue("bibtex/bibtexkey")));
 					}
 				}
 			}

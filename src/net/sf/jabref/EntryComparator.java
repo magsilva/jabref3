@@ -129,7 +129,7 @@ public class EntryComparator implements Comparator<BibtexEntry> {
     }
 
     private int idCompare(BibtexEntry b1, BibtexEntry b2) {
-    return ((b1.getId())).compareTo((b2.getId()));
+    return ((b1.getId())) - ((b2.getId()));
     }
 
 }

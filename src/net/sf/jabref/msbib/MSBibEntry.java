@@ -975,14 +975,10 @@ public class MSBibEntry {
 //		BibtexEntry entry = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, 
 //				mapMSBibToBibtexType(sourceType));
 
-		BibtexEntry entry = null;
-		if(tag == null)
-			entry = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, 
-					mapMSBibToBibtexType(sourceType));
-		else
-			entry = new BibtexEntry(tag, 
-					mapMSBibToBibtexType(sourceType)); // id assumes an existing database so don't
-		
+		BibtexEntry entry = new BibtexEntry(mapMSBibToBibtexType(sourceType));
+		if (tag != null) {
+			entry.setField("bibtexkey", tag);
+		}
 
 		// Todo: add check for BibTexEntry types
 //		BibtexEntry entry = new BibtexEntry();

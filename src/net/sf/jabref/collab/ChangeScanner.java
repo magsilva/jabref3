@@ -383,15 +383,15 @@ public class ChangeScanner extends Thread {
 
         HashSet<Object> used = new HashSet<Object>();
         HashSet<Object> usedInMem = new HashSet<Object>();
-        HashSet<String> notMatched = new HashSet<String>(onTmp.getStringCount());
+        HashSet<Integer> notMatched = new HashSet<Integer>(onTmp.getStringCount());
 
         // First try to match by string names.
         //int piv2 = -1;
-        mainLoop: for (String key : onTmp.getStringKeySet()){
+        mainLoop: for (Integer key : onTmp.getStringKeySet()){
             BibtexString tmp = onTmp.getString(key);
 
             //      for (int j=piv2+1; j<nDisk; j++)
-            for (String diskId : onDisk.getStringKeySet()){
+            for (Integer diskId : onDisk.getStringKeySet()){
                 if (!used.contains(diskId)) {
                     BibtexString disk = onDisk.getString(diskId);
                     if (disk.getName().equals(tmp.getName())) {
@@ -420,12 +420,12 @@ public class ChangeScanner extends Thread {
 
         // See if we can detect a name change for those entries that we couldn't match.
         if (notMatched.size() > 0) {
-            for (Iterator<String> i = notMatched.iterator(); i.hasNext();){
+            for (Iterator<Integer> i = notMatched.iterator(); i.hasNext();){
                 BibtexString tmp = onTmp.getString(i.next());
 
                 // If we get to this point, we found no string with matching name. See if we
                 // can find one with matching content.
-                for (String diskId : onDisk.getStringKeySet()){
+                for (Integer diskId : onDisk.getStringKeySet()){
 
                 	if (!used.contains(diskId)) {
                         BibtexString disk = onDisk.getString(diskId);
@@ -437,7 +437,7 @@ public class ChangeScanner extends Thread {
                             // Try to find the matching one in memory:
                             BibtexString bsMem = null;
                             
-                            for (String memId : inMem.getStringKeySet()){
+                            for (Integer memId : inMem.getStringKeySet()){
                                 BibtexString bsMem_cand = inMem.getString(memId);
                                 if (bsMem_cand.getContent().equals(disk.getContent()) &&
                                 !usedInMem.contains(memId)) {
@@ -461,8 +461,8 @@ public class ChangeScanner extends Thread {
 
         if (notMatched.size() > 0) {
             // Still one or more non-matched strings. So they must have been removed.
-            for (Iterator<String> i = notMatched.iterator(); i.hasNext(); ) {
-                String nmId = i.next();
+            for (Iterator<Integer> i = notMatched.iterator(); i.hasNext(); ) {
+                Integer nmId = i.next();
                 BibtexString tmp = onTmp.getString(nmId);
                 BibtexString mem = findString(inMem, tmp.getName(), usedInMem);
                 if (mem != null) { // The removed string is not removed from the mem version.
@@ -474,8 +474,8 @@ public class ChangeScanner extends Thread {
 
         // Finally, see if there are remaining strings in the disk database. They
         // must have been added.
-        for (Iterator<String> i=onDisk.getStringKeySet().iterator(); i.hasNext();) {
-            String diskId = i.next();
+        for (Iterator<Integer> i=onDisk.getStringKeySet().iterator(); i.hasNext();) {
+            Integer diskId = i.next();
             if (!used.contains(diskId)) {
                 BibtexString disk = onDisk.getString(diskId);
                 //System.out.println(disk.getName());
@@ -488,8 +488,8 @@ public class ChangeScanner extends Thread {
     private BibtexString findString(BibtexDatabase base, String name, HashSet<Object> used) {
         if (!base.hasStringLabel(name))
             return null;
-        for (Iterator<String> i=base.getStringKeySet().iterator(); i.hasNext();) {
-            String key = i.next();
+        for (Iterator<Integer> i=base.getStringKeySet().iterator(); i.hasNext();) {
+            Integer key = i.next();
             BibtexString bs = base.getString(key);
             if (bs.getName().equals(name) && !used.contains(key)) {
                 used.add(key);

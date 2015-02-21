@@ -47,7 +47,7 @@ public class StrictDuplicateSearch extends Thread {
             return;
         BibtexEntry[] bes = new BibtexEntry[keys.length];
         for (int i=0; i<keys.length; i++)
-            bes[i] = panel.database.getEntryById((String)keys[i]);
+            bes[i] = panel.database.getEntryById((Integer)keys[i]);
         
         for (int i = 0; i<bes.length-1; i++) {
             for (int j = i + 1; j<bes.length; j++) {

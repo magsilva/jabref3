@@ -40,7 +40,7 @@ class MSBibExportFormat extends ExportFormat {
     }
 
     public void performExport(final BibtexDatabase database, final MetaData metaData,
-                              final String file, final String encoding, Set<String> keySet) throws IOException {
+                              final String file, final String encoding, Set<Integer> keySet) throws IOException {
     	// forcing to use UTF8 output format for some problems with
     	// xml export in other encodings
         SaveSession ss = getSaveSession("UTF8", new File(file));

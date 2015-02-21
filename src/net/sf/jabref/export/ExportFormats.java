@@ -109,9 +109,7 @@ public class ExportFormats {
 					}
 
 					IExportFormat wrapped;
-					public void performExport(BibtexDatabase database, MetaData metaData,
-						String file, String encoding, Set<String> entryIds)
-						throws Exception {
+					public void performExport(BibtexDatabase database, MetaData metaData, String file, String encoding, Set<Integer> entryIds) throws Exception {
 
 						if (wrapped == null)
 							wrapped = e.getExportFormat();
@@ -237,10 +235,10 @@ public class ExportFormats {
                             return;
                     }
                     final IExportFormat format = eff.getExportFormat();
-                    Set<String> entryIds = null;
+                    Set<Integer> entryIds = null;
                     if (selectedOnly) {
                         BibtexEntry[] selected = frame.basePanel().getSelectedEntries();
-                        entryIds = new HashSet<String>();
+                        entryIds = new HashSet<Integer>();
                         for (int i = 0; i < selected.length; i++) {
                             BibtexEntry bibtexEntry = selected[i];
                             entryIds.add(bibtexEntry.getId());
@@ -261,7 +259,7 @@ public class ExportFormats {
                     Globals.prefs.put("exportWorkingDirectory", file.getParent());
                     
                     final File finFile = file;
-                    final Set<String> finEntryIDs = entryIds;
+                    final Set<Integer> finEntryIDs = entryIds;
                     AbstractWorker exportWorker = new AbstractWorker() {
                         String errorMessage = null;
                         public void run() {

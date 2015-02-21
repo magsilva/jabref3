@@ -22,26 +22,24 @@ public class EntrySorter implements DatabaseChangeListener {
     //TreeSet set;
     final ArrayList<BibtexEntry> set;
     Comparator<BibtexEntry> comp;
-    String[] idArray;
+    int[] idArray;
     BibtexEntry[] entryArray;
     //static BibtexEntry[] DUMMY = new BibtexEntry[0];
     private boolean outdated = false;
     private boolean changed = false;
 
-    public EntrySorter(Map<String, BibtexEntry> entries, Comparator<BibtexEntry> comp) {
+    public EntrySorter(Map<Integer, BibtexEntry> entries, Comparator<BibtexEntry> comp) {
 	    //set = new TreeSet(comp);
         set = new ArrayList<BibtexEntry>();
         this.comp = comp;
-        Set<String> keySet = entries.keySet();
-	    if (keySet != null) {
-    	    Iterator<String> i = keySet.iterator();
-    	    while (i.hasNext()) {
-    		    set.add(entries.get(i.next()));
-            }
-            //Collections.sort(set, comp);
-            changed = true;
-            index();
-	    }
+        Set<Integer> keySet = entries.keySet();
+	    Iterator<Integer> i = keySet.iterator();
+	    while (i.hasNext()) {
+		    set.add(entries.get(i.next()));
+        }
+        //Collections.sort(set, comp);
+        changed = true;
+        index();
     }
 
     public void index() {
@@ -70,7 +68,7 @@ public class EntrySorter implements DatabaseChangeListener {
             // getValueAt() in EntryTableModel, which *has* to be efficient.
 
 	        int count = set.size();
-            idArray = new String[count];
+            idArray = new int[count];
             entryArray = new BibtexEntry[count];
 	        int piv = 0;
 	        for (Iterator<BibtexEntry> i=set.iterator(); i.hasNext();) {
@@ -87,11 +85,10 @@ public class EntrySorter implements DatabaseChangeListener {
 	return outdated;
     }
 
-    public String getIdAt(int pos) {
+    public int getIdAt(int pos) {
         synchronized(set) {
             return idArray[pos];
         }
-	//return ((BibtexEntry)(entryArray[pos])).getId();
     }
 
     public BibtexEntry getEntryAt(int pos) {

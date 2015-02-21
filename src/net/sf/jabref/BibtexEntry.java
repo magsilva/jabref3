@@ -44,34 +44,42 @@ import net.sf.jabref.export.FieldFormatter;
 public class BibtexEntry
 {
     public final static String ID_FIELD = "id";
-    private String _id;
+    
+    private int _id;
+    
     private BibtexEntryType _type;
+    
     private Map<String, String> _fields = new HashMap<String, String>();
+    
     VetoableChangeSupport _changeSupport = new VetoableChangeSupport(this);
 
     // Search and grouping status is stored in boolean fields for quick reference:
-    private boolean searchHit, groupHit;
+    private boolean searchHit;
+    
+    private boolean groupHit;
 
     public BibtexEntry(){
     	this(Util.createNeutralId());
     }
     
-    public BibtexEntry(String id)
+    public BibtexEntry(int id)
     {
         this(id, BibtexEntryType.OTHER);
     }
 
-    public BibtexEntry(String id, BibtexEntryType type)
+    public BibtexEntry(BibtexEntryType type)
     {
-        if (id == null)
-        {
-            throw new NullPointerException("Every BibtexEntry must have an ID");
-        }
-
+    	this(Util.createNeutralId(), type);
+    }
+    
+    public BibtexEntry(int id, BibtexEntryType type)
+    {
         _id = id;
         setType(type);
     }
 
+
+    
     /**
      * Returns an array describing the optional fields for this entry.
      */
@@ -173,19 +181,11 @@ public class BibtexEntry
      * Sets this entry's ID, provided the database containing it
      * doesn't veto the change.
      */
-    public void setId(String id) throws KeyCollisionException {
+    public void setId(int id) throws KeyCollisionException {
 
-        if (id == null) {
-            throw new
-                NullPointerException("Every BibtexEntry must have an ID");
-        }
-
-        try
-        {
+        try {
             firePropertyChangedEvent(ID_FIELD, _id, id);
-        }
-        catch (PropertyVetoException pv)
-        {
+        } catch (PropertyVetoException pv) {
             throw new KeyCollisionException("Couldn't change ID: " + pv);
         }
 
@@ -195,7 +195,7 @@ public class BibtexEntry
     /**
      * Returns this entry's ID.
      */
-    public String getId()
+    public int getId()
     {
         return _id;
     }
@@ -287,7 +287,7 @@ public class BibtexEntry
      */
     protected boolean allFieldsPresent(String[] fields, BibtexDatabase database) {
         for (int i = 0; i < fields.length; i++) {
-            if (BibtexDatabase.getResolvedField(fields[i], this, database) == null) {
+            if (database.getResolvedField(fields[i], this) == null) {
                 return false;
             }
         }

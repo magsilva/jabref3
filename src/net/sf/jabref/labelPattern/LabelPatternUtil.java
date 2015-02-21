@@ -539,7 +539,7 @@ public class LabelPatternUtil {
         // field will be true
 
         for (int i = 0; i < _dbSize; i++) {
-            _entry = _db.getEntryById(String.valueOf(i));
+            _entry = _db.getEntryById(i);
 
             // oh my! there is a match! we better set the uniqueness to false
             // and leave this for-loop all together

@@ -675,10 +675,8 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
 
             NamedCompound compound = new NamedCompound(Globals.lang("source edit"));
             BibtexEntry nu = db.getEntryById(db.getKeySet().iterator().next());
-            String id = entry.getId();
-            String
-            // oldKey = entry.getCiteKey(),
-            newKey = nu.getCiteKey();
+            int id = entry.getId();
+            String newKey = nu.getCiteKey();
             boolean anyChanged = false;
             boolean changedType = false;
             boolean duplicateWarning = false;

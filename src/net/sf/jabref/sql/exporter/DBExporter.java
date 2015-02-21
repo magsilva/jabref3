@@ -89,7 +89,7 @@ public abstract class DBExporter extends DBImporterExporter{
 	 */
 
 	private void performExport(final BibtexDatabase database,
-			final MetaData metaData, Set<String> keySet, Object out,
+			final MetaData metaData, Set<Integer> keySet, Object out,
 			String dbName) throws Exception {
 
 		FileActions factions = new FileActions();
@@ -403,9 +403,9 @@ public abstract class DBExporter extends DBImporterExporter{
 					+ "'" + database_id + "');";
 			SQLUtil.processQuery(out, dml);
 		}
-		Iterator<String> it = database.getStringKeySet().iterator();
+		Iterator<Integer> it = database.getStringKeySet().iterator();
 		while (it.hasNext()) {
-			String key = it.next();
+			int key = it.next();
 			BibtexString string = database.getString(key);
 			String dml = insert + "'" + Util.quote(string.getName(), "'", '\\')
 					+ "', " + "'" + Util.quote(string.getContent(), "'", '\\')
@@ -451,7 +451,7 @@ public abstract class DBExporter extends DBImporterExporter{
 	 *            The name of the file to which the DML should be written
 	 */
 	public void exportDatabaseAsFile(final BibtexDatabase database,
-			final MetaData metaData, Set<String> keySet, String file)
+			final MetaData metaData, Set<Integer> keySet, String file)
 			throws Exception {
 
 		// open output file
@@ -481,7 +481,7 @@ public abstract class DBExporter extends DBImporterExporter{
 	 *            The necessary database connection information
 	 */
 	public void exportDatabaseToDBMS(final BibtexDatabase database,
-			final MetaData metaData, Set<String> keySet, DBStrings dbStrings,
+			final MetaData metaData, Set<Integer> keySet, DBStrings dbStrings,
 			JabRefFrame frame) throws Exception {
 		String dbName = "";
 		Connection conn = null;

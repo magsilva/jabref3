@@ -38,7 +38,7 @@ class ModsExportFormat extends ExportFormat {
     }
 
     public void performExport(final BibtexDatabase database, final MetaData metaData,
-                              final String file, final String encoding, Set<String> keySet) throws IOException {
+                              final String file, final String encoding, Set<Integer> keySet) throws IOException {
         SaveSession ss = getSaveSession("UTF8", new File(file));
         VerifyingWriter ps = ss.getWriter();
         MODSDatabase md = new MODSDatabase(database, keySet);

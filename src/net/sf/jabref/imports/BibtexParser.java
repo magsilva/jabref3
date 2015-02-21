@@ -425,8 +425,7 @@ public class BibtexParser {
 		// Util.pr("Now I'm going to consume a }");
 		consume('}', ')');
 		// Util.pr("Finished string parsing.");
-		String id = Util.createNeutralId();
-		return new BibtexString(id, name, content);
+		return new BibtexString(Util.createNeutralId(), name, content);
 	}
 
 	public String parsePreamble() throws IOException {
@@ -434,8 +433,7 @@ public class BibtexParser {
 	}
 
 	public BibtexEntry parseEntry(BibtexEntryType tp) throws IOException {
-		String id = Util.createNeutralId();// createId(tp, _db);
-		BibtexEntry result = new BibtexEntry(id, tp);
+		BibtexEntry result = new BibtexEntry(tp);
 		skipWhitespace();
 		consume('{', '(');
         int c = peek();

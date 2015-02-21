@@ -55,8 +55,7 @@ public class StringNameChange extends Change {
                                                 disk));
     } else {
       // The string was removed or renamed locally. We guess that it was removed.
-	String newId = Util.createNeutralId();
-	BibtexString bs = new BibtexString(newId, disk, content);
+	BibtexString bs = new BibtexString(Util.createNeutralId(), disk, content);
       try {
         panel.database().addString(bs);
         undoEdit.addEdit(new UndoableInsertString(panel, panel.database(), bs));
@@ -70,8 +69,7 @@ public class StringNameChange extends Change {
           tmpString.setName(disk);
       }
       else {
-          String newId = Util.createNeutralId();
-	      BibtexString bs = new BibtexString(newId, disk, content);
+	      BibtexString bs = new BibtexString(Util.createNeutralId(), disk, content);
           secondary.addString(bs);
       }
 

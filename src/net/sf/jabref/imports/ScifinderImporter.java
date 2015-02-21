@@ -133,8 +133,7 @@ public class ScifinderImporter extends ImportFormat {
             }
         }
 
-        BibtexEntry b = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, Globals
-                        .getEntryType(Type)); // id assumes an existing database so don't
+        BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type)); // id assumes an existing database so don't
         // create one here
         b.setField(hm);
         if (journal != null) {

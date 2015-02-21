@@ -52,6 +52,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -118,25 +119,12 @@ public class Util {
 	final static int TYPE_MISMATCH = -1, NOT_EQUAL = 0, EQUAL = 1, EMPTY_IN_ONE = 2,
 		EMPTY_IN_TWO = 3, EMPTY_IN_BOTH = 4;
 	
-	final static NumberFormat idFormat;
-
     public static Pattern remoteLinkPattern = Pattern.compile("[a-z]+://.*");
 
     public static int MARK_COLOR_LEVELS = 6,
             MAX_MARKING_LEVEL = MARK_COLOR_LEVELS-1,
             IMPORT_MARK_LEVEL = MARK_COLOR_LEVELS;
     public static Pattern markNumberPattern = Pattern.compile(Globals.prefs.MARKING_WITH_NUMBER_PATTERN);
-
-
-    static {
-		idFormat = NumberFormat.getInstance();
-		idFormat.setMinimumIntegerDigits(8);
-		idFormat.setGroupingUsed(false);
-	}
-
-	public static int getMinimumIntegerDigits(){
-		return idFormat.getMinimumIntegerDigits();
-	}
 
 	public static void pr(String s) {
 		Globals.logger(s);
@@ -169,10 +157,10 @@ public class Util {
 		return s;
 	}
 
-	private static int idCounter = 0;
+	private static AtomicInteger idCounter = new AtomicInteger(0);
 
-	public synchronized static String createNeutralId() {
-		return idFormat.format(idCounter++);
+	public static int createNeutralId() {
+		return idCounter.getAndIncrement();
 	}
 
 	/**
@@ -410,7 +398,7 @@ public class Util {
 		String deliminator) {
 		TreeSet<String> res = new TreeSet<String>();
 		
-		for (String s : db.getKeySet()){
+		for (Integer s : db.getKeySet()){
 			BibtexEntry be = db.getEntryById(s);
 			Object o = be.getField(field);
 			if (o != null) {
@@ -440,7 +428,7 @@ public class Util {
 	public static TreeSet<String> findAllWordsInField(BibtexDatabase db, String field, String remove) {
 		TreeSet<String> res = new TreeSet<String>();
 		StringTokenizer tok;
-		for (String s : db.getKeySet()){
+		for (Integer s : db.getKeySet()){
 			BibtexEntry be = db.getEntryById(s);
 			Object o = be.getField(field);
 			if (o != null) {
@@ -461,7 +449,7 @@ public class Util {
      */
     public static Set<String> findAuthorLastNames(BibtexDatabase db, List<String> fields) {
 		Set<String> res = new TreeSet<String>();
-		for (String s : db.getKeySet()){
+		for (Integer s : db.getKeySet()){
 			BibtexEntry be = db.getEntryById(s);
             for (String field : fields) {
                 String val = be.getField(field);
@@ -1292,7 +1280,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 			return null;
 		}
 
-		String fieldValue = BibtexDatabase.getResolvedField(beforeColon, entry, database);
+		String fieldValue = database.getResolvedField(beforeColon, entry);
 
         // If no field value was found, try to interpret it as a key generator field marker:
         if (fieldValue == null)

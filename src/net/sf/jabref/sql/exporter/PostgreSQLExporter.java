@@ -122,9 +122,7 @@ public class PostgreSQLExporter extends DBExporter {
 				out,
 				"SELECT create_table_if_not_exists ('CREATE TABLE entries ( \n"
 						+ "entries_id      SERIAL, \n"
-						+ "jabref_eid      VARCHAR("
-						+ Util.getMinimumIntegerDigits()
-						+ ")   DEFAULT NULL, \n"
+						+ "jabref_eid      INTEGER DEFAULT NULL, \n"
 						+ "database_id INTEGER, \n"
 						+ "entry_types_id  INTEGER DEFAULT NULL, \n"
 						+ "cite_key        VARCHAR(100)     DEFAULT NULL, \n"

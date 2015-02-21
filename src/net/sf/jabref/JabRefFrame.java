@@ -1901,8 +1901,7 @@ public JabRefPreferences prefs() {
         boolean dupli = false;
         // Check for duplicates among the current entries:
         if (checkForDuplicates) {
-            loop: for (Iterator<String> i2=database.getKeySet().iterator();
-                       i2.hasNext();) {
+            loop: for (Iterator<Integer> i2=database.getKeySet().iterator(); i2.hasNext();) {
                 BibtexEntry existingEntry = database.getEntryById(i2.next());
                 if (DuplicateCheck.isDuplicate(entry, existingEntry
                 )) {

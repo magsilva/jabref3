@@ -37,9 +37,11 @@ import ca.odell.glazedlists.matchers.Matcher;
  */
 public class MainTableFormat implements TableFormat<BibtexEntry> {
 
-    // Character separating field names that are to be used in sequence as
-    // fallbacks for a single column (e.g. "author/editor" to use editor where
-    // author is not set):
+    /**
+     * Character separating field names that are to be used in sequence as
+     * fallbacks for a single column (e.g. "author/editor" to use editor where
+     * author is not set).
+     */
     public static final String COL_DEFINITION_FIELD_SEPARATOR = "/";
 
     public static final String ICON_COLUMN_PREFIX = "iconcol:";
@@ -47,8 +49,11 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
     BasePanel panel;
 
     private String[][] columns; // Contains the current column names.
+    
     private HashMap<Integer, String[]> iconCols = new HashMap<Integer, String[]>();
+    
     int[][] nameCols = null;
+    
     boolean namesAsIs, abbr_names, namesNatbib, namesFf, namesLf, namesLastOnly, showShort;
 
     public MainTableFormat(BasePanel panel) {
@@ -69,28 +74,22 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
             } else {
             	return null;
             }
-        }
-        else // try to find an alternative fieldname (for display)
-        {
+        } else { // try to find an alternative fieldname (for display)
             String[] fld = columns[col];
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<fld.length; i++) {
-                if (i > 0)
+            for (int i = 0; i < fld.length; i++) {
+                if (i > 0) {
                     sb.append('/');
+                }
                 String disName = BibtexFields.getFieldDisplayName(fld[i]);
-                if (disName != null)
+                if (disName != null) {
                     sb.append(disName);
-                else
+                } else {
                     sb.append(Util.nCase(fld[i]));
+                }
             }
             return sb.toString();
-          /*String disName = BibtexFields.getFieldDisplayName(columns[col - padleft]) ;
-          if ( disName != null)
-          {
-            return disName ;
-          } */
         }
-        //return Util.nCase(columns[col - padleft]);
     }
 
     /**
@@ -101,12 +100,15 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
      */
     public String getColumnType(int col) {
         String name = getColumnName(col);
-        if (name != null)
+        if (name != null) {
             return name;
-        String[] icon = getIconTypeForColumn(col);
-        if ((icon != null) && (icon.length > 0)) {
-            return ICON_COLUMN_PREFIX+icon[0];
         }
+        
+        String[] icon = getIconTypeForColumn(col);
+        if (icon != null && icon.length > 0) {
+            return ICON_COLUMN_PREFIX + icon[0];
+        }
+        
         return null;
     }
 
@@ -117,10 +119,11 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
      */
     public String[] getIconTypeForColumn(int col) {
         Object o = iconCols.get(new Integer(col));
-        if (o != null)
+        if (o != null) {
             return (String[]) o;
-        else
+        } else {
             return null;
+        }
     }
 
     /**
@@ -129,10 +132,11 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
      * @return The column index if any, or -1 if no column has that name.
      */
     public int getColumnIndex(String colName) {
-        for (int i=0; i<columns.length; i++) {
+        for (int i = 0; i < columns.length; i++) {
             // TODO: is the following line correct with [0] ?
-            if (columns[i][0].equalsIgnoreCase(colName))
+            if (columns[i][0].equalsIgnoreCase(colName)) {
                 return i;
+            }
         }
         return -1;
     }
@@ -254,8 +258,6 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
     public boolean isIconColumn(int col) {
         return (getIconTypeForColumn(col) != null);
     }
-
-
 
     static class NoSearchMatcher implements Matcher<BibtexEntry> {
         public boolean matches(BibtexEntry object) {

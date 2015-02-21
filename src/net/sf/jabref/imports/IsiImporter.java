@@ -320,8 +320,7 @@ public class IsiImporter extends ImportFormat {
 			if (hm.size() == 0)
 				continue;
 
-			BibtexEntry b = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, Globals
-				.getEntryType(Type));
+			BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type));
 			// id assumes an existing database so don't
 
 			// Remove empty fields:

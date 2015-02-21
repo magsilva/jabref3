@@ -58,8 +58,6 @@ public interface IExportFormat {
 	 * @throws Exception
 	 * @see #performExport(BibtexDatabase, Set, Writer)
 	 */
-	void performExport(BibtexDatabase database, MetaData metaData,
-                       String file, String encoding,
-		Set<String> entryIds) throws Exception;
+	void performExport(BibtexDatabase database, MetaData metaData, String file, String encoding, Set<Integer> entryIds) throws Exception;
 
 }

@@ -217,11 +217,8 @@ public class EndnoteImporter extends ImportFormat {
         if (((hm.get("pages") == null) || hm.get("pages").equals("-")) && !artnum.equals(""))
             hm.put("pages", artnum);
 
-        BibtexEntry b = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, Globals
-                        .getEntryType(Type)); // id assumes an existing database so don't
-        // create one here
+        BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type));
         b.setField(hm);
-        //if (hm.isEmpty())
         if (b.getAllFields().size() > 0)
         	bibitems.add(b);
 

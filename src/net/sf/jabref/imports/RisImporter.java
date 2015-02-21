@@ -241,8 +241,7 @@ public class RisImporter extends ImportFormat {
 
                 hm.put("pages", startPage + "--" + endPage);
             }
-            BibtexEntry b = new BibtexEntry(BibtexFields.DEFAULT_BIBTEXENTRY_ID, Globals
-                    .getEntryType(type)); // id assumes an existing database so don't
+            BibtexEntry b = new BibtexEntry(Globals.getEntryType(type)); // id assumes an existing database so don't
 
             // Remove empty fields:
             ArrayList<Object> toRemove = new ArrayList<Object>();
