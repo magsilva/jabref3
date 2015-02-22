@@ -195,7 +195,7 @@ public class BibtexParserTest extends TestCase {
 			"@article{test,author={Ed von Test}}"));
 		ParserResult result = parser.parse();
 
-		BibtexEntry e = new BibtexEntry("", BibtexEntryType.ARTICLE);
+		BibtexEntry e = new BibtexEntry(BibtexEntryType.ARTICLE);
 		e.setField("author", "Ed von Test");
 		e.setField("bibtexkey", "test");
 

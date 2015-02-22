@@ -28,6 +28,7 @@ import net.sf.jabref.Globals;
 import net.sf.jabref.JabRef;
 import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.SearchRuleSet;
+import net.sf.jabref.TableColumnsTab;
 import net.sf.jabref.Util;
 import ca.odell.glazedlists.gui.TableFormat;
 import ca.odell.glazedlists.matchers.Matcher;
@@ -154,20 +155,20 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
                 return null;
 
             // Ok, so we are going to display an icon. Find out which one, and return it:
-            if (iconType[hasField].equals(GUIGlobals.FILE_FIELD)) {
-                o = FileListTableModel.getFirstLabel(be.getField(GUIGlobals.FILE_FIELD));
-            } else {
-                o = GUIGlobals.getTableIcon(iconType[hasField]);
-            }
+            o = GUIGlobals.getTableIcon(iconType[hasField]);
         } else {
             String[] fld = columns[col];
             // Go through the fields until we find one with content:
             int j = 0;
             for (int i = 0; i < fld.length; i++) {
-                if (fld[i].equals(GUIGlobals.TYPE_HEADER))
+                if (fld[i].equals(GUIGlobals.TYPE_HEADER)) {
                     o = be.getType().getName();
-                else
+                } else {
                     o = be.getField(fld[i]);
+                    if (o == null) {
+                    	o = panel.database().getResolvedField(fld[i], be);
+                    }
+                }
                 if (o != null) {
                     j = i;
                     break;
@@ -209,12 +210,12 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
         return ((be != null) && (be.getField(field) != null));
     }
 
-    public void updateTableFormat() {
-
+    public void updateTableFormat()
+    {
         // Read table columns from prefs:
-        String[] colSettings = Globals.prefs.getStringArray("columnNames");
+        String[] colSettings = Globals.prefs.getStringArray(TableColumnsTab.COLUMN_NAME);
         columns = new String[colSettings.length][];
-        for (int i=0; i<colSettings.length; i++) {
+        for (int i = 0; i < colSettings.length; i++) {
             String[] fields = colSettings[i].split(COL_DEFINITION_FIELD_SEPARATOR);
             columns[i] = new String[fields.length];
             for (int j = 0; j < fields.length; j++) {

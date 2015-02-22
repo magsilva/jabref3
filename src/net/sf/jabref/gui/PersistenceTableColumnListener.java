@@ -23,6 +23,7 @@ import javax.swing.event.TableColumnModelEvent;
 import javax.swing.event.TableColumnModelListener;
 
 import net.sf.jabref.Globals;
+import net.sf.jabref.TableColumnsTab;
 
 /**
  * Listens for TableColumnModelEvents to keep track of changes made to the
@@ -74,8 +75,8 @@ public class PersistenceTableColumnListener implements TableColumnModelListener 
 		}
 
 		// Finally, we store the new preferences.
-		Globals.prefs.putStringArray("columnNames", storedColumns.toArray(new String[0]));
-		Globals.prefs.putStringArray("columnWidths", columnsWidths.toArray(new String[0]));
+		Globals.prefs.putStringArray(TableColumnsTab.COLUMN_NAME, storedColumns.toArray(new String[0]));
+		Globals.prefs.putStringArray(TableColumnsTab.COLUMN_WIDTH, columnsWidths.toArray(new String[0]));
 	}
 
 	/**

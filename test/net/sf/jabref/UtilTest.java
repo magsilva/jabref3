@@ -11,7 +11,6 @@ import javax.swing.JDialog;
 import javax.swing.JWindow;
 
 import junit.framework.TestCase;
-import net.sf.jabref.*;
 import net.sf.jabref.imports.BibtexParser;
 import net.sf.jabref.imports.ParserResult;
 
@@ -56,9 +55,9 @@ public class UtilTest extends TestCase {
 
 	public void testCreateNeutralId() {
 		
-		HashSet<String> set = new HashSet<String>();
+		HashSet<Integer> set = new HashSet<Integer>();
 		for (int i = 0; i < 10000; i++){
-			String string = Util.createNeutralId();
+			int string = Util.createNeutralId();
 			assertFalse(set.contains(string));
 			set.add(string);
 		}

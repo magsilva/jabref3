@@ -597,7 +597,7 @@ public class BibtexDatabase
 	 */
 	public String getResolvedField(String field, BibtexEntry bibtex)
 	{
-		if ("bibtextype".equals(field)) {
+		if (BibtexFields.KEY_FIELD.equals(field)) {
 			return bibtex.getType().getName();
 		}
 
@@ -613,7 +613,7 @@ public class BibtexDatabase
 				if (o != null) {
 					return getText(o);		
 				} else {
-					if (followCrossrefs && ! field.equals(BibtexFields.KEY_FIELD)) {
+					if (followCrossrefs) {
 						String crossRef = bibtex.getField("crossref");
 						if (crossRef != null) {
 							bibtex = getEntryByKey(crossRef);

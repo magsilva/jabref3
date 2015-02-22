@@ -219,8 +219,8 @@ public class JabRefPreferences {
         defaults.put("secDescending", Boolean.TRUE);
         defaults.put("terSort", "author");
         defaults.put("terDescending", Boolean.FALSE);
-        defaults.put("columnNames", "entrytype;author;title;year;journal;owner;timestamp;bibtexkey");
-        defaults.put("columnWidths","75;280;400;60;100;100;100;100");
+        defaults.put(TableColumnsTab.COLUMN_NAME, "entrytype;author;title;year;journal;owner;timestamp;bibtexkey");
+        defaults.put(TableColumnsTab.COLUMN_WIDTH,"75;280;400;60;100;100;100;100");
         defaults.put(PersistenceTableColumnListener.ACTIVATE_PREF_KEY, new Boolean(PersistenceTableColumnListener.DEFAULT_ENABLED));
         defaults.put("xmpPrivacyFilters", "pdf;timestamp;keywords;owner;note;review");
         defaults.put("useXmpPrivacyFilter", Boolean.FALSE);

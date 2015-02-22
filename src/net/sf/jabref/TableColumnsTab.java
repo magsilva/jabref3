@@ -19,16 +19,30 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Vector;
 
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JToolBar;
+import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
 import com.ironiacorp.string.StringUtil;
 
-class TableColumnsTab extends JPanel implements PrefsTab
+/**
+ * UI element used to configure the entries shown in the main table.
+ */
+public class TableColumnsTab extends JPanel implements PrefsTab
 {
     class TableRow {
         String name;
@@ -63,7 +77,7 @@ class TableColumnsTab extends JPanel implements PrefsTab
     
     public static final String COLUMN_WIDTH = "columnWidths";
     
-    JabRefPreferences _prefs;
+    private JabRefPreferences _prefs;
     
     private boolean tableChanged = false;
     
@@ -433,7 +447,6 @@ class TableColumnsTab extends JPanel implements PrefsTab
             // Then we make arrays
             String[] names = new String[tableRows.size()];
             String[] widths = new String[tableRows.size()];
-            String[] bibtexFields = new String[tableRows.size()];
 
             for (int i = 0; i < tableRows.size(); i++) {
                 TableRow tr = tableRows.elementAt(i);

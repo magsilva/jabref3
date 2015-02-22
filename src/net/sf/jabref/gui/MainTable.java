@@ -19,17 +19,31 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Comparator;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JViewport;
+import javax.swing.TransferHandler;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
-import net.sf.jabref.*;
+import net.sf.jabref.BasePanel;
+import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
+import net.sf.jabref.BibtexFields;
+import net.sf.jabref.FieldComparator;
+import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.GeneralRenderer;
+import net.sf.jabref.Globals;
+import net.sf.jabref.JabRefFrame;
+import net.sf.jabref.TableColumnsTab;
+import net.sf.jabref.Util;
 import net.sf.jabref.groups.EntryTableTransferHandler;
 import net.sf.jabref.search.HitOrMissComparator;
 import ca.odell.glazedlists.EventList;
@@ -51,37 +65,62 @@ import ca.odell.glazedlists.swing.TableComparatorChooser;
 public class MainTable extends JTable {
 	
     private MainTableFormat tableFormat;
-    private BasePanel panel;
-    private SortedList<BibtexEntry> sortedForMarking, sortedForTable, sortedForSearch, sortedForGrouping;
-    private boolean tableColorCodes, showingFloatSearch=false, showingFloatGrouping=false;
-    private EventSelectionModel<BibtexEntry> selectionModel;
-    private TableComparatorChooser<BibtexEntry> comparatorChooser;
-    private JScrollPane pane;
-    private Comparator<BibtexEntry> searchComparator, groupComparator,
-            markingComparator = new IsMarkedComparator();
-    private Matcher<BibtexEntry> searchMatcher, groupMatcher;
     
+    private BasePanel panel;
+    
+    private SortedList<BibtexEntry> sortedForMarking;
+    
+    private SortedList<BibtexEntry> sortedForTable;
+    
+    private SortedList<BibtexEntry> sortedForSearch;
+    
+    private SortedList<BibtexEntry> sortedForGrouping;
+    
+    private Comparator<BibtexEntry> searchComparator;
+    
+    private Comparator<BibtexEntry> groupComparator;
+    
+    private Comparator<BibtexEntry> markingComparator = new IsMarkedComparator();
+    
+    private Matcher<BibtexEntry> searchMatcher;
+    
+    private Matcher<BibtexEntry> groupMatcher;
+
+    
+    private boolean tableColorCodes;
+    
+    private boolean showingFloatSearch = false;
+    		
+    private boolean showingFloatGrouping=false;
+    
+    private EventSelectionModel<BibtexEntry> selectionModel;
+    
+    private TableComparatorChooser<BibtexEntry> comparatorChooser;
+    
+    private JScrollPane pane;
+     
     // needed to activate/deactivate the listener
     private final PersistenceTableColumnListener tableColumnListener;
 
     // Constants used to define how a cell should be rendered.
-    public static final int REQUIRED = 1, OPTIONAL = 2,
-      REQ_STRING = 1,
-      REQ_NUMBER = 2,
-      OPT_STRING = 3,
-      OTHER = 3,
-      BOOLEAN = 4,
-      ICON_COL = 8; // Constant to indicate that an icon cell renderer should be used.
+    public static final int
+    	REQUIRED = 1,
+    	OPTIONAL = 2,
+    	REQ_STRING = 1,
+    	REQ_NUMBER = 2,
+    	OPT_STRING = 3,
+    	OTHER = 3,
+    	BOOLEAN = 4,
+    	ICON_COL = 8; // Constant to indicate that an icon cell renderer should be used.
 
     static {
         updateRenderers();
     }
 
 
-    public MainTable(MainTableFormat tableFormat, EventList<BibtexEntry> list, JabRefFrame frame,
-                     BasePanel panel) {
+    public MainTable(MainTableFormat tableFormat, EventList<BibtexEntry> list, JabRefFrame frame, BasePanel panel)
+    {
         super();
-
         addFocusListener(Globals.focusListener);
         setAutoResizeMode(Globals.prefs.getInt("autoResizeMode"));
         this.tableFormat = tableFormat;
@@ -95,7 +134,6 @@ public class MainTable extends JTable {
         sortedForSearch = new SortedList<BibtexEntry>(sortedForMarking, null);
         // This SortedList applies afterwards, and can float grouping hits:
         sortedForGrouping = new SortedList<BibtexEntry>(sortedForSearch, null);
-
 
         searchMatcher = null;
         groupMatcher = null;
@@ -114,19 +152,16 @@ public class MainTable extends JTable {
 
         this.setTableHeader(new PreventDraggingJTableHeader(this.getColumnModel()));
 
-        comparatorChooser = new MyTableComparatorChooser(this, sortedForTable,
-                TableComparatorChooser.MULTIPLE_COLUMN_KEYBOARD);
+        comparatorChooser = new MyTableComparatorChooser(this, sortedForTable, TableComparatorChooser.MULTIPLE_COLUMN_KEYBOARD);
 
         this.tableColumnListener =  new PersistenceTableColumnListener(this);
-        /*if (Globals.prefs.getBoolean(PersistenceTableColumnListener.ACTIVATE_PREF_KEY)) {
-            getColumnModel().addColumnModelListener(this.tableColumnListener );
-        }*/
 
         // TODO: Figure out, whether this call is needed.
         getSelected();
 
         // enable DnD
         setDragEnabled(true);
+
         TransferHandler xfer = new EntryTableTransferHandler(this, frame, panel);
         setTransferHandler(xfer);
         pane.setTransferHandler(xfer);
@@ -134,8 +169,6 @@ public class MainTable extends JTable {
         setupComparatorChooser();
         refreshSorting();
         setWidths();
-        
-
     }
 
     public void refreshSorting() {
@@ -212,8 +245,6 @@ public class MainTable extends JTable {
         return pane;
     }
 
-    
-
     public TableCellRenderer getCellRenderer(int row, int column) {
         
         int score = -3;
@@ -252,9 +283,9 @@ public class MainTable extends JTable {
 
     }
 
-    public void setWidths() {
+    private void setWidths() {
         // Setting column widths:
-        String[] widths = Globals.prefs.getStringArray("columnWidths");
+        String[] widths = Globals.prefs.getStringArray(TableColumnsTab.COLUMN_WIDTH);
         TableColumnModel cm = getColumnModel();
         for (int i = 0; i < getModel().getColumnCount(); i++) {
             try {
@@ -272,8 +303,7 @@ public class MainTable extends JTable {
     }
 
     public BibtexEntry[] getSelectedEntries() {
-        final BibtexEntry[] BE_ARRAY = new BibtexEntry[0];
-        return getSelected().toArray(BE_ARRAY);
+        return getSelected().toArray(new BibtexEntry[0]);
     }
 
     public List<Boolean> getCurrentSortOrder() {
