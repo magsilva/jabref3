@@ -40,39 +40,19 @@ public class FieldTextField extends JTextField implements FieldEditor {
 
 	public FieldTextField(String fieldName_, String content, boolean changeColorOnFocus) {
 		super(content);
-
-        // Listen for undo and redo events
-        /*getDocument().addUndoableEditListener(new UndoableEditListener() {
-            public void undoableEditHappened(UndoableEditEvent evt) {
-                undo.addEdit(evt.getEdit());
-            }
-        });*/
         setupUndoRedo();
-
         updateFont();
 
         // Add the global focus listener, so a menu item can see if this field
-		// was focused when
-		// an action was called.
+		// was focused when an action was called.
 		addFocusListener(Globals.focusListener);
-		if (changeColorOnFocus)
+		if (changeColorOnFocus) {
 			addFocusListener(new FieldEditorFocusListener());
+		}
 		fieldName = fieldName_;
 		label = new FieldNameLabel(" " + Util.nCase(fieldName) + " ");
-		// label = new JLabel(" "+Util.nCase(fieldName)+" ", JLabel.CENTER);
-		// label.setBorder(BorderFactory.createEtchedBorder());
         setBackground(GUIGlobals.validFieldBackgroundColor);
         setForeground(GUIGlobals.editorTextColor);
-
-		// label.setOpaque(true);
-		// if ((content != null) && (content.length() > 0))
-		// label.setForeground(GUIGlobals.entryEditorLabelColor);
-		// At construction time, the field can never have an invalid value.
-		// else label.setForeground(GUIGlobals.nullFieldColor);
-
-		FieldTextMenu popMenu = new FieldTextMenu(this);
-		this.addMouseListener(popMenu);
-		label.addMouseListener(popMenu);
 	}
 
     protected void setupUndoRedo() {

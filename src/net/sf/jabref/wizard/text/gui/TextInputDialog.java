@@ -217,13 +217,6 @@ public class TextInputDialog
         testPanel.setPreferredSize( new Dimension( 450, 255) );
         testPanel.setMaximumSize( new Dimension(450, Integer.MAX_VALUE) );
 
-    // copy/paste Menu
-    PasteAction pasteAction = new PasteAction() ;
-    JMenuItem pasteMI = new JMenuItem( pasteAction ) ;
-    inputMenu.add( new MenuHeaderAction() ) ;
-    inputMenu.addSeparator() ;
-    inputMenu.add( pasteMI ) ;
-
     //Add listener to components that can bring up popup menus.
     MouseListener popupListener = new PopupListener( inputMenu ) ;
     textPane.addMouseListener( popupListener );
@@ -234,7 +227,6 @@ public class TextInputDialog
     toolBar.add( new ClearAction() ) ;
     toolBar.setBorderPainted( false ) ;
     toolBar.addSeparator() ;
-    toolBar.add( pasteAction ) ;
     toolBar.add( new LoadAction() ) ;
 
     JPanel leftPanel = new JPanel( new BorderLayout() ) ;
@@ -582,36 +574,6 @@ public class TextInputDialog
       return f.toArray(new String[f.size()]);
    }
 
-// ---------------------------------------------------------------------------
-  class PasteAction
-      extends BasicAction
-  {
-    public PasteAction()
-    {
-      super( "Paste", "Paste from clipboard", GUIGlobals.getIconUrl("paste")) ;
-    }
-
-    public void actionPerformed( ActionEvent e )
-    {
-      String data = ClipBoardManager.clipBoard.getClipboardContents() ;
-      if ( data != null )
-      {
-        int selStart = textPane.getSelectionStart() ;
-        int selEnd = textPane.getSelectionEnd() ;
-        if ( selEnd - selStart > 0 )
-        {
-          textPane.replaceSelection( "" ) ;
-        }
-        int cPos = textPane.getCaretPosition() ;
-        try
-        {
-          doc.insertString( cPos, data, doc.getStyle( "regular" ) ) ;
-        }
-        catch ( Exception ex )
-        {}
-      }
-    }
-  }
 
 // ---------------------------------------------------------------------------
   class LoadAction

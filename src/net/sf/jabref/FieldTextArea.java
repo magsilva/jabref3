@@ -84,13 +84,6 @@ public class FieldTextArea extends JTextAreaWithHighlighting implements FieldEdi
 		label = new FieldNameLabel(" " + Util.nCase(fieldName) + " ");
 		setBackground(GUIGlobals.validFieldBackgroundColor);
 		setForeground(GUIGlobals.editorTextColor);
-
-		// setFont(new Font("Times", Font.PLAIN, 10));
-
-		FieldTextMenu popMenu = new FieldTextMenu(this);
-		this.addMouseListener(popMenu);
-		label.addMouseListener(popMenu);
-
     }
 
 	public Dimension getPreferredScrollableViewportSize() {
