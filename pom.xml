@@ -229,12 +229,11 @@
 					<finalName>jabref</finalName>
 					<outputDirectory>${project.build.directory}</outputDirectory>
 					<archive>
-						<index>true</index>
 						<manifest>
 							<mainClass>net.sf.jabref.JabRef</mainClass>
 							<packageName>jabref</packageName>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib</classpathPrefix>
+							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
 					</archive>
 				</configuration>
@@ -243,10 +242,11 @@
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
+					<!--
 					<descriptors>
 						<descriptor>assembly.xml</descriptor>
 					</descriptors>
-					<!--
+					-->
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
@@ -255,7 +255,6 @@
 							<mainClass>net.sf.jabref.JabRef</mainClass>
 						</manifest>
 					</archive>
-					-->
 				</configuration>
 			        <executions>
 					<execution>
