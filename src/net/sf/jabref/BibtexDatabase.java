@@ -597,6 +597,10 @@ public class BibtexDatabase
 	 */
 	public String getResolvedField(String field, BibtexEntry bibtex)
 	{
+		if (bibtex == null) {
+			throw new IllegalArgumentException(new NullPointerException("Invalid BibTeX entry"));
+		}
+		
 		if (BibtexFields.KEY_FIELD.equals(field)) {
 			return bibtex.getType().getName();
 		}
@@ -605,7 +609,7 @@ public class BibtexDatabase
         // field in the referred entry: Do not do this for the bibtex key.
 		Set<BibtexEntry> usedEntries = new HashSet<BibtexEntry>();
 		boolean keepLooking = true;
-		while (keepLooking) {
+		while (keepLooking && bibtex != null) {
 			String o = bibtex.getField(field);
 			
 			// We need to check this because it may have a circular reference between bibentries.
