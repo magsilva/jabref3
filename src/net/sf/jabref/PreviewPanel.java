@@ -49,12 +49,6 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
 
 	MetaData metaData;
 
-	/**
-	 * If a database is set, the preview will attempt to resolve strings in the
-	 * previewed entry using that database.
-	 */
-	BibtexDatabase database;
-
 	Layout layout;
 
 	String layoutFile;
@@ -62,6 +56,7 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
 	public JEditorPane previewPane;
 
 	JScrollPane scrollPane;
+	
 	PdfPreviewPanel pdfPreviewPanel;
 
 	BasePanel panel;
@@ -80,8 +75,7 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
      * @param layoutFile
      *            (must be given) Used for layout
      */
-    public PreviewPanel(BibtexDatabase database, BibtexEntry entry,
-        BasePanel panel, MetaData metaData, String layoutFile) {
+    public PreviewPanel(BibtexDatabase database, BibtexEntry entry, BasePanel panel, MetaData metaData, String layoutFile) {
         this(database, entry, panel, metaData, layoutFile, false);
     }
 
@@ -100,10 +94,8 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
 	 *            (must be given) Used for layout
 	 * @param withPDFPreview if true, a PDF preview is included in the PreviewPanel
 	 */
-	public PreviewPanel(BibtexDatabase database, BibtexEntry entry,
-		BasePanel panel, MetaData metaData, String layoutFile, boolean withPDFPreview) {
+	public PreviewPanel(BibtexDatabase database, BibtexEntry entry, BasePanel panel, MetaData metaData, String layoutFile, boolean withPDFPreview) {
 		this(panel, metaData, layoutFile, withPDFPreview);
-		this.database = database;
 		setEntry(entry);
 	}
 	
@@ -331,10 +323,6 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
 		return previewPane;
 	}
 
-	public void setDatabase(BibtexDatabase db) {
-		database = db;
-	}
-
     public void setMetaData(MetaData metaData) {
         this.metaData = metaData;
     }
@@ -345,10 +333,8 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
 	}
 
 	public void readLayout() throws Exception {
-		StringReader sr = new StringReader(layoutFile.replaceAll("__NEWLINE__",
-			"\n"));
-		layout = new LayoutHelper(sr)
-			.getLayoutFromText(Globals.FORMATTER_PACKAGE);
+		StringReader sr = new StringReader(layoutFile.replaceAll("__NEWLINE__", "\n"));
+		layout = new LayoutHelper(sr).getLayoutFromText(Globals.FORMATTER_PACKAGE);
 	}
 
     public void setLayout(Layout layout) {
@@ -379,7 +365,7 @@ public class PreviewPanel extends JPanel implements VetoableChangeListener, Sear
 		StringBuffer sb = new StringBuffer();
         ExportFormats.entryNumber = 1; // Set entry number in case that is included in the preview layout.
 		if (entry != null) {
-			sb.append(layout.doLayout(entry, database, wordsToHighlight));
+			sb.append(layout.doLayout(entry, panel.getDatabase(), wordsToHighlight));
 		}
 		previewPane.setText(sb.toString());
 		previewPane.revalidate();
