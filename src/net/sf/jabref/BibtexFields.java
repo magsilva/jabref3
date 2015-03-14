@@ -145,11 +145,6 @@ public class BibtexFields
 
     add( new BibtexSingleField( "search", false, 75 ) ) ;
 
-    dummy = new BibtexSingleField( OWNER, false, GUIGlobals.SMALL_W ) ;
-    dummy.setExtras("setOwner");
-    dummy.setPrivate();
-    add(dummy) ;
-
     dummy = new BibtexSingleField( TIMESTAMP, false, GUIGlobals.SMALL_W ) ;
     dummy.setExtras("datepicker");
     dummy.setPrivate();

@@ -37,18 +37,17 @@ import com.jgoodies.forms.layout.FormLayout;
 public class GeneralTab extends JPanel implements PrefsTab {
 
     private JCheckBox
-    defSort, ctrlClick, useOwner, overwriteOwner,
-    keyDuplicateWarningDialog, keyEmptyWarningDialog, enforceLegalKeys,
+    defSort, ctrlClick, keyDuplicateWarningDialog, keyEmptyWarningDialog, enforceLegalKeys,
     confirmDelete, allowEditing, memoryStick, useImportInspector,
     useImportInspectorForSingle, inspectionWarnDupli, useTimeStamp, overwriteTimeStamp,
     markImportedEntries, unmarkAllEntriesBeforeImporting;
 
-    private JTextField defOwnerField, timeStampFormat, timeStampField;
+    private JTextField timeStampFormat, timeStampField;
     JabRefPreferences _prefs;
     JabRefFrame _frame;
-    private JComboBox language = new JComboBox(GUIGlobals.LANGUAGES.keySet().toArray()),
-    encodings = new JComboBox(Globals.ENCODINGS);
-    private HelpAction ownerHelp, timeStampHelp;
+    private JComboBox<String> language = new JComboBox<String>((String[]) GUIGlobals.LANGUAGES.keySet().toArray(new String[0]));
+    private JComboBox<String> encodings = new JComboBox<String>(Globals.ENCODINGS);
+    private HelpAction timeStampHelp;
 
     public GeneralTab(JabRefFrame frame, JabRefPreferences prefs) {
         _prefs = prefs;
@@ -61,13 +60,8 @@ public class GeneralTab extends JPanel implements PrefsTab {
         memoryStick = new JCheckBox(Globals.lang("Load and Save preferences from/to jabref.xml on start-up (memory stick mode)"));
         defSort = new JCheckBox(Globals.lang("Sort Automatically"));
         ctrlClick = new JCheckBox(Globals.lang("Open right-click menu with Ctrl+left button"));
-        useOwner = new JCheckBox(Globals.lang("Mark new entries with owner name") + ":");
-        useTimeStamp = new JCheckBox(Globals.lang("Mark new entries with addition date") + ". "
-            +Globals.lang("Date format")+ ":");
-        overwriteOwner = new JCheckBox(Globals.lang("Overwrite"));
+        useTimeStamp = new JCheckBox(Globals.lang("Mark new entries with addition date") + ". " + Globals.lang("Date format")+ ":");
         overwriteTimeStamp = new JCheckBox(Globals.lang("Overwrite"));
-        overwriteOwner.setToolTipText(Globals.lang("If a pasted or imported entry already has "
-            +"the field set, overwrite."));
         overwriteTimeStamp.setToolTipText(Globals.lang("If a pasted or imported entry already has "
             +"the field set, overwrite."));
         keyDuplicateWarningDialog = new JCheckBox(Globals.lang("Show warning dialog when a duplicate BibTeX key is entered"));
@@ -79,13 +73,9 @@ public class GeneralTab extends JPanel implements PrefsTab {
         useImportInspectorForSingle = new JCheckBox(Globals.lang("Use inspection window also when a single entry is imported."));
         markImportedEntries = new JCheckBox(Globals.lang("Mark entries imported into an existing database"));
         unmarkAllEntriesBeforeImporting = new JCheckBox(Globals.lang("Unmark all entries before importing new entries into an existing database"));
-        defOwnerField = new JTextField();
         timeStampFormat = new JTextField();
         timeStampField = new JTextField();
-        ownerHelp = new HelpAction(frame.helpDiag, GUIGlobals.ownerHelp,
-                "Help", GUIGlobals.getIconUrl("helpSmall"));
-        timeStampHelp = new HelpAction(frame.helpDiag, GUIGlobals.timeStampHelp, "Help",
-                GUIGlobals.getIconUrl("helpSmall"));
+        timeStampHelp = new HelpAction(frame.helpDiag, GUIGlobals.timeStampHelp, "Help", GUIGlobals.getIconUrl("helpSmall"));
         inspectionWarnDupli = new JCheckBox(Globals.lang("Warn about unresolved duplicates when closing inspection window"));
 
         Insets marg = new Insets(0,12,3,0);
@@ -131,24 +121,13 @@ public class GeneralTab extends JPanel implements PrefsTab {
         builder.append(memoryStick, 13);
         
         // Create a new panel with its own FormLayout for the last items:
-        builder.append(useOwner, 3);
-        builder.append(defOwnerField);
-        builder.append(overwriteOwner);
-        builder.append(new JPanel(), 3);
-        
-        JButton hlp = new JButton(ownerHelp);
-        hlp.setText(null);
-        hlp.setPreferredSize(new Dimension(24, 24));
-        builder.append(hlp);
         builder.nextLine();
-
         builder.append(useTimeStamp, 3);
         builder.append(timeStampFormat);
         builder.append(overwriteTimeStamp);
         builder.append(Globals.lang("Field name")+":");
         builder.append(timeStampField);
-
-        hlp = new JButton(timeStampHelp);
+        JButton hlp = new JButton(timeStampHelp);
         hlp.setText(null);
         hlp.setPreferredSize(new Dimension(24, 24));
         builder.append(hlp);
@@ -177,8 +156,6 @@ public class GeneralTab extends JPanel implements PrefsTab {
         allowEditing.setSelected(_prefs.getBoolean("allowTableEditing"));
         defSort.setSelected(_prefs.getBoolean("defaultAutoSort"));
         ctrlClick.setSelected(_prefs.getBoolean("ctrlClick"));
-        useOwner.setSelected(_prefs.getBoolean("useOwner"));
-        overwriteOwner.setSelected(_prefs.getBoolean("overwriteOwner"));
         useTimeStamp.setSelected(_prefs.getBoolean("useTimeStamp"));
         overwriteTimeStamp.setSelected(_prefs.getBoolean("overwriteTimeStamp"));
         keyDuplicateWarningDialog.setSelected(_prefs.getBoolean("dialogWarningForDuplicateKey"));
@@ -186,7 +163,6 @@ public class GeneralTab extends JPanel implements PrefsTab {
         enforceLegalKeys.setSelected(_prefs.getBoolean("enforceLegalBibtexKey"));
         memoryStick.setSelected(_prefs.getBoolean("memoryStickMode"));
         confirmDelete.setSelected(_prefs.getBoolean("confirmDelete"));
-        defOwnerField.setText(_prefs.get("defaultOwner"));
         timeStampFormat.setText(_prefs.get("timeStampFormat"));
         timeStampField.setText(_prefs.get("timeStampField"));
         useImportInspector.setSelected(_prefs.getBoolean("useImportInspectionDialog"));
@@ -218,8 +194,6 @@ public class GeneralTab extends JPanel implements PrefsTab {
     }
 
     public void storeSettings() {
-        _prefs.putBoolean("useOwner", useOwner.isSelected());
-        _prefs.putBoolean("overwriteOwner", overwriteOwner.isSelected());
         _prefs.putBoolean("useTimeStamp", useTimeStamp.isSelected());
         _prefs.putBoolean("overwriteTimeStamp", overwriteTimeStamp.isSelected());
         _prefs.putBoolean("dialogWarningForDuplicateKey", keyDuplicateWarningDialog.isSelected());
@@ -240,9 +214,6 @@ public class GeneralTab extends JPanel implements PrefsTab {
         _prefs.putBoolean("useImportInspectionDialogForSingle", useImportInspectorForSingle.isSelected());
         _prefs.putBoolean("warnAboutDuplicatesInInspection", inspectionWarnDupli.isSelected());
         //_prefs.putBoolean("defaultAutoSort", defSorrrt.isSelected());
-        String owner = defOwnerField.getText().trim();
-        _prefs.put("defaultOwner", owner);
-        _prefs.WRAPPED_USERNAME = "["+owner+"]";
         _prefs.put("timeStampFormat", timeStampFormat.getText().trim());
         _prefs.put("timeStampField", timeStampField.getText().trim());
         _prefs.put("defaultEncoding", (String) encodings.getSelectedItem());

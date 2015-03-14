@@ -34,7 +34,6 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1765,12 +1764,9 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 
         // Iterate through all entries
 		for (BibtexEntry curEntry : bibs){
-            boolean setOwner = globalSetOwner &&
-                (overwriteOwner || (curEntry.getField(BibtexFields.OWNER)==null));
             boolean setTimeStamp = globalSetTimeStamp &&
                 (overwriteTimestamp || (curEntry.getField(timeStampField)==null));
-            setAutomaticFields(curEntry, setOwner, defaultOwner, setTimeStamp, timeStampField,
-				timestamp);
+            setAutomaticFields(curEntry, defaultOwner, setTimeStamp, timeStampField, timestamp);
             if (markEntries)
                 Util.markEntry(curEntry, IMPORT_MARK_LEVEL, false, new NamedCompound(""));
 		}
@@ -1794,26 +1790,14 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 		String defaultOwner = Globals.prefs.get("defaultOwner");
 		String timestamp = easyDateFormat();
         String timeStampField = Globals.prefs.get("timeStampField");
-        boolean setOwner = Globals.prefs.getBoolean("useOwner") &&
-            (overwriteOwner || (entry.getField(BibtexFields.OWNER)==null));
         boolean setTimeStamp = Globals.prefs.getBoolean("useTimeStamp") &&
             (overwriteTimestamp || (entry.getField(timeStampField)==null));
 
-		setAutomaticFields(entry, setOwner, defaultOwner, setTimeStamp, timeStampField, timestamp);
+		setAutomaticFields(entry, defaultOwner, setTimeStamp, timeStampField, timestamp);
 	}
 
-	private static void setAutomaticFields(BibtexEntry entry, boolean setOwner, String owner,
+	private static void setAutomaticFields(BibtexEntry entry, String owner,
 		boolean setTimeStamp, String timeStampField, String timeStamp) {
-
-		// Set owner field if this option is enabled:
-		if (setOwner) {
-			// No or empty owner field?
-			// if (entry.getField(Globals.OWNER) == null
-			// || ((String) entry.getField(Globals.OWNER)).length() == 0) {
-			// Set owner field to default value
-			entry.setField(BibtexFields.OWNER, owner);
-			// }
-		}
 
 		if (setTimeStamp)
 			entry.setField(timeStampField, timeStamp);
@@ -2375,9 +2359,6 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 		if (o != null) {
 			String s = o.toString();
 			if (s.equals("0")) {
-                if (!onlyMaxLevel) {
-                    unmarkOldStyle(be, database, ce);
-                }
                 return;
 			}
             String newValue = null;
@@ -2431,41 +2412,6 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 				.getField(BibtexFields.MARKED), newValue));
 			be.setField(BibtexFields.MARKED, newValue);
 		}
-	}
-
-	/**
-	 * An entry is marked with a "0", not in the new style with user names. We
-	 * want to unmark it as transparently as possible. Since this shouldn't
-	 * happen too often, we do it by scanning the "owner" fields of the entire
-	 * database, collecting all user names. We then mark the entry for all users
-	 * except the current one. Thus only the user who unmarks will see that it
-	 * is unmarked, and we get rid of the old-style marking.
-	 * 
-	 * @param be
-	 * @param ce
-	 */
-	private static void unmarkOldStyle(BibtexEntry be, BibtexDatabase database, NamedCompound ce) {
-		TreeSet<Object> owners = new TreeSet<Object>();
-		for (BibtexEntry entry : database.getEntries()){
-			Object o = entry.getField(BibtexFields.OWNER);
-			if (o != null)
-				owners.add(o);
-			// System.out.println("Owner: "+entry.getField(Globals.OWNER));
-		}
-		owners.remove(Globals.prefs.get("defaultOwner"));
-		StringBuffer sb = new StringBuffer();
-		for (Iterator<Object> i = owners.iterator(); i.hasNext();) {
-			sb.append('[');
-			sb.append(i.next().toString());
-			sb.append(']');
-		}
-		String newVal = sb.toString();
-		if (newVal.length() == 0)
-			newVal = null;
-		ce.addEdit(new UndoableFieldChange(be, BibtexFields.MARKED, be
-			.getField(BibtexFields.MARKED), newVal));
-		be.setField(BibtexFields.MARKED, newVal);
-
 	}
 
 	public static int isMarked(BibtexEntry be) {
