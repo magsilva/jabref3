@@ -2,6 +2,7 @@ package net.sf.jabref.testutils;
 
 import java.security.Permission;
 
+import net.sf.jabref.Globals;
 import net.sf.jabref.JabRef;
 
 /**
@@ -12,7 +13,7 @@ import net.sf.jabref.JabRef;
  */
 public class TestUtils {
 
-	public static final String PATH_TO_TEST_BIBTEX = "src/tests/net/sf/jabref/bibtexFiles/test.bib";	
+	public static final String PATH_TO_TEST_BIBTEX = "test/net/sf/jabref/bibtexFiles/test.bib";	
 
 	/**
 	 * Returns a full configured and initialized instance of JabRef. As long as
@@ -24,7 +25,7 @@ public class TestUtils {
 	public static JabRef getInitializedJabRef() {
 		disableSystemExit();
 		try {
-			String[] args = { "-p", " ", PATH_TO_TEST_BIBTEX };
+			String[] args = { "-i", " ", PATH_TO_TEST_BIBTEX };
 			JabRef.main(args);
 		} catch (ExitException e) {
 		} finally {

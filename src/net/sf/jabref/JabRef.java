@@ -168,7 +168,6 @@ public class JabRef {
 	}
     
     private void setupOptions() {
-
         importFile = new StringOption("");
         exportFile = new StringOption("");
         helpO = new BooleanOption();
@@ -188,36 +187,20 @@ public class JabRef {
         options.setVersion(GUIGlobals.version);
 
         importFile.setDescription("imopoepuoeu"); //Globals.lang);
-        options.register("version", 'v',
-                Globals.lang("Display version"), showVersion);
-        options.register("nogui", 'n',
-            Globals.lang("No GUI. Only process command line options."), disableGui);
-        options.register("import", 'i',
-            Globals.lang("Import file") + ": " + Globals.lang("filename")
-            + "[,import format]", importFile);
-        options.register("output", 'o',
-            Globals.lang("Output or export file") + ": " + Globals.lang("filename")
-            + "[,export format]", exportFile);
-        options.register("help", 'h',
-            Globals.lang("Display help on command line options"), helpO);
+        options.register("version", 'v', Globals.lang("Display version"), showVersion);
+        options.register("nogui", 'n', Globals.lang("No GUI. Only process command line options."), disableGui);
+        options.register("import", 'i', Globals.lang("Import file") + ": " + Globals.lang("filename")  + "[,import format]", importFile);
+        options.register("output", 'o', Globals.lang("Output or export file") + ": " + Globals.lang("filename") + "[,export format]", exportFile);
+        options.register("help", 'h',  Globals.lang("Display help on command line options"), helpO);
         options.register("loads", 'l', Globals.lang("Load session"), loadSess);
-        options.register("prexp", 'x', Globals.lang("Export preferences to file"),
-            exportPrefs);
-        options.register("primp", 'p', Globals.lang("Import preferences from file"),
-            importPrefs);
-        options.register("prdef", 'd', Globals.lang("Reset preferences (key1,key2,... or 'all')"),
-            defPrefs);
-        options.register("aux", 'a',
-            Globals.lang("Subdatabase from aux") + ": " + Globals.lang("file")+"[.aux]" + ","+Globals.lang("new")+"[" + BibtexDatabase.EXTENSION + "]",
-            auxImExport);
+        options.register("prexp", 'x', Globals.lang("Export preferences to file"), exportPrefs);
+        options.register("primp", 'p', Globals.lang("Import preferences from file"), importPrefs);
+        options.register("prdef", 'd', Globals.lang("Reset preferences (key1,key2,... or 'all')"), defPrefs);
+        options.register("aux", 'a', Globals.lang("Subdatabase from aux") + ": " + Globals.lang("file")+"[.aux]" + ","+Globals.lang("new")+"[" + BibtexDatabase.EXTENSION + "]", auxImExport);
         options.register("blank", 'b', Globals.lang("Do not open any files at startup"), blank);
-
         options.register("importToOpen", '\0', Globals.lang("Import to open tab"), importToOpenBase);
-
         options.register("fetch", 'f', Globals.lang("Run Fetcher, e.g. \"--fetch=Medline:cancer\""), fetcherEngine);
-
         options.register("exportMatches", 'm', exportMatchesSyntax, exportMatches); 
-
         options.setUseMenu(false);
     }
 
@@ -240,8 +223,7 @@ public class JabRef {
                 + importFormats);
 
             String outFormats = ExportFormats.getConsoleExportList(70, 20, "\t");
-            System.out.println(Globals.lang("Available export formats") + ": " + outFormats
-                + ".");
+            System.out.println(Globals.lang("Available export formats") + ": " + outFormats + ".");
             System.exit(0);
         }
         
@@ -632,7 +614,7 @@ public class JabRef {
 
 
             // If the option is enabled, open the last edited databases, if any.
-            if (!blank.isInvoked() && Globals.prefs.getBoolean("openLastEdited") && (Globals.prefs.get("lastEdited") != null)) {
+            if (! blank.isInvoked() && ! importFile.isInvoked() && Globals.prefs.getBoolean("openLastEdited") && (Globals.prefs.get("lastEdited") != null)) {
                 // How to handle errors in the databases to open?
                 String[] names = Globals.prefs.getStringArray("lastEdited");
                 lastEdLoop: 

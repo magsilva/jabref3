@@ -61,12 +61,12 @@ public class SysTray {
 
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
-                super.mousePressed(mouseEvent);    //To change body of overridden methods use File | Settings | File Templates.
+                super.mousePressed(mouseEvent);
             }
 
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
-                super.mouseReleased(mouseEvent);    //To change body of overridden methods use File | Settings | File Templates.
+                super.mouseReleased(mouseEvent);
             }
         });
         if (SystemTray.isSupported())
@@ -84,9 +84,5 @@ public class SysTray {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(SystemTray.isSupported());
     }
 }

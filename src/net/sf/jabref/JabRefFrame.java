@@ -2378,9 +2378,11 @@ class SaveSessionAction
             putValue(NAME, "Minimize to system tray");
             putValue(ACCELERATOR_KEY, Globals.prefs.getKey("Minimize to system tray"));
         }
-        public void actionPerformed(ActionEvent event) {
-            if (sysTray == null)
+        
+        public synchronized void actionPerformed(ActionEvent event) {
+            if (sysTray == null) {
                 sysTray = new SysTray(JabRefFrame.this);
+            }
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
                     sysTray.setTrayIconVisible(true);
@@ -2391,8 +2393,9 @@ class SaveSessionAction
     }
 
     public void showIfMinimizedToSysTray() {
-        if (sysTray != null)
+        if (sysTray != null) {
             sysTray.setTrayIconVisible(false);
+        }
         setVisible(true);
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
