@@ -64,68 +64,63 @@ public class DuplicateResolverDialog extends JDialog {
     int status = NOT_CHOSEN;
     boolean block = true;
     TitleLabel lab;
+    
+    public DuplicateResolverDialog(JFrame frame, BibtexDatabase database, BibtexEntry one, BibtexEntry two, int type) {
+    	super(frame, Globals.lang("Possible duplicate entries"), true);
+    	init(database, one, two, type);
+    	Util.placeDialog(this, frame);
+    }
 
-  public DuplicateResolverDialog(JFrame frame, BibtexEntry one, BibtexEntry two, int type) {
-      super(frame, Globals.lang("Possible duplicate entries"), true);
-      init(one, two, type);
-      Util.placeDialog(this, frame);
-  }
-
-    public DuplicateResolverDialog(JDialog frame, BibtexEntry one, BibtexEntry two, int type) {
+    public DuplicateResolverDialog(JDialog frame, BibtexDatabase database, BibtexEntry one, BibtexEntry two, int type) {
         super(frame, Globals.lang("Possible duplicate entries"), true);
-        init(one, two, type);
+        init(database, one, two, type);
         Util.placeDialog(this, frame);
     }
 
-    private void init(BibtexEntry one, BibtexEntry two, int type) {
-      switch (type) {
-          case DUPLICATE_SEARCH:
-              first = new JButton(Globals.lang("Keep upper"));
-              second = new JButton(Globals.lang("Keep lower"));
-              both = new JButton(Globals.lang("Keep both"));
-              break;
-          case INSPECTION:
-              first = new JButton(Globals.lang("Remove old entry"));
-              second = new JButton(Globals.lang("Remove entry from import"));
-              both = new JButton(Globals.lang("Keep both"));
-              break;
-          case DUPLICATE_SEARCH_WITH_EXACT:
-              first = new JButton(Globals.lang("Keep upper"));
-              second = new JButton(Globals.lang("Keep lower"));
-              both = new JButton(Globals.lang("Keep both"));
-              removeExact = new JButton(Globals.lang("Automatically remove exact duplicates"));
-              break;
-          default:
-              first = new JButton(Globals.lang("Import and remove old entry"));
-                  second = new JButton(Globals.lang("Do not import entry"));
-                  both = new JButton(Globals.lang("Import and keep old entry"));
-      }
+    private void init(BibtexDatabase database, BibtexEntry one, BibtexEntry two, int type) {
+    	switch (type) {
+			case DUPLICATE_SEARCH:
+				first = new JButton(Globals.lang("Keep upper"));
+				second = new JButton(Globals.lang("Keep lower"));
+				both = new JButton(Globals.lang("Keep both"));
+				break;
+			case INSPECTION:
+				first = new JButton(Globals.lang("Remove old entry"));
+				second = new JButton(Globals.lang("Remove entry from import"));
+				both = new JButton(Globals.lang("Keep both"));
+				break;
+			case DUPLICATE_SEARCH_WITH_EXACT:
+				first = new JButton(Globals.lang("Keep upper"));
+				second = new JButton(Globals.lang("Keep lower"));
+				both = new JButton(Globals.lang("Keep both"));
+				removeExact = new JButton(Globals.lang("Automatically remove exact duplicates"));
+				break;
+			default:
+				first = new JButton(Globals.lang("Import and remove old entry"));
+				second = new JButton(Globals.lang("Do not import entry"));
+				both = new JButton(Globals.lang("Import and keep old entry"));
+    	}
 
-    String layout = Globals.prefs.get("preview0");
-    p1 = new PreviewPanel(null, one, null, new MetaData(), layout);
-    p2 = new PreviewPanel(null, two, null, new MetaData(), layout);
-    ta1 = new JTextArea();
-    ta2 = new JTextArea();
-    ta1.setEditable(false);
-    ta2.setEditable(false);
+    	String layout = Globals.prefs.get("preview0");
+    	p1 = new PreviewPanel(database, one, null, new MetaData(), layout);
+    	p2 = new PreviewPanel(database, two, null, new MetaData(), layout);
+    	ta1 = new JTextArea();
+    	ta2 = new JTextArea();
+    	ta1.setEditable(false);
+    	ta2.setEditable(false);
 
-    //ta1.setPreferredSize(dim);
-    //ta2.setPreferredSize(dim);
+    	setSourceView(one, two);
 
-    setSourceView(one, two);
-
-    //getContentPane().setLayout();
-    main.setLayout(gbl);
-    source.setLayout(gbl);
-    con.insets = new Insets(10,10,0,10);
-    con.fill = GridBagConstraints.BOTH;
-    con.gridwidth = GridBagConstraints.REMAINDER;
-    con.weightx = 1;
-    con.weighty = 0;
-    lab = new TitleLabel((type==DUPLICATE_SEARCH) ? "" :
-                                  Globals.lang("Entry in current database"));
-    gbl.setConstraints(lab, con);
-    main.add(lab);
+    	main.setLayout(gbl);
+    	source.setLayout(gbl);
+    	con.insets = new Insets(10,10,0,10);
+    	con.fill = GridBagConstraints.BOTH;
+    	con.gridwidth = GridBagConstraints.REMAINDER;
+    	con.weightx = 1;
+    	con.weighty = 0;
+    	lab = new TitleLabel((type==DUPLICATE_SEARCH) ? "" : Globals.lang("Entry in current database"));
+    	gbl.setConstraints(lab, con);
+    	main.add(lab);
     con.weighty = 1;
     con.insets = new Insets(5,10,10,10);
     JScrollPane sp = new JScrollPane(p1);
@@ -243,34 +238,24 @@ public class DuplicateResolverDialog extends JDialog {
     block = true;
   }
 
-public boolean isBlocking() {
-  return block;
-}
+	public boolean isBlocking() {
+		return block;
+	}
 
-  public int getSelected() {
-    return status;
-  }
+	public int getSelected() {
+		return status;
+	}
 
-  public static int resolveDuplicate(JFrame frame, BibtexEntry one, BibtexEntry two) {
-    DuplicateResolverDialog drd = new DuplicateResolverDialog(frame, one, two,
-                                                              DUPLICATE_SEARCH);
-    drd.setVisible(true); // drd.show(); -> deprecated since 1.5
-    return drd.getSelected();
-  }
+	public static int resolveDuplicate(JDialog frame, BibtexDatabase database, BibtexEntry one, BibtexEntry two) {
+		DuplicateResolverDialog drd = new DuplicateResolverDialog(frame, database, one,	two, DUPLICATE_SEARCH);
+		drd.setVisible(true); // drd.show(); -> deprecated since 1.5
+		return drd.getSelected();
+	}
 
-  public static int resolveDuplicate(JDialog frame, BibtexEntry one, BibtexEntry two) {
-    DuplicateResolverDialog drd = new DuplicateResolverDialog(frame, one, two,
-                                                              DUPLICATE_SEARCH);
-    drd.setVisible(true); // drd.show(); -> deprecated since 1.5
-    return drd.getSelected();
-  }
-
-  public static int resolveDuplicateInImport(JabRefFrame frame, BibtexEntry existing,
-                                           BibtexEntry imported) {
-    DuplicateResolverDialog drd = new DuplicateResolverDialog(frame, existing, imported,
-                                                              IMPORT_CHECK);
-    drd.setVisible(true); // drd.show(); -> deprecated since 1.5
-    return drd.getSelected();
-  }
+	public static int resolveDuplicateInImport(JabRefFrame frame, BibtexDatabase database, BibtexEntry existing, BibtexEntry imported) {
+		DuplicateResolverDialog drd = new DuplicateResolverDialog(frame, database, existing, imported, IMPORT_CHECK);
+		drd.setVisible(true); // drd.show(); -> deprecated since 1.5
+		return drd.getSelected();
+	}
 
 }

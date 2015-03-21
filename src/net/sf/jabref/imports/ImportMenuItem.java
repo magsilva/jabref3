@@ -28,7 +28,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import net.sf.jabref.*;
-import net.sf.jabref.external.DroppedFileHandler;
 import net.sf.jabref.gui.ImportInspectionDialog;
 import net.sf.jabref.gui.FileDialogs;
 import net.sf.jabref.labelPattern.LabelPatternUtil;
@@ -212,8 +211,7 @@ public class ImportMenuItem extends JMenuItem implements ActionListener {
                                 boolean keepEntry = true;
                                 BibtexEntry duplicate = DuplicateCheck.containsDuplicate(toAddTo, entry);
                                 if (duplicate != null) {
-                                    int answer = DuplicateResolverDialog.resolveDuplicateInImport
-                                            (frame, duplicate, entry);
+                                    int answer = DuplicateResolverDialog.resolveDuplicateInImport(frame, panel.getDatabase(), duplicate, entry);
                                     // The upper entry is the
                                     if (answer == DuplicateResolverDialog.DO_NOT_IMPORT)
                                         keepEntry = false;

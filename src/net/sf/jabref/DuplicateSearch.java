@@ -193,8 +193,7 @@ class SearcherThread extends Thread {
         private BibtexEntry two;
         private int dialogType;
 
-        public DuplicateCallBack(JabRefFrame frame, BibtexEntry one, BibtexEntry two,
-                                 int dialogType) {
+        public DuplicateCallBack(JabRefFrame frame, BibtexEntry one, BibtexEntry two, int dialogType) {
 
             this.frame = frame;
             this.one = one;
@@ -205,7 +204,7 @@ class SearcherThread extends Thread {
             return reply;
         }
         public void update() {
-            diag = new DuplicateResolverDialog(frame, one, two, dialogType);
+            diag = new DuplicateResolverDialog(frame, panel.getDatabase(), one, two, dialogType);
             diag.setVisible(true);
             diag.dispose();
             reply = diag.getSelected();

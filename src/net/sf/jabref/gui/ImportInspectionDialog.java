@@ -926,8 +926,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
         }
 
         public void mouseClicked(MouseEvent e) {
-            final int col = glTable.columnAtPoint(e.getPoint()), row = glTable.rowAtPoint(e
-                .getPoint());
+            final int col = glTable.columnAtPoint(e.getPoint()), row = glTable.rowAtPoint(e.getPoint());
             if (isIconColumn(col)) {
                 BibtexEntry entry = sortedList.get(row);
 
@@ -940,8 +939,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                         if (tableModel.getRowCount() == 0)
                             return;
                         FileListEntry fl = tableModel.getEntry(0);
-                        (new ExternalFileMenuItem(frame, entry, "", fl.getLink(), null, panel
-                            .metaData(), fl.getType())).actionPerformed(null);
+                        (new ExternalFileMenuItem(frame, entry, "", fl.getLink(), null, panel.metaData(), fl.getType())).actionPerformed(null);
                     }
                     break;
                 case URL_COL:
@@ -1062,9 +1060,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                 if (other != null) {
                     // This will be true if the duplicate is in the existing
                     // database.
-                    DuplicateResolverDialog diag = new DuplicateResolverDialog(
-                        ImportInspectionDialog.this, other, first,
-                        DuplicateResolverDialog.INSPECTION);
+                    DuplicateResolverDialog diag = new DuplicateResolverDialog(ImportInspectionDialog.this, panel.database(), other, first, DuplicateResolverDialog.INSPECTION);
                     Util.placeDialog(diag, ImportInspectionDialog.this);
                     diag.setVisible(true);
                     ImportInspectionDialog.this.toFront();
@@ -1095,8 +1091,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                 // Check if the duplicate is of another entry in the import:
                 other = internalDuplicate(entries, first);
                 if (other != null) {
-                    int answer = DuplicateResolverDialog.resolveDuplicate(
-                        ImportInspectionDialog.this, first, other);
+                    int answer = DuplicateResolverDialog.resolveDuplicate(ImportInspectionDialog.this, panel.database(), first, other);
                     if (answer == DuplicateResolverDialog.KEEP_UPPER) {
                         entries.remove(other);
                         first.setGroupHit(false);
@@ -1306,11 +1301,9 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
         }
     }
 
-    @SuppressWarnings("unchecked")
     protected void setupComparatorChooser() {
         // First column:
-        java.util.List<Comparator> comparators = comparatorChooser
-            .getComparatorsForColumn(0);
+        java.util.List<Comparator> comparators = comparatorChooser.getComparatorsForColumn(0);
         comparators.clear();
 
         comparators = comparatorChooser.getComparatorsForColumn(1);

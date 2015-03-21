@@ -1905,8 +1905,7 @@ public JabRefPreferences prefs() {
                 BibtexEntry existingEntry = database.getEntryById(i2.next());
                 if (DuplicateCheck.isDuplicate(entry, existingEntry
                 )) {
-                    DuplicateResolverDialog drd = new DuplicateResolverDialog
-                        (JabRefFrame.this, existingEntry, entry, DuplicateResolverDialog.IMPORT_CHECK);
+                    DuplicateResolverDialog drd = new DuplicateResolverDialog(JabRefFrame.this, database, existingEntry, entry, DuplicateResolverDialog.IMPORT_CHECK);
                     drd.setVisible(true);
                     int res = drd.getSelected();
                     if (res == DuplicateResolverDialog.KEEP_LOWER)   {
