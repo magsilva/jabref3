@@ -22,7 +22,7 @@
         <distributionManagement>
                 <repository>
                         <id>IroniaCorp</id>
-                        <url>dav:http://www.ironiacorp.com/repo/maven2</url>
+                        <url>dav:https://www.ironiacorp.com/repo/maven2</url>
                 </repository>
         </distributionManagement>
 
@@ -94,7 +94,7 @@
 		<dependency>
 			<groupId>spin</groupId>
 			<artifactId>spin</artifactId>
-			<version>[1.5,)</version>
+			<version>1.5</version>
 		</dependency>
 
 		<dependency>
@@ -138,7 +138,7 @@
 		<dependency>
 			<groupId>net.sf.jabref</groupId>
 			<artifactId>jpfcodegen</artifactId>
-			<version>[0.4,)</version>
+			<version>0.4</version>
 		</dependency>
 		
 		<!-- OpenOffice/LibreOffice UNO libraries -->
@@ -329,13 +329,6 @@
 						</configuration>
 					</execution>
 				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>net.sf.jabref</groupId>
-						<artifactId>jpfcodegen</artifactId>
-						<version>[0.4,)</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 
 			<!-- 
@@ -412,6 +405,21 @@
 							</includes>
 						</fileset>
 					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>net.sf.jabref.JabRef</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
