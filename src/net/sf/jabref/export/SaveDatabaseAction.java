@@ -283,11 +283,11 @@ public class SaveDatabaseAction extends AbstractWorker {
                     commit = false;
                 }
             } else if (answer == JOptionPane.NO_OPTION) {
+            	commit = false;
+            } else if (answer == JOptionPane.CANCEL_OPTION) {
             	StringSelection stringSelection = new StringSelection(session.getWriter().getProblemCharacters());
             	Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
             	clpbrd.setContents(stringSelection, null);
-            } else if (answer == JOptionPane.CANCEL_OPTION) {
-            	commit = false;
             }
         }
 
