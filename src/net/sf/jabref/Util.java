@@ -358,39 +358,56 @@ public class Util {
 		}
 		return out.toString();
 	}
+	
+	
+    /**
+     * Formats field contents for output. Must be "symmetric" with the parse method above,
+     * so stored and reloaded fields are not mangled.
+     * @param in
+     * @param wrapAmount
+     * @return the wrapped String.
+     */
+    private static String wrap(String in, int wrapAmount){
+        
+        String[] lines = in.split("\n");
+        StringBuffer res = new StringBuffer();
+        addWrappedLine(res, lines[0], wrapAmount);
+        for (int i=1; i<lines.length; i++) {
 
+            if (!lines[i].trim().equals("")) {
+                res.append(Globals.NEWLINE);
+                res.append('\t');
+                res.append(Globals.NEWLINE);
+                res.append('\t');
+                addWrappedLine(res, lines[i], wrapAmount);
+            } else {
+                res.append(Globals.NEWLINE);
+                res.append('\t');
+            }
+        }
+        return res.toString();
+    }
+
+    private static void addWrappedLine(StringBuffer res, String line, int wrapAmount) {
+        // Set our pointer to the beginning of the new line in the StringBuffer:
+        int p = res.length();
+        // Add the line, unmodified:
+        res.append(line);
+
+        while (p < res.length()){
+            int q = res.indexOf(" ", p+wrapAmount);
+            if ((q < 0) || (q >= res.length()))
+                break;
+
+            res.deleteCharAt(q);
+            res.insert(q, Globals.NEWLINE+"\t");
+            p = q+Globals.NEWLINE_LENGTH;
+
+        }
+    }
+    
 	static public String wrap2(String in, int wrapAmount) {
-		return net.sf.jabref.imports.FieldContentParser.wrap(in, wrapAmount);
-	}
-
-	static public String __wrap2(String in, int wrapAmount) {
-		// The following line cuts out all whitespace except line breaks, and
-		// replaces
-		// with single spaces. Line breaks are padded with a tab character:
-		StringBuffer out = new StringBuffer(in.replaceAll("[ \\t\\r]+", " "));
-
-		int p = 0;
-		// int lastInserted = -1;
-		while (p < out.length()) {
-			int q = out.indexOf(" ", p + wrapAmount);
-			if ((q < 0) || (q >= out.length()))
-				break;
-			int lbreak = out.indexOf("\n", p);
-			// System.out.println(lbreak);
-			if ((lbreak > p) && (lbreak < q)) {
-				p = lbreak + 1;
-				int piv = lbreak + 1;
-				if ((out.length() > piv) && !(out.charAt(piv) == '\t'))
-					out.insert(piv, "\n\t");
-
-			} else {
-				// System.out.println(q+" "+out.length());
-				out.deleteCharAt(q);
-				out.insert(q, "\n\t");
-				p = q + 1;
-			}
-		}
-		return out.toString();// .replaceAll("\n", "\n\t");
+		return wrap(in, wrapAmount);
 	}
 
 	public static TreeSet<String> findDeliminatedWordsInField(BibtexDatabase db, String field,
@@ -855,7 +872,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         // User wants to change the type of this link.
         // First get a model of all file links for this entry:
         FileListTableModel tModel = new FileListTableModel();
-        String oldValue = entry.getField(GUIGlobals.FILE_FIELD);
+        String oldValue = entry.getField(JabRef.FILE_FIELD);
         tModel.setContent(oldValue);
         FileListEntry flEntry = null;
         // Then find which one we are looking at:
@@ -876,9 +893,9 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         if (editor.okPressed()) {
             // Store the changes and add an undo edit:
             String newValue = tModel.getStringRepresentation();
-            UndoableFieldChange ce = new UndoableFieldChange(entry, GUIGlobals.FILE_FIELD,
+            UndoableFieldChange ce = new UndoableFieldChange(entry, JabRef.FILE_FIELD,
                     oldValue, newValue);
-            entry.setField(GUIGlobals.FILE_FIELD, newValue);
+            entry.setField(JabRef.FILE_FIELD, newValue);
             frame.basePanel().undoManager.addEdit(ce);
             frame.basePanel().markBaseChanged();
             // Finally, open the link:
@@ -1565,7 +1582,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         // Find the default directory for this field type, if any:
         String[] dir = metaData.getFileDirectory(extension);
         // Include the standard "file" directory:
-        String[] fileDir = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+        String[] fileDir = metaData.getFileDirectory(JabRef.FILE_FIELD);
         // Include the directory of the bib file:
         ArrayList<String> al = new ArrayList<String>();
         for (int i = 0; i < dir.length; i++)
@@ -1892,7 +1909,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         for (BibtexEntry entry : database.getEntryMap().values()){
             FileListTableModel tableModel = new FileListTableModel();
             // If there are already links in the file field, keep those on top:
-            String oldFileContent = entry.getField(GUIGlobals.FILE_FIELD);
+            String oldFileContent = entry.getField(JabRef.FILE_FIELD);
             if (oldFileContent != null) {
                 tableModel.setContent(oldFileContent);
             }
@@ -1914,8 +1931,8 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
             }
             if (tableModel.getRowCount() != oldRowCount) {
                 String newValue = tableModel.getStringRepresentation();
-                entry.setField(GUIGlobals.FILE_FIELD, newValue);
-                ce.addEdit(new UndoableFieldChange(entry, GUIGlobals.FILE_FIELD, oldFileContent, newValue));
+                entry.setField(JabRef.FILE_FIELD, newValue);
+                ce.addEdit(new UndoableFieldChange(entry, JabRef.FILE_FIELD, oldFileContent, newValue));
             }
         }
         ce.end();
