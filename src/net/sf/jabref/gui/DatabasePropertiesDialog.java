@@ -41,11 +41,9 @@ public class DatabasePropertiesDialog extends JDialog {
     BasePanel panel = null;
     JComboBox encoding;
     JButton ok, cancel;
-    JTextField fileDir = new JTextField(40),
-	fileDirIndv = new JTextField(40),
-	pdfDir = new JTextField(40),
-	psDir = new JTextField(40);
-    String oldFileVal="", oldFileIndvVal="", oldPdfVal="", oldPsVal=""; // Remember old values to see if they are changed.
+    JTextField fileDir = new JTextField(40);
+    JTextField fileDirIndv = new JTextField(40);
+    String oldFileVal="", oldFileIndvVal=""; // Remember old values to see if they are changed.
     JCheckBox protect = new JCheckBox(Globals.lang("Refuse to save the database before external changes have been reviewed."));
     boolean oldProtectVal = false;
 
@@ -66,12 +64,8 @@ public class DatabasePropertiesDialog extends JDialog {
 
         JButton browseFile = new JButton(Globals.lang("Browse"));
         JButton browseFileIndv = new JButton(Globals.lang("Browse"));
-        JButton browsePdf = new JButton(Globals.lang("Browse"));
-        JButton browsePs = new JButton(Globals.lang("Browse"));
         browseFile.addActionListener(new BrowseAction(parent, fileDir, true));
         browseFileIndv.addActionListener(new BrowseAction(parent, fileDirIndv, true));
-        browsePdf.addActionListener(new BrowseAction(parent, pdfDir, true));
-        browsePs.addActionListener(new BrowseAction(parent, psDir, true));
 
         DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout("left:pref, 4dlu, left:pref, 4dlu, fill:pref", ""));
         builder.getPanel().setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -88,14 +82,6 @@ public class DatabasePropertiesDialog extends JDialog {
         builder.append(Globals.lang("User-specific file directory"));
         builder.append(fileDirIndv);
         builder.append(browseFileIndv);
-        builder.nextLine();
-        builder.append(Globals.lang("PDF directory"));
-        builder.append(pdfDir);
-        builder.append(browsePdf);
-        builder.nextLine();
-        builder.append(Globals.lang("PS directory"));
-        builder.append(psDir);
-        builder.append(browsePs);
         builder.nextLine();
         builder.appendSeparator(Globals.lang("Database protection"));
         builder.nextLine();
@@ -162,24 +148,6 @@ public class DatabasePropertiesDialog extends JDialog {
                 fileDirIndv.setText((fileDI.get(0)).trim());
         }
 
-        Vector<String> pdfD = metaData.getData("pdfDirectory");
-        if (pdfD == null)
-            pdfDir.setText("");
-        else {
-            // Better be a little careful about how many entries the Vector has:
-            if (pdfD.size() >= 1)
-                pdfDir.setText((pdfD.get(0)).trim());
-        }
-
-        Vector<String> psD = metaData.getData("psDirectory");
-        if (psD == null)
-            psDir.setText("");
-        else {
-            // Better be a little careful about how many entries the Vector has:
-            if (psD.size() >= 1)
-                psDir.setText((psD.get(0)).trim());
-        }
-
         Vector<String> prot = metaData.getData(Globals.PROTECTED_FLAG_META);
         if (prot == null)
             protect.setSelected(false);
@@ -191,8 +159,6 @@ public class DatabasePropertiesDialog extends JDialog {
         // Store original values to see if they get changed:
         oldFileVal = fileDir.getText();
         oldFileIndvVal = fileDir.getText();
-        oldPdfVal = pdfDir.getText();
-        oldPsVal = psDir.getText();
         oldProtectVal = protect.isSelected();
     }
 
@@ -219,24 +185,6 @@ public class DatabasePropertiesDialog extends JDialog {
         else
             metaData.remove(Globals.prefs.get("userFileDirIndividual"));
 
-        dir = new Vector<String>(1);
-        text = pdfDir.getText().trim();
-        if (text.length() > 0) {
-            dir.add(text);
-            metaData.putData("pdfDirectory", dir);
-        }
-        else
-            metaData.remove("pdfDirectory");
-
-        dir = new Vector<String>(1);
-        text = psDir.getText().trim();
-        if (text.length() > 0) {
-            dir.add(text);
-            metaData.putData("psDirectory", dir);
-        }
-        else
-            metaData.remove("psDirectory");
-
         if (protect.isSelected()) {
             dir = new Vector<String>(1);
             dir.add("true");
@@ -250,8 +198,6 @@ public class DatabasePropertiesDialog extends JDialog {
         boolean changed = !newEncoding.equals(oldEncoding)
             || !oldFileVal.equals(fileDir.getText())
             || !oldFileIndvVal.equals(fileDirIndv.getText())
-            || !oldPdfVal.equals(pdfDir.getText())
-            || !oldPsVal.equals(psDir.getText())
             || (oldProtectVal != protect.isSelected());
         // ... if so, mark base changed. Prevent the Undo button from removing
         // change marking:
