@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.JabRef;
 import net.sf.jabref.Util;
 import net.sf.jabref.gui.FileListEntry;
@@ -48,7 +48,7 @@ public class DatabaseFileLookup {
 		if (aDatabase == null)
 			throw new IllegalArgumentException("Passing a 'null' BibtexDatabase.");
 		entries = aDatabase.getEntries();
-        possibleFilePaths = JabRef.jrf.basePanel().metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+        possibleFilePaths = JabRef.jrf.basePanel().metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD);
 	}
 	
 	/**

@@ -16,14 +16,14 @@
 package net.sf.jabref.label;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 
 public class DefaultLabelRule implements LabelRule {
 
 
     // the default rule is that oit simply returns what it was given
     public String applyRule(BibtexEntry oldEntry){
-        return oldEntry.getField(BibtexFields.KEY_FIELD);
+        return oldEntry.getField(BibtexFieldManager.KEY_FIELD);
     }
 
 

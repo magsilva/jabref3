@@ -21,8 +21,7 @@ import java.io.InputStream;
 import java.util.*;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
-import net.sf.jabref.Globals;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.OutputPrinter;
 
 /**
@@ -248,7 +247,7 @@ public class BiblioscapeImporter extends ImportFormat {
                 s.append(i > 0 ? "; " : "").append(comments.elementAt(i).toString());
             hm.put("comment", s.toString());
           }
-          BibtexEntry b = new BibtexEntry(Globals.getEntryType(bibtexType));
+          BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(bibtexType));
           b.setField(hm);
           bibItems.add(b);
 

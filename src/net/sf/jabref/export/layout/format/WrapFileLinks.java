@@ -18,8 +18,8 @@ package net.sf.jabref.export.layout.format;
 import net.sf.jabref.export.layout.AbstractParamLayoutFormatter;
 import net.sf.jabref.gui.FileListTableModel;
 import net.sf.jabref.gui.FileListEntry;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Globals;
-import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Util;
 
 import java.util.*;
@@ -142,7 +142,7 @@ public class WrapFileLinks extends AbstractParamLayoutFormatter {
                             if (Globals.prefs.fileDirForDatabase != null)
                                 dirs = Globals.prefs.fileDirForDatabase;
                             else
-                                dirs = new String[] {Globals.prefs.get(GUIGlobals.FILE_FIELD + "Directory")};
+                                dirs = new String[] {Globals.prefs.get(BibtexFieldManager.FILE_FIELD + "Directory")};
 
                             File f = Util.expandFilename(flEntry.getLink(), dirs);
 

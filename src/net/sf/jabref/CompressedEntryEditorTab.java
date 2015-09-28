@@ -123,7 +123,8 @@ public class CompressedEntryEditorTab extends EntryEditorTab {
 
         for (int i = 0; i < fields.length; i++) {
             // Create the text area:
-            int editorType = BibtexFields.getEditorType(fields[i]);
+        	BibtexField field = BibtexFieldManager.singleton.getField(fields[i]);
+            int editorType = field.getEditorType();
 
             final FieldEditor ta;
             if (editorType == GUIGlobals.FILE_LIST_EDITOR)
@@ -158,8 +159,8 @@ public class CompressedEntryEditorTab extends EntryEditorTab {
 
         // Add the edit field for Bibtex-key.
 		if (addKeyField) {
-			final FieldTextField tf = new FieldTextField(BibtexFields.KEY_FIELD, parent
-				.getEntry().getField(BibtexFields.KEY_FIELD), true);
+			final FieldTextField tf = new FieldTextField(BibtexFieldManager.KEY_FIELD, parent
+				.getEntry().getField(BibtexFieldManager.KEY_FIELD), true);
             //tf.addUndoableEditListener(bPanel.undoListener);
 			setupJTextComponent(tf, null);
 

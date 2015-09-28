@@ -57,16 +57,7 @@ public class BibtexEntry
     private boolean searchHit;
     
     private boolean groupHit;
-
-    public BibtexEntry(){
-    	this(Util.createNeutralId());
-    }
-    
-    public BibtexEntry(int id)
-    {
-        this(id, BibtexEntryType.OTHER);
-    }
-
+ 
     public BibtexEntry(BibtexEntryType type)
     {
     	this(Util.createNeutralId(), type);
@@ -78,8 +69,6 @@ public class BibtexEntry
         setType(type);
     }
 
-
-    
     /**
      * Returns an array describing the optional fields for this entry.
      */
@@ -102,14 +91,6 @@ public class BibtexEntry
      */
     public Set<String> getAllFields() {
         return new TreeSet<String>(_fields.keySet());
-    }
-
-    /**
-     * Returns a string describing the required fields for this entry.
-     */
-    public String describeRequiredFields()
-    {
-        return _type.describeRequiredFields();
     }
 
     /**
@@ -147,7 +128,7 @@ public class BibtexEntry
             // the change listener to access the new value if the change
             // sets off a change in database sorting etc.
             _type = type;
-            firePropertyChangedEvent(GUIGlobals.TYPE_HEADER,
+            firePropertyChangedEvent(BibtexFieldManager.ENTRYTYPE,
                     oldType != null ? oldType.getName() : null,
                     type.getName());
         } catch (PropertyVetoException pve) {
@@ -173,7 +154,7 @@ public class BibtexEntry
             _type = newType;
             return true;
         }
-        _type = BibtexEntryType.TYPELESS;
+        _type = null;
         return false;
     }
 
@@ -208,8 +189,8 @@ public class BibtexEntry
     }
 
     public String getCiteKey() {
-        return (_fields.containsKey(BibtexFields.KEY_FIELD) ?
-                _fields.get(BibtexFields.KEY_FIELD) : null);
+        return (_fields.containsKey(BibtexFieldManager.KEY_FIELD) ?
+                _fields.get(BibtexFieldManager.KEY_FIELD) : null);
     }
 
     /**
@@ -331,10 +312,10 @@ public class BibtexEntry
         // Write header with type and bibtex-key.
         out.write("@"+_type.getName().toUpperCase(Locale.US)+"{");
 
-        String str = Util.shaveString(getField(BibtexFields.KEY_FIELD));
+        String str = Util.shaveString(getField(BibtexFieldManager.KEY_FIELD));
         out.write(((str == null) ? "" : str)+","+Globals.NEWLINE);
         HashMap<String, String> written = new HashMap<String, String>();
-        written.put(BibtexFields.KEY_FIELD, null);
+        written.put(BibtexFieldManager.KEY_FIELD, null);
         boolean hasWritten = false;
         // Write required fields first.
         String[] s = getRequiredFields();
@@ -354,10 +335,14 @@ public class BibtexEntry
         // Then write remaining fields in alphabetic order.
         TreeSet<String> remainingFields = new TreeSet<String>();
         for (String key : _fields.keySet()){
-            boolean writeIt = (write ? BibtexFields.isWriteableField(key) :
-                               BibtexFields.isDisplayableField(key));
-            if (!written.containsKey(key) && writeIt)
-                       remainingFields.add(key);
+        	BibtexField field = BibtexFieldManager.singleton.getField(key);
+            boolean writeIt = false;
+            if (field == null || field.isWriteable() || field.isDisplayable()) {
+            	writeIt = true;
+            }
+            if (!written.containsKey(key) && writeIt) {
+               remainingFields.add(key);
+            }
         }
         for (String field: remainingFields)
             hasWritten = hasWritten | writeField(field, out, ff, hasWritten);
@@ -377,8 +362,7 @@ public class BibtexEntry
      *    it was not set
      * @throws IOException In case of an IO error
      */
-    private boolean writeField(String name, Writer out,
-                            FieldFormatter ff, boolean isFirst) throws IOException {
+    private boolean writeField(String name, Writer out, FieldFormatter ff, boolean isFirst) throws IOException {
         String o = getField(name);
         if (o != null) {
             if (isFirst)
@@ -388,8 +372,7 @@ public class BibtexEntry
             try {
                 out.write(ff.format(o.toString(), name));
             } catch (Throwable ex) {
-                throw new IOException
-                    (Globals.lang("Error in field")+" '"+name+"': "+ex.getMessage());
+                throw new IOException(Globals.lang("Error in field") + " '" + name + "' for entry '" + getCiteKey() + "': " + ex.getMessage());
             }
             return true;
         } else
@@ -406,7 +389,7 @@ public class BibtexEntry
     }
 
     public String toString() {
-        return getType().getName()+":"+getField(BibtexFields.KEY_FIELD);
+        return getType().getName()+":"+getField(BibtexFieldManager.KEY_FIELD);
     }
 
     public boolean isSearchHit() {

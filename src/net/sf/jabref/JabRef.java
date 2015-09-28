@@ -21,7 +21,6 @@ import gnu.dtools.ritopt.StringOption;
 
 import java.awt.Font;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -76,11 +75,7 @@ public class JabRef {
     
     BooleanOption helpO, disableGui, blank, loadSess, showVersion;
 
-    private final static String exportMatchesSyntax = "[".concat(Globals.lang("field")).concat("]").concat("searchTerm").concat(",").concat("outputFile").concat(": ").concat(Globals.lang("file")).concat("[,").concat(Globals.lang("exportFormat")).concat("]");
-
-    public static final int MAX_DIALOG_WARNINGS = 10;
-
-    protected JabRef(String[] args) {
+	protected JabRef(String[] args) {
 
 		singleton = this;
 
@@ -121,9 +116,6 @@ public class JabRef {
 		 * 
 		 * Plug-ins are activated on the first call to their getInstance method.
 		 */
-
-        // Update which fields should be treated as numeric, based on preferences:
-        BibtexFields.setNumericFieldsFromPrefs();
 		
 		/* Build list of Import and Export formats */
 		Globals.importFormatReader.resetImportFormats();
@@ -184,7 +176,7 @@ public class JabRef {
     	exportMatches = new StringOption(""); 
 
         options = new Options("JabRef "); // Create an options repository.
-        options.setVersion(GUIGlobals.version);
+        options.setVersion(Globals.VERSION);
 
         importFile.setDescription("imopoepuoeu"); //Globals.lang);
         options.register("version", 'v', Globals.lang("Display version"), showVersion);
@@ -200,7 +192,7 @@ public class JabRef {
         options.register("blank", 'b', Globals.lang("Do not open any files at startup"), blank);
         options.register("importToOpen", '\0', Globals.lang("Import to open tab"), importToOpenBase);
         options.register("fetch", 'f', Globals.lang("Run Fetcher, e.g. \"--fetch=Medline:cancer\""), fetcherEngine);
-        options.register("exportMatches", 'm', exportMatchesSyntax, exportMatches); 
+        options.register("exportMatches", 'm', Globals.exportMatchesSyntax, exportMatches); 
         options.setUseMenu(false);
     }
 
@@ -279,28 +271,25 @@ public class JabRef {
                 // as bib, we try to import instead.
                 boolean bibExtension = leftOver[i].toLowerCase().endsWith("bib");
                 ParserResult pr = null;
-                if (bibExtension)
+                if (bibExtension) {
                     pr = openBibFile(leftOver[i], false);
-
-                if ((pr == null) || (pr == ParserResult.INVALID_FORMAT)) {
-                    // We will try to import this file. Normally we
-                    // will import it into a new tab, but if this import has
-                    // been initiated by another instance through the remote
-                    // listener, we will instead import it into the current database.
-                    // This will enable easy integration with web browers that can
+                    if (pr == null) {
+                    // We will try to import this file. Normally we will import it into a new tab, but if this import has
+                    // been initiated by another instance through the remote listener, we will instead import it into the
+                    // current database. This will enable easy integration with web browers that can
                     // open a reference file in JabRef.
-                    if (initialStartup) {
-                        toImport.add(leftOver[i]);
+	                    if (initialStartup) {
+	                        toImport.add(leftOver[i]);
+	                    } else {
+	                        ParserResult res = importToOpenBase(leftOver[i]);
+	                        if (res != null) {
+	                            loaded.add(res);
+	                        }
+	                    }
                     } else {
-                        ParserResult res = importToOpenBase(leftOver[i]);
-                        if (res != null)
-                            loaded.add(res);
-                        else
-                            loaded.add(ParserResult.INVALID_FORMAT);
+                    	loaded.add(pr);
                     }
                 }
-                else if (pr != ParserResult.FILE_LOCKED)
-                    loaded.add(pr);
 
             }
         }
@@ -357,7 +346,7 @@ public class JabRef {
 		                	break;
 		                }
 		                default:{
-		                	System.err.println(Globals.lang("Output file missing").concat(". \n \t ").concat("Usage").concat(": ") + exportMatchesSyntax);
+		                	System.err.println(Globals.lang("Output file missing").concat(". \n \t ").concat("Usage").concat(": ") + Globals.exportMatchesSyntax);
 		                	System.exit(0);
 		                }
 	                } //end switch
@@ -399,7 +388,7 @@ public class JabRef {
                             	FileActions factions = new FileActions();
                                 SaveSession session = factions.saveDatabase(pr.getDatabase(),
                                     pr.getMetaData(), new File(data[0]), Globals.prefs,
-                                    false, false, Globals.prefs.get("defaultEncoding"), false);
+                                    Globals.prefs.get("defaultEncoding"), false);
                                 // Show just a warning message if encoding didn't work for all characters:
                                 if (!session.getWriter().couldEncodeAll())
                                     System.err.println(Globals.lang("Warning")+": "+
@@ -427,7 +416,7 @@ public class JabRef {
                         theFile = theFile.getAbsoluteFile();
                     MetaData metaData = pr.getMetaData();
                     metaData.setFile(theFile);
-                    Globals.prefs.fileDirForDatabase = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+                    Globals.prefs.fileDirForDatabase = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
                     Globals.prefs.databaseFile = metaData.getFile();
                     System.out.println(Globals.lang("Exporting") + ": " + data[0]);
                     IExportFormat format = ExportFormats.getExportFormat(data[1]);
@@ -484,7 +473,7 @@ public class JabRef {
                             try {
                             	FileActions factions = new FileActions();
                                 SaveSession session = factions.saveDatabase(newBase, new MetaData(), // no Metadata
-                                    new File(subName), Globals.prefs, false, false,
+                                    new File(subName), Globals.prefs, 
                                     Globals.prefs.get("defaultEncoding"), false);
                                 // Show just a warning message if encoding didn't work for all characters:
                                 if (!session.getWriter().couldEncodeAll())
@@ -629,16 +618,12 @@ public class JabRef {
                     }
 
                     if (fileToOpen.exists()) {
-                        ParserResult pr = openBibFile(names[i], false);
-
-                        if (pr != null) {
-
-                            if (pr == ParserResult.INVALID_FORMAT) {
-                                System.out.println(Globals.lang("Error opening file")+" '"+fileToOpen.getPath()+"'");
-                            }
-                            else if (pr != ParserResult.FILE_LOCKED)
-                                loaded.add(pr);
-
+                        ParserResult pr;
+                        try {
+                        	pr = openBibFile(names[i], false);
+                            loaded.add(pr);
+                        } catch (Exception e) {
+                        	throw new IllegalArgumentException(e.getMessage());
                         }
                     }
                 }
@@ -666,8 +651,7 @@ public class JabRef {
                         i.remove();
                     }
                     else if (!pr.isPostponedAutosaveFound()) {
-                        jrf.addTab(pr.getDatabase(), pr.getFile(),
-                                pr.getMetaData(), pr.getEncoding(), first);
+                        jrf.addTab(pr.getDatabase(), pr.getFile(), pr.getMetaData(), pr.getEncoding(), first);
                         first = false;
                     }
                     else {
@@ -679,8 +663,7 @@ public class JabRef {
             }
 
             if (loadSess.isInvoked())
-                jrf.loadSessionAction.actionPerformed(new java.awt.event.ActionEvent(
-                        jrf, 0, ""));
+                jrf.loadSessionAction.actionPerformed(new java.awt.event.ActionEvent(jrf, 0, ""));
 
             // Start auto save timer:
             if (Globals.prefs.getBoolean("autoSave"))
@@ -692,22 +675,14 @@ public class JabRef {
             if (Globals.prefs.getBoolean("windowMaximised")) {
                 jrf.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
-
             jrf.setVisible(true);
 
-            if (Globals.prefs.getBoolean("windowMaximised")) {
-                jrf.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            }
-
-            // TEST TEST TEST TEST TEST TEST
             startSidePanePlugins(jrf);
 
             for (ParserResult pr : failed) {
-                String message = "<html>"+Globals.lang("Error opening file '%0'.", pr.getFile().getName())
-                    +"<p>"+pr.getErrorMessage()+"</html>";
+                String message = "<html>"+Globals.lang("Error opening file '%0'.", pr.getFile().getName())  + "<p>" + pr.getErrorMessage() + "</html>";
 
-                JOptionPane.showMessageDialog(jrf, message, Globals.lang("Error opening file"),
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(jrf, message, Globals.lang("Error opening file"), JOptionPane.ERROR_MESSAGE);
             }
 
             for (int i = 0; i < loaded.size(); i++) {
@@ -715,18 +690,30 @@ public class JabRef {
                 if (Globals.prefs.getBoolean("displayKeyWarningDialogAtStartup") && pr.hasWarnings()) {
                     String[] wrns = pr.warnings();
                     StringBuilder wrn = new StringBuilder();
-                    for (int j = 0; j<Math.min(MAX_DIALOG_WARNINGS, wrns.length); j++)
-                        wrn.append(j + 1).append(". ").append(wrns[j]).append("\n");
-                    if (wrns.length > MAX_DIALOG_WARNINGS) {
-                        wrn.append("... ");
-                        wrn.append(Globals.lang("%0 warnings", String.valueOf(wrns.length)));
+                    for (int j = 0; j < Math.min(GUIGlobals.MAX_DIALOG_WARNINGS, wrns.length); j++) {
+                        wrn.append(j + 1);
+                        wrn.append(". ");
+                        wrn.append(wrns[j]);
+                        wrn.append("\n");
                     }
-                    else if (wrn.length() > 0)
+                    if (wrns.length > GUIGlobals.MAX_DIALOG_WARNINGS) {
+                        wrn.append("...");
+                        wrn.append(Globals.lang(" (%0 warnings)", String.valueOf(wrns.length - GUIGlobals.MAX_DIALOG_WARNINGS - 1)));
+                        wrn.append(wrns.length);
+                        wrn.append(". ");
+                        wrn.append(wrns[wrns.length - 1]);
+                        wrn.append("\n");
+                    }
+                    if (wrn.length() > 0) {
                         wrn.deleteCharAt(wrn.length() - 1);
+                    }
                     jrf.showBaseAt(i);
-                    JOptionPane.showMessageDialog(jrf, wrn.toString(),
-                        Globals.lang("Warnings")+" ("+pr.getFile().getName()+")",
-                        JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(
+                    	jrf,
+                    	wrn.toString(),
+                        Globals.lang("Warnings") + " (" + pr.getFile().getName() + ")",
+                        JOptionPane.WARNING_MESSAGE
+                    );
                 }
             }
 
@@ -802,10 +789,8 @@ public class JabRef {
                 }
             }
 
-            if (!Util.waitForFileLock(file, 10)) {
-                System.out.println(Globals.lang("Error opening file")+" '"+name+"'. "+
-                    "File is locked by another JabRef instance.");
-                return ParserResult.FILE_LOCKED;
+            if (! Util.waitForFileLock(file, 10)) {
+                throw new IllegalArgumentException(Globals.lang("Error opening file")+" '"+name+"'. "+ "File is locked by another JabRef instance.");
             }
 
             String encoding = Globals.prefs.get("defaultEncoding");

@@ -204,7 +204,7 @@ public class XMPUtil {
 	public static BibtexEntry getBibtexEntryFromDocumentInformation(
 			PDDocumentInformation di) {
 
-		BibtexEntry entry = new BibtexEntry();
+		BibtexEntry entry = new BibtexEntry(BibtexEntryType.MISC);
 
 		String s = di.getAuthor();
 		if (s != null)
@@ -230,8 +230,7 @@ public class XMPUtil {
 				String value = dict.getString(key);
 				key = key.substring("bibtex/".length());
 				if (key.equals("entrytype")) {
-					BibtexEntryType type = BibtexEntryType
-							.getStandardType(value);
+					BibtexEntryType type = BibtexEntryType.getType(value);
 					if (type != null)
 						entry.setType(type);
 				} else
@@ -262,7 +261,7 @@ public class XMPUtil {
 	public static BibtexEntry getBibtexEntryFromDublinCore(
 			XMPSchemaDublinCore dcSchema) {
 
-		BibtexEntry entry = new BibtexEntry();
+		BibtexEntry entry = new BibtexEntry(BibtexEntryType.MISC);
 
 		/**
 		 * Contributor -> Editor
@@ -424,7 +423,7 @@ public class XMPUtil {
 		if (l != null && l.size() > 0) {
 			s = (String) l.get(0);
 			if (s != null) {
-				BibtexEntryType type = BibtexEntryType.getStandardType(s);
+				BibtexEntryType type = BibtexEntryType.getType(s);
 				if (type != null)
 					entry.setType(type);
 			}

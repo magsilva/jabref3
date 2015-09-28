@@ -3,6 +3,7 @@ package net.sf.jabref.imports;
 import java.io.File;
 
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.external.ExternalFileType;
 
 /** EntryCreator for any predefined ExternalFileType.
@@ -25,7 +26,7 @@ public class EntryFromExternalFileCreator extends EntryFromFileCreator {
 		if (!accept(file)) {
 			return null;
 		}
-		BibtexEntry entry = new BibtexEntry();
+		BibtexEntry entry = new BibtexEntry(BibtexEntryType.MISC);
 
 		return entry;
 	}

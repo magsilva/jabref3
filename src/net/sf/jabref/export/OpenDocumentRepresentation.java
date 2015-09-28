@@ -51,7 +51,7 @@ public class OpenDocumentRepresentation {
         List<FieldComparator> comparators = new ArrayList<FieldComparator>();
         comparators.add(new FieldComparator("author"));
         comparators.add(new FieldComparator("year"));
-        comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
+        comparators.add(new FieldComparator(BibtexFieldManager.KEY_FIELD));
         // Use glazed lists to get a sorted view of the entries:
         BasicEventList entryList = new BasicEventList();
 
@@ -147,7 +147,7 @@ public class OpenDocumentRepresentation {
 
             for(BibtexEntry e : entries){
                 row = result.createElement("table:table-row");
-                addTableCell(result, row, getField(e, BibtexFields.KEY_FIELD));
+                addTableCell(result, row, getField(e, BibtexFieldManager.KEY_FIELD));
                 addTableCell(result, row, new GetOpenOfficeType().format(e.getType().getName()));
                 addTableCell(result, row, getField(e, "address"));
                 addTableCell(result, row, getField(e, "annote"));

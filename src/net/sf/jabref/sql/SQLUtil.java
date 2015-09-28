@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Globals;
 
 /**
@@ -61,7 +61,7 @@ public class SQLUtil {
 		} else {
 			allFields.clear();
 		}
-		uniqueInsert(allFields, BibtexFields.getAllFieldNames());
+		uniqueInsert(allFields, BibtexFieldManager.singleton.getAllFieldNames());
 	}
 
 	/**

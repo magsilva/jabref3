@@ -16,20 +16,17 @@
 package net.sf.jabref.imports;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.Globals;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.OutputPrinter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import net.sf.jabref.BibtexFields;
-
 
 /**
  * Importer for records downloaded from CSA: Cambridge Scientific Abstracts
@@ -241,7 +238,7 @@ public class CsaImporter extends ImportFormat {
                         hm.put("journal", booktitle);
                     }
 
-                    BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type));
+                    BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(Type));
 
                     // create one here
                     b.setField(hm);

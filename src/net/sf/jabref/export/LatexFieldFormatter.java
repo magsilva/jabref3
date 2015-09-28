@@ -17,8 +17,8 @@ package net.sf.jabref.export;
 
 import java.util.Vector;
 
-import net.sf.jabref.BibtexFields;
-import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.BibtexField;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Globals;
 import net.sf.jabref.Util;
 
@@ -48,7 +48,8 @@ public class LatexFieldFormatter implements FieldFormatter {
             }
         } else {
             // Default operation - we only resolve strings for standard fields:
-            resolveStrings = BibtexFields.isStandardField(fieldName) || Globals.BIBTEX_STRING.equals(fieldName);
+        	BibtexField field = BibtexFieldManager.singleton.getField(fieldName);
+            resolveStrings = (field != null && field.isStandard()) || Globals.BIBTEX_STRING.equals(fieldName);
         }
         
         if (! resolveStrings) {
@@ -71,7 +72,7 @@ public class LatexFieldFormatter implements FieldFormatter {
 
             sb = new StringBuffer("{");
             if (! Globals.prefs.isNonWrappableField(fieldName))
-                sb.append(Util.wrap2(text, GUIGlobals.LINE_LENGTH));
+                sb.append(Util.wrap2(text, Globals.LINE_LENGTH));
             else
                 sb.append(text);
 
@@ -134,7 +135,7 @@ public class LatexFieldFormatter implements FieldFormatter {
         }
 
         if (!Globals.prefs.isNonWrappableField(fieldName))
-            return Util.wrap2(sb.toString(), GUIGlobals.LINE_LENGTH);
+            return Util.wrap2(sb.toString(), Globals.LINE_LENGTH);
         else
             return sb.toString();
 
@@ -223,7 +224,7 @@ public class LatexFieldFormatter implements FieldFormatter {
     }
 
     private void putIn(String s) {
-        sb.append(Util.wrap2(s, GUIGlobals.LINE_LENGTH));
+        sb.append(Util.wrap2(s, Globals.LINE_LENGTH));
     }
 
 

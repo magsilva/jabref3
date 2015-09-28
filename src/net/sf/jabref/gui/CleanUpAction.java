@@ -33,8 +33,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import net.sf.jabref.AbstractWorker;
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.CheckBoxMessage;
-import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
 import net.sf.jabref.ImportSettingsTab;
 import net.sf.jabref.JabRefFrame;
@@ -348,7 +348,7 @@ public class CleanUpAction extends AbstractWorker {
 	}
 
 	private void doMakePathsRelative(BibtexEntry entry, NamedCompound ce) {
-		String oldValue = entry.getField(GUIGlobals.FILE_FIELD);
+		String oldValue = entry.getField(BibtexFieldManager.FILE_FIELD);
 		if (oldValue == null) return;
 		FileListTableModel flModel = new FileListTableModel();
 		flModel.setContent(oldValue);
@@ -359,7 +359,7 @@ public class CleanUpAction extends AbstractWorker {
 		for (int i = 0; i<flModel.getRowCount(); i++) {
 			FileListEntry flEntry = flModel.getEntry(i);
 			String oldFileName = flEntry.getLink();
-			String newFileName = Util.shortenFileName(new File(oldFileName), panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD)).toString();
+			String newFileName = Util.shortenFileName(new File(oldFileName), panel.metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD)).toString();
 			if (!oldFileName.equals(newFileName)) {
 				flEntry.setLink(newFileName);
 				changed = true;
@@ -368,14 +368,14 @@ public class CleanUpAction extends AbstractWorker {
 		if (changed) {
 	        String newValue = flModel.getStringRepresentation();
 			assert(!oldValue.equals(newValue));
-			entry.setField(GUIGlobals.FILE_FIELD, newValue);
-			ce.addEdit(new UndoableFieldChange(entry, GUIGlobals.FILE_FIELD, oldValue, newValue));
+			entry.setField(BibtexFieldManager.FILE_FIELD, newValue);
+			ce.addEdit(new UndoableFieldChange(entry, BibtexFieldManager.FILE_FIELD, oldValue, newValue));
 		}
 	}
 
     private void doRenamePDFs(BibtexEntry entry, NamedCompound ce) {
 		//Extract the path
-		String oldValue = entry.getField(GUIGlobals.FILE_FIELD);
+		String oldValue = entry.getField(BibtexFieldManager.FILE_FIELD);
 		if (oldValue == null) return;
 		FileListTableModel flModel = new FileListTableModel();
 		flModel.setContent(oldValue);
@@ -398,7 +398,7 @@ public class CleanUpAction extends AbstractWorker {
 			
 			//get new Filename with path
 		    //Create new Path based on old Path and new filename
-		    File expandedOldFile = Util.expandFilename(realOldFilename, panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD));
+		    File expandedOldFile = Util.expandFilename(realOldFilename, panel.metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD));
 		    String newPath = expandedOldFile.getParent().concat(System.getProperty("file.separator")).concat(newFilename);
 		    
 		    if (new File(newPath).exists())
@@ -435,11 +435,11 @@ public class CleanUpAction extends AbstractWorker {
 		if (changed) {
 	        String newValue = flModel.getStringRepresentation();
 			assert(!oldValue.equals(newValue));
-			entry.setField(GUIGlobals.FILE_FIELD, newValue);
+			entry.setField(BibtexFieldManager.FILE_FIELD, newValue);
 			//we put an undo of the field content here
 			//the file is not being renamed back, which leads to inconsostencies
 			//if we put a null undo object here, the change by "doMakePathsRelative" would overwrite the field value nevertheless.
-			ce.addEdit(new UndoableFieldChange(entry, GUIGlobals.FILE_FIELD, oldValue, newValue));
+			ce.addEdit(new UndoableFieldChange(entry, BibtexFieldManager.FILE_FIELD, oldValue, newValue));
 		}
 	}
 }

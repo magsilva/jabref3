@@ -36,7 +36,7 @@ import javax.swing.table.TableColumnModel;
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.BibtexEntryType;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.FieldComparator;
 import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.GeneralRenderer;
@@ -416,7 +416,7 @@ public class MainTable extends JTable {
             BibtexEntry be = sortedForGrouping.get(row);
             BibtexEntryType type = be.getType();
             String columnName = getColumnName(col).toLowerCase();
-            if (columnName.equals(BibtexFields.KEY_FIELD) || type.isRequired(columnName)) {
+            if (columnName.equals(BibtexFieldManager.KEY_FIELD) || type.isRequired(columnName)) {
                 return REQUIRED;
             }
             if (type.isOptional(columnName)) {

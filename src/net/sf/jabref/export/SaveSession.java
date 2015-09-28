@@ -18,7 +18,6 @@ package net.sf.jabref.export;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.Globals;
 import net.sf.jabref.Util;
-import net.sf.jabref.GUIGlobals;
 
 import java.io.File;
 import java.io.IOException;
@@ -83,7 +82,7 @@ public class SaveSession {
         if (file.exists() && backup) {
             String name = file.getName();
             String path = file.getParent();
-            File backupFile = new File(path, name + GUIGlobals.backupExt);
+            File backupFile = new File(path, name + Globals.backupExt);
             try {
                 Util.copyFile(file, backupFile, true);
             } catch (IOException ex) {

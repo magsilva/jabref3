@@ -4,6 +4,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.Util;
@@ -54,7 +55,7 @@ public class LayoutEntryTest extends TestCase
 		
 		// create Bibtext Entry
 		
-		mBTE = new BibtexEntry(Util.createNeutralId());
+		mBTE = new BibtexEntry(BibtexEntryType.MISC);
 		mBTE.setField("abstract", "In this paper, we initiate a formal study of security on Android: Google's new open-source platform for mobile devices. Tags: Paper android google Open-Source Devices");
 		//  Specifically, we present a core typed language to describe Android applications, and to reason about their data-flow security properties. Our operational semantics and type system provide some necessary foundations to help both users and developers of Android applications deal with their security concerns.
 		mBTE.setField("keywords", "android, mobile devices, security");

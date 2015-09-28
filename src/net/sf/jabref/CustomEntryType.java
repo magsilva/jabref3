@@ -94,11 +94,6 @@ public class CustomEntryType extends BibtexEntryType {
 	return req;
     }
 
-    @Override
-    public String[] getPrimaryOptionalFields() {
-        return priOpt;
-    }
-
     public String[] getRequiredFieldsForCustomization() {
         return getRequiredFieldsString().split(";");
     }
@@ -132,7 +127,7 @@ public class CustomEntryType extends BibtexEntryType {
      */
     public boolean hasAllRequiredFields(BibtexEntry entry, BibtexDatabase database) {
         // First check if the bibtex key is set:
-        if (entry.getField(BibtexFields.KEY_FIELD) == null)
+        if (entry.getField(BibtexFieldManager.KEY_FIELD) == null)
                 return false;
         // Then check other fields:
         boolean[] isSet = new boolean[req.length];
@@ -204,7 +199,7 @@ public class CustomEntryType extends BibtexEntryType {
 
     public void save(Writer out) throws IOException {
 	out.write("@comment{");
-	out.write(GUIGlobals.ENTRYTYPE_FLAG);
+	out.write(BibtexFieldManager.ENTRYTYPE_FLAG);
 	out.write(getName());
 	out.write(": req[");
     out.write(getRequiredFieldsString());
@@ -232,7 +227,7 @@ public class CustomEntryType extends BibtexEntryType {
 	    //	|| comment
 	    //System.out.println(">"+comment+"<");
 	    String rest;
-	    rest = comment.substring(GUIGlobals.ENTRYTYPE_FLAG.length());
+	    rest = comment.substring(BibtexFieldManager.ENTRYTYPE_FLAG.length());
 	    int nPos = rest.indexOf(':');
 	    String name = rest.substring(0, nPos);
 	    rest = rest.substring(nPos+2);

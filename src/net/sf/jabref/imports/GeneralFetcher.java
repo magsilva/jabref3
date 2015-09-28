@@ -22,7 +22,7 @@ import java.util.List;
 
 import javax.swing.*;
 
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.FocusRequester;
 import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
@@ -224,7 +224,7 @@ public class GeneralFetcher extends SidePaneComponent implements ActionListener 
                             dialog.setVisible(true);
                             if (dialog.isOkPressed()) {
                                 final ImportInspectionDialog d2 = new ImportInspectionDialog(frame, frame.basePanel(),
-                                        BibtexFields.DEFAULT_INSPECTION_FIELDS, activeFetcher.getTitle(), false);
+                                        BibtexFieldManager.DEFAULT_INSPECTION_FIELDS, activeFetcher.getTitle(), false);
                                 d2.addCallBack(activeFetcher);
                                 Util.placeDialog(d2, frame);
                                 d2.setVisible(true);
@@ -247,7 +247,7 @@ public class GeneralFetcher extends SidePaneComponent implements ActionListener 
         // The other category downloads the entries first, then asks the user which ones to keep:
         else {
             final ImportInspectionDialog dialog = new ImportInspectionDialog(frame, frame.basePanel(),
-                    BibtexFields.DEFAULT_INSPECTION_FIELDS, activeFetcher.getTitle(), false);
+                    BibtexFieldManager.DEFAULT_INSPECTION_FIELDS, activeFetcher.getTitle(), false);
             dialog.addCallBack(activeFetcher);
             Util.placeDialog(dialog, frame);
             dialog.setVisible(true);

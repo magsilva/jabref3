@@ -253,7 +253,7 @@ public class MetaData implements Iterable<String> {
             StringBuffer sb = new StringBuffer();
             Vector<String> orderedData = metaData.get(key);
             if (orderedData.size() >= 0) {
-                sb.append("@comment{").append(GUIGlobals.META_FLAG).append(key).append(":");
+                sb.append("@comment{").append(BibtexFieldManager.META_FLAG).append(key).append(":");
                 for (int j = 0; j < orderedData.size(); j++) {
                     sb.append(Util.quote(orderedData.elementAt(j), ";", '\\')).append(";");
                 }
@@ -270,7 +270,7 @@ public class MetaData implements Iterable<String> {
         if (groupsRoot != null && groupsRoot.getChildCount() > 0) {
             StringBuffer sb = new StringBuffer();
             // write version first
-            sb.append("@comment{").append(GUIGlobals.META_FLAG).append("groupsversion:");
+            sb.append("@comment{").append(BibtexFieldManager.META_FLAG).append("groupsversion:");
             sb.append(""+VersionHandling.CURRENT_VERSION+";");
             sb.append("}");
             sb.append(Globals.NEWLINE);
@@ -279,7 +279,7 @@ public class MetaData implements Iterable<String> {
             
             // now write actual groups
             sb = new StringBuffer();
-            sb.append("@comment{").append(GUIGlobals.META_FLAG).append("groupstree:");
+            sb.append("@comment{").append(BibtexFieldManager.META_FLAG).append("groupstree:");
             sb.append(Globals.NEWLINE);
             // GroupsTreeNode.toString() uses "\n" for separation
             StringTokenizer tok = new StringTokenizer(groupsRoot.getTreeAsString(),Globals.NEWLINE);

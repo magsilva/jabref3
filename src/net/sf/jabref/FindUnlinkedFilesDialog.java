@@ -1040,7 +1040,7 @@ public class FindUnlinkedFilesDialog extends JDialog {
 	 */
 	private void createEntryTypesCombobox() {
 
-		TreeMap<String, BibtexEntryType> entryTypes = BibtexEntryType.ALL_TYPES;
+		Map<String, BibtexEntryType> entryTypes = BibtexEntryType.ALL_TYPES;
 		Iterator<BibtexEntryType> iterator = entryTypes.values().iterator();
 		Vector<BibtexEntryTypeWrapper> list = new Vector<BibtexEntryTypeWrapper>();
 		list.add(new BibtexEntryTypeWrapper(null));

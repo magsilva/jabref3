@@ -35,24 +35,21 @@ import javax.swing.JLabel;
 public class GUIGlobals {
 
 	// Frame titles.
-	public static String
-	frameTitle = "JabRef",
-	version = Globals.VERSION,
-	stringsTitle = "Strings for database",
+	public static String frameTitle = "JabRef";
+	
+	public static String stringsTitle = "Strings for database";
+	
 	//untitledStringsTitle = stringsTitle + Globals.lang("untitled"),
-	untitledTitle = "untitled",
-	helpTitle = "JabRef help",
-	TYPE_HEADER = "entrytype",
-	encPrefix = "Encoding: "; // Part of the signature in written bib files.
+	public static String untitledTitle = "untitled";
+	
+	public static String helpTitle = "JabRef help";
+	
+	public static String encPrefix = "Encoding: "; // Part of the signature in written bib files.
 
 	public static Font CURRENTFONT,
 	typeNameFont,
 	jabRefFont,
 	fieldNameFont;
-
-	// Signature written at the top of the .bib file.
-	public static final String SIGNATURE =
-		"This file was created with JabRef";
 
 	// Size of help window.
 	static Dimension
@@ -69,10 +66,6 @@ public class GUIGlobals {
 	KEYBIND_COL_0 = 200,
 	KEYBIND_COL_1 = 80, // Added to the font size when determining table
 	MAX_CONTENT_SELECTOR_WIDTH = 240; // The max width of the combobox for content selectors.
-
-	// File names.
-	public static String //configFile = "preferences.dat",
-	backupExt = ".bak";
 
 	// Image paths.
 	public static String
@@ -148,10 +141,6 @@ public class GUIGlobals {
         editorTextColor = null, validFieldBackgroundColor = null,
         activeBackground = null, invalidFieldBackgroundColor = null;
 
-	public static String META_FLAG = "jabref-meta: ";
-	public static String META_FLAG_OLD = "bibkeeper-meta: ";
-	public static String ENTRYTYPE_FLAG = "jabref-entrytype: ";
-
 	// some fieldname constants
 	public static final double
 	DEFAULT_FIELD_WEIGHT = 1,
@@ -164,8 +153,6 @@ public class GUIGlobals {
 
     public static final int MAX_BACK_HISTORY_SIZE = 10; // The maximum number of "Back" operations stored.
 
-    public static final String FILE_FIELD = "file";
-
     public static final double
 	SMALL_W = 0.30,
 	MEDIUM_W = 0.5,
@@ -177,12 +164,9 @@ public class GUIGlobals {
 	public static int[] FORM_WIDTH = new int[] { 500, 650, 820};
 	public static int[] FORM_HEIGHT = new int[] { 90, 110, 130};
 
-//	Constants controlling formatted bibtex output.
-	public static final int
-	INDENT = 4,
-	LINE_LENGTH = 65; // Maximum
-
-	public static int DEFAULT_FIELD_LENGTH = 100,
+	public static final int INDENT = 4;
+	
+    public static int DEFAULT_FIELD_LENGTH = 100,
 	NUMBER_COL_LENGTH = 32,
 	WIDTH_ICON_COL_RANKING = 35,	// Width of Ranking Icon Column
 	WIDTH_ICON_COL = 19;
@@ -384,7 +368,9 @@ public class GUIGlobals {
 		lab.setToolTipText(Globals.lang("Open")+" DOI "+Globals.lang("web link"));
 		tableIcons.put("doi", lab);
         lab.setToolTipText(Globals.lang("Open file"));
-        tableIcons.put(GUIGlobals.FILE_FIELD, lab);
+        tableIcons.put(BibtexFieldManager.FILE_FIELD, lab);
 	}
+
+	public static final int MAX_DIALOG_WARNINGS = 10;
 
 }

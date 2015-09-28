@@ -16,18 +16,17 @@
 package net.sf.jabref.imports;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.Globals;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.OutputPrinter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
-import net.sf.jabref.BibtexFields;
+
 
 
 /**
@@ -187,8 +186,7 @@ public class BiomailImporter extends ImportFormat {
             else if (!"".equals(shortauthor))
                 hm.put("author", shortauthor);
 
-            BibtexEntry b =
-                    new BibtexEntry(Globals.getEntryType(Type)); // id assumes an existing database so don't
+            BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(Type)); // id assumes an existing database so don't
 
             // create one here
             b.setField(hm);

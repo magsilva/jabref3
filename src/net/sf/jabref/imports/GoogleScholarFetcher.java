@@ -251,7 +251,7 @@ public class GoogleScholarFetcher implements PreviewEntryFetcher {
                 if (entries.size() == 1) {
                     BibtexEntry entry = entries.iterator().next();
                     if (clearKeys)
-                        entry.setField(BibtexFields.KEY_FIELD, null);
+                        entry.setField(BibtexFieldManager.KEY_FIELD, null);
                     return entry;
                 }
                 else if (entries.size() == 0) {

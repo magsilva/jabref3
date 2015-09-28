@@ -71,10 +71,9 @@ public class JstorImporter extends ImportFormat {
         if (s.equals("")) continue;
         if (s.startsWith("-----------------------------")) break mainloop;
         String[] fields = s.split("\t");
-        BibtexEntry be = new BibtexEntry(Util.createNeutralId());
+        BibtexEntry be = new BibtexEntry(BibtexEntryType.MISC);
         try{
-        if (fields[0].equals("FLA")) be.setType(BibtexEntryType
-                            .getType("article"));
+        if (fields[0].equals("FLA")) be.setType(BibtexEntryType.getType("article"));
         ImportFormatReader.setIfNecessary(be, "title", fields[2]);
         ImportFormatReader.setIfNecessary(be, "author", AuthorList.fixAuthor_lastNameFirst(fields[4].replaceAll("; ", " and ")));
         ImportFormatReader.setIfNecessary(be, "journal", fields[7]);

@@ -33,7 +33,7 @@ import javax.swing.SwingUtilities;
 import net.sf.jabref.BaseAction;
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.MetaData;
 import net.sf.jabref.Util;
 import net.sf.jabref.gui.FileListEntry;
@@ -59,7 +59,7 @@ public class AccessLinksForEntries {
         FileListTableModel model = new FileListTableModel();
         for (Iterator<BibtexEntry> iterator = entries.iterator(); iterator.hasNext();) {
             BibtexEntry entry = iterator.next();
-            String links = entry.getField(GUIGlobals.FILE_FIELD);
+            String links = entry.getField(BibtexFieldManager.FILE_FIELD);
             if (links == null)
                 continue;
             model.setContent(links);
@@ -116,7 +116,7 @@ public class AccessLinksForEntries {
             // Find the default directory for this field type, if any:
             String[] dir = metaData.getFileDirectory(extension);
             // Include the standard "file" directory:
-            String[] fileDir = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+            String[] fileDir = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
             // Include the directory of the bib file:
             ArrayList<String> al = new ArrayList<String>();
             for (int i2 = 0; i2 < dir.length; i2++)

@@ -19,8 +19,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.Globals;
-import net.sf.jabref.Util;
+import net.sf.jabref.BibtexEntryType;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
@@ -166,8 +165,7 @@ public class MedlineHandler extends DefaultHandler
             }
             keywords = sb.toString();
             
-			BibtexEntry b=new BibtexEntry(Util.createNeutralId(),//Globals.DEFAULT_BIBTEXENTRY_ID,
-										  Globals.getEntryType("article")); // id assumes an existing database so don't create one here
+			BibtexEntry b=new BibtexEntry(BibtexEntryType.getType("article")); // id assumes an existing database so don't create one here
 			if (!author.equals("")) { 
 			    b.setField("author",ImportFormatReader.expandAuthorInitials(author));
 			    author = "";

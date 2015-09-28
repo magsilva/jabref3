@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.BibtexEntryType;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.BibtexString;
 import net.sf.jabref.BibtexStringComparator;
 import net.sf.jabref.CrossRefEntryComparator;
@@ -142,7 +142,7 @@ public class FileActions
      */
 	private void writeBibFileHeader(Writer out, String encoding) throws IOException
 	{
-		out.write("% " + GUIGlobals.SIGNATURE + " " + GUIGlobals.version + "." + Globals.NEWLINE);
+		out.write("% " + Globals.SIGNATURE + " " + Globals.VERSION + "." + Globals.NEWLINE);
 		out.write("% " + GUIGlobals.encPrefix + encoding + Globals.NEWLINE + Globals.NEWLINE);
 	}
 
@@ -158,8 +158,6 @@ public class FileActions
     		MetaData metaData,
     		File file,
     		JabRefPreferences prefs,
-    		boolean checkSearch,
-    		boolean checkGroup,
     		String encoding,
     		boolean suppressBackup)
 		throws SaveException {
@@ -209,23 +207,11 @@ public class FileActions
 				// well. Our criterion is that all non-standard types (*not*
 				// customized standard types) must be written.
 				BibtexEntryType tp = be.getType();
-				if (BibtexEntryType.getStandardType(tp.getName()) == null) {
+				if (BibtexEntryType.getType(tp.getName()) == null) {
 					types.put(tp.getName(), tp);
 				}
-
-				// Check if the entry should be written.
-				boolean write = true;
-				if (checkSearch && ! nonZeroField(be, BibtexFields.SEARCH)) {
-					write = false;
-				}
-				if (checkGroup && ! nonZeroField(be, BibtexFields.GROUPSEARCH)) {
-					write = false;
-				}
-
-				if (write) {
-					be.write(fw, ff, true);
-					fw.write(Globals.NEWLINE);
-				}
+				be.write(fw, ff, true);
+				fw.write(Globals.NEWLINE);
 			}
 
 			// Write meta data.
@@ -339,7 +325,7 @@ public class FileActions
 	        comparators.add(new FieldComparator(pri, priD));
 	        comparators.add(new FieldComparator(sec, secD));
 	        comparators.add(new FieldComparator(ter, terD));
-	        comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
+	        comparators.add(new FieldComparator(BibtexFieldManager.KEY_FIELD));
 	        // Use glazed lists to get a sorted view of the entries:
 	        BasicEventList entryList = new BasicEventList();
 	        SortedList sorter = new SortedList(entryList, new FieldComparatorStack<BibtexEntry>(comparators));
@@ -358,7 +344,7 @@ public class FileActions
 			        // entry, as well. Our criterion is that all non-standard
 			        // types (*not* customized standard types) must be written.
 			        BibtexEntryType tp = be.getType();
-			        if (BibtexEntryType.getStandardType(tp.getName()) == null) {
+			        if (BibtexEntryType.getType(tp.getName()) == null) {
 			            types.put(tp.getName(), tp);
 			        }
 	
@@ -471,7 +457,7 @@ public class FileActions
             comparators.add(new FieldComparator(pri, priD));
             comparators.add(new FieldComparator(sec, secD));
             comparators.add(new FieldComparator(ter, terD));
-            comparators.add(new FieldComparator(BibtexFields.KEY_FIELD));
+            comparators.add(new FieldComparator(BibtexFieldManager.KEY_FIELD));
 
             comparatorStack = new FieldComparatorStack<BibtexEntry>(comparators);
         }

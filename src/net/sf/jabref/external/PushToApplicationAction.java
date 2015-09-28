@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
 
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefFrame;
 
@@ -95,7 +95,7 @@ public class PushToApplicationAction extends AbstractAction implements Runnable 
         boolean first = true;
         for (int i=0; i<entries.length; i++) {
             BibtexEntry bes = entries[i];
-            citeKey = bes.getField(BibtexFields.KEY_FIELD);
+            citeKey = bes.getField(BibtexFieldManager.KEY_FIELD);
             // if the key is empty we give a warning and ignore this entry
             if (citeKey == null || citeKey.equals(""))
                 continue;

@@ -443,8 +443,7 @@ public class RepecNepImporter extends ImportFormat {
           this.inOverviewSection = this.preLine.startsWith("In this issue we have");
         } 
         if (isStartOfWorkingPaper()) {
-          BibtexEntry be = new BibtexEntry(Util.createNeutralId());
-          be.setType(BibtexEntryType.getType("techreport"));
+          BibtexEntry be = new BibtexEntry(BibtexEntryType.TECHREPORT);
           paperNoStr = this.lastLine.substring(0, this.lastLine.indexOf('.'));  
           parseTitleString(be);
           if (startsWithKeyword(recognizedFields)) {

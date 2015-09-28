@@ -41,7 +41,7 @@ import java.util.*;
  */
 public class SynchronizeFileField extends AbstractWorker {
 
-    private String fieldName = GUIGlobals.FILE_FIELD;
+    private String fieldName = BibtexFieldManager.FILE_FIELD;
     private BasePanel panel;
     private BibtexEntry[] sel = null;
     private SynchronizeFileField.OptionsDialog optDiag = null;
@@ -101,7 +101,7 @@ public class SynchronizeFileField extends AbstractWorker {
         //FieldTextField editor = new FieldTextField(fieldName, "", false);
 
         // Find the default directory for this field type:
-        String[] dirsS = panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+        String[] dirsS = panel.metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD);
         Set<BibtexEntry> changedEntries = new HashSet<BibtexEntry>();
 
         // First we try to autoset fields
@@ -383,7 +383,7 @@ public class SynchronizeFileField extends AbstractWorker {
             if (visible)
                 canceled = true;
 
-            String[] dirs = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+            String[] dirs = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
             if (dirs.length == 0) {
 
                 autoSetNone.setSelected(true);

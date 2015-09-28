@@ -201,12 +201,12 @@ class ReplaceStringDialog extends JDialog {
         if (allFields()) {
         	
         	for (String s : be.getAllFields()){
-                if (!s.equals(BibtexFields.KEY_FIELD))
+                if (!s.equals(BibtexFieldManager.KEY_FIELD))
                     counter += replaceField(be, s, ce);
             }
         } else {
             for (int i=0; i<flds.length; i++) {
-                if (!flds[i].equals(BibtexFields.KEY_FIELD))
+                if (!flds[i].equals(BibtexFieldManager.KEY_FIELD))
                     counter += replaceField(be, flds[i], ce);
             }
 

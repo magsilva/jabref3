@@ -161,7 +161,7 @@ public class UrlDragDrop implements DropTargetListener {
                     //auto file name:
                     File file = new File(new File(Globals.prefs
                             .get("pdfDirectory")), editor.getEntry()
-                            .getField(BibtexFields.KEY_FIELD)
+                            .getField(BibtexFieldManager.KEY_FIELD)
                             + ".pdf");
                     URLDownload udl = new URLDownload(editor, url,
                             file);

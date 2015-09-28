@@ -33,6 +33,7 @@ import com.ironiacorp.computer.OperationalSystemType;
 
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.EntryEditor;
 import net.sf.jabref.FocusRequester;
 import net.sf.jabref.GUIGlobals;
@@ -297,7 +298,7 @@ public class MainTableSelectionListener implements ListEventListener<BibtexEntry
                     {
                         // See if this is a simple file link field, or if it is a file-list
                         // field that can specify a list of links:
-                        if (fieldName.equals(GUIGlobals.FILE_FIELD)) {
+                        if (fieldName.equals(BibtexFieldManager.FILE_FIELD)) {
 
                             // We use a FileListTableModel to parse the field content:
                             FileListTableModel fileList = new FileListTableModel();
@@ -377,7 +378,7 @@ public class MainTableSelectionListener implements ListEventListener<BibtexEntry
 
         // See if this is a simple file link field, or if it is a file-list
         // field that can specify a list of links:
-        if (iconType[0].equals(GUIGlobals.FILE_FIELD)) {
+        if (iconType[0].equals(BibtexFieldManager.FILE_FIELD)) {
             // We use a FileListTableModel to parse the field content:
             Object o = entry.getField(iconType[0]);
             FileListTableModel fileList = new FileListTableModel();

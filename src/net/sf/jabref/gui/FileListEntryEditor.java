@@ -26,7 +26,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefFrame;
 import net.sf.jabref.MetaData;
@@ -283,7 +283,7 @@ public class FileListEntryEditor {
         entry.setDescription(description.getText().trim());
 	// See if we should trim the file link to be relative to the file directory:
 	try {
-        String[] dirs = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+        String[] dirs = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
         if (dirs.length == 0) {
             entry.setLink(link.getText().trim());
         } else {
@@ -342,7 +342,7 @@ public class FileListEntryEditor {
 
                 // If the file is below the file directory, make the path relative:
                 ArrayList<File> dirs = new ArrayList<File>();
-                String[] dirsS = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+                String[] dirsS = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
                 for (int i=0; i<dirsS.length; i++)
                     dirs.add(new File(dirsS[i]));
                 if (dirs.size() > 0) {

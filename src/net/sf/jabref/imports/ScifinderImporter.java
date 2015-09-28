@@ -21,10 +21,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.Globals;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.AuthorList;
-import net.sf.jabref.BibtexFields;
 import net.sf.jabref.OutputPrinter;
 
 /**
@@ -133,7 +133,7 @@ public class ScifinderImporter extends ImportFormat {
             }
         }
 
-        BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type)); // id assumes an existing database so don't
+        BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(Type)); // id assumes an existing database so don't
         // create one here
         b.setField(hm);
         if (journal != null) {

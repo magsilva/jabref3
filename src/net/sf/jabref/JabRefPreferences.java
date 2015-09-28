@@ -404,7 +404,7 @@ public class JabRefPreferences {
         defaults.put("overwriteTimeStamp", Boolean.FALSE);
         defaults.put("timeStampFormat", "yyyy.MM.dd");
 //        defaults.put("timeStampField", "timestamp");
-        defaults.put("timeStampField", BibtexFields.TIMESTAMP);
+        defaults.put("timeStampField", BibtexFieldManager.TIMESTAMP);
         defaults.put("generateKeysBeforeSaving", Boolean.FALSE);
 
         defaults.put("useRemoteServer", Boolean.FALSE);
@@ -430,7 +430,6 @@ public class JabRefPreferences {
         defaults.put("searchDialogHeight", new Integer(500));
         defaults.put("showFileLinksUpgradeWarning", Boolean.TRUE);
         defaults.put("autolinkExactKeyOnly", Boolean.TRUE);
-        defaults.put("numericFields", "mittnum;author");
         defaults.put("runAutomaticFileSearch", Boolean.FALSE);
         defaults.put("useLockFiles", Boolean.TRUE);
         defaults.put("autoSave", Boolean.TRUE);
@@ -438,7 +437,6 @@ public class JabRefPreferences {
         defaults.put("promptBeforeUsingAutosave", Boolean.TRUE);
         defaults.put("deletePlugins", "");
         defaults.put("enforceLegalBibtexKey", Boolean.TRUE);
-        defaults.put("biblatexMode", Boolean.FALSE);
         defaults.put("keyGenFirstLetterA", Boolean.TRUE);
         defaults.put("keyGenAlwaysAddLetter", Boolean.FALSE);
         defaults.put(JabRefPreferences.EMAIL_SUBJECT, Globals.lang("References"));
@@ -489,13 +487,13 @@ public class JabRefPreferences {
         defaults.put(REG_EXP_SEARCH_EXPRESSION_KEY, defaultExpression);
         defaults.put(USE_REG_EXP_SEARCH_KEY, Boolean.FALSE);
 
-	defaults.put("userFileDir", GUIGlobals.FILE_FIELD + "Directory");
+	defaults.put("userFileDir", BibtexFieldManager.FILE_FIELD + "Directory");
 	try {
-	    defaults.put("userFileDirIndividual", GUIGlobals.FILE_FIELD + "Directory" + "-" + get("defaultOwner") + "@" + InetAddress.getLocalHost().getHostName());
+	    defaults.put("userFileDirIndividual", BibtexFieldManager.FILE_FIELD + "Directory" + "-" + get("defaultOwner") + "@" + InetAddress.getLocalHost().getHostName());
 	}
 	catch(UnknownHostException ex) {
 	    Globals.logger("Hostname not found.");
-	    defaults.put("userFileDirIndividual", GUIGlobals.FILE_FIELD + "Directory" + "-" + get("defaultOwner"));
+	    defaults.put("userFileDirIndividual", BibtexFieldManager.FILE_FIELD + "Directory" + "-" + get("defaultOwner"));
 	}
     }
 
@@ -1061,7 +1059,6 @@ public class JabRefPreferences {
         put(CUSTOM_TYPE_NAME+nr, tp.getName());
         put(CUSTOM_TYPE_REQ+nr, tp.getRequiredFieldsString());//tp.getRequiredFields());
         putStringArray(CUSTOM_TYPE_OPT+nr, tp.getOptionalFields());
-        putStringArray(CUSTOM_TYPE_PRIOPT+nr, tp.getPrimaryOptionalFields());
 
     }
 

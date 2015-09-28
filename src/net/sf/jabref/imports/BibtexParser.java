@@ -152,7 +152,7 @@ public class BibtexParser {
 
 			if (pat1.matcher(str).find())
 				return true;
-			else if (str.startsWith(GUIGlobals.SIGNATURE))
+			else if (str.startsWith(Globals.SIGNATURE))
 				return true;
 		}
 
@@ -240,9 +240,6 @@ public class BibtexParser {
             _pr.setJabrefVersion(versionNum);
             setMajorMinorVersions();
         }
-        else {
-            // No version number found. However, we have only
-        }
 
         skipWhitespace();
 
@@ -255,8 +252,7 @@ public class BibtexParser {
 				String entryType = parseTextToken();
 				BibtexEntryType tp = BibtexEntryType.getType(entryType);
 				boolean isEntry = (tp != null);
-				// Util.pr(tp.getName());
-				if (!isEntry) {
+				if (! isEntry) {
 					// The entry type name was not recognized. This can mean
 					// that it is a string, preamble, or comment. If so,
 					// parse and set accordingly. If not, assume it is an entry
@@ -268,12 +264,10 @@ public class BibtexParser {
 						try {
 							_db.addString(bs);
 						} catch (KeyCollisionException ex) {
-							_pr.addWarning(Globals.lang("Duplicate string name") + ": "
-								+ bs.getName());
-							// ex.printStackTrace();
+							_pr.addWarning(Globals.lang("Duplicate string name") + ": " + bs.getName());
 						}
-					} else if (entryType.toLowerCase().equals("comment")) {
-						StringBuffer commentBuf = parseBracketedTextExactly();
+					} else if (entryType.toLowerCase().equals(BibtexEntryType.COMMENT_TYPE_NAME)) {
+						StringBuilder commentBuf = parseBracketedTextExactly();
 						/**
 						 * 
 						 * Metadata are used to store Bibkeeper-specific
@@ -290,32 +284,21 @@ public class BibtexParser {
 						 * for a while. We'll always save with the new one.
 						 */
 						String comment = commentBuf.toString().replaceAll("[\\x0d\\x0a]", "");
-						if (comment.substring(0,
-							Math.min(comment.length(), GUIGlobals.META_FLAG.length())).equals(
-							GUIGlobals.META_FLAG)
-							|| comment.substring(0,
-								Math.min(comment.length(), GUIGlobals.META_FLAG_OLD.length()))
-								.equals(GUIGlobals.META_FLAG_OLD)) {
-
-							String rest;
-							if (comment.substring(0, GUIGlobals.META_FLAG.length()).equals(
-								GUIGlobals.META_FLAG))
-								rest = comment.substring(GUIGlobals.META_FLAG.length());
-							else
-								rest = comment.substring(GUIGlobals.META_FLAG_OLD.length());
-
+						if (comment.substring(0, Math.min(comment.length(), BibtexFieldManager.META_FLAG.length())).equals(BibtexFieldManager.META_FLAG)) {
+							String rest = "";
+							if (comment.substring(0, BibtexFieldManager.META_FLAG.length()).equals(BibtexFieldManager.META_FLAG))
+								rest = comment.substring(BibtexFieldManager.META_FLAG.length());
+							
 							int pos = rest.indexOf(':');
 
 							if (pos > 0)
 								_meta.put(rest.substring(0, pos), rest.substring(pos + 1));
-							// We remove all line breaks in the metadata - these
-							// will have been inserted
-							// to prevent too long lines when the file was
-							// saved, and are not part of the data.
+							// We remove all line breaks in the metadata - these will have been inserted
+							// to prevent too long lines when the file was saved, and are not part of the data.
 							
 						} else if (comment.substring(0,
-							Math.min(comment.length(), GUIGlobals.ENTRYTYPE_FLAG.length())).equals(
-							GUIGlobals.ENTRYTYPE_FLAG)) {
+							Math.min(comment.length(), BibtexFieldManager.ENTRYTYPE_FLAG.length())).equals(
+							BibtexFieldManager.ENTRYTYPE_FLAG)) {
 							 // A custom entry type can also be stored in a
 							 // "@comment"
 							CustomEntryType typ = CustomEntryType.parseEntryType(comment);
@@ -470,7 +453,7 @@ public class BibtexParser {
 		if ((key != null) && key.equals(""))
 			key = null;
 
-		result.setField(BibtexFields.KEY_FIELD, key);
+		result.setField(BibtexFieldManager.KEY_FIELD, key);
 		skipWhitespace();
 
 		while (true) {
@@ -505,15 +488,13 @@ public class BibtexParser {
 			if (entry.getField(key) == null)
 				entry.setField(key, content);
 			else {
-				// The following hack enables the parser to deal with multiple
-				// author or
+				// The following hack enables the parser to deal with multiple author or
 				// editor lines, stringing them together instead of getting just
 				// one of them.
 				// Multiple author or editor lines are not allowed by the bibtex
-				// format, but
-				// at least one online database exports bibtex like that, making
-				// it inconvenient
-				// for users if JabRef didn't accept it.
+				// format, but at least one online database exports bibtex like that, making
+				// it inconvenient for users if JabRef didn't accept it.
+				// TODO: do the same for keywords
 				if (key.equals("author") || key.equals("editor"))
 					entry.setField(key, entry.getField(key) + " and " + content);
 			}
@@ -531,31 +512,15 @@ public class BibtexParser {
 				throw new RuntimeException("Error in line " + line + ": EOF in mid-string");
 			}
 			if (c == '"') {
-				StringBuffer text = parseQuotedFieldExactly();
+				StringBuilder text = parseQuotedFieldExactly();
 				value.append(fieldContentParser.format(text));
-				/*
-				 * 
-				 * The following code doesn't handle {"} correctly: // value is
-				 * a string consume('"');
-				 * 
-				 * while (!((peek() == '"') && (j != '\\'))) { j = read(); if
-				 * (_eof || (j == -1) || (j == 65535)) { throw new
-				 * RuntimeException("Error in line "+line+ ": EOF in
-				 * mid-string"); }
-				 * 
-				 * value.append((char) j); }
-				 * 
-				 * consume('"');
-				 */
 			} else if (c == '{') {
 				// Value is a string enclosed in brackets. There can be pairs
 				// of brackets inside of a field, so we need to count the
 				// brackets to know when the string is finished.
-				StringBuffer text = parseBracketedTextExactly();
+				StringBuilder text = parseBracketedTextExactly();
 				value.append(fieldContentParser.format(text, key));
-
 			} else if (Character.isDigit((char) c)) { // value is a number
-
 				String numString = parseTextToken();
                 // Morten Alver 2007-07-04: I don't see the point of parsing the integer
                 // and converting it back to a string, so I'm removing the construct below
@@ -894,58 +859,33 @@ public class BibtexParser {
 		return value;
 	}
 
-	private StringBuffer parseBracketedTextExactly() throws IOException {
-
-		StringBuffer value = new StringBuffer();
-
-		consume('{');
-
+	private StringBuilder parseProtectedTextExactly(char startProtectionChar, char endProtectionChar) throws IOException {
+		StringBuilder value = new StringBuilder();
+		consume(startProtectionChar);
 		int brackets = 0;
-
-		while (!((peek() == '}') && (brackets == 0))) {
-
+		while (!((peek() == endProtectionChar) && (brackets == 0))) {
 			int j = read();
 			if ((j == -1) || (j == 65535)) {
 				throw new RuntimeException("Error in line " + line + ": EOF in mid-string");
-			} else if (j == '{')
+			} else if (j == '{') {
 				brackets++;
-			else if (j == '}')
+			} else if (j == '}') {
 				brackets--;
-
+			}
 			value.append((char) j);
-
 		}
-
-		consume('}');
+		consume(endProtectionChar);
 
 		return value;
 	}
 
-	private StringBuffer parseQuotedFieldExactly() throws IOException {
+	
+	private StringBuilder parseBracketedTextExactly() throws IOException {
+		return parseProtectedTextExactly('{', '}');
+	}
 
-		StringBuffer value = new StringBuffer();
-
-		consume('"');
-
-		int brackets = 0;
-
-		while (!((peek() == '"') && (brackets == 0))) {
-
-			int j = read();
-			if ((j == -1) || (j == 65535)) {
-				throw new RuntimeException("Error in line " + line + ": EOF in mid-string");
-			} else if (j == '{')
-				brackets++;
-			else if (j == '}')
-				brackets--;
-
-			value.append((char) j);
-
-		}
-
-		consume('"');
-
-		return value;
+	private StringBuilder parseQuotedFieldExactly() throws IOException {
+		return parseProtectedTextExactly('"', '"');
 	}
 
 	private void consume(char expected) throws IOException {
@@ -1001,7 +941,7 @@ public class BibtexParser {
 						.addWarning(Globals.lang("unknown entry type") + ": "
 							+ be.getType().getName() + ". " + Globals.lang("Type set to 'other'")
 							+ ".");
-					be.setType(BibtexEntryType.OTHER);
+					be.setType(BibtexEntryType.MISC);
 				}
 			}
 		}
@@ -1032,7 +972,7 @@ public class BibtexParser {
             headerText.append((char) c);
             if ((piv == 0) && (Character.isWhitespace((char) c) || (c == '%')))
                 read();
-            else if (c == GUIGlobals.SIGNATURE.charAt(piv)) {
+            else if (c == Globals.SIGNATURE.charAt(piv)) {
                 piv++;
                 read();
             }
@@ -1042,7 +982,7 @@ public class BibtexParser {
             }
 
             // Check if we've reached the end of the signature's standard part:
-            if (piv == GUIGlobals.SIGNATURE.length()) {
+            if (piv == Globals.SIGNATURE.length()) {
                 keepon = false;
 
                 // Found the standard part. Now read the version number:

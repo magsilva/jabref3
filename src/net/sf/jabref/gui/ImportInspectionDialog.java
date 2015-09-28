@@ -713,7 +713,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                     // If this entry should be added to any groups, do it now:
                     Set<GroupTreeNode> groups = groupAdditions.get(entry);
                     if (!groupingCanceled && (groups != null)) {
-                        if (entry.getField(BibtexFields.KEY_FIELD) == null) {
+                        if (entry.getField(BibtexFieldManager.KEY_FIELD) == null) {
                             // The entry has no key, so it can't be added to the
                             // group.
                             // The best course of ation is probably to ask the
@@ -732,7 +732,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                         }
 
                         // If the key was list, or has been list now, go ahead:
-                        if (entry.getField(BibtexFields.KEY_FIELD) != null) {
+                        if (entry.getField(BibtexFieldManager.KEY_FIELD) != null) {
                             for (Iterator<GroupTreeNode> i2 = groups.iterator(); i2.hasNext();) {
                                 GroupTreeNode node = i2.next();
                                 if (node.getGroup().supportsAdd()) {
@@ -805,7 +805,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
         }
 
         for (int i = 0; i < fields.length; i++) {
-            int width = BibtexFields.getFieldLength(fields[i]);
+            int width = BibtexFieldManager.singleton.getField(fields[i]).getLength();
             glTable.getColumnModel().getColumn(i + PAD).setPreferredWidth(width);
         }
     }
@@ -932,7 +932,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
 
                 switch (col) {
                 case FILE_COL:
-                    Object o = entry.getField(GUIGlobals.FILE_FIELD);
+                    Object o = entry.getField(BibtexFieldManager.FILE_FIELD);
                     if (o != null) {
                         FileListTableModel tableModel = new FileListTableModel();
                         tableModel.setContent((String) o);
@@ -993,7 +993,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
             BibtexEntry entry = sortedList.get(row);
             JPopupMenu menu = new JPopupMenu();
             int count = 0;
-            Object o = entry.getField(GUIGlobals.FILE_FIELD);
+            Object o = entry.getField(BibtexFieldManager.FILE_FIELD);
             FileListTableModel fileList = new FileListTableModel();
             fileList.setContent((String) o);
             // If there are one or more links, open the first one:
@@ -1167,12 +1167,12 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
         public void downloadComplete(FileListEntry file) {
             ImportInspectionDialog.this.toFront(); // Hack
             FileListTableModel model = new FileListTableModel();
-            String oldVal = entry.getField(GUIGlobals.FILE_FIELD);
+            String oldVal = entry.getField(BibtexFieldManager.FILE_FIELD);
             if (oldVal != null)
                 model.setContent(oldVal);
             model.addEntry(model.getRowCount(), file);
             entries.getReadWriteLock().writeLock().lock();
-            entry.setField(GUIGlobals.FILE_FIELD, model.getStringRepresentation());
+            entry.setField(BibtexFieldManager.FILE_FIELD, model.getStringRepresentation());
             entries.getReadWriteLock().writeLock().unlock();
             glTable.repaint();
         }
@@ -1202,7 +1202,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                     return; // Can't go on without the bibtex key.
             }
             final FileListTableModel model = new FileListTableModel();
-            String oldVal = entry.getField(GUIGlobals.FILE_FIELD);
+            String oldVal = entry.getField(BibtexFieldManager.FILE_FIELD);
             if (oldVal != null)
                 model.setContent(oldVal);
             // We have a static utility method for searching for all relevant
@@ -1213,7 +1213,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                 public void actionPerformed(ActionEvent e) {
                     if (e.getID() > 0) {
                         entries.getReadWriteLock().writeLock().lock();
-                        entry.setField(GUIGlobals.FILE_FIELD, model.getStringRepresentation());
+                        entry.setField(BibtexFieldManager.FILE_FIELD, model.getStringRepresentation());
                         entries.getReadWriteLock().writeLock().unlock();
                         glTable.repaint();
                     }
@@ -1243,12 +1243,12 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
             editor.setVisible(true, true);
             if (editor.okPressed()) {
                 FileListTableModel model = new FileListTableModel();
-                String oldVal = entry.getField(GUIGlobals.FILE_FIELD);
+                String oldVal = entry.getField(BibtexFieldManager.FILE_FIELD);
                 if (oldVal != null)
                     model.setContent(oldVal);
                 model.addEntry(model.getRowCount(), flEntry);
                 entries.getReadWriteLock().writeLock().lock();
-                entry.setField(GUIGlobals.FILE_FIELD, model.getStringRepresentation());
+                entry.setField(BibtexFieldManager.FILE_FIELD, model.getStringRepresentation());
                 entries.getReadWriteLock().writeLock().unlock();
                 glTable.repaint();
             }
@@ -1257,12 +1257,12 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
         public void downloadComplete(FileListEntry file) {
             ImportInspectionDialog.this.toFront(); // Hack
             FileListTableModel model = new FileListTableModel();
-            String oldVal = entry.getField(GUIGlobals.FILE_FIELD);
+            String oldVal = entry.getField(BibtexFieldManager.FILE_FIELD);
             if (oldVal != null)
                 model.setContent(oldVal);
             model.addEntry(model.getRowCount(), file);
             entries.getReadWriteLock().writeLock().lock();
-            entry.setField(GUIGlobals.FILE_FIELD, model.getStringRepresentation());
+            entry.setField(BibtexFieldManager.FILE_FIELD, model.getStringRepresentation());
             entries.getReadWriteLock().writeLock().unlock();
             glTable.repaint();
         }
@@ -1314,7 +1314,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
             comparators = comparatorChooser.getComparatorsForColumn(i);
             comparators.clear();
             if (i == FILE_COL)
-                comparators.add(new IconComparator(new String[] { GUIGlobals.FILE_FIELD }));
+                comparators.add(new IconComparator(new String[] { BibtexFieldManager.FILE_FIELD }));
             else if (i == URL_COL)
                 comparators.add(new IconComparator(new String[] { "url" }));
 
@@ -1407,7 +1407,7 @@ public class ImportInspectionDialog extends JDialog implements ImportInspector, 
                 case DUPL_COL:
                     return entry.isGroupHit() ? duplLabel : null;
                 case FILE_COL:
-                    o = entry.getField(GUIGlobals.FILE_FIELD);
+                    o = entry.getField(BibtexFieldManager.FILE_FIELD);
                     if (o != null) {
                         FileListTableModel model = new FileListTableModel();
                         model.setContent((String) o);

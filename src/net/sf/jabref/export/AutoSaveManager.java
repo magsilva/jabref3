@@ -58,16 +58,12 @@ public class AutoSaveManager {
             for (int i=0; i<frame.baseCount(); i++)
                 panels.add(frame.baseAt(i));
 
-            int i=0;
             for (BasePanel panel : panels) {
                 if (panel.isBaseChanged()) {
                     if (panel.getFile() != null) {
                         autoSave(panel);
                     }
                 }
-                else {
-                }
-                i++;
             }
         }
     }
@@ -93,7 +89,7 @@ public class AutoSaveManager {
         	FileActions factions = new FileActions();
             SaveSession ss = factions.saveDatabase(panel.database(), panel.metaData(),
                     backupFile, Globals.prefs,
-                    false, false, panel.getEncoding(), true);
+                    panel.getEncoding(), true);
             ss.commit();
         } catch (SaveException e) {
             e.printStackTrace();

@@ -131,7 +131,7 @@ public class RightClickMenu extends JPopupMenu
             });
             addSeparator();
         } else if (be != null) {
-            if (be.getField(BibtexFields.MARKED) == null) {
+            if (be.getField(BibtexFieldManager.MARKED) == null) {
 
                 add(new AbstractAction(Globals.lang("Mark entry"), GUIGlobals.getImage("markEntries")) {
                     public void actionPerformed(ActionEvent e) {

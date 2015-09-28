@@ -17,14 +17,14 @@ package net.sf.jabref.label;
 
 import net.sf.jabref.AuthorList;
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 
 public class ArticleLabelRule extends DefaultLabelRule {
 
     // this is the rule used handle articles
     // we try (first author last name)/(year)/(first unique journal word)
     public String applyRule(BibtexEntry oldEntry){
-        String oldLabel = (oldEntry.getField(BibtexFields.KEY_FIELD)) ;
+        String oldLabel = (oldEntry.getField(BibtexFieldManager.KEY_FIELD)) ;
         String newLabel = "" ;
 
         String author="";

@@ -26,8 +26,6 @@ import java.awt.KeyboardFocusManager;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DropTarget;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
@@ -36,10 +34,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.VetoableChangeListener;
-import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -51,7 +49,6 @@ import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -69,9 +66,7 @@ import javax.swing.text.JTextComponent;
 
 import net.sf.jabref.autocompleter.AbstractAutoCompleter;
 import net.sf.jabref.export.LatexFieldFormatter;
-import net.sf.jabref.external.ExternalFilePanel;
 import net.sf.jabref.external.WriteXMPEntryEditorAction;
-import net.sf.jabref.gui.FileDialogs;
 import net.sf.jabref.gui.FileListEditor;
 import net.sf.jabref.gui.FileListTableModel;
 import net.sf.jabref.gui.VerticalLabelUI;
@@ -236,29 +231,9 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
         tabs.add(reqPan);
 
         if ((entry.getOptionalFields() != null) && (entry.getOptionalFields().length >= 1)) {
-            if (!prefs.getBoolean("biblatexMode")) {
-                optPan = new EntryEditorTab(frame, panel, java.util.Arrays.asList(entry.getOptionalFields()), this,
-                    false, Globals.lang("Optional fields"));
-                tabbed.addTab(Globals.lang("Optional fields"), GUIGlobals.getImage("optional"), optPan
-                    .getPane(), Globals.lang("Show optional fields"));
-                tabs.add(optPan);
-            }
-            else {
-                optPan = new CompressedEntryEditorTab(frame, panel,
-                        java.util.Arrays.asList(entry.getType().getPrimaryOptionalFields()), this,
-                    false, Globals.lang("Optional fields"));
-                tabbed.addTab(Globals.lang("Optional fields"), GUIGlobals.getImage("optional"), optPan
-                    .getPane(), Globals.lang("Show optional fields"));
-                tabs.add(optPan);
-                optPan = new CompressedEntryEditorTab(frame, panel,
-                        java.util.Arrays.asList(Util.getRemainder(entry.getOptionalFields(),
-                                entry.getType().getPrimaryOptionalFields())), this,
-                    false, Globals.lang("Optional fields 2"));
-                tabbed.addTab(Globals.lang("Optional fields 2"), GUIGlobals.getImage("optional"), optPan
-                    .getPane(), Globals.lang("Show optional fields"));
-                tabs.add(optPan);
-
-            }
+           optPan = new EntryEditorTab(frame, panel, Arrays.asList(entry.getOptionalFields()), this, false, Globals.lang("Optional fields"));
+            tabbed.addTab(Globals.lang("Optional fields"), GUIGlobals.getImage("optional"), optPan.getPane(), Globals.lang("Show optional fields"));
+            tabs.add(optPan);
         }
 
         EntryEditorTabList tabList = Globals.prefs.getEntryEditorTabList();
@@ -688,11 +663,11 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
                 // First, remove fields that the user have removed.
             }
 
-            for (String field : entry.getAllFields()){
-                if (BibtexFields.isDisplayableField(field.toString())) {
+            for (String fieldName : entry.getAllFields()){
+            	BibtexField field = BibtexFieldManager.singleton.getField(fieldName);
+                if (field.isDisplayable()) {
                     if (nu.getField(field.toString()) == null) {
-                        compound.addEdit(new UndoableFieldChange(entry, field.toString(), entry
-                            .getField(field.toString()), null));
+                        compound.addEdit(new UndoableFieldChange(entry, field.toString(), entry.getField(field.toString()), null));
                         entry.clearField(field.toString());
                         anyChanged = true;
                     }
@@ -981,7 +956,7 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
         }
 
         public void actionPerformed(ActionEvent e) {
-            String s = (entry.getField(BibtexFields.KEY_FIELD));
+            String s = (entry.getField(BibtexFieldManager.KEY_FIELD));
             StringSelection ss = new StringSelection(s);
 
             if (s != null)
@@ -1257,7 +1232,7 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
 
                 // this updates the table automatically, on close, but not
                 // within the tab
-                Object oldValue = entry.getField(BibtexFields.KEY_FIELD);
+                Object oldValue = entry.getField(BibtexFieldManager.KEY_FIELD);
 
                 if (oldValue != null) {
                    if (Globals.prefs.getBoolean("avoidOverwritingKey")) {
@@ -1283,13 +1258,13 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
 
                 // Store undo information:
                 panel.undoManager.addEdit(new UndoableKeyChange(panel.database, entry.getId(),
-                    (String) oldValue, entry.getField(BibtexFields.KEY_FIELD)));
+                    (String) oldValue, entry.getField(BibtexFieldManager.KEY_FIELD)));
 
                 // here we update the field
-                String bibtexKeyData = entry.getField(BibtexFields.KEY_FIELD);
+                String bibtexKeyData = entry.getField(BibtexFieldManager.KEY_FIELD);
 
                 // set the field named for "bibtexkey"
-                setField(BibtexFields.KEY_FIELD, bibtexKeyData);
+                setField(BibtexFieldManager.KEY_FIELD, bibtexKeyData);
                 updateSource();
                 panel.markBaseChanged();
             } catch (Throwable t) {
@@ -1432,11 +1407,11 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
         public void actionPerformed(ActionEvent event) {
             JDialog diag = new JDialog(frame, true);
             final FileListTableModel tableModel = new FileListTableModel();
-            tableModel.setContent(entry.getField(GUIGlobals.FILE_FIELD));
+            tableModel.setContent(entry.getField(BibtexFieldManager.FILE_FIELD));
             FileListEditor.autoSetLinks(entry, tableModel, panel.metaData(), new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if (e.getID() > 0) {
-                        entry.setField(GUIGlobals.FILE_FIELD, tableModel.getStringRepresentation());
+                        entry.setField(BibtexFieldManager.FILE_FIELD, tableModel.getStringRepresentation());
                         frame.output(Globals.lang("Finished autosetting external links."));
                     }
                     else frame.output(Globals.lang("Finished autosetting external links.")

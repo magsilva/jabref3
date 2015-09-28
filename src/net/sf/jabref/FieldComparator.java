@@ -60,12 +60,15 @@ public class FieldComparator implements Comparator<BibtexEntry> {
         this.fieldName = field;
         this.field = field.split(MainTableFormat.COL_DEFINITION_FIELD_SEPARATOR);
 		multiplier = reversed ? -1 : 1;
-		isTypeHeader = this.field[0].equals(GUIGlobals.TYPE_HEADER);
-        isNameField = (this.field[0].equals("author")
-                || this.field[0].equals("editor"));
+		isTypeHeader = this.field[0].equals(BibtexFieldManager.ENTRYTYPE);
+        isNameField = (this.field[0].equals("author") || this.field[0].equals("editor"));
 		isYearField = this.field[0].equals("year");
 		isMonthField = this.field[0].equals("month");
-        isNumeric = BibtexFields.isNumeric(this.field[0]);
+		try {
+			isNumeric = BibtexFieldManager.singleton.getField(this.field[0]).isNumeric();
+		} catch (NullPointerException e) {
+			isNumeric = false;
+		}
     }
 
 	public int compare(BibtexEntry e1, BibtexEntry e2) {

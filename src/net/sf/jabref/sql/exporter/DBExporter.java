@@ -240,12 +240,7 @@ public abstract class DBExporter extends DBImporterExporter{
 			List<String> optFields = Arrays
 					.asList(val.getOptionalFields() != null ? val
 							.getOptionalFields() : new String[0]);
-			List<String> utiFields = Arrays
-					.asList(val.getUtilityFields() != null ? val
-							.getUtilityFields() : new String[0]);
-			fieldRequirement = SQLUtil.setFieldRequirement(
-					SQLUtil.getAllFields(), reqFields, optFields, utiFields,
-					fieldRequirement);
+			fieldRequirement = SQLUtil.setFieldRequirement(SQLUtil.getAllFields(), reqFields, optFields, null, fieldRequirement);
 			if (!existentTypes.contains(val.getName().toLowerCase())) {
 				String insert = "INSERT INTO entry_types (label, " + fieldStr
 						+ ") VALUES (";

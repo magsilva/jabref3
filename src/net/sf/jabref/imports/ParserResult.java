@@ -24,29 +24,36 @@ import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.MetaData;
 
-public class ParserResult {
-
-    public static ParserResult INVALID_FORMAT = new ParserResult(null, null, null);
-    public static ParserResult FILE_LOCKED = new ParserResult(null, null, null);
+public class ParserResult
+{
     private BibtexDatabase base;
+    
     private MetaData metaData;
+    
     private HashMap<String, BibtexEntryType> entryTypes;
 
-
     private File file = null;
+    
     private ArrayList<String> warnings = new ArrayList<String>();
+    
     private ArrayList<String> duplicateKeys = new ArrayList<String>();
 
     private String errorMessage = null;
+    
     private String encoding = null; // Which encoding was used?
 
     private boolean postponedAutosaveFound = false;
+    
     private boolean invalid = false;
 
     private String jabrefVersion = null; // Which JabRef version wrote the file, if any?
+    
     private int jabrefMajorVersion = 0;
+    
     private int jabrefMinorVersion = 0;
+    
     private int jabrefMinor2Version = 0; // Numeric version representation
+    
     private boolean toOpenTab = false;
 
     public ParserResult(Collection<BibtexEntry> entries){

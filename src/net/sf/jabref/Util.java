@@ -872,7 +872,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         // User wants to change the type of this link.
         // First get a model of all file links for this entry:
         FileListTableModel tModel = new FileListTableModel();
-        String oldValue = entry.getField(JabRef.FILE_FIELD);
+        String oldValue = entry.getField(BibtexFieldManager.FILE_FIELD);
         tModel.setContent(oldValue);
         FileListEntry flEntry = null;
         // Then find which one we are looking at:
@@ -893,9 +893,9 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         if (editor.okPressed()) {
             // Store the changes and add an undo edit:
             String newValue = tModel.getStringRepresentation();
-            UndoableFieldChange ce = new UndoableFieldChange(entry, JabRef.FILE_FIELD,
+            UndoableFieldChange ce = new UndoableFieldChange(entry, BibtexFieldManager.FILE_FIELD,
                     oldValue, newValue);
-            entry.setField(JabRef.FILE_FIELD, newValue);
+            entry.setField(BibtexFieldManager.FILE_FIELD, newValue);
             frame.basePanel().undoManager.addEdit(ce);
             frame.basePanel().markBaseChanged();
             // Finally, open the link:
@@ -1582,7 +1582,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         // Find the default directory for this field type, if any:
         String[] dir = metaData.getFileDirectory(extension);
         // Include the standard "file" directory:
-        String[] fileDir = metaData.getFileDirectory(JabRef.FILE_FIELD);
+        String[] fileDir = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
         // Include the directory of the bib file:
         ArrayList<String> al = new ArrayList<String>();
         for (int i = 0; i < dir.length; i++)
@@ -1909,7 +1909,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
         for (BibtexEntry entry : database.getEntryMap().values()){
             FileListTableModel tableModel = new FileListTableModel();
             // If there are already links in the file field, keep those on top:
-            String oldFileContent = entry.getField(JabRef.FILE_FIELD);
+            String oldFileContent = entry.getField(BibtexFieldManager.FILE_FIELD);
             if (oldFileContent != null) {
                 tableModel.setContent(oldFileContent);
             }
@@ -1931,8 +1931,8 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
             }
             if (tableModel.getRowCount() != oldRowCount) {
                 String newValue = tableModel.getStringRepresentation();
-                entry.setField(JabRef.FILE_FIELD, newValue);
-                ce.addEdit(new UndoableFieldChange(entry, JabRef.FILE_FIELD, oldFileContent, newValue));
+                entry.setField(BibtexFieldManager.FILE_FIELD, newValue);
+                ce.addEdit(new UndoableFieldChange(entry, BibtexFieldManager.FILE_FIELD, oldFileContent, newValue));
             }
         }
         ce.end();
@@ -2104,8 +2104,8 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 				String field = kg.getSearchField().toLowerCase();
 				if (field.equals("keywords"))
 					continue; // this is not undesired
-				for (int i = 0, len = BibtexFields.numberOfPublicFields(); i < len; ++i) {
-					if (field.equals(BibtexFields.getFieldName(i))) {
+				for (int i = 0, len = BibtexFieldManager.singleton.numberOfPublicFields(); i < len; ++i) {
+					if (field.equals(BibtexFieldManager.singleton.getFieldName(i))) {
 						affectedFields.add(field);
 						break;
 					}
@@ -2212,13 +2212,8 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 	 * @return The file filter.
 	 */
 	public static OpenFileFilter getFileFilterForField(String fieldName) {
-		String s = BibtexFields.getFieldExtras(fieldName);
 		final String ext = "." + fieldName.toLowerCase();
-		final OpenFileFilter off;
-		if (s.equals("browseDocZip"))
-			off = new OpenFileFilter(new String[] { ext, ext + ".gz", ext + ".bz2" });
-		else
-			off = new OpenFileFilter(new String[] { ext });
+		final OpenFileFilter off = new OpenFileFilter(new String[] { ext });
 		return off;
 	}
 
@@ -2330,7 +2325,7 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 	}
 
     public static void markEntry(BibtexEntry be, int markIncrement, boolean increment, NamedCompound ce) {
-		Object o = be.getField(BibtexFields.MARKED);
+		Object o = be.getField(BibtexFieldManager.MARKED);
         int prevMarkLevel = 0;
         String newValue = null;
 		if (o != null) {
@@ -2365,14 +2360,14 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
             newValue = Globals.prefs.WRAPPED_USERNAME.substring(0,
                 Globals.prefs.WRAPPED_USERNAME.length()-1)+":"+markIncrement+"]";
 
-		ce.addEdit(new UndoableFieldChange(be, BibtexFields.MARKED, be
-			.getField(BibtexFields.MARKED), newValue));
-		be.setField(BibtexFields.MARKED, newValue);
+		ce.addEdit(new UndoableFieldChange(be, BibtexFieldManager.MARKED, be
+			.getField(BibtexFieldManager.MARKED), newValue));
+		be.setField(BibtexFieldManager.MARKED, newValue);
 	}
 
 	public static void unmarkEntry(BibtexEntry be, boolean onlyMaxLevel,
                                    BibtexDatabase database, NamedCompound ce) {
-		Object o = be.getField(BibtexFields.MARKED);
+		Object o = be.getField(BibtexFieldManager.MARKED);
 		if (o != null) {
 			String s = o.toString();
 			if (s.equals("0")) {
@@ -2425,14 +2420,14 @@ public static boolean openExternalFileUnknown(JabRefFrame frame, BibtexEntry ent
 				sb.append(s.substring(piv));
 			}
 			String newVal = sb.length() > 0 ? sb.toString() : null;*/
-			ce.addEdit(new UndoableFieldChange(be, BibtexFields.MARKED, be
-				.getField(BibtexFields.MARKED), newValue));
-			be.setField(BibtexFields.MARKED, newValue);
+			ce.addEdit(new UndoableFieldChange(be, BibtexFieldManager.MARKED, be
+				.getField(BibtexFieldManager.MARKED), newValue));
+			be.setField(BibtexFieldManager.MARKED, newValue);
 		}
 	}
 
 	public static int isMarked(BibtexEntry be) {
-		Object fieldVal = be.getField(BibtexFields.MARKED);
+		Object fieldVal = be.getField(BibtexFieldManager.MARKED);
 		if (fieldVal == null)
 			return 0;
 		String s = (String) fieldVal;

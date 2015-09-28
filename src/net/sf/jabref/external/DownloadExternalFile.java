@@ -339,7 +339,7 @@ public class DownloadExternalFile {
     }
 
     public String[] getFileDirectory(String link) {
-        return metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+        return metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
     }
 
     /**

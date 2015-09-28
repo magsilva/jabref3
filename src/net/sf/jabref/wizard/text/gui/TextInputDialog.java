@@ -560,7 +560,7 @@ public class TextInputDialog
       ArrayList<String> f = new ArrayList<String>();
       String[] req = entry.getRequiredFields();
       String[] opt = entry.getOptionalFields();
-      String[] allFields = BibtexFields.getAllFieldNames();
+      String[] allFields = BibtexFieldManager.singleton.getAllFieldNames();
       for (int i=0; i<req.length; i++) {
           f.add(req[i]);
       }

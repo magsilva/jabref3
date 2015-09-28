@@ -579,7 +579,7 @@ public class IEEEXploreFetcher implements EntryFetcher {
             		entry.setField(field, htmlConverter.format(fieldMatcher.group(1)));
             		if (field.equals("title") && fieldMatcher.find()) {
             			String sec_title = htmlConverter.format(fieldMatcher.group(1));
-            			if (entry.getType() == BibtexEntryType.getStandardType("standard")) {
+            			if (entry.getType() == BibtexEntryType.getType("standard")) {
             				sec_title = sec_title.replaceAll("IEEE Std ", "");
             			}
             			entry.setField(sourceField, sec_title);
@@ -590,8 +590,8 @@ public class IEEEXploreFetcher implements EntryFetcher {
             		}
             	}
             }
-            if (entry.getType() == BibtexEntryType.getStandardType("inproceedings") && entry.getField("author").equals("")) {
-            	entry.setType(BibtexEntryType.getStandardType("proceedings"));
+            if (entry.getType() == BibtexEntryType.getType("inproceedings") && entry.getField("author").equals("")) {
+            	entry.setType(BibtexEntryType.getType("proceedings"));
             }
         
             if (includeAbstract) {

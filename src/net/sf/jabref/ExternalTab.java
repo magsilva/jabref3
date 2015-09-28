@@ -186,7 +186,7 @@ public class ExternalTab extends JPanel implements PrefsTab {
     }
 
 	public void setValues() {
-        fileDir.setText(_prefs.get(GUIGlobals.FILE_FIELD+"Directory"));
+        fileDir.setText(_prefs.get(BibtexFieldManager.FILE_FIELD+"Directory"));
         bibLocationAsFileDir.setSelected(_prefs.getBoolean("bibLocationAsFileDir"));
         bibLocAsPrimaryDir.setSelected(_prefs.getBoolean("bibLocAsPrimaryDir"));
         bibLocAsPrimaryDir.setEnabled(bibLocationAsFileDir.isSelected());
@@ -212,7 +212,7 @@ public class ExternalTab extends JPanel implements PrefsTab {
 		}
 
 		// We should maybe do some checking on the validity of the contents?
-        _prefs.put(GUIGlobals.FILE_FIELD+"Directory", fileDir.getText());
+        _prefs.put(BibtexFieldManager.FILE_FIELD+"Directory", fileDir.getText());
         _prefs.putBoolean("bibLocationAsFileDir", bibLocationAsFileDir.isSelected());
         _prefs.putBoolean("bibLocAsPrimaryDir", bibLocAsPrimaryDir.isSelected());
 		_prefs.putBoolean("autolinkExactKeyOnly", matchExactKeyOnly.isSelected());

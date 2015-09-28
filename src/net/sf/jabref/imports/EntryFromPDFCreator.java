@@ -15,6 +15,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.OutputPrinterToNull;
@@ -65,10 +66,9 @@ public class EntryFromPDFCreator extends EntryFromFileCreator {
 			return null;
 		}
 
-		BibtexEntry entry = new BibtexEntry();
+		BibtexEntry entry = new BibtexEntry(BibtexEntryType.MISC);
 
 		// Read pdf specific metadata
-		// use PdfContentImporter
 		PdfContentImporter pci = new PdfContentImporter();
 		try {
 			ArrayList<BibtexEntry> list =  (ArrayList<BibtexEntry>) pci.importEntries(new FileInputStream(pdfFile), new OutputPrinterToNull());

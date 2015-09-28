@@ -184,7 +184,7 @@ public class PreviewPrefsTab extends JPanel implements PrefsTab {
 		if (entry != null)
 			return entry;
 		entry = new BibtexEntry(Util.createNeutralId(), BibtexEntryType.getType("article"));
-		entry.setField(BibtexFields.KEY_FIELD, "conceicao1997");
+		entry.setField(BibtexFieldManager.KEY_FIELD, "conceicao1997");
 		entry.setField("author", "Luis E. C. Conceic{\\~a}o and Terje van der Meeren and Johan A. J. Verreth and M S. Evjen and D. F. Houlihan and H. J. Fyhn");
 		entry.setField("title", "Amino acid metabolism and protein turnover in larval turbot (Scophthalmus maximus) fed natural zooplankton or Artemia");
 		entry.setField("year", "1997");

@@ -148,7 +148,7 @@ public class ChangeScanner extends Thread {
                 	FileActions factions = new FileActions();
                     SaveSession ss = factions.saveDatabase(inTemp, mdInTemp,
                         Globals.fileUpdateMonitor.getTempFile(panel.fileMonitorHandle()), Globals.prefs,
-                        false, false, panel.getEncoding(), true);
+                        panel.getEncoding(), true);
                     ss.commit();
                 } catch (SaveException ex) {
                     System.out.println("Problem updating tmp file after accepting external changes");

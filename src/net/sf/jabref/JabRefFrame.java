@@ -298,7 +298,7 @@ public class JabRefFrame extends JFrame implements OutputPrinter {
     databaseProperties = new DatabasePropertiesAction(),
     bibtexKeyPattern = new BibtexKeyPatternAction(),
     upgradeExternalLinks = new GeneralAction("upgradeLinks", "Upgrade external links",
-            Globals.lang("Upgrade external PDF/PS links to use the '%0' field.", GUIGlobals.FILE_FIELD)),
+            Globals.lang("Upgrade external PDF/PS links to use the '%0' field.", BibtexFieldManager.FILE_FIELD)),
       errorConsole = Globals.errorConsole.getAction(this),
     test = new GeneralAction("test", "Test"),
 
@@ -1810,7 +1810,7 @@ public JabRefPreferences prefs() {
 
                 public void run() {
                     ImportInspectionDialog diag = new ImportInspectionDialog(JabRefFrame.this,
-                        panel, BibtexFields.DEFAULT_INSPECTION_FIELDS, Globals.lang("Import"),
+                        panel, BibtexFieldManager.DEFAULT_INSPECTION_FIELDS, Globals.lang("Import"),
                         openInNew);
                     diag.addEntries(entries);
                     diag.entryListComplete();

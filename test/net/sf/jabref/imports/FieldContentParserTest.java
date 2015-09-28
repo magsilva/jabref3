@@ -95,5 +95,13 @@ public class FieldContentParserTest
 		assertEquals(expectedResult, bf.toString());
 	}
 
+	@Test
+	public void testFormatStringBuilderString_WithStringsConcatenationAndComma() {
+		StringBuilder bf = new StringBuilder("{New York, NY, } # USA,");
+		String expectedResult = "{New York, NY, } # USA,";
+		bf = parser.format(bf, "title");
+		assertEquals(expectedResult, bf.toString());
+	}
+	
 	
 }

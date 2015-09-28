@@ -90,6 +90,9 @@ public class BibtexFieldManager
 		// some semi-standard fields
 		add(new BibtexField("doi", true, GUIGlobals.SMALL_W));
 		add(new BibtexField("url", false, GUIGlobals.SMALL_W));
+		add(new BibtexField("tags", false, GUIGlobals.MEDIUM_W));
+		add(new BibtexField("quotes", false, GUIGlobals.LARGE_W));
+		add(new BibtexField("quotations", false, GUIGlobals.LARGE_W));
 		add(new BibtexField("comment", false, GUIGlobals.MEDIUM_W));
 
 		field = new BibtexField(BibtexFieldManager.FILE_FIELD, false);

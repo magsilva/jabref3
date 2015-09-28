@@ -51,9 +51,9 @@ public class WriteXMPEntryEditorAction extends AbstractAction {
 
         // Make a list of all PDFs linked from this entry:
         List<File> files = new ArrayList<File>();
-        String[] dirs = panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+        String[] dirs = panel.metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD);
         File f;
-        String field = entry.getField(GUIGlobals.FILE_FIELD);
+        String field = entry.getField(BibtexFieldManager.FILE_FIELD);
         if (field != null) {
             FileListTableModel tm = new FileListTableModel();
             tm.setContent(field);

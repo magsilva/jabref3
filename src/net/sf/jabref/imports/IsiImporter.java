@@ -26,7 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.Globals;
 import net.sf.jabref.OutputPrinter;
 import net.sf.jabref.Util;
@@ -320,7 +320,7 @@ public class IsiImporter extends ImportFormat {
 			if (hm.size() == 0)
 				continue;
 
-			BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type));
+			BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(Type));
 			// id assumes an existing database so don't
 
 			// Remove empty fields:

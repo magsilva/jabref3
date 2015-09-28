@@ -30,7 +30,7 @@ import java.util.Set;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.BibtexEntryType;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.BibtexString;
 import net.sf.jabref.MetaData;
 import net.sf.jabref.Util;
@@ -145,7 +145,7 @@ public abstract class DBImporter extends DBImporterExporter{
 				String id = rsEntries.getString("entries_id");
 				BibtexEntry entry = new BibtexEntry(Util.createNeutralId(),
 						types.get(rsEntries.getString("entry_types_id")));
-				entry.setField(BibtexFields.KEY_FIELD,
+				entry.setField(BibtexFieldManager.KEY_FIELD,
 						rsEntries.getString("cite_key"));
 				for (Iterator<String> iterator = colNames.iterator(); iterator
 						.hasNext();) {

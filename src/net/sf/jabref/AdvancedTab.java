@@ -36,7 +36,7 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     JPanel pan = new JPanel(),
         lnf = new JPanel();
     JLabel lab;
-    JCheckBox useDefault, useRemoteServer, filechooserDisableRename, biblatexMode;
+    JCheckBox useDefault, useRemoteServer, filechooserDisableRename;
     JTextField className, remoteServerPort;
     JButton def1 = new JButton(Globals.lang("Default")),
         def2 = new JButton(Globals.lang("Default"));
@@ -55,7 +55,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     useDefault = new JCheckBox(Globals.lang("Use other look and feel"));
     useRemoteServer = new JCheckBox(Globals.lang("Listen for remote operation on port")+":");
     filechooserDisableRename = new JCheckBox(Globals.lang("Disable file renaming in non-native file dialog"));
-    biblatexMode = new JCheckBox(Globals.lang("BibLaTeX mode"));
     remoteServerPort = new JTextField();
     className = new JTextField(50);
     final JTextField clName = className;
@@ -127,10 +126,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
     builder.nextLine();
     builder.append(new JPanel());
 
-    builder.nextLine();
-    builder.appendSeparator(Globals.lang("BibLaTeX mode"));
-    builder.append(new JPanel());
-    builder.append(biblatexMode);
     
     pan = builder.getPanel();
     pan.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
@@ -149,8 +144,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
         oldPort = _prefs.getInt("remoteServerPort");
         remoteServerPort.setText(String.valueOf(oldPort));
         filechooserDisableRename.setSelected(Globals.prefs.getBoolean("filechooserDisableRename"));
-        oldBiblMode = Globals.prefs.getBoolean("biblatexMode");
-        biblatexMode.setSelected(oldBiblMode);
     }
 
     public void storeSettings() {
@@ -183,8 +176,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
             JabRef.remoteListener = null;
         }
 
-        _prefs.putBoolean("biblatexMode", biblatexMode.isSelected());
-
         if ((useDefault.isSelected() == oldUseDef) ||
             !oldLnf.equals(className.getText())) {
             JOptionPane.showMessageDialog(null, 
@@ -193,14 +184,6 @@ public class AdvancedTab extends JPanel implements PrefsTab {
             		.concat(Globals.lang("You must restart JabRef for this to come into effect.")),
             		Globals.lang("Changed look and feel settings"),
             		JOptionPane.WARNING_MESSAGE);
-        }
-
-        if (biblatexMode.isSelected() != oldBiblMode) {
-            JOptionPane.showMessageDialog(null, 
-            		Globals.lang("You have toggled the BibLaTeX mode.")
-            		.concat(" ")
-            		.concat("You must restart JabRef for this change to come into effect."),
-                    Globals.lang("BibLaTeX mode"), JOptionPane.WARNING_MESSAGE);
         }
     }
 

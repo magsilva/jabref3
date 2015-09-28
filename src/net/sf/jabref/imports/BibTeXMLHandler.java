@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.BibtexEntryType;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Util;
 
 import org.xml.sax.Attributes;
@@ -73,8 +73,8 @@ public class BibTeXMLHandler extends DefaultHandler {
                     articleID = atts.getValue(i);
                 }
             }
-            b = new BibtexEntry(Util.createNeutralId());
-            b.setField(BibtexFields.KEY_FIELD, articleID);
+            b = new BibtexEntry(BibtexEntryType.MISC);
+            b.setField(BibtexFieldManager.KEY_FIELD, articleID);
         } else if (
             name.equals("bibtex:article") ||
             name.equals("bibtex:inbook") ||

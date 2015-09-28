@@ -50,7 +50,7 @@ public class FindFullTextAction extends AbstractWorker {
         if (result.url != null) {
             //System.out.println("PDF URL: "+result.url);
             String bibtexKey = entry.getCiteKey();
-            String[] dirs = basePanel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+            String[] dirs = basePanel.metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD);
             if (dirs.length == 0) {
                 // TODO: error message if file dir not defined
                 //JOptionPane.showMessageDialog(frame, Globals.lang);
@@ -63,13 +63,13 @@ public class FindFullTextAction extends AbstractWorker {
                     public void downloadComplete(FileListEntry file) {
                         System.out.println("finished");
                         FileListTableModel tm = new FileListTableModel();
-                        String oldValue = entry.getField(GUIGlobals.FILE_FIELD);
+                        String oldValue = entry.getField(BibtexFieldManager.FILE_FIELD);
                         tm.setContent(oldValue);
                         tm.addEntry(tm.getRowCount(), file);
                         String newValue = tm.getStringRepresentation();
                         UndoableFieldChange edit = new UndoableFieldChange(entry,
-                                GUIGlobals.FILE_FIELD, oldValue, newValue);
-                        entry.setField(GUIGlobals.FILE_FIELD, newValue);
+                                BibtexFieldManager.FILE_FIELD, oldValue, newValue);
+                        entry.setField(BibtexFieldManager.FILE_FIELD, newValue);
                         basePanel.undoManager.addEdit(edit);
                         basePanel.markBaseChanged();
                     }

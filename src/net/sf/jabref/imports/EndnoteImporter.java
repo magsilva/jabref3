@@ -199,7 +199,7 @@ public class EndnoteImporter extends ImportFormat {
             //Util.pr(val);
             if (val.indexOf("Ph.D.") == 0) Type = "phdthesis";
             if (val.indexOf("Masters") == 0) Type = "mastersthesis";
-        }else if (prefix.equals("F")) hm.put(BibtexFields.KEY_FIELD, Util
+        }else if (prefix.equals("F")) hm.put(BibtexFieldManager.KEY_FIELD, Util
                              .checkLegalKey(val));
         }
 
@@ -217,7 +217,7 @@ public class EndnoteImporter extends ImportFormat {
         if (((hm.get("pages") == null) || hm.get("pages").equals("-")) && !artnum.equals(""))
             hm.put("pages", artnum);
 
-        BibtexEntry b = new BibtexEntry(Globals.getEntryType(Type));
+        BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(Type));
         b.setField(hm);
         if (b.getAllFields().size() > 0)
         	bibitems.add(b);

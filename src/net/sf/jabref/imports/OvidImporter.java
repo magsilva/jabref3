@@ -23,10 +23,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.Globals;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.OutputPrinter;
-import net.sf.jabref.Util;
 import net.sf.jabref.AuthorList;
 
 /**
@@ -227,7 +227,7 @@ public class OvidImporter extends ImportFormat {
                 h.put("title", h.remove("chaptertitle"));
             }
         }
-        BibtexEntry b = new BibtexEntry(Util.createNeutralId(), Globals.getEntryType(entryType));
+        BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(entryType));
         b.setField(h);
 
         bibitems.add(b);

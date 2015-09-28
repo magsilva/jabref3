@@ -70,9 +70,9 @@ public class EntryTypeList extends FieldSetComponent implements ListSelectionLis
                     Globals.lang("Error"), JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else if (s.equalsIgnoreCase("comment")) {
+        else if (s.equalsIgnoreCase(BibtexEntryType.COMMENT_TYPE_NAME)) {
             // Report error and exit.
-            JOptionPane.showMessageDialog(this, Globals.lang("The name 'comment' can not be used as an entry type name."),
+            JOptionPane.showMessageDialog(this, Globals.lang("The name " + BibtexEntryType.COMMENT_TYPE_NAME + " cannot be used as an entry type name."),
                     Globals.lang("Error"), JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -114,7 +114,7 @@ public class EntryTypeList extends FieldSetComponent implements ListSelectionLis
     public void enable(String typeName, boolean isChanged) {
         //String s = (String)list.getSelectedValue();
         
-        if (BibtexEntryType.getStandardType(typeName) != null) {
+        if (BibtexEntryType.getType(typeName) != null) {
             
             if (isChanged || (BibtexEntryType.getType(typeName) instanceof CustomEntryType)) {
                 def.setEnabled(true);

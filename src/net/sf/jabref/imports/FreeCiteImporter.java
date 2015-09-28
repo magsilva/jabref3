@@ -113,7 +113,7 @@ public class FreeCiteImporter extends ImportFormat {
                     
                     StringBuilder noteSB = new StringBuilder();
 
-                    BibtexEntry e = new BibtexEntry();
+                    BibtexEntry e = new BibtexEntry(BibtexEntryType.INPROCEEDINGS);
                     // fallback type
                     BibtexEntryType type = BibtexEntryType.INPROCEEDINGS;
 

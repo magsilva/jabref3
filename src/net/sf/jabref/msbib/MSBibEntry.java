@@ -32,7 +32,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import net.sf.jabref.BibtexEntry;
 import net.sf.jabref.BibtexEntryType;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.export.layout.LayoutFormatter;
 import net.sf.jabref.export.layout.format.XMLChars;
 import net.sf.jabref.mods.PageNumbers;
@@ -926,7 +926,7 @@ public class MSBibEntry {
 	
 	public BibtexEntryType mapMSBibToBibtexType(String msbib)
 	{
-		BibtexEntryType bibtex = BibtexEntryType.OTHER;
+		BibtexEntryType bibtex = BibtexEntryType.MISC;
 		if(msbib.equals("Book"))
 			bibtex = BibtexEntryType.BOOK;
 		else if(msbib.equals("BookSection"))
@@ -936,31 +936,31 @@ public class MSBibEntry {
 		else if(msbib.equals("ArticleInAPeriodical"))
 			bibtex = BibtexEntryType.ARTICLE;
 		else if(msbib.equals("ConferenceProceedings"))
-			bibtex = BibtexEntryType.CONFERENCE;
+			bibtex = BibtexEntryType.PROCEEDINGS;
 		else if(msbib.equals("Report"))
 			bibtex = BibtexEntryType.TECHREPORT;
 		else if(msbib.equals("InternetSite"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("DocumentFromInternetSite"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("DocumentFromInternetSite"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("ElectronicSource"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("Art"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("SoundRecording"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("Performance"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("Film"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("Interview"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("Patent"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.PATENT;
 		else if(msbib.equals("Case"))
-			bibtex = BibtexEntryType.OTHER;
+			bibtex = BibtexEntryType.MISC;
 		else if(msbib.equals("Misc"))
 			bibtex = BibtexEntryType.MISC;
 		else

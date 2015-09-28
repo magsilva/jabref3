@@ -37,7 +37,7 @@ public class EntryComparator implements Comparator<BibtexEntry> {
         this.sortField = field;
         this.descending = desc;
         this.next = next;
-        this.numeric = BibtexFields.isNumeric(sortField);
+        this.numeric = BibtexFieldManager.singleton.getField(field).isNumeric();
     }
 
     public EntryComparator(boolean binary, boolean desc, String field) {
@@ -45,7 +45,7 @@ public class EntryComparator implements Comparator<BibtexEntry> {
         this.sortField = field;
         this.descending = desc;
         this.next = null;
-        this.numeric = BibtexFields.isNumeric(sortField);
+        this.numeric = BibtexFieldManager.singleton.getField(sortField).isNumeric();
     }
 
 
@@ -78,7 +78,7 @@ public class EntryComparator implements Comparator<BibtexEntry> {
         f2 = AuthorList.fixAuthorForAlphabetization((String)f2).toLowerCase();
                 //ImportFormatReader.fixAuthor_lastNameFirst((String)f2);
 
-    } else if (sortField.equals(GUIGlobals.TYPE_HEADER)) {
+    } else if (sortField.equals(BibtexFieldManager.ENTRYTYPE)) {
           // Sort by type.
           f1 = e1.getType().getName();
           f2 = e2.getType().getName();

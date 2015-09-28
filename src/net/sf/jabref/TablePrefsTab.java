@@ -27,7 +27,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import com.jgoodies.forms.builder.DefaultFormBuilder;
-import com.jgoodies.forms.layout.CellConstraints;
 import com.jgoodies.forms.layout.FormLayout;
 
 class TablePrefsTab extends JPanel implements PrefsTab {
@@ -39,7 +38,7 @@ class TablePrefsTab extends JPanel implements PrefsTab {
 	private JRadioButton namesAsIs, namesFf, namesFl, namesNatbib, abbrNames, noAbbrNames,
 		lastNamesOnly;
 
-	private JTextField priField, secField, terField, numericFields;
+	private JTextField priField, secField, terField;
 	private JComboBox priSort, secSort, terSort;
 
 	/**
@@ -59,8 +58,8 @@ class TablePrefsTab extends JPanel implements PrefsTab {
 		 * 
 		 * http://sourceforge.net/tracker/index.php?func=detail&aid=1540646&group_id=92314&atid=600306
 		 */
-		Vector<String> v = new Vector<String>(Arrays.asList(BibtexFields.getAllFieldNames()));
-		v.add(BibtexFields.KEY_FIELD);
+		Vector<String> v = new Vector<String>(Arrays.asList(BibtexFieldManager.singleton.getAllFieldNames()));
+		v.add(BibtexFieldManager.KEY_FIELD);
 		Collections.sort(v);
 		Object[] allPlusKey = v.toArray();
 		priSort = new JComboBox(allPlusKey);
@@ -82,8 +81,6 @@ class TablePrefsTab extends JPanel implements PrefsTab {
 		priField = new JTextField(10);
 		secField = new JTextField(10);
 		terField = new JTextField(10);
-
-        numericFields = new JTextField(30);
 
 		priSort.insertItemAt(Globals.lang("<select>"), 0);
 		secSort.insertItemAt(Globals.lang("<select>"), 0);
@@ -187,7 +184,6 @@ class TablePrefsTab extends JPanel implements PrefsTab {
         builder.append(pan);
         builder2 = new DefaultFormBuilder(new FormLayout("left:pref, 8dlu, fill:pref",""));
         builder2.append(Globals.lang("Sort the following fields as numeric fields")+":");
-        builder2.append(numericFields);
         builder.append(builder2.getPanel(), 5);
         builder.nextLine();
 		builder.appendSeparator(Globals.lang("General"));
@@ -242,13 +238,6 @@ class TablePrefsTab extends JPanel implements PrefsTab {
 		abbrNames.setEnabled(!namesNatbib.isSelected());
 		lastNamesOnly.setEnabled(!namesNatbib.isSelected());
 		noAbbrNames.setEnabled(!namesNatbib.isSelected());
-
-        String numF = _prefs.get("numericFields");
-        if (numF == null)
-            numericFields.setText("");
-        else
-            numericFields.setText(numF);
-
 	}
 
 	/**
@@ -264,33 +253,16 @@ class TablePrefsTab extends JPanel implements PrefsTab {
 		_prefs.putBoolean("namesLastOnly", lastNamesOnly.isSelected());
 		_prefs.putBoolean("abbrAuthorNames", abbrNames.isSelected());
 
-		_prefs.putInt("autoResizeMode",
-			autoResizeMode.isSelected() ? JTable.AUTO_RESIZE_ALL_COLUMNS : JTable.AUTO_RESIZE_OFF);
+		_prefs.putInt("autoResizeMode", autoResizeMode.isSelected() ? JTable.AUTO_RESIZE_ALL_COLUMNS : JTable.AUTO_RESIZE_OFF);
 		_prefs.putBoolean("priDescending", priDesc.isSelected());
 		_prefs.putBoolean("secDescending", secDesc.isSelected());
 		_prefs.putBoolean("terDescending", terDesc.isSelected());
-		// _prefs.put("secSort",
-		// GUIGlobals.ALL_FIELDS[secSort.getSelectedIndex()]);
-		// _prefs.put("terSort",
-		// GUIGlobals.ALL_FIELDS[terSort.getSelectedIndex()]);
 		_prefs.put("priSort", priField.getText().toLowerCase().trim());
 		_prefs.put("secSort", secField.getText().toLowerCase().trim());
 		_prefs.put("terSort", terField.getText().toLowerCase().trim());
 
 		_prefs.putBoolean("floatMarkedEntries", floatMarked.isSelected());
 		// updatefont
-
-        String oldVal = _prefs.get("numericFields");
-        String newVal = numericFields.getText().trim();
-        if (newVal.length() == 0)
-            newVal = null;
-        if (((newVal != null) && (oldVal == null))
-                || ((newVal == null) && (oldVal != null))
-                || ((newVal != null) && !newVal.equals(oldVal))) {
-            _prefs.put("numericFields", newVal);
-            BibtexFields.setNumericFieldsFromPrefs();
-        }
-
 	}
 
 	public boolean readyToClose() {

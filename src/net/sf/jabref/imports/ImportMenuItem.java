@@ -187,7 +187,7 @@ public class ImportMenuItem extends JMenuItem implements ActionListener {
                             (Globals.prefs.getBoolean("useImportInspectionDialogForSingle")
                                     || (bibtexResult.getDatabase().getEntryCount() > 1))) {
                         ImportInspectionDialog diag = new ImportInspectionDialog(frame, panel,
-                                BibtexFields.DEFAULT_INSPECTION_FIELDS,
+                                BibtexFieldManager.DEFAULT_INSPECTION_FIELDS,
                                 Globals.lang("Import"), openInNew);
                         diag.addEntries(bibtexResult.getDatabase().getEntries());
                         diag.entryListComplete();

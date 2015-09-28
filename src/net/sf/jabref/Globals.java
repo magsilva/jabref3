@@ -17,8 +17,6 @@
 package net.sf.jabref;
 
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -253,9 +251,9 @@ public class Globals
 
 	public static SidePaneManager sidePaneManager;
 
-	public static final String NEWLINE = System.getProperty("line.separator");
+	public static final String NEWLINE = "\n"; // System.getProperty("line.separator");
 	
-    public static final int NEWLINE_LENGTH = System.getProperty("line.separator").length();
+    public static final int NEWLINE_LENGTH = NEWLINE.length();
 
     // Instantiate logger:
     // TODO: Doesn't work in Java 5:
@@ -443,27 +441,7 @@ public class Globals
 		}
 	}
 
-	// ============================================================
-	// Using the hashmap of entry types found in BibtexEntryType
-	// ============================================================
-	public static BibtexEntryType getEntryType(String type) {
-		// decide which entryType object to return
-		Object o = BibtexEntryType.ALL_TYPES.get(type);
-		if (o != null) {
-			return (BibtexEntryType) o;
-		} else {
-			return BibtexEntryType.OTHER;
-		}
-		/*
-		 * if(type.equals("article")) return BibtexEntryType.ARTICLE; else
-		 * if(type.equals("book")) return BibtexEntryType.BOOK; else
-		 * if(type.equals("inproceedings")) return
-		 * BibtexEntryType.INPROCEEDINGS;
-		 */
-	}
-
-
-    public static String SPECIAL_COMMAND_CHARS = "\"`^~'c=";
+	public static String SPECIAL_COMMAND_CHARS = "\"`^~'c=";
 
 	/**
 	 * Special characters in URLs need to be replaced to ensure that the URL
@@ -1416,5 +1394,16 @@ public class Globals
 		
 		return pattern;
 	}
+
+	// File names.
+	public static String backupExt = ".bak";
+
+	// Signature written at the top of the .bib file.
+	public static final String SIGNATURE = "This file was created with JabRef";
+
+	//	Constants controlling formatted bibtex output.
+	public static final int LINE_LENGTH = 65; // Maximum
+
+	final static String exportMatchesSyntax = "[".concat(lang("field")).concat("]").concat("searchTerm").concat(",").concat("outputFile").concat(": ").concat(lang("file")).concat("[,").concat(lang("exportFormat")).concat("]");
 
 }

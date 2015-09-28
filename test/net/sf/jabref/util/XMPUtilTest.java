@@ -188,8 +188,7 @@ public class XMPUtilTest extends TestCase {
 	}
 
 	public BibtexEntry t3BibtexEntry() {
-		BibtexEntry e = new BibtexEntry();
-		e.setType(BibtexEntryType.INPROCEEDINGS);
+		BibtexEntry e = new BibtexEntry(BibtexEntryType.INPROCEEDINGS);
 		e.setField("title", "Hypersonic ultra-sound");
 		e.setField("bibtexkey", "Clarkson06");
 		e.setField("author", "Kelly Clarkson and Ozzy Osbourne");
@@ -306,9 +305,8 @@ public class XMPUtilTest extends TestCase {
 		assertNotNull(e);
 		assertEquals("OezbekC06", e.getCiteKey());
 		assertEquals("2003", e.getField("year"));
-		assertEquals("Beach sand convolution by surf-wave optimzation", e
-				.getField("title"));
-		assertEquals(BibtexEntryType.OTHER, e.getType());
+		assertEquals("Beach sand convolution by surf-wave optimzation", e.getField("title"));
+		assertEquals(BibtexEntryType.MISC, e.getType());
 
 	}
 
@@ -334,7 +332,7 @@ public class XMPUtilTest extends TestCase {
 		assertEquals("OezbekC06", e.getCiteKey());
 		assertEquals("2003", e.getField("year"));
 		assertEquals("�pt�mz�t��n", e.getField("title"));
-		assertEquals(BibtexEntryType.OTHER, e.getType());
+		assertEquals(BibtexEntryType.MISC, e.getType());
 	}
 
 	/**
@@ -426,7 +424,7 @@ public class XMPUtilTest extends TestCase {
 		assertEquals("Kelly Clarkson and Ozzy Osbourne", e.getField("author"));
 		assertEquals("Huey Duck and Dewey Duck and Louie Duck", e
 				.getField("editor"));
-		assertEquals(BibtexEntryType.OTHER, e.getType());
+		assertEquals(BibtexEntryType.MISC, e.getType());
 	}
 
 	/**

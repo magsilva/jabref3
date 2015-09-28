@@ -15,7 +15,7 @@
 */
 package net.sf.jabref.imports;
 
-import net.sf.jabref.JabRef;
+import net.sf.jabref.BibtexFieldManager;
 
 
 /**
@@ -35,7 +35,7 @@ public class FieldContentParser {
      * @return The formatted field content. The StringBuffer will be reused!
      */
 	public StringBuilder format(StringBuilder content, String key) {
-    	if (key == null || (key != null && ! key.equals(JabRef.FILE_FIELD) && ! key.startsWith("jabref"))) {
+    	if (key == null || (key != null && ! key.equals(BibtexFieldManager.FILE_FIELD) && ! key.startsWith("jabref"))) {
     		char c;
     		int state = 0; 
     		for (int i = 0; i < content.length(); i++) {

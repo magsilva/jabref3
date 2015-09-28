@@ -22,7 +22,8 @@ import java.util.Vector;
 import net.sf.jabref.AuthorList;
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexField;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.GUIGlobals;
 import net.sf.jabref.Globals;
 import net.sf.jabref.JabRef;
@@ -82,9 +83,9 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
                 if (i > 0) {
                     sb.append('/');
                 }
-                String disName = BibtexFields.getFieldDisplayName(fld[i]);
-                if (disName != null) {
-                    sb.append(disName);
+                BibtexField field = BibtexFieldManager.singleton.getField(fld[i]);
+                if (field != null) {
+                    sb.append(field.getFieldName());
                 } else {
                     sb.append(Util.nCase(fld[i]));
                 }
@@ -161,7 +162,7 @@ public class MainTableFormat implements TableFormat<BibtexEntry> {
             // Go through the fields until we find one with content:
             int j = 0;
             for (int i = 0; i < fld.length; i++) {
-                if (fld[i].equals(GUIGlobals.TYPE_HEADER)) {
+                if (fld[i].equals(BibtexFieldManager.ENTRYTYPE)) {
                     o = be.getType().getName();
                 } else {
                     o = be.getField(fld[i]);

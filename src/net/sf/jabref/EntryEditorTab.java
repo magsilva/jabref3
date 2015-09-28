@@ -16,7 +16,6 @@
 package net.sf.jabref;
 
 import java.awt.AWTKeyStroke;
-import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;
@@ -132,11 +131,12 @@ public class EntryEditorTab {
 
         for (int i = 0; i < fields.length; i++) {
             // Create the text area:
-            int editorType = BibtexFields.getEditorType(fields[i]);
+        	BibtexField field = BibtexFieldManager.singleton.getField(fields[i]);
+            int editorType = field.getEditorType();
 
             final FieldEditor ta;
             int defaultHeight;
-            int wHeight = (int) (50.0 * BibtexFields.getFieldWeight(fields[i]));
+            int wHeight = (int) (50.0 * field.getWeight());
             if (editorType == GUIGlobals.FILE_LIST_EDITOR) {
                 ta = new FileListEditor(frame, bPanel.metaData(), fields[i], null, parent);
                 defaultHeight = 0;
@@ -170,8 +170,8 @@ public class EntryEditorTab {
 
         // Add the edit field for Bibtex-key.
 		if (addKeyField) {
-			final FieldTextField tf = new FieldTextField(BibtexFields.KEY_FIELD, parent
-				.getEntry().getField(BibtexFields.KEY_FIELD), true);
+			final FieldTextField tf = new FieldTextField(BibtexFieldManager.KEY_FIELD, parent
+				.getEntry().getField(BibtexFieldManager.KEY_FIELD), true);
             //tf.addUndoableEditListener(bPanel.undoListener);
 			setupJTextComponent(tf, null);
             

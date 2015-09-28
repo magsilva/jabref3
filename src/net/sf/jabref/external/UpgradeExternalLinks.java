@@ -36,7 +36,7 @@ public class UpgradeExternalLinks extends BaseAction {
 
         int answer = JOptionPane.showConfirmDialog(panel.frame(),
                 Globals.lang("This will move all external links from the 'pdf' and 'ps' fields "
-                    +"into the '%0' field. Proceed?", GUIGlobals.FILE_FIELD), Globals.lang("Upgrade external links"),
+                    +"into the '%0' field. Proceed?", BibtexFieldManager.FILE_FIELD), Globals.lang("Upgrade external links"),
                 JOptionPane.YES_NO_OPTION);
         if (answer !=  JOptionPane.YES_OPTION)
             return;

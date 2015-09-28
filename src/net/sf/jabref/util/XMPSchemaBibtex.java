@@ -285,11 +285,11 @@ public class XMPSchemaBibtex extends XMPSchema {
 		String type = getTextProperty("entrytype");
 		BibtexEntryType t;
 		if (type != null)
-			t = BibtexEntryType.getStandardType(type);
+			t = BibtexEntryType.getType(type);
 		else
-			t = BibtexEntryType.OTHER;
+			t = BibtexEntryType.MISC;
 
-		BibtexEntry e = new BibtexEntry(Util.createNeutralId(), t);
+		BibtexEntry e = new BibtexEntry(t);
 
 		// Get Text Properties
 		Map<String, String> text = getAllProperties(this, "bibtex");

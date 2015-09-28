@@ -405,7 +405,7 @@ public class EntryTableTransferHandler extends TransferHandler {
 				File f = new File(fileNames[i]);
 				try {
 					ParserResult pr = OpenDatabaseAction.loadDatabase(f, encoding);
-					if ((pr == null) || (pr == ParserResult.INVALID_FORMAT)) {
+					if (pr == null) {
 						notBibFiles.add(fileNames[i]);
 					} else {
 						openAction.addNewDatabase(pr, f, true);

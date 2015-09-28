@@ -453,8 +453,7 @@ public class PdfContentImporter extends ImportFormat {
 				}
 			}
 
-			BibtexEntry entry = new BibtexEntry();
-			entry.setType(type);
+			BibtexEntry entry = new BibtexEntry(type);
 			
 			if (author!=null) entry.setField("author", author);
 			if (editor!=null) entry.setField("editor", editor);

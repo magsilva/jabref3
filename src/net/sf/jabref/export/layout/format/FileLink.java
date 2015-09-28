@@ -17,7 +17,7 @@ package net.sf.jabref.export.layout.format;
 
 import java.io.File;
 
-import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Globals;
 import net.sf.jabref.Util;
 import net.sf.jabref.export.layout.ParamLayoutFormatter;
@@ -68,7 +68,7 @@ public class FileLink implements ParamLayoutFormatter {
         if (Globals.prefs.fileDirForDatabase != null)
             dirs = Globals.prefs.fileDirForDatabase;
         else
-            dirs = new String[] {Globals.prefs.get(GUIGlobals.FILE_FIELD + "Directory")};
+            dirs = new String[] {Globals.prefs.get(BibtexFieldManager.FILE_FIELD + "Directory")};
         
 		File f = Util.expandFilename(link, dirs);
 

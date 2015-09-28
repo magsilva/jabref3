@@ -220,12 +220,9 @@ public class SaveDatabaseAction extends AbstractWorker {
         try {
         	FileActions factions = new FileActions();
             if (!selectedOnly)
-                session = factions.saveDatabase(panel.database(), panel.metaData(), file,
-                        Globals.prefs, false, false, encoding, false);
+                session = factions.saveDatabase(panel.database(), panel.metaData(), file, Globals.prefs, encoding, false);
             else
-                session = factions.savePartOfDatabase(panel.database(), panel.metaData(), file,
-                        Globals.prefs, panel.getSelectedEntries(), encoding);
-
+                session = factions.savePartOfDatabase(panel.database(), panel.metaData(), file, Globals.prefs, panel.getSelectedEntries(), encoding);
         } catch (UnsupportedCharsetException ex2) {
             JOptionPane.showMessageDialog(frame, Globals.lang("Could not save file. "
                     + "Character encoding '%0' is not supported.", encoding),

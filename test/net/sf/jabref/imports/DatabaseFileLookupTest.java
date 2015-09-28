@@ -16,6 +16,7 @@ import java.util.List;
 import junit.framework.TestCase;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.FindUnlinkedFilesDialog;
 import net.sf.jabref.JabRefPreferences;
 import net.sf.jabref.FindUnlinkedFilesDialog.CheckableTreeNode;
@@ -85,7 +86,7 @@ public class DatabaseFileLookupTest extends TestCase {
 	
 	public void testInsertTestData() throws Exception {
 		
-		entry1 = new BibtexEntry();
+		entry1 = new BibtexEntry(BibtexEntryType.MISC);
 		JabRefPreferences jabRefPreferences = JabRefPreferences.getInstance();
 		ExternalFileType fileType = jabRefPreferences.getExternalFileTypeByExt("PDF");
 		FileListEntry fileListEntry = new FileListEntry("", fileInDatabase.getAbsolutePath(), fileType);

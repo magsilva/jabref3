@@ -189,7 +189,6 @@ public class SearchResultsDialog {
      * by clicking the column labels.
      * @param comparatorChooser The comparator chooser controlling the sort order.
      */
-    @SuppressWarnings("unchecked")
     protected void setupComparatorChooser(TableComparatorChooser<BibtexEntry> comparatorChooser) {
         // First column:
         java.util.List<Comparator> comparators = comparatorChooser
@@ -204,7 +203,7 @@ public class SearchResultsDialog {
             comparators = comparatorChooser.getComparatorsForColumn(i);
             comparators.clear();
             if (i == FILE_COL)
-                comparators.add(new IconComparator(new String[] { GUIGlobals.FILE_FIELD }));
+                comparators.add(new IconComparator(new String[] { BibtexFieldManager.FILE_FIELD }));
             else if (i == URL_COL)
                 comparators.add(new IconComparator(new String[] { "url" }));
 
@@ -235,7 +234,7 @@ public class SearchResultsDialog {
         }
 
         for (int i = 0; i < fields.length; i++) {
-            int width = BibtexFields.getFieldLength(fields[i]);
+            int width = BibtexFieldManager.singleton.getField(fields[i]).getLength();
             cm.getColumn(i + PAD).setPreferredWidth(width);
         }
     }
@@ -310,7 +309,7 @@ public class SearchResultsDialog {
                 BasePanel p = entryHome.get(entry);
                 switch (col) {
                     case FILE_COL:
-                        Object o = entry.getField(GUIGlobals.FILE_FIELD);
+                        Object o = entry.getField(BibtexFieldManager.FILE_FIELD);
                         if (o != null) {
                             FileListTableModel tableModel = new FileListTableModel();
                             tableModel.setContent((String) o);
@@ -351,7 +350,7 @@ public class SearchResultsDialog {
 
             if (col == FILE_COL) {
                 // We use a FileListTableModel to parse the field content:
-                Object o = entry.getField(GUIGlobals.FILE_FIELD);
+                Object o = entry.getField(BibtexFieldManager.FILE_FIELD);
                 FileListTableModel fileList = new FileListTableModel();
                 fileList.setContent((String)o);
                 // If there are one or more links, open the first one:
@@ -419,7 +418,7 @@ public class SearchResultsDialog {
                 Object o;
                 switch (column) {
                     case FILE_COL:
-                        o = entry.getField(GUIGlobals.FILE_FIELD);
+                        o = entry.getField(BibtexFieldManager.FILE_FIELD);
                         if (o != null) {
                             FileListTableModel model = new FileListTableModel();
                             model.setContent((String) o);

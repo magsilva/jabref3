@@ -199,7 +199,7 @@ public class LabelPatternUtil {
             if (!_label.equals(oldKey)) {
                 if (_db.getEntryById(_entry.getId()) == null) {
                     // entry does not (yet) exist in the database, just update the entry
-                    _entry.setField(BibtexFields.KEY_FIELD, _label);
+                    _entry.setField(BibtexFieldManager.KEY_FIELD, _label);
                 } else {
                     _db.setCiteKeyForEntry(_entry.getId(), _label);
                 }
@@ -229,7 +229,7 @@ public class LabelPatternUtil {
             if (!moddedKey.equals(oldKey)) {
                 if (_db.getEntryById(_entry.getId()) == null) {
                     // entry does not (yet) exist in the database, just update the entry
-                    _entry.setField(BibtexFields.KEY_FIELD, moddedKey);
+                    _entry.setField(BibtexFieldManager.KEY_FIELD, moddedKey);
                 } else {
                     _db.setCiteKeyForEntry(_entry.getId(), moddedKey);
                 }
@@ -543,7 +543,7 @@ public class LabelPatternUtil {
 
             // oh my! there is a match! we better set the uniqueness to false
             // and leave this for-loop all together
-            if (_entry.getField(BibtexFields.KEY_FIELD).equals(label)) {
+            if (_entry.getField(BibtexFieldManager.KEY_FIELD).equals(label)) {
                 _isUnique = false;
                 break;
             }

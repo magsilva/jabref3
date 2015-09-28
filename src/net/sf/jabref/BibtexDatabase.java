@@ -256,9 +256,9 @@ public class BibtexDatabase
         BibtexEntry entry = getEntryById(id);
         String oldKey = entry.getCiteKey();
         if (key != null)
-          entry.setField(BibtexFields.KEY_FIELD, key);
+          entry.setField(BibtexFieldManager.KEY_FIELD, key);
         else
-          entry.clearField(BibtexFields.KEY_FIELD);
+          entry.clearField(BibtexFieldManager.KEY_FIELD);
         return checkForDuplicateKeyAndAdd(oldKey, entry.getCiteKey(), false);
     }
 
@@ -601,7 +601,7 @@ public class BibtexDatabase
 			throw new IllegalArgumentException(new NullPointerException("Invalid BibTeX entry"));
 		}
 		
-		if (BibtexFields.KEY_FIELD.equals(field)) {
+		if (BibtexFieldManager.KEY_FIELD.equals(field)) {
 			return bibtex.getType().getName();
 		}
 

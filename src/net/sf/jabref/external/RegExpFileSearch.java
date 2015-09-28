@@ -35,20 +35,6 @@ public class RegExpFileSearch {
 
     final static String EXT_MARKER = "__EXTENSION__";
 
-    public static void main(String[] args) {
-        BibtexEntry entry = new BibtexEntry(Util.createNeutralId());
-        entry.setField(BibtexFields.KEY_FIELD, "raffel01");
-        entry.setField("year", "2001");
-        ArrayList<String> extensions = new ArrayList<String>();
-        extensions.add("pdf");
-        extensions.add("ps");
-        extensions.add("txt");
-        List<File> dirs = new ArrayList<File>();
-        dirs.add(new File("/home/alver/Desktop/Tromso_2008"));
-        System.out.println(findFiles(entry, extensions, dirs,
-                "**/[bibtexkey].*\\\\.[extension]"));
-    }
-
     /**
      * Search for file links for a set of entries using regexp. Lists of extensions and directories
      * are given.

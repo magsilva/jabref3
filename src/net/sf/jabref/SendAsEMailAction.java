@@ -89,7 +89,7 @@ public class SendAsEMailAction extends AbstractWorker {
                 for (int i=0; i< tm.getRowCount(); i++) {
                 	FileListEntry flEntry = tm.getEntry(i);
                 	
-                	File f = Util.expandFilename(flEntry.getLink(), frame.basePanel().metaData().getFileDirectory(GUIGlobals.FILE_FIELD));
+                	File f = Util.expandFilename(flEntry.getLink(), frame.basePanel().metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD));
                 	if (f != null) {
                 		// file exists
                 		attachments.add(f.getPath());

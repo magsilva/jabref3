@@ -25,9 +25,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.Globals;
 import net.sf.jabref.AuthorList;
-import net.sf.jabref.BibtexFields;
 import net.sf.jabref.OutputPrinter;
 
 /**
@@ -241,7 +241,7 @@ public class RisImporter extends ImportFormat {
 
                 hm.put("pages", startPage + "--" + endPage);
             }
-            BibtexEntry b = new BibtexEntry(Globals.getEntryType(type)); // id assumes an existing database so don't
+            BibtexEntry b = new BibtexEntry(BibtexEntryType.getType(type)); // id assumes an existing database so don't
 
             // Remove empty fields:
             ArrayList<Object> toRemove = new ArrayList<Object>();

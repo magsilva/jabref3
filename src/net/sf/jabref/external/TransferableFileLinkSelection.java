@@ -16,7 +16,7 @@
 package net.sf.jabref.external;
 
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.GUIGlobals;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.Util;
 import net.sf.jabref.BasePanel;
 import net.sf.jabref.gui.FileListTableModel;
@@ -39,13 +39,13 @@ public class TransferableFileLinkSelection implements Transferable {
     List<File> fileList = new ArrayList<File>();
 
     public TransferableFileLinkSelection(BasePanel panel, BibtexEntry[] selection) {
-        String s = selection[0].getField(GUIGlobals.FILE_FIELD);
+        String s = selection[0].getField(BibtexFieldManager.FILE_FIELD);
         FileListTableModel tm = new FileListTableModel();
         if (s != null)
             tm.setContent(s);
         if (tm.getRowCount() > 0) {
             // Find the default directory for this field type, if any:
-            String[] dirs = panel.metaData().getFileDirectory(GUIGlobals.FILE_FIELD);
+            String[] dirs = panel.metaData().getFileDirectory(BibtexFieldManager.FILE_FIELD);
             File expLink = Util.expandFilename(tm.getEntry(0).getLink(), dirs);
             fileList.add(expLink);
 

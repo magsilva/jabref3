@@ -6,6 +6,7 @@ import java.io.File;
 import junit.framework.TestCase;
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
+import net.sf.jabref.BibtexEntryType;
 import net.sf.jabref.EntryEditor;
 import net.sf.jabref.FieldEditor;
 import net.sf.jabref.FieldTextArea;
@@ -144,7 +145,7 @@ public class AutoCompleterTest extends TestCase {
 	public void testEntryEditorForNameFieldAutoCompleter() {
 		// construct an EntryEditor ...
 		JabRef jabref = TestUtils.getInitializedJabRef();
-		BibtexEntry bibtexEntry = new BibtexEntry();
+		BibtexEntry bibtexEntry = new BibtexEntry(BibtexEntryType.MISC);
 		bibtexEntry.setField("author", "Brigitte Laurant");
 		FieldEditor authorTextField = new FieldTextArea("author", "Hans Meiser");
 		EntryEditor editor = new EntryEditor(jabref.jrf, jabref.jrf.basePanel(), bibtexEntry);
@@ -161,7 +162,7 @@ public class AutoCompleterTest extends TestCase {
 	public void testEntryEditorForFieldAnotherAutoCompleter() {
 		// construct an EntryEditor ...
 		JabRef jabref = TestUtils.getInitializedJabRef();
-		BibtexEntry bibtexEntry = new BibtexEntry();
+		BibtexEntry bibtexEntry = new BibtexEntry(BibtexEntryType.MISC);
 		bibtexEntry.setField("journal", "Testtext");
 		FieldEditor authorTextField = new FieldTextArea("journal", "New Testtext");
 		EntryEditor editor = new EntryEditor(jabref.jrf, jabref.jrf.basePanel(), bibtexEntry);

@@ -39,7 +39,7 @@ import com.ironiacorp.computer.OperationalSystemType;
 
 import net.sf.jabref.BibtexDatabase;
 import net.sf.jabref.BibtexEntry;
-import net.sf.jabref.BibtexFields;
+import net.sf.jabref.BibtexFieldManager;
 import net.sf.jabref.EntryEditor;
 import net.sf.jabref.FieldEditor;
 import net.sf.jabref.Globals;
@@ -155,7 +155,7 @@ public class ExternalFilePanel extends JPanel {
 	}
 
 	protected Object getKey() {
-		return getEntry().getField(BibtexFields.KEY_FIELD);
+		return getEntry().getField(BibtexFieldManager.KEY_FIELD);
 	}
 
 	protected void output(String s) {

@@ -397,7 +397,7 @@ public class FileListEditor extends JTable implements FieldEditor,
                 for (Iterator<BibtexEntry> i=result.keySet().iterator(); i.hasNext();) {
                     BibtexEntry anEntry = i.next();
                     FileListTableModel tableModel = new FileListTableModel();
-                    String oldVal = anEntry.getField(GUIGlobals.FILE_FIELD);
+                    String oldVal = anEntry.getField(BibtexFieldManager.FILE_FIELD);
                     if (oldVal != null)
                         tableModel.setContent(oldVal);
                     List<File> files = result.get(anEntry);
@@ -429,9 +429,9 @@ public class FileListEditor extends JTable implements FieldEditor,
                             if (newVal.length() == 0)
                                 newVal = null;
                             UndoableFieldChange change = new UndoableFieldChange(anEntry,
-                                    GUIGlobals.FILE_FIELD, oldVal, newVal);
+                                    BibtexFieldManager.FILE_FIELD, oldVal, newVal);
                             ce.addEdit(change);
-                            anEntry.setField(GUIGlobals.FILE_FIELD, newVal);
+                            anEntry.setField(BibtexFieldManager.FILE_FIELD, newVal);
                             changedEntries.add(anEntry);
                         }
                     }
@@ -486,7 +486,7 @@ public class FileListEditor extends JTable implements FieldEditor,
                 boolean foundAny = false;
                 ExternalFileType[] types = Globals.prefs.getExternalFileTypeSelection();
                 ArrayList<File> dirs = new ArrayList<File>();
-                String[] dirsS = metaData.getFileDirectory(GUIGlobals.FILE_FIELD);
+                String[] dirsS = metaData.getFileDirectory(BibtexFieldManager.FILE_FIELD);
                 for (int i=0; i<dirsS.length; i++) {
                     dirs.add(new File(dirsS[i]));
                 }
