@@ -42,7 +42,9 @@ public class FieldContentParser {
 	            c = content.charAt(i);
 	            switch (state) {
 	            	case 0:
-	            		if (Character.isWhitespace(c) || c == '\r') {
+	            		if (c == '\n') {
+	            			state = 2;
+	            		} else if (Character.isWhitespace(c) || c == '\r') {
 	            			content.deleteCharAt(i);
 	            			i--;
 	            			state = 1;
@@ -56,6 +58,38 @@ public class FieldContentParser {
 	            			content.insert(i, ' ');
 	            			i++;
 	            			state = 0;
+	            		}
+	            		break;
+	            	case 2:
+	            		if (c == '\n') {
+	            			state = 3;
+	            		} else {
+	            			content.deleteCharAt(i - 1);
+	            			if (Character.isWhitespace(c) || c == '\r') {
+		            			content.deleteCharAt(i - 1);
+		            			i--;
+		            			i--;
+		            			state = 1;
+		            		} else {
+		            			content.insert(i - 1, ' ');
+		            			i--;
+		            			state = 0;
+		            		}
+	            		}
+	            		break;
+	            	case 3:
+	            		if (c == '\n') {
+	            			content.deleteCharAt(i);
+	            			i--;
+	            		} else {
+	            			if (Character.isWhitespace(c) || c == '\r') {
+		            			content.deleteCharAt(i);
+		            			i--;
+		            			state = 1;
+		            		} else {
+		            			i++;
+		            			state = 0;
+		            		}	
 	            		}
 	            		break;
 	            }

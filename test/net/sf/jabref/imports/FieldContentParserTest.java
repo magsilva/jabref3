@@ -31,13 +31,37 @@ public class FieldContentParserTest
 	}
 
 	@Test
-	public void testFormatStringBuilderString_WithNewLines() {
-		StringBuilder bf = new StringBuilder("Mapping approach\n\nfor model transformation of MDA based on xUML");
+	public void testFormatStringBuilderString_WithTrailingSpace() {
+		StringBuilder bf = new StringBuilder("Mapping approach for model transformation of MDA based on xUML ");
 		String expectedResult = "Mapping approach for model transformation of MDA based on xUML";
 		bf = parser.format(bf, "title");
 		assertEquals(expectedResult, bf.toString());
 	}
+	
+	@Test
+	public void testFormatStringBuilderString_WithNewLine() {
+		StringBuilder bf = new StringBuilder("Mapping approach\nfor model transformation of MDA based on xUML");
+		String expectedResult = "Mapping approach for model transformation of MDA based on xUML";
+		bf = parser.format(bf, "title");
+		assertEquals(expectedResult, bf.toString());
+	}
+	
+	@Test
+	public void testFormatStringBuilderString_WithNewLinesAsParagraph1() {
+		StringBuilder bf = new StringBuilder("Mapping approach\n\n\n\nfor model transformation of MDA based on xUML");
+		String expectedResult = "Mapping approach\n\nfor model transformation of MDA based on xUML";
+		bf = parser.format(bf, "title");
+		assertEquals(expectedResult, bf.toString());
+	}
 
+	@Test
+	public void testFormatStringBuilderString_WithNewLinesAsParagraph2() {
+		StringBuilder bf = new StringBuilder("Mapping approach\n\nfor model transformation of MDA based on xUML");
+		String expectedResult = "Mapping approach\n\nfor model transformation of MDA based on xUML";
+		bf = parser.format(bf, "title");
+		assertEquals(expectedResult, bf.toString());
+	}
+	
 	@Test
 	public void testFormatStringBuilderString_WindowsNewLines() {
 		StringBuilder bf = new StringBuilder("Mapping approach\n\rfor model transformation of MDA based on xUML");
@@ -48,7 +72,7 @@ public class FieldContentParserTest
 
 	@Test
 	public void testFormatStringBuilderString_MacOSNewLines() {
-		StringBuilder bf = new StringBuilder("Mapping approach\n\rfor model transformation of MDA based on xUML");
+		StringBuilder bf = new StringBuilder("Mapping approach\rfor model transformation of MDA based on xUML");
 		String expectedResult = "Mapping approach for model transformation of MDA based on xUML";
 		bf = parser.format(bf, "title");
 		assertEquals(expectedResult, bf.toString());
@@ -102,6 +126,4 @@ public class FieldContentParserTest
 		bf = parser.format(bf, "title");
 		assertEquals(expectedResult, bf.toString());
 	}
-	
-	
 }
