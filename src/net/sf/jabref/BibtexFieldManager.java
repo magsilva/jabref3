@@ -70,6 +70,10 @@ public class BibtexFieldManager
 		add(new BibtexField("editor", true, GUIGlobals.MEDIUM_W, 280));
 		add(new BibtexField("howpublished", true, GUIGlobals.MEDIUM_W));
 		add(new BibtexField("institution", true, GUIGlobals.MEDIUM_W));
+		add(new BibtexField("issn", true, GUIGlobals.SMALL_W));
+		add(new BibtexField("e-issn", true, GUIGlobals.SMALL_W));
+		add(new BibtexField("isbn", true, GUIGlobals.SMALL_W));
+		add(new BibtexField("e-isbn", true, GUIGlobals.SMALL_W));
 		add(new BibtexField("journal", true, GUIGlobals.SMALL_W));
 		add(new BibtexField("keywords", true, GUIGlobals.SMALL_W));
 		add(new BibtexField("location", true));
@@ -94,7 +98,11 @@ public class BibtexFieldManager
 		add(new BibtexField("quotes", false, GUIGlobals.LARGE_W));
 		add(new BibtexField("quotations", false, GUIGlobals.LARGE_W));
 		add(new BibtexField("comment", false, GUIGlobals.MEDIUM_W));
-
+		add(new BibtexField("lang", false, GUIGlobals.SMALL_W));
+		add(new BibtexField("reprint-of", false, GUIGlobals.SMALL_W));
+		add(new BibtexField("title-orig", false, GUIGlobals.SMALL_W));
+		add(new BibtexField("abstract-orig", false, GUIGlobals.SMALL_W));
+		add(new BibtexField("keywords-orig", false, GUIGlobals.SMALL_W));
 		field = new BibtexField(BibtexFieldManager.FILE_FIELD, false);
 		field.setEditorType(GUIGlobals.FILE_LIST_EDITOR);
 		add(field);
@@ -103,6 +111,7 @@ public class BibtexFieldManager
 		// JabRef fields
 		add(new BibtexField(KEY_FIELD, true).setPrivate());
 		add(new BibtexField(TIMESTAMP, false, GUIGlobals.SMALL_W).setPrivate());
+		add(new BibtexField(OWNER, false, GUIGlobals.SMALL_W).setPrivate());
 		add(new BibtexField(ENTRYTYPE, false, 75).setPrivate());
 		add(new BibtexField(MARKED, false).setPrivate().setWriteable(true).setDisplayable(false));
 
@@ -129,7 +138,14 @@ public class BibtexFieldManager
 		if (name == null) {
 			throw new IllegalArgumentException("Invalid name", new NullPointerException());
 		}
-		return fieldSet.get(name.toLowerCase());
+		
+		BibtexField field = fieldSet.get(name.toLowerCase());
+		if (field == null) {
+			System.out.println("Unknown field: " + name);
+			field = new BibtexField(name, false);
+			add(field);
+		}
+		return field;
 	}
 
 	/** 
