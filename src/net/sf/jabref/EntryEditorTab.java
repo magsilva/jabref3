@@ -47,12 +47,9 @@ import com.jgoodies.forms.layout.FormLayout;
 /**
  * A single tab displayed in the EntryEditor holding several FieldEditors.
  */
-public class EntryEditorTab {
+public class EntryEditorTab extends JScrollPane {
 
-	private JPanel panel = new JPanel();
-
-	private JScrollPane scrollPane = new JScrollPane(panel,
-			JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	private JPanel panel;
 
 	private String[] fields;
 
@@ -62,26 +59,34 @@ public class EntryEditorTab {
 
 	private FieldEditor activeField = null;
 
+	BibtexEntry entry;
+
+	protected boolean updating = false;
+
+
     protected EntryEditorTab() {
 
     }
 
-	public EntryEditorTab(JabRefFrame frame, BasePanel panel, List<String> fields, EntryEditor parent,
-                          boolean addKeyField, String name) {
-		if (fields != null)
+	public EntryEditorTab(JabRefFrame frame, BasePanel bPanel, List<String> fields, EntryEditor parent, boolean addKeyField, String name) {
+		super();
+		setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		if (fields != null) {
 			this.fields = fields.toArray(new String[0]);
-		else
+		} else {
 			this.fields = new String[] {};
-
+		}
 		this.parent = parent;
-
-		setupPanel(frame, panel, addKeyField, name);
+		this.panel = new JPanel();
+		setupPanel(frame, bPanel, addKeyField, name);
+		setViewportView(panel);
 
 		/*
 		 * The following line makes sure focus cycles inside tab instead of
 		 * being lost to other parts of the frame:
 		 */
-		scrollPane.setFocusCycleRoot(true);
+		setFocusCycleRoot(true);
 	}
 
 
@@ -109,8 +114,7 @@ public class EntryEditorTab {
             sb.delete(sb.length()-2, sb.length());
         String rowSpec = sb.toString();
 
-        DefaultFormBuilder builder = new DefaultFormBuilder
-                (new FormLayout(colSpec, rowSpec), panel);
+        DefaultFormBuilder builder = new DefaultFormBuilder(new FormLayout(colSpec, rowSpec), panel);
 
         for (int i = 0; i < fields.length; i++) {
             // Create the text area:
@@ -170,9 +174,6 @@ public class EntryEditorTab {
 			builder.append(tf, 3);
 		}
     }
-
-
-	BibtexEntry entry;
 
 	public BibtexEntry getEntry() {
 		return entry;
@@ -237,8 +238,6 @@ public class EntryEditorTab {
     	setEntry(getEntry());
 	}
 
-	protected boolean updating = false;
-
 	public void setEntry(BibtexEntry entry) {
 		try {
 			updating = true;
@@ -283,10 +282,6 @@ public class EntryEditorTab {
 			FieldEditor editor = i.next();
 			editor.setEnabled(enabled);
 		}
-	}
-
-	public Component getPane() {
-		return scrollPane;
 	}
 
 	/**
