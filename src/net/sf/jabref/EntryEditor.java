@@ -59,6 +59,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.text.JTextComponent;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.ironiacorp.string.StringUtil;
 
 import net.sf.jabref.autocompleter.AbstractAutoCompleter;
@@ -542,10 +544,10 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
         try {
             BibtexDatabase db = bp.parse().getDatabase();
             if (db.getEntryCount() > 1) {
-                throw new Exception("More than one entry found.");
+                throw new RuntimeException("More than one entry found.");
             }
             if (db.getEntryCount() < 1) {
-                throw new Exception("No entries found.");
+                throw new RuntimeException("No entries found.");
             }
 
             BibtexEntry newEntry = db.getEntryById(db.getKeySet().iterator().next());
@@ -554,7 +556,7 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
             boolean hasChangesBetweenCurrentAndNew = false;
             boolean changedType = false;
             boolean duplicateWarning = false;
-            boolean emptyWarning = newKey == null || newKey.equals("");
+            boolean emptyWarning = StringUtils.isEmpty(newKey);
 
             if (panel.database.setCiteKeyForEntry(id, newKey)) {
                 duplicateWarning = true;
@@ -564,8 +566,10 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
 
             // First, remove fields that the user have removed (and add undo information to revert it if necessary)
             for (String fieldName : entry.getAllFields()){
-                if (newEntry.getField(fieldName) == null) {
-                    compound.addEdit(new UndoableFieldChange(entry, fieldName, entry.getField(fieldName), null));
+            	String oldValue = entry.getField(fieldName);
+            	String newValue = newEntry.getField(fieldName);
+                if (newValue == null) {
+                    compound.addEdit(new UndoableFieldChange(entry, fieldName, oldValue, null));
                     entry.clearField(fieldName);
                     hasChangesBetweenCurrentAndNew = true;
                 }
@@ -575,11 +579,11 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
             for (String fieldName : newEntry.getAllFields()){
             	String oldValue = entry.getField(fieldName);
             	String newValue = newEntry.getField(fieldName);
-                if (oldValue == null || ! oldValue.equals(newValue)) {
+                if (newValue != null && ! newValue.equals(oldValue)) {
                 	LatexFieldFormatter lff = new LatexFieldFormatter();
                 	lff.format(newValue, fieldName);
                     compound.addEdit(new UndoableFieldChange(entry, fieldName, oldValue, newValue));
-                    entry.setField(fieldName, fieldName);
+                    entry.setField(fieldName, newValue);
                     hasChangesBetweenCurrentAndNew = true;
                 }
             }
@@ -635,7 +639,7 @@ public class EntryEditor extends JPanel implements VetoableChangeListener, Entry
             
             return true;
         } catch (Throwable ex) {
-            // ex.printStackTrace();
+            ex.printStackTrace();
             // The source couldn't be parsed, so the user is given an
             // error message, and the choice to keep or revert the contents
             // of the source text field.
