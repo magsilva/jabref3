@@ -94,24 +94,7 @@ public class EntryEditorTab {
 		am.put("prev", parent.prevEntryAction);
 		im.put(Globals.prefs.getKey("Entry editor, next entry"), "next");
 		am.put("next", parent.nextEntryAction);
-
-		im.put(Globals.prefs.getKey("Entry editor, store field"), "store");
-		am.put("store", parent.storeFieldAction);
-		im.put(Globals.prefs.getKey("Entry editor, next panel"), "right");
-		im.put(Globals.prefs.getKey("Entry editor, next panel 2"), "right");
-		am.put("left", parent.switchLeftAction);
-		im.put(Globals.prefs.getKey("Entry editor, previous panel"), "left");
-		im.put(Globals.prefs.getKey("Entry editor, previous panel 2"), "left");
-		am.put("right", parent.switchRightAction);
-		im.put(Globals.prefs.getKey("Help"), "help");
-		am.put("help", parent.helpAction);
-		im.put(Globals.prefs.getKey("Save database"), "save");
-		am.put("save", parent.saveDatabaseAction);
-		im.put(Globals.prefs.getKey("Next tab"), "nexttab");
-		am.put("nexttab", parent.frame.nextTab);
-		im.put(Globals.prefs.getKey("Previous tab"), "prevtab");
-		am.put("prevtab", parent.frame.prevTab);
-    	
+		parent.setupSwingComponentKeyBindings(panel);
     	  	
         panel.setName(title);
         //String rowSpec = "left:pref, 4dlu, fill:pref:grow, 4dlu, fill:pref";
