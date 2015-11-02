@@ -18,17 +18,12 @@ package net.sf.jabref.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Insets;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.dnd.DnDConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -43,7 +38,6 @@ import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JProgressBar;
@@ -56,7 +50,6 @@ import javax.swing.event.UndoableEditListener;
 
 import net.sf.jabref.*;
 import net.sf.jabref.external.*;
-import net.sf.jabref.groups.EntryTableTransferHandler;
 import net.sf.jabref.undo.NamedCompound;
 import net.sf.jabref.undo.UndoableFieldChange;
 
@@ -578,24 +571,16 @@ public class FileListEditor extends JTable implements FieldEditor,
      */
     private void downloadFile() {
         String bibtexKey = entryEditor.getEntry().getCiteKey();
-        if (bibtexKey == null) {
-            int answer = JOptionPane.showConfirmDialog(frame,
-                    Globals.lang("This entry has no BibTeX key. Generate key now?"),
-                    Globals.lang("Download file"), JOptionPane.OK_CANCEL_OPTION,
-                    JOptionPane.QUESTION_MESSAGE);
-            if (answer == JOptionPane.OK_OPTION) {
-                ActionListener l = entryEditor.generateKeyAction;
-                l.actionPerformed(null);
-                bibtexKey = entryEditor.getEntry().getCiteKey();
+        if (bibtexKey != null) {
+            DownloadExternalFile def = new DownloadExternalFile(frame, frame.basePanel().metaData(), bibtexKey);
+            try {
+            	def.download(this);
+            } catch (IOException ex) {
+            	ex.printStackTrace();
             }
-        }
-        DownloadExternalFile def = new DownloadExternalFile(frame,
-                frame.basePanel().metaData(), bibtexKey);
-        try {
-            def.download(this);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        } else {
+		throw new IllegalArgumentException("BibTeX entry has no bibtex key");
+	}
     }
 
     /**
