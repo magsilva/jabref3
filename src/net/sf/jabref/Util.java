@@ -288,9 +288,12 @@ public class Util {
 	 * @param key
 	 *            mayBeNull
 	 */
-	public static String checkLegalKey(String key) {
+	public static final String checkLegalKey(String key) {
 		if (key == null)
 			return null;
+		
+		// TODO: review all this!
+		
         if (!Globals.prefs.getBoolean("enforceLegalBibtexKey")) {
             // User doesn't want us to enforce legal characters. We must still look
             // for whitespace and some characters such as commas, since these would
